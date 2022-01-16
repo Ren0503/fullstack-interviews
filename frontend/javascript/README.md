@@ -437,7 +437,7 @@ x()   // Returns "Do something"
 
 ### 10. Giải thích về "this" 
 
-Từ khoá "this" trong javascript đề cập đến một đối tượng có thuộc tính là một hàm.
+Từ khoá "this" trong javascript tham chiếu đến một đối tượng có thuộc tính là một hàm.
 
 Giá trị của "this" phụ thuộc vào đối tượng đang gọi hàm.
 
@@ -451,7 +451,7 @@ function doSomething() {
 doSomething();
 ```
 
-Như vậy theo định nghĩa, this đề cập đến một đối tượng có hàm là thuộc tính. Vậy trong đoạn code trên hàm là thuộc tính của đối tượng nào ?
+Như vậy theo định nghĩa, this tham chiếu đến một đối tượng có hàm là thuộc tính. Vậy trong đoạn code trên hàm là thuộc tính của đối tượng nào ?
 
 Vì hàm được gọi từ ngữ cảnh tổng thể, nên **hàm sẽ là thuộc tính của đối tượng toàn cục**. Do đó, nếu ta chạy đoạn code trên trình duyệt kết quả sẽ là **window object**.
 
@@ -468,7 +468,7 @@ var obj = {
 obj.getName();
 ```
 
-Trong đoạn code này, hàm `getName` là thuộc tính của `obj`. Do đó, **this** sẽ đề cập đến đối tượng `obj`, và output sẽ là "vivek".
+Trong đoạn code này, hàm `getName` là thuộc tính của `obj`. Do đó, **this** sẽ tham chiếu đến đối tượng `obj`, và output sẽ là "vivek".
 
 Ví dụ 3:
 
@@ -487,7 +487,7 @@ var obj2 = {name:"akshay", getName };
 obj2.getName();
 ```
 
-Output sẽ là "akshay". Mặc dù hàm `getName` được khai báo trong đối tượng `obj`, nhưng ở thời điểm gọi thì `getName()` lại là thuộc tính của `obj2`, do đó "this" sẽ đề cập đến `obj2`. 
+Output sẽ là "akshay". Mặc dù hàm `getName` được khai báo trong đối tượng `obj`, nhưng ở thời điểm gọi thì `getName()` lại là thuộc tính của `obj2`, do đó "this" sẽ tham chiếu đến `obj2`. 
 
 Cách ngớ ngẩn để hiểu "this" là, bất cứ khi nào hàm được gọi, hãy kiểm tra đối tượng trước dấu chấm. Giá trị của this sẽ luôn là đối tượng trước dấu chấm.
 
@@ -1012,3 +1012,569 @@ Khi trình duyệt cố gắng hiển thị một tài liệu HTML, nó sẽ t�
 Ví dụ về cách code HTML được chuyển đổi thành DOM:
 
 ![](./assets/dom.png)
+
+## Câu hỏi dành cho Experiencer
+
+### 21. Hàm arrow là gì ?
+
+Arrow function được giới thiệu từ phiên bản ES6 của javascript.
+
+Nó cung cấp một cú pháp mới và ngắn hơn cho khai báo hàm. Hàm arrow có thể xử dụng như là một biểu thức hàm. Ta sẽ so sánh khai báo hàm thông thường với hàm arrow.
+
+```js
+// Traditional Function Expression
+var add = function(a,b){
+  return a + b;
+}
+
+// Arrow Function Expression
+var arrowAdd = (a,b) => a + b;
+```
+
+Hàm arrow khai báo mà không cần từ khoá `function`. Nếu nó chỉ trả về một biểu thức hàm thì ta không cần sử dụng từ khoá `return` như trong ví dụ trên. Ngoài ra, đối với các hàm chỉ có một dòng, có thể bỏ qua dấu ngoặc nhọn `{}`.
+
+```js
+// Traditional function expression
+var multiplyBy2 = function(num){
+  return num * 2;
+}
+// Arrow function expression
+var arrowMultiplyBy2 = num => num * 2;
+```
+
+Nếu hàm chỉ nhận một tham số, ta có thể bỏ dấu ngoặc đơn xung quanh nó như ví dụ trên.
+
+```js
+var obj1 = {
+  valueOfThis: function(){
+    return this;
+  }
+}
+var obj2 = {
+  valueOfThis: ()=>{
+    return this;
+  }
+}
+
+obj1.valueOfThis(); // Will return the object obj1
+obj2.valueOfThis(); // Will return window/global object
+```
+
+Sự khác biệt lớn nhất giữa nhất giữa hàm truyền thống với arrow, là ở từ khoá **this**.
+
+Như định nghĩa, từ khoá this tham chiếu đến đối tượng chứa hàm được gọi.
+
+Như bạn có thể thấy, `obj1.valueOfThis()` trả về `obj1`, vì từ khoá `this` tham chiếu đến đối tượng chứa hàm đang gọi.
+
+Còn ở hàm arrow, không có ràng buộc nào của từ khóa this.
+
+Từ khoá this trong hàm arrow, không tham chiếu đến đối tượng đang gọi nó. Nó kế thừa giá trị của nó từ phạm vi cha là `window object` trong trường hợp này. 
+
+Do đó, trong đoạn code trên, `obj2.valueOfThis()` trả về window object.
+
+### 22. Sự khác biết của biến dùng var, let và const
+
+Từ phiên bản ES6, từ khoá let và const được thêm vào cho khai báo biến.
+
+| keyword | const | let | var |
+|---------|-------|-----|-----|
+|global scope | no | no | yes |
+|function scope | yes | yes | yes |
+|block scope | yes | yes | no |
+|can be reassigned | no | yes | yes | 
+
+Ta thử xem các ví dụ:
+
+```js
+var variable1 = 23;
+
+let variable2 = 89;
+
+function catchValues(){
+  console.log(variable1);
+  console.log(variable2);
+
+// Both the variables can be accessed anywhere since they are declared in the global scope
+}
+
+window.variable1; // Returns the value 23
+
+window.variable2; // Returns undefined   
+```
+
+Các biến được khai báo với từ khóa `let` trong global scope sẽ hoạt động giống như biến được khai báo với từ khóa `var` trong global scope.
+
+Các biến được khai báo trong global scope với từ khóa var và let có thể được truy cập từ bất kỳ đâu trong code.
+
+Nhưng, có một sự khác biệt!
+
+Các biến được khai báo với từ khóa var trong global scope được thêm vào đối tượng window/global. Do đó, chúng có thể được truy cập bằng `window.variableName`.
+
+Trong khi đó, các biến được khai báo với từ khóa let không được thêm vào đối tượng toàn cục, do đó, việc cố gắng truy cập các biến đó bằng cách sử dụng `window.variableName` sẽ dẫn đến lỗi.
+
+**var và let ở function scope**
+
+```js
+function varVsLetFunction(){
+  let awesomeCar1 = "Audi";
+  var awesomeCar2 = "Mercedes";
+}
+
+console.log(awesomeCar1); // Throws an error
+console.log(awesomeCar2); // Throws an error
+```
+
+Các biến được khai báo trong function scope bằng cách sử dụng `var` và `let` hoạt động hoàn toàn giống nhau, nghĩa là chúng không thể được truy cập từ bên ngoài phạm vi.
+
+```js
+{
+  var variable3 = [1, 2, 3, 4];
+}
+
+console.log(variable3); // Outputs [1,2,3,4]
+
+{
+  let variable4 = [6, 55, -1, 2];
+}
+
+console.log(variable4); // Throws error
+
+for(let i = 0; i < 2; i++){
+  //Do something
+}
+
+console.log(i); // Throws error
+
+for(var j = 0; j < 2; i++){
+  // Do something
+}
+
+console.log(j) // Outputs 2
+```
+
+Trong javascript, một khối có nghĩa là code được viết bên trong dấu ngoặc nhọn `{}`.
+
+Các biến được khai báo với từ khóa var không có block scope. Nó có nghĩa là một biến được khai báo trong block scope `{}` với từ khóa var cũng giống như khai báo biến trong global scope.
+
+Các biến được khai báo với từ khóa let bên trong block scope không thể được truy cập từ bên ngoài khối.
+
+#### const
+
+Các biến với từ khóa const hoạt động chính xác như một biến được khai báo với từ khóa let chỉ có một điểm khác biệt, bất kỳ biến nào được khai báo với từ khóa const đều là hằng số, tức là không thể được gán lại.
+
+```js
+const x = {name:"Vivek"};
+
+x = {address: "India"}; // Throws an error
+
+x.name = "Nikhil"; // No error is thrown
+
+const y = 23;
+
+y = 44; // Throws an error
+```
+
+Trong đoạn code trên, mặc dù chúng ta có thể thay đổi giá trị của một thuộc tính bên trong biến được khai báo với từ khóa const, nhưng chúng ta không thể gán lại hoàn toàn chính biến đó.
+
+### 23. Tham số còn lại và toán tử spread là gì ?
+
+Cả hai đều được giới thiệu ở phiên bản ES6
+
+#### Tham số còn lại (...)
+
+Nó cung cấp một cách cải tiến để xử lý các tham số của một hàm.
+
+Sử dụng cú pháp *tham số còn lại*, chúng ta có thể tạo ra hàm có thể nhận một số đối số thay đổi.
+
+Bất kỳ số lượng đối số nào sẽ được chuyển đổi thành một mảng bằng cách sử dụng *tham số còn lại*.
+
+Nó cũng giúp giải nén tất cả hoặc một số phần của các tham số.
+
+*Tham số còn lại* có thể được sử dụng bằng cách áp dụng ba dấu chấm (...) trước các tham số.
+
+```js
+function extractingArgs(...args){
+  return args[1];
+}
+
+// extractingArgs(8,9,1); // Returns 9
+
+function addAllArgs(...args){
+  let sumOfArgs = 0;
+  let i = 0;
+  while(i < args.length){
+    sumOfArgs += args[i];
+    i++;
+  }
+  return sumOfArgs;
+}
+
+addAllArgs(6, 5, 7, 99); // Returns 117
+addAllArgs(1, 3, 4); // Returns 8
+```
+
+*Lưu ý* Tham số còn lại nên được dùng như là tham số cuối cùng của hàm
+
+```js
+// Incorrect way to use rest parameter
+function randomFunc(a,...args,c){
+//Do something
+}
+
+// Correct way to use rest parameter
+function randomFunc2(a,b,...args){
+//Do something
+}
+```
+
+### Toán tử spread (...)
+
+Mặc dù cú pháp của toán tử spread hoàn toàn giống với tham số còn lại, nhưng toán tử spread được sử dụng để trải ra các phần tử của một đối tượng có thể lặp lại. Toán tử spread được sử dụng trong các câu lệnh, biểu thức hoặc khi gọi hàm.
+
+```js
+function addFourNumbers(num1,num2,num3,num4){
+  return num1 + num2 + num3 + num4;
+}
+
+let fourNumbers = [5, 6, 7, 8];
+
+
+addFourNumbers(...fourNumbers);
+// Spreads [5,6,7,8] as 5,6,7,8
+
+let array1 = [3, 4, 5, 6];
+let clonedArray1 = [...array1];
+// Spreads the array into 3,4,5,6
+console.log(clonedArray1); // Outputs [3,4,5,6]
+
+
+let obj1 = {x:'Hello', y:'Bye'};
+let clonedObj1 = {...obj1}; // Spreads and clones obj1
+console.log(obj1);
+
+let obj2 = {z:'Yes', a:'No'};
+let mergedObj = {...obj1, ...obj2}; // Spreads both the objects and merges it
+console.log(mergedObj);
+// Outputs {x:'Hello', y:'Bye',z:'Yes',a:'No'};
+```
+
+*Lưu ý* sự khác biệt giữa tham số còn lại và toán tử spread.
+- Tham số còn lại được dùng để nhận một lượng tham số có thể thay đổi và chuyển nó thành mảng, trong khi toán tử spread lấy một mảng/đối tượng và trải nó.
+- Tham số còn lại dùng cho khai báo hàm còn toán tử spread dùng cho gọi hàm
+
+### 24 Sử dụng Promise trong JavaScript
+
+**Promise dùng cho xử lý bất đồng bộ trong JavaScript**
+
+Trước promise, callback được dùng cho các thao tác bất đồng bộ. Nhưng callback có giới hạn của nó, nếu sử dụng quá nhiều callback code sẽ trở nên khó quản lý.
+
+Đối tượng promise có 4 trạng thái:
+
+- Pending: trạng thái bắt đầu, biểu diễn promise không phải là fulfilled, cũng không phải là rejected mà đang ở trạng thái pending.
+- Fulfilled: trạng thái này có nghĩa là thao tác bất đồng bộ đã hoàn tất.
+- Rejected: trạng này này có nghĩa là thao tác đã thất bại vì một vài lý do nào đó.
+- Settked: trạng thái này thể hiện promise đã rejected hoặc fulfilled.
+
+Một promise được tạo bằng cách sử dụng phương thức khởi tạo Promise, hàm này nhận một hàm callback với hai tham số, `resolve` và `reject` tương ứng.
+
+![](./assets/js_promise_resolve_reject.png)
+
+- **resolve** hàm được gọi, khi thao tác bất đồng bộ thực hiện thành công.
+- **reject** hàm được gọi, khi thao tác thất bại bởi một vài lỗi nào đó.
+
+Ví dụ:
+
+Promise được dùng cho các thao tác bất đồng bộ như yêu cầu của server, để dễ hiểu ta lấy ví dụ với một phép toán để tính tổng của ba phần tử.
+
+```js
+function sumOfThreeElements(...elements){
+  return new Promise((resolve,reject)=>{
+    if(elements.length > 3 ){
+      reject("Only three elements or less are allowed");
+    }
+    else{
+      let sum = 0;
+      let i = 0;
+      while(i < elements.length){
+        sum += elements[i];
+        i++;
+      }
+      resolve("Sum has been calculated: "+sum);
+    }
+  })
+}
+```
+
+Trong đoạn code trên, ta đang tính tổng của ba phần tử, nếu độ dài của mảng phần tử lớn hơn 3, thì promise sẽ bị rejected, ngược lại thì promise sẽ được resolved và tổng được trả về.
+
+Chúng ta có thể sử dụng bất kỳ promise nào bằng cách gắn các phương thức `then()` và `catch()` vào đối tượng sử dụng.
+
+![](./assets/js_promise_then_catch.png)
+
+- **then()** phương này được truy cập khi kết quả của promise là *fulfilled*.
+- **catch()** phương này được truy cập khi kết quả của promise là *rejected*.
+
+Ví dụ:
+
+```js
+sumOfThreeElements(4, 5, 6)
+.then(result=> console.log(result))
+.catch(error=> console.log(error));
+// In the code above, the promise is fulfilled so the then() method gets executed
+
+sumOfThreeElements(7, 0, 33, 41)
+.then(result => console.log(result))
+.catch(error=> console.log(error));
+// In the code above, the promise is rejected hence the catch() method gets executed
+```
+
+### 25. Lớp trong JavaScript ?
+
+Được thêm vào ở phiên bản ES6, các lớp không là gì ngoài các cú pháp tuyệt vời cho các hàm khởi tạo.
+
+Chúng cung cấp một cách mới để khai báo các hàm khởi tạo trong javascript.
+
+Dưới đây là các ví dụ về cách các lớp được khai báo và sử dụng:
+
+```js
+// Before ES6 version, using constructor functions
+function Student(name,rollNumber,grade,section){
+  this.name = name;
+  this.rollNumber = rollNumber;
+  this.grade = grade;
+  this.section = section;
+}
+
+// Way to add methods to a constructor function
+Student.prototype.getDetails = function(){
+  return 'Name: ${this.name}, Roll no: ${this.rollNumber}, Grade: ${this.grade}, Section:${this.section}';
+}
+
+
+let student1 = new Student("Vivek", 354, "6th", "A");
+student1.getDetails();
+// Returns Name: Vivek, Roll no:354, Grade: 6th, Section:A
+
+// ES6 version classes
+class Student{
+  constructor(name,rollNumber,grade,section){
+    this.name = name;
+    this.rollNumber = rollNumber;
+    this.grade = grade;
+    this.section = section;
+  }
+
+  // Methods can be directly added inside the class
+  getDetails(){
+    return 'Name: ${this.name}, Roll no: ${this.rollNumber}, Grade:${this.grade}, Section:${this.section}';
+  }
+}
+
+let student2 = new Student("Garry", 673, "7th", "C");
+student2.getDetails();
+// Returns Name: Garry, Roll no:673, Grade: 7th, Section:C
+```
+
+Các điều cần nhớ về lớp:
+- Không như function, các lớp không được hoisting. Chúng cần khai báo trước khi sử dụng.
+- Một lớp có thể kế thừa thuộc tính và phương thức từ lớp khác bằng từ khoá `extends`.
+- Tất cả cú pháp trong lớp phải theo tuần thủ chế độ strict (`use strict`). Lỗi sẽ xuất hiện nếu các quy tắc trong chế độ strict không được tuân thủ. 
+
+### 26. Hàm generator là gì ?
+
+Được giới thiệu ở phiên bản ES6, generator function là một lớp đặc biệt của hàm.
+
+**Chúng có thể được dừng lại giữa chừng và sau đó tiếp tục từ nơi nó đã dừng lại.**
+
+Hàm generator được khai báo với từ khoá **function ***:
+
+```js
+function* genFunc(){
+  // Perform operation
+}
+```
+
+Trong các hàm thông thường, ta sử dụng `return` để trả về giá trị, và ngay sau khi khi lệnh `return` được thực thi, việc thực thi hàm sẽ dừng lại.
+
+```js
+function normalFunc(){
+  return 22;
+  console.log(2); // This line of code does not get executed
+}
+```
+
+Còn với các hàm generator, khi được gọi nó sẽ không thực thi code thay vào đó nó trả về một đối tượng **generator**. Đối tượng generator này xử lý việc thực thi:
+
+```js
+function* genFunc(){
+  yield 3;
+  yield 4;
+}
+genFunc(); // Returns Object [Generator] {}
+```
+
+Đối tượng generator bao gồm một phương thức được gọi là `next()`, phương thức này khi được gọi sẽ thực thi code cho đến câu lệnh `yield` gần nhất và trả về giá trị `yield`.
+
+Ví dụ: nếu ta chạy phương thức `next()` trên đoạn code trên:
+
+```js
+genFunc().next(); // Returns {value: 3, done:false}
+```
+
+Như ta có thể thấy phương thức `next()` trả về một đối tượng bao gồm thuộc tính `value` và `done`.
+
+- Thuộc tính value đại diện cho giá trị thu được.
+- Thuộc tính done cho ta biết code của hàm đã hoàn thành hay chưa. (Trả về true nếu kết thúc).
+
+Các hàm generator được sử dụng để trả về các vòng lặp. Hãy xem một ví dụ trong đó một vòng lặp được trả về:
+
+```js
+function* iteratorFunc() {
+  let count = 0;
+  for (let i = 0; i < 2; i++) {
+      count++;
+      yield i;
+  }
+  return count;
+}
+
+let iterator = iteratorFunc();
+console.log(iterator.next()); // {value:0,done:false}
+console.log(iterator.next()); // {value:1,done:false}
+console.log(iterator.next()); // {value:2,done:true}
+```
+
+Như bạn có thể thấy trong đoạn code trên, dòng cuối cùng trả về `done: true`, vì code này đạt đến cuối hàm.
+
+### 27. Giải thích WeakSet trong JavaScript
+
+Trong Javascript, Set là tập hợp các phần tử đơn nhất và có thứ tự.
+
+Giống như Set, WeakSet cũng là tập hợp các phần tử đơn nhất và có thứ tự. Nhưng có vài điểm khác:
+- Weakset chỉ chứa các đối tượng và không có loại nào khác.
+- Một đối tượng bên trong weakset có tham chiếu yếu. Điều này có nghĩa là, nếu đối tượng bên trong weakset không có tham chiếu, nó sẽ được bộ dọn dẹp thu gom.
+- Không giống như Set, WeakSet chỉ có ba phương thức, add(), delete() và has().
+
+```js
+const newSet = new Set([4, 5, 6, 7]);
+console.log(newSet);// Outputs Set {4,5,6,7}
+
+const newSet2 = new WeakSet([3, 4, 5]); //Throws an error
+
+
+let obj1 = {message:"Hello world"};
+const newSet3 = new WeakSet([obj1]);
+console.log(newSet3.has(obj1)); // true
+```
+
+### 28. Giải thích về WeakMap trong JavaScript
+
+Trong JS, Map được dùng để lưu các cặp key-value. Các cặp key-value có thể là kiểu nguyên thuỷ hoặc đối tượng.
+
+WeakMap gần giống Map với vài điểm khác biệt:
+- Key và value trong weakmap phải là kiểu đối tượng.
+- Nếu không có tham chiếu đến đối tượng, đối tượng sẽ bị dọn dep.
+
+```js
+const map1 = new Map();
+map1.set('Value', 1);
+
+const map2 = new WeakMap();
+map2.set('Value', 2.3); // Throws an error
+
+let obj = {name:"Vivek"};
+const map3 = new WeakMap();
+map3.set(obj, {age:23});
+```
+
+### 29. Cấu trúc đối tượng là gì ?
+
+Cấu trúc đối tượng là một cách mới để trích xuất các phần tử từ một đối tượng hoặc một mảng.
+
+Trước ES6:
+
+```js
+const classDetails = {
+  strength: 78,
+  benches: 39,
+  blackBoard:1
+}
+
+const classStrength = classDetails.strength;
+const classBenches = classDetails.benches;
+const classBlackBoard = classDetails.blackBoard;
+```
+
+Ví dụ tương tự sử dụng cấu trúc đối tượng:
+
+```js
+const classDetails = {
+  strength: 78,
+  benches: 39,
+  blackBoard:1
+}
+
+const {strength:classStrength, benches:classBenches,blackBoard:classBlackBoard} = classDetails;
+
+console.log(classStrength); // Outputs 78
+console.log(classBenches); // Outputs 39
+console.log(classBlackBoard); // Outputs 1
+```
+
+Như mọi người có thể thấy, bằng cách sử dụng cấu trúc đối tượng, ta đã trích xuất tất cả các phần tử bên trong một đối tượng trong một dòng code.
+
+Nếu chúng ta muốn biến mới của mình có cùng tên với thuộc tính của một đối tượng, chúng ta có thể bỏ dấu hai chấm:
+
+```js
+const {strength:strength} = classDetails;
+// The above line of code can be written as:
+const {strength} = classDetails;
+```
+
+#### Cấu trúc mảng:
+
+Trước ES6:
+
+```js
+const arr = [1, 2, 3, 4];
+const first = arr[0];
+const second = arr[1];
+const third = arr[2];
+const fourth = arr[3];
+```
+
+Sau có ES6:
+
+```js
+const arr = [1, 2, 3, 4];
+const [first,second,third,fourth] = arr;
+
+console.log(first); // Outputs 1
+console.log(second); // Outputs 2
+console.log(third); // Outputs 3
+console.log(fourth); // Outputs 4
+```
+
+### 30. Temporal Dead Zone là gì ?
+
+Temporal Dead Zone là hành vi xảy ra với khai báo biến sử dụng **let** hoặc **const**.
+
+Nó là hành vi xảy ra khi ta truy cập một biến trước khi khởi tạo.
+
+Ví dụ:
+
+```js
+x = 23; // Gives reference error
+
+let x;
+
+
+function anotherRandomFunc(){
+  message = "Hello"; // Throws a reference error
+
+  let message;
+}
+anotherRandomFunc();
+```
+
+Trong đoạn code trên, cả trong global scope và function scope, ta đang cố gắng truy cập các biến chưa được khai báo. Đây được gọi là Temporal Dead Zone.
