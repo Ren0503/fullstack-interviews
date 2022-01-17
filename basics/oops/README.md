@@ -1,4 +1,7 @@
 # Lập trình hướng đối tượng
+
+![](./assets/oop.jpg)
+
 ## Lập trình hướng đối tượng là gì 
 
 OOP (Object-Oriented Programming) là một mô hình lập trình để giải quyết vấn đề xoay quanh khái niệm "**Đối tượng**". Đối tượng có thể được xem như là các thể hiện ở thế giới thực như các lớp, thực thể chứa một số đặc điểm và hành vi được chỉ định trong lớp mẫu.
@@ -95,7 +98,117 @@ Mô hình lập trình OOP được coi là một phong cách lập trình tốt
 
 ### 9. Lớp là gì ?
 
-Một lớp có thể được hiểu là một khuôn mẫu hoặc một bản thiết kế, chứa một số giá trị, được gọi là dữ liệu thành viên hoặc thành viên và một số bộ quy tắc, được gọi là hành vi hoặc chức năng. Vì vậy, khi một đối tượng được tạo, nó sẽ tự động lấy dữ liệu và các hàm đã được định nghĩa trong lớp.
+Một lớp có thể được hiểu là một khuôn mẫu hoặc một bản thiết kế, chứa một số giá trị, được gọi là thuộc tính và một số bộ quy tắc, được gọi là hành vi hoặc chức năng. Vì vậy, khi một đối tượng được tạo, nó sẽ tự động lấy dữ liệu và các hàm đã được định nghĩa trong lớp.
+
 Do đó, về cơ bản lớp là một khuôn mẫu hoặc bản thiết kế cho các đối tượng. Ngoài ra, người ta có thể tạo bao nhiêu đối tượng tùy thích dựa trên một lớp.
 
 Ví dụ: đầu tiên, mẫu của một chiếc ô tô được tạo. Sau đó, nhiều đơn vị xe được tạo ra dựa trên mẫu đó.
+
+### 10. Đối tượng là gì ?
+
+Một đối tượng đề cập đến thực thể của lớp, bao gồm toàn bộ các thuộc tính và phương thức được xác định trong lớp mẫu. Trong thực tế, một đối tượng là một thực thể thực tương tác với người dùng trong khi lớp là bản thiết kế cho đối tượng đó. Vì vậy, các đối tượng tiêu thụ không gian và có một số hành vi đặc trưng.
+
+### 11. Tính đóng gói là gì ?
+
+![](./assets/encapsulation.png)
+
+Người ta có thể hình dung đóng gói là phương pháp đưa mọi thứ cần thiết để thực hiện công việc vào bên trong một viên thuốc và trình bày viên thuốc đó cho người dùng. Điều đó có nghĩa là bằng đóng gói, tất cả các dữ liệu và phương thức cần thiết được liên kết với nhau và tất cả các chi tiết không cần thiết được ẩn đối với người dùng bình thường. Vì vậy, đóng gói là quá trình liên kết các thuộc tính và các phương thức của một chương trình với nhau để thực hiện một công việc cụ thể, mà không để lộ các chi tiết không cần thiết.
+
+Đóng gói có thể được xác định theo hai cách:
+
+1. **Data hiding**: đóng gói là quá trình ẩn thống tin không mong muốn, hạn chế các truy cập đến thuộc tính của đối tượng.
+2. **Data binding**: là quá trình liên kết các thuộc tính và các phương thức với nhau như một tổng thể, như một lớp. 
+
+### 12. Tính đa hình là gì ?
+
+Đa hình đề cập đến một thứ có thể có nhiều hình dạng.
+
+![](./assets/polymorphism.png)
+
+Trong OOP, Đa hình đề cập đến quá trình mà một số code, dữ liệu, phương thức hoặc đối tượng hoạt động khác nhau trong các trường hợp hoặc ngữ cảnh khác nhau. Đa hình thời gian biên dịch và đa hình thời gian chạy là hai loại đa hình trong các ngôn ngữ OOP.
+
+### 13. Sự khác nhau giữa thời gian biên dịch và đa hình thời gian chạy ?
+
+![](./assets/type_of_polymorphism.png)
+
+**Compile Time Polymorphism**: còn gọi là đa hình tĩnh, đề cập đến kiểu đa hình xảy khi khi biên dịch. Có nghĩa là trình biên dịch quyết định hình dạng hoặc giá trị nào được thực thể sử dụng.
+
+```java
+// In this program, we will see how multiple functions are created with the same name, 
+// but the compiler decides which function to call easily at the compile time itself.
+class CompileTimePolymorphism{
+    // 1st method with name add
+    public int add(int x, int y){ 
+        return x+y;
+    }
+    // 2nd method with name add
+    public int add(int x, int y, int z){
+        return x+y+z;
+    }
+    // 3rd method with name add
+    public int add(double x, int y){ 
+        return (int)x+y;
+    }
+    // 4th method with name add
+    public int add(int x, double y){ 
+        return x+(int)y;
+    }
+}
+class Test{
+    public static void main(String[] args){
+        CompileTimePolymorphism demo=new CompileTimePolymorphism();
+        // In the below statement, the Compiler looks at the argument types and decides to call method 1
+        System.out.println(demo.add(2,3));
+        // Similarly, in the below statement, the compiler calls method 2
+        System.out.println(demo.add(2,3,4));
+        // Similarly, in the below statement, the compiler calls method 4
+        System.out.println(demo.add(2,3.4));
+        // Similarly, in the below statement, the compiler calls method 3
+        System.out.println(demo.add(2.5,3)); 
+    }
+}
+```
+
+Trong ví dụ trên, có bốn phiên bản của các phương thức `add()`. Phương thức đầu tiên nhận hai tham số trong khi phương thức thứ hai lấy ba tham số. Đối với phương pháp thứ ba và thứ tư, có sự thay đổi thứ tự của các tham số. Trình biên dịch xem xét dấu hiệu của phương thức và quyết định phương thức nào sẽ gọi cho một lệnh gọi phương thức cụ thể tại thời điểm biên dịch.
+
+**Runtime Polymorphism**: còn gọi là đa hình động, đề cập đến kiểu đa hình xảy khi khi đang chạy. Điều đó có nghĩa là nó không thể được quyết định bởi trình biên dịch. Do đó, hình dạng hoặc giá trị nào phải được thực hiện tùy thuộc vào quá trình thực thi.
+
+```java
+class AnyVehicle{
+    public void move(){
+        System.out.println(“Any vehicle should move!!”);
+    }
+}
+class Bike extends AnyVehicle{
+    public void move(){
+        System.out.println(“Bike can move too!!”);
+    }
+}
+class Test{
+    public static void main(String[] args){
+        AnyVehicle vehicle = new Bike();
+        // In the above statement, as you can see, the object vehicle is of type AnyVehicle
+        // But the output of the below statement will be “Bike can move too!!”, 
+        // because the actual implementation of object ‘vehicle’ is decided during runtime vehicle.move();
+        vehicle = new AnyVehicle();
+        // Now, the output of the below statement will be “Any vehicle should move!!”, 
+        vehicle.move();
+    }
+}
+```
+
+### 14. C++ hỗ trợ đa hình thế nào ?
+
+C++ là ngôn ngữ lập trình hướng đối tượng và hỗ trợ đa hình rất tốt:
+
+- Compile Time Polymorphism: C ++ hỗ trợ tính đa hình thời gian biên dịch với sự trợ giúp của các tính năng như mẫu, nạp chồng hàm và các tham số mặc định.
+
+Runtime Polymorphism: C ++ hỗ trợ tính đa hình Runtime với sự trợ giúp của các tính năng như hàm ảo. Các hàm ảo có hình dạng của các hàm dựa trên loại đối tượng trong tham chiếu và được giải quyết trong thời gian chạy.
+
+### 15. Kế thừa là gì ?
+
+Thuật ngữ "thừa kế" có nghĩa là "nhận được một số phẩm chất hoặc hành vi từ cha mẹ cho con cái." Trong lập trình hướng đối tượng, kế thừa là cơ chế mà một đối tượng hoặc lớp (được gọi là con) được tạo ra bằng cách sử dụng định nghĩa của một đối tượng hoặc lớp khác (được gọi là cha). Kế thừa không chỉ giúp giữ cho việc triển khai đơn giản hơn mà còn giúp tạo điều kiện sử dụng lại code.
+
+### 16. Trừu tượng là gì ?
+
+Nếu bạn là người dùng và bạn có một vấn đề, bạn không muốn biết các thành phần của phần mềm hoạt động như thế nào hoặc nó được tạo ra như thế nào. Bạn chỉ muốn biết cách phần mềm giải quyết vấn đề của bạn. Trừu tượng hóa là phương pháp che giấu những chi tiết không cần thiết khỏi những cái cần thiết. Đây là một trong những tính năng chính của OOP.
