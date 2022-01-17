@@ -4,7 +4,7 @@ Phương pháp Agile, đúng như tên gọi, là một tập hợp các phươn
 
 Phương pháp Agile đáp ứng các yêu cầu thay đổi theo thời gian và khuyến khích phản hồi liên tục từ người dùng. Đây là cách tiếp cận phổ biến nhất bởi vì trong quá trình này, khách hàng cũng tham gia để họ có thể nhận được thông tin cập nhật về sản phẩm của mình và cũng đảm bảo liệu chúng có đáp ứng yêu cầu của họ hay không. 
 
-![](./assets/Agile_Development_Methodology.png)
+![](./assets/Agile_Development_Methodology.jpg)
 
 ## Câu hỏi phỏng vấn cho Fresher
 
@@ -53,7 +53,7 @@ Các loại phương pháp hoặc framework Agile khác nhau được sử dụn
 
 Agile testing, đúng như tên gọi là quá trình kiểm thử phần mềm nơi phần mềm được kiểm tra để phát hiện ra lỗi hay bất cứ vấn đề nào khác. Nó được xem như là phần quan trọng nhất của quá trình phát triển vì nó cho phép tester và dev làm việc cùng nhau như một nhóm để từ đó cải thiện hiệu suất tổng thể. Nó còn giúp đảm bảo cung cấp thành công các sản phẩm chất lượng cao. Kiểm thử thường được thực hiện để tester xác định và sớm giải quyết các vấn đề tại mọi thời điểm trong quá trình phát triển.
 
-![](./assets/Agile_testing_Strategy.png)
+![](./assets/Agile_testing_Strategy.jpg)
 
 #### Các nguyên tắc của Agile Testing
 
@@ -84,14 +84,14 @@ Có một số phẩm chất mà một Agile Tester nên có. Một số trong s
 
 Tái cấu trúc cơ bản là hoạt động liên quán đến thay đổi hoặc chỉnh sửa cấu trúc bên trong phần mềm mà không ảnh hưởng đến các hành vi hay chức năng bên ngoài của nó. Trong đó, các dev thực hiện một số thay đổi code để nâng cấp và cải thiện cấu trúc bên trong phần mềm. Một trong những kỹ thuật tái cấu trúc phổ biến nhất trong Agile là Red-Green. Quá trình tái cấu trúc làm cho code dễ đọc, dễ hiểu và clean hơn. Thói quen tái cấu trúc liên tục giúp việc mở rộng và bảo trì code dễ dàng hơn. 
 
-![](./assets/Refactoring_in_Agile.png)
+![](./assets/Refactoring_in_Agile.jpg)
 
 ### 6. Khác biệt giữa sprint backlog và product backlog ?
 
 - **Sprint Backlog**: nó thường thuộc sở hữu bởi team dev. Nó chỉ chứa những tính năng và yêu cầu liên quan đến sprint cụ thể mà thôi. Nó được coi là một tập hợp con của product backlog. Nó được tổng hợp tất cả mọi thứ cần phải làm để hoàn thành một sprint cụ thể. Nó chỉ bao gồm các hạng mục có thể được hoàn thành trong mỗi lần sprint. Nó chỉ dành riêng cho mục tiêu sprint trong một sprint cụ thể.
 - **Product Backlog**: nó thường thuộc sở hữu của chủ dự án. Nó chứa mọi tính năng cũng như các yêu cầu của sản phẩm. Nó được tổng hơp tất cả mọi thứ phải được thực hiện để hoàn thành toàn bộ quá trình. Nó chia nhỏ mọi mục thành một loạt các bước. Nó cụ thể hơn cho mục tiêu cuối cùng của sản phẩm. 
 
-![](./assets/sprint_vs_product_backlog.png)
+![](./assets/sprint_vs_product_backlog.jpg)
 
 ### 7. Spike và Zero Sprint trong Agile là gì?
 
@@ -103,11 +103,11 @@ Tái cấu trúc cơ bản là hoạt động liên quán đến thay đổi ho�
 
 **Phát triển phần mềm truyền thống**: Đây là một cách tiếp cận tuyến tính được sử dụng để thiết kế phần mềm đơn giản. Trong phương pháp này, tất cả các giai đoạn của quá trình thường xảy ra theo trình tự. Nó phù hợp hơn cho các dự án mà khả năng thay đổi không đáng kể theo thời gian.
 
-![](./assets/Traditional_Approach.png)
+![](./assets/Traditional_Approach.jpg)
 
 **Phát triển phần mềm Agile**: Đây là một cách tiếp cận lặp đi lặp lại được sử dụng để thiết kế phần mềm phức tạp. Trong phương pháp này, các nhóm dự án được phép linh hoạt hơn và đảm bảo rằng nhóm cuối cùng hoàn thành các yêu cầu của khách hàng. Nó phát triển các sản phẩm lấy khách hàng làm trung tâm và cung cấp trong thời gian ngắn hơn.
 
-![](./assets/Agile_Approach.png)
+![](./assets/Agile_Approach.jpg)
 
 | Agile Software Development | Traditional Software Development |
 |----------------------------|----------------------------------|
@@ -124,7 +124,7 @@ Tái cấu trúc cơ bản là hoạt động liên quán đến thay đổi ho�
 
 Về cơ bản, vận tốc là một đơn vị đo lường để tính toán mức độ công việc mà một team dev agile có thể hoàn thành trong một lần sprint và lượng thời gian cần thiết để hoàn thành một dự án. Nó được sử dụng rộng rãi như một công cụ hiệu chuẩn giúp các nhóm phát triển tạo ra các mốc thời gian chính xác và hiệu quả. Nó cũng được sử dụng để xác định các vấn đề và tính toán các cải tiến xảy ra theo thời gian.
 
-![](./assets/Agile_velocity.png)
+![](./assets/Agile_velocity.jpg)
 
 ### 10. Daily Stand-Up nghĩa là gì ?
 
