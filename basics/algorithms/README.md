@@ -2,8 +2,6 @@
 
 ## Thuật toán là gì ?
 
-![](./assets/algo.jpg)
-
 Cấu trúc dữ liệu và giải thuật là những khái niệm cốt lõi trong mọi buổi phỏng vấn dev, bất kể bạn là dev C, Java, Web hay Mobile. Dù là ở lĩnh vực nào trong công nghệ thông tin thì bạn cũng cần phải biết về giải thuật.
 
 ![](./assets/What_is_an_Algorithm.png)
@@ -175,8 +173,6 @@ Dưới đây là một thuật toán để đếm số lượng nút lá trong 
 
 ![](./assets/Dynamic_Programming.png)
 
-Dynamic Programming is primarily a recursion optimization. We can use Dynamic Programming to optimise any recursive solution that involves repeated calls for the same inputs. The goal is to simply save the results of subproblems so that we do not have to recalculate them later. The time complexity of this simple optimization is reduced from exponential to polynomial. For example, if we create a simple recursive solution for Fibonacci Numbers, the time complexity is exponential, but if we optimise it by storing subproblem answers using Dynamic Programming, the time complexity is linear. 
-
 Quy hoạch động chủ yếu là tối ưu hoá đệ quy. Ta có thể sử dụng Quy hoạch động để tối ưu hoá bất kỳ giải pháp đệ quy nào các lời gọi lặp lại cho cùng một đầu vào. Mục đích đơn giản là để lưu trữ kết quả các vấn đề con cho lần tính toán tiếp theo. Độ phức tạp thời gian của sự tối ưu hoá này là làm giảm theo cấp số nhân. Ví dụ: nếu  ta tạo một giải pháp đệ quy đơn giản cho số Fibonacci, thì độ phức tạp về thời gian là cấp số nhân, nhưng nếu ta tối ưu hóa nó bằng cách lưu trữ các câu trả lời cho các bài toán con bằng Quy hoạch động, thì độ phức tạp về thời gian là tuyến tính. 
 
 Code minh hoạ như sau:
@@ -243,3 +239,41 @@ Tìm kiếm đầu tiên theo chiều sâu hoặc DFS là một kỹ thuật đ�
 1. Tạo một hàm đệ quy lấy chỉ mục của nút và một mảng đã đi qua làm đầu vào.
 2. Đặt nút hiện tại thành nút đã truy cập và hiển thị nó.
 3. Gọi hàm đệ quy với chỉ mục của nút liền kề sau khi đi ngang qua tất cả các nút lân cận và không được đánh dấu.
+
+## Câu hỏi phỏng vấn cho Experienced
+
+### 16. Cách mà thuật toán mã hoá hoạt động ?
+
+Quá trình chuyển đổi từ văn bản thuần (plaintext) thành một dạng mã bí mật "ciphertext" được gọi là quá trình mã hoá. Trong mật mã học, kỹ thuật này sử dụng một chuỗi còn gọi là "khoá" để chuyển đổi văn bản. Khoá càng lớn càng có nhiều bản tiềm năng để tạo thành bản mã hoá - ciphertext. Phần lớn các thuật toán mã hóa sử dụng các khối đầu vào cố định với độ dài từ 64 đến 128 bit, trong khi các thuật toán khác sử dụng kỹ thuật dòng.
+
+### 17. Các thuật toán mã hoá phổ biến hiện nay 
+
+Một số thuật toán mật mã được sử dụng rộng rãi nhất như sau:
+
+- IDEA
+- CAST
+- CMEA
+- 3-way
+- Blowfish
+- GOST
+- LOKI
+- DES and Triple DES.
+
+### 18. Mô tả thuật toán merge sort
+
+Merge sort (tạm dịch là sắp xếp trộn) là một thuật toán sắp xếp đa dụng có hiệu quả rất cao. Nó được xếp vào thể loại sắp xếp so sánh. Năm 1945, John von Neumann đã phát minh ra phương pháp sắp xếp trộn, dựa trên mô hình thuật toán chia để trị. Sau đây là cách sắp xếp trộn hoạt động:
+- Chia danh sách chưa được sắp xếp thành n danh sách con,  mỗi danh sách có một phần tử (danh sách một phần tử được coi là đã sắp xếp).
+- Gộp các danh sách con nhiều lần để tạo ra danh sách con được sắp xếp mới cho đến khi chỉ còn lại một danh sách con. Danh sách con cuối cùng chính là danh sách đã sắp xếp.
+
+Độ phức tạp thời gian của sắp xếp trộn là `O(n*log(n))` với n là kích thước của danh sách phần tử cần sắp xếp, còn độ phức tạp không gian là `O(n)`.
+
+![](./assets/merga_sort_algorithm.png)
+
+### 19. Mô tả thuật toán quick sort
+
+Quicksort (tạm dịch là sắp xếp nhanh) là một thuật toán sắp xếp tại chỗ (có nghĩa là một thuật toán biến đổi đầu vào không sử dụng cấu trúc dữ liệu phụ trợ). Nó được tạo ra bởi nhà khoa học máy tính người Anh Tony Hoare vào năm 1959 và được công bố vào năm 1961, đến nay nó vẫn là một thuật toán sắp xếp phổ biến. Nó có thể nhanh hơn một chút so với merge sort và nhanh hơn hai hoặc ba lần so với heap sort khi được thực hiện đúng cách. 
+
+Quicksort dựa trên mô hình thuật toán chia để trị. Nó thực hiện bằng cách chọn một phần tử "pivot" từ mảng và tách mảng thành hai mảng con dựa trên việc các phần tử còn lại lớn hơn hay bé hơn pivot. Do đó, nó còn được gọi là sắp xếp trao đổi phân vùng. Mảng con sau đó sẽ được sắp xếp với đệ quy.Điều này có thể được thực hiện tại chỗ, chỉ cần một ít RAM bổ sung để sắp xếp.
+
+Quicksort được xếp vào thể loại sắp xếp so sánh, có nghĩa là nó có thể sắp xếp các đối tượng khác kiểu 
+
