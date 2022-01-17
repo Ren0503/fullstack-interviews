@@ -50,4 +50,4 @@
 
 # Nguồn 
 
-![](./ib_logo_svg.png)
+![](./ib_logo.svg)

@@ -12,7 +12,7 @@ DBMS là viết tắt của Database Management System. DBMS là một phần m�
 
 RDBMS là viết tắt của Relational Database Management System. Điểm khác biệt của nó với DBMS là RDBMS lưu trữ dữ liệu ở dạng bảng, và các mối quan hệ được xác định là các trường chung giữa các bảng này. Các RDBMS phổ biến nhất hiện này có thể kể đến: MySQL, Oracle, PostgreSQL, Microsoft SQL Server,...
 
-![](./assets/dbms_vs_rdbms.png)
+![](./assets/dbms_vs_rdbms.jpg)
 
 ### 4. SQL là gì ?
 
@@ -22,7 +22,7 @@ SQL là viết tắt của Structured Query Language. Nó là ngôn ngữ chuẩ
 
 SQL như đã nói ở trên là ngôn ngữ chuẩn cho truy vấn và quản lý cơ sở dữ liệu. Còn MySQL là một RDBMS giống như Postgres hay Oracle, được dùng để quản lý cơ sở dữ liệu SQL.
 
-![](./assets/sql_vs_mysql.png)
+![](./assets/sql_vs_mysql.jpg)
 
 ### 6. Bảng và trường là gì ?
 
@@ -123,7 +123,7 @@ REFERENCES Library (LibraryID);
 
 Mệnh đề SQL Join được sử dụng để kết hợp các bản ghi (hàng) từ hai hoặc nhiều bảng trong cơ sở dữ liệu SQL dựa trên một cột có liên quan giữa hai bảng.
 
-![](./assets/sql_join.png)
+![](./assets/sql_join.jpg)
 
 Có 4 kiểu JOIN trong SQL:
 
@@ -186,5 +186,5 @@ FROM students AS stu
 CROSS JOIN subjects AS sub;
 ```
 
-![](./assets/cross_join.png)
+![](./assets/cross_join.jpg)
 
