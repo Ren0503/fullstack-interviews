@@ -1,8 +1,10 @@
 # Câu hỏi phỏng vấn Cấu Trúc Dữ Liệu
 
+![](./assets/data_structure.jpg)
+
 - Cấu trúc dữ liệu là một khái niệm cơ bản trong bất kỳ ngôn ngữ lập trình nào, là phần thiết yếu trong thiết kế thuật toán.
 
-- Nó được sử dụng để tổ chức và sửa đổi dữ liệu một cách hiệu quả.
+- Nó được sử dụng để tổ chức và chỉnh sửa dữ liệu một cách hiệu quả.
 
 - Cấu trúc dữ liệu là cách dữ liệu và các mối quan hệ của nó được biểu diễn, hỗ trợ việc áp dụng các tính năng hoặc thuật toán khác nhau hoạt động một cách hiệu quả.
 
@@ -16,27 +18,24 @@ Có hai kiểu cấu trúc dữ liệu:
 
 ### Ứng dụng
 
-Cấu trúc dữ liệu là nền tảng cốt lõi của lập trình phần mềm vì bất kỳ thuật toán hiệu quả cho một vấn đề nhất định nào đều phụ thuộc vào mức độ hiệu quả của dữ liệu được cấu trúc.
+Cấu trúc dữ liệu là nền tảng cốt lõi của lập trình phần mềm vì để bất kỳ thuật toán cho một vấn đề nhất định nào hoạt động hiệu quả đều phụ thuộc vào mức độ hiệu quả của dữ liệu được cấu trúc.
 
 Các ứng dụng của cấu trúc dữ liệu:
-- Các định danh được dùng cho triển khai biên dịch đang sử dụng bảng băm.
-- Cấu trúc dữ liệu B-tree rất phù hợp cho triển khai cơ sở dữ liệu.
-- Một vài lĩnh vực quan trong sử dụng cấu trúc dữ liệu như:
-    1. Trí thông minh nhân tạo
-    2. Thiết kế trình biên dịch
-    3. Máy học
-    4. Thiết kế và quản lý cơ sở dữ liệu
-    5. Blockchain
-    6. Tính toán và thống kê
-    7. Phát triển hệ điều hành
-    8. Xử lý hình ảnh và âm thanh
-    9. Mã hoá
+1. Trí thông minh nhân tạo
+2. Thiết kế trình biên dịch
+3. Máy học
+4. Thiết kế và quản lý cơ sở dữ liệu
+5. Blockchain
+6. Tính toán và thống kê
+7. Phát triển hệ điều hành
+8. Xử lý hình ảnh và âm thanh
+9. Mã hoá
 
 ![application](./assets/applications-data-structure.png)
 
 ### Lợi ích
 
-Bất kỳ vấn đề nào đều có những hạn chế về tốc độ giải quyết vấn đề (thời gian) và lượng tài nguyên tiêu tốn (không gian). Một vấn đề bị hạn chế bởi độ phức tạp về không gian và thời gian phải được giải quyết một cách hiệu quả.
+Bất kỳ vấn đề nào đều có những hạn chế về tốc độ giải quyết (thời gian) và lượng tài nguyên tiêu tốn (không gian). Một vấn đề bị hạn chế bởi độ phức tạp về không gian và thời gian phải được giải quyết một cách hiệu quả.
 
 Để làm được điều này, vấn đề phải được biểu diễn ở một dạng cấu trúc phù hợp mà ở đó các thuật toán được áp dụng hiệu quả.
 
@@ -47,6 +46,12 @@ Lựa chọn cấu trúc dữ liệu thích hợp trở thành bước quan tr�
 ## Câu hỏi phỏng vấn cho Fresher
 
 ### 1. Bạn có thể giải thích sự khác nhau giữa cấu trúc tập tin và cấu trúc lưu trữ 
+
+Cấu trúc tập tin: là việc biểu diễn dữ liệu trong bộ nhớ thứ cấp để bất kỳ thiết bị nào như đĩa cứng có thể lưu trữ dữ liệu nguyên vẹn cho đến khi bị xóa thủ công được gọi là biểu diễn cấu trúc tập tin.
+
+Cấu trúc lưu trữ: trong kiểu này, dữ liệu được lưu trữ ở bộ nhớ chính như RAM, và sẽ bị xoá sau khi hàm sử dụng này được thực thi hoàn toàn.
+
+Sự khác biệt của cấu trúc lưu trữ là dữ liệu lưu trữ trong bộ nhớ của hệ thống máy tính, trong khi cấu trúc tập tin lưu dữ liệu ở bộ nhớ thứ cấp.
 
 ### 2. Bạn có thể nói sự khác biệt giữa cấu trúc dữ liệu tuyến tính và phi tuyến tính ?
 
@@ -59,7 +64,7 @@ Danh sách, ngăn xếp và hàng đợi là ví dụ của cấu trúc dữ li�
 ### 3. Mảng là gì ?
 
 Mảng là tập hợp các loại dữ liệu cùng **kiểu** được lưu trữ tại các vị trí bộ nhớ liền kề.
-Đây là cấu trúc dữ liệu đơn giản nhất mà phần tử dữ liệu có thể được truy cập ngẫu nhiên chỉ bằng cách sử dụng chỉ mục của nó.
+Đây là cấu trúc dữ liệu đơn giản nhất mà phần tử dữ liệu có thể được truy cập ngẫu nhiên bằng cách sử dụng chỉ mục của nó.
 
 ### 4. Mảng đa chiều là gì ?
 
@@ -190,7 +195,7 @@ Một biến được lưu trữ trong bộ nhớ dựa trên dung lượng bộ
 
 Một hàng đợi có thể triển khai bằng cách dùng **hai ngăn xếp**. 
 
-Cho hàng đợi `q` và hai ngăn xếp `stack1` và `stack2` để triển khai `q`. Ta biết ngăn xếp hỗ trợ các thao tác push, pop và peek, ta sẽ dùng các thao tác đó. Ta cần mô phỏng các hoạt động của hàng đợi, enqueue và dequeue. Do đó, hàng đợi `q` có thể triển khai theo hai cách (cả hai cách đều có độ phức tạp không gian là O(n)):
+Cho hàng đợi `q` và hai ngăn xếp `stack1` và `stack2` để triển khai `q`. Ta biết ngăn xếp hỗ trợ các thao tác push, pop và peek, ta sẽ dùng các thao tác đó để mô phỏng các hoạt động của hàng đợi, enqueue và dequeue. Do đó, hàng đợi `q` có thể triển khai theo hai cách (cả hai cách đều có độ phức tạp không gian là O(n)):
 
 1. Cần nhiều chi phí chi enqueue
 
@@ -256,6 +261,45 @@ Một ngăn xếp có thể được triển khai bằng 2 hai hàng đợi. M�
 Phương thức này đảm bảo các phần tử mới được thêm vào sẽ luôn ở đằng trước của `q1`, thế nên thao tác pop sẽ là deque từ `q1`.
 
 `q2` được dùng như một hàng đợi phụ trợ để phần tử mới vào trước `q1` trong khi đảm bảo pop xảy ra ở độ phức tạp O(1).
+
+Mã giả:
+
+- Push phần tử vào ngăn xếp: Độ phức tạp thời gian là O(n).
+```
+push(s, data):
+    Enqueue data to q2
+    Dequeue elements one by one from q1 and enqueue to q2.
+    Swap the names of q1 and q2
+```
+
+- Pop phần tử khỏi ngăn xếp: Độ phức tạp thời gian là O(1).
+```
+pop(s):
+    dequeue from q1 and return it.
+```
+
+2. Tốn chi phí cho pop:
+
+Trong hoạt động push, phần tử được enqueue vào hàng đợi `q1`.
+
+Trong hoạt động pop, tất cả các phần tử từ `q1` ngoại trừ phần tử còn lại cuối cùng, được đẩy sang `q2` nếu nó trống. Phần tử cuối cùng còn lại đó của `q1` được dequeue và trả về.
+
+Mã giả:
+
+- Push phần tử vào ngăn xếp: Độ phức tạp thời gian là O(1).
+```
+push(s,data):
+    Enqueue data to q1
+```
+
+- Pop phần tử khỏi ngăn xếp: Độ phức tạp thời gian là O(n).
+```
+pop(s):
+    Step1: Dequeue every elements except the last element from q1 and enqueue to q2.
+    Step2: Dequeue the last item of q1, the dequeued item is stored in result variable.
+    Step3: Swap the names of q1 and q2 (for getting updated data after dequeue)
+    Step4: Return the result.
+```
 
 ### 16. Hashmap trong cấu trúc dữ liệu là gì ?
 
@@ -560,3 +604,178 @@ public class InterviewBit
 - Lưới giao thông trong đó các trạm là các nút và các tuyến là các cạnh của biểu đồ.
 - Đồ thị tiện ích điện hoặc nước trong đó các đỉnh là điểm kết nối và cạnh của dây hoặc đường ống kết nối chúng.
 - Thuật toán tìm đường đi ngắn nhất giữa hai điểm.
+
+### 34. Làm thế nào để biểu diễn đồ thị ?
+
+Ta có hai cách để biểu diễn đồ thị:
+
+- Ma trận : Được sử dụng để biểu diễn dữ liệu tuần tự
+
+![](./assets/adjacency-matrix.png)
+
+- Danh sách: Sử dụng để biểu diễn dữ liệu được liên kết
+
+![](./assets/adjacency-list.png)
+
+### 35. Sự khác biệt giữa cấu trúc dữ liệu cây và đồ thị 
+
+Cây và đồ thị được phân biệt bởi sự thực là cấu trúc cây phải được kết nối và không bao giờ có thể có vòng lặp trong khi trong đồ thị không có hạn chế đó.
+
+Cây cung cấp thông tin chi tiết về mối quan hệ giữa các nút theo hệ thống phân cấp còn đồ thị tuân theo mô hình mạng.
+
+### 36. Sự khác biệt giữa BFS (Breadth First Search) và DFS (Delth First Search)
+
+1. BFS và DFS đều là các phương pháp duyệt cho một đồ thị. Duyệt đồ thị không là gì khác ngoài quá trình truy cập tất cả các nút của đồ thị.
+
+2. Sự khác biệt chính giữa BFS và DFS là BFS truyền theo cấp độ trong khi DFS trước tiên đi theo một đường dẫn từ nút bắt đầu đến nút cuối, sau đó là một đường dẫn khác từ đầu đến cuối, v.v. cho đến khi tất cả các nút được truy cập.
+
+3. Hơn nữa, BFS sử dụng cấu trúc dữ liệu hàng đợi để lưu trữ các nút trong khi DFS sử dụng ngăn xếp để duyệt qua các nút.
+
+4. DFS cung cấp các giải pháp sâu hơn không phải là tối ưu, nhưng nó hoạt động tốt khi giải pháp ngu đần trong khi các giải pháp của BFS là tối ưu.
+
+### 37. Khi nào sử dụng DFS tốt hơn BFS ?
+
+Việc sử dụng DFS phụ thuộc nhiều vào cấu trúc của cây/đồ thị tìm kiếm, số lượng và vị trí của các giải pháp cần thiết. Sau đây là những trường hợp mà chúng ta có nên sử dụng DFS:
+
+- Nếu biết rằng giải pháp không nằm xa gốc, thì BFS có thể tốt hơn.
+- Nếu cây rất sâu và các giải pháp hiếm, DFS có thể mất rất nhiều thời gian, và BFS có thể nhanh hơn.
+- Nếu cây rất rộng, BFS có thể cần quá nhiều bộ nhớ, vì vậy nó có thể hoàn toàn không thực tế. Chúng tôi tìm kiếm DFS trong những trường hợp như vậy.
+- Nếu các giải pháp là thường xuyên nhưng nằm sâu trong cây, nên chọn DFS.
+
+### 38. Sắp xếp tô pô trong đồ thị là gì?
+
+- Sắp xếp tô pô là một trật tự tuyến tính của các đỉnh sao cho mọi cạnh có hướng `ij`, đỉnh `i` đứng trước `j` trong thứ tự.
+
+- Sắp xếp tô pô chỉ khả dụng với Đồ thị có hướng không tuần hoàn(DAG).
+
+- Các ứng dụng:
+    1. lập kế hoạch công việc từ các phụ thuộc đã cho giữa các công việc.
+    2. thứ tự đánh giá ô công thức trong bảng tính
+    3. thứ tự các nhiệm vụ biên dịch được thực hiện trong tạo file,
+    4. tuần tự hóa dữ liệu
+    5. giải quyết sự phụ thuộc ký hiệu trong trình liên kết.
+
+Code sắp xếp cấu trúc tô pô trong Java:
+
+```java
+    // V - total vertices
+    // visited - boolean array to keep track of visited nodes
+    // graph - adjacency list.
+    // Main Topological Sort Function. 
+    void topologicalSort() 
+    { 
+        Stack<Integer> stack = new Stack<Integer>(); 
+  
+        // Mark all the vertices as not visited 
+        boolean visited[] = new boolean[V]; 
+        for (int j = 0; j < V; j++){ 
+            visited[j] = false; 
+        }
+        // Call the util function starting from all vertices one by one 
+        for (int i = 0; i < V; i++) 
+            if (visited[i] == false) 
+                topologicalSortUtil(i, visited, stack); 
+  
+        // Print contents of stack -> result of topological sort
+        while (stack.empty() == false) 
+            System.out.print(stack.pop() + " "); 
+    } 
+    
+    // A helper function used by topologicalSort
+    void topologicalSortUtil(int v, boolean visited[], 
+                             Stack<Integer> stack) 
+    { 
+        // Mark the current node as visited. 
+        visited[v] = true; 
+        Integer i; 
+  
+        // Recur for all the vertices adjacent to the current vertex 
+        Iterator<Integer> it = graph.get(v).iterator(); 
+        while (it.hasNext()) { 
+            i = it.next(); 
+            if (!visited[i]) 
+                topologicalSortUtil(i, visited, stack); 
+        } 
+  
+        // Push current vertex to stack that saves result 
+        stack.push(new Integer(v)); 
+    } 
+```
+
+### 39. Cho một bản đồ lưới 2D, m x n trong đó giá trị "1" đại diện cho đất và "0" đại diện cho nước, trả về số lượng các hòn đảo (được bao quanh bởi nước và được hình thành bằng cách kết nối các vùng đất liền kề theo 2 hướng - theo chiều dọc hoặc chiều ngang). Giả sử rằng các trường hợp ranh giới - tức là tất cả bốn cạnh của lưới đều được bao quanh bởi nước.
+
+Các hạn chế:
+
+```
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 300
+```
+
+Giá trị của grid[i][j] có thể là `0` hoặc `1`.
+
+Ví dụ:
+
+```js
+grid = [
+    ["1", "1", "1", "0", "0"],
+    ["1", "1", "0", "0", "0"],
+    ["0", "0", "1", "0", "1"],
+    ["0", "0", "0", "1", "1"],
+]
+```
+
+Output: 3
+
+Code giải quyết trong Java:
+```java
+class InterviewBit {
+    public int numberOfIslands(char[][] grid) {
+        if(grid==null || grid.length==0||grid[0].length==0)
+            return 0;
+
+        int m = grid.length;
+        int n = grid[0].length;
+
+        int count=0;
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(grid[i][j]=='1'){
+                    count++;
+                    mergeIslands(grid, i, j);
+                }
+            }
+        }
+
+        return count;
+    }
+
+    public void mergeIslands(char[][] grid, int i, int j){
+        int m=grid.length;
+        int n=grid[0].length;
+
+        if(i<0||i>=m||j<0||j>=n||grid[i][j]!='1')
+            return;
+
+        grid[i][j]='X';
+
+        mergeIslands(grid, i-1, j);
+        mergeIslands(grid, i+1, j);
+        mergeIslands(grid, i, j-1);
+        mergeIslands(grid, i, j+1);
+    }
+}
+```
+
+### 40. Cấu trúc dữ liệu heap là gì ?
+
+Heap là một cấu trúc dữ liệu phi tuyến tính dựa trên cây đặc biệt, trong đó cây là một cây nhị phân hoàn chỉnh. Một cây nhị phân được cho là hoàn chỉnh nếu tất cả các cấp được lấp đầy hoàn toàn ngoại trừ cấp cuối cùng và cấp cuối cùng có tất cả các phần tử hướng về bên trái càng nhiều càng tốt. Các heap có hai loại:
+
+1. Max-Heap:
+
+- Trong một Max-Heap, phần tử dữ liệu hiện diện ở nút gốc phải lớn nhất trong số tất cả các phần tử dữ liệu có trong cây.
+- Thuộc tính này phải đúng một cách đệ quy cho tất cả các cây con của cây nhị phân đó.
+
+2. Min-Heap:
+- Trong một Min-Heap, phần tử dữ liệu hiện diện ở nút gốc phải là nhỏ nhất trong số tất cả các phần tử dữ liệu có trong cây.
+- Thuộc tính này phải đúng một cách đệ quy cho tất cả các cây con của cây nhị phân đó
