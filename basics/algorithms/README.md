@@ -145,7 +145,7 @@ Thuật toán tìm kiếm được sử dụng để tìm kiếm một phần t�
 
 ### 9. Mô tả thuật toán tìm kiếm nhị phân
 
-Để áp dụng tìm kiếm nhị phân trên danh sách các phần tử, điều kiện tiên quyết là danh sách các phần tử phải được sắp xếp. Nó dựa trên mô hình thuật toán Chia để Trị. Trong tìm kiếm nhị phân, ta chia khoảng tìm kiếm thành một hai phần để tìm trong danh sách đã sắp xếp. Ta bắt đầu bằng cách tạo khoảng trên toàn bộ danh sách. Nếu giá trị của khoá tìm kiếm nhỏ hơn phần tử ở giữa khoảng, thì khoảng đó được thu hẹp về trước, còn không nó sẽ được thu hẹp về sau. Ta tiếp tục thực hiện chia trên các khoảng nhỏ cho đến khi thu được kết quả. Dưới đây là mô tả thuật toán tìm kiếm nhỉ phân.
+Để áp dụng tìm kiếm nhị phân trên danh sách các phần tử, điều kiện tiên quyết là danh sách các phần tử phải được sắp xếp. Nó dựa trên mô hình thuật toán Chia để Trị. Trong tìm kiếm nhị phân, ta chia khoảng tìm kiếm thành hai phần để tìm trong danh sách đã sắp xếp. Ta bắt đầu bằng cách tạo khoảng trên toàn bộ danh sách. Nếu giá trị của khoá tìm kiếm nhỏ hơn phần tử ở giữa khoảng, thì khoảng đó được thu hẹp về trước, còn không nó sẽ được thu hẹp về sau. Ta tiếp tục thực hiện chia trên các khoảng nhỏ cho đến khi thu được kết quả. Dưới đây là mô tả thuật toán tìm kiếm nhỉ phân.
 
 1. `x` sẽ được so sánh với phần tử ở giữa
 2. Trả về nếu `x` trùng với phần tử ở giữa
@@ -160,8 +160,8 @@ Thuật toán tìm kiếm được sử dụng để tìm kiếm một phần t�
 Dưới đây là một thuật toán để thêm một nút vào danh sách liên kết được sắp xếp:
 
 1. Kiểm tra danh sách liên kết có rỗng hay không. Nếu có tạo nút `head` và trả về.
-2. Kiểm tra giá trị của nút thêm vào có nhỏ hơn nút đầu vào hay không. Nếu có, đặt nó ở đầu và biến nó thành `head`.
-3. Nếu không thì thì sử dụng vào lặp để thêm nút đầu vào vào vị trí thích hợp. Bắng cách bắt đầu duyệt từ nút `head` trỏ đến phần tử kế tiếp cho đến khi tìm được nút có giá trị lớn hơn nút đầu vào.
+2. Kiểm tra giá trị của nút thêm vào có nhỏ hơn nút `head` hay không. Nếu có, đặt nó ở đầu và biến nó thành `head`.
+3. Nếu không thì thì sử dụng vào lặp để thêm nút đó vào vào vị trí thích hợp. Bắng cách bắt đầu duyệt từ nút `head` trỏ đến phần tử kế tiếp cho đến khi tìm được nút có giá trị lớn hơn nút đầu vào.
 4. Sau khi tìm được vị trí cần chèn thì thực hiện chèn nút.
 
 ### 11. Viết thuật toán đếm số nút lá trong cây nhị phân.
@@ -194,12 +194,12 @@ int nFibonacci(int n){
 ```cpp
 int nFibonacci(int n){
    vector<int> fib(n + 1);
-    fib[0] = 0;
-    fib[1] = 1;
-    for(int i = 2;i <= n;i ++){
-         fib[i] = fib[i - 1] + fib[i - 2];
-    }
-    return fib[n]; 
+   fib[0] = 0;
+   fib[1] = 1;
+   for(int i = 2;i <= n;i ++){
+      fib[i] = fib[i - 1] + fib[i - 2];
+   }
+   return fib[n]; 
 }
 ```
 
@@ -224,7 +224,7 @@ Thuật toán cho đảo chuỗi như sau:
 
 ### 14. Bạn hiểu gì về thuật toán BFS (Breadth First Search) ?
 
-BFS hoặc Breadth-First Search là một kỹ thuật duyệt đồ thị. Nó bắt đầu bằng cách duyệt qua đồ thị từ nút gốc và đi đến tất cả các nút trong lân cận. Nó chọn nút gần nhất và sau đó truy cập tất cả các nút chưa được truy cập. Cho đến khi nó đến nút mục tiêu, thuật toán lặp lại cùng một phương pháp cho mỗi nút gần nhất.
+Tìm kiếm theo chiều rộng là một kỹ thuật duyệt đồ thị. Nó bắt đầu bằng cách duyệt qua đồ thị từ nút gốc và đi đến tất cả các nút trong lân cận. Nó chọn nút gần nhất và sau đó truy cập tất cả các nút chưa được truy cập. Cho đến khi nó đến nút mục tiêu, thuật toán lặp lại cùng một phương pháp cho mỗi nút gần nhất.
 
 Thuật toán BFS được đưa ra dưới đây:
 
@@ -237,7 +237,7 @@ Thuật toán BFS được đưa ra dưới đây:
 
 ### 15. Bạn hiểu gì về thuật toán DFS (Depth First Search) ?
 
-Tìm kiếm đầu tiên theo chiều sâu hoặc DFS là một kỹ thuật để duyệt qua hoặc các cấu trúc dữ liệu như cây và đồ thị. Thuật toán bắt đầu ở nút gốc (trong trường hợp đồ thị, bất kỳ nút ngẫu nhiên nào cũng có thể được sử dụng làm nút gốc) và kiểm tra từng nhánh càng xa càng tốt trước khi kiểm tra lại. Vì vậy, ý tưởng cơ bản là bắt đầu tại gốc hoặc bất kỳ nút nào tùy ý và đánh dấu nó, sau đó tiến tới nút không được đánh dấu tiếp theo và lặp lại cho đến khi không còn nút nào chưa được đánh dấu. Sau đó, quay lại và kiểm tra xem có bất kỳ nút nào chưa được đánh dấu để vượt qua không. Cuối cùng, in các nút của đường đi. Thuật toán DFS được đưa ra dưới đây:
+Tìm kiếm ưu tiên chiều sâu hay tìm kiếm theo chiều sâu là một kỹ thuật để duyệt hoặc tìm kiếm trên các cấu trúc dữ liệu như cây và đồ thị. Thuật toán bắt đầu ở nút gốc (trong trường hợp đồ thị, bất kỳ nút ngẫu nhiên nào cũng có thể được sử dụng làm nút gốc) và kiểm tra từng nhánh càng xa càng tốt trước khi kiểm tra lại. Vì vậy, ý tưởng cơ bản là bắt đầu tại gốc hoặc bất kỳ nút nào tùy ý và đánh dấu nó, sau đó tiến tới nút không được đánh dấu tiếp theo và lặp lại cho đến khi không còn nút nào chưa được đánh dấu. Sau đó, quay lại và kiểm tra xem có bất kỳ nút nào chưa được đánh dấu để vượt qua không. Cuối cùng, in các nút của đường đi. Thuật toán DFS được đưa ra dưới đây:
 
 1. Tạo một hàm đệ quy lấy chỉ mục của nút và một mảng đã đi qua làm đầu vào.
 2. Đặt nút hiện tại thành nút đã truy cập và hiển thị nó.
@@ -270,22 +270,119 @@ Merge sort (tạm dịch là sắp xếp trộn) là một thuật toán sắp x
 
 Độ phức tạp thời gian của sắp xếp trộn là `O(n*log(n))` với n là kích thước của danh sách phần tử cần sắp xếp, còn độ phức tạp không gian là `O(n)`.
 
-![](./assets/merga_sort_algorithm.png)
+![](./assets/merge_sort_algorithm.png)
 
 ### 19. Mô tả thuật toán quick sort
 
 Quicksort (tạm dịch là sắp xếp nhanh) là một thuật toán sắp xếp tại chỗ (có nghĩa là một thuật toán biến đổi đầu vào không sử dụng cấu trúc dữ liệu phụ trợ). Nó được tạo ra bởi nhà khoa học máy tính người Anh Tony Hoare vào năm 1959 và được công bố vào năm 1961, đến nay nó vẫn là một thuật toán sắp xếp phổ biến. Nó có thể nhanh hơn một chút so với merge sort và nhanh hơn hai hoặc ba lần so với heap sort khi được thực hiện đúng cách. 
 
-Quicksort dựa trên mô hình thuật toán chia để trị. Nó thực hiện bằng cách chọn một phần tử "pivot" từ mảng và tách mảng thành hai mảng con dựa trên việc các phần tử còn lại lớn hơn hay bé hơn pivot. Do đó, nó còn được gọi là sắp xếp trao đổi phân vùng. Mảng con sau đó sẽ được sắp xếp với đệ quy.Điều này có thể được thực hiện tại chỗ, chỉ cần một ít RAM bổ sung để sắp xếp.
+Quicksort dựa trên mô hình thuật toán chia để trị. Nó thực hiện bằng cách chọn một phần tử "pivot" từ mảng và tách mảng thành hai mảng con dựa trên việc các phần tử còn lại lớn hơn hay bé hơn pivot. Do đó, nó còn được gọi là sắp xếp trao đổi phân vùng. Mảng con sau đó sẽ được sắp xếp với đệ quy.
 
 Sau đây là các bước cho quicksort in-place:
 
-- Nếu có ít hơn hai phần tử trong phạm vi, hãy trả lại ngay lập tức vì không thể làm gì khác. 
+- Nếu có ít hơn hai phần tử trong mảng, trả về ngay lập tức vì không thể làm gì khác. 
 
-- Nếu không, hãy chọn giá trị `pivot`, là giá trị xuất hiện trong phạm vi (cách lựa chọn phụ thuộc vào quy trình phân vùng và có thể liên quan đến tính ngẫu nhiên).
+- Nếu không, chọn một giá trị làm `pivot`, cách lựa chọn phụ thuộc vào quy trình phân vùng và có thể là ngẫu nhiên.
 
 - Phân vùng phạm vi bằng cách sắp xếp lại thứ tự các phần tử của nó trong khi xác định điểm phân chia sao cho tất cả các phần tử có giá trị nhỏ hơn `pivot` đều xuất hiện trước và tất cả các phần tử có giá trị lớn hơn `pivot` sẽ xuất hiện sau nó; các phần tử có giá trị bằng `pivot` có thể xuất hiện theo một trong hai hướng. Hầu hết các thủ tục phân vùng đảm bảo rằng giá trị kết thúc tại điểm phân chia bằng với `pivot` và hiện đang ở vị trí cuối cùng của nó vì có ít nhất một phiên bản của `pivot` (nhưng việc kết thúc nhanh chóng không phụ thuộc vào điều này, miễn là phạm vi phụ nhỏ hơn so với phạm vi ban đầu được tạo ra).
 
 - Áp dụng quicksort đệ quy lên phạm vi con cho trước và sau điểm phân chia, loại bỏ phần tử bằng `pivot` tại điểm phân chia khỏi cả hai phạm vi. (Nếu phân vùng tạo ra một phạm vi con có khả năng lớn hơn ranh giới với tất cả các phần tử được biết là bằng với `pivot`, thì chúng cũng có thể bị bỏ qua.)
 
 Phân tích toán học của Quicksort cho thấy rằng, trường hợp trung bình sẽ mất độ phức tạp thời gian `O(n * log(n))` để sắp xếp n mục. Trong trường hợp xấu nhất, nó phải thực hiện với độ phức tạp thời gian là `O(n ^ 2)`.
+
+### 20. Mô tả thuật toán bubble sort cùng với ví dụ ?
+
+Sắp xếp nổi bọt là một thuật toán sắp xếp cơ bản lặp lại qua một danh sách, so sánh các phần tử liền kề và hoán đổi chúng nếu chúng không theo thứ tự. Danh sách được lặp đi lặp lại nhiều lần cho đến khi nó được sắp xếp. Phương pháp này được đặt tên theo cách mà các phần tử nhỏ hơn hoặc lớn hơn "nổi bọt" lên đầu danh sách. Phương pháp đơn giản này hoạt động không tốt trong các tình huống thực tế và chủ yếu được sử dụng như một phương pháp hỗ trợ giảng dạy. Lấy một ví dụ để hiểu cách sắp xếp nổi bọt hoạt động:
+
+Giả sử rằng mảng cần sắp xếp là (50 10 40 20 80). Các lần sắp xếp nổi bọt như sau:
+
+- **Lần đầu tiên**:
+   + (50 10 40 20 80) -> (10 50 40 20 80), Vì 50 > 10, thuật toán so sánh hai phần tử đầu tiên và hoán đổi chúng.
+   + (10 50 40 20 80) -> (10 40 50 20 80), Vì 50 > 40, thuật toán hoán đổi các giá trị ở vị trí thứ hai và thứ ba.
+   + (10 40 50 20 80) -> (10 40 20 50 80), Vì 50 > 20, thuật toán hoán đổi phần tử thứ ba và thứ tư.
+   + (10 40 20 50 80) -> (10 40 20 50 80), không hoán đổi phần tử thứ tư và thứ năm vì chúng đã có thứ tự (80 > 50).
+- **Lần thứ hai**:
+   + (10 40 20 50 80) -> (10 40 20 50 80), Các phần tử ở vị trí thứ nhất và thứ hai theo thứ tự nên không hoán đổi vị trí.
+   + (10 40 20 50 80) -> (10 20 40 50 80), Vì 40 > 20, thuật toán hoán đổi các giá trị ở vị trí thứ hai và thứ ba.
+   + (10 20 40 50 80) -> (10 20 40 50 80), Các phần tử ở vị trí thứ ba và thứ tư theo thứ tự nên không hoán đổi vị trí.
+(10 20 40 50 80) -> (10 20 40 50 80), Các phần tử ở vị trí thứ tư và thứ năm theo thứ tự nên không hoán đổi vị trí.
+
+Mảng hiện tại đã được sắp xếp, nhưng thuật toán nổi bọt không biết điều đó. Để chắc chắn, nó phải hoàn thành một vòng lặp nữa mà không có bất kỳ sự hoán đổi nào.
+
+- **Lần thứ hai**:
+   + ( 10 20 40 50 80 ) –> ( 10 20 40 50 80 ), Các phần tử ở vị trí thứ nhất và thứ hai theo thứ tự nên không hoán đổi vị trí.
+   + ( 10 20 40 50 80 ) –> ( 10 20 40 50 80 ), Các phần tử ở vị trí thứ hai và thứ ba theo thứ tự nên không hoán đổi vị trí.
+   + ( 10 20 40 50 80 ) –> ( 10 20 40 50 80 ), Các phần tử ở vị trí thứ ba và thứ tư theo thứ tự nên không hoán đổi vị trí.
+   + ( 10 20 40 50 80 ) –> ( 10 20 40 50 80 ), Các phần tử ở vị trí thứ tư và thứ năm theo thứ tự nên không hoán đổi vị trí.
+
+### 21. Viết thuật toán tính tổng mảng con lớn nhất của một mảng cho trước. Nói cách khác, tìm tổng lớn nhất có thể đạt được bằng cách lấy các phần tử được sắp xếp từ một mảng số nguyên cho trước.
+
+Thuật toán Kadane có thể được sử dụng để tìm tổng mảng con tối đa cho một mảng nhất định. Từ trái sang phải, thuật toán của Kadane tìm kiếm mảng được cung cấp. Sau đó, nó tính toán mảng con có tổng lớn nhất kết thúc ở vị trí j trong bước thứ j và tổng này được lưu trữ trong biến "currentSum". Hơn nữa, nó tính toán mảng con với tổng lớn nhất ở bất kỳ vị trí nào trong mảng con bắt đầu từ vị trí đầu tiên đến vị trí thứ j, nghĩa là, trong A [1 ... j], và lưu trữ nó trong biến "bestSum". Điều này được thực hiện bằng cách lấy giá trị lớn nhất của biến "currentSum" cho đến bây giờ và sau đó lưu trữ nó trong biến "bestSum". Cuối cùng, giá trị của "bestSum" được trả về là câu trả lời cuối cùng cho vấn đề của chúng ta.
+
+Mã giả:
+
+```
+Step 1: Khởi tạo biến:
+bestSum = INT_MIN
+currentSum = 0 // nếu mảng trống, giá trị khởi tạo là 0
+Step 2: Lặp qua tất cả phần tử trong mảng A
+   (a) currentSum  = currentSum  + A[i]
+   (b) if(bestSum < currentSum)
+      bestSum = currentSum 
+   (c) if(currentSum  < 0)
+      currentSum = 0
+Step 3: return bestSum
+```
+
+### 23. Có thể sử dụng tìm kiếm nhị phân với danh sách liên kết không ?
+
+Không. Bởi vì truy cập ngẫu nhiên không thể thực hiện trong danh sách liên kết, việc truy cập phần tử ở giữa trong thời gian không đổi hoặc O(1) là không thể. Do đó, việc sử dụng thuật toán tìm kiếm nhị phân trên danh sách được liên kết là không thể.
+
+### 24. Thuật toán đệ quy là gì? Nêu các quy tắc quan trọng mà mọi thuật toán đệ quy phải tuân theo.
+
+Thuật toán đệ quy là một cách giải quyết một vấn đề phức tạp bằng cách chia nó thành các bài toán con nhỏ hơn và nhỏ hơn nữa cho đến khi vấn đề đủ nhỏ để giải quyết nhanh chóng. Nó thường liên quan đến một hàm gọi chính nó (thuộc tính của hàm đệ quy).
+
+Ba quy tắc phải được tuân theo bởi tất cả các thuật toán đệ quy như sau:
+
+1. Một thuật toán đệ quy phải gọi chính nó, một cách đệ quy.
+2. Một thuật toán đệ quy phải có một trường hợp cơ sở.
+3. Một thuật toán đệ quy phải thay đổi trạng thái của nó và chuyển sang trường hợp cơ sở.
+
+### 25. Viết một thuật toán để chèn một nút trong Cây tìm kiếm nhị phân.
+
+Dưới đây là một thuật toán để chèn một nút trong Cây tìm kiếm nhị phân:
+
+1. Gán nút hiện tại cho `root`.
+2. Nếu giá trị của `root` lớn hơn giá trị được thêm vào:
+   - Nếu `root` có nút con bên trái, hãy chuyển sang bên trái.
+   - Còn không thì chèn nó ở đây.
+3. Nếu giá trị của `root` nhỏ hơn giá trị được thêm vào:
+   - Nếu `root` có nút con bên phải, hãy chuyển sang bên phải.
+   - Còn không thì chèn nó ở đây.
+
+### 26. Phân biệt select sort và insert sort.
+
+**Insert Sort**: Sắp xếp chèn phân tách danh sách thành các danh sách con được sắp xếp và không được sắp xếp. Nó sẽ chèn từng phần tử vào vị trí thích hợp trong danh sách con được sắp xếp. Sau khi chèn, đầu ra là một danh sách con được sắp xếp. Nó hoạt động lặp đi lặp lại trên tất cả các phần tử của danh sách con không được sắp xếp và chèn chúng vào danh sách con được sắp xếp theo thứ tự.
+
+**Select Sort**: Sắp xếp lựa chọn là một kỹ thuật sắp xếp tại chỗ. Nó tách bộ sưu tập dữ liệu thành các danh sách con được sắp xếp và không được sắp xếp. Phần tử tối thiểu từ danh sách con chưa được sắp xếp sau đó được chọn và đặt trong danh sách đã sắp xếp. Điều này lặp lại cho đến khi tất cả các phần tử trong danh sách con chưa được sắp xếp đã được sử dụng bởi danh sách con được sắp xếp.
+
+*Lưu ý*: Cả hai đều dùng hai danh sách con, đã sắp xếp và chưa sắp xếp, đồng thời đặt từng phần tử vào danh sách con đã sắp xếp. Sắp xếp chèn lấy phần tử hiện được chọn và đặt nó vào mảng đã sắp xếp ở đúng điểm trong khi vẫn giữ các thuộc tính sắp xếp chèn. Mặt khác, sắp xếp lựa chọn tìm kiếm phần tử nhỏ nhất trong danh sách con chưa được sắp xếp và thay thế nó với phần tử hiện tại.
+
+### 27. Định nghĩa duyệt cây và liệt kê một số thuật toán để duyệt cây nhị phân.
+
+Quá trình truy cập tất cả các nút của một cây được gọi là quá trình duyệt qua cây.
+
+Một số thuật toán để duyệt cây nhị phân như sau:
+- Duyệt tiền thứ tự.
+- Duyệt trung thứ tự.
+- Duyệt hậu thứ tự.
+- Tìm kiếm theo chiều sâu.
+- Duyệt ZigZag.
+
+### 29. Độ phức tạp không gian của thuật toán sắp xếp chèn là gì ?
+
+Sắp xếp chèn là một phương pháp sắp xếp tại chỗ, có nghĩa là nó không yêu cầu bất kỳ lưu trữ dữ liệu bổ sung nào. Trong sắp xếp chèn, chỉ một phần tử danh sách duy nhất phải được lưu trữ bên ngoài dữ liệu ban đầu, dẫn đến độ phức tạp không gian không đổi hoặc độ phức tạp không gian O (1).
+
+### 30. Độ phức tạp không gian của thuật toán sắp xếp lựa chọn là gì?
+
+Sắp xếp lựa chọn là một phương pháp sắp xếp tại chỗ, có nghĩa là nó không yêu cầu bất kỳ bộ nhớ bổ sung hoặc lưu trữ dữ liệu tối thiểu nào. Do đó, thuật toán sắp xếp lựa chọn có độ phức tạp không gian không đổi hoặc độ phức tạp không gian O (1).
