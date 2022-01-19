@@ -6,7 +6,7 @@
 
 - Nó được sử dụng để tổ chức và chỉnh sửa dữ liệu một cách hiệu quả.
 
-- Cấu trúc dữ liệu là cách dữ liệu và các mối quan hệ của nó được biểu diễn, hỗ trợ việc áp dụng các tính năng hoặc thuật toán khác nhau hoạt động một cách hiệu quả.
+- Cấu trúc dữ liệu là cách dữ liệu và các mối quan hệ của nó được biểu diễn, hỗ trợ việc áp dụng các tính năng hoặc thuật toán khác nhau hoạt động một cách tối ưu.
 
 ### Kiểu
 
@@ -47,11 +47,11 @@ Lựa chọn cấu trúc dữ liệu thích hợp trở thành bước quan tr�
 
 ### 1. Bạn có thể giải thích sự khác nhau giữa cấu trúc tập tin và cấu trúc lưu trữ 
 
-Cấu trúc tập tin: là việc biểu diễn dữ liệu trong bộ nhớ thứ cấp để bất kỳ thiết bị nào như đĩa cứng có thể lưu trữ dữ liệu nguyên vẹn cho đến khi bị xóa thủ công được gọi là biểu diễn cấu trúc tập tin.
+Sự khác biệt chính giữa cấu trúc tập và cấu trúc lưu trữ là dựa trên không gian bộ nhớ đang được truy cập.
 
-Cấu trúc lưu trữ: trong kiểu này, dữ liệu được lưu trữ ở bộ nhớ chính như RAM, và sẽ bị xoá sau khi hàm sử dụng này được thực thi hoàn toàn.
+**Cấu trúc lưu trữ:** Là sự biểu diễn cấu trúc dữ liệu trong bộ nhớ máy tính.
 
-Sự khác biệt của cấu trúc lưu trữ là dữ liệu lưu trữ trong bộ nhớ của hệ thống máy tính, trong khi cấu trúc tập tin lưu dữ liệu ở bộ nhớ thứ cấp.
+**Cấu trúc tập tin:** Là biểu diễn cấu trúc lưu trữ trong bộ nhớ phụ/thứ cấp.
 
 ### 2. Bạn có thể nói sự khác biệt giữa cấu trúc dữ liệu tuyến tính và phi tuyến tính ?
 
@@ -157,7 +157,7 @@ Các thao tác cơ bản trong ngăn xếp:
 
 Các ứng dụng của ngăn xếp:
 - Tính các biểu thức đại số
-- Quản lý bộ nhớ khi thi hành chương trình
+- Quản lý bộ nhớ khi thực thi chương trình
 
 ### 11. Hàng đợi là gì
 
@@ -515,9 +515,9 @@ Ngoài ra, từng cây con bên trái và bên phải là cây tìm kiếm nhị
 
 Cây AVL là cây cân bằng. Cây AVL kiểm tra chiều cao của cây con bên trái và bên phải và đảm bảo rằng sự khác biệt không quá 1. Sự khác biệt này được gọi là Hệ số Cân bằng và được tính bằng. `BalanceFactor = chiều cao (cây con bên trái) - chiều cao (cây con bên phải)`.
 
-### 31. In Chế độ xem bên trái của bất kỳ cây nhị phân nào 
+### 31. In chế độ xem bên trái của bất kỳ cây nhị phân nào 
 
-Ý tưởng chính để giải quyết vấn đề này là duyệt cây theo tiền thứ tự và truyền thông tin về cấp đi cùng với nó. Nếu cấp được truy cập lần đầu tiên, thì chúng ta lưu trữ thông tin của nút hiện tại và cấp hiện tại trong hashmap. Về cơ bản, thì ta đang có được chế độ xem bên trái bằng cách quan tâm đến nút đầu tiên của mọi cấp độ.
+Ý tưởng chính để giải quyết vấn đề này là duyệt cây theo tiền thứ tự và truyền thông tin về cấp bậc cùng với nó. Nếu cấp được truy cập lần đầu tiên, thì chúng ta lưu trữ thông tin của nút hiện tại và cấp hiện tại trong hashmap. Về cơ bản, thì ta đang có được chế độ xem bên trái bằng cách quan sát đến nút đầu tiên của mọi cấp độ.
 Khi kết thúc quá trình duyệt, chúng ta có thể tìm ra giải pháp bằng cách duyệt qua map
 .
 Hãy xem xét cây sau đây làm ví dụ để tìm chế độ xem bên trái:
