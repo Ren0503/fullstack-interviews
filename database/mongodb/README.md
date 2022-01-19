@@ -13,7 +13,7 @@ MongoDB là gì?
 - Nó kết hợp khả năng mở rộng quy mô với các tính năng như chỉ mục thứ cấp, truy vấn phạm vi, sắp xếp, tổng hợp và chỉ mục không gian địa lý.
 - MongoDB được phát triển bởi MongoDB Inc. và được cấp phép theo Server Side Public License (SSPL).
 
-## Câu hỏi phỏng vấn MongoDB
+## Câu hỏi phỏng vấn MongoDB cho Fresher
 
 ### 1. Lợi ích của MongoDB ?
 
@@ -35,7 +35,10 @@ Một document trong MongoDB là một tập hợp key/value. Nó được biể
 Các document phức tạp sẽ chứa nhiều cặp key/value:
 
 ```js
-{"welcome": "Hello world!", "views": 3}
+{
+    "welcome": "Hello world!", 
+    "views": 3
+}
 ```
 
 ### 3. Collection trong MongoDB 
@@ -85,11 +88,133 @@ Shell là một trình thông dịch JavaScript đầy đủ tính năng, có kh
 
 ### 6. Scale-Out xảy ra như thế nào trong MongoDB?
 
-Mô hình dữ liệu hướng tài liệu trong MongoDB giúp việc tách dữ liệu trên nhiều server trở nên dữ dàng. Việc cân bằng và tải dữ liệu trên một cụm được thực hiện bởi MongoDB. Sau đó nó sẽ tự động phân phối các document.
+Mô hình dữ liệu hướng tài liệu trong MongoDB giúp việc tách dữ liệu trên nhiều server trở nên dễ dàng. Việc cân bằng và tải dữ liệu trên một cụm được thực hiện bởi MongoDB. Sau đó nó sẽ tự động phân phối các document.
 
+Mongos hoạt động như một bộ định tuyến truy vấn, cung cấp interface giữa các ứng dụng client và cụm được shard.
 
-Mongos hoạt động như một bộ định tuyến truy vấn, cung cấp interface giữa các ứng dụng client và cụm sharded.
+Config server lưu trữ siêu dữ liệu và cài đặt cấu hình cho cụm. MongoDB sử dụng config server để quản lý các khóa phân tán. Mỗi cụm được shard phải có config server riêng.
 
-Server cấu hình lưu trữ siêu dữ liệu và cài đặt cấu hình cho cụm. MongoDB sử dụng server cấu hình để quản lý các khóa phân tán. Mỗi cụm shard phải có máy chủ cấu hình riêng.
+![](./assets/Mongos.jpg)
 
-![](./assets/Mongos.png)
+### 7. Các tính năng của MongoDB ? 
+
+- **Indexing** hỗ trợ chỉ mục thứ cấp và cung cấp tính năng đánh chỉ mục duy nhất, đa hợp, không gian địa lý và toàn văn bản.
+- **Aggregation** cung cấp framework aggregation dựa trên khái niệm xử lý dữ liệu trong pipelines.
+- **Special collection và index types**: nó hỗ trợ time-to-live collection cho dữ liệu sẽ hết hạn vào một thời điểm nhất định.
+- **File storage** cung cấp giao thức đơn giản cho lưu trữ file và thông tin file.
+- **Sharing** là quá trình chia sẽ dữ liệu trên nhiều máy.
+
+### 8. Làm sao để thêm dữ liệu trong MongoDB ?
+
+Phương thức thêm dữ liệu cơ bản trong MongoDB là "insert". Để thêm một document ta dùng `insertOne`:
+
+```
+> db.books.insertOne({"title": "Start With Why"})
+```
+
+Để thêm nhiều document vào một collection, ta có thể dùng `insertMany`, phương thức này cho phép chuyển một mảng document vào cơ sở dữ liệu.
+
+### 9. Làm thế nào để cập nhật một document ?
+
+Sau khi document được lưu trữ trong cơ sở dữ liệu, nó có thể được cập nhật bằng một trong các phương pháp sau: `updateOne`, `updateMany` và `replaceOne`. 
+
+`updateOne` và `updateMany` mỗi cái lấy một document lọc làm tham số đầu tiên và một document chỉnh sửa làm tham số thứ hai. `replaceOne` cũng lấy một bộ lọc làm tham số đầu nhưng với tham số thức hai, `replaceOne` sẽ mong đợi tài liệu thay thế phù hợp với filter.
+
+```js
+{
+   "_id" : ObjectId("4b2b9f67a1f631733d917a7a"),
+   "name" : "alice",
+   "friends" : 24,
+   "enemies" : 2
+}
+```
+
+### 10. Cách xoá một document ?
+
+Xoá trong MongoDB được hỗ trợ bằng `deleteOne` và `deleteMany`. Cả hai phương thức này đều nhận vào một bộ lọc document làm tham số đầu tiên. Bộ lọc chỉ định một tập hợp các tiêu chí phù hợp với việc xoá document.
+
+```
+> db.books.deleteOne({"_id" : 3})
+```
+
+### 11. Làm sao để truy vấn trong MongoDB ?
+
+Phương thức `find` được dùng để thực hiện truy vấn trong MongoDB. Truy vấn trả về một tập con document trong một collection, có thể là không có document nào cũng có thể là toàn bộ. Document được trả về được xác định bởi tham số đầu tiên cần tìm là tiêu chí truy vấn document.
+
+```
+> db.users.find({"age" : 24})
+```
+
+### 12. Các kiểu dữ liệu trong MongoDB ? 
+
+MongoDB hỗ trợ nhiều kiểu dữ liệu dưới dạng giá trị trong document. Các document trong MongoDB tương tự như các đối tượng trong JavaScript. Cùng với bản chất key/value thiết yếu của JSON, MongoDB bổ sung hỗ trợ cho một số kiểu dữ liệu bổ sung. Các kiểu dữ liệu phổ biến trong MongoDB là:
+
+- Null
+
+```js
+{"x" : null}
+```
+
+- Boolean
+
+```js
+{"x" : true}
+```
+
+- Number
+
+```js
+{"x" : 4}
+```
+
+- String
+
+```js
+{"x" : "foobar"}
+```
+
+- Date
+
+```js
+{"x" : new Date()}
+```
+
+- Regular expression
+
+```js
+{"x" : /foobar/i}
+```
+
+- Array
+
+```js
+{"x" : ["a", "b", "c"]}
+```
+
+- Embedded document
+
+```js
+{"x" : {"foo" : "bar"}}
+```
+
+- Object ID
+
+```js
+{"x" : ObjectId()}
+```
+
+- Binary Data là một chuỗi các byte tùy ý.
+
+- Code
+{"x" : function() { /* ... */ }}
+
+### 13. Khi nào sử dụng MongoDB ?
+
+Bạn nên sử dụng MongoDB khi bạn đang xây dựng các ứng dụng internet và doanh nghiệp cần phát triển nhanh chóng và mở rộng quy mô một cách gọn gàng. MongoDB phổ biến với các nhà dev đang xây dựng các ứng dụng có khả năng mở rộng bằng cách sử dụng các phương pháp agile.
+
+MongoDB là một lựa chọn tuyệt vời nếu bạn cần:
+- Hỗ trợ phát triển lặp đi lặp lại nhanh chóng.
+- Mở rộng quy mô đến mức cao của lưu lượng đọc và ghi - MongoDB hỗ trợ mở rộng quy mô theo chiều ngang thông qua Sharding, phân phối dữ liệu trên một số máy và tạo điều kiện cho các hoạt động thông lượng cao với bộ dữ liệu lớn.
+- Quy mô kho dữ liệu của bạn có một kích thước lớn.
+- Phát triển loại hình triển khai khi doanh nghiệp thay đổi.
+- Lưu trữ, quản lý và tìm kiếm dữ liệu với các văn bản, không gian địa lý hoặc chuỗi thời gian.
