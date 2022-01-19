@@ -1,5 +1,8 @@
 # Thuật toán
 
+![](./assets/algo.jpg)
+
+
 ## Thuật toán là gì ?
 
 Cấu trúc dữ liệu và giải thuật là những khái niệm cốt lõi trong mọi buổi phỏng vấn dev, bất kể bạn là dev C, Java, Web hay Mobile. Dù là ở lĩnh vực nào trong công nghệ thông tin thì bạn cũng cần phải biết về giải thuật.
@@ -275,5 +278,14 @@ Quicksort (tạm dịch là sắp xếp nhanh) là một thuật toán sắp x�
 
 Quicksort dựa trên mô hình thuật toán chia để trị. Nó thực hiện bằng cách chọn một phần tử "pivot" từ mảng và tách mảng thành hai mảng con dựa trên việc các phần tử còn lại lớn hơn hay bé hơn pivot. Do đó, nó còn được gọi là sắp xếp trao đổi phân vùng. Mảng con sau đó sẽ được sắp xếp với đệ quy.Điều này có thể được thực hiện tại chỗ, chỉ cần một ít RAM bổ sung để sắp xếp.
 
-Quicksort được xếp vào thể loại sắp xếp so sánh, có nghĩa là nó có thể sắp xếp các đối tượng khác kiểu 
+Sau đây là các bước cho quicksort in-place:
 
+- Nếu có ít hơn hai phần tử trong phạm vi, hãy trả lại ngay lập tức vì không thể làm gì khác. 
+
+- Nếu không, hãy chọn giá trị `pivot`, là giá trị xuất hiện trong phạm vi (cách lựa chọn phụ thuộc vào quy trình phân vùng và có thể liên quan đến tính ngẫu nhiên).
+
+- Phân vùng phạm vi bằng cách sắp xếp lại thứ tự các phần tử của nó trong khi xác định điểm phân chia sao cho tất cả các phần tử có giá trị nhỏ hơn `pivot` đều xuất hiện trước và tất cả các phần tử có giá trị lớn hơn `pivot` sẽ xuất hiện sau nó; các phần tử có giá trị bằng `pivot` có thể xuất hiện theo một trong hai hướng. Hầu hết các thủ tục phân vùng đảm bảo rằng giá trị kết thúc tại điểm phân chia bằng với `pivot` và hiện đang ở vị trí cuối cùng của nó vì có ít nhất một phiên bản của `pivot` (nhưng việc kết thúc nhanh chóng không phụ thuộc vào điều này, miễn là phạm vi phụ nhỏ hơn so với phạm vi ban đầu được tạo ra).
+
+- Áp dụng quicksort đệ quy lên phạm vi con cho trước và sau điểm phân chia, loại bỏ phần tử bằng `pivot` tại điểm phân chia khỏi cả hai phạm vi. (Nếu phân vùng tạo ra một phạm vi con có khả năng lớn hơn ranh giới với tất cả các phần tử được biết là bằng với `pivot`, thì chúng cũng có thể bị bỏ qua.)
+
+Phân tích toán học của Quicksort cho thấy rằng, trường hợp trung bình sẽ mất độ phức tạp thời gian `O(n * log(n))` để sắp xếp n mục. Trong trường hợp xấu nhất, nó phải thực hiện với độ phức tạp thời gian là `O(n ^ 2)`.
