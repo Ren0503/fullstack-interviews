@@ -122,6 +122,130 @@ Nguyên tắc Đóng mở quy định rằng bất kỳ lớp, thành phần ho�
 
 **Design pattern (Mẫu thiết kế):** là các giải pháp mẫu có thể tái sử dụng cho các vấn đề thường xảy ra có thể được tùy chỉnh theo yêu cầu của vấn đề. Đây là những giải pháp được thực hiện tốt, được thử nghiệm đúng cách và an toàn khi sử dụng. Mô hình thiết kế Factory, mô hình Singleton, mô hình Strategy là một vài trong số các ví dụ về các mẫu thiết kế.
 
-## 11. Các design pattern khác các thuật toán như thế nào?
+### 11. Các design pattern khác các thuật toán như thế nào?
 
 Cả design pattern và thuật toán đều mô tả các giải pháp điển hình cho bất kỳ vấn đề nào đã cho. Nhưng sự khác biệt chính là thuật toán xác định một tập hợp các hành động rõ ràng để đạt được mục tiêu còn design pattern cung cấp mô tả cấp cao về bất kỳ giải pháp nào. Các design pattern áp dụng cho hai vấn đề khác nhau có thể giống nhau nhưng logic thực hiện sẽ khác nhau và dựa trên các yêu cầu.
+
+## Câu hỏi phỏng vấn design pattern cho Experienced
+
+### 12. Design pattern Factory là gì?
+
+Factory thuộc nhóm design pattern creational. Ở đây các đối tượng được tạo mà không để lộ logic của việc tạo ra cho client. Các đối tượng tham chiếu đến interface chung.
+
+Ví dụ: Ta có 3 lớp `Square`, `Triangle` và `Rectangle`. Ta sẽ sử dụng design pattern factory cho tạo đối tượng từ 3 lớp mà không để lộ logic tạo bằng cách dùng lớp `ShapeFactory`. Lớp `Driver` sẽ truyền thông tin như RECTANGLE/SQUARE/TRIANGLE để đối tượng cần thiết. Sơ đồ UML cho trường hợp này:
+
+![](./assets/Factory_Design_Pattern.png)
+
+Bây giờ ta triển khai code cho ví dụ trên:
+
+**Bước 1:** Tạo interface Shape
+
+```java
+//Shape.java
+public interface Shape {
+    void draw();
+}
+```
+
+**Bước 2:** Tạo lớp cụ thể Rectangle, Square, Triangle sử dụng triển khai interface Shape.
+
+```java
+//Rectangle.java
+public class Rectangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Rectangle Drawn");
+    }
+}
+```
+
+```java
+//Square.java
+public class Square implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Square Drawn");
+    }
+}
+```
+
+```java
+//Triangle.java
+public class Triangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Triangle Drawn");
+    }
+}
+```
+
+**Bước 3:** Tạo lớp ShapeFactory và tạo một phương thức gọi là `getShapeInstance()` cho tạo đối tượng ở lớp cụ thể:
+
+```java
+//ShapeFactory.java
+public class ShapeFactory {
+    //the method will be used to get object of required shape
+    public Shape getShapeInstance(String type){
+        if(type == null){
+            return null;
+        } 
+        if(type.equalsIgnoreCase("TRIANGLE")){
+            return new Triangle();
+        } else if(type.equalsIgnoreCase("SQUARE")){
+            return new Square();
+        } else if(type.equalsIgnoreCase("RECTANGLE")){
+            return new Rectangle();
+        }
+        return null;
+    }
+}
+```
+
+**Bước 4:** Triển khai lớp Driver và sử dụng lớp factory để lấy đối tượng của kiểu được yêu cầu.
+
+```java
+//Driver.java
+public class Driver {
+    public static void main(String[] args) {
+        ShapeFactory shapeFactory = new ShapeFactory();
+        //get Triangle object and call draw()
+        Shape triangle = shapeFactory.getShape("Triangle");
+        triangle.draw();
+        //get Rectangle object and call draw()
+        Shape rectangle = shapeFactory.getShape("RECTANGLE");
+        rectangle.draw();
+        //get Square object and call draw()
+        Shape square = shapeFactory.getShape("SQUARE");
+        square.draw();
+    }
+}
+```
+
+**Bước 5:** Xem kết quả
+
+```text
+Triangle Drawn
+Rectangle Drawn
+Square Drawn
+```
+
+#### Các ưu điểm của design pattern factory là:
+
+- Cho phép ẩn logic tạo của ứng dụng bằng cách sử dụng các interface và các lớp factory.
+- Nó cho phép kiểm tra tính liền mạch của ứng dụng bằng cách sử dụng mô hình hoặc sơ khai.
+- Giới thiệu kết nối lỏng lẻo trong ứng dụng bằng cách cho phép sự linh hoạt trong việc triển khai các phương thức khi các lớp mới được giới thiệu.
+
+### 13. Design pattern Adapter là gì?
+
+Thuộc nhóm design pattern structural để các đối tượng không tương thích cộng tác với nhau. Nó hành động như một wrapper giữa hai đối tượng khác nhau. Adapter bắt cuộc gọi cho một đối tượng và biến đổi chúng để đối tượng thứ hai có thể nhận.
+
+Để dễ hiểu ta lấy ví dụ với adapter chuyển đổi USB sang Ethernet được dùng khi ta có interface ethernet ở một đầu và interface USB ở đầu bên kia. Ethernet và USB không tương thích với nhau và yêu cầu một adapter. Lớp adapter có lớp client mong đợi một số đối tượng và lớp Adaptee cung cấp tính năng tương tự nhưng bằng một interface khác. Bây giờ để cả hai giao tiếp, ta có.
+
+Sơ đồ lớp:
+
+![](./assets/Class_Diagram.png)
+
+
+### 28. Điều gì sẽ xảy ra nếu ta không có một phương thức đồng bộ để trả về thực thể Singleton trong môi trường đa luồng?
+
+Trong môi trường đa luồng, nếu chúng ta có một phương thức không được đồng bộ hóa để trả về các thực thể, thì có khả năng phương thức đó có thể tạo nhiều hơn một trường hợp. Hãy xem xét rằng chúng ta có 2 luồng và cả hai đều nhập điều kiện để kiểm tra xem thực thể đã tồn tại hay chưa. Cả hai luồng sẽ thấy rằng cá thể chưa được tạo và do đó cả hai sẽ tạo các cá thể lớp. Điều này đi ngược lại nguyên tắc của mẫu Singleton. Do đó, trong môi trường đa luồng, nên sử dụng kiểm tra đồng bộ.

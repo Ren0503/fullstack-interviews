@@ -98,12 +98,12 @@ Khi danh sách liên kết được sử dụng cho truy cập, nó được coi
 
 1. **Chèn và xoá**
 
-- Quá trình chèn và xoá là rất tốn kém trong mảng vì phải tạo các phần tử mới cho các phần tử hiện có để dịch chuyển.
+- Quá trình chèn và xoá là rất tốn kém trong mảng vì phải tạo các phần tử mới và dịch chuyển các phần tử đã có.
 - Nhưng trong danh sách liên kết, các thao tác này dễ dàng hơn vì chỉ cập nhật địa chỉ hiện tại trong con trỏ tiếp theo của một nút.
 
 2. **Cấu trúc dữ liệu động**
 
-- Danh sách liên kết là cấu trúc dữ liệu động có nghĩa là không cần cho kích thước ban đầu khi tạo, nó có thể mở rộng hay co lại theo thời gian bởi cấp phát hay thu hổi của bộ nhớ.
+- Danh sách liên kết là cấu trúc dữ liệu động có nghĩa là không cần cho kích thước ban đầu khi tạo, nó có thể mở rộng hay co lại theo thời gian bởi quá trình cấp phát hay thu hổi của bộ nhớ.
 - Trong khi đó, kích thước của mảng là giới hạn về số lượng phần tử được lưu trong bộ nhớ chính.
 
 3. **Không lãng phí bộ nhớ**
