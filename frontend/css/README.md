@@ -385,3 +385,278 @@ Nếu bạn không muốn `font-face` của phần tử văn bản là phông ch
     font-family: Arial, Helvetica, sans-serif;
 }
 ```
+
+### 15. Sự khác biệt giữa adaptive design và responsive design?
+
+| Adaptive Design | Responsive Design |
+|-----------------|-------------------|
+| Tập trung vào thiết kế trang web dựa trên nhiều kích thước bố cục cố định | Tập trung vào việc hiển trị nội dung trên cơ sở không gian trình duyệt có sẵn |
+| Khi một trang web được phát triển bằng cách sử dụng thiết kế adaptive được mở trên trình duyệt máy tính để bàn, trước tiên không gian có sẵn sẽ được phát hiện và sau đó bố cục có kích thước phù hợp nhất sẽ được chọn và sử dụng để hiển thị nội dung. Thay đổi kích thước của cửa sổ trình duyệt không ảnh hưởng đến thiết kế | Khi một trang web được phát triển bằng cách sử dụng thiết kế responsive được mở trên trình duyệt trên máy tính để bàn và khi chúng tôi cố gắng thay đổi kích thước cửa sổ trình duyệt, nội dung của trang web được sắp xếp động và tối ưu để phù hợp với cửa sổ |
+| Thông thường, các thiết kế adaptive sử dụng sáu chiều rộng màn hình tiêu chuẩn - 320px, 480px, 760px, 960px, 1200px, 1600 . Các kích thước này được phát hiện và các bố cục thích hợp được tải | Thiết kế này sử dụng các truy vấn CSS để thay đổi kiểu tùy thuộc vào thuộc tính thiết bị mục tiêu để thích ứng với các màn hình khác nhau |
+| Đầu tiên phải mất rất nhiều thời gian và nỗ lực để xem xét các lựa chọn và thực tế của người dùng cuối, sau đó thiết kế các giải pháp thích ứng tốt nhất có thể cho họ | Nói chung, thiết kế responsive cần ít công việc hơn để xây dựng và thiết kế các trang web linh hoạt có thể chứa nội dung từ màn hình tùy thuộc vào kích thước màn hình |
+| Cung cấp nhiều quyền kiểm soát thiết kế để phát triển các trang web cho các màn hình cụ thể | Không có nhiều quyền kiểm soát thiết kế được cung cấp ở đây |
+
+### 16. Làm thế nào để các CSS Selector ứng với các phần tử của trình duyệt?
+
+Thứ tự của các selector phù hợp đi từ phải sang trái của biểu thức selector. Các phần tử trong DOM được trình duyệt lọc dựa trên các khóa selector và sau đó được chuyển đến các phần tử mẹ để xác định các kết quả phù hợp. Tốc độ xác định các phần tử phụ thuộc vào độ dài của chuỗi các selector. Hãy xem xét một ví dụ:
+
+```css
+p span{ 
+    color: black;
+}
+```
+
+![](./assets/CSS_selectors_matched_against_the_elements_by_the_browser.png)
+
+Ở đây, trước tiên trình duyệt tìm tất cả các phần tử `span` trong DOM và sau đó nó chuyển đến từng phần tử cha của nó để kiểm tra xem chúng có phải là phần tử của đoạn `p` hay không.
+
+Sau khi trình duyệt tìm thấy tất cả các thẻ `span` phù hợp có các phần tử `p` là cha và áp dụng màu đen cho nội dung, quá trình so sánh sẽ bị dừng lại.
+
+### 17. Border-box khác với content-box như thế nào?
+
+`content-box` là thuộc tính xác định giá trị mặc định cho kích thước hộp. Thuộc tính width và height chỉ bao gồm nội dung bằng cách loại trừ border và padding. Hãy xem xét một ví dụ như sau:
+
+```css
+div{
+    width:300px;
+    height:200px;
+    padding:15px;
+    border: 5px solid grey;
+    margin:30px;
+    -moz-box-sizing:content-box;
+    -webkit-box-sizing:content-box;
+    box-sizing:content-box;
+}
+```
+
+Ở đây, kích thước hộp cho phần tử div được cung cấp dưới dạng `content-box`. Điều đó có nghĩa là height và width được xem xét cho nội dung div sẽ loại trừ padding và border. Chúng ta sẽ nhận được đầy đủ các thông số chiều cao và chiều rộng được chỉ định cho nội dung như trong hình bên dưới.
+
+![](./assets/content_box.png)
+
+`border-box` là thuộc tính bao gồm nội dung và padding, border trong thuộc tính height và width. Hãy xem ví dụ sau:
+
+```css
+div{
+    width:300px;
+    height:200px;
+    padding:15px;
+    border: 5px solid grey;
+    margin:30px;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+}
+```
+
+Ở đây, kích thước hộp cho phần tử div được cung cấp dưới dạng `border-box`. Điều đó có nghĩa là height và width được xem xét cho nội dung div cũng sẽ bao gồm phần border và padding. Điều này có nghĩa là chiều cao thực của nội dung div sẽ là:
+
+![](./assets/border_box.png)
+
+### 18. Opacity được quy định như thế nào trong CSS3?
+
+Opacity ám chỉ mức độ nội dung trong suốt hoặc không trong suốt. Chúng ta có thể sử dụng thuộc tính có tên opacity nhận các giá trị từ 0 đến 1. 0 chỉ định rằng phần tử là hoàn toàn trong suốt, trong đó 1 có nghĩa là phần tử hoàn toàn không trong suốt. Chúng ta có thể sử dụng thuộc tính opacity như sau:
+
+```css
+div { 
+    opacity: 0.6;
+}
+```
+
+Trong ví dụ trên, độ mờ 60% được áp dụng cho phần div. Thuộc tính opacity không được trình duyệt internet explorer hỗ trợ. Để làm cho nó hoạt động ở đó, chúng ta cần sử dụng thuộc tính filter là polyfill như ví dụ bên dưới.
+
+```css
+div { 
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+```
+
+![](./assets/opacity_in_css3.png)
+
+### 19. Tại sao chúng ta nên sử dụng thuộc tính float trong CSS?
+
+Thuộc tính float được sử dụng để định vị các phần tử HTML theo chiều ngang về phía bên trái hoặc bên phải của container. Ví dụ,
+
+```css
+float-demo {
+	float: right;
+}
+```
+
+Ở đây, phần tử mà lớp được áp dụng đảm bảo rằng phần tử được định vị ở bên phải của container. Nếu bạn chỉ định giá trị của float ở bên trái, thì phần tử sẽ được đặt ở bên trái của container.
+
+### 20. z-index là gì? Nó hoạt động như thế nào?
+
+z-index được sử dụng để chỉ định cách xếp chồng theo chiều sâu của các phần tử chồng lên nhau xảy ra tại thời điểm định vị nó. Nó chỉ định thứ tự ngăn xếp theo chiều sâu của các phần tử được định vị giúp xác định cách hiển thị các phần tử diễn ra như thế nào trong trường hợp chồng chéo.
+
+Giá trị mặc định của thuộc tính này là 0 và có thể là số dương hoặc số âm. Ngoài 0, các giá trị của z-index có thể là:
+
+- Auto: Thứ tự ngăn xếp bằng với phần tử cha.
+- Number: Có thể là dương hoặc âm. Nó xác định thứ tự ngăn xếp.
+- Initial: Giá trị mặc định là 0.
+- Inherit: Kế thừa giá trị từ phần tử cha.
+
+Các phần tử có giá trị z-index nhỏ hơn được xếp chồng thấp hơn các phần tử có z-index cao hơn.
+
+![](./assets/z-index.png)
+
+Từ hình trên, chúng ta có thể thấy rằng khi giá trị của z-index tăng dọc theo trục z, thứ tự xếp chồng sẽ hướng về phía trên cùng của các phần tử khác dọc theo trục tung.
+
+### 21. Các CSS selector sau đây có nghĩa là gì?
+
+* div, p
+* div p
+* div ~ p
+* div + p
+* div > p
+
+Ý nghĩa của chúng như sau:
+
+* `div, p`: Selector này ngụ ý chọn tất cả các phần tử div và tất cả các phần tử p.
+
+```html
+<h1>Heading 1</h1>
+<div>
+	Division 1
+	<p> paragraph 1</p> <!-- Will be selected -->
+</div>
+<p> paragraph 2</p> 
+<p> paragraph 3</p> 
+<div>
+	Division 2
+</div>
+<span> Span 1 </span>
+```
+
+Ở đây, tất cả các phần tử div và phần tử p sẽ được trình duyệt chọn bất kể cha mẹ của chúng hay chúng được đặt ở đâu. Các thẻ còn lại như h1 và span bị bỏ qua.
+
+* `div p`: Selector cho biết chọn tất cả các phần tử p nằm bên trong các phần tử div. Hãy xem xét một ví dụ dưới đây:
+
+```html
+<h1>Heading 1</h1>
+<div>
+    Division 1
+    <p> paragraph 1</p> <!-- Will be selected -->
+    <div>
+        <p> Inner Div Paragraph </p> <!-- Will be selected -->
+    </div>
+</div>
+<p> paragraph 2</p>
+<p> paragraph 3</p>
+<div>
+    Division 2
+</div>
+<span> Span 1 </span>
+```
+
+Ở dây, `<p> paragraph 1</p>` và `<p> Inner Div Paragraph </p>` sẽ được chọn bởi trình duyệt và thuộc tính được áp dụng. Phần còn lại sẽ không được chọn.
+
+* `div ~ p`: Selector này chọn tất cả các phần tử p có phần tử div đứng trước ở bất kỳ đâu.
+
+```html
+<h1>Heading 1</h1>
+<div>
+   Division 1
+   <p> paragraph 1</p>
+</div>
+<p> paragraph 2</p> <!-- Will be selected -->
+<p> paragraph 3</p> <!-- Will be selected -->
+<div>
+   Division 2
+</div>
+<span> Span 1 </span>
+```
+
+Ở đây, các phần tử của paragraph 2 và paragraph 3 sẽ được chọn như được đánh dấu trong đoạn code trên.
+
+* `div + p`: Selector nàychọn tất cả các phần tử p được đặt ngay sau phần tử div.
+
+```html
+<h1>Heading 1</h1>
+<div>
+	Division 1
+	<p> paragraph 1</p>
+</div>
+<p> paragraph 2</p> <!-- Will be selected -->
+<p> paragraph 3</p> 
+<div>
+	Division 2
+</div>
+<span> Span 1 </span>
+```
+
+Trong trường hợp này, chúng ta có phần tử paragraph 2 ngay sau thẻ div. Do đó, chỉ phần tử đó sẽ được chọn.
+
+* `div > p`: Selector này chọn tất cả các phần tử p có div là cha trực tiếp. Trong cùng một ví dụ dưới đây:
+
+```html
+<h1>Heading 1</h1>
+<div>
+	Division 1
+	<p> paragraph 1</p> <!-- Will be selected -->
+</div>
+<p> paragraph 2</p> 
+<p> paragraph 3</p> 
+<div>
+	Division 2
+</div>
+<span> Span 1 </span>
+```
+
+Chỉ `<p> paragraph 1</p>` được chọn trong trường hợp này vì nó có div là cha trực tiếp.
+
+### 22. Thuộc tính flexbox là gì?
+
+Flexbox Layout (hay còn gọi là Flexible Box) là một kiểu bố cục trang có khả năng tự cân đối kích thước, thay đổi chiều rộng/chiều cao và thứ tự phần tử bên trong để phù hợp với tất cả các loại thiết bị hiển thị và kích thước màn hình.
+
+Với bố cục thông thường, bạn cần phải thiết lập kích thước của phần tử, thiết lập hiển thị dạng block hay inline, cho nó float, còn với Flexbox bạn chỉ cần thiết lập phần hiển thị theo chiều ngang hay chiều dọc, lúc đó các phần tử bên trong có thể hiển thị theo ý muốn..
+
+Các thuộc tính flexbox:
+- **flex-direction**: Thuộc tính này giúp xác định hướng container sẽ xếp chồng các mục cho linh hoạt. Các giá trị của thuộc tính này có thể là:
+	+ row: xếp các mục theo chiều ngang từ trái sang phải trong flex container.
+	+ column: xếp các mục theo chiều dọc từ trước ra sau trong flex container.
+	+ row-reverse: xếp các mục theo chiều ngang từ phải sang trái trong flex container.
+	+ column-reverse: xếp các mục theo chiều dọc từ sau ra trước trong flex container.
+- **flex-wrap**: Thuộc tính này chỉ định các mục flex nên được bọc hay không. Giá trị có thể là:
+	+ wrap: mục flex nên được bọc.
+	+ nowrap: giá trị mặc định này là mục không được bọc.
+	+ wrap-reverse: chỉ định này cho biết mục sẽ được bọc nếu cần nhưng theo thứ tự ngược.
+- **flex-flow**: thuộc tính này thiết lập cả flex-direction và flex-wrap trong một dòng.
+- **justify-content**: dùng cho căn chỉnh mục. Các giá trị có thể:
+	+ center: có nghĩa là các mục hiện ở trung tâm của container.
+	+ flex-start: đây là giá trị mặc định, sẽ được căn chỉnh từ điểm bắt đầu container.
+	+ flex-end: các mục sẽ được căn chỉnh từ điểm cuối của container.
+	+ space-around: các mục sẽ được căn chỉnh với khoảng trắng giữa, trước và xung quanh các mục.
+	+ space-between: các mục sẽ được căn chỉnh với khoảng trắng giữa các mục.
+- **align-items**: sử dụng cho căn chỉnh mục flex.
+- **align-content**: sử dụng cho căn chỉnh dòng flex.
+
+### 23. Xếp tầng trong CSS là gì?
+
+Cascanding hay xếp tầng, đề cập đến quá trình xem xét các khai báo kiểu và xác định trọng lượng hoặc tầm quan trọng của các quy tắc tạo kiểu giúp trình duyệt chọn quy tắc nào phải được áp dụng trong thời gian xung đột. Xung đột ở đây đề cập đến nhiều quy tắc có thể áp dụng cho một phần tử HTML cụ thể. Trong những trường hợp như vậy, chúng ta cần cho trình duyệt biết phong cách nào cần được áp dụng cho phần tử. Điều này được thực hiện bằng cách xếp tầng danh sách các phần tử khai báo kiểu.
+
+Ví dụ:
+
+```css
+p {
+    color:white;
+}
+```
+
+và chúng tôi cũng có khai báo sau bên dưới nó hoặc trong một biểu định kiểu khác đã được liên kết với trang:
+
+```css
+p {
+    color:black;
+}
+```
+
+Chúng tôi có xung đột về thuộc tính màu ở đây cho các phần tử của đoạn văn. Ở đây, trình duyệt chỉ cần phân tầng để xác định đâu là kiểu mới nhất và cụ thể nhất và áp dụng kiểu đó. Vì chúng tôi có `color:black;` như một khai báo cụ thể nhất, màu đen được áp dụng cho các phần tử của đoạn văn. Bây giờ nếu bạn muốn đảm bảo màu trắng được áp dụng cho đoạn văn, chúng ta có thể xác định trọng số cho kiểu đó bằng cách thêm `!important` như hình dưới đây:
+
+```css
+p {
+    color:white !important;
+}
+```
+
+`!important` đảm bảo rằng thuộc tính có trọng lượng tối đa khi có các thuộc tính xung đột khác.
