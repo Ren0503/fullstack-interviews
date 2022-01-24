@@ -688,3 +688,178 @@ Radio on ...
 Radio volume set to 4
 TubeLight off...
 ```
+
+### 20. Design pattern Observer là gì?
+
+Observer thuộc nhóm behavioural design pattern được dùng cho xác định một hay nhiều phụ thuộc giữa các đối tượng. Nó hữu ích khi bạn muốn thông báo bất kỳ thay đổi nào trong trạng thái đối tượng. Trong pattern này, khi trạng thái của một đối tượng thay đổi, tất cả đối tượng phụ thuộc sẽ nhận được thông báo tự động. Đối tượng có trạng thái được quan tâm gọi là Subject trong khi các phụ thuộc gọi là OBservers. Trong java ta có thể triển khai pattern này bằng cách dùng lớp `java.util.Observable` và interface `java.util.Observer`. 
+
+![](./assets/Observer_design_pattern.png)
+
+3 thành phần chính:
+
+- **Subject** - có thể là interface hoặc lớp trừu tượng định nghĩa các hoạt động cho gắn (`registerObserver()`) và tách observers (`removeObserver()`) từ subject.
+- **Concrete Subject** - là lớp cụ thể của Subject. Nó duy trì trạng thái đối tượng và bất cứ khi nào xảy ra thay đổi trạng thái, observer sẽ được thông báo bằng cách dùng phương thức `notifyObservers()`.
+- **Observer** - là interface hoặc lớp trừu tượng xác định hoạt động để thông báo cho đối tượng này (`update()`)
+
+Ví dụ thực tế của pattern này là Facebook hay Twitter, mỗi khi ai đó cập nhật trạng thái, tất cả follower sẽ nhận được thông báo. 
+
+### 21. Vấn đề mà pattern Builder giải quyết là gì?
+
+Builder thuộc nhóm creatonal design pattern giúp xây dựng một đối tượng phức tạp theo từng bước. Pattern cho phép tạo các biểu diễn khác nhau của đối tượng trên cùng logic khởi tạo. Nó giúp tạp các lớp bất biến có một tập hợp thuộc tính rất lớn. Ở các design pattern như Factory và Abstract Factory, ta gặp phải các vấn đề sau nếu đối tượng chứa rất nhiều thuộc tính:
+- Khi lượng tham số ở hàm khởi tạo là quá lớn, chương trình sẽ gặp lỗi khi chuyển từ client và lớp factory theo một thứ tự cụ thế. Sẽ trở nên khó khi duy trì thứ tự của các tham số có kiểu giống hệt nhau.
+- Có một số thuộc tính là tuỳ chọn nhưng ta buộc phải gửi tất cả và để chúng ở dạng null.
+- Khi việc tạo đối tượng trở nên phức tạp do có nhiều thuộc tính, độ phức tạp của lớp sẽ trở nên khó hiểu.
+
+Các vấn đề trên có thể giải quyết bằng cách sử dụng constructor với một tham số yêu cầu. Nhưng điều này lại gây ra vấn đề khi các tham số mới được thêm vào như một phần của yêu cầu mới. Nó sẽ dẫn đến mẫu thuẫn, đó là lúc cần đến Bulder.
+
+Pattern này giải quyết vấn đề về một số lượng lớn các thuộc tính tùy chọn và trạng thái không nhất quán bằng cách cung cấp cách xây dựng một đối tượng theo từng bước và trả về đối tượng cuối cùng bằng cách sử dụng một phương thức khác.
+
+Các bước thực hiện:
+- Tạo một lớp tĩnh lồng nhau, sao chép tất cả tham số từ lớp bên ngoài. Lớp lồng này được gọi là builder.
+    - Quy ước đặt tên phải tuân theo khi đặt tên cho lớp builder này. Ví dụ nếu tên lớp là `Interview` thì tên của builder sẽ là `InterverBuilder`.
+- Lớp builder phải có một hàm khởi tạo công khai vói tất cả thuộc tính là tham số.
+- Lớp builder nên có phương thức để thiết lập các tham số tùy chọn và trả về cùng một đối tượng builder khi thiết lập các giá trị này.
+- Cuối cùng là một phương thức `build()` trong lớp builder trả về đối tượng mà client cần. Điều này yêu cầu một constructor riêng tư trong lớp lấy builder làm tham số.
+
+Sau đây là ví dụ về triển khai builder. Ta có lớp `User` và ta sẽ xây dựng lớp `UserBuilder` để tạo đối tượng cho lớp `User`.
+
+```java
+class User 
+{
+    //All final attributes
+    private final String firstName; // required
+    private final String lastName; // required
+    private final int age; // required
+    private final String phoneNbr; // optional
+    private final String address; // optional
+    private final String nationality; //optional
+
+    private User(UserBuilder builder) {
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.age = builder.age;
+        this.phoneNbr = builder.phoneNbr;
+        this.address = builder.address;
+        this.nationality = builder.nationality;
+    }
+
+    //Setters are not provided to make it immutable
+    public String getFirstName() {
+        return firstName;
+    }
+    public String getLastName() {
+        return lastName;
+    }
+    public int getAge() {
+        return age;
+    }
+    public String getPhoneNbr() {
+        return phoneNbr;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public String getNationality() {
+        return nationality;
+    }
+
+    @Override
+    public String toString() {
+        return "User: "+this.firstName+" "+this.lastName+", "+this.age+", "+this.nationality+", "+this.phoneNbr+", "+this.address;
+    }
+
+    public static class UserBuilder 
+    {
+        private final String firstName;
+        private final String lastName;
+        private int age;
+        private String phoneNbr;
+        private String address;
+        private String nationality;
+
+        public UserBuilder(String firstName, String lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+        public UserBuilder age(int age) {
+            this.age = age;
+            return this;
+        }
+        public UserBuilder phoneNbr(String phoneNbr) {
+            this.phoneNbr = phoneNbr;
+            return this;
+        }
+        public UserBuilder address(String address) {
+            this.address = address;
+            return this;
+        }
+        public UserBuilder nationality(String nationality) {
+            this.nationality = nationality;
+            return this;
+        }
+        // method to return the constructed object
+        public User build() {
+            User user =  new User(this);
+            validateUserObject(user);
+            return user;
+        }
+        private void validateUserObject(User user) {
+            //Validate of the object does not break anything
+        }
+    }
+}
+public class Driver{
+    public static void main(String[] args) {
+        User firstUser = new User.UserBuilder("Harry", "Potter")
+        .age(30)
+        .phoneNbr("1234567")
+        .address("221B Baker Street - London")
+        .build();
+        
+        System.out.println(firstUser);
+        
+        User secondUser = new User.UserBuilder("Ron", "Weasley")
+        .age(32)
+        .phoneNbr("5655")
+        //no address
+        .build();
+        
+        System.out.println(secondUser);
+        
+        User thirdUser = new User.UserBuilder("Hermoine", "Granger").age(20).nationality("English")
+        //No age
+        //No phone
+        //no address
+        .build();
+        
+        System.out.println(thirdUser);
+    }
+}
+```
+
+Kết quả:
+
+```text
+User: Harry Potter, 30, null, 1234567, 221B Baker Street - London
+User: Ron Weasley, 32, null, 5655, null
+User: Hermoine Granger, 20, English, null, null
+```
+
+### 22. Hãy xem xét tình huống mà bạn đang viết các lớp để cung cấp dữ liệu thị trường và đột nhiên ta chuyển sang nhà cung cấp khác hoặc là chuyến hướng đến Direct Exchange Feed. Bạn sẽ tiếp cận vấn đề này như thế nào để thiết kế hệ thống? 
+
+Ta có thể làm bằng cách dùng một interface là "MarketData" sẽ bao gồm các phương thức mà khách hàng yêu cầu. MarketData nên có một MarketDataProvider làm phần phụ thuộc bằng cách sử dụng Dependency Injection. Điều này đảm bảo rằng ngay cả khi nhà cung cấp thay đổi, dữ liệu thị trường sẽ không bị ảnh hưởng. 
+
+### 23. Null Object pattern là gì?
+
+Trong pattern này, một đối tượng null được sử dụng để thay thế việc kiểm tra xác thực một thực thể đối tượng là null hay không. Đối tượng Null này có mối quan hệ “không làm gì cả” và chúng có thể được sử dụng để cung cấp hành vi mặc định nếu dữ liệu không có sẵn.
+
+### 24. MVC là gì?
+
+MVC là viết tắt của Model-View-Controller. Pattern này tách ứng dụng thành ba phần:
+- Model - Biểu diễn đối tượng của dữ liệu. Nó cũng bao gồm logic cho cập nhật controller khi dữ liệu thay đổi.
+- View - Biểu diễn trực quan của dữ liệu ở model.
+- Controller - Đây là interface giữa Model và View bằng cách điều khiển luồng dữ liệu trong model và cập nhật view bất cứ khi nào model thay đổi. Nó đảm bảo rằng model và view độc lập.
+
+![](./assets/MVC_design_pattern.png)
+
+Ảnh trên đại diện cho luồng yêu cầu xảy ra trong MVC. Đầu tiên, trình duyệt (client) gửi yêu cầu đến một trang cho controller của server. Controlelr gọi model lấy dữ liệu và gửi phản hồi. Phản hồi sau đó được gửi đến view để hiển thị. Chế độ view sẽ gửi đến client để hiển thị.
