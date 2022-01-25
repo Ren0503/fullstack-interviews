@@ -143,4 +143,77 @@ Các lớp IPv4 được phân biệt dựa trên số lượng máy chủ mà n
 | B | 172.16.0.0 | 172.31.255.255 |
 | B | 192.168.0.0 | 192.168.255.255 |
 
-**Địa chỉ đặc biệt:** Dải IP từ 127.0.0.1 đến 127.255.255.255 là địa chỉ kiểm tra mạng còn được gọi là địa chỉ loopback là địa chỉ IP đặc biệt.
+**Địa chỉ đặc biệt:** Dải IP từ 127.0.0.1 đến 127.255.255.255 là địa chỉ kiểm tra mạng còn được gọi là địa chỉ loopback hay địa chỉ IP đặc biệt.
+
+## Câu hỏi phỏng vấn mạng máy tính cho Experienced
+
+### 12. Mô tả mô hình OSI?
+
+**Open System Interconnections (OSI)** là kiến trúc mạng dựa trên chuẩn ISO. Được gọi là mô hình OSI, nó giải quyết việc kết nối các hệ thống mở để giao tiếp với các hệ thống khác.
+
+Mô hình OSI có 7 tầng. Các nguyên tắc dùng cho mỗi tầng có thể tổng hợp như sau:
+- Tạo một tầng mới nếu cần một sự trừu tượng khác.
+- Mỗi tầng phải có chức năng được xác định rõ ràng.
+- Chức năng của mỗi tầng được chọn dựa trên các giao thức chuẩn hoá quốc tế.
+
+### 13. Các tầng trong mô hình OSI là gì?
+
+![](./assets/Layers_of_OSI_Model.png)
+
+| Tầng | Đơn vị | Mô tả |
+|------|--------|-------|
+| 1.Physical | Bit | Lớp vật lý định nghĩa các đặc tính vật lý của mạng chẳng hạn như kết nối, cấp điện áp và thời gian. |
+| 2.Data Link | Frame | Các lớp liên kết dữ liệu định dạng các thông điệp vào một khung dữ liệu(Frame), và thêm vào đó một header chứa các địa chỉ phần cứng nơi nhận và địa chỉ nguồn của nó. Tiêu đề này chịu trách nhiệm cho việc tìm kiếm các thiết bị đích tiếp theo trên một mạng nội bộ. |
+| 3.Network | Package | Lớp này cung cấp địa chỉ logic mà router sẽ sử dụng để xác định đường đi đến đích.Trong hầu hết các trường hợp, địa chỉ logic ở đây có nghĩa là các địa chỉ IP (bao gồm nguồn & địa chỉ đích IP). |
+| 4.Transport | TPDU  | Lớp này duy trì kiểm soát luồng của dữ liệu, thực hiện kiểm tra lỗi và khôi phục dữ liệu giữa các thiết bị. Ví dụ phổ biến nhất của tầng giao vận là Transmission Control Protocol (TCP) và User Datagram Protocol (UDP). |
+| 5.Session | SPDU | Nhiệm vụ của lớp này là thiết lập, duy trì và kết thúc giao tiếp với các thiết bị nhận. |
+| 6.Presentation | PPDU | Lớp này đảm bảo việc trình bày dữ liệu, mà các thông tin liên lạc qua lớp này nằm trong các hình thức thích hợp đối với người nhận. Nói chung, nó hoạt động như một dịch giả của mạng. Ví dụ, bạn muốn gửi một email và tầng trình bày sẽ định dạng dữ liệu của bạn sang định dạng email. Hoặc bạn muốn gửi ảnh cho bạn bè của bạn, lớp Presentation sẽ định dạng dữ liệu của bạn vào các định dạng GIF, JPG hoặc PNG. |
+| 7.Application | APDU | Đây là lớp gần gũi nhất với người dùng cuối. Nó cung cấp giao diện giữa các ứng dụng với các lớp phía dưới. Nhưng chú ý rằng các chương trình bạn đang sử dụng (như một trình duyệt web - IE, Firefox hay Opera ...) không thuộc về lớp Application.Telnet, FTP, client email (SMTP), HyperText Transfer Protocol (HTTP) là những ví dụ của lớp Application. |
+
+### 14. Mô tả mô hình TCP/IP?
+
+Nó là một phiên bản nén của mô hình OSI chỉ có 4 tầng. Nó được phát triển bởi Bộ Quốc phòng Hoa Kỳ (DoD) vào những năm 1980. Tên của mô hình này dựa trên 2 giao thức tiêu chuẩn được sử dụng, đó là TCP (Transmission Control Protocol) và IP (Internet Protocol).
+
+### 15. Các tầng trong mô hình TCP/IP là gì?
+
+![](./assets/Layers_of_TCP_IP.png)
+
+| Tầng | Mô tả |
+|------|-------|
+| 1.Link | Là sự kết hợp giữa tầng Vật lý và tầng liên kết dữ liệu của mô hình OSI. Chịu trách nhiệm truyền dữ liệu giữa hai thiết bị trong cùng một mạng. Tại đây, các gói dữ liệu được đóng vào khung (gọi là Frame) và được định tuyến đi đến đích đã được chỉ định ban đầu. |
+| 2.Internet | Gần giống như tầng mạng của mô hình OSI. Tại đây, nó cũng được định nghĩa là một giao thức chịu trách nhiệm truyền tải dữ liệu một cách logic trong mạng. Các phân đoạn dữ liệu sẽ được đóng gói (Packets) với kích thước mỗi gói phù hợp với mạng chuyển mạch mà nó dùng để truyền dữ liệu. Lúc này, các gói tin được chèn thêm phần Header chứa thông tin của tầng mạng và tiếp tục được chuyển đến tầng tiếp theo. Các giao thức chính trong tầng là IP, ICMP và ARP. |
+| 3.Transport | Chức năng chính của tầng 3 là xử lý vấn đề giao tiếp giữa các máy chủ trong cùng một mạng hoặc khác mạng được kết nối với nhau thông qua bộ định tuyến. Tại đây dữ liệu sẽ được phân đoạn, mỗi đoạn sẽ không bằng nhau nhưng kích thước phải nhỏ hơn 64KB. Cấu trúc đầy đủ của một Segment lúc này là Header chứa thông tin điều khiển và sau đó là dữ liệu. |
+| 4.Application | Đây là lớp giao tiếp trên cùng của mô hình. Đúng với tên gọi, tầng Ứng dụng đảm nhận vai trò giao tiếp dữ liệu giữa 2 máy khác nhau thông qua các dịch vụ mạng khác nhau (duyệt web, chat, gửi email, một số giao thức trao đổi dữ liệu: SMTP, SSH, FTP,...). Dữ liệu khi đến đây sẽ được định dạng theo kiểu Byte nối Byte, cùng với đó là các thông tin định tuyến giúp xác định đường đi đúng của một gói tin. |
+
+### 16. Sự khác biệt của mô hình OSI và mô hình TCP/IP?
+
+![](./assets/OSI_Vs_TCP_IP.png)
+
+| Mô hình OSI | Mô hình TCP/IP |
+|-------------|----------------|
+| Kiến trúc 7 tầng | Kiến trúc 4 tầng | 
+| Có ranh giới và chức năng cố định cho mỗi lớp | Kiến trúc linh hoạt không có ranh giới nghiêm ngặt giữa các lớp |
+| Độ tin cậy thấp | Độ tin cậy cao |
+| Tiếp cận các tầng theo chiều dọc | Tiếp cận các tầng theo chiều ngang |
+
+### 17. Giao thức HTTP và HTTPS là gì?
+
+HTTP là viết tắt của HyperText Transfer Protocol, giao thức truyền tải siêu văn bản, nó xác định một tập hợp quy tắc và chuẩn để truyền tải dữ liệu trên World Wide Web (WWW). Nó giúp trình duyệt web và web server có thể giao tiếp. Nó là "stateless protocol trong đó mỗi lệnh là độc lập với các lệnh trước đó. HTTP là giao thức ở tầng ứng dụng xây dựng trên TCP. Cổng mặc định của nó là 80.
+
+Còn HTTPS là viết tắt của từ HyperText Transfer Protocol Secure. Nó là phiên bản bảo mật và nâng cao của HTTP. Trên cùng của HTTP, giao thức SSL/TLC được dùng cho bảo mật. Nó mã hóa dữ liệu truyền tải nhằm gia tăng bảo mật giữa Web sever đến các trình duyệt web. Nó sử dụng cổng mặc định là 443.
+
+### 18. Giao thức SMTP là gì?
+
+SMTP là viết tắt của Simple Mail Transfer Protocol. SMTP tập hợp các quy tắc giao tiếp giữa các server. Tập quy tắc này giúp phần mềm gửi nhận mail trên internet. Nó hỗ trợ phương thức End-to-End và Store-and-Forward. Nó luôn luôn hoạt động trên cổng 25.
+
+![](./assets/SMTP_Protocol.png)
+
+### 19. DNS là gì?
+
+DNS là viết tắt của cụm từ Domain Name System, mang ý nghĩa đầy đủ là hệ thống phân giải tên miền. Hiểu một cách ngắn gọn nhất, DNS cơ bản là một hệ thống chuyển đổi các tên miền website mà chúng ta đang sử dụng, ở dạng www.tenmien.com sang một địa chỉ IP dạng số tương ứng với tên miền đó và ngược lại.
+
+### 20. Công dụng của router là gì và nó khác với gateway như thế nào?
+
+Bộ định tuyến (router) là một thiết bị mạng được sử dụng để kết nối hai hoặc nhiều phân đoạn mạng. Nó định hướng lưu lượng trong mạng. Nó chuyển thông tin và dữ liệu như trang web, email, hình ảnh, video, v.v. từ nguồn đến đích dưới dạng các gói tin. Nó hoạt động ở tầng netwwork. 
+
+Các cổng (gateway) cũng được sử dụng để định tuyến và điều tiết lưu lượng mạng nhưng chúng cũng có thể gửi dữ liệu giữa hai mạng khác nhau trong khi một bộ định tuyến chỉ có thể gửi dữ liệu đến các mạng tương tự.
