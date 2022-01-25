@@ -15,7 +15,7 @@
 
 - [**Hệ điều hành**](./advanced/os): 40 câu hỏi phỏng vấn hệ điều hành.
 - [**Mạng máy tính**](./advanced/network): 35 câu hỏi phỏng vấn mạng máy tính.
-- [**Bảo mật**](./advanced/cyber):  42 câu hỏi phỏng vấn bảo mật mạng.
+- [**An ninh mạng**](./advanced/cyber):  42 câu hỏi phỏng vấn an ninh mạng.
 - [**Phương pháp Agile**](./advanced/agile): 34 câu hỏi phỏng vấn về Agile.
 
 ## Cơ sở dữ liệu
