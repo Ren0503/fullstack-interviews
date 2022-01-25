@@ -217,3 +217,49 @@ DNS là viết tắt của cụm từ Domain Name System, mang ý nghĩa đầy 
 Bộ định tuyến (router) là một thiết bị mạng được sử dụng để kết nối hai hoặc nhiều phân đoạn mạng. Nó định hướng lưu lượng trong mạng. Nó chuyển thông tin và dữ liệu như trang web, email, hình ảnh, video, v.v. từ nguồn đến đích dưới dạng các gói tin. Nó hoạt động ở tầng netwwork. 
 
 Các cổng (gateway) cũng được sử dụng để định tuyến và điều tiết lưu lượng mạng nhưng chúng cũng có thể gửi dữ liệu giữa hai mạng khác nhau trong khi một bộ định tuyến chỉ có thể gửi dữ liệu đến các mạng tương tự.
+
+### 21. Giao thức TCP là gì?
+
+TCP hay TCP/IP là viết tắt của Transmission Control Protocol/Internet Protocol. Nó là một tập quy tác để các quyết định cách máy tính kết nối với Internent và truyền dữ liệu qua mạng. Nó tạo một mạng ảo khi có nhiều hơn một máy tính kết nối đến mạng và sử dụng mô hình bắt tay ba bước để thiết lập kết nối.
+
+### 22. Giao thức UDP là gì?
+
+UDP (User Datagram Protocol) dựa trên Datagrams. Chủ yếu được dùng cho phát sóng đa hướng. Chức năng của nó tương tự TCP/IP ngoại trừ việc nó không dùng đến bắt tay ba bước và điều này làm nó kém tin cậy hơn.
+
+### 23. So sánh TCP và UDP?
+
+| TCP | UDP |
+|-----|-----|
+| Giao thức hướng kết nối | Giao thức không kết nối |
+| Độ tin cậy cao | Độ tin cậy thấp |
+| Truyền tải chậm | Truyền tải nhanh |
+| Thứ tự gói tin có thể được giữ nguyên hoặc được sắp xếp lại | Thứ  tự gói tin không cố định và độc lập với nhau |
+| Sử dụng mô hình bắt tay ba bước cho thiết lập | Thiết lập đơn giản không cần bắt tay |
+| Gói tin nặng nề | Gói tin nhẹ nhàng |
+| Hỗ trợ cơ chế kiểm lỗi | Không có cơ chế kiểm lỗi |
+| Các giao thức như HTTP, FTP, Telnet, SMTP sử dụng TCP | Các giao thức DNS, RTP, BOOTP, RIP, SNMP sử dụng UDP |
+
+![](./assets/TCP_Vs_UDP.png)
+
+### 24. Giao thức ICMP là gì?
+
+ICMP được viết tắt bởi cụm từ Internet Control Message Protocol. Người đọc có thể hiểu nghĩa một cách đơn giản là một giao thức của gói Internet Protocol, hay được gọi là giao thức điều khiển truyền tin trên mạng.
+
+ICMP được dùng để thông báo các lỗi xảy ra trong quá trình truyền đi của các gói dữ liệu trên mạng. Hay dùng để thăm dò và quản lý quá trình hoạt động của mạng. Cổng mặc định của nó là 7.
+
+### 25. Giao thức DHCP là gì?
+
+DHCP chính là từ viết tắt của cụm từ Dynamic Host Configuration Protocol (được dịch là Giao thức Cấu hình Host Động). Theo đó, DHCP là giao thức có chức năng cấp phát địa chỉ IP cho tất cả các thiết bị truy cập trên cùng một mạng thông qua máy chủ DHCP được tích hợp trên router. 
+
+Bên cạnh đó, DHCP còn có nhiệm vụ cấp thông số cần thiết của mạng đến các thiết bị. Cụ thể là thông tin về subnet mask, default gateway và dịch vụ DNS. Cổng mặc định của nó là 67.
+
+### 26. Giao thức ARP là gì?
+
+Giao thức phân giải địa chỉ (Address Resolution Protocol hay ARP) là một giao thức truyền thông được sử dụng để chuyển địa chỉ từ tầng mạng (Internet layer) sang tầng liên kết dữ liệu theo mô hình OSI. Đây là một chức năng quan trọng trong giao thức IP của mạng máy tính.
+
+![](./assets/ARP_Protocol.png)
+
+### 27. Giao thức FTP là gì?
+
+FTP - File Transfer Protocol (Giao thức truyền tải tập tin) được dùng trong việc trao đổi dữ liệu trong mạng thông qua giao thức TCP/IP, thường hoạt động trên 2 cổng là 20 và 21. Với giao thức này, các máy client trong mạng có thể truy cập đến máy chủ FTP để gửi hoặc lấy dữ liệu. Điểm nổi bật là người dùng có thể truy cập vào máy chủ FTP để truyền và nhận dữ liệu dù đang ở xa.
+
