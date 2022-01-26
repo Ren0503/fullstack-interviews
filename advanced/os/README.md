@@ -200,3 +200,100 @@ Tiến trình về cơ bản là một chương trình hiện đang được th�
 - **running** :Các lệnh của tiến trình đang được thực thi.
 - **waiting** : Tiến trình đợi I/O hoàn tất.
 - **terminated** : Tiến trình đã kết thúc (đã thực thi xong).
+
+### 19. FCFS nghĩa là gì?
+
+FCFS (First Come First Serve) là một loại thuật toán định thời hệ điều hành thực thi các tiến trình theo thứ tự mà các tiến trình đến. Nói cách đơn giản, tiến trình nào đến trước sẽ được thực thi trước. Nó không có tính ưu tiên. Định thời FCFS có thể gây ra vấn đề chết đói nếu thời gian của tiến trình đầu tiên là lâu nhất trong số tất cả các tiến trình. Nó được coi là thuật toán định thời hệ điều hành dễ nhất và đơn giản nhất so với các thuật toán khác. Việc thực hiện FCFS thường được quản lý với sự trợ giúp của hàng đợi FIFO (First In First Out).
+
+### 20. Reentrancy là gì?
+
+Reentrant là một chức năng trong đó các client khác nhau có thể sử dụng và chia sẻ một bản sao của một chương trình trong một khoảng thời gian tương tự. Khái niệm này thường được liên kết với code hệ điều hành và không liên quan đến đồng thời. Nó có hai chức năng chính:
+- Mã chương trình không thể tự thay đổi hoặc chỉnh sửa.
+- Dữ liệu cục bộ cho mọi tiến trình client cần được lưu trữ trong các đĩa khác nhau.
+
+### 21. Thuật toán định thời là gì? Các loại thuật toán định thời?
+
+Thuật toán định thời được sử dụng để cải thiện hiệu quả sử dụng CPU và cung cấp thời gian chờ tối thiểu cho các tác vụ. Nó chỉ đơn giản là giải quyết vấn đề quyết định yêu cầu nào trong số các yêu cầu còn tồn đọng sẽ được phân bổ tài nguyên. Mục đích chính của nó là giảm nạn đói tài nguyên và đảm bảo sự công bằng giữa các bên đang sử dụng tài nguyên. Nói cách đơn giản, nó được sử dụng để phân bổ tài nguyên giữa các nhiệm vụ cạnh tranh khác nhau.
+
+#### Các loại thuật toán định thời
+
+![](./assets/scheduling-algorithm-os.png)
+
+### 22. Sự khác biệt giữa phân trang và phân đoạn?
+
+**Phân trang:** nói chung là một kỹ thuật quản lý bộ nhớ cho phép hệ điều hành truy xuất các tiến trình từ bộ nhớ phụ vào bộ nhớ chính. Nó là một kỹ thuật phân bổ không liền kề để phân chia mỗi tiến trình dưới dạng các trang.
+**Phân đoạn:** nói chung là một kỹ thuật quản lý bộ nhớ bằng cách chia các tiến trình thành các mô-đun và các phần có kích thước khác nhau. Các thành phần và mô-đun này được gọi là các phân đoạn có thể được phân bổ cho tiến trình.
+
+| Phân trang | Phân đoạn |
+|------------|-----------|
+| Là vô hình với lập trình viên | Lập trình viên có thể thấy |
+| Kích thước trang là cố định | Kích thước đoạn không cố định |
+| Thủ tục và dữ liệu không thể tách biệt trong phân trang | Thủ tục và dữ liệu có thể tách biệt trong phân đoạn |
+| Nó cho phép tổng số không gian bộ nhớ ảo vượt qua bộ nhớ vật lý | Nó cho phép tất cả các chương trình, dữ liệu và code chia thành các không gian địa chỉ độc lập |
+| Khả dụng với hầu hết CPU và MMU | Khả dụng với Window Server có hỗ trợ khả năng tương thích ngược, trong khi Linuxx hạn chế hỗ trợ | 
+| Truy cập dữ liệu nhanh hơn so với phân đoạn | Chậm hơn so với phân trang |
+| Hệ điều hành cần duy trì một frame | Hệ điều hành cần một danh sách đen của bộ nhớ chính |
+| Phân mảnh bên trong | Phân mảnh bên ngoài |
+| Kích thước trang được quyết định bởi bộ nhớ khả dụng | Kích thước đoạn được quyết định bởi người dùng |
+
+### 23. Thrashing trong hệ điều hành là gì?
+
+Thrashing xảy ra khi không có đủ bộ nhớ để lưu trữ các bộ làm việc của tất cả các chương trình đang hoạt động.
+
+Nó thường là một tình huống trong đó CPU thực hiện công việc kém hiệu quả hơn. Nó dành nhiều thời gian cho các hoạt động hoán đổi hoặc phân trang hơn là thực thi. Bằng cách đánh giá mức độ sử dụng CPU, một hệ thống có thể phát hiện ra sự cố. Nó xảy ra khi tiến trình không có đủ trang do đó tỷ lệ lỗi trang tăng lên. Nó ức chế nhiều tiến trình xử lý ở cấp độ ứng dụng khiến hiệu suất máy tính giảm hoặc sập.
+
+### 24. Đối tượng chính trong Đa chương trình là gì?
+
+Nó đề cập đến khả năng thực thi nhiều hơn một chương trình trên một bộ xử lý duy nhất. Kỹ thuật này được giới thiệu để khắc phục tình trạng CPU và bộ nhớ hoạt động kém hiệu quả. Nói một cách dễ hiểu, nó là sự phối hợp thực hiện đồng thời nhiều chương trình khác nhau trên một bộ xử lý (CPU). Mục tiêu chính của đa chương trình là luôn có ít nhất một tiến trình chạy mọi thời điểm. Nó cải thiện việc sử dụng CPU vì nó tổ chức nhiều công việc trong đó CPU luôn có một công việc để thực thi. 
+
+![](./assets/multiprogramming.png)
+
+### 25. Nhóm bất đối xứng là gì?
+
+Asymmetric Clustering, tạm dịch nhóm bất đối xứng là một hệ thống trong đó một máy trong số tất cả các máy ở chế độ dự phòng nóng (hot standby) trong khi tất cả các máy còn lại chạy các ứng dụng khác nhau. Nói đơn giản hơn là nó sử dụng toàn bộ tài nguyên cứng do đó nó là một hệ thống đáng tin cậy so với những hệ thống khác.
+
+![](./assets/asymmetric_cluttering.png)
+
+### 26. Sự khác biệt giữa đa nhiệm và đa tiến trình là gì?
+
+**Đa nhiệm (multitasking)** là khi một CPU duy nhất thực hiện một số tác vụ (chương trình, quy trình, tác vụ, luồng) cùng một lúc. Để thực hiện đa nhiệm, CPU chuyển đổi giữa các nhiệm vụ rất thường xuyên để người dùng có thể tương tác với từng chương trình cùng một lúc.
+
+![](./assets/multitasking-os.png)
+
+**Đa tiến trình (multiprocessing):** Nó là một hệ thống cho phép nhiều bộ xử lý khác nhau trong máy tính xử lý đồng thời hai hoặc nhiều phần khác nhau của cùng một chương trình. Nó được sử dụng để hoàn thành nhiều công việc hơn trong một khoảng thời gian ngắn hơn.
+
+![](./assets/multiprocessing.png)
+
+| Đa nhiệm | Đa tiến trình |
+|----------|---------------|
+| Thực hiện nhiều tác vụ cùng lúc bằng một bộ xử lý duy nhất | Thực hiện nhiều tác vụ cùng lúc bằng nhiều bộ xử lý |
+| Số lượng CPU là một | Nhiều hơn một CPU |
+| Tiết kiệm hơn | Ít tiết kiệm |
+| Kém hiệu quả hơn đa tiến trình | Hiệu quả hơn đa nhiệm |
+| Cho phép chuyển đổi nhanh các tác vụ khác nhau | Cho phép xử lý mượt mà nhiều tiến trình cùng lúc |
+| Yêu cầu nhiều thời gian hơn so với đa tiến trình | Ít thời gian hơn so với đa nhiệm |
+
+### 27. Socket trong hệ điều hành là gì?
+
+Socket trong hệ điều hành thường được coi là endpoint cho IPC (Interprocess Communication). Ở đây, endpoint được gọi là sự kết hợp của địa chỉ IP và số cổng (port). Sockets được sử dụng để giúp các nhà phát triển phần mềm dễ dàng tạo các chương trình hỗ trợ mạng. Nó cũng cho phép giao tiếp hoặc trao đổi thông tin giữa hai tiến trình khác nhau trên cùng một máy hoặc nhiều máy. Nó chủ yếu được sử dụng trong các hệ thống dựa trên mô hình client-server.
+
+#### Các loại socket:
+
+* Stream Sockets
+* Datagram Sockets
+* Sequenced Packet Sockets
+* Raw Sockets
+
+### 28. Giải thích về tiến trình thây ma?
+
+Tiến trình thây ma đề cập đến tiến trình không tồn tại, về cơ bản là một tiến trình đã kết thúc hoặc hoàn thành nhưng toàn bộ khối điều khiển tiến trình không được dọn sạch khỏi bộ nhớ chính vì nó vẫn có một mục trong bảng tiến trình để báo cáo cho tiến trình cha của nó. Nó không tiêu thụ bất kỳ tài nguyên nào và đã chết, nhưng nó vẫn tồn tại. Nó cũng cho thấy rằng tài nguyên được nắm giữ bởi tiến trình và không được giải phóng. 
+
+### 29. Kết thúc hàng loạt là gì?
+
+Kết thúc hàng loạt là sự kết thúc tiến trình trong đó nếu tiến trình cha đang thoát hoặc kết thúc thì tiến trình con cũng sẽ bị chấm dứt. Nó không cho phép tiến trình con tiếp tục xử lý khi tiến trình cha của nó đã kết thúc. Nó thường được khởi tạo bằng hệ điều hành.
+
+### 30. Starvation và aging trong hệ điều hành là gì?
+
+**Starvation**: là vấn đề thường xảy ra khi một tiến trình không thể nhận được các tài nguyên cần thiết mà nó cần để tiến trình thực thi trong một khoảng thời gian dài. Trong điều kiện này, các tiến trình có mức độ ưu tiên thấp bị chặn và chỉ các tiến trình có mức độ ưu tiên cao mới tiếp tục hoàn thành, vì thế các tiến trình có mức độ ưu tiên thấp bị thiếu tài nguyên. 
+
+**Aging**: là một kỹ thuật được sử dụng để khắc phục vấn đề *starvation*. Nó đơn giản là tăng mức độ ưu tiên của các tiến trình chờ tài nguyên trong hệ thống trong một khoảng thời gian dài. Nó được coi là kỹ thuật tốt nhất để giải quyết vấn đề starvation vì nó thêm một yếu tố aging vào mức độ ưu tiên của mọi yêu cầu của các tiến trình khác nhau về tài nguyên. Nó cũng đảm bảo rằng các công việc hoặc tiến trình cấp thấp hoàn thành việc thực thi của chúng. 
