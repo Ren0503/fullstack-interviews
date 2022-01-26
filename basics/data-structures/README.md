@@ -43,9 +43,92 @@ Lựa chọn cấu trúc dữ liệu thích hợp trở thành bước quan tr�
 
 > "Có sẵn kiến thức về các loại cấu trúc dữ liệu khác nhau sẽ giúp lập trình viên lựa chọn cấu trúc dữ liệu phù hợp nhất để giải quyết vấn đề một cách hiệu quả. Nó không chỉ nằm ở việc làm giải pháp của bạn hoạt động, mà còn là giải pháp đó hoạt động hiệu quả như thế nào."
 
+## Mục lục
+
+[1. Bạn có thể giải thích sự khác nhau giữa cấu trúc tập tin và cấu trúc lưu trữ](#1-bạn-có-thể-giải-thích-sự-khác-nhau-giữa-cấu-trúc-tập-tin-và-cấu-trúc-lưu-trữ)
+
+[2. Bạn có thể nói sự khác biệt giữa cấu trúc dữ liệu tuyến tính và phi tuyến tính?](#2-bạn-có-thể-nói-sự-khác-biệt-giữa-cấu-trúc-dữ-liệu-tuyến-tính-và-phi-tuyến-tính)
+
+[3. Mảng là gì?](#3-mảng-là-gì)
+
+[4. Mảng đa chiều là gì?](#4-mảng-đa-chiều-là-gì)
+
+[5. Danh sách liên kết là gì?](#5-danh-sách-liên-kết-là-gì)
+
+[6. Danh sách liên kết là tuyến tính hay phi tuyến tính?](#6-danh-sách-liên-kết-là-tuyến-tính-hay-phi-tuyến-tính)
+
+[7. Danh sách liên kết có hiệu quả hơn mảng?](#7-danh-sách-liên-kết-có-hiệu-quả-hơn-mảng)
+
+[8. Giải thích trường hợp nào sử dụng danh sách liên kết và trường hợp nào sử dụng](#8-giải-thích-trường-hợp-nào-sử-dụng-danh-sách-liên-kết-và-trường-hợp-nào-sử-dụng-mảng)
+
+[9. Danh sách liên kết đôi (DDL) là gì?](#9-danh-sách-liên-kết-đôi-ddl-là-gì)
+
+[10. Ngăn xếp là gì?](#10-ngăn-xếp-là-gì)
+
+[11. Hàng đợi là gì?](#11-hàng-đợi-là-gì)
+
+[12. Ngăn xếp và hàng đợi khác nhau thế nào?](#12-ngăn-xếp-và-hàng-đợi-khác-nhau-thế-nào)
+
+[13. Giải thích quy trình đằng sau việc lưu trữ một biến trong bộ nhớ?](#13-giải-thích-quy-trình-đằng-sau-việc-lưu-trữ-một-biến-trong-bộ-nhớ)
+
+[14. Triển khai hàng đợi bằng ngăn xếp](#14-triển-khai-hàng-đợi-bằng-ngăn-xếp)
+
+[15. Triển khai ngăn xếp bằng hàng đợi](#15-triển-khai-ngăn-xếp-bằng-hàng-đợi)
+
+[16. Hashmap trong Java là gì?](#16-hashmap-trong-java-là-gì)
+
+[17. Yêu cầu đối với một đối tượng được sử dụng làm khóa hoặc giá trị trong HashMap là gì?](#17-yêu-cầu-đối-với-một-đối-tượng-được-sử-dụng-làm-khóa-hoặc-giá-trị-trong-hashmap-là-gì)
+
+[18. Xử lý xung đột trong HashMap với Java?](#18-xử-lý-xung-đột-trong-hashmap-với-java)
+
+[19. Độ phức tạp thời gian của thao tác get() và put() trong HashMap](#19-độ-phức-tạp-thời-gian-của-thao-tác-get-và-put-trong-hashmap)
+
+[20. Cơ sở dữ liệu nào được dùng cho triển khai bộ đệm LRU?](#20-cơ-sở-dữ-liệu-nào-được-dùng-cho-triển-khai-bộ-đệm-lru)
+
+[21. Hàng đợi ưu tiên là gì?](#21-hàng-đợi-ưu-tiên-là-gì)
+
+[22. Có thể lưu trữ một khóa trùng lặp trong HashMap không?](#22-có-thể-lưu-trữ-một-khóa-trùng-lặp-trong-hashmap-không)
+
+[23. Cấu trúc dữ liệu cây là gì?](#23-cấu-trúc-dữ-liệu-cây-là-gì)
+
+[24. Cây nhị phân là gì](#24-cây-nhị-phân-là-gì)
+
+[25. Số lượng nút tối đa của cây nhị phân có chiều dài k](#25-số-lượng-nút-tối-đa-của-cây-nhị-phân-có-chiều-dài-k)
+
+[26. Viết hàm đệ quy tính chiều cao cây nhị phân trong Java](#26-viết-hàm-đệ-quy-tính-chiều-cao-cây-nhị-phân-trong-java)
+
+[27. Viết hàm Java đếm số lượng nút trong cây](#27-viết-hàm-java-đếm-số-lượng-nút-trong-cây)
+
+[28. Duyệt cây là gì?](#28-duyệt-cây-là-gì)
+
+[29. Cây tìm kiếm nhị phân là gì?](#29-cây-tìm-kiếm-nhị-phân-là-gì)
+
+[30. Cây AVL là gì?](#30-cây-avl-là-gì)
+
+[31. In chế độ xem bên trái của bất kỳ cây nhị phân nào](#31-in-chế-độ-xem-bên-trái-của-bất-kỳ-cây-nhị-phân-nào)
+
+[32. Cấu trúc dữ liệu đồ thị là gì?](#32-cấu-trúc-dữ-liệu-đồ-thị-là-gì)
+
+[33. Ứng dụng của đồ thị?](#33-ứng-dụng-của-đồ-thị)
+
+[34. Làm thế nào để biểu diễn đồ thị?](#34-làm-thế-nào-để-biểu-diễn-đồ-thị)
+
+[35. Sự khác biệt giữa cấu trúc dữ liệu cây và đồ thị](#35-sự-khác-biệt-giữa-cấu-trúc-dữ-liệu-cây-và-đồ-thị)
+
+[36. Sự khác biệt giữa BFS (Breadth First Search) và DFS (Delth First Search)](#36-sự-khác-biệt-giữa-bfs-breadth-first-search-và-dfs-delth-first-search)
+
+[37. Khi nào sử dụng DFS tốt hơn BFS?](#37-khi-nào-sử-dụng-dfs-tốt-hơn-bfs)
+
+[38. Sắp xếp tô pô trong đồ thị là gì?](#38-sắp-xếp-tô-pô-trong-đồ-thị-là-gì)
+
+[39. Cho một bản đồ lưới 2D, m x n trong đó giá trị "1" đại diện cho đất và "0" đại diện cho nước, trả về số lượng các hòn đảo (được bao quanh bởi nước và được hình thành bằng cách kết nối các vùng đất liền kề theo 2 hướng - theo chiều dọc hoặc chiều ngang). Giả sử rằng các trường hợp ranh giới - tức là tất cả bốn cạnh của lưới đều được bao quanh bởi nước.
+](#39-cho-một-bản-đồ-lưới-2d-m-x-n-trong-đó-giá-trị-1-đại-diện-cho-đất-và-0-đại-diện-cho-nước-trả-về-số-lượng-các-hòn-đảo-được-bao-quanh-bởi-nước-và-được-hình-thành-bằng-cách-kết-nối-các-vùng-đất-liền-kề-theo-2-hướng---theo-chiều-dọc-hoặc-chiều-ngang-giả-sử-rằng-các-trường-hợp-ranh-giới---tức-là-tất-cả-bốn-cạnh-của-lưới-đều-được-bao-quanh-bởi-nước)
+
+[40. Cấu trúc dữ liệu heap là gì?](#40-cấu-trúc-dữ-liệu-heap-là-gì)
+
 ## Câu hỏi phỏng vấn cho Fresher
 
-### 1. Bạn có thể giải thích sự khác nhau giữa cấu trúc tập tin và cấu trúc lưu trữ 
+### 1. Bạn có thể giải thích sự khác nhau giữa cấu trúc tập tin và cấu trúc lưu trữ?
 
 Sự khác biệt chính giữa cấu trúc tập và cấu trúc lưu trữ là dựa trên không gian bộ nhớ đang được truy cập.
 
@@ -53,7 +136,7 @@ Sự khác biệt chính giữa cấu trúc tập và cấu trúc lưu trữ là
 
 **Cấu trúc tập tin:** Là biểu diễn cấu trúc lưu trữ trong bộ nhớ phụ/thứ cấp.
 
-### 2. Bạn có thể nói sự khác biệt giữa cấu trúc dữ liệu tuyến tính và phi tuyến tính ?
+### 2. Bạn có thể nói sự khác biệt giữa cấu trúc dữ liệu tuyến tính và phi tuyến tính?
 
 Nếu các phần tử của cấu trúc dữ liệu là một chuỗi hay danh sách tuyến tính thì nó gọi là cấu trúc dữ liệu tuyến tính. Trong khi đó, cấu trúc dữ liệu cho duyệt các phần tử không theo thứ tự nào gọi cấu trúc dữ liệu phi tuyến tính.
 
@@ -61,12 +144,12 @@ Danh sách, ngăn xếp và hàng đợi là ví dụ của cấu trúc dữ li�
 
 ![linear-vs-non-linear](./assets/linear-vs-non-linear.png)
 
-### 3. Mảng là gì ?
+### 3. Mảng là gì?
 
 Mảng là tập hợp các loại dữ liệu cùng **kiểu** được lưu trữ tại các vị trí bộ nhớ liền kề.
 Đây là cấu trúc dữ liệu đơn giản nhất mà phần tử dữ liệu có thể được truy cập ngẫu nhiên bằng cách sử dụng chỉ mục của nó.
 
-### 4. Mảng đa chiều là gì ?
+### 4. Mảng đa chiều là gì?
 
 Mảng đa chiều là những cấu trúc dữ liệu mảng trên nhiều chiều khác nhau.
 
@@ -76,7 +159,7 @@ Mảng hai chiều mô phỏng cấu trúc dạng bảng giúp dễ dàng lưu t
 
 ![multi-array](./assets/multidimensional-array.png)
 
-### 5. Danh sách liên kết là gì ?
+### 5. Danh sách liên kết là gì?
 
 Danh sách liên kết là một **chuỗi tuần tự các nút**, nơi các nút được liên kết với nhau thông qua con trỏ tham chiếu. Các phần tử **không được lưu trữ** tại các vị trí liền kề trong bộ nhớ. Chúng được liên kết bằng cách sử dụng con trỏ để tạo thành một chuỗi. Điều này tạo thành một liên kết dạng chuỗi để lưu trữ dữ liệu. 
 
@@ -88,13 +171,13 @@ Nút đầu tiên trong danh sách liên kết gọi là head, nút cuối cùng
 
 ![linked-list](./assets/linked-list.png)
 
-### 6. Danh sách liên kết là tuyến tính hay phi tuyến tính ?
+### 6. Danh sách liên kết là tuyến tính hay phi tuyến tính?
 
 Danh sách liên kết có thể được coi là cấu trúc dữ liệu tuyến tính và cả phi tuyến tính. Điều này phụ thuộc vào ứng dụng mà chúng được sử dụng.
 
 Khi danh sách liên kết được sử dụng cho truy cập, nó được coi là một cấu trúc dữ liệu tuyến tính. Khi chúng được sử dụng để lưu trữ dữ liệu, nó có thể được coi là một cấu trúc dữ liệu phi tuyến tính.
 
-### 7. Danh sách liên kết có hiệu quả hơn mảng ?
+### 7. Danh sách liên kết có hiệu quả hơn mảng?
 
 1. **Chèn và xoá**
 
@@ -112,7 +195,7 @@ Khi danh sách liên kết được sử dụng cho truy cập, nó được coi
 
 - Với mảng, nếu chúng ta khai báo một mảng có kích thước 10 và chỉ lưu trữ 3 phần tử trong đó, thì không gian cho 7 phần tử sẽ bị lãng phí. Do đó, khả năng lãng phí bộ nhớ trong các mảng nhiều hơn.
 
-### 8. Giải thích trường hợp nào sử dụng danh sách liên kết và trường hợp nào sử dụng mảng ?
+### 8. Giải thích trường hợp nào sử dụng danh sách liên kết và trường hợp nào sử dụng mảng?
 
 Các trường hợp sử dụng danh sách liên kết tốt hơn mảng:
 
@@ -131,7 +214,7 @@ Các trường hợp dùng mảng tốt hơn danh sách liên kết:
 
 Tóm lại, các yêu cầu về không gian, thời gian và mức độ dễ thực hiện được xem xét để quyết định cấu trúc dữ liệu nào sẽ được sử dụng cho mục đích gì.
 
-### 9. Danh sách liên kết đôi (DDL) là gì ?
+### 9. Danh sách liên kết đôi (DDL) là gì?
 
 Đây là một loại danh sách liên kết phức tạp, trong đó một nút có hai tham chiếu:
 - Một tham chiếu liên kết với nút tiếp theo trong chuỗi
@@ -177,7 +260,7 @@ Các thao tác cơ bản trong hàng đợi:
 - Dùng làm bộ đệm cho ứng dụng nghe nhạc
 - Tác vụ CPU
 
-### 12. Ngăn xếp và hàng đợi khác nhau thế nào ?
+### 12. Ngăn xếp và hàng đợi khác nhau thế nào?
 
 Trong ngăn xếp phần tử được thêm vào gần nhất sẽ được lấy ra đầu tiên, còn trong hàng đợi nó sẽ được lấy ra cuối cùng.
 
@@ -250,7 +333,7 @@ dequeue(q):
     Pop the element from stack2 and return it.
 ```
 
-### 15. Triển khai ngăn xếp bằng hàng đợi ?
+### 15. Triển khai ngăn xếp bằng hàng đợi?
 
 Một ngăn xếp có thể được triển khai bằng 2 hai hàng đợi. Một hàng đợi hỗ trợ các thao tác là enqueue và dequeue. Ta sẽ dùng chúng để tạo các thao tác push, pop.
 
@@ -302,7 +385,7 @@ pop(s):
 ```
 
 ## Câu hỏi phỏng vấn cho Experienced
-### 16. Hashmap trong Java là gì ?
+### 16. Hashmap trong Java là gì?
 
 HashMap trong Java là một bảng băm dựa trên việc thực hiện Java's Map interface. Map là một tập hợp các cặp key-value. Nó ánh xạ các key tới các value.
 
@@ -314,7 +397,7 @@ Nói đơn giản hơn thì HashMap về cơ bản chỉ định các unique key
 
 Phương thức `hashcode()` được dùng khi thêm một đối tượng khoá vào map, còn `equals()` được dùng khi truy cập dữ liệu từ map.
 
-### 18. Xử lý xung đột trong HashMap với Java ?
+### 18. Xử lý xung đột trong HashMap với Java?
 
 Lớp `java.util.HashMap` trong Java sử dụng phương pháp chuỗi để xử lý xung đột. Trong chuỗi, nếu giá trị mới có khoá trùng với giá trị đã thêm vào, thì đó các giá trị này được lưu trữ trong danh sách liên kết ở bucket của khoá dưới dạng chuỗi cùng với giá trị hiện có.
 
@@ -324,7 +407,7 @@ Trong trường hợp tệ nhất, tất cả các khoá đều có cùng hashco
 
 Độ phức tạp thời gian là O(1) giả sử rằng hàm băm được sử dụng trong hashmap phân phối các phần tử một cách đồng nhất giữa các nhóm.
 
-### 20. Cơ sở dữ liệu nào được dùng cho triển khai bộ đệm LRU ?
+### 20. Cơ sở dữ liệu nào được dùng cho triển khai bộ đệm LRU?
 
 Bộ đệm LRU (Least Recently Used) cho phép xác định nhanh một phần tử đã không được sử dụng trong thời gian dài, bằng cách sắp xếp các mục theo thứ tự sử dụng. Để đạt được điều này, hai cấu trúc dữ liệu được sử dụng: 
 
@@ -333,7 +416,7 @@ Bộ đệm LRU (Least Recently Used) cho phép xác định nhanh một phần 
 
 ![](./assets/LRU-cache.png)
 
-### 21. Hàng đợi ưu tiên là gì ?
+### 21. Hàng đợi ưu tiên là gì?
 
 Hàng đợi ưu tiên là một kiểu dữ liệu trừu tượng giống như một hàng đợi bình thường nhưng có quyền ưu tiên được gán cho các phần tử.
 
@@ -347,7 +430,7 @@ Các phần tử có mức độ ưu tiên cao hơn được xử lý trước c
 
 Đây là lý do tại sao phương thức `keySet()` trả về tất cả các khóa dưới dạng SET trong Java vì nó không cho phép trùng lặp.
 
-### 23. Cấu trúc dữ liệu cây là gì ?
+### 23. Cấu trúc dữ liệu cây là gì?
 
 Cây là một cấu trúc dữ liệu đệ quy, phi tuyến tính bao gồm tập hợp một hoặc nhiều nút dữ liệu trong đó một nút được chỉ định là gốc và các nút còn lại được gọi là con của gốc.
 
@@ -362,7 +445,7 @@ Một vài ứng dụng của cây:
 
 ![](./assets/tree-data-structure.png)
 
-### 24. Cây nhị phân là gì ?
+### 24. Cây nhị phân là gì?
 
 Cây nhị phân là một kiểu câu đặc biệt trong đó mỗi nút có nhiều nhất hai nút con. Cây nhị phân thường được phân chia thành ba tập con rời rạc, tức là gốc của cây, cây con bên trái và cây con bên phải. 
 
@@ -420,7 +503,7 @@ int countNodes(Node root)
 }
 ```
 
-### 28. Duyệt cây là gì ?
+### 28. Duyệt cây là gì?
 
 Duyệt cây là quá trình đi qua tất cả nút trong cây. Từ gốc (root) là nút đầu tiên đến tất cả các nút được liên kết. Có 3 cách duyệt cây:
 
@@ -506,7 +589,7 @@ Ví dụ: ta có cây nhị phân như sau:
 - Duyệt tiền thứ tự => Root, Left, Right : [1, 2, 4, 5, 3]
 - Duyệt hậu thứ tự => Left, Right, Root : [4, 5, 2, 3, 1]
 
-### 29. Cây tìm kiếm nhị phân là gì ?
+### 29. Cây tìm kiếm nhị phân là gì?
 
 Cây tìm kiếm nhị phân (BST) là một biến thể của cấu trúc dữ liệu cây nhị phân, lưu trữ dữ liệu một cách hiệu quả nhằm mục đích sao cho giá trị của các nút trong cây con bên trái nhỏ hơn giá trị của nút gốc và giá trị của các nút bên phải cao hơn nút gốc.
 
@@ -514,7 +597,7 @@ Ngoài ra, từng cây con bên trái và bên phải cũng phải đảm bảo 
 
 ![](./assets/binary-search-tree.png)
 
-### 30. Cây AVL là gì ?
+### 30. Cây AVL là gì?
 
 Cây AVL là cây cân bằng. Cây AVL kiểm tra chiều cao của cây con bên trái và bên phải và đảm bảo rằng sự khác biệt không quá 1. Sự khác biệt này được gọi là Hệ số Cân bằng và được tính bằng: `BalanceFactor = chiều cao (cây con bên trái) - chiều cao (cây con bên phải)`.
 
@@ -592,13 +675,13 @@ public class InterviewBit
 }
 ```
 
-### 32. Cấu trúc dữ liệu đồ thị là gì ?
+### 32. Cấu trúc dữ liệu đồ thị là gì?
 
 Đồ thị là một loại cấu trúc dữ liệu phi tuyến tính bao gồm các đỉnh hoặc nút được kết nối bằng các cạnh hoặc liên kết để lưu trữ dữ liệu. Đồ thị có thể là có hướng hoặc vô hướng.
 
 ![](./assets/graph-data-structure.png)
 
-### 33. Ứng dụng của đồ thị ?
+### 33. Ứng dụng của đồ thị?
 
 Đồ thị được sử dụng trong nhiều ứng dụng khác nhau. Một số trong số chúng như sau:
 
@@ -608,7 +691,7 @@ public class InterviewBit
 - Đồ thị tiện ích điện hoặc nước trong đó các đỉnh là điểm kết nối và cạnh là dây hoặc đường ống kết nối chúng.
 - Thuật toán tìm đường đi ngắn nhất giữa hai điểm.
 
-### 34. Làm thế nào để biểu diễn đồ thị ?
+### 34. Làm thế nào để biểu diễn đồ thị?
 
 Ta có hai cách để biểu diễn đồ thị:
 
@@ -638,7 +721,7 @@ Cây cung cấp thông tin chi tiết về mối quan hệ giữa các nút theo
 | Độ phức tạp thời gian O(V+E) khi dùng danh sách liền kề và O(V^2) khi dùng ma trận liền kề, trong đÓ V là đỉnh và E là cạnh | Độ phức tạp thời gian O(V+E) khi dùng danh sách liền kề và O(V^2) khi dùng ma trận liền kề, trong đÓ V là đỉnh và E là cạnh |
 | Đến định liền kề trước khi đến đỉnh con | Đến đỉnh con trước khi đến đỉnh liền kề |
 
-### 37. Khi nào sử dụng DFS tốt hơn BFS ?
+### 37. Khi nào sử dụng DFS tốt hơn BFS?
 
 Việc sử dụng DFS hay BFS phụ thuộc nhiều vào cấu trúc của cây/đồ thị tìm kiếm, số lượng và vị trí của các giải pháp cần thiết:
 
@@ -773,7 +856,7 @@ class InterviewBit {
 }
 ```
 
-### 40. Cấu trúc dữ liệu heap là gì ?
+### 40. Cấu trúc dữ liệu heap là gì?
 
 Heap là một cấu trúc dữ liệu phi tuyến tính dựa trên một cây nhị phân hoàn chỉnh. Một cây nhị phân được cho là hoàn chỉnh nếu tất cả các cấp được lấp đầy hoàn toàn ngoại trừ cấp cuối cùng và cấp cuối cùng có tất cả các phần tử hướng về bên trái càng nhiều càng tốt. Các heap có hai loại:
 

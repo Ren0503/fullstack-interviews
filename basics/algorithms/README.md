@@ -37,7 +37,7 @@ Thuật toán thường được sử dụng để chỉ định cách tính to�
 * **Độ phức tạp thời gian (Complex of Time)**: thời gian chạy của một chương trình được xem như một hàm phụ thuộc vào kích thước đầu vào được gọi là độ phức tạp thời gian.
 * **Độ phức tạp không gian (Complex of Space)**: dựa trên không gian mà chương trình yêu cầu để xử lý hoàn tất một tác vụ.
 
-> Trước đây, bộ nhớ phần cứng bị hạn chế nên độ phức tạp không gian là rất quan trong, nhưng ngày nay bộ nhớ máy tính rất lớn, nên khi đề cập đến độ phức tạp người ta chủ yếu tập trung vào độ phức tạp thời gian.
+> Trước đây, bộ nhớ phần cứng bị hạn chế nên độ phức tạp không gian là rất quan trọng, nhưng ngày nay bộ nhớ máy tính rất lớn, nên khi đề cập đến độ phức tạp người ta chủ yếu tập trung vào độ phức tạp thời gian.
 
 ### 2. Trường hợp tốt nhất, xấu nhất và trung bình?
 
@@ -49,11 +49,11 @@ Nền tảng toán học cho hiệu suất thực thi thuật toán được xá
 
 ### 3. Bạn hiểu gì về ký hiệu tiệm cận?
 
-Phân tích tiệm cận là một kỹ thuật được dùng để xác định hiệu quả của một thuật toán mà không dựa vào các thông số kỹ thuật phần cứng và tránh để thuật toán so sánh chính nó với cách tiếp cận lãng phí thời gian. Với hân tích tiệm cận, ký hiệu tiệm cận một kỹ thuật toán học được dùng để chỉ ra độc phức tạp thời gian của thuật toán.
+Phân tích tiệm cận là một kỹ thuật được dùng để xác định hiệu quả của một thuật toán mà không dựa vào các thông số kỹ thuật phần cứng và tránh để thuật toán so sánh chính nó với cách tiếp cận lãng phí thời gian. Với phân tích tiệm cận, ký hiệu tiệm cận là một kỹ thuật toán học được dùng để chỉ ra độ phức tạp thời gian của thuật toán.
 
 Ta có 3 ký hiệu tiệm cận phổ biến như sau:
 
-- **Ký hiệu theta (θ)**: dùng để xác định chính xác dáng điệu tiệm cận. Nó liên kết các hàm từ bên trên và bên dưới để xác định dáng điệu tiệm cận. Bỏ qua các số hạng bậc thấp và các hằng số đứng đầu là một cách đơn giản để lấy ký hiệu theta cho một biểu thức.
+- **Ký hiệu theta (θ)**: dùng để xác định chính xác *dáng điệu tiệm cận*. Nó liên kết các hàm từ bên trên và bên dưới để xác định dáng điệu tiệm cận. Bỏ qua các số hạng bậc thấp và các hằng số đứng đầu là một cách đơn giản để lấy ký hiệu theta cho một biểu thức.
 
 ![](./assets/The_Theta_Notation.png)
 
@@ -109,7 +109,7 @@ Các thuật toán dùng mô hình chia để trị:
 
 ### 6. Giải thích về thuật toán tham lam và liệt kê các ví dụ sử dụng nó?
 
-Thuật toán tham lam là một phương pháp nhằm mục địch chọn ra quyết định tối ưu nhất ở mỗi bước con, cuối cùng dẫn đến giải pháp tối ưu tổng thể. Tức là, tại mỗi thời điểm thuật toán sẽ chọn ra câu trả lời tốt nhất hiện có, bất kể hậu quả là gì. Cũng có thể nói, thuật toán luôn chọn câu trả lời tốt nhất ngay lập tức mà không cần cân nhắc tương lai. Các thuật toán tham lam có thể tìm ra câu trả lời không phải là tối ưu nhất trong một số trường hợp.
+Thuật toán tham lam là một phương pháp nhằm mục địch chọn ra quyết định tối ưu nhất ở mỗi bước con, cuối cùng dẫn đến giải pháp tối ưu tổng thể. Tức là, tại mỗi thời điểm thuật toán luôn chọn câu trả lời tốt nhất ngay lập tức mà không cần cân nhắc tương lai. Cũng có thể nói thuật toán sẽ chọn ra câu trả lời tốt nhất hiện có, bất kể hậu quả là gì. Các thuật toán tham lam có thể tìm ra câu trả lời không phải là tối ưu nhất trong một số trường hợp.
 
 Các ví dụ sử dụng thuật toán tham lam:
 
@@ -145,7 +145,7 @@ Thuật toán tìm kiếm được sử dụng để tìm kiếm một phần t�
 
 ### 9. Mô tả thuật toán tìm kiếm nhị phân?
 
-Để áp dụng tìm kiếm nhị phân trên danh sách các phần tử, điều kiện tiên quyết là danh sách các phần tử phải được sắp xếp. Nó dựa trên mô hình thuật toán Chia để Trị. Trong tìm kiếm nhị phân, ta chia khoảng tìm kiếm thành hai phần để tìm trong danh sách đã sắp xếp. Ta bắt đầu bằng cách tạo khoảng trên toàn bộ danh sách. Nếu giá trị của khoá tìm kiếm nhỏ hơn phần tử ở giữa khoảng, thì khoảng đó được thu hẹp về trước, còn không nó sẽ được thu hẹp về sau. Ta tiếp tục thực hiện chia trên các khoảng nhỏ cho đến khi thu được kết quả. Dưới đây là mô tả thuật toán tìm kiếm nhỉ phân.
+Để áp dụng tìm kiếm nhị phân trên danh sách các phần tử, điều kiện tiên quyết là danh sách các phần tử phải được sắp xếp. Nó dựa trên mô hình thuật toán Chia để Trị. Trong tìm kiếm nhị phân, ta chia khoảng tìm kiếm thành hai phần để tìm trong danh sách đã sắp xếp. Ta bắt đầu bằng cách tạo khoảng trên toàn bộ danh sách. Nếu giá trị của khoá tìm kiếm nhỏ hơn phần tử ở giữa khoảng, thì khoảng đó được thu hẹp về trước, còn không nó sẽ được thu hẹp về sau. Ta tiếp tục thực hiện chia trên các khoảng nhỏ cho đến khi tìm được kết quả. Dưới đây là mô tả thuật toán tìm kiếm nhỉ phân.
 
 1. `x` sẽ được so sánh với phần tử ở giữa
 2. Trả về nếu `x` trùng với phần tử ở giữa
@@ -161,7 +161,7 @@ Dưới đây là một thuật toán để thêm một nút vào danh sách li�
 
 1. Kiểm tra danh sách liên kết có rỗng hay không. Nếu có tạo nút `head` và trả về.
 2. Kiểm tra giá trị của nút thêm vào có nhỏ hơn nút `head` hay không. Nếu có, đặt nó ở đầu và biến nó thành `head`.
-3. Nếu không thì thì sử dụng vào lặp để thêm nút đó vào vào vị trí thích hợp. Bắng cách bắt đầu duyệt từ nút `head` trỏ đến phần tử kế tiếp cho đến khi tìm được nút có giá trị lớn hơn nút đầu vào.
+3. Nếu không thì thì sử dụng vòng lặp để thêm nút đó vào vào vị trí thích hợp. Bằng cách bắt đầu duyệt từ nút `head` trỏ đến phần tử kế tiếp cho đến khi tìm được nút có giá trị lớn hơn nút đầu vào.
 4. Sau khi tìm được vị trí cần chèn thì thực hiện chèn nút.
 
 ### 11. Viết thuật toán đếm số nút lá trong cây nhị phân?
@@ -176,7 +176,7 @@ Dưới đây là một thuật toán để đếm số lượng nút lá trong 
 
 ![](./assets/Dynamic_Programming.png)
 
-Quy hoạch động chủ yếu là tối ưu hoá đệ quy. Ta có thể sử dụng Quy hoạch động để tối ưu hoá bất kỳ giải pháp đệ quy nào các lời gọi lặp lại cho cùng một đầu vào. Mục đích đơn giản là để lưu trữ kết quả các vấn đề con cho lần tính toán tiếp theo. Độ phức tạp thời gian của sự tối ưu hoá này là làm giảm theo cấp số nhân. Ví dụ: nếu  ta tạo một giải pháp đệ quy đơn giản cho số Fibonacci, thì độ phức tạp về thời gian là cấp số nhân, nhưng nếu ta tối ưu hóa nó bằng cách lưu trữ các câu trả lời cho các bài toán con bằng Quy hoạch động, thì độ phức tạp về thời gian là tuyến tính. 
+Quy hoạch động chủ yếu là tối ưu hoá đệ quy. Ta có thể sử dụng Quy hoạch động để tối ưu hoá bất kỳ giải pháp đệ quy nào có các lời gọi lặp lại cho cùng một đầu vào. Mục đích đơn giản là để lưu trữ kết quả các vấn đề con cho lần tính toán tiếp theo. Độ phức tạp thời gian của sự tối ưu hoá này được giảm theo cấp số nhân. Ví dụ: nếu  ta tạo một giải pháp đệ quy đơn giản cho số Fibonacci, thì độ phức tạp về thời gian là cấp số nhân, nhưng nếu ta tối ưu hóa nó bằng cách lưu trữ các câu trả lời cho các bài toán con bằng Quy hoạch động, thì độ phức tạp về thời gian là tuyến tính. 
 
 Code minh hoạ như sau:
 
@@ -208,14 +208,14 @@ Một vài vấn đề cần dùng Quy Hoạch động:
 - Tìm chuỗi con chung dài nhất giữa hai chuỗi.
 - Tìm chuỗi con Palindromic dài nhất trong một chuỗi.
 - Vấn đề Knapsack (hoặc 0-1) rời rạc.
-- Đường đi ngắn nhất giữa hai nút bất kỳ trong biểu đồ (Thuật toán Floyd Warshall).
+- Đường đi ngắn nhất giữa hai nút bất kỳ trong đồ thị (Thuật toán Floyd Warshall).
 
 ### 13. Viết thuật toán đảo chuỗi. Ví dụ như nhập vào Hello đảo thành Olleh?
 
 Thuật toán cho đảo chuỗi như sau:
 
 1. Ta có hai biến là `l` và `r`.
-2. Gán giá trị cho `l` là 0 và `r` là chiều dãi chuỗi - 1.
+2. Gán giá trị cho `l` là 0 và `r` là chiều dài chuỗi - 1.
 3. Hoán đổi giá trị của các ký tự ở vị trí `l` và `r` trong chuỗi.
 4. Tăng `l` lên một đơn vị.
 5. Giảm `r` xuống một đơn vị.
@@ -224,7 +224,7 @@ Thuật toán cho đảo chuỗi như sau:
 
 ### 14. Bạn hiểu gì về thuật toán BFS (Breadth First Search)?
 
-Tìm kiếm theo chiều rộng là một kỹ thuật duyệt đồ thị. Nó bắt đầu bằng cách duyệt qua đồ thị từ nút gốc và đi đến tất cả các nút trong lân cận. Nó chọn nút gần nhất và sau đó truy cập tất cả các nút chưa được truy cập. Cho đến khi nó đến nút mục tiêu, thuật toán lặp lại cùng một phương pháp cho mỗi nút gần nhất.
+Thuật toán duyệt đồ thị ưu tiên chiều rộng (Breadth-first search - BFS) là một trong những thuật toán tìm kiếm cơ bản và thiết yếu trên đồ thị. Mà trong đó, những đỉnh nào gần đỉnh xuất phát hơn sẽ được duyệt trước. Nó bắt đầu bằng cách duyệt qua đồ thị từ nút gốc và đi đến tất cả các nút lân cận. Nó chọn nút gần nhất và từ đó truy cập tất cả các nút chưa được truy cập. Cho đến khi nó đến nút mục tiêu, thuật toán lặp lại cùng một phương pháp cho mỗi nút gần nhất.
 
 Thuật toán BFS được đưa ra dưới đây:
 
@@ -232,7 +232,7 @@ Thuật toán BFS được đưa ra dưới đây:
 2. Đặt `status` của nút ban đầu A là `2`, tức là trạng thái chờ.
 3. Lặp lại các bước 4 và 5 cho đến khi đầy hàng đợi.
 4. Dequeue và xử lý nút N từ hàng đợi, thiết lập `status` của nó thành 3, nghĩa là trạng thái đã xử lý.
-5. Đặt tất cả nút lân cận của N ở trạng thái sẵn sàng (`status = 1`) vào hàng đợi và chuyển `status` của chúng thành 2 (trạng thái chờ)
+5. Đặt tất cả nút lân cận của N đang ở trạng thái sẵn sàng (`status = 1`) vào hàng đợi và chuyển `status` của chúng thành 2 (trạng thái chờ)
 6. Thoát.
 
 ### 15. Bạn hiểu gì về thuật toán DFS (Depth First Search)?
@@ -260,7 +260,7 @@ Một số thuật toán mật mã được sử dụng rộng rãi nhất như 
 - Blowfish
 - GOST
 - LOKI
-- DES and Triple DES.
+- DES và Triple DES.
 
 ### 18. Mô tả thuật toán merge sort?
 
@@ -278,7 +278,7 @@ Quicksort (tạm dịch là sắp xếp nhanh) là một thuật toán sắp x�
 
 Quicksort dựa trên mô hình thuật toán chia để trị. Nó thực hiện bằng cách chọn một phần tử "pivot" từ mảng và tách mảng thành hai mảng con dựa trên việc các phần tử còn lại lớn hơn hay bé hơn pivot. Do đó, nó còn được gọi là sắp xếp trao đổi phân vùng. Mảng con sau đó sẽ được sắp xếp với đệ quy.
 
-Sau đây là các bước cho quicksort in-place:
+Sau đây là các bước cho quicksort:
 
 - Nếu có ít hơn hai phần tử trong mảng, trả về ngay lập tức vì không thể làm gì khác. 
 
