@@ -1,5 +1,7 @@
 # Câu hỏi phỏng vấn về Design Pattern
 
+![](./assets/design-pattern.png)
+
 Các design pattern là các giải pháp mẫu có thể tái sử dụng để giải quyết các vấn đề phổ biến trong phát triển phần mềm như lặp code, các pattern có thể sử dụng lại, các chức năng dư thừa, v.v. Chúng tương tự như các bản thiết kế có thể tùy chỉnh để giải quyết bất kỳ vấn đề nào. Khái niệm này được Christopher Alexander mô tả lần đầu tiên và sau đó được 4 tác giả -  Erich Gamma, John Vlissides, Ralph Johnson, and Richard Helm - thường được biết đến với cái tên Gang of Four xuất bản trong cuốn sách Design Patterns: Elements of Reusable Object-Oriented Software vào năm 1994. Design Patterns dạy các dev cách giải quyết các vấn đề thường lặp lại mà không tốn quá nhiều thời gian và công sức trong khi phát triển các giải pháp cho chúng. Do đó, nhu cầu cho các nhà phát triển phần mềm biết các pattern này đã tăng lên rất nhiều.
 
 ## Câu hỏi phỏng vấn Design Pattern cho Fresher
@@ -863,3 +865,109 @@ MVC là viết tắt của Model-View-Controller. Pattern này tách ứng dụn
 ![](./assets/MVC_design_pattern.png)
 
 Ảnh trên đại diện cho luồng yêu cầu xảy ra trong MVC. Đầu tiên, trình duyệt (client) gửi yêu cầu đến một trang cho controller của server. Controlelr gọi model lấy dữ liệu và gửi phản hồi. Phản hồi sau đó được gửi đến view để hiển thị. Chế độ view sẽ gửi đến client để hiển thị.
+
+### 25. Các thành phần trong Composite Entity?
+
+Composite Entity là một pattern thiết kế phần mềm Java EE, nó được dùng để mô hình hoá, biểu diễn và quản lý một tập hợp các đối tượng liên tục có liên quan với nhau thay vì biểu diễn chúng dưới dạng các hạt thực thể chi tiết riêng lẻ và còn một hạt thực thể composite biểu thị một đồ thị của các đối tượng.
+
+Composite Entity Pattern đại diện cho một biểu đồ của các đối tượng. Khi được cập nhật, nó sẽ cập nhật cho tất cả các đối tượng có trong biểu đồ đó. Nó chủ yêu được sử dụng trong Enterprise JavaBeans (EJB).
+
+Có 4 thành phần chính trong Composite Entity là:
+
+- **Composite Entity** - Hạt thực thể chính có thể có một đối tượng hạt thô để tồn tại lâu dài.
+- **Coarse-Grained Object** - chứa các đối tượng phụ thuộc với vòng đời của chúng và lần lượt quản lý vòng đời của các đối tượng phụ thuộc.
+- **Dependent Object** - Đối tượng này phụ thuộc vào đối tượng thô trong suốt vòng đời tồn tại.
+- **Strategies** - đại diện cho cách triển khai thực thể composite.
+
+### 26. Lợi thế của dùng prototype so với dùng toán tử new là gì?
+
+Design pattern Prototype được sử dụng để tạo các đối tượng trùng lặp dựa trên prototype của đối tượng đã có bằng cách sử dụng nhân bản. Việc làm này có tác động tích cực đến hiệu suất tạo đối tượng. Việc tạo các đối tượng bằng cách sử dụng từ khóa `new` đòi hỏi nhiều tài nguyên và là một quá trình nặng nề ảnh hưởng đến hiệu suất. Do đó, prototype có lợi hơn so với đối tượng được tạo bằng từ khóa `new` về hiệu suất. 
+
+### 27. Thread-safe với Singleton trong Java?
+
+Một lớp thread-safe singleton được tạo để giúp khởi tạo đối tượng trong môi trường đa luồng. Nó có thể thực hiện bằng nhiều cách:
+
+- **Sử dụng Enum:** Enum là cách đơn giản nhất để tạo một lớp thread-safe singleton trong Java vì nó hỗ trợ đồng bộ do chính Java thực hiện. 
+
+```java
+public enum ThreadSafeSingleton{
+    SINGLETON_INSTANCE;
+    public void display(){
+        System.out.println("Thread-safe singleton Display");
+    }
+}
+// The Singleton class methods can be invoked as below
+ThreadSafeSingleton.SINGLETON_INSTANCE.show();
+```
+
+- **Sử dụng trường static:** Thread-safe singleton còn có thể được tạo bằng cách tạo thực thể tại thời điểm tải lớp. Điều này được thực hiện bằng cách sử dụng trường static vì Classloader đảm bảo rằng các thực thể được khởi tạo trong quá trình tải lớp sẽ không hiển thị cho đến khi nó được tạo đầy đủ. 
+
+```java
+public class ThreadSafeSingleton{
+    private static final ThreadSafeSingleton INSTANCE = new ThreadSafeSingleton();
+    private ThreadSafeSingleton(){ }
+    public static ThreadSafeSingleton getInstance(){
+        return INSTANCE;
+    }
+    public void display(){
+        System.out.println("Thread-safe Singleon");
+    }
+}
+ThreadSafeSingleton.getInstance().display();
+```
+
+Nhưng nhược điểm của cách này là việc khởi tạo không thể thực hiện theo cách lazy và phương thức `getInstance()` được gọi trước khi bất kỳ client nào có thể gọi.
+
+- **Sử dụng từ khoá synchronized:** Ta có thể dùng từ khoá synchronized trên phương thức `getInstance()` như bên dưới:
+    + Trong cách này, ta có thể thực hiện lazy initialization, và vì ta dùng từ khoá synchronized nên đối tượng được khởi tạo là thread-safe.
+    + Vấn đề duy nhất là toàn bộ phương thức này điều là đồng bộ, hiệu suất sẽ bị ảnh hưởng khi có đa luồng.
+
+```java
+public class ThreadSafeSingleton
+{
+    // Creating private instance to make it accessible only by getInstance() method
+    private static ThreadSafeSingleton instance;
+    private ThreadSafeSingleton()
+    {
+    // Making constructor private so that objects cant be initialized outside the class
+    }
+    //synchronized getInstance method
+    synchronized public static ThreadSafeSingleton getInstance(){
+    if (this.instance == null)
+    {
+        // if instance is null, initialize
+        this.instance = new ThreadSafeSingleton();
+    }
+    return this.instance;
+    }
+}
+```
+
+- **Double-check locking:** Ở đây, chúng ta sẽ sử dụng một khối code synchronized  trong phương thức `getInstance` thay vì làm cho toàn bộ phương thức. Điều này đảm bảo rằng chỉ một số ít luồng phải chờ lần đầu tiên do đó không ảnh hưởng đến hiệu suất.
+
+```java
+public class ThreadSafeSingleton {
+    // Creating private instance to make it accessible only by getInstance() method
+    private static ThreadSafeSingleton instance;
+    private ThreadSafeSingleton(){
+    // Making constructor private so that objects cant be initialized outside the class
+    }
+    public static ThreadSafeSingleton getInstance(){
+    if (instance == null){
+        //synchronized block of code
+        synchronized (ThreadSafeSingleton.class){
+        if(instance==null)
+        {
+            // initialize only if instance is null
+            instance = new ThreadSafeSingleton();
+        }
+        }
+    }
+    return instance;
+    }
+}
+```
+
+### 28. Điều gì sẽ xảy ra nếu chúng ta không có một phương thức synchronized để trả về thực thể Singleton trong môi trường đa luồng?
+
+Trong môi trường đa luồng, nếu chúng ta có một phương thức không được đồng bộ hóa để trả về các trường hợp, thì có khả năng phương thức đó có thể tạo nhiều hơn một đối tượng. Hãy xem xét rằng chúng ta có 2 luồng và cả hai đều nhập điều kiện để kiểm tra xem thực thể đã tồn tại hay chưa. Cả hai luồng sẽ thấy rằng thực thể chưa được tạo và do đó cả hai sẽ tạo các thực thể lớp. Điều này đi ngược lại nguyên tắc của pattern Singleton. Do đó, trong môi trường đa luồng, nên sử dụng kiểm tra đồng bộ.
