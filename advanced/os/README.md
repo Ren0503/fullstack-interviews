@@ -44,7 +44,7 @@ Lợi ích:
 - Nó còn gia tăng đáng kể về thông lượng cũng như hiệu quả về chi phí vì tất cả các bộ xử lý đều chia sẻ cùng một nguồn tài nguyên.
 - Cuối cùng là cải thiện độ tin cậy của hệ thống máy tính.
 
-### 4. Cấu trúc RAID trong hệ điềuh ành là gì?
+### 4. Cấu trúc RAID trong hệ điều hành là gì?
 
 RAID (Redundant Arrays of Independent Disks) là một phương pháp được dùng để lưu trữ dữ liệu trên nhiều đĩa cứng do đó có thể xem nó là một công nghệ lưu trữ dữ liệu ảo hoá để kết hợp nhiều đĩa cứng. Nhằm mụuc đích là cân bằng, bảo vệ dữ liệu, cải thiện hiệu suất hệ thống, không gian lưu trữ, v.v. 
 
@@ -297,3 +297,75 @@ Kết thúc hàng loạt là sự kết thúc tiến trình trong đó nếu ti�
 **Starvation**: là vấn đề thường xảy ra khi một tiến trình không thể nhận được các tài nguyên cần thiết mà nó cần để tiến trình thực thi trong một khoảng thời gian dài. Trong điều kiện này, các tiến trình có mức độ ưu tiên thấp bị chặn và chỉ các tiến trình có mức độ ưu tiên cao mới tiếp tục hoàn thành, vì thế các tiến trình có mức độ ưu tiên thấp bị thiếu tài nguyên. 
 
 **Aging**: là một kỹ thuật được sử dụng để khắc phục vấn đề *starvation*. Nó đơn giản là tăng mức độ ưu tiên của các tiến trình chờ tài nguyên trong hệ thống trong một khoảng thời gian dài. Nó được coi là kỹ thuật tốt nhất để giải quyết vấn đề starvation vì nó thêm một yếu tố aging vào mức độ ưu tiên của mọi yêu cầu của các tiến trình khác nhau về tài nguyên. Nó cũng đảm bảo rằng các công việc hoặc tiến trình cấp thấp hoàn thành việc thực thi của chúng. 
+
+### 31. Semaphore là gì trong hệ điều hành?
+
+Semaphore là một cơ chế báo hiệu. Nó chỉ chứa một giá trị nguyên dương. Được sử dụng để giải quyết vấn đề hoặc sự cố của các phần quan trọng trong quá trình đồng bộ hóa bằng cách sử dụng hai hoạt động cơ bản, là `wait()` và `signal()`.
+
+#### Các loại semaphore
+
+Có hai loại semaphore là:
+* Binary Semaphore
+* Counting Semaphore
+
+#### So sánh Binary Semaphore với Mutex
+| Binary Semaphore | Mutex |
+|------------------|--------------------|
+| Về cơ bản là một số nguyên | Là một đối tượng |
+| Nhanh hơn so với mutex | Chậm hơn binary semaphore |
+| Các chức năng của nó dựa trên cơ chế tín hiệu | Các chức năng của nó dựa trên cơ chế khóa |
+| Nó cho phép các luồng tiến trình khác nhau nhận được hữu hạn của tài nguyên cho đến khi tài nguyên có sẵn | Nó cho phép các luồng tiến trình khác nhau chỉ nhận được tài nguyên được chia sẻ duy nhất tại một thời điểm |
+
+### 32. Kernel là gì? Chức năng chính của nó?
+
+Kernel là một chương trình máy tính điều khiển mọi thứ khác, nó là hạt nhân - trái tim của hệ điều hành! Bất cứ điều gì xảy ra trên máy tính đều đi qua nó. Đó là chương trình cốt lõi trong hệ điều hành, cũng là chương trình đầu tiên tải sau bộ nạp khởi động. Sau đó, nó thực hiện tất cả các cuộc nói chuyện giữa phần cứng và phần mềm hoặc ứng dụng. Vì vậy, nếu bạn khởi chạy một chương trình, giao diện người dùng sẽ gửi yêu cầu tới Kernel. Kernel sau đó gửi yêu cầu tới CPU, Bộ nhớ để gán sức mạnh xử lý, bộ nhớ và những thứ khác để ứng dụng có thể chạy trơn tru ở giao diện người dùng.
+
+![](./assets/kernel-os.png)
+
+Chức năng chính của Kernel:
+* Nó chịu trách nhiệm quản lý tất cả các tài nguyên máy tính như CPU, bộ nhớ, file, tiến trình, v.v.
+* Nó tạo điều kiện hoặc khởi tạo sự tương tác giữa các thành phần của phần cứng và phần mềm.
+* Nó quản lý bộ nhớ RAM để tất cả các tiến trình và chương trình đang chạy có thể hoạt động hiệu quả.
+* Nó cũng kiểm soát và quản lý tất cả các tác vụ chính của HĐH cũng như quản lý việc truy cập và sử dụng các thiết bị ngoại vi khác nhau được kết nối với máy tính.
+* Nó lên kế hoạch cho công việc được thực hiện bởi CPU để công việc của mỗi người dùng được thực thi một cách hiệu quả nhất có thể.
+
+### 33. Các kiểu Kernel khác nhau?
+
+- Monolithic Kernel
+- MicroKernel
+- Hybrid Kernel 
+- Nano Kernel
+- Exo Kernel
+
+### 34. Sự khác biệt giữa MircoKernel và Monolithic Kernel?
+
+**MicroKernel:** là một hệ điều hành tối thiểu chỉ thực thi các chức năng quan trọng của hệ điều hành. Nó chỉ chứa một số lượng gần như tối thiểu các tính năng và chức năng được yêu cầu để triển khai hệ điều hành.
+Vd: QNX, Mac OS X, K42,...
+
+**Monolithic Kernel:** là một kiến trúc hệ điều hành hỗ trợ tất cả các tính năng cơ bản của các thành phần máy tính như quản lý tài nguyên, bộ nhớ, file, v.v.
+Vd: Solaris, DOS, Linux, ...
+
+![](./assets/monolithic_and_microkernel.png)
+
+| MicroKernel | Monolithic Kernel |
+|-------------|-------------------|
+| Dịch vụ kernel và dịch vụ người dùng ở các không gian địa chỉ khác nhau | Dịch vụ kernel và dịch vụ người dùng ở cùng không gian địa chỉ |
+| Kích cỡ nhỏ | Kích cỡ lớn |
+| Dễ mở rộng | Khó mở rộng |
+| Khi dịch vụ hỏng, nó ảnh hưởng đến hoạt động của microkernel | Khi dịch vụ hỏng, toàn bộ hệ thống sẽ hỏng trên monolithic kernel |
+| Sử dụng message queue để giao tiếp giữa các inter-process | Sử dụng signal và socket để giao tiếp giữa các inter-process |
+
+### 35. SMP là gì?
+
+SMP (Symmetric Multiprocessing) đề cập đến kiến trúc máy tính trong đó việc xử lý các chương trình được thực hiện bởi nhiều bộ xử lý chia sẻ một hệ điều hành và bộ nhớ chung. SMP rất cần thiết nếu bạn muốn tận dụng phần cứng đa xử lý. Nó cho phép bất kỳ bộ xử lý nào hoạt động trên bất kỳ tác vụ nào bất kể dữ liệu hoặc tài nguyên cho tác vụ cụ thể đó nằm ở đâu trong bộ nhớ. Các hệ thống này đáng tin cậy hơn các hệ thống một bộ xử lý.
+
+### 36. Hệ thống chia sẻ thời gian là gì?
+
+Nó là một hệ thống cho phép nhiều người dùng truy cập vào các tài nguyên của một hệ thống cụ thể ở nhiều vị trí. Nói cách đơn giản, nó thực hiện nhiều tác vụ trên một bộ xử lý hoặc CPU. Như tên cho thấy, nó có nghĩa là chia sẻ thời gian vào nhiều thời điểm trong một số tiến trình. Nó cũng cho phép những người dùng khác nhau từ các địa điểm khác nhau sử dụng một hệ thống máy tính cụ thể cùng một lúc, do đó nó được coi là một trong những loại hệ điều hành quan trọng.
+
+### 37. Context Switching là gì?
+
+Context switching về cơ bản là một quá trình lưu ngữ cảnh của một tiến trình và tải ngữ cảnh của một tiến trình khác. Đây là một trong những biện pháp hiệu quả về chi phí và tiết kiệm thời gian được thực hiện bởi CPU vì nó cho phép nhiều tiến trình chia sẻ một CPU. Vì vậy, nó được coi là một phần quan trọng của HĐH hiện đại. Kỹ thuật này được OS sử dụng để chuyển một tiến trình từ trạng thái này sang trạng thái khác, tức là từ trạng thái **running** sang trạng thái **ready**. Nó cũng cho phép một CPU duy nhất xử lý và kiểm soát nhiều tiến trình hoặc luồng khác nhau mà thậm chí không cần thêm tài nguyên.
+
+### 38. Sự khác biệt giữa Kernel và hệ điều hành?
+
