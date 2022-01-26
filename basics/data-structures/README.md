@@ -37,7 +37,7 @@ Các ứng dụng của cấu trúc dữ liệu:
 
 Bất kỳ vấn đề nào đều có những hạn chế về tốc độ giải quyết (thời gian) và lượng tài nguyên tiêu tốn (không gian). Một vấn đề bị hạn chế bởi độ phức tạp về không gian và thời gian phải được giải quyết một cách hiệu quả.
 
-Để làm được điều này, vấn đề phải được biểu diễn ở một dạng cấu trúc phù hợp mà ở đó các thuật toán được áp dụng hiệu quả.
+Để làm được điều này, vấn đề phải được biểu diễn ở một dạng cấu trúc phù hợp mà ở đó các thuật toán được áp dụng tốt nhất.
 
 Lựa chọn cấu trúc dữ liệu thích hợp trở thành bước quan trọng nhất trước khi áp dụng thuật toán cho bất kỳ vấn đề nào.
 
@@ -103,7 +103,7 @@ Khi danh sách liên kết được sử dụng cho truy cập, nó được coi
 
 2. **Cấu trúc dữ liệu động**
 
-- Danh sách liên kết là cấu trúc dữ liệu động có nghĩa là không cần cho kích thước ban đầu khi tạo, nó có thể mở rộng hay co lại theo thời gian bởi quá trình cấp phát hay thu hổi của bộ nhớ.
+- Danh sách liên kết là cấu trúc dữ liệu động có nghĩa là không cần cho kích thước ban đầu khi tạo, nó có thể mở rộng hay co lại theo thời gian bởi quá trình cấp phát hay thu hồi của bộ nhớ.
 - Trong khi đó, kích thước của mảng là giới hạn về số lượng phần tử được lưu trong bộ nhớ chính.
 
 3. **Không lãng phí bộ nhớ**
@@ -123,7 +123,7 @@ Các trường hợp sử dụng danh sách liên kết tốt hơn mảng:
 
 Các trường hợp dùng mảng tốt hơn danh sách liên kết:
 - Khi cần đánh chỉ mục cho các truy cập phần tử ngẫu nhiên thường xuyên.
-- Khi ta biết trước số lượng phần tử mảng để cấp pháp bộ nhớ.
+- Khi ta biết trước số lượng phần tử mảng để cấp phát bộ nhớ.
 - Khi chúng ta cần tốc độ khi lặp lại các phần tử trong chuỗi.
 - Khi cần quan tâm bộ nhớ:
     1. Một mảng đầy sẽ tốn ít bộ nhớ hơn danh sách liên kết
@@ -301,9 +301,12 @@ pop(s):
     Step4: Return the result.
 ```
 
-### 16. Hashmap trong cấu trúc dữ liệu là gì ?
+## Câu hỏi phỏng vấn cho Experienced
+### 16. Hashmap trong Java là gì ?
 
-Hashmap là cấu trúc dữ liệu sử dụng triển khai cấu trúc dữ liệu bảng băm để cho phép truy cập dữ liệu với độ phức tạp thời gian O(1) nếu bạn có khoá.
+HashMap trong Java là một bảng băm dựa trên việc thực hiện Java's Map interface. Map là một tập hợp các cặp key-value. Nó ánh xạ các key tới các value.
+
+Nói đơn giản hơn thì HashMap về cơ bản chỉ định các unique key cho các value tương ứng có thể được truy xuất tại bất kỳ điểm nào.
 
 ### 17. Yêu cầu đối với một đối tượng được sử dụng làm khóa hoặc giá trị trong HashMap là gì?
 
@@ -315,7 +318,7 @@ Phương thức `hashcode()` được dùng khi thêm một đối tượng kho�
 
 Lớp `java.util.HashMap` trong Java sử dụng phương pháp chuỗi để xử lý xung đột. Trong chuỗi, nếu giá trị mới có khoá trùng với giá trị đã thêm vào, thì đó các giá trị này được lưu trữ trong danh sách liên kết ở bucket của khoá dưới dạng chuỗi cùng với giá trị hiện có.
 
-Trong trường hợp tế nhất, tất cả các khoá đều có cùng hashcode, nó sẽ trả về bảng băm giống như là một danh sách liên kết. Trong trường hợp này, việc tìm kiếm một giá trị sẽ mất độ phức tạp thời gian là O(n) thay vì O(1). Do đó, cần phải cần thận khi lựa chọn thuật toán băm.
+Trong trường hợp tệ nhất, tất cả các khoá đều có cùng hashcode, nó sẽ trả về bảng băm giống như là một danh sách liên kết. Trong trường hợp này, việc tìm kiếm một giá trị sẽ mất độ phức tạp thời gian là O(n) thay vì O(1). Do đó, cần phải cẩn thận khi lựa chọn thuật toán băm.
 
 ### 19. Độ phức tạp thời gian của thao tác get() và put() trong HashMap 
 
@@ -323,7 +326,7 @@ Trong trường hợp tế nhất, tất cả các khoá đều có cùng hashco
 
 ### 20. Cơ sở dữ liệu nào được dùng cho triển khai bộ đệm LRU ?
 
-Bộ đệm LRU (Least Recently Used) cho phép xác định nhanh một phần tử đã không được sử dụng trong thời gian dài nhất bằng cách sắp xếp các mục theo thứ tự sử dụng. Để đạt được điều này, hai cấu trúc dữ liệu được sử dụng: 
+Bộ đệm LRU (Least Recently Used) cho phép xác định nhanh một phần tử đã không được sử dụng trong thời gian dài, bằng cách sắp xếp các mục theo thứ tự sử dụng. Để đạt được điều này, hai cấu trúc dữ liệu được sử dụng: 
 
 - **Queue** - Triển khai này sử dụng một danh sách liên kết đôi. Kích thước tối đa của hàng đợi dựa trên kích thước bộ đệm, bằng tổng số frame khả dụng. Các trang ít được dùng gần đây nhất sẽ ở gần với phần trước của hàng đợi trong khi các trang sử dụng nhiều gần đây nhất sẽ ở cuối hàng.
 - **Hashmap** - Hashmap lưu trữ số trang dưới dạng khóa cùng với địa chỉ của nút hàng đợi tương ứng dưới dạng giá trị.
@@ -367,7 +370,7 @@ Cây nhị phân là một kiểu câu đặc biệt trong đó mỗi nút có n
 
 ### 25. Số lượng nút tối đa của cây nhị phân có chiều dài k 
 
-Số lượng nút tối đa lf 2^(k+1) - 1, với k >= 1.
+Số lượng nút tối đa là 2^(k+1) - 1, với k >= 1.
 
 ### 26. Viết hàm đệ quy tính chiều cao cây nhị phân trong Java 
 
@@ -505,21 +508,21 @@ Ví dụ: ta có cây nhị phân như sau:
 
 ### 29. Cây tìm kiếm nhị phân là gì ?
 
-Cây tìm kiếm nhị phân (BST) là một biến thể của cấu trúc dữ liệu cây nhị phân, lưu trữ dữ liệu theo cách rất hiệu quả sao cho giá trị của các nút trong cây con bên trái nhỏ hơn giá trị của nút gốc và giá trị của các nút bên phải của nút gốc tương ứng cao hơn nút gốc.
+Cây tìm kiếm nhị phân (BST) là một biến thể của cấu trúc dữ liệu cây nhị phân, lưu trữ dữ liệu một cách hiệu quả nhằm mục đích sao cho giá trị của các nút trong cây con bên trái nhỏ hơn giá trị của nút gốc và giá trị của các nút bên phải cao hơn nút gốc.
 
-Ngoài ra, từng cây con bên trái và bên phải là cây tìm kiếm nhị phân của riêng chúng tại mọi trường hợp.
+Ngoài ra, từng cây con bên trái và bên phải cũng phải đảm bảo tính chất trên trong mọi trường hợp.
 
 ![](./assets/binary-search-tree.png)
 
 ### 30. Cây AVL là gì ?
 
-Cây AVL là cây cân bằng. Cây AVL kiểm tra chiều cao của cây con bên trái và bên phải và đảm bảo rằng sự khác biệt không quá 1. Sự khác biệt này được gọi là Hệ số Cân bằng và được tính bằng. `BalanceFactor = chiều cao (cây con bên trái) - chiều cao (cây con bên phải)`.
+Cây AVL là cây cân bằng. Cây AVL kiểm tra chiều cao của cây con bên trái và bên phải và đảm bảo rằng sự khác biệt không quá 1. Sự khác biệt này được gọi là Hệ số Cân bằng và được tính bằng: `BalanceFactor = chiều cao (cây con bên trái) - chiều cao (cây con bên phải)`.
 
 ### 31. In chế độ xem bên trái của bất kỳ cây nhị phân nào 
 
 Ý tưởng chính để giải quyết vấn đề này là duyệt cây theo tiền thứ tự và truyền thông tin về cấp bậc cùng với nó. Nếu cấp được truy cập lần đầu tiên, thì chúng ta lưu trữ thông tin của nút hiện tại và cấp hiện tại trong hashmap. Về cơ bản, thì ta đang có được chế độ xem bên trái bằng cách quan sát đến nút đầu tiên của mọi cấp độ.
-Khi kết thúc quá trình duyệt, chúng ta có thể tìm ra giải pháp bằng cách duyệt qua map
-.
+Khi kết thúc quá trình duyệt, chúng ta có thể tìm ra giải pháp bằng cách duyệt qua map.
+
 Hãy xem xét cây sau đây làm ví dụ để tìm chế độ xem bên trái:
 
 ![](./assets/left-view-binary-tree.png)
@@ -600,9 +603,9 @@ public class InterviewBit
 Đồ thị được sử dụng trong nhiều ứng dụng khác nhau. Một số trong số chúng như sau:
 
 - Đồ thị mạng xã hội để xác định luồng thông tin trong các trang web mạng xã hội như facebook, linkedin, v.v.
-- Đồ thị mạng neural trong đó các nút đại diện cho các neuron và cạnh biểu thị các khớp thần kinh giữa chúng
-- Lưới giao thông trong đó các trạm là các nút và các tuyến là các cạnh của biểu đồ.
-- Đồ thị tiện ích điện hoặc nước trong đó các đỉnh là điểm kết nối và cạnh của dây hoặc đường ống kết nối chúng.
+- Đồ thị mạng neural trong đó các nút đại diện cho các neuron và cạnh biểu thị các khớp thần kinh giữa chúng.
+- Lưới giao thông trong đó các trạm là các nút và các tuyến là các cạnh của đồ thị.
+- Đồ thị tiện ích điện hoặc nước trong đó các đỉnh là điểm kết nối và cạnh là dây hoặc đường ống kết nối chúng.
 - Thuật toán tìm đường đi ngắn nhất giữa hai điểm.
 
 ### 34. Làm thế nào để biểu diễn đồ thị ?
@@ -619,41 +622,44 @@ Ta có hai cách để biểu diễn đồ thị:
 
 ### 35. Sự khác biệt giữa cấu trúc dữ liệu cây và đồ thị 
 
-Cây và đồ thị được phân biệt bởi sự thực là cấu trúc cây phải được kết nối và không bao giờ có thể có vòng lặp trong khi trong đồ thị không có hạn chế đó.
+Cây và đồ thị được phân biệt bởi cấu trúc cây phải được kết nối và không bao giờ có thể có vòng lặp trong khi trong đồ thị không có hạn chế đó.
 
 Cây cung cấp thông tin chi tiết về mối quan hệ giữa các nút theo hệ thống phân cấp còn đồ thị tuân theo mô hình mạng.
 
 ### 36. Sự khác biệt giữa BFS (Breadth First Search) và DFS (Delth First Search)
 
-1. BFS và DFS đều là các phương pháp duyệt cho một đồ thị. Duyệt đồ thị không là gì khác ngoài quá trình truy cập tất cả các nút của đồ thị.
-
-2. Sự khác biệt chính giữa BFS và DFS là BFS truyền theo cấp độ trong khi DFS trước tiên đi theo một đường dẫn từ nút bắt đầu đến nút cuối, sau đó là một đường dẫn khác từ đầu đến cuối, v.v. cho đến khi tất cả các nút được truy cập.
-
-3. Hơn nữa, BFS sử dụng cấu trúc dữ liệu hàng đợi để lưu trữ các nút trong khi DFS sử dụng ngăn xếp để duyệt qua các nút.
-
-4. DFS cung cấp các giải pháp sâu hơn không phải là tối ưu, nhưng nó hoạt động tốt khi giải pháp ngu đần trong khi các giải pháp của BFS là tối ưu.
+| BFS | DFS |
+|-----|-----|
+| Breadth First Search | Depth First Search |
+| Sử dụng hàng đợi | Sử dụng Ngăn xếp |
+| Có thể được dùng để tìm đường đi ngắn nhất trong một đồ thị không trọng số, bởi vì trong BFS, ta có thể đến một đỉnh có số cạnh tối thiểu từ một đỉnh nguồn | Ta có thể đi qua nhiều cạnh hơn để đến một đỉnh đích từ một nguồn |
+| Phù hợp để tìm kiếm các đỉnh gần với nguồn | Phù hợp khi có các giải pháp xa nguồn |
+| Xem xét tất cả đỉnh lân cận do đó không thích hợp sử dụng trong trò chơi hay câu đố | Phù hợp cho vấn đề câu đố và trò chơi. Ta đưa ra quyết định sau đó khám phá tất cả đường đi thông qua quyết định này |
+| Độ phức tạp thời gian O(V+E) khi dùng danh sách liền kề và O(V^2) khi dùng ma trận liền kề, trong đÓ V là đỉnh và E là cạnh | Độ phức tạp thời gian O(V+E) khi dùng danh sách liền kề và O(V^2) khi dùng ma trận liền kề, trong đÓ V là đỉnh và E là cạnh |
+| Đến định liền kề trước khi đến đỉnh con | Đến đỉnh con trước khi đến đỉnh liền kề |
 
 ### 37. Khi nào sử dụng DFS tốt hơn BFS ?
 
-Việc sử dụng DFS phụ thuộc nhiều vào cấu trúc của cây/đồ thị tìm kiếm, số lượng và vị trí của các giải pháp cần thiết. Sau đây là những trường hợp mà chúng ta có nên sử dụng DFS:
+Việc sử dụng DFS hay BFS phụ thuộc nhiều vào cấu trúc của cây/đồ thị tìm kiếm, số lượng và vị trí của các giải pháp cần thiết:
 
-- Nếu biết rằng giải pháp không nằm xa gốc, thì BFS có thể tốt hơn.
-- Nếu cây rất sâu và các giải pháp hiếm, DFS có thể mất rất nhiều thời gian, và BFS có thể nhanh hơn.
-- Nếu cây rất rộng, BFS có thể cần quá nhiều bộ nhớ, vì vậy nó có thể hoàn toàn không thực tế. Chúng tôi tìm kiếm DFS trong những trường hợp như vậy.
-- Nếu các giải pháp là thường xuyên nhưng nằm sâu trong cây, nên chọn DFS.
+- Nếu biết rằng giải pháp nằm gần gốc, thì BFS có thể tốt hơn.
+- Nếu cây rất sâu và hiếm giải pháp, DFS sẽ mất rất nhiều thời gian, và BFS có thể nhanh hơn.
+- Nếu cây rất rộng, BFS có thể cần quá nhiều bộ nhớ, vì vậy nó có thể hoàn toàn không thực tế. Ta DFS trong những trường hợp như vậy.
+- Nếu có nhiều giải pháp nhưng nằm sâu trong cây, nên chọn DFS.
+- Nếu cây rất sâu, ta sẽ cần hạn chế tìm kiếm với DFS.
 
 ### 38. Sắp xếp tô pô trong đồ thị là gì?
 
-- Sắp xếp tô pô là một trật tự tuyến tính của các đỉnh sao cho mọi cạnh có hướng `ij`, đỉnh `i` đứng trước `j` trong thứ tự.
+- Sắp xếp tô pô của một đồ thị có hướng là một thứ tự sắp xếp của các đỉnh sao cho với mọi cung từ đỉnh `i` đến đỉnh `j` trong đồ thị, `i` luôn nằm trước `j`.
 
-- Sắp xếp tô pô chỉ khả dụng với Đồ thị có hướng không tuần hoàn(DAG).
+- Sắp xếp tô pô chỉ khả dụng với Đồ thị có hướng không tuần hoàn (DAG).
 
 - Các ứng dụng:
-    1. lập kế hoạch công việc từ các phụ thuộc đã cho giữa các công việc.
-    2. thứ tự đánh giá ô công thức trong bảng tính
-    3. thứ tự các nhiệm vụ biên dịch được thực hiện trong tạo file,
-    4. tuần tự hóa dữ liệu
-    5. giải quyết sự phụ thuộc ký hiệu trong trình liên kết.
+    1. Lập kế hoạch công việc từ các phụ thuộc đã cho giữa các công việc.
+    2. Thứ tự đánh giá ô công thức trong bảng tính
+    3. Thứ tự các nhiệm vụ biên dịch được thực hiện trong tạo file,
+    4. Tuần tự hóa dữ liệu
+    5. Giải quyết sự phụ thuộc ký hiệu trong trình liên kết.
 
 Code sắp xếp cấu trúc tô pô trong Java:
 
@@ -769,7 +775,7 @@ class InterviewBit {
 
 ### 40. Cấu trúc dữ liệu heap là gì ?
 
-Heap là một cấu trúc dữ liệu phi tuyến tính dựa trên cây đặc biệt, trong đó cây là một cây nhị phân hoàn chỉnh. Một cây nhị phân được cho là hoàn chỉnh nếu tất cả các cấp được lấp đầy hoàn toàn ngoại trừ cấp cuối cùng và cấp cuối cùng có tất cả các phần tử hướng về bên trái càng nhiều càng tốt. Các heap có hai loại:
+Heap là một cấu trúc dữ liệu phi tuyến tính dựa trên một cây nhị phân hoàn chỉnh. Một cây nhị phân được cho là hoàn chỉnh nếu tất cả các cấp được lấp đầy hoàn toàn ngoại trừ cấp cuối cùng và cấp cuối cùng có tất cả các phần tử hướng về bên trái càng nhiều càng tốt. Các heap có hai loại:
 
 1. Max-Heap:
 
