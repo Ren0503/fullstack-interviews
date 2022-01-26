@@ -4,13 +4,13 @@
 
 ## Lập trình hướng đối tượng là gì 
 
-OOP (Object-Oriented Programming) là một mô hình lập trình để giải quyết vấn đề xoay quanh khái niệm "**Đối tượng**". Đối tượng có thể được xem như là các thể hiện ở thế giới thực như các lớp, thực thể chứa một số đặc điểm và hành vi được chỉ định trong lớp mẫu.
+OOP (Object-Oriented Programming) là một mô hình lập trình để giải quyết vấn đề xoay quanh khái niệm "**Đối tượng**". Đối tượng có thể được xem như là các thể hiện của thực thế ở thế giới thực như là lớp, chúng chứa một số đặc điểm và hành vi được chỉ định trong lớp mẫu.
 
 Ở các ngôn ngữ đơn giản, một lớp có thể là một bản mẫu, dựa trên nó để tạo ra các đối tượng. Thế nên Đối tượng có thể được xem như là một thể hiện của một lớp và thỉnh thoảng nó có thể được gọi là "thực thể". Các thuật ngữ **đặc trưng** ám chỉ đối tượng đó là gì, và **hành vi** chỉ đối tượng đó như thế nào.
 
 Ví dụ, ta tạo mô hình OOP với một chiếc xe:
 - Lớp = mẫu xe cụ thể như Audi A4, BMW I8, Maruti Suzuki Vitara Brezza,...
-- Đối tượng = Bất kỳ mẫu xe cụ thể nào, như xe của bạn
+- Đối tượng = Bất kỳ chiếc xe cụ thể nào, như xe của bạn
 - Đặc trung = Màu sắc của xe? Số khung xe của bạn là gì?
 - Hành vi = Xe chạy như thế nào? Làm thế nào để chuyển số?
 
@@ -19,6 +19,86 @@ Ví dụ, ta tạo mô hình OOP với một chiếc xe:
 Khái niệm “đối tượng” cho phép mô hình OOP dễ dàng truy cập, sử dụng và sửa đổi dữ liệu thực thể và phương thức, tương tác với các đối tượng khác và xác định các phương thức trong thời gian chạy (trong quá trình thực thi chương trình). Điều này mang lại ý nghĩa cho mô hình OOP và làm cho nó trở nên đa dạng trong việc triển khai.
 
 Trên thực tế, mô hình OOP rất phổ biến, đến nỗi nhiều ngôn ngữ lập trình được sử dụng rộng rãi nhất đều hỗ trợ và sử dụng mô hình Lập trình hướng đối tượng hoặc OOPs này, chẳng hạn như Java, C++, Python, C#, v.v.
+
+[1. Thuật ngữ OOP có nghĩa là gì?](#1-thuật-ngữ-oop-có-nghĩa-là-gì)
+
+[2. Tại sao cần OOP?](#2-tại-sao-cần-oop)
+
+[3. Một số ngôn ngữ lập trình hướng đối tượng](#3-một-số-ngôn-ngữ-lập-trình-hướng-đối-tượng)
+
+[4. Một số mô hình lập trình khác ngoài OOP là gì?](#4-một-số-mô-hình-lập-trình-khác-ngoài-oop-là-gì)
+
+[5. Lập trình có cấu trúc nghĩa là gì?](#5-lập-trình-có-cấu-trúc-nghĩa-là-gì)
+
+[6. Các tính năng chính của OOP?](#6-các-tính-năng-chính-của-oop)
+
+[7. Lợi ích của sử dụng OOP?](#7-lợi-ích-của-sử-dụng-oop)
+
+[8. Tại sao OOP lại phổ biến như vậy?](#8-tại-sao-oop-lại-phổ-biến-như-vậy)
+
+[9. Lớp là gì?](#9-lớp-là-gì)
+
+[10. Đối tượng là gì?](#10-đối-tượng-là-gì)
+
+[11. Tính đóng gói là gì?](#11-tính-đóng-gói-là-gì)
+
+[12. Tính đa hình là gì?](#12-tính-đa-hình-là-gì)
+
+[13. Sự khác nhau giữa đa hình thời gian biên dịch và đa hình thời gian chạy?](#13-sự-khác-nhau-giữa-đa-hình-thời-gian-biên-dịch-và-đa-hình-thời-gian-chạy)
+
+[14. C++ hỗ trợ đa hình thế nào?](#14-c-hỗ-trợ-đa-hình-thế-nào)
+
+[15. Kế thừa là gì?](#15-kế-thừa-là-gì)
+
+[16. Trừu tượng là gì?](#16-trừu-tượng-là-gì)
+
+[17. Một lớp chiếm bao nhiêu bộ nhớ?](#17-một-lớp-chiếm-bao-nhiêu-bộ-nhớ)
+
+[18. Có phải lúc nào cũng cần tạo các đối tượng từ lớp không?](#18-có-phải-lúc-nào-cũng-cần-tạo-các-đối-tượng-từ-lớp-không)
+
+[19. Constructor là gì](#19-constructor-là-gì)
+
+[20. Các kiểu constructor trong C++?](#20-các-kiểu-constructor-trong-c)
+
+[21. Copy Constructor là gì?](#21-copy-constructor-là-gì)
+
+[22. Destructor là gì?](#22-destructor-là-gì)
+
+[23. Có phải lớp và cấu trúc giống nhau?](#23-có-phải-lớp-và-cấu-trúc-giống-nhau)
+
+[24. Giải thích về tính kế thừa](#24-giải-thích-về-tính-kế-thừa)
+
+[25. Có bất kỳ hạn chế nào của kế thừa không?](#25-có-bất-kỳ-hạn-chế-nào-của-kế-thừa-không)
+
+[26. Các kiểu kế thừa khác nhau?](#26-các-kiểu-kế-thừa-khác-nhau)
+
+[27. Lớp con là gì?](#27-lớp-con-là-gì)
+
+[28. Lớp cha là gì?](#28-lớp-cha-là-gì)
+
+[29. Interface là gì?](#29-interface-là-gì)
+
+[30. Đa hình tĩnh là gì](#30-đa-hình-tĩnh-là-gì)
+
+[31. Đa hình động là gì](#31-đa-hình-động-là-gì)
+
+[32. Sự khác biệt giữa nạp chồng và ghi đè?](#32-sự-khác-biệt-giữa-nạp-chồng-và-ghi-đè)
+
+[33. Quá trình trừu tượng hóa dữ liệu được thực hiện như thế nào?](#33-quá-trình-trừu-tượng-hóa-dữ-liệu-được-thực-hiện-như-thế-nào)
+
+[34. Lớp trừu tượng là gì?](#34-lớp-trừu-tượng-là-gì)
+
+[35. Một lớp trừu tượng khác với một interface như thế nào?](#35-một-lớp-trừu-tượng-khác-với-một-interface-như-thế-nào)
+
+[36. Các chỉ định truy cập là gì và ý nghĩa của chúng?](#36-các-chỉ-định-truy-cập-là-gì-và-ý-nghĩa-của-chúng)
+
+[37. Ngoại lệ là gì?](#37-ngoại-lệ-là-gì)
+
+[38. Xử lý ngoại lệ như thế nào?](#38-xử-lý-ngoại-lệ-như-thế-nào)
+
+[39. Garbage collection trong OOP là gì?](#39-garbage-collection-trong-oop-là-gì)
+
+[40. Có thể chạy ứng dụng Java mà không triển khai các khái niệm OOP?](#40-có-thể-chạy-ứng-dụng-java-mà-không-triển-khai-các-khái-niệm-oop)
 
 ## Câu hỏi phỏng vấn lập trình hướng đối tượng
 
@@ -54,21 +134,25 @@ Bây giờ, các mô hình này có thể được phân loại thêm dựa trê
 
 1. **Mô hình lập trình mệnh lệnh**: Lập trình mệnh lệnh tập trung vào CÁCH thực thi logic chương trình và định nghĩa luồng điều khiển là các câu lệnh thay đổi trạng thái chương trình. Điều này có thể được phân loại thêm là:
 
-a) *Mô hình lập trình hướng thủ tục*: Lập trình theo thủ tục xác định các bước mà một chương trình phải thực hiện để đạt được trạng thái mong muốn, thường được đọc theo thứ tự từ trên xuống dưới.
-b) *Lập trình hướng đối tượng hoặc OOP*: Lập trình hướng đối tượng (OOP) tổ chức các chương trình dưới dạng các đối tượng, chứa một số dữ liệu và có một số hành vi.
-c) *Lập trình song song*: Mô hình lập trình song song chia một nhiệm vụ thành các nhiệm vụ con và tập trung vào việc thực hiện chúng đồng thời cùng một lúc.
+    a) *Mô hình lập trình hướng thủ tục*: Lập trình theo thủ tục xác định các bước mà một chương trình phải thực hiện để đạt được trạng thái mong muốn, thường được đọc theo thứ tự từ trên xuống dưới.
+    
+    b) *Lập trình hướng đối tượng hoặc OOP*: Lập trình hướng đối tượng (OOP) tổ chức các chương trình dưới dạng các đối tượng, chứa một số thuộc tính và có một số hành vi.
+    
+    c) *Lập trình song song*: Mô hình lập trình song song chia một nhiệm vụ thành các nhiệm vụ con và tập trung vào việc thực hiện chúng đồng thời cùng một lúc.
 
 2. **Mô hình lập trình khai báo**: Lập trình khai báo tập trung vào CÁI GÌ để thực thi và định nghĩa logic chương trình, nhưng không phải là một luồng điều khiển chi tiết. Mô hình khai báo có thể được phân loại thêm thành:
 
-a) *Mô hình lập trình logic*: Mô hình lập trình logic dựa trên logic hình thức, đề cập đến một tập hợp các câu diễn đạt các dữ kiện và quy tắc về cách giải quyết một vấn đề
-b) *Mô hình lập trình chức năng*: Mô hình lập trình chức năng là mô hình lập trình trong đó các chương trình được xây dựng bằng cách áp dụng và soạn thảo các hàm.
-c) *Mô hình lập trình cơ sở dữ liệu*: Mô hình lập trình cơ sở dữ liệu được sử dụng để quản lý dữ liệu và thông tin có cấu trúc như trường, bản ghi và tệp.
+    a) *Mô hình lập trình logic*: Mô hình lập trình logic dựa trên logic hình thức, đề cập đến một tập hợp các câu diễn đạt các dữ kiện và quy tắc về cách giải quyết một vấn đề
+
+    b) *Mô hình lập trình chức năng*: Mô hình lập trình chức năng là mô hình lập trình trong đó các chương trình được xây dựng bằng cách áp dụng và soạn thảo các hàm.
+    
+    c) *Mô hình lập trình cơ sở dữ liệu*: Mô hình lập trình cơ sở dữ liệu được sử dụng để quản lý dữ liệu và thông tin có cấu trúc như trường, bản ghi và file.
 
 ![](./assets/programming-paradigms.png)
 
 ### 5. Lập trình có cấu trúc nghĩa là gì?
 
-Lập trình có cấu trúc đề cập đến phương pháp lập trình bao gồm một luồng điều khiển hoàn toàn có cấu trúc. Ở đây cấu trúc đề cập đến một khối, chứa một tập hợp các quy tắc và có một luồng điều khiển cuối cùng, chẳng hạn như (if / then / else), (while và for), cấu trúc khối và chương trình con.
+Lập trình có cấu trúc đề cập đến phương pháp lập trình bao gồm một luồng điều khiển hoàn toàn có cấu trúc. Ở đây cấu trúc đề cập đến một khối, chứa một tập hợp các quy tắc và có một luồng điều khiển cuối cùng, chẳng hạn như (if/then/else), (while và for), cấu trúc khối và chương trình con.
 
 Gần như tất cả các mô hình lập trình đều bao gồm Lập trình có cấu trúc, bao gồm cả mô hình OOP.
 
@@ -94,15 +178,15 @@ OOP hoặc Lập trình hướng đối tượng chủ yếu bao gồm bốn tí
 
 ### 8. Tại sao OOP lại phổ biến như vậy?
 
-Mô hình lập trình OOP được coi là một phong cách lập trình tốt hơn. Nó không chỉ giúp dễ dàng viết một đoạn mã phức tạp mà còn cho phép người dùng xử lý và duy trì chúng một cách dễ dàng. Không chỉ vậy, trụ cột chính của OOP - Trừu tượng hóa, Đóng gói, Kế thừa và Đa hình, giúp lập trình viên dễ dàng giải quyết các tình huống phức tạp. Do đó, các OOP rất phổ biến.
+Mô hình lập trình OOP được coi là một phong cách lập trình tốt hơn. Nó không chỉ giúp dễ dàng viết một đoạn code phức tạp mà còn cho phép người dùng xử lý và duy trì chúng một cách dễ dàng. Không chỉ vậy, các tính năng chính của OOP - Trừu tượng hóa, Đóng gói, Kế thừa và Đa hình, giúp lập trình viên dễ dàng giải quyết các tình huống phức tạp. Do đó, OOP rất phổ biến.
 
 ### 9. Lớp là gì?
 
-Một lớp có thể được hiểu là một khuôn mẫu hoặc một bản thiết kế, chứa một số giá trị, được gọi là thuộc tính và một số bộ quy tắc, được gọi là hành vi hoặc chức năng. Vì vậy, khi một đối tượng được tạo, nó sẽ tự động lấy dữ liệu và các hàm đã được định nghĩa trong lớp.
+Một lớp có thể được hiểu là một khuôn mẫu hoặc một bản thiết kế, chứa một số giá trị, được gọi là thuộc tính và một số bộ quy tắc, được gọi là hành vi hoặc chức năng. Vì vậy, khi một đối tượng được tạo, nó sẽ tự động lấy thuộc tính và phương thức đã được định nghĩa trong lớp.
 
 Do đó, về cơ bản lớp là một khuôn mẫu hoặc bản thiết kế cho các đối tượng. Ngoài ra, người ta có thể tạo bao nhiêu đối tượng tùy thích dựa trên một lớp.
 
-Ví dụ: đầu tiên, mẫu của một chiếc ô tô được tạo. Sau đó, nhiều đơn vị xe được tạo ra dựa trên mẫu đó.
+Ví dụ: đầu tiên, mẫu của một chiếc ô tô được tạo. Sau đó, nhiều chiếc xe được tạo ra dựa trên mẫu đó.
 
 ### 10. Đối tượng là gì?
 
@@ -116,8 +200,8 @@ Người ta có thể hình dung đóng gói là phương pháp đưa mọi th�
 
 Đóng gói có thể được xác định theo hai cách:
 
-1. **Data hiding**: đóng gói là quá trình ẩn thống tin không mong muốn, hạn chế các truy cập đến thuộc tính của đối tượng.
-2. **Data binding**: là quá trình liên kết các thuộc tính và các phương thức với nhau như một tổng thể, như một lớp. 
+1. **Data hiding**: đóng gói là quá trình ẩn thông tin không mong muốn, hạn chế các truy cập đến thuộc tính của đối tượng.
+2. **Data binding**: là quá trình liên kết các thuộc tính và các phương thức với nhau như một tổng thể. 
 
 ### 12. Tính đa hình là gì?
 
@@ -127,7 +211,7 @@ Người ta có thể hình dung đóng gói là phương pháp đưa mọi th�
 
 Trong OOP, Đa hình đề cập đến quá trình mà một số code, dữ liệu, phương thức hoặc đối tượng hoạt động khác nhau trong các trường hợp hoặc ngữ cảnh khác nhau. Đa hình thời gian biên dịch và đa hình thời gian chạy là hai loại đa hình trong các ngôn ngữ OOP.
 
-### 13. Sự khác nhau giữa thời gian biên dịch và đa hình thời gian chạy?
+### 13. Sự khác nhau giữa đa hình thời gian biên dịch và đa hình thời gian chạy?
 
 ![](./assets/types_of_polymorphism.png)
 
@@ -169,7 +253,7 @@ class Test{
 }
 ```
 
-Trong ví dụ trên, có bốn phiên bản của các phương thức `add()`. Phương thức đầu tiên nhận hai tham số trong khi phương thức thứ hai lấy ba tham số. Đối với phương pháp thứ ba và thứ tư, có sự thay đổi thứ tự của các tham số. Trình biên dịch xem xét dấu hiệu của phương thức và quyết định phương thức nào sẽ gọi cho một lệnh gọi phương thức cụ thể tại thời điểm biên dịch.
+Trong ví dụ trên, có bốn phiên bản của các phương thức `add()`. Phương thức đầu tiên nhận hai tham số trong khi phương thức thứ hai nhận ba tham số. Đối với phương pháp thứ ba và thứ tư, có sự thay đổi thứ tự của các tham số. Trình biên dịch xem xét dấu hiệu của phương thức và quyết định phương thức nào sẽ gọi cho một lệnh gọi cụ thể tại thời điểm biên dịch.
 
 **Runtime Polymorphism**: còn gọi là đa hình động, đề cập đến kiểu đa hình xảy khi khi đang chạy. Điều đó có nghĩa là nó không thể được quyết định bởi trình biên dịch. Do đó, hình dạng hoặc giá trị nào phải được thực hiện tùy thuộc vào quá trình thực thi.
 
@@ -203,11 +287,11 @@ C++ là ngôn ngữ lập trình hướng đối tượng và hỗ trợ đa hì
 
 - Compile Time Polymorphism: C ++ hỗ trợ tính đa hình thời gian biên dịch với sự trợ giúp của các tính năng như mẫu, nạp chồng hàm và các tham số mặc định.
 
-Runtime Polymorphism: C ++ hỗ trợ tính đa hình Runtime với sự trợ giúp của các tính năng như hàm ảo. Các hàm ảo có hình dạng của các hàm dựa trên loại đối tượng trong tham chiếu và được giải quyết trong thời gian chạy.
+- Runtime Polymorphism: C ++ hỗ trợ tính đa hình Runtime với sự trợ giúp của các tính năng như hàm ảo. Các hàm ảo có hình dạng của các hàm dựa trên loại đối tượng trong tham chiếu và được giải quyết trong thời gian chạy.
 
 ### 15. Kế thừa là gì?
 
-Thuật ngữ "thừa kế" có nghĩa là "nhận được một số phẩm chất hoặc hành vi từ cha mẹ cho con cái." Trong lập trình hướng đối tượng, kế thừa là cơ chế mà một đối tượng hoặc lớp (được gọi là con) được tạo ra bằng cách sử dụng định nghĩa của một đối tượng hoặc lớp khác (được gọi là cha). Kế thừa không chỉ giúp giữ cho việc triển khai đơn giản hơn mà còn giúp tạo điều kiện sử dụng lại code.
+Thuật ngữ "kế thừa" có nghĩa là "nhận được một số phẩm chất hoặc hành vi từ cha mẹ cho con cái." Trong lập trình hướng đối tượng, kế thừa là cơ chế mà một đối tượng hoặc lớp (được gọi là con) được tạo ra bằng cách sử dụng định nghĩa của một đối tượng hoặc lớp khác (được gọi là cha). Kế thừa không chỉ giúp giữ cho việc triển khai đơn giản hơn mà còn giúp tạo điều kiện sử dụng lại code.
 
 ### 16. Trừu tượng là gì?
 
@@ -286,7 +370,7 @@ class ABC
 }
 ```
 
-### 21. Hàm khởi tạo sao chép là gì?
+### 21. Copy Constructor là gì?
 
 Copy Constructor hay hàm khởi tạo sao chép, có mục đích là sao chép một đối tượng sang một đối tượng khác. Điều đó có nghĩa là một phương thức khởi tạo sao chép sẽ sao chép một đối tượng và các giá trị của nó, vào một đối tượng khác, với điều kiện là cả hai đối tượng đều thuộc cùng một lớp.
 
@@ -300,9 +384,9 @@ Không, lớp và cấu trúc không giống nhau. Mặc dù chúng có vẻ gi�
 
 ### 24. Giải thích về tính kế thừa?
 
-Kế thừa là một trong những đặc điểm chính của lập trình hướng đối tượng, theo đó một thực thể kế thừa một số đặc điểm và hành vi của một thực thể khác và biến chúng thành của riêng mình. Kế thừa giúp cải thiện và tạo điều kiện sử dụng lại mã.
+Kế thừa là một trong những đặc điểm chính của lập trình hướng đối tượng, theo đó một thực thể kế thừa một số đặc điểm và hành vi của một thực thể khác và biến chúng thành của riêng mình. Kế thừa giúp cải thiện và tạo điều kiện sử dụng lại code.
 
-Ta sẽ giải thích bằng một ví dụ dễ hiểu. Hãy đi ba phương tiện khác nhau - ô tô, xe tải hoặc xe buýt. Ba loại này hoàn toàn khác nhau với những đặc điểm và hành vi cụ thể của riêng chúng. Nhưng ở cả ba, bạn sẽ tìm thấy một số yếu tố chung, như vô lăng, chân ga, ly hợp, phanh, v.v. Mặc dù những yếu tố này được sử dụng trên các loại xe khác nhau, chúng vẫn có những đặc điểm chung của tất cả các loại xe. Điều này đạt được với sự kế thừa. Xe hơi, xe tải và xe buýt đều được thừa hưởng các tính năng như vô lăng, chân ga, ly hợp, phanh, v.v. và sử dụng chúng như của riêng mình. Do đó, chúng không phải tạo các thành phần này từ đầu, nhờ thế tạo điều kiện sử dụng lại code.
+Ta sẽ giải thích bằng một ví dụ dễ hiểu. Ta có ba phương tiện khác nhau - xe hơi, xe tải hoặc xe buýt. Ba loại này hoàn toàn khác nhau với những đặc điểm và hành vi cụ thể của riêng chúng. Nhưng ở cả ba, bạn sẽ tìm thấy một số yếu tố chung, như vô lăng, chân ga, ly hợp, phanh, v.v. Mặc dù những yếu tố này được sử dụng trên các loại xe khác nhau, chúng vẫn có những đặc điểm chung của tất cả các loại xe. Điều này đạt được nhờ vào sự kế thừa. Xe hơi, xe tải và xe buýt đều được thừa hưởng các tính năng như vô lăng, chân ga, ly hợp, phanh, v.v. và sử dụng chúng như của riêng mình. Do đó, chúng không phải tạo các thành phần này từ đầu, nhờ thế tạo điều kiện sử dụng lại code.
 
 ![](./assets/inheritance-with-ex.png)
 
@@ -364,7 +448,7 @@ Ngoài ra, một lớp trừu tượng có thể chứa các phương thức tr�
 
 ### 36. Các chỉ định truy cập là gì và ý nghĩa của chúng?
 
-Các chỉ định truy cập, như tên cho thấy, là một loại từ khóa đặc biệt, được sử dụng để kiểm soát hoặc chỉ định khả năng truy cập của các thực thể như lớp, phương thức, v.v. Một số từ chỉ định truy cập hoặc công cụ sửa đổi truy cập bao gồm "private", "public", v.v… Các chỉ định truy cập này cũng đóng một vai trò rất quan trọng trong việc đạt được tính đóng gói - một trong những tính năng chính của OOP.
+Các chỉ định truy cập là một loại từ khóa đặc biệt, được sử dụng để kiểm soát hoặc chỉ định khả năng truy cập của các thực thể như lớp, phương thức, v.v. Một số từ chỉ định truy cập hoặc công cụ sửa đổi truy cập bao gồm "private", "public", v.v… Các chỉ định truy cập này cũng đóng một vai trò rất quan trọng trong việc đạt được tính đóng gói - một trong những tính năng chính của OOP.
 
 ### 37. Ngoại lệ là gì?
 
@@ -380,7 +464,7 @@ Vì vậy, xử lý ngoại lệ là cơ chế xác định các trạng thái k
 
 ### 39. Garbage collection trong OOP là gì?
 
-Lập trình hướng đối tượng xoay quanh các thực thể như các đối tượng. Mỗi đối tượng sử dụng bộ nhớ và có thể có nhiều đối tượng của một lớp. Vì vậy, nếu các đối tượng này và dữ loeeik của chúng không được xử lý đúng cách, thì nó có thể dẫn đến một số lỗi liên quan đến bộ nhớ và hệ thống có thể bị lỗi.
+Lập trình hướng đối tượng xoay quanh các thực thể như các đối tượng. Mỗi đối tượng sử dụng bộ nhớ và có thể có nhiều đối tượng của một lớp. Vì vậy, nếu các đối tượng này và dữ liệu của chúng không được xử lý đúng cách, thì nó có thể dẫn đến một số lỗi liên quan đến bộ nhớ và hệ thống có thể bị lỗi.
 
 Bộ dọn gác - garbage collection - đề cập đến cơ chế xử lý bộ nhớ trong chương trình. Thông qua việc thu gom rác, bộ nhớ không mong muốn sẽ được giải phóng bằng cách loại bỏ các đối tượng không còn cần thiết.
 
