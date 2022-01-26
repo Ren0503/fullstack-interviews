@@ -28,6 +28,68 @@ Thuật toán thường được sử dụng để chỉ định cách tính to�
 
 ![](./assets/Need_For_Algorithms.png)
 
+## Mục lục
+
+[1. Làm thế nào để so sánh hai thuật toán trên cùng một vấn đề?](#1-làm-thế-nào-để-so-sánh-hai-thuật-toán-trên-cùng-một-vấn-đề)
+
+[2. Trường hợp tốt nhất, xấu nhất và trung bình?](#2-trường-hợp-tốt-nhất-xấu-nhất-và-trung-bình)
+
+[3. Bạn hiểu gì về ký hiệu tiệm cận?](#3-bạn-hiểu-gì-về-ký-hiệu-tiệm-cận)
+
+[4. Viết chương trình đổi giá trị hai số mà không dùng biến tạm?](#4-viết-chương-trình-đổi-giá-trị-hai-số-mà-không-dùng-biến-tạm)
+
+[5. Giải thích về mô hình Chia Để Trị. Liệt kê các thuật toán sử dụng mô hình này?](#5-giải-thích-về-mô-hình-chia-để-trị-liệt-kê-các-thuật-toán-sử-dụng-mô-hình-này)
+
+[6. Giải thích về thuật toán tham lam và liệt kê các ví dụ sử dụng nó?](#6-giải-thích-về-thuật-toán-tham-lam-và-liệt-kê-các-ví-dụ-sử-dụng-nó)
+
+[7. Bạn hiểu gì về thuật toán tìm kiếm? Liệt kê vài thuật toán tìm kiếm?](#7-bạn-hiểu-gì-về-thuật-toán-tìm-kiếm-liệt-kê-vài-thuật-toán-tìm-kiếm)
+
+[8. Mô tả thuật toán tìm kiếm tuyến tính?](#8-mô-tả-thuật-toán-tìm-kiếm-tuyến-tính)
+
+[9. Mô tả thuật toán tìm kiếm nhị phân?](#9-mô-tả-thuật-toán-tìm-kiếm-nhị-phân)
+
+[10. Viết ra một thuật toán để thêm một nút vào danh sách liên kết được sắp xếp theo thứ tự tăng dần (duy trì thuộc tính sắp xếp)?](#10-viết-ra-một-thuật-toán-để-thêm-một-nút-vào-danh-sách-liên-kết-được-sắp-xếp-theo-thứ-tự-tăng-dần-duy-trì-thuộc-tính-sắp-xếp)
+
+[11. Viết thuật toán đếm số nút lá trong cây nhị phân?](#11-viết-thuật-toán-đếm-số-nút-lá-trong-cây-nhị-phân)
+
+[12. Quy hoạch động là gì? Liệt kê các vấn đề sử dụng quy hoạch động?](#12-quy-hoạch-động-là-gì-liệt-kê-các-vấn-đề-sử-dụng-quy-hoạch-động)
+
+[13. Viết thuật toán đảo chuỗi. Ví dụ như nhập vào Hello đảo thành Olleh?](#13-viết-thuật-toán-đảo-chuỗi-ví-dụ-như-nhập-vào-hello-đảo-thành-olleh)
+
+[14. Bạn hiểu gì về thuật toán BFS (Breadth First Search)?](#14-bạn-hiểu-gì-về-thuật-toán-bfs-breadth-first-search)
+
+[15. Bạn hiểu gì về thuật toán DFS (Depth First Search)?](#15-bạn-hiểu-gì-về-thuật-toán-dfs-depth-first-search)
+
+[16. Cách mà thuật toán mã hoá hoạt động?](#16-cách-mà-thuật-toán-mã-hoá-hoạt-động)
+
+[17. Các thuật toán mã hoá phổ biến hiện nay?](#17-các-thuật-toán-mã-hoá-phổ-biến-hiện-nay)
+
+[18. Mô tả thuật toán merge sort?](#18-mô-tả-thuật-toán-merge-sort)
+
+[19. Mô tả thuật toán quick sort?](#19-mô-tả-thuật-toán-quick-sort)
+
+[20. Mô tả thuật toán bubble cùng với ví dụ?](#20-mô-tả-thuật-toán-bubble-sort-cùng-với-ví-dụ)
+
+[21. Viết thuật toán tính tổng mảng con lớn nhất của một mảng cho trước. Nói cách khác, tìm tổng lớn nhất có thể đạt được bằng cách lấy các phần tử được sắp xếp từ một mảng số nguyên cho trước?](#21-viết-thuật-toán-tính-tổng-mảng-con-lớn-nhất-của-một-mảng-cho-trước-nói-cách-khác-tìm-tổng-lớn-nhất-có-thể-đạt-được-bằng-cách-lấy-các-phần-tử-được-sắp-xếp-từ-một-mảng-số-nguyên-cho-trước)
+
+[22. Giải thích Thuật toán Dijkstra để tìm đường đi ngắn nhất giữa một nút đến bất kỳ nút nào khác trong đồ thị?]()
+
+[23. Có thể sử dụng tìm kiếm nhị phân với danh sách liên kết không?](#23-có-thể-sử-dụng-tìm-kiếm-nhị-phân-với-danh-sách-liên-kết-không)
+
+[24. Thuật toán đệ quy là gì? Nêu các quy tắc quan trọng mà mọi thuật toán đệ quy phải tuân theo?](#24-thuật-toán-đệ-quy-là-gì-nêu-các-quy-tắc-quan-trọng-mà-mọi-thuật-toán-đệ-quy-phải-tuân-theo)
+
+[25. Viết một thuật toán để chèn một nút trong Cây tìm kiếm nhị phân?](#25-viết-một-thuật-toán-để-chèn-một-nút-trong-cây-tìm-kiếm-nhị-phân)
+
+[26. Phân biệt select sort và insert sort?](#26-phân-biệt-select-sort-và-insert-sort)
+
+[27. Định nghĩa duyệt cây và liệt kê một số thuật toán để duyệt cây nhị phân?](#27-định-nghĩa-duyệt-cây-và-liệt-kê-một-số-thuật-toán-để-duyệt-cây-nhị-phân)
+
+[28. Mô tả thuật toán sắp xếp Heap sort?](#28-mô-tả-thuật-toán-sắp-xếp-heap-sort)
+
+[29. Độ phức tạp không gian của thuật toán sắp xếp chèn là gì?](#29-độ-phức-tạp-không-gian-của-thuật-toán-sắp-xếp-chèn-là-gì)
+
+[30. Độ phức tạp không gian của thuật toán sắp xếp lựa chọn là gì?](#30-độ-phức-tạp-không-gian-của-thuật-toán-sắp-xếp-lựa-chọn-là-gì)
+
 ## Câu hỏi phỏng vấn cho Fresher
 
 ### 1. Làm thế nào để so sánh hai thuật toán trên cùng một vấn đề?
@@ -89,7 +151,7 @@ y = x ^ y;
 x = x ^ y;
 ```
 
-### 5. Giải thích về mô hình Chia Để Trị. Liệt kê  các thuật toán sử dụng mô hình này?
+### 5. Giải thích về mô hình Chia Để Trị. Liệt kê các thuật toán sử dụng mô hình này?
 
 Chia để trị là một mô hình thuật toán, không phải thuật toán. Nó được xây dựng để xử lý một lượng lớn dữ liệu, bằng cách chia nhỏ nó thành từng phần nhỏ hơn và xác định giải pháp cho các phần nhỏ. Nó kết hợp giải pháp của tất cả phần nhỏ thành một giải pháp toàn cục duy nhất. Dưới đây là mô hình của chia để trị:
 
@@ -274,25 +336,31 @@ Merge sort (tạm dịch là sắp xếp trộn) là một thuật toán sắp x
 
 ### 19. Mô tả thuật toán quick sort?
 
-Quicksort (tạm dịch là sắp xếp nhanh) là một thuật toán sắp xếp tại chỗ (có nghĩa là một thuật toán biến đổi đầu vào không sử dụng cấu trúc dữ liệu phụ trợ). Nó được tạo ra bởi nhà khoa học máy tính người Anh Tony Hoare vào năm 1959 và được công bố vào năm 1961, đến nay nó vẫn là một thuật toán sắp xếp phổ biến. Nó có thể nhanh hơn một chút so với merge sort và nhanh hơn hai hoặc ba lần so với heap sort khi được thực hiện đúng cách. 
+Quicksort (tạm dịch là sắp xếp nhanh) là một thuật toán sắp xếp tại chỗ (có nghĩa là một thuật toán biến đổi đầu vào mà không sử dụng cấu trúc dữ liệu phụ). Nó được tạo ra bởi nhà khoa học máy tính người Anh Tony Hoare vào năm 1959 và được công bố vào năm 1961, đến nay nó vẫn là một thuật toán sắp xếp phổ biến. Nó có thể nhanh hơn một chút so với merge sort và nhanh hơn hai hoặc ba lần so với heap sort khi được thực hiện đúng cách. 
 
-Quicksort dựa trên mô hình thuật toán chia để trị. Nó thực hiện bằng cách chọn một phần tử "pivot" từ mảng và tách mảng thành hai mảng con dựa trên việc các phần tử còn lại lớn hơn hay bé hơn pivot. Do đó, nó còn được gọi là sắp xếp trao đổi phân vùng. Mảng con sau đó sẽ được sắp xếp với đệ quy.
+Quicksort dựa trên mô hình thuật toán chia để trị. Nó thực hiện bằng cách chọn một phần tử "pivot" từ mảng và tách mảng thành hai mảng con dựa trên việc các phần tử còn lại lớn hơn hay bé hơn pivot. Do đó, nó còn được gọi là sắp xếp phân vùng. Mảng con sau đó sẽ được sắp xếp với đệ quy.
 
 Sau đây là các bước cho quicksort:
 
 - Nếu có ít hơn hai phần tử trong mảng, trả về ngay lập tức vì không thể làm gì khác. 
 
-- Nếu không, chọn một giá trị làm `pivot`, cách lựa chọn phụ thuộc vào quy trình phân vùng và có thể là ngẫu nhiên.
+- Nếu không, chọn một giá trị làm `pivot` (chốt), cách lựa chọn là tuỳ ý, song vẫn có một số cách lựa chọn tiêu biểu như sau:
+   + Chọn phần tử đứng đầu hoặc đứng cuối.
+   + Chọn phần tử đứng giữa.
+   + Chọn phần tử trung vị trong 3 phần tử đứng đầu, đứng giữa và đứng cuối.
+   + Chọn phần tử ngẫu nhiên. (Cách này có thể dẫn đến khả năng rơi vào các trường hợp đặc biệt)
 
-- Phân vùng phạm vi bằng cách sắp xếp lại thứ tự các phần tử của nó trong khi xác định điểm phân chia sao cho tất cả các phần tử có giá trị nhỏ hơn `pivot` đều xuất hiện trước và tất cả các phần tử có giá trị lớn hơn `pivot` sẽ xuất hiện sau nó; các phần tử có giá trị bằng `pivot` có thể xuất hiện theo một trong hai hướng. Hầu hết các thủ tục phân vùng đảm bảo rằng giá trị kết thúc tại điểm phân chia bằng với `pivot` và hiện đang ở vị trí cuối cùng của nó vì có ít nhất một phiên bản của `pivot` (nhưng việc kết thúc nhanh chóng không phụ thuộc vào điều này, miễn là phạm vi phụ nhỏ hơn so với phạm vi ban đầu được tạo ra).
+- Xác định điểm phân chia sao cho tất cả các phần tử có giá trị nhỏ hơn `pivot` đều xuất hiện trước và tất cả các phần tử có giá trị lớn hơn `pivot` sẽ xuất hiện sau nó; các phần tử có giá trị bằng `pivot` có thể xuất hiện theo một trong hai hướng.
 
-- Áp dụng quicksort đệ quy lên phạm vi con cho trước và sau điểm phân chia, loại bỏ phần tử bằng `pivot` tại điểm phân chia khỏi cả hai phạm vi. (Nếu phân vùng tạo ra một phạm vi con có khả năng lớn hơn ranh giới với tất cả các phần tử được biết là bằng với `pivot`, thì chúng cũng có thể bị bỏ qua.)
+- Áp dụng quicksort đệ quy lên các phạm vi con cả trước và sau điểm phân chia, loại bỏ phần tử bằng `pivot` tại điểm phân chia khỏi cả hai phạm vi.
+
+![](./assets/quicksort.gif)
 
 Phân tích toán học của Quicksort cho thấy rằng, trường hợp trung bình sẽ mất độ phức tạp thời gian `O(n * log(n))` để sắp xếp n mục. Trong trường hợp xấu nhất, nó phải thực hiện với độ phức tạp thời gian là `O(n ^ 2)`.
 
 ### 20. Mô tả thuật toán bubble sort cùng với ví dụ?
 
-Sắp xếp nổi bọt là một thuật toán sắp xếp cơ bản lặp lại qua một danh sách, so sánh các phần tử liền kề và hoán đổi chúng nếu chúng không theo thứ tự. Danh sách được lặp đi lặp lại nhiều lần cho đến khi nó được sắp xếp. Phương pháp này được đặt tên theo cách mà các phần tử nhỏ hơn hoặc lớn hơn "nổi bọt" lên đầu danh sách. Phương pháp đơn giản này hoạt động không tốt trong các tình huống thực tế và chủ yếu được sử dụng như một phương pháp hỗ trợ giảng dạy. Lấy một ví dụ để hiểu cách sắp xếp nổi bọt hoạt động:
+Sắp xếp nổi bọt là một thuật toán sắp xếp cơ bản lặp lại qua một danh sách, so sánh các phần tử liền kề và hoán đổi chúng nếu chúng không theo thứ tự. Danh sách được lặp đi lặp lại nhiều lần cho đến khi nó được sắp xếp. Phương pháp này được đặt tên theo cách mà các phần tử nhỏ hơn hoặc lớn hơn "nổi bọt" lên đầu danh sách. Phương pháp đơn giản này hoạt động không tốt trong các tình huống thực tế và chủ yếu được sử dụng trong giảng dạy. Lấy một ví dụ để hiểu cách sắp xếp nổi bọt hoạt động:
 
 Giả sử rằng mảng cần sắp xếp là (50 10 40 20 80). Các lần sắp xếp nổi bọt như sau:
 
@@ -317,7 +385,7 @@ Mảng hiện tại đã được sắp xếp, nhưng thuật toán nổi bọt 
 
 ### 21. Viết thuật toán tính tổng mảng con lớn nhất của một mảng cho trước. Nói cách khác, tìm tổng lớn nhất có thể đạt được bằng cách lấy các phần tử được sắp xếp từ một mảng số nguyên cho trước?
 
-Thuật toán Kadane có thể được sử dụng để tìm tổng mảng con tối đa cho một mảng nhất định. Từ trái sang phải, thuật toán của Kadane tìm kiếm mảng được cung cấp. Sau đó, nó tính toán mảng con có tổng lớn nhất kết thúc ở vị trí j trong bước thứ j và tổng này được lưu trữ trong biến "currentSum". Hơn nữa, nó tính toán mảng con với tổng lớn nhất ở bất kỳ vị trí nào trong mảng con bắt đầu từ vị trí đầu tiên đến vị trí thứ j, nghĩa là, trong A [1 ... j], và lưu trữ nó trong biến "bestSum". Điều này được thực hiện bằng cách lấy giá trị lớn nhất của biến "currentSum" cho đến bây giờ và sau đó lưu trữ nó trong biến "bestSum". Cuối cùng, giá trị của "bestSum" được trả về là câu trả lời cuối cùng cho vấn đề của chúng ta.
+Thuật toán Kadane có thể được sử dụng để tìm tổng mảng con lớn nhất cho một mảng nhất định. Từ trái sang phải, thuật toán của Kadane tìm kiếm mảng được cung cấp. Sau đó, nó tính toán mảng con có tổng lớn nhất kết thúc ở vị trí `j` trong bước thứ `j` và tổng này được lưu trữ trong biến `currentSum`. Sau đó, nó tính toán mảng con với tổng lớn nhất ở bất kỳ vị trí nào trong mảng con bắt đầu từ vị trí đầu tiên đến vị trí thứ `j`, nghĩa là `A[1 ... j]` và lưu trữ nó trong biến `bestSum`. Điều này được thực hiện bằng cách lấy giá trị lớn nhất của biến `currentSum` cho đến bây giờ và sau đó lưu trữ nó trong biến `bestSum`. Cuối cùng, giá trị của `bestSum` được trả về là câu trả lời cuối cùng cho vấn đề của chúng ta.
 
 Mã giả:
 
@@ -333,6 +401,23 @@ Step 2: Lặp qua tất cả phần tử trong mảng A
       currentSum = 0
 Step 3: return bestSum
 ```
+
+### 22. Giải thích Thuật toán Dijkstra để tìm đường đi ngắn nhất giữa một nút đến bất kỳ nút nào khác trong đồ thị?
+
+Thuật toán Dijkstra là một phương pháp xác định đường đi ngắn nhất giữa các nút trong đồ thị, có thể được sử dụng để mô tả mạng lưới đường. Edsger W. Dijkstra, một nhà khoa học máy tính, đã tạo ra nó vào năm 1956 và công bố nó ba năm sau đó. Có rất nhiều biến thể của thuật toán. Thuật toán Dijkstra ban đầu dùng để tìm ra đường đi ngắn nhất giữa hai nút, nhưng một biến thể nổi tiếng hơn đã đặt một nút duy nhất làm nút "nguồn" và tìm các đường đi ngắn nhất từ ​​nguồn đến tất cả các nút khác trong đồ thị. Chúng ta hãy xem xét Thuật toán Dijkstra để tìm đường đi ngắn nhất giữa một nút nhất định trong đồ thị đến bất kỳ nút nào khác:
+
+Đầu tiên ta gọi nút nơi chúng ta bắt đầu quá trình là nút ban đầu. Khoảng cách từ nút ban đầu đến Y là khoảng cách của nút Y.Thuật toán Dijkstra sẽ bắt đầu với khoảng cách không giới hạn và cố gắng cải thiện chúng trong từng bước:
+
+   - Bước 1: Đánh dấu tất cả các nút chưa được truy cập. Tập hợp chưa được truy cập là tập hợp tất cả các nút chưa được truy cập.
+   - Bước 2: Gán giá trị khoảng cách dự kiến ​​cho mỗi nút: đặt nó thành 0 cho nút đầu tiên của chúng ta và vô cùng cho tất cả các nút khác. Độ dài của đường đi ngắn nhất được phát hiện cho đến nay giữa nút `v` và nút ban đầu là khoảng cách dự kiến ​​của nút `v`. Bởi vì không có đỉnh nào khác ngoài nút ban đầu, tất cả các khoảng cách dự kiến ​​khác được đặt thành vô cùng. Đặt nút hiện tại là nút ban đầu
+   - Bước 3: Xem xét tất cả các nút lân cận không được truy cập của nút hiện tại và xác định khoảng cách gần đúng của chúng qua nút hiện tại. So sánh khoảng cách dự kiến ​​mới được tính toán với giá trị được chỉ định hiện tại và chọn giá trị nhỏ hơn. Nếu nút hiện tại `A` có khoảng cách là 5 và cạnh liên kết nó với nút lân cận `B` có độ dài là 3 thì khoảng cách từ B đến A sẽ là 5 +3 = 8. Thay đổi B thành 8 nếu trước đó nó được đánh dấu bằng khoảng cách lớn hơn 8. Nếu không, giá trị hiện tại sẽ được giữ lại.
+   - Bước 4: Đánh dấu nút hiện tại là đã được truy cập và xóa nó khỏi tập hợp chưa được truy cập khi chúng ta đã xem xét tất cả các nút lân cận chưa được truy cập của nút hiện tại. Một nút đã được truy cập sẽ không bao giờ được kiểm tra lại.
+   - Dừng lại nếu nút đích đã được đánh dấu là đã truy cập hoặc nếu khoảng cách dự kiến ​​nhỏ nhất giữa các nút trong tập hợp chưa truy cập là vô cùng. Thuật toán hoàn tất.
+   - Bước 5: Nếu không, hãy quay lại bước 3 và chọn nút chưa truy cập được chỉ định với khoảng cách dự kiến ​​ngắn nhất làm nút hiện tại mới.
+
+![](./assets/Dijkstra's_Algorithm.png)
+
+Không bắt buộc phải đợi cho đến khi nút đích được "truy cập" như mô tả ở trên, trong khi xây dựng một đường đi: thuật toán có thể kết thúc khi nút đích có khoảng cách dự kiến nhỏ nhất trong số tất cả các nút "chưa được truy cập" (và do đó có thể được chọn là nút tiếp theo "hiện tại"). Đối với các đồ thị có hướng tùy ý với trọng số không giới hạn, thuật toán Dijkstra là tiệm cận của thuật toán đường đi ngắn nhất với nguồn đơn nhanh nhất được biết đến với độ phức tạp theo thời gian là `O(|E| + |V|log(|V|))`, trong đó |V| là số nút và |E| là số cạnh trong đồ thị.
 
 ### 23. Có thể sử dụng tìm kiếm nhị phân với danh sách liên kết không?
 
@@ -381,10 +466,15 @@ Một số thuật toán để duyệt cây nhị phân như sau:
 
 ### 28. Mô tả thuật toán sắp xếp Heap sort?
 
-Heap sort là thuật toán dựa trên so sánh. Heap sort tương tự selection sort trong đó nó chia mảng đầu vào thành hai mảng con đã sắp xếp và chưa sắp xếp, nó giảm phạm vi mảng chưa được sắp xếp cho đến phần tử cuối cùng và đặt nó vào mảng đã sắp xếp. Không giống như selection sort, heap sort không phả lãng phí thời gian cho quét mảng chưa sắp xếp một cách tuyến tính, thay vào đó nó giữ mảng chưa sắp xếp ở cấu trúc dữ liệu heap để xác định phần tử lớn nhất trong từng bước mở rộng.
+Heap sort là thuật toán dựa trên so sánh. Heap sort tương tự selection sort trong đó nó chia mảng đầu vào thành hai mảng con đã sắp xếp và chưa sắp xếp, nó giảm phạm vi mảng chưa được sắp xếp cho đến phần tử cuối cùng và đặt nó vào mảng đã sắp xếp. Không giống như selection sort, heap sort không phải lãng phí thời gian cho quét mảng chưa sắp xếp một cách tuyến tính, thay vào đó nó giữ mảng chưa sắp xếp ở cấu trúc dữ liệu heap để xác định phần tử lớn nhất trong từng bước mở rộng.
 
-Đầu tiên heap sort chuyển đổi mảng sang heap. Thuật toán hoán đổi giá trị đầu và cuối của mảng, giảm phạm vi giá trị 
-trong thao tac heap và lọc giá trị mới đầu tiên vào vị trí heap của nó. Quá trình này lặp đi lặp lại cho đến khi phạm vi giá trị chỉ còn một.
+Đầu tiên heap sort chuyển đổi mảng sang heap. Với heap giá trị lớn nhất được lưu ở gốc. Thuật toán hoán đổi giá trị gốc và giá trị cuối cùng của heap, sau đó giảm kích thước của heap đi 1 và lọc giá trị đầu tiên mới vào vị trí heap của nó. Quá trình này lặp đi lặp lại cho đến khi kích thước của heap là 1.
+
+- Với danh sách, hãy dùng hàm `buildMaxHeap()`. Hàm này còn được gọi là `heapify()` tạo một heap từ một danh sách trong thác tác O(n).
+- Hoán đổi phần tử đầu và cuối của heap. Giảm kích thước của nó đi 1.
+- Để sàng lọc phần tử ban đầu mới vào chỉ mục thích hợp của nó trong heap, hãy sử dụng hàm `siftDown()`.
+- Trừ khi kích thước của heap là một, lặp lại bước 2.
+
 ### 29. Độ phức tạp không gian của thuật toán sắp xếp chèn là gì?
 
 Sắp xếp chèn là một phương pháp sắp xếp tại chỗ, có nghĩa là nó không yêu cầu bất kỳ lưu trữ dữ liệu bổ sung nào. Trong sắp xếp chèn, chỉ một phần tử danh sách duy nhất phải được lưu trữ bên ngoài dữ liệu ban đầu, dẫn đến độ phức tạp không gian không đổi hoặc độ phức tạp không gian O (1).
