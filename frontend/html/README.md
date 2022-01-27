@@ -124,7 +124,7 @@ Hiệu ứng trên trang web bình thường của các thẻ `<strong>`, `<b>` 
 
 Trong khi đó, các thẻ `<strong>` và `<em>` thể hiện rằng đoạn văn bản có tầm quan trọng cao và nhấn mạnh hơn so với phần còn lại của văn bản. Các thẻ này có ý nghĩa ngữ nghĩa.
 
-### 16. Đặc trưng của thẻ <head> và <body> trong HTML?
+### 16. Đặc trưng của thẻ `<head>` và `<body>` trong HTML?
 
 Thẻ `<head>` cung cấp thông tin về tài liệu. Nó phải luôn được đặt trong thẻ `<html>`. Thẻ này chứa siêu dữ liệu (metadata) về trang web và các thẻ nằm trong thẻ head như` <link>`, `<meta>`, `<style>`, `<script>` v.v. không được hiển thị trên trang web. Ngoài ra, chỉ có thể có 1 thẻ `<head>` trong toàn bộ tài liệu html và sẽ luôn ở trước thẻ `<body>`.
 
@@ -275,5 +275,180 @@ HTML cho phép thực hiện kích hoạt sự kiện trong trình duyệt sử 
             document.getElementById("event_demo").innerHTML = 0;
         }
     </script>
+</html>
+```
+
+### 31. Các ưu điểm của HTML5 so với các phiên bản trước?
+
+- Hỗ trợ đa phương tiện.
+- Nó có khả năng lưu trữ dữ liệu ngoại tuyến bằng cách sử dụng cơ sở dữ liệu SQL và bộ đệm ứng dụng.
+- Javascript có thể được chạy ở chế độ nền.
+- HTML5 cũng cho phép người dùng vẽ nhiều hình dạng khác nhau như hình chữ nhật, hình tròn, hình tam giác, v.v.
+- Bao gồm các thẻ Sematic mới và các thẻ điều khiển biểu form.
+
+### 32. Cách để thêm nhạc và video vào web?
+
+HTML5 cung cấp hai thẻ là `<audio>` và `<video>` để ta thêm nhạc và video trực tiếp vào web.
+
+### 33. Phần tử inline và block trong HTML5?
+
+| Inline | Block |
+|--------|-------|
+| Các phần tử inline chỉ chiếm không gian cần thiết cho nội dung và không bắt đầu một dòng mới | Các phần tử block bắt đầu trên một dòng mới và chiếm toàn bộ chiều rộng của trang có sẵn |
+| `<span>`, `<a>`, `<strong>`, `<img>`, `<button>`, `<em>`, `<select>`, `<abbr>`, `<label>`, `<sub>`, `<cite>`, `<abbr>`, `<script>`, `<label>`, `<i>`, `<input>`, `<output>`, `<q>,` ... | `<div>`, `<p>`, `<header>`, `<footer>`, `<h1>`...`<h6>`, `<form>`, `<table>`, `<canvas>`, `<video>`, `<blockquote>`, `<pre>`, `<ul>`, `<ol>`, `<figcaption>`, `<figure>`, `<hr>`, `<article>`, `<section>` ... |
+
+![](./assets/Inline_and_block_elements_in_HTML5.png)
+
+### 34. Sự khác biệt giữa thẻ img và thẻ figure?
+
+Thẻ `<figure>` chỉ định nội dung như ảnh, sơ đồ, code snippets,... Thẻ `<figure>` được dùng để tổ chức các nội dung như ảnh, tiêu đề ảnh trong khi thẻ `<img>` dùng để nhúng một ảnh vào tài liệu HTML5.
+
+### 35. Làm thế nào để chỉ định metadata trong HTML5?
+
+Để chỉ định, ta có thể sử dụng thẻ `<meta>` (là một thẻ void, tức là nó không có thẻ đóng). Một số thuộc tính được sử dụng với thẻ meta là name, content, http-equiv, v.v. Hình ảnh dưới đây cho biết cách chỉ định metadata.
+
+![](./assets/How_to_specify_the_metadata_in_HTML5.png)
+
+### 36. Thẻ `<datalist>` và thẻ `<select>` là giống nhau?
+
+Không. Thẻ `<datalist>` và thẻ `<select>` là khác nhau. Trong thẻ `<select>`, người dùng sẽ chọn từ một danh sách tuỳ chọn (options), trong khi `<datalist>` được sử dụng để cung cấp chức năng "autocomplete" cho các phần tử `<input>`, người dùng sẽ thấy một danh sách thả xuống các tùy chọn trước khi họ nhập dữ liệu.
+
+![](./assets/is-datalist-and-select-tag-same.png)
+
+### 37. Image Map là gì?
+
+Bản đồ ảnh (image map) có thể tạm hiểu là một loại hình ảnh đặc biệt, trên tấm hình sẽ có các vùng được xác định, mỗi vùng đó được gán với một cái liên kết.
+
+```html
+<img  src=”image_url” ,  usemap=”#workspace” />
+<map  name=”workspace”>
+    <area shape=”rect”  coords=”34, 44, 270, 350” ,  href=”xyz.html” />
+    <area shape=”rect”  coords=”10, 120, 250, 360” ,  href=”xyz.html” />
+</map>
+```
+
+### 38. Phần tử Sematic là gì?
+
+Phần tử semantic mô tả ý nghĩa cụ thể đối với trình duyệt và nhà phát triển. Các phần tử như `<form>`, `<table>`, `<article>`, `<figure>`, ... là phần tử semantic.
+
+### 39. Sự khác biệt giữa thẻ `<meter>` và thẻ `<process>`?
+
+Thẻ `<progress>` được sử dụng khi ta muốn hiển thị tiến độ hoàn thành của một nhiệm vụ, trong khi thẻ `<meter>` xác định một phép đo vô hướng trong một phạm vi biết trước hoặc một giá trị phân số.
+
+### 40. Có thể kéo và thả trong HTML5 không?
+
+Có, trong HTML5, chúng ta có thể kéo và thả một phần tử. Điều này có thể thực hiện bằng cách sử dụng các sự kiện liên quan đến kéo và thả được sử dụng với phần tử mà chúng ta muốn kéo và thả.
+
+### 41. Sự khác biệt giữa phần tử SVG và Canvas trong HTML5?
+
+| SVG | Canvas |
+|-----|--------|
+| SVG là dựa trên vector, để tạo hình dạng | Dựa trên Raster, tức là bao gồm pixel |
+| Hoạt động tốt hơn với surface lớn | Hoạt động tốt hơn với surface nhỏ |
+| Có thể chỉnh sửa với script và css | Chỉ có thể chỉnh sửa với script |
+| Khả năng mở rộng cao. Có thể in ở độ phân giải cao. | Khả năng mở rộng thấp |
+
+### 42. Các kiểu file audio có thể dùng trong HTML5?
+
+HTML5 hỗ trợ các định dạng audio như sau:
+1. Mp3
+2. Wav
+3. Ogg
+
+### 43. Thông số kỹ thuật trong HTML5 là gì?
+
+Thông số kỹ thuật trong HTML5 nhằm mục đích là:
+- Giới thiệu thẻ phần tử mới để cấu trúc trang tốt hơn.
+- Hình thành một tiêu chuẩn hành vi trên nhiều trình duyệt và hỗ trợ cho các thiết bị và nền tảng khác nhau.
+- Tương thích ngược với các trang web HTML phiên bản cũ hơn.
+- Giới thiệu các phần tử tương tác cơ bản mà không phụ thuộc vào các plugin, chẳng hạn như thẻ `<video>` thay vì plugin flash.
+
+### 44. Các khái niệm về web storage trong HTML5?
+
+Web storage này giúp lưu trữ một số dữ liệu tĩnh trong bộ local storage của trình duyệt để hạn chế việc tìm nạp dữ liệu từ máy chủ quá thường xuyên. Có giới hạn kích thước dựa trên các trình duyệt khác nhau. Điều này giúp giảm thời gian tải và trải nghiệm người dùng mượt mà. Có hai loại web storage được sử dụng để lưu trữ dữ liệu cục bộ trong HTML5:
+* **Local Storage** - giúp dữ liệu được lưu trữ ngay cả khi người dùng đóng trình duyệt. Nó được lưu trữ cho từng ứng dựng web trên các trình duyệt khác nhau.
+* **Session Storage** - chỉ lưu trữ trong phiên làm việc. Nếu người dùng đóng trình duyệt nó sẽ bị xoá.
+
+### 45. Microdata là gì?
+
+Microdata là một phương thức đơn giản để phân loại các nội dung trong website. Microdata hiểu một cách đơn giản là để thêm dữ liệu có cấu trúc vào website. Microdata nó định nghĩa thuộc tính, có thể đặt vào trong HTML để cho biết trang web đó viết về mục đích gì.
+
+```html
+<div itemscope itemtype="http://schema.org/SoftwareApplication">
+    <span itemprop="name">Interviewbit Games</span> -
+    REQUIRES <span itemprop="operatingSystem">ANDROID</span><br>
+    <link itemprop="applicationCategory" href="http://schema.org/GameApplication"/>
+    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+        RATING:
+        <span itemprop="ratingValue">4.6</span> (
+        <span itemprop="ratingCount">8864</span> ratings )
+    </div>
+    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    Price: Rs.<span itemprop="price">1.00</span>
+        <meta itemprop="priceCurrency" content="INR" />
+    </div>
+</div>
+```
+
+* **itemid** – Thuộc tính này là bộ nhận diện global cho item
+* **itemprop** – Thuộc tính này định nghĩa một thuộc tính của item
+* **itemref** – Thuộc tính này cung cấp một danh sách các phần tử bổ sung để tìm các cặp tên-giá trị của item.
+* **itemscope** – Được sử dụng để tạo một item. Thuộc tính này là một thuộc tính logic mà nói rằng có Microdata trên trang này, và đây là nơi nó bắt đầu.
+* **itemtype** – Thuộc tính này là một URL hợp lệ mà định nghĩa item và cung cấp ngữ cảnh cho các thuộc tính.
+
+Ví dụ về microdata bởi Google:
+
+![](./assets/Microdata_in_HTML5.png)
+
+### 46. Thẻ nào được dùng để biểu diễn kết quả tính toán? 
+
+Thẻ `<output>` được dùng để biểu diễn kết quả tính toán. Nó có các thuộc tính sau:
+- **for** - Nó xác định mối quan hệ giữa các phần tử được sử dụng trong tính toán và kết quả.
+- **form** - được sử dụng để xác định hình thức mà phần tử đầu ra thuộc về.
+- **name** - Tên của phần tử output
+
+```html
+<form oninput = "result.value=parseInt(n1.value)+parseInt(n2.value)">
+    <input type = "number" name = "n1" value = "1" /> +
+    <input type = "number" name = "n2" value = "2" /><br />
+    The output is: <output name = "result"></output>
+</form>
+```
+
+Kết quả trông như:
+
+![](./assets/html-output-tag.png)
+
+### 47. Mối quan hệ giữa thẻ `<h1>` và `<header>` trong HTML5?
+
+Trong HTML5 thẻ `<header>` chỉ định phần tiêu đề của trang web. Không giống như các phiên bản trước có một phần tử `<h1>` cho toàn bộ trang web, bây giờ đây chỉ có header cho một phần như `<article>` hoặc `<section>`. Theo đặc tả HTML5, mỗi phần tử `<header>` phải có ít nhất một thẻ `<h1>`.
+
+### 48. Giải thích về đồ hoạ trong HTML5?
+
+HTML 5 hỗ trợ hai loại đồ hoạ:
+
+- **Canvas:** Nó giống như vẽ trên một tờ giấy trắng hoặc một trang web trống. Ta có thể thêm các thiết kế đồ họa khác nhau trên các trang web với các phương pháp có sẵn để vẽ các hình dạng hình học khác nhau.
+
+```html
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <canvas width="300" height="100" style="border:2px solid;"></canvas>  
+    </body>
+</html>
+```
+
+- **SVG:** Scalable Vector Graphics được sử dụng hầu hết cho các sơ đồ hoặc biểu tượng. Nó tuân theo định dạng XML.
+
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+    <svg width="400" height="110">
+        <rect width="300" height="100" style="fill:#FFF;stroke-width:2;stroke:#000" />
+    </svg>
+    </body>
 </html>
 ```
