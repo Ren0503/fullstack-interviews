@@ -72,7 +72,7 @@ Thuật toán thường được sử dụng để chỉ định cách tính to�
 
 [21. Viết thuật toán tính tổng mảng con lớn nhất của một mảng cho trước. Nói cách khác, tìm tổng lớn nhất có thể đạt được bằng cách lấy các phần tử được sắp xếp từ một mảng số nguyên cho trước?](#21-viết-thuật-toán-tính-tổng-mảng-con-lớn-nhất-của-một-mảng-cho-trước-nói-cách-khác-tìm-tổng-lớn-nhất-có-thể-đạt-được-bằng-cách-lấy-các-phần-tử-được-sắp-xếp-từ-một-mảng-số-nguyên-cho-trước)
 
-[22. Giải thích Thuật toán Dijkstra để tìm đường đi ngắn nhất giữa một nút đến bất kỳ nút nào khác trong đồ thị?]()
+[22. Giải thích Thuật toán Dijkstra để tìm đường đi ngắn nhất giữa một nút đến bất kỳ nút nào khác trong đồ thị?](#22-giải-thích-thuật-toán-dijkstra-để-tìm-đường-đi-ngắn-nhất-giữa-một-nút-đến-bất-kỳ-nút-nào-khác-trong-đồ-thị)
 
 [23. Có thể sử dụng tìm kiếm nhị phân với danh sách liên kết không?](#23-có-thể-sử-dụng-tìm-kiếm-nhị-phân-với-danh-sách-liên-kết-không)
 
