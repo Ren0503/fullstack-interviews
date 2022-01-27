@@ -4,6 +4,64 @@
 
 Các design pattern là các giải pháp mẫu có thể tái sử dụng để giải quyết các vấn đề phổ biến trong phát triển phần mềm như lặp code, các pattern có thể sử dụng lại, các chức năng dư thừa, v.v. Chúng tương tự như các bản thiết kế có thể tùy chỉnh để giải quyết bất kỳ vấn đề nào. Khái niệm này được Christopher Alexander mô tả lần đầu tiên và sau đó được 4 tác giả -  Erich Gamma, John Vlissides, Ralph Johnson, and Richard Helm - thường được biết đến với cái tên Gang of Four xuất bản trong cuốn sách Design Patterns: Elements of Reusable Object-Oriented Software vào năm 1994. Design Patterns dạy các dev cách giải quyết các vấn đề thường lặp lại mà không tốn quá nhiều thời gian và công sức trong khi phát triển các giải pháp cho chúng. Do đó, nhu cầu cho các nhà phát triển phần mềm biết các pattern này đã tăng lên rất nhiều.
 
+## Mục lục
+
+[1. Design pattern là gì?](#1-design-pattern-là-gì)
+
+[2. Design pattern trong Java?](#2-design-pattern-trong-java)
+
+[3. Mô tả một design pattern như thế nào?](#3-mô-tả-một-design-pattern-như-thế-nào)
+
+[4. Các kiểu design pattern?](#4-các-kiểu-design-pattern)
+
+[5. Inversion of Control là gì?](#5-inversion-of-control-là-gì)
+
+[6. GoF là gì?](#6-gof-là-gì)
+
+[7. Các nguyên tắc SOLID là gì?](#7-các-nguyên-tắc-solid-là-gì)
+
+[8. Bạn hiểu nguyên tắc đóng mở như thế nào?](#8-bạn-hiểu-nguyên-tắc-đóng-mở-như-thế-nào)
+
+[9. Design pattern trong thư viện JDK của Java?](#9-design-pattern-trong-thư-viện-jdk-của-java)
+
+[10.Design pattern và design principles khác nhau như thế nào?](#10design-pattern-và-design-principles-khác-nhau-như-thế-nào)
+
+[11. Các design pattern khác các thuật toán như thế nào?](#11-các-design-pattern-khác-các-thuật-toán-như-thế-nào)
+
+[12. Design pattern Factory là gì?](#12-design-pattern-factory-là-gì)
+
+[13. Design pattern Adapter là gì?](#13-design-pattern-adapter-là-gì)
+
+[14. Design pattern Proxy là gì?](#14-design-pattern-proxy-là-gì)
+
+[15. Design pattern Bridge là gì?](#15-design-pattern-bridge-là-gì)
+
+[16. Một số trường hợp mà chúng ta thích các lớp trừu tượng hơn các interface trong Java?](#16-một-số-trường-hợp-mà-chúng-ta-thích-các-lớp-trừu-tượng-hơn-các-interface-trong-java)
+
+[17. Chain of Responsibility là gì? Trong trường hợp nào thì áp dụng pattern này?](#17-chain-of-responsibility-là-gì-trong-trường-hợp-nào-thì-áp-dụng-pattern-này)
+
+[18. Design pattern Decorator là gì?](#18-design-pattern-decorator-là-gì)
+
+[19. Design pattern Command là gì?](#19-design-pattern-command-là-gì)
+
+[20. Design pattern Observer là gì?](#20-design-pattern-observer-là-gì)
+
+[21. Vấn đề mà pattern Builder giải quyết là gì?](#21-vấn-đề-mà-pattern-builder-giải-quyết-là-gì)
+
+[22. Hãy xem xét tình huống mà bạn đang viết các lớp để cung cấp dữ liệu thị trường và đột nhiên ta chuyển sang nhà cung cấp khác hoặc là chuyến hướng đến Direct Exchange Feed. Bạn sẽ tiếp cận vấn đề này như thế nào để thiết kế hệ thống?](#22-hãy-xem-xét-tình-huống-mà-bạn-đang-viết-các-lớp-để-cung-cấp-dữ-liệu-thị-trường-và-đột-nhiên-ta-chuyển-sang-nhà-cung-cấp-khác-hoặc-là-chuyến-hướng-đến-direct-exchange-feed-bạn-sẽ-tiếp-cận-vấn-đề-này-như-thế-nào-để-thiết-kế-hệ-thống)
+
+[23. Null Object pattern là gì](#23-null-object-pattern-là-gì)
+
+[24. MVC là gì?](#24-mvc-là-gì)
+
+[25. Các thành phần trong Composite Entity?](#25-các-thành-phần-trong-composite-entity)
+
+[26. Lợi thế của dùng prototype so với dùng toán tử new là gì?](#26-lợi-thế-của-dùng-prototype-so-với-dùng-toán-tử-new-là-gì)
+
+[27. Thread-safe với Singleton trong Java?](#27-thread-safe-với-singleton-trong-java)
+
+[28. Điều gì sẽ xảy ra nếu chúng ta không có một phương thức synchronized để trả về thực thể Singleton trong môi trường đa luồng?](#28-điều-gì-sẽ-xảy-ra-nếu-chúng-ta-không-có-một-phương-thức-synchronized-để-trả-về-thực-thể-singleton-trong-môi-trường-đa-luồng)
+
 ## Câu hỏi phỏng vấn Design Pattern cho Fresher
 
 ### 1. Design pattern là gì?
@@ -116,7 +174,6 @@ Nguyên tắc Đóng mở quy định rằng bất kỳ lớp, thành phần ho�
 * **Singleton pattern** được dùng cho các lớp `Calendar` và `Runtime`.
 * **Factory pattern** được dùng cho các phương thức như `Integer.valueOf` trong các lớp `wrapper`.
 * **Observer pattern** được dùng cho xử lý sự kiện framework như `awt`, `swing`,...
-
 
 ### 10.Design pattern và design principles khác nhau như thế nào?
 
@@ -527,7 +584,7 @@ Xác minh kết quả ở output:
    .........
 ```
 
-### 19. Command là gì?
+### 19. Design pattern Command là gì?
 
 Thuộc nhóm behavioural design pattern dùng để truyền đổi một yêu cầu thành một đối tượng độc lập bao gồm các chi tiết của yêu cầu đó. Pattern này là một data-driven pattern vì ta sử dụng thông tin về yêu cầu bằng cách bọc nó dưới dạng một đối tượng và chuyển đến đối tượng invoker dưới dạng một command. Đối tượng invoker kiểm tra đối tượng có thể xử lý command và truyền cho nó để thực thi.
 
@@ -849,7 +906,7 @@ User: Hermoine Granger, 20, English, null, null
 
 ### 22. Hãy xem xét tình huống mà bạn đang viết các lớp để cung cấp dữ liệu thị trường và đột nhiên ta chuyển sang nhà cung cấp khác hoặc là chuyến hướng đến Direct Exchange Feed. Bạn sẽ tiếp cận vấn đề này như thế nào để thiết kế hệ thống? 
 
-Ta có thể làm bằng cách dùng một interface là "MarketData" sẽ bao gồm các phương thức mà khách hàng yêu cầu. MarketData nên có một MarketDataProvider làm phần phụ thuộc bằng cách sử dụng Dependency Injection. Điều này đảm bảo rằng ngay cả khi nhà cung cấp thay đổi, dữ liệu thị trường sẽ không bị ảnh hưởng. 
+Ta có thể làm bằng cách dùng một interface là `MarketData` sẽ bao gồm các phương thức mà khách hàng yêu cầu. `MarketData` nên có một `MarketDataProvider` làm phần phụ thuộc bằng cách sử dụng Dependency Injection. Điều này đảm bảo rằng ngay cả khi nhà cung cấp thay đổi, dữ liệu thị trường sẽ không bị ảnh hưởng. 
 
 ### 23. Null Object pattern là gì?
 
