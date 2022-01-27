@@ -15,6 +15,94 @@ Chức năng của hệ điều hành:
 - Phát hiện lỗi.
 - Bảo mật
 
+## Mục lục 
+
+[1. Tại sao hệ điều hành quan trọng?](#1-tại-sao-hệ-điều-hành-quan-trọng)
+
+[2. Mục đích chính của hệ điều hành là gì? Các loại hệ điều hành khác nhau là gì?](#2-mục-đích-chính-của-hệ-điều-hành-là-gì-các-loại-hệ-điều-hành-khác-nhau-là-gì)
+
+[3. Lợi ích của hệ thống đa xử lý?](#3-lợi-ích-của-hệ-thống-đa-xử-lý)
+
+[4. Cấu trúc RAID trong hệ điều hành là gì?](#4-cấu-trúc-raid-trong-hệ-điều-hành-là-gì)
+
+[5. GUI là gì?](#5-gui-là-gì)
+
+[6. Pipe là gì và khi nào sử dụng?](#6-pipe-là-gì-và-khi-nào-sử-dụng)
+
+[7. Các loại hoạt động khác nhau có thể có trên semaphore là gì?](#7-các-loại-hoạt-động-khác-nhau-có-thể-có-trên-semaphore-là-gì)
+
+[8. Chương trình bootstrap trong hệ điều hành là gì?](#8-chương-trình-bootstrap-trong-hệ-điều-hành-là-gì)
+
+[9. Demand Paging là gì?](#9-demand-paging-là-gì)
+
+[10. RTOS là gì?](#10-rtos-là-gì)
+
+[11. Đồng bộ hoá tiến trình là gì?](#11-đồng-bộ-hoá-tiến-trình-là-gì)
+
+[12. IPC là gì? Các cơ chế IPC khác nhau?](#12-ipc-là-gì-các-cơ-chế-ipc-khác-nhau)
+
+[13. Sự khác biệt giữa bộ nhớ chính và bộ nhớ phụ?](#13-sự-khác-biệt-giữa-bộ-nhớ-chính-và-bộ-nhớ-phụ)
+
+[14. Overlay trong hệ điều hành là gì?](#14-overlay-trong-hệ-điều-hành-là-gì)
+
+[15. Các hệ điều hành nổi tiếng?](#15-các-hệ-điều-hành-nổi-tiếng)
+
+[16. Bộ nhớ ảo là gì?](#16-bộ-nhớ-ảo-là-gì)
+
+[17. Luồng trong hệ điều hành là gì?](#17-luồng-trong-hệ-điều-hành-là-gì)
+
+[18. Tiến trình là gì? Các trạng thái tiến trình khác nhau?](#18-tiến-trình-là-gì-các-trạng-thái-tiến-trình-khác-nhau)
+
+[19. FCFS nghĩa là gì?](#19-fcfs-nghĩa-là-gì)
+
+[20. Reentrancy là gì?](#20-reentrancy-là-gì)
+
+[21. Thuật toán định thời là gì? Các loại thuật toán định thời?](#21-thuật-toán-định-thời-là-gì-các-loại-thuật-toán-định-thời)
+
+[22. Sự khác biệt giữa phân trang và phân đoạn?](#22-sự-khác-biệt-giữa-phân-trang-và-phân-đoạn)
+
+[23. Thrashing trong hệ điều hành là gì?](#23-thrashing-trong-hệ-điều-hành-là-gì)
+
+[24. Đối tượng chính trong Đa chương trình là gì?](#24-đối-tượng-chính-trong-đa-chương-trình-là-gì)
+
+[25. Nhóm bất đối xứng là gì?](#25-nhóm-bất-đối-xứng-là-gì)
+
+[26. Sự khác biệt giữa đa nhiệm và đa tiến trình là gì?](#26-sự-khác-biệt-giữa-đa-nhiệm-và-đa-tiến-trình-là-gì)
+
+[27. Socket trong hệ điều hành là gì?](#27-socket-trong-hệ-điều-hành-là-gì)
+
+[28. Giải thích về tiến trình thây ma?](#28-giải-thích-về-tiến-trình-thây-ma)
+
+[29. Kết thúc hàng loạt là gì?](#29-kết-thúc-hàng-loạt-là-gì)
+
+[30. Starvation và aging trong hệ điều hành là gì?](#30-starvation-và-aging-trong-hệ-điều-hành-là-gì)
+
+[31. Semaphore là gì trong hệ điều hành?](#31-semaphore-là-gì-trong-hệ-điều-hành)
+
+[32. Kernel là gì? Chức năng chính của nó?](#32-kernel-là-gì-chức-năng-chính-của-nó)
+
+[33. Các kiểu Kernel khác nhau?](#33-các-kiểu-kernel-khác-nhau)
+
+[34. Sự khác biệt giữa MircoKernel và Monolithic Kernel?](#34-sự-khác-biệt-giữa-mircokernel-và-monolithic-kernel)
+
+[35. SMP là gì?](#35-smp-là-gì)
+
+[36. Hệ thống chia sẻ thời gian là gì?](#36-hệ-thống-chia-sẻ-thời-gian-là-gì)
+
+[37. Context Switching là gì?](#37-context-switching-là-gì)
+
+[38. Sự khác biệt giữa Kernel và hệ điều hành?](#38-sự-khác-biệt-giữa-kernel-và-hệ-điều-hành)
+
+[39. Sự khác biệt giữa tiến trình và luồng?](#39-sự-khác-biệt-giữa-tiến-trình-và-luồng)
+
+[40. Các thành phần khác nhau của tiến trình?](#40-các-thành-phần-khác-nhau-của-tiến-trình)
+
+[41. Deadlock trong hệ điều hành là gì?](#41-deadlock-trong-hệ-điều-hành-là-gì)
+
+[42. Belady’s Anomaly nghĩa là gì?](#42-beladys-anomaly-nghĩa-là-gì)
+
+[43. Spooling trong hệ điều hành là gì?](#43-spooling-trong-hệ-điều-hành-là-gì)
+
 ## Câu hỏi phỏng vấn hệ điều hành cho Fresher
 
 ### 1. Tại sao hệ điều hành quan trọng?
@@ -68,7 +156,7 @@ Hiện tại, RAID có các level như sau:
 
 GUI (Graphical User Interface) về cơ bản là một loại giao diện người dùng cho phép người dùng sử dụng đồ họa để tương tác với hệ điều hành. GUI được tạo ra vì nó thân thiện với người dùng hơn, ít phức tạp hơn và dễ hiểu hơn là một giao diện dòng lệnh. Mục tiêu chính của nó là tăng hiệu quả và dễ sử dụng. Thay vì phải ghi nhớ các lệnh, người dùng có thể chỉ cần click vào một nút để thực hiện công việc một cách đơn giản. Ví dụ về GUI bao gồm Microsoft Windows, macOS, v.v.
 
-### 6. Pipe là gì và khi nào sử dụng? 
+### 6. Pipe là gì và khi nào sử dụng?
 
 Pipe - đường ống - nói chung là một kết nối giữa hai hoặc nhiều tiến trình có liên quan đến nhau. Nó là một cơ chế được sử dụng để giao tiếp giữa các tiến trình bằng cách truyền tin nhắn. Người ta có thể dễ dàng gửi thông tin chẳng hạn như đầu ra của một tiến trình chương trình đến một tiến trình chương trình khác bằng cách sử dụng một đường ống. Nó có thể được sử dụng khi hai tiến trình muốn giao tiếp một chiều, tức là giao tiếp giữa các tiến trình (IPC).
 
