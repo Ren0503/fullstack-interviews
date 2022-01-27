@@ -68,7 +68,7 @@ VPN hay Virtual Private Network là một mạng WAN riêng tư được xây d�
 
 Cấu trúc liên kết mạng là một bố trí vật lý của mạng, kết nối các nút khác nhau bằng các liên kết. Nó mô tả kết nối giữa các máy tính, thiết bị, cáp, v.v.
 
-## 9. Các kiểu cấu trúc liên kết mạng khác nhau?
+### 9. Các kiểu cấu trúc liên kết mạng khác nhau?
 
 #### Dạng bus:
 
@@ -263,3 +263,68 @@ Giao thức phân giải địa chỉ (Address Resolution Protocol hay ARP) là 
 
 FTP - File Transfer Protocol (Giao thức truyền tải tập tin) được dùng trong việc trao đổi dữ liệu trong mạng thông qua giao thức TCP/IP, thường hoạt động trên 2 cổng là 20 và 21. Với giao thức này, các máy client trong mạng có thể truy cập đến máy chủ FTP để gửi hoặc lấy dữ liệu. Điểm nổi bật là người dùng có thể truy cập vào máy chủ FTP để truyền và nhận dữ liệu dù đang ở xa.
 
+### 28. Địa chỉ MAC là gì?
+
+Địa chỉ MAC là viết tắt của Media Access Control. Nó là một dãy 48-bit hoặc 64-bit duy nhất của phần cứng máy tính. Nó còn được gọi là địa chỉ vật lý nhúng với NIC (Network Interface Card) được sử dụng ở tầng Data Link. NIC là một thiết bị phần cứng được cài đặt trên máy tính để nó có thể được kết nối với internet.
+
+### 29. Sự khác biệt giữa địa chỉ IP và địa chỉ MAC?
+
+| MAC | IP |
+|-----|----|
+| 6 hoặc 8 byte dạng thập lục phân | IPv4 hoặc IPv6 |
+| Được nhúng với NIC | Nó được lấy từ mạng | 
+| Địa chỉ vật lý | Địa chỉ logic |
+| Hoạt động ở tầng Data Link | Hoạt động ở tầng Network |
+| Giúp định danh thiết bị | Giúp định danh thiết bị kết nối trong mạng |
+
+### 30. Subnet là gì?
+
+Subnet (mạng con) là một mạng bên trong một mạng khác được tạo bởi quá trình gọi là chia mạng con (subnetting) giúp phân chia một mạng thành các mạng con. Nó được sử dụng để có hiệu quả định tuyến cao hơn và nâng cao tính bảo mật của mạng. Nó làm giảm thời gian trích xuất địa chỉ máy chủ từ bảng định tuyến.
+
+![](./assets/Subnet.png)
+
+### 31. So sánh Hub với Switch?
+
+| Hub | Switch |
+|-----|--------|
+| Hoạt động ở tầng Physical | Hoạt động ở tầng Data Link |
+| Chế độ truyền tải Half-Duplex | Chế độ truyền tải Full-Duplex |
+| Các thiết bị Ethernet có thể được kết nối | Các thiết bị LAN có thể được kết nối |
+| Ít phức tạp, rẻ, kém thông minh | Thông minh và hiệu quả |
+| Không có phần mềm hỗ trợ admin | Hỗ trợ phần mềm admin |
+| Tốc độ nhỏ hơn 100MBPS | Hỗ trợ tốc độ cao GBPS |
+| Kém hiệu quả hơn vì không có cách nào để tránh xung đột khi nhiều nút gửi các gói tin cùng một lúc | Hiệu quả hơn vì có thể tránh hoặc giảm xung đột so với Hub |
+
+### 32. Sự khác biệt giữa ipconfig và ifconfig?
+
+| ipconfig | ifconfig |
+|----------|----------|
+| Internet Protocol Configuration | Interface Configuration |
+| Lệnh trong hệ điều hành Microsoft để xem và cấu hình interface mạng | Lệnh dùng trong MAC, Unix để xem cấu hình interface mạng |
+| Được sử dụng để lấy thông tin tổng hợp TCP/IP và cho phép thay đổi cài đặt DHCP và DNS |
+
+### 33. Tường lửa là gì?
+
+Tường lửa là một hệ thống an ninh mạng được sử dụng để giám sát lưu lượng đến và đi và chặn các lưu lượng giống nhau dựa trên các chính sách bảo mật của tường lửa. Nó hoạt động như một bức tường giữa internet (mạng công cộng) và các thiết bị mạng (mạng riêng). Nó có thể là thiết bị phần cứng hay chương trình phần mềm hoặc kết hợp cả hai. Nó bổ sung một lớp bảo mật cho mạng.
+
+![](./assets/Firewall.png)
+
+### 34. Unicasting, Anycasting, Multicasting và Broadcasting là gì?
+
+- **Unicasting:** Nếu thông điệp được gửi cho một nút đơn từ một nguồn được gọi là Unicasting. Đây là cách phổ biến để thiết lập kết nối trong mạng.
+- **Anycasting:** Nếu thông điệp được gửi đến bất kỳ nút nào từ nguồn được gọi là anycasting. Nó chủ yếu được dùng để lấy nội dung từ bất kỳ server nào trong CDS (Content Delivery System).
+- **Multicasting:** nếu thông điệp được gửi đến mạng con của một nút từ nguồn nó được gọi là multicasting. Nó được dùng để gửi cùng dữ liệu đến nhiều người nhận.
+- **Broadcasting:** nếu thông điệp được gửi cho tất cả nút trong mạng từ một nguồn nó được gọi là broadcasting. DHCP và ARP là mạng cục bộ dùng broadcasting.
+
+### 35. Điều gì xảy ra khi nhập google.com trên trình duyệt web?
+
+1. Trước tiên, kiểm tra bộ đệm trình duyệt trước nếu nội dung đã có ở bộ đệm thì hiển thị nó.
+2. Nếu không, trình duyệt kiểm tra IP hoặc URL ở bộ đệm (trình duyệt hoặc HĐH) nếu không, yêu cầu hệ điều hành thực hiện tra cứu DNS bằng UDP để lấy địa chỉ IP tương ứng với URL từ DNS để thiết lập kết nối TCP mới.
+3. Kết nối TCP mới được thiết lập giữa trình duyệt và server sử dụng bắt tay ba bước.
+4. Yêu cầu HTTP được gửi đến server sử dụng kết nối TCP.
+5. Web server xử lý yêu cầu HTTP và gửi phản hồi.
+6. Trình duyệt xử lý phản hổi HTTP được gửi từ server và đóng kết nối TCP hoặc sử dụng lại trong tương lai.
+7. Nếu dữ liệu phản hồi có thể lưu vào bộ đệm thì trình duyệt sẽ lưu vào bộ đệm giống nhau.
+8. Trình duyệt decode phản hồi và hiển thị nội dung.
+
+![](./assets/google.jpg)
