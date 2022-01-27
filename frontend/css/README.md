@@ -1,5 +1,7 @@
 # Câu hỏi phỏng vấn CSS
 
+![](./assets/css.jpg)
+
 ## CSS là gì?
 
 CSS là chữ viết tắt của Cascading Style Sheets, nó là một ngôn ngữ được sử dụng để tìm và định dạng lại các phần tử được tạo ra bởi các ngôn ngữ đánh dấu (HTML). Nói ngắn gọn hơn là ngôn ngữ tạo phong cách cho trang web. Bạn có thể hiểu đơn giản rằng, nếu HTML đóng vai trò định dạng các phần tử trên website như việc tạo ra các đoạn văn bản, các tiêu đề, bảng,…thì CSS sẽ giúp chúng ta có thể thêm style vào các phần tử HTML đó như đổi bố cục, màu sắc trang, đổi màu chữ, font chữ, thay đổi cấu trúc…
@@ -17,7 +19,7 @@ Các phần tử trong HTML có thể được coi là những chiếc hộp. Tr
 
 Về cơ bản mô hình hộp CSS là một chiếc hộp bao xung quanh phần tử HTML, gồm lề, đường viền, padding và nội dung bên trong. Hình ảnh dưới đây cho thấy vị trí và mối liên hệ giữa các thành phần này.
 
-![](./assets/Box_Model_in_CSS.png)
+![](./assets/Box_Model_in_CSS.jpg)
 
 * **Content** - nội dung trong hộp, nơi hiển thị văn bản và hình ảnh
 * **Padding** - phần khoảng trắng xung quanh nội dung, trong suốt
@@ -298,9 +300,9 @@ bg-color = #00f;
 
 ### 8. Sự khác biệt giữa reset và normalize CSS?
 
-Reset CSS: nhằm mục đích xoá tất cả thiết lập style mặc định từ trình duyệt. Ví dụ như margin, padding, font-size của tất cả phần tử đó được reset lại giống nhau.
+**Reset CSS:** nhằm mục đích xoá tất cả thiết lập style mặc định từ trình duyệt. Ví dụ như margin, padding, font-size của tất cả phần tử đó được reset lại giống nhau.
 
-Normalize CSS: nhằm mục đích làm cho các style mặc định nhất quán trên trình duyệt. Nó cũng sửa các lỗi phổ biến trên trình duyệt.
+**Normalize CSS:** nhằm mục đích làm cho các style mặc định nhất quán trên trình duyệt. Nó cũng sửa các lỗi phổ biến trên trình duyệt.
 
 ### 9. Sự khác biệt giữa inline, block và inline-block?
 
@@ -660,3 +662,116 @@ p {
 ```
 
 `!important` đảm bảo rằng thuộc tính có trọng lượng tối đa khi có các thuộc tính xung đột khác.
+
+## Câu hỏi phỏng vấn CSS cho Experienced
+
+### 24. Giải thích thuộc tính position CSS?
+
+- **static**: vị trí/tĩnh mặc định của phần tử và bạn đặt đâu phần tử sẽ nằm ở đó.
+- **relative**: vị trí của phần tử sẽ tương đối so với vị trí tĩnh bạn đặt và khoản không gian xung quanh phần tử sẽ được giữ nguyên.
+- **fixed**: vị trí sẽ nằm cố định một chỗ, dù bạn có làm gì, phần tử vẫn nằm cố định 1 vị trí trên màn hình.
+- **absolute**: vị trí của phần tử sẽ được xác định từ padding của phần tử cha.
+- **sticky**: vị trí của phần tử sẽ được định vị khi người dùng sử dụng thanh cuộn.
+
+![](./assets/CSS_Position_Property.jpg)
+
+### 25. Khi nào thì xảy ra DOM reflow?
+
+Reflow là tên của quá trình mà trình duyệt web tính toán lại vị trí và hình dạng của các phần tử trong tài liệu, nhằm mục đích hiển thị lại một phần hoặc toàn bộ tài liệu.
+
+Reflow xảy ra khi:
+
+- Chèn, xóa hoặc cập nhật một phần tử trong DOM.
+- Sửa đổi nội dung trên trang, ví dụ: văn bản trong hộp nhập liệu.
+- Di chuyển một phần tử DOM.
+- Tạo hoạt ảnh cho một phần tử DOM.
+- Thực hiện các phép đo một phần tử như `offsetHeight` hoặc `getComputedStyle`.
+- Thay đổi kiểu CSS
+
+### 26. Sự khác biệt giữa các thuộc tính Box Sizing?
+
+Thuộc tính CSS box-sizing đặt cách tính tổng chiều rộng và chiều cao của một phần tử.
+- **Context-box:** Giá trị chiều rộng và chiều cao mặc định chỉ áp dụng cho nội dung của phần tử. Padding và border được thêm vào bên ngoài hộp.
+- **Padding-box:** Giá trị chiều rộng và chiều cao mặc định chỉ áp dụng cho nội dung của phần tử và padding của nó. Border được thêm vào bên ngoài hộp. Hiện tại chỉ có Firefox hỗ trợ padding-box.
+- **Border-box:**  Giá trị chiều rộng và chiều cao áp dụng cho nội dung, padding và border. 
+
+### 27. Làm sao để căn giữa một div trong một div khác?
+
+Ta có :
+
+```html
+<div class="cn"><div class="inner">your content</div></div>
+```
+
+- Căn giữa với Table
+
+```css
+.cn {
+	display: table-cell;
+	width: 500px;
+	height: 500px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.inner {
+	display: inline-block;
+	width: 200px; height: 200px;
+}
+```
+
+- Căn giữa với Transform
+
+```css
+.cn {
+	position: relative;
+	width: 500px;
+	height: 500px;
+}
+
+.inner {
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%,-50%);
+	width: 200px;
+	height: 200px;
+}
+```
+
+- Căn giữa với Flexbox
+
+```css
+.cn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+```
+
+- Căn giữa với Grid
+
+```html
+<div class="wrap_grid">
+	<div id="container">vertical aligned text<br />some more text here
+	</div>
+</div>
+```
+
+```css
+.wrap-grid {
+	display: grid;
+	place-content: center;
+}
+```
+
+### 28. Kể tên bốn loại thuộc tính @media?
+
+1. All -> Thuộc tính mặc định dùng cho tất cả thiết bị.
+2. Screen -> sử dụng màn hình máy tính, điện thoại.
+3. Print -> Sử dụng cho máy in.
+4. Speech -> Sử dụng cho màn hình người đọc.
+
+### 29. Hệ thống grid là gì?
+
+CSS Grid layout là một hệ thống layout 2 chiều (x,y) được dùng trong thiết kế UI. Theo định nghĩa từ Mozilla, grid (lưới) là một tổ hợp của những đường ngang và dọc cắt nhau – một nhóm xác định các cột và nhóm kia xác định các hàng. Các phần tử có thể được đặt lên lưới, dựa vào các đường hàng và cột này.
+
