@@ -137,7 +137,7 @@ Các cơ chế IPC khác nhau:
 | Bộ nhớ chính | Bộ nhớ phụ |
 |--------------|------------|
 |Dữ liệu được truy cập trực tiếp bởi đơn vị xử lý | Đầu tiên, dữ liệu được chuyển đến bộ nhớ chính và sau đó được chuyển đến đơn vị xử lý |
-| Có thể ổn định hoặc không ổn định | Luôn là ổn định Ư
+| Có thể ổn định hoặc không ổn định | Luôn là ổn định |
 | Tốn nhiều chi phí hơn bộ nhớ phụ | Tốn ít chi phí hơn |
 | Dữ liệu chỉ được lưu trữ tạm thời | Dữ liệu được lưu trữ dài lâu |
 | Có thể mất dữ liệu khi sập nguồn | Dữ liệu không thể mất nếu sập nguồn |
@@ -222,6 +222,7 @@ Thuật toán định thời được sử dụng để cải thiện hiệu qu�
 ### 22. Sự khác biệt giữa phân trang và phân đoạn?
 
 **Phân trang:** nói chung là một kỹ thuật quản lý bộ nhớ cho phép hệ điều hành truy xuất các tiến trình từ bộ nhớ phụ vào bộ nhớ chính. Nó là một kỹ thuật phân bổ không liền kề để phân chia mỗi tiến trình dưới dạng các trang.
+
 **Phân đoạn:** nói chung là một kỹ thuật quản lý bộ nhớ bằng cách chia các tiến trình thành các mô-đun và các phần có kích thước khác nhau. Các thành phần và mô-đun này được gọi là các phân đoạn có thể được phân bổ cho tiến trình.
 
 | Phân trang | Phân đoạn |
@@ -240,11 +241,11 @@ Thuật toán định thời được sử dụng để cải thiện hiệu qu�
 
 Thrashing xảy ra khi không có đủ bộ nhớ để lưu trữ các bộ làm việc của tất cả các chương trình đang hoạt động.
 
-Nó thường là một tình huống trong đó CPU thực hiện công việc kém hiệu quả hơn. Nó dành nhiều thời gian cho các hoạt động hoán đổi hoặc phân trang hơn là thực thi. Bằng cách đánh giá mức độ sử dụng CPU, một hệ thống có thể phát hiện ra sự cố. Nó xảy ra khi tiến trình không có đủ trang do đó tỷ lệ lỗi trang tăng lên. Nó ức chế nhiều tiến trình xử lý ở cấp độ ứng dụng khiến hiệu suất máy tính giảm hoặc sập.
+Nó thường là một tình huống trong đó CPU thực hiện công việc kém hiệu quả hơn. Nó dành nhiều thời gian cho các hoạt động hoán đổi hoặc phân trang hơn là thực thi. Bằng cách đánh giá mức độ sử dụng CPU, một hệ thống có thể phát hiện ra thrashing. Nó xảy ra khi tiến trình không có đủ trang do đó tỷ lệ lỗi trang tăng lên. Nó ức chế nhiều tiến trình xử lý ở cấp độ ứng dụng khiến hiệu suất máy tính giảm hoặc sập.
 
 ### 24. Đối tượng chính trong Đa chương trình là gì?
 
-Nó đề cập đến khả năng thực thi nhiều hơn một chương trình trên một bộ xử lý duy nhất. Kỹ thuật này được giới thiệu để khắc phục tình trạng CPU và bộ nhớ hoạt động kém hiệu quả. Nói một cách dễ hiểu, nó là sự phối hợp thực hiện đồng thời nhiều chương trình khác nhau trên một bộ xử lý (CPU). Mục tiêu chính của đa chương trình là luôn có ít nhất một tiến trình chạy mọi thời điểm. Nó cải thiện việc sử dụng CPU vì nó tổ chức nhiều công việc trong đó CPU luôn có một công việc để thực thi. 
+Đa chương trình (multiprogramming) đề cập đến khả năng thực thi nhiều hơn một chương trình trên một bộ xử lý duy nhất. Kỹ thuật này được giới thiệu để khắc phục tình trạng CPU và bộ nhớ hoạt động kém hiệu quả. Nói một cách dễ hiểu, nó là sự phối hợp thực hiện đồng thời nhiều chương trình khác nhau trên một bộ xử lý (CPU). Mục tiêu chính của đa chương trình là luôn có ít nhất một tiến trình chạy mọi thời điểm. Nó cải thiện việc sử dụng CPU vì nó tổ chức nhiều công việc trong đó CPU luôn có một công việc để thực thi. 
 
 ![](./assets/multiprogramming.png)
 
@@ -286,11 +287,11 @@ Socket trong hệ điều hành thường được coi là endpoint cho IPC (Int
 
 ### 28. Giải thích về tiến trình thây ma?
 
-Tiến trình thây ma đề cập đến tiến trình không tồn tại, về cơ bản là một tiến trình đã kết thúc hoặc hoàn thành nhưng toàn bộ khối điều khiển tiến trình không được dọn sạch khỏi bộ nhớ chính vì nó vẫn có một mục trong bảng tiến trình để báo cáo cho tiến trình cha của nó. Nó không tiêu thụ bất kỳ tài nguyên nào và đã chết, nhưng nó vẫn tồn tại. Nó cũng cho thấy rằng tài nguyên được nắm giữ bởi tiến trình và không được giải phóng. 
+Tiến trình thây ma (zombie process) đề cập đến tiến trình không tồn tại, về cơ bản là một tiến trình đã kết thúc hoặc hoàn thành nhưng toàn bộ khối điều khiển tiến trình không được dọn sạch khỏi bộ nhớ chính vì nó vẫn có một mục trong bảng tiến trình để báo cáo cho tiến trình cha của nó. Nó không tiêu thụ bất kỳ tài nguyên nào và đã chết, nhưng nó vẫn tồn tại. Nó cũng cho thấy rằng tài nguyên được nắm giữ bởi tiến trình và không được giải phóng. 
 
 ### 29. Kết thúc hàng loạt là gì?
 
-Kết thúc hàng loạt là sự kết thúc tiến trình trong đó nếu tiến trình cha đang thoát hoặc kết thúc thì tiến trình con cũng sẽ bị chấm dứt. Nó không cho phép tiến trình con tiếp tục xử lý khi tiến trình cha của nó đã kết thúc. Nó thường được khởi tạo bằng hệ điều hành.
+Kết thúc hàng loạt (cascading termination) là sự kết thúc tiến trình trong đó nếu tiến trình cha đang thoát hoặc kết thúc thì tiến trình con cũng sẽ bị chấm dứt. Nó không cho phép tiến trình con tiếp tục xử lý khi tiến trình cha của nó đã kết thúc. Nó thường được khởi tạo bằng hệ điều hành.
 
 ### 30. Starvation và aging trong hệ điều hành là gì?
 
@@ -301,8 +302,6 @@ Kết thúc hàng loạt là sự kết thúc tiến trình trong đó nếu ti�
 ### 31. Semaphore là gì trong hệ điều hành?
 
 Semaphore là một cơ chế báo hiệu. Nó chỉ chứa một giá trị nguyên dương. Được sử dụng để giải quyết vấn đề hoặc sự cố của các phần quan trọng trong quá trình đồng bộ hóa bằng cách sử dụng hai hoạt động cơ bản, là `wait()` và `signal()`.
-
-#### Các loại semaphore
 
 Có hai loại semaphore là:
 * Binary Semaphore
@@ -318,7 +317,7 @@ Có hai loại semaphore là:
 
 ### 32. Kernel là gì? Chức năng chính của nó?
 
-Kernel là một chương trình máy tính điều khiển mọi thứ khác, nó là hạt nhân - trái tim của hệ điều hành! Bất cứ điều gì xảy ra trên máy tính đều đi qua nó. Đó là chương trình cốt lõi trong hệ điều hành, cũng là chương trình đầu tiên tải sau bộ nạp khởi động. Sau đó, nó thực hiện tất cả các cuộc nói chuyện giữa phần cứng và phần mềm hoặc ứng dụng. Vì vậy, nếu bạn khởi chạy một chương trình, giao diện người dùng sẽ gửi yêu cầu tới Kernel. Kernel sau đó gửi yêu cầu tới CPU, Bộ nhớ để gán sức mạnh xử lý, bộ nhớ và những thứ khác để ứng dụng có thể chạy trơn tru ở giao diện người dùng.
+Kernel là một chương trình máy tính điều khiển mọi thứ khác, nó là hạt nhân - trái tim của hệ điều hành! Bất cứ điều gì xảy ra trên máy tính đều đi qua nó. Đó là chương trình cốt lõi trong hệ điều hành, cũng là chương trình đầu tiên tải sau khi bộ nạp khởi động. Sau đó, nó thực hiện tất cả các cuộc nói chuyện giữa phần cứng và phần mềm hoặc ứng dụng. Vì vậy, nếu bạn khởi chạy một chương trình, giao diện người dùng sẽ gửi yêu cầu tới Kernel. Kernel sau đó gửi yêu cầu tới CPU, Bộ nhớ để gán sức mạnh xử lý, bộ nhớ và những thứ khác để ứng dụng có thể chạy trơn tru ở giao diện người dùng.
 
 ![](./assets/kernel-os.png)
 
@@ -339,7 +338,7 @@ Chức năng chính của Kernel:
 
 ### 34. Sự khác biệt giữa MircoKernel và Monolithic Kernel?
 
-**MicroKernel:** là một hệ điều hành tối thiểu chỉ thực thi các chức năng quan trọng của hệ điều hành. Nó chỉ chứa một số lượng gần như tối thiểu các tính năng và chức năng được yêu cầu để triển khai hệ điều hành.
+**MicroKernel:** là lượng phần mềm gần như tối thiểu có thể cung cấp các cơ chế cần thiết để triển khai một hệ điều hành.
 Vd: QNX, Mac OS X, K42,...
 
 **Monolithic Kernel:** là một kiến trúc hệ điều hành hỗ trợ tất cả các tính năng cơ bản của các thành phần máy tính như quản lý tài nguyên, bộ nhớ, file, v.v.
@@ -369,3 +368,67 @@ Context switching về cơ bản là một quá trình lưu ngữ cảnh của m
 
 ### 38. Sự khác biệt giữa Kernel và hệ điều hành?
 
+**Kernel:** là một chương trình hệ thống điều khiển tất cả chương trình đang chạy trên máy tính. Kernel là cầu nối giữa phần cứng và phần mềm trong hệ thống.
+**OS:** là chương trình máy tính cung cấp một giao diện người dùng để có thể thực hiện các thao tác trên máy tính một cách dễ dàng.
+
+![](./assets/kernel_oS.png)
+
+| Kernel | OS |
+|--------|----|
+| Nó là thành phần phần trung tâm của hệ điều hành | Nó là một phần mềm hệ thống |
+| Có nhiệm vụ chuyển đổi lệnh người dùng thành lệnh máy tính | Có nhiệm vụ quản lý tài nguyên hệ thống |
+| Là interface giữa phần cứng và ứng dụng | Là interface giữa phần cứng và người dùng |
+| Thực hiện các chức năng như quản lý tiến trình, file, thiết bị, giao tiếp I/O | Thực hiện các chức năng như bảo mật dữ liệu, file, điều khiển truy cập người dùng, duy trì chính sách hệ thống,... |
+| Có kiểu là MicroKernel, Monolithic Kernel | Có kiểu là Single và Multiprogramming batch systems, Distributed OS, Real-time OS |
+
+### 39. Sự khác biệt giữa tiến trình và luồng?
+
+**Tiến trình (process):** là chương trình đang được thực thi hiện tại bởi một hay nhiều luồng. Nó là rất quan trọng trong các hệ điều hành hiện đại.
+
+**Luồng (thread):** là đường dẫn thực thi bao gồm id của luồng, bộ đếm chương trình, ngăn xếp và tập thanh ghi trong tiến trình.
+
+![](./assets/Process_and_Thread.png)
+
+| Tiến trình | Luồng |
+|------------|-------|
+| Là chương trình đang được thực thi | Là thành phần của tiến trình, là đơn vị thực thi nhỏ nhất |
+| Có không gian bộ nhớ riêng | Dùng bộ nhớ của tiến trình |
+| Khó để tạo tiến trình | Dễ dàng tạo luồng |
+| Yêu cầu nhiều tài nguyên | Yêu cầu ít tài nguyên |
+| Mất thời gian để tạo và huỷ | Ít tốn thời gian cho tạo và huỷ |
+| Thường chạy trong không gian bộ nhớ riêng biệt | Thường chạy trong không gian bộ nhớ chung |
+| Không chia sẻ dữ liệu | Chia sẻ dữ liệu với nhau |
+| Có thể được chia trong đa luồng | Không thể chia |
+
+### 40. Các thành phần khác nhau của tiến trình?
+
+Nó có 4 thành phần như sau:
+
+![](./assets/OS_Process.png)
+
+* **Stack**: dùng cho biến cục bộ và trả về địa chỉ.
+* **Heap**: dùng cho cấp phát bộ nhớ động.
+* **Data**: dùng cho lưu trữ biến toàn cục và biến tĩnh.
+* **Text**: bao gồm code chương trình đã biên dịch.
+
+### 41. Deadlock trong hệ điều hành là gì?
+
+Trong môi trường đa chương, nhiều tiến trình có thể cạnh tranh một số tài nguyên giới hạn. Một tiến trình yêu cầu tài nguyên, nếu tài nguyên không có sẵn tại thời điểm đó, tiến trình đi vào trạng thái chờ. Tiến trình chờ có thể không bao giờ chuyển trạng thái vì tài nguyên chúng yêu cầu bị giữ bởi những tiến trình chờ khác. Trường hợp này gọi là deadlock (khoá chết)
+
+#### Điều kiện cần của Deadlock
+
+Bốn yếu tố cơ bản để xảy ra deadlock là
+- Loại trừ tương hỗ
+- Tồn tại chu trình trong đồ thị cấp phát tài nguyên
+- Không đòi lại tài nguyên từ tiến trình đang giữ chúng
+- Giữ và chờ cấp thêm tài nguyên
+
+### 42. Belady’s Anomaly nghĩa là gì?
+
+Trong hệ điều hành, dữ liệu tiến trình được tải theo các phần có kích thước cố định và mỗi phần được gọi là một trang. Bộ xử lý tải các trang này trong các phần bộ nhớ có kích thước cố định được gọi là frame. Nghịch lý Belady (Belady’s Anomaly) là một hiện tượng mà nếu chúng ta tăng số lượng frame trong bộ nhớ, thì số lỗi trang cũng tăng lên. Nó thường được xuất hiện khi ta sử dụng thuật toán thay thế trang FIFO (First in First out).
+
+### 43. Spooling trong hệ điều hành là gì?
+
+Spooling là viết tắt của Simultaneous peripheral operations online. Spool là một loại bộ đệm chứa các công việc cho một thiết bị cho đến khi thiết bị sẵn sàng chấp nhận công việc. Spooling coi đĩa là một bộ đệm khổng lồ có thể lưu trữ nhiều công việc cho thiết bị cho đến khi các thiết bị đầu ra sẵn sàng chấp nhận chúng.
+
+Trong spooling, I/O của một công việc bị chồng chéo với tính toán của một công việc khác. Ví dụ, bộ đệm tại một thời điểm có thể đọc đầu vào của một công việc, đồng thời, nó cũng có thể in đầu ra của một công việc khác. Spooling tăng hiệu suất của hệ thống bằng cách tăng tốc độ làm việc của các thiết bị. Nó tự nhiên dẫn đến đa chương trình.
