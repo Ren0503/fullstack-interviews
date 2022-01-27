@@ -149,3 +149,16 @@ HTML cung cấp hai thuộc tính cho bảng là `rowspan` và `colspan` để t
 ### 20. Có thể thay đổi một phần tử inline thành một phần tử block không?
 
 Có, có thể sử dụng thuộc tính `display` với giá trị của nó là `block`, để thay đổi phần tử inline thành phần tử block.
+
+### 21. Chúng ta có thể định vị một phần tử HTML bằng bao nhiêu cách?
+
+There are mainly 7 values of position attribute that can be used to position an HTML element:
+
+Có 7 giá trị thuộc tính có thể dùng cho định vị phần tử HTML
+
+- **static**: Giá trị mặc đinh. Các phần tử được đặt theo luồng t Default value. Here the element is positioned according to the normal flow of the document.
+absolute: Here the element is positioned relative to its parent element. The final position is determined by the values of left, right, top, bottom.
+fixed: This is similar to absolute except here the elements are positioned relative to the <html> element.
+relative: Here the element is positioned according to the normal flow of the document and positioned relative to its original/ normal position.
+initial: This resets the property to its default value.
+inherit: Here the element inherits or takes the property of its parent

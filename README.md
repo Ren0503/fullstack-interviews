@@ -1,4 +1,4 @@
-# Fullstack Interviews
+# Fullstack Interviews (Pending)
 
 ## Tuyển tập câu hỏi phỏng vấn cho lập trình web.
 
