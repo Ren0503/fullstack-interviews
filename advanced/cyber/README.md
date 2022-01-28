@@ -69,9 +69,7 @@ Có hai loại tường lửa trong hệ thống là: một cái dùng bộ lọ
 
 ### 5. VPN là gì?
 
-Thuật ngữ VPN dùng để chỉ Virtual Private Network, một mạng riêng ảo. Nó cho phép bạn kết nối máy tính của mình với mạng riêng, thiết lập kết nối được mã hóa để ẩn địa chỉ IP của bạn, cho phép bạn chia sẻ dữ liệu và truy cập web một cách an toàn đồng thời bảo vệ danh tính trực tuyến của bạn.
-
-Mạng riêng ảo, hay VPN, là một liên kết được mã hóa giữa thiết bị và mạng qua Internet. Kết nối được mã hóa hỗ trợ việc truyền dữ liệu nhạy cảm một cách an toàn. Nó chống lại việc nghe trộm lưu lượng truy cập bất hợp pháp và cho phép người dùng làm việc từ xa. Trong các công ty, công nghệ VPN thường được sử dụng.
+Thuật ngữ VPN dùng để chỉ Virtual Private Network, một mạng riêng ảo. Nó cho phép bạn kết nối máy tính của mình với mạng riêng, kết nối được mã hóa để ẩn địa chỉ IP của bạn, cho phép bạn chia sẻ dữ liệu và truy cập web một cách an toàn đồng thời bảo vệ danh tính trực tuyến của bạn. Nó chống lại việc nghe trộm lưu lượng truy cập bất hợp pháp và cho phép người dùng làm việc từ xa. Trong các công ty, công nghệ VPN thường được sử dụng.
 
 ![](./assets/VPN.jpg)
 
@@ -104,7 +102,7 @@ Tiền thưởng là khác nhau dựa vào mức độ nghiêm trọng của l�
 
 ### 7. Các loại an ninh mạng?
 
-An ninh mạnh có thể được phân loại thành năm loại riêng biệt:
+An ninh mạnh có thể được phân loại thành 7 loại riêng biệt:
 
 * **Bảo mật mạng:** Là quá trình bảo vệ mạng máy tính chống lại sự truy cập trái phép, những kẻ xâm nhập, tấn công, làm gián đoạn và lạm dụng phần cứng và phần mềm. Bảo mật này hỗ trợ trong việc bảo vệ tài sản của tổ chức khỏi các mối đe dọa từ bên ngoài lẫn bên trong. Ví dụ: Sử dụng Tường lửa.
 * **Bảo mật ứng dụng:** Nó đòi hỏi phải bảo vệ phần mềm và thiết bị an toàn trước các cuộc tấn công nguy hiểm. Điều này có thể được thực hiện bằng cách thường xuyên cập nhật các ứng dụng để đảm bảo rằng chúng an toàn trước các mối đe dọa.
@@ -119,17 +117,16 @@ An ninh mạnh có thể được phân loại thành năm loại riêng biệt:
 Sau đây là một số ưu điểm của việc áp dụng an ninh mạng:
 
 - Doanh nghiệp được bảo vệ khỏi các cuộc tấn công mạng và vi phạm dữ liệu.
-- Cả dữ liệu và mạng đều được bảo vệ.
+- Cả dữ liệu và mạng máy tính đều được bảo vệ.
 - Quyền truy cập trái phép của người dùng được hạn chế ở mức tối thiểu.
 - Có thời gian phục hồi nhanh hơn sau khi bị tấn công.
 - Bảo vệ cho người dùng và thiết bị endpoint.
-- Tuân thủ quy định.
 - Hoạt động nhất quán.
 - Các nhà phát triển, đối tác, người tiêu dùng, các bên liên quan và nhân viên có mức độ tin tưởng cao hơn vào danh tiếng của công ty.
 
 ### 9. Botnet là gì? 
 
-Botnet thuật ngữ đầy đủ là “Bots network” dùng để chỉ một mạng lưới các máy tính bị chi phối bởi ai đó và bị điều khiển bởi một con máy tính khác từ xa. Botnet là một phần mềm độc hại, đa phần các máy tính đều bị nhiễm bởi một Bot nào đó mà chúng ta không thể nào phát hiện được.
+Botnet thuật ngữ đầy đủ là "Bots network" dùng để chỉ một mạng lưới các máy tính bị chi phối bởi ai đó và bị điều khiển bởi một con máy tính khác từ xa. Botnet là một phần mềm độc hại, đa phần các máy tính đều bị nhiễm bởi một Bot nào đó mà chúng ta không thể nào phát hiện được.
 
 ![](./assets/Botnet.jpg)
 
@@ -339,7 +336,7 @@ Sniffing là một kỹ thuật để đánh giá các gói dữ liệu được
 | Black box test | White box test |
 |----------------|----------------|
 | Là phương pháp kiểm thử phần mềm trong đó cấu trúc bên trong của chương trình hoặc phần mềm được che giấu | Là phương pháp kiểm thử phần mềm trong đó người kiểm thử đã quen thuộc với cấu trúc hoặc code bên trong của phần mềm |
-| Người kiểm thử không cần thiết phải có kiến thức về việc mã hoá, cấu trúc bên trong của phần mềm, cũng như không yêu cầu phải biết lâp trình phần mềm | Người kiểm thử phải có kiến thức nhất định về việc mã hoá, cấu trúc bên trong của chức năng, biết lâp trình phần mềm |
+| Người kiểm thử không cần thiết phải có kiến thức về việc mã hoá, cấu trúc bên trong của phần mềm, cũng như không yêu cầu phải biết lập trình phần mềm | Người kiểm thử phải có kiến thức nhất định về việc mã hoá, cấu trúc bên trong của chức năng, biết lập trình phần mềm |
 | Việc kiểm thử được tiến hành dựa vào việc kiểm thử phần mềm làm được gì, có phù hợp với yêu cầu của người dùng hay không. Các tester nhập số liệu vào phần mềm và chỉ cần xem kết quả của phần mềm và các mục tiêu kiểm tra | Việc kiểm thử được tiến hành dựa vào việc kiểm xem giải thuật, mã lệnh đã làm có đúng không |
 | Mức test này thường yêu cầu các tester phải viết test case đầy đủ trước khi test; khi test, đơn giản chỉ cần thực hiện theo các bước mô tả trong test case thao tác và nhập data vào, sau đó xem kết quả trả về hoặc hành vi của phần mềm, rồi so sánh với kết quả mong đọi được viết trong testcase | Mức test này thường yêu cầu các tester phải viết test case đầy đủ các nhánh trong code; khi test, sẽ set điều kiện và data để chạy vào đủ tất cả các nhánh trong giải thuật, đảm bảo thực hiện đầy đủ |
 
@@ -365,7 +362,7 @@ Mục tiêu của việc tăng cường hệ thống là giảm thiểu rủi ro
 
 ### 32. Tấn công DNS là gì?
 
-Tấn công DNS là một dạng tấn công mạng, trong đó kẻ trộm mạng sử dụng các điểm yếu trong DNS để chuyển hướng người dùng đến các trang web độc hại và đánh cắp dữ liệu từ các máy được nhắm mục tiêu. Bởi vì hệ thống DNS là một phần quan trọng của cơ sở hạ tầng internet, nó gây ra rủi ro an ninh mạng nghiêm trọng.
+Tấn công DNS là một dạng tấn công mạng, trong đó tin tặc sử dụng các điểm yếu trong DNS để chuyển hướng người dùng đến các trang web độc hại và đánh cắp dữ liệu từ các máy được nhắm mục tiêu. Bởi vì hệ thống DNS là một phần quan trọng của cơ sở hạ tầng internet, nó gây ra rủi ro an ninh mạng nghiêm trọng.
 
 ![](./assets/DNS_attack.jpg)
 
@@ -377,3 +374,78 @@ Có thể tránh được những điều này bằng các biện pháp phòng n
 * Để tránh các nỗ lực nhiễm độc DNS, hãy tắt đệ quy DNS.
 * Sử dụng các máy chủ DNS được phân tách.
 * Sử dụng dịch vụ giảm thiểu DDOS
+
+### 33. Sự khác biệt giữa mã hoá khối và mã hoá dòng?
+
+Sự khác biệt chính giữa mã hoá khối (block cipher) và mã hoá dòng (stream cipher) là phép mã hoá khối biến plain-text thành cipher-text từng khối một tại một thời điểm. Mặt khác, mã hoá dòng chuyển đổi plaint-text thành cipher-text bằng cách lấy một byte của plain-text tại một thời điểm.
+
+| Block Cipher | Stream Cipher |
+|--------------|---------------|
+| Chuyển đổi plain-text thành cipher-text theo từng khối tại một thời điểm | Lấy một byte của plain-text tại một thời điểm và chuyển nó thành cipher-text |
+| Sử dung 64 bit hoặc nhiều hơn | Sử dụng 8 bit |
+| Dùng thuật toán ECB (Electronic Code Book) và CBC (Common Block Cipher) | Dùng thuật toán CFB (Cipher Feedback) anvàd OFB (Output Feedback) |
+| Chậm hơn so với mã hoá dòng | Nhanh hơn mã hoá khối |
+| Hoạt động dựa trên kỹ thuật chuyển vị như kỹ thuật hàng rào đường sắt, kỹ thuật chuyển vị cột | Hoạt động dựa trên kỹ thuật thay thế như mật mã Caesar, mật mã polygram,... |
+
+### 34. Sự khác biệt giữa spear phishing và phishing?
+
+Lừa đảo (Phishing) là hình thức tấn công email phổ biến nhất trong đó kẻ tấn công lừa mọi người nhấp vào các liên kết độc hại có vẻ hợp pháp, để lấy thông tin nhạy cảm hoặc bí mật của họ bằng cách bắt chước thông tin liên lạc điện tử từ một nguồn hoặc tổ chức đáng tin cậy một cách tự động. 
+
+Spear phishing là cấp độ tấn công email tiếp theo, trong đó các email được thiết kế cẩn thận để nhắm mục tiêu vào một nhóm hoặc cá nhân cụ thể và để thuyết phục họ nhấp vào một liên kết, cài đặt mã độc trên máy tính của họ. Sau khi mã độc xâm nhập vào hệ thống của họ, kẻ tấn công giành toàn quyền kiểm soát máy tính của họ và sau đó có thể lấy dữ liệu cá nhân và chuyên nghiệp có giá trị từ nạn nhân. 
+
+![](./assets/phishing_vs_spear_phishing.jpg)
+
+### 35. ARP Poisoning là gì?
+
+**Address Resolution Protocol Poisoning** là một kỹ thuật thông qua đó kẻ tấn công giả mạo thông điệp ARP trong mạng cục bộ. Trên mạng, mấy chủ (host) gửi một ARP boardcast và các máy nhận phản hồi bằng địa chỉ vật lý của nó.
+Cách tấn công này sẽ gửi một địa chỉ vật lý không thật đến một bộ switch để nó có thể liên kết chúng với địa chỉ IP của một máy hợp lệ trên mạng qua đó kẻ tấn công có thể chiếm đoạt lưu lượng truy cập.
+
+![](./assets/ARP_poisoning.jpg)
+
+### 36. SQL Injection là gì? Làm thế nào để ngăn chặn nó?
+
+SQL Injection là một kỹ thuật lợi dụng những lỗ hổng về câu truy vấn của các ứng dụng. Được thực hiện bằng cách chèn thêm một đoạn SQL để làm sai lệnh đi câu truy vấn ban đầu, từ đó có thể khai thác dữ liệu từ cơ sở dữ liệu. SQL injection có thể cho phép những kẻ tấn công thực hiện các thao tác như một người quản trị web, trên cơ sở dữ liệu của ứng dụng.
+
+![](./assets/SQL_injection.jpg)
+
+Cách ngăn chặn tấn công SQL injection:
+- Xác minh thông tin đầu vào
+- Sử dụng các câu lệnh tham số
+- Phân định rõ ràng kiểu input
+- Xác nhận các chuỗi input ở phía máy chủ
+
+### 37. Sự khác biệt giữa virus và worm?
+
+**Virus** máy tính là phần mềm độc hại, thường là các file thực thi có khả năng sao chép và tự truyền từ máy tính này sang máy tính khác thông qua các thiết bị truyền file. Nó có thể tự đính kèm vào một tập tin thực thi khác và chuyển qua đó.
+
+**Worm** (sâu máy tính) là phần mềm độc hại được thiết kế để phát tán qua internet và các mạng khác. Chúng có thể lây lan thông qua chuyển/tải tập tin đơn giản hoặc qua email. Worm có thể ảnh hưởng đến mạng máy tính bằng cách tiêu thụ băng thông và hệ thống máy tính bằng cách làm ngập bộ nhớ với các bản sao của chương trình. Không giống như virus, worm không cần tệp lưu trữ để thực thi. Chúng hoạt động độc lập trong hệ thống máy tính.
+
+### 38. Dạng cookie nào có thể được sử dụng trong cuộc tấn công bằng phần mềm gián điệp?
+
+Tracking cookis thay vì session cookie, sẽ được sử dụng trong một cuộc tấn công phần mềm gián điệp vì nó sẽ kéo dài qua nhiều phiên thay vì chỉ một phiên. 
+
+### 39. Làm thế nào quyết định vị trí của việc mã hoá?
+
+Chúng ta phải quyết định mã hóa cái gì và cơ chế mã hóa nên được đặt ở đâu nếu mã hóa được sử dụng để chống lại các cuộc tấn công vào hệ thống bảo mật. Mã hóa link và end-to-end là hai cách chính để đặt mã hóa.
+
+**Mã hóa end-to-end**, hay E2EE, là một hệ thống truyền dữ liệu an toàn, trong đó dữ liệu chỉ được mã hóa và giải mã ở các điểm cuối, bất kể nó đi qua bao nhiêu điểm ở giữa quá trình ảo. Loại mã hóa này là một kỹ thuật tuyệt vời để giao tiếp một cách an toàn và bí mật. Bởi vì không ai khác có chìa khóa để giải mã nó, không ai ở giữa sẽ có thể đọc nó.
+
+**Mã hóa link** là mã hóa và giải mã tất cả lưu lượng truy cập ở tất cả các điểm, không chỉ ở các điểm cuối. Tất cả dữ liệu được mã hóa khi nó di chuyển dọc theo đường truyền. Tuy nhiên, khi đến một bộ định tuyến hoặc một thiết bị trung gian khác, nó sẽ được giải mã để thiết bị trung gian có thể xác định hướng gửi tiếp theo.
+
+![](./assets/encryption_function.jpg)
+
+### 40. Virus Polymorphic là gì?
+
+Khác với các loại virus thông thường luôn giữ nguyên mã lệnh trong tất cả các lần lây nhiễm (đơn hình - chỉ có duy nhất một hình), virus đa hình là virus có khả năng tự động biến đổi mã lệnh để tạo ra các dạng mã độc khác nhau (đa hình - nhiều hình) trong mỗi lần lây nhiễm. Chính vì vậy, virus đa hình có khả năng lẩn trốn một cách tinh vi trước sự truy quét của các phần mềm diệt virus. Virus đa hình thường thực hiện biến đổi mã lệnh một cách ngẫu nhiên hoặc theo một thuật toán dựa trên thời gian hay đối tượng lây nhiễm. Có nhiều loại virus đa hình khác nhau, nhưng phổ biến nhất là đa hình mã lây nhiễm và đa hình mã phá hoại.
+
+![](./assets/Polymorphic_viruses.jpg)
+
+### 41. Active Reconnaissance là gì?
+
+**Active Reconnaissance** là một kiểu tấn công máy tính trong đó kẻ xâm nhập tương tác với hệ thống mục tiêu để thu thập thông tin về các điểm yếu.
+
+Chúng thường quét cổng (port) để phát hiện các cổng dễ bị tấn công, sau đó khai thác các lỗ hổng của dịch vụ được liên kết với cổng đó. Điều này có thể thực hiện bằng cách quét tự động hoặc thủ công với các công cụ như ping, traceroute hay netcat. Loại do thấm này đồi hỏi sự tượng tác giữa kẻ tấn công và hệ thống mục tiêu. Cách thức này nhanh và chính xác, nhưng có nhiều rủi ro. Vì kẻ tấn công phải tương tác với mục tiêu để lấy thông tin, nên có nhiều khả năng bị tường lửa hoặc thiết bị bảo mật mạng khác phát hiện 
+
+### 42. Theo bạn, Forward Secrecy nghĩa là gì và nó hoạt động như thế nào?
+
+*Bí mật chuyển tiếp (Forward Secrecy)* là một tính năng của các giao thức thỏa thuận khóa cụ thể nhằm đảm bảo rằng các khóa phiên sẽ không bị xâm phạm ngay cả khi các bí mật dài hạn được sử dụng trong trao đổi khóa phiên bị xâm phạm. 
