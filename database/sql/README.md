@@ -8,6 +8,88 @@ SQL là gì? SQL là viết tắt của Structured Query Language, nghĩa là ng
 
 Bất kì công ty nào lớn cũng cần xây dựng một hệ thống để lưu trữ cơ sở dữ liệu. Mọi thứ trong cơ sở dữ liệu này sẽ được quy ra thành nhiều bảng, có mối quan hệ với nhau. SQL giúp quản lý hiệu quả và truy vấn thông tin nhanh hơn, giúp bảo trì thông tin dễ dàng hơn.
 
+## Mục lục
+
+[1. Cơ sở dữ liệu là gì?](#1-cơ-sở-dữ-liệu-là-gì)
+
+[2. DBMS là gì?](#2-dbms-là-gì)
+
+[3. RDBMS là gì? Nó khác với DBMS như thế nào](#3-rdbms-là-gì-nó-khác-với-dbms-như-thế-nào)
+
+[4. SQL là gì?](#4-sql-là-gì)
+
+[5. Sự khác biệt giữa SQL và MySQL?](#5-sự-khác-biệt-giữa-sql-và-mysql)
+
+[6. Bảng và trường là gì?](#6-bảng-và-trường-là-gì)
+
+[7. Ràng buộc trong SQL?](#7-ràng-buộc-trong-sql)
+
+[8. Khoá chính là gì?](#8-khoá-chính-là-gì)
+
+[9. Ràng buộc UNIQUE là gì?](#9-ràng-buộc-unique-là-gì)
+
+[10. Khoá ngoại là gì?](#10-khoá-ngoại-là-gì)
+
+[11. JOIN là gì? Liệt kê các kiểu JOIN?](#11-join-là-gì-liệt-kê-các-kiểu-join)
+
+[12. Self-Join là gì?](#12-self-join-là-gì)
+
+[13. Cross-Join là gì?](#13-cross-join-là-gì)
+
+[14. Đánh chỉ mục là gì? Giải thích các kiểu chỉ mục khác nhau?](#14-đánh-chỉ-mục-là-gì-giải-thích-các-kiểu-chỉ-mục-khác-nhau)
+
+[15. Toàn vẹn dữ liệu là gì?](#15-toàn-vẹn-dữ-liệu-là-gì)
+
+[16. Truy vấn là gì?](#16-truy-vấn-là-gì)
+
+[17. Truy vấn con là gì? Các kiểu truy vấn con?](#17-truy-vấn-con-là-gì-các-kiểu-truy-vấn-con)
+
+[18. Lệnh SELECT là gì?](#18-lệnh-select-là-gì)
+
+[19. Các mệnh đề phổ biến được dùng với SELECT trong SQL?](#19-các-mệnh-đề-phổ-biến-được-dùng-với-select-trong-sql)
+
+[20. Các lệnh UNION, MINUS và INTERSECT là gì?](#20-các-lệnh-union-minus-và-intersect-là-gì)
+
+[21. Con trỏ là gì? Cách dùng con trỏ?](#21-con-trỏ-là-gì-cách-dùng-con-trỏ)
+
+[22. Thực thể và quan hệ là gì?](#22-thực-thể-và-quan-hệ-là-gì)
+
+[23. Các kiểu quan hệ trong SQL?](#23-các-kiểu-quan-hệ-trong-sql)
+
+[24. Alias trong SQL là gì?](#24-alias-trong-sql-là-gì)
+
+[25. View là gì?](#25-view-là-gì)
+
+[26. Normalization là gì?](#26-normalization-là-gì)
+
+[27. Denormalization là gì?](#27-denormalization-là-gì)
+
+[28. Các dạng chuẩn hoá?](#28-các-dạng-chuẩn-hoá)
+
+[29. Lệnh TRUNCATE, DELETe và DROP là gì?](#29-lệnh-truncate-delete-và-drop-là-gì)
+
+[30. Sự khác biệt giữa lệnh DELETE và TRUNCATE là gì?](#30-sự-khác-biệt-giữa-lệnh-delete-và-truncate-là-gì)
+
+[31. Sự khác biệt giữa lệnh DROP và TRUNCATE là gì?](#31-sự-khác-biệt-giữa-lệnh-drop-và-truncate-là-gì)
+
+[32. Các hàm Aggregate và Scalar là gì?](#32-các-hàm-aggregate-và-scalar-là-gì)
+
+[33. Hàm người dùng định nghĩa là gì?](#33-hàm-người-dùng-định-nghĩa-là-gì)
+
+[34. OLTP là gì?](#34-oltp-là-gì)
+
+[35. Sự khác biệt giữa OLTP và OLAP?](#35-sự-khác-biệt-giữa-oltp-và-olap)
+
+[36. Collation là gì?](#36-collation-là-gì)
+
+[37. Stored Procedure là gì?](#37-stored-procedure-là-gì)
+
+[38. Stored Procedure đệ quy là gì?](#38-stored-procedure-đệ-quy-là-gì)
+
+[39. Làm thế nào để tạo một bảng trống có cấu trúc giống hệt một bảng khác?](#39-làm-thế-nào-để-tạo-một-bảng-trống-có-cấu-trúc-giống-hệt-một-bảng-khác)
+
+[40. Pattern Matching trong SQL?](#40-pattern-matching-trong-sql)
+
 ## Câu hỏi phỏng vấn SQL
 
 ### 1. Cơ sở dữ liệu là gì?
