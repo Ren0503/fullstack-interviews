@@ -1,3 +1,13 @@
+# Câu hỏi phỏng vấn SQL
+
+![](./assets/sql.jpg)
+
+## SQL là gì
+
+SQL là gì? SQL là viết tắt của Structured Query Language, nghĩa là ngôn ngữ truy vấn dữ liệu. Có thể coi ngôn ngữ SQL là ngôn ngữ chung mà bất cứ hệ thống cơ sở dữ liệu quan hệ (RDBMS) nào cũng phải đáp ứng, điển hình như: Oracle Database, SQL Server, MySQL…
+
+Bất kì công ty nào lớn cũng cần xây dựng một hệ thống để lưu trữ cơ sở dữ liệu. Mọi thứ trong cơ sở dữ liệu này sẽ được quy ra thành nhiều bảng, có mối quan hệ với nhau. SQL giúp quản lý hiệu quả và truy vấn thông tin nhanh hơn, giúp bảo trì thông tin dễ dàng hơn.
+
 ## Câu hỏi phỏng vấn SQL
 
 ### 1. Cơ sở dữ liệu là gì?
@@ -287,9 +297,9 @@ HAVING COUNT(studentID) > 5;
 
 ### 20. Các lệnh UNION, MINUS và INTERSECT là gì?
 
-Toán tử **UNION** kết hợp và trả về tập kết quả được truy xuất bởi hai hoặc nhiều câu lệnh SELECT.
-Toán tử **MINUS** trong SQL được sử dụng để loại bỏ các bản sao khỏi tập kết quả thu được bởi truy vấn SELECT thứ hai khỏi tập kết quả thu được bởi truy vấn SELECT đầu tiên và sau đó trả về kết quả đã lọc từ truy vấn đầu tiên.
-Mệnh đề **INTERSECT** trong SQL kết hợp tập kết quả được tìm nạp bởi hai câu lệnh SELECT trong đó các bản ghi từ một khớp với nhau và sau đó trả về giao điểm này của các tập kết quả.
+- Toán tử **UNION** kết hợp và trả về tập kết quả được truy xuất bởi hai hoặc nhiều câu lệnh SELECT.
+- Toán tử **MINUS** trong SQL được sử dụng để loại bỏ các bản sao khỏi tập kết quả thu được bởi truy vấn SELECT thứ hai khỏi tập kết quả thu được bởi truy vấn SELECT đầu tiên và sau đó trả về kết quả đã lọc từ truy vấn đầu tiên.
+- Mệnh đề **INTERSECT** trong SQL kết hợp tập kết quả được tìm nạp bởi hai câu lệnh SELECT trong đó các bản ghi từ một khớp với nhau và sau đó trả về giao điểm này của các tập kết quả.
 
 Một số điều kiện nhất định cần phải được đáp ứng trước khi thực hiện một trong các câu lệnh trên trong SQL
 
@@ -348,7 +358,7 @@ DEALLOCATE db_cursor
 
 **Relationships (quan hệ):** Mối quan hệ hoặc liên kết giữa các thực thể có liên quan gì đó với nhau. Ví dụ - Bảng của nhân viên trong cơ sở dữ liệu của công ty có thể được liên kết với bảng lương trong cùng một cơ sở dữ liệu.
 
-![](./assets/Entities_and_Relationships.png)
+![](./assets/Entities_and_Relationships.jpg)
 
 ### 23. Các kiểu quan hệ trong SQL?
 
@@ -374,7 +384,7 @@ WHERE A.emp_sup = B.emp_id;
 
 View là một bảng ảo dựa trên tập kết quả từ câu lệnh SQL. Một view bao gồm hàng và cột như một bảng thực. Các trường trong view là các trường từ một hay nhiều bảng thực ở cơ sở dữ liệu.
 
-![](./assets/SQL_View.png)
+![](./assets/SQL_View.jpg)
 
 ### 26. Normalization là gì?
 
@@ -393,7 +403,75 @@ Denormalization là quá trình ngược lại với normalization, trong đó l
 
 Dạng chuẩn hoá được dùng cho loại bỏ hay làm giảm sự dư thừa trong bảng cơ sở dữ liệu. Các dạng chuẩn hoá là:
 
-- **Dạng chuẩn hoá thứ nhất:** Một quan hệ ở dạng chuẩn hoá thứ nhất nếu mọi thuộc tính trong quan hệ đó là một thuộc tính có giá trị đơn. Nếu một quan hệ có chứa một thuộc tính tổng hợp hoặc nhiều giá trị, nó sẽ vi phạm dạng chuẩn thứ nhất. Chúng ta hãy xem bảng `student` sau đây. Mỗi học sinh trong bảng, có tên, địa chỉ của mình và những cuốn sách mà họ mượn từ thư viện công cộng.
+**Dạng chuẩn hoá thứ nhất:** Một bảng (quan hệ) được gọi là ở dạng chuẩn 1NF nếu và chỉ nếu toàn bộ các miền giá trị của các cột có mặt trong bảng (quan hệ) đều chỉ chứa các giá trị nguyên tố.
+
+Nếu một quan hệ có chứa một thuộc tính tổng hợp hoặc nhiều giá trị, nó sẽ vi phạm dạng chuẩn thứ nhất. Chúng ta hãy xem bảng `student` sau đây. Mỗi học sinh trong bảng, có tên, địa chỉ của mình và những cuốn sách mà họ mượn từ thư viện công cộng.
+
+<div align="center">
+Students Table
+
+![](./assets/Students_Table.png)
+</div>
+
+Ta có thể thấy trường `Books Issued` có nhiều một giá trị bảng ghi, và nó vi phạm dạng chuẩn hoá thứ nhất. Để giải quyết vấn đề này ta tách biệt các bản ghi trên mỗi book issued.
+
+<div align="center">
+Students Table (1st Normal Form)
+
+![](./assets/Students_Table_(1st_Normal_Form).png)
+</div>
+
+**Dạng chuẩn hoá thứ hai:**
+
+Một quan hệ là dạng chuẩn hoá thứ hai nếu nó thoả mãn điều kiện của dạng chuẩn hoá thứ nhất và các thuộc tính không khoá phải phụ thuộc hàm đầy đủ vào khoá chính.
+
+**Ví dụ 1:** Ta có thể thấy, bảng Students ở dạng 1NF có một khoá ở dạng [Student, Address] có thể xác định duy nhất tất cả các bản ghi trong bảng. Trường `Book Isued` (thuộc tính non-prime) phụ thuộc một phần vào trường `Student`. Do đó bảng không thuộc 2NF. Để chuyển nó thành dạng 2NF, chúng ta sẽ phân chia bảng thành hai bảng trong khi chỉ định thuộc tính PRIMARY KEY mới để xác định các bản ghi riêng lẻ trong bảng Students. FOREIGN KEY sẽ được đặt trên bảng khác để đảm bảo tính toàn vẹn của tham chiếu.
+
+<div align="center">
+Students Table (2nd Normal Form)
+
+![](./assets/Students_Table_(2nd_Normal_Form).png)
+</div>
+
+<div align="center">
+Books Table (2nd Normal Form)
+
+![](./assets/Books_Table_(2nd_Normal_Form).png)
+</div>
+
+**Ví dụ 2:** xem xét các phụ thuộc sau trong quan hệ R(W, X, Y, Z)
+
+```text
+WX -> Y    [W và X cùng quyết định Y] 
+XY -> Z    [X và Y cùng quyết định Z] 
+```
+
+Ở đây, WX là khoá tiềm năng duy nhất và không có phụ thuộc vào phần nào, tức là bất kỳ tập con thích hợp nào của WX cũng không xác định thuộc tính non-prime trong mối quan hệ.
+
+**Dạng chuẩn hoá thứ 3:**
+
+Một quan hệ là dạng chuẩn hoá thứ ba nếu nó thoả mãn điều kiện của dạng chuẩn hoá thứ hai và các thuộc tính không khoá phải phụ thuộc trực tiếp vào khoá chính.
+
+**Ví dụ:** Xem xét bảng Student ở trên. Ta có thể thấy, bảng Student ở dạng 2NF có một khoá đơn `Student_ID` (PRIMARY KEY) có thể định danh duy nhất bản ghi trong bảng. Trường `Salutation` (thuộc tính non-prime), lại phụ thuộc vào trường `Student` nhiều hơn khoá chính. Do đó, bảng không phải dạng 3NF. Để chuyển nó về 3NF, ta sẽ tách bảng lần nữa thành hai phần trong khi chỉ định FOREIGN KEY mới cho định danh salutations với từng bản ghi trong bảng Student. PRIMARY KEY sẽ được đặt trên bảng Salutation để định danh cho từng bản ghi.
+
+<div align="center">
+Students Table (3rd Normal Form)
+
+![](./assets/Students_Table(3rd_Normal_Form).png)
+</div>
+
+<div align="center">
+Books Table (3rd Normal Form)
+
+![](./assets/Books_Table_(2nd_Normal_Form).png)
+</div>
+
+
+<div align="center">
+Salutations Table (3rd Normal Form)
+
+![](./assets/Salutations_Table_(3rd_Normal_Form).png)
+</div>
 
 ### 29. Lệnh TRUNCATE, DELETe và DROP là gì?
 
@@ -418,9 +496,9 @@ DROP TABLE Candidates;
 
 ### 30. Sự khác biệt giữa lệnh DELETE và TRUNCATE là gì?
 
-Lệnh TRUNCATE được sử dụng để xóa tất cả các hàng khỏi bảng và giải phóng không gian chứa bảng.
+Lệnh **TRUNCATE** được sử dụng để xóa tất cả các hàng khỏi bảng và giải phóng không gian chứa bảng.
 
-Lệnh DELETE chỉ xóa các hàng khỏi bảng dựa trên điều kiện được đưa ra trong mệnh đề WHERE hoặc xóa tất cả các hàng khỏi bảng nếu không có điều kiện nào được chỉ định. Nhưng nó không giải phóng không gian chứa bảng.
+Lệnh **DELETE** chỉ xóa các hàng khỏi bảng dựa trên điều kiện được đưa ra trong mệnh đề WHERE hoặc xóa tất cả các hàng khỏi bảng nếu không có điều kiện nào được chỉ định. Nhưng nó không giải phóng không gian chứa bảng.
 
 ### 31. Sự khác biệt giữa lệnh DROP và TRUNCATE là gì?
 
@@ -428,7 +506,7 @@ Nếu một bảng bị DROP, tất cả những thứ liên quan đến các b�
 
 ### 32. Các hàm Aggregate và Scalar là gì?
 
-Một hàm Aggregate (tổng hợp) thực hiệN các hoạt động trên một tập hợp các giá trị để trả về giá trị duy nhât. Hàm tổng hợp thường được sử dụng với mệnh đề GROUP BY và HAVING của câu lệnh SELECT. Sau đây là các hàm tổng hợp SQL được sử dụng rộng rãi:
+Một hàm Aggregate (tổng hợp) thực hiện các hoạt động trên một tập hợp các giá trị để trả về giá trị duy nhât. Hàm tổng hợp thường được sử dụng với mệnh đề GROUP BY và HAVING của câu lệnh SELECT. Sau đây là các hàm tổng hợp SQL được sử dụng rộng rãi:
 
 - **AVG()** - Tính giá trị trung bình của tập hợp giá trị..
 - **COUNT()** - Đếm số lượng bảng ghi trong bảng cụ thể hay view.
@@ -462,16 +540,16 @@ Các hàm do người dùng định nghĩa trong SQL giống như các hàm tron
 
 ### 34. OLTP là gì?
 
-OLTP là viết tắt của Online Transaction Processing, là một lớp ứng dụng phần mềm có khả năng hỗ trợ các chương trình hướng giao dịch. Một thuộc tính thiết yếu của hệ thống OLTP là khả năng duy trì tính đồng thời của nó. Để tránh các điểm lỗi đơn lẻ, hệ thống OLTP thường được phân phối. Các hệ thống này thường được thiết kế cho một số lượng lớn người dùng thực hiện các giao dịch ngắn hạn. Các truy vấn cơ sở dữ liệu thường đơn giản, yêu cầu thời gian phản hồi nhỏ hơn giây và trả về tương đối ít bản ghi. Dưới đây là cái nhìn rõ về hoạt động của hệ thống OLTP.
+OLTP là viết tắt của Online Transaction Processing, là một lớp ứng dụng phần mềm có khả năng hỗ trợ các chương trình hướng giao dịch. Một thuộc tính thiết yếu của hệ thống OLTP là khả năng duy trì tính đồng thời của nó. Để tránh các điểm lỗi đơn lẻ, hệ thống OLTP thường được phân tán. Các hệ thống này thường được thiết kế cho một số lượng lớn người dùng thực hiện các giao dịch ngắn hạn. Các truy vấn cơ sở dữ liệu thường đơn giản, yêu cầu thời gian phản hồi nhỏ hơn giây và trả về tương đối ít bản ghi. Dưới đây là cái nhìn rõ về hoạt động của hệ thống OLTP.
 
-![](./assets/OLTP.png)
+![](./assets/OLTP.jpg)
 
 ### 35. Sự khác biệt giữa OLTP và OLAP?
 
 - **OLTP** là viết tắt của Online Transaction Processing, là một loại ứng dụng phần mềm có khả năng hỗ trợ các chương trình hướng giao dịch. Một thuộc tính quan trọng của hệ thống OLTP là khả năng duy trì tính đồng thời của nó. Hệ thống OLTP thường tuân theo một kiến trúc phi tập trung để tránh các điểm lỗi đơn lẻ. Các hệ thống này thường được thiết kế cho một lượng lớn người dùng thực hiện các giao dịch ngắn hạn. Các truy vấn liên quan đến cơ sở dữ liệu như vậy thường đơn giản, cần thời gian phản hồi nhanh và trả về tương đối ít bản ghi. Số lượng giao dịch mỗi giây đóng vai trò như một thước đo hiệu quả cho các hệ thống như vậy.
 - **OLAP** là viết tắt của Online Analytical Processing, một loại chương trình phần mềm được đặc trưng bởi tần suất giao dịch trực tuyến tương đối thấp. Các truy vấn thường quá phức tạp và liên quan đến nhiều tập hợp. Đối với hệ thống OLAP, thước đo hiệu quả phụ thuộc nhiều vào thời gian phản hồi. Các hệ thống như vậy được sử dụng rộng rãi để khai thác dữ liệu hoặc duy trì dữ liệu lịch sử, tổng hợp, thường là trong các lược đồ đa chiều.
 
-![](./assets/differences_between_OLTP_and_OLAP.png)
+![](./assets/differences_between_OLTP_and_OLAP.jpg)
 
 ### 36. Collation là gì?
 
@@ -495,7 +573,7 @@ END $$
 DELIMITER ;
 ```
 
-![](./assets/Stored_Procedure.png)
+![](./assets/Stored_Procedure.jpg)
 
 ### 38. Stored Procedure đệ quy là gì?
 
@@ -528,3 +606,60 @@ SELECT * INTO Students_copy
 FROM Students WHERE 1 = 2;
 ```
 
+### 40. Pattern Matching trong SQL?
+
+SQL pattern matching cung cấp mẫu tìm kiếm dữ liệu nếu bạn không có manh mối nào về từ cần tìm. Loại truy vấn SQL này sử dụng các ký tự đại diện để khớp với một mẫu chuỗi, thay vì viết từ chính xác. Toán tử LIKE được sử dụng cùng với SQL Wildcards để tìm nạp thông tin cần thiết. 
+
+**Sử dụng % cho tìm kiếm đơn giản**
+
+Ký tự đại diện% khớp với nhiều ký tự thuộc bất kỳ loại nào và có thể được sử dụng để xác định ký tự đại diện cả trước và sau mẫu. Tìm kiếm một sinh viên trong cơ sở dữ liệu của bạn với tên bắt đầu bằng chữ K:
+
+```sql
+SELECT *
+FROM students
+WHERE first_name LIKE 'K%'
+```
+
+**Sử dụng từ khoá NOT**
+
+Sử dụng từ khóa NOT để chọn các bản ghi không khớp với mẫu. Truy vấn này trả về tất cả các sinh viên có tên không bắt đầu bằng K.
+
+```sql
+SELECT *
+FROM students
+WHERE first_name NOT LIKE 'K%'
+```
+
+**Sử dụng % hai lần**
+
+Tìm kiếm bất kỳ sinh viên nào trong cơ sở dữ liệu có K trong tên.
+
+```sql
+SELECT *
+FROM students
+WHERE first_name LIKE '%K%'
+```
+
+**Sử dụng _ để chỉ định vị trí cụ thể**
+
+Ký tự đại diện _ khớp chính xác với một ký tự thuộc bất kỳ loại nào. Nó có thể được sử dụng cùng với% ký tự đại diện. Truy vấn này tìm nạp tất cả học sinh có chữ cái K ở vị trí thứ ba trong tên của họ.
+
+```sql
+SELECT *
+FROM students
+WHERE first_name LIKE '__K%'
+```
+
+**Chỉ định độ dài cụ thể**
+
+Ký tự đại diện _ đóng một vai trò quan trọng như một giới hạn khi nó khớp chính xác với một ký tự. Nó giới hạn độ dài và vị trí của các kết quả phù hợp. Ví dụ 
+
+```sql
+SELECT *   /* Matches first names with three or more letters */
+FROM students
+WHERE first_name LIKE '___%'
+
+SELECT *   /* Matches first names with exactly four characters */
+FROM students
+WHERE first_name LIKE '____'
+```
