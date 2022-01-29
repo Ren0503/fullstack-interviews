@@ -1,5 +1,7 @@
 # Mạng máy tính
 
+![](./assets/network.jpg)
+
 ## Mạng máy tính là gì?
 
 Theo Merriam Webster, mạng là một nhóm được kết nối với nhau một cách không chính thức bởi các thực thế khác nhau như con người, máy tính, đài phát thanh,...
@@ -11,6 +13,78 @@ Ví dụ, Dominos có mạng lưới 1232 chi nhánh trên khắp Ấn Độ. Ch
 Bạn đã bao giờ nghe nói về Internet hoặc NET? Tôi đoán là có, vì bạn chỉ có thể đọc bài viết này nhờ vào Internet. Nhưng, bạn đã bao giờ nghĩ về internet chưa? Internet là một mạng lưới kết nối tất cả các thiết bị hỗ trợ mạng khác nhau cho phép chia sẻ dữ liệu và thông tin giữa chúng và điều đó làm cho mạng máy tính trở thành một phần cốt lõi trong cuộc sống của chúng ta và các cuộc phỏng vấn công nghệ.
 
 Dưới đây là danh sách tất cả các câu hỏi mạng thường gặp trong các cuộc phỏng vấn từ cấp độ cơ bản đến nâng cao.
+
+## Mục lục
+
+[1. Mạng máy tính được phân loại như thế nào?](#1-mạng-máy-tính-được-phân-loại-như-thế-nào)
+
+[2. Giải thích về các loại mạng?](#2-giải-thích-về-các-loại-mạng)
+
+[3. Giải thích về LAN?](#3-giải-thích-về-lan)
+
+[4. VPN là gì?](#4-vpn-là-gì)
+
+[5. Lợi ích của VPN?](#5-lợi-ích-của-vpn)
+
+[6. Các loại VPN khác nhau?](#6-các-loại-vpn-khác-nhau)
+
+[7. Nodes và links là gì?](#7-nodes-và-links-là-gì)
+
+[8. Cấu trúc liên kết mạng là gì?](#8-cấu-trúc-liên-kết-mạng-là-gì)
+
+[9. Các kiểu cấu trúc liên kết mạng khác nhau?](#9-các-kiểu-cấu-trúc-liên-kết-mạng-khác-nhau)
+
+[10. Địa chỉ IPv4 là gì? Các lớp của IPv4?](#10-địa-chỉ-ipv4-là-gì-các-lớp-của-ipv4)
+
+[11. Địa chỉ IP riêng tư và đặc biệt?](#11-địa-chỉ-ip-riêng-tư-và-đặc-biệt)
+
+[12. Mô tả mô hình OSI?](#12-mô-tả-mô-hình-osi)
+
+[13. Các tầng trong mô hình OSI là gì?](#13-các-tầng-trong-mô-hình-osi-là-gì)
+
+[14. Mô tả mô hình TCP/IP?](#14-mô-tả-mô-hình-tcpip)
+
+[15. Các tầng trong mô hình TCP/IP là gì?](#15-các-tầng-trong-mô-hình-tcpip-là-gì)
+
+[16. Sự khác biệt của mô hình OSI và mô hình TCP/IP?](#16-sự-khác-biệt-của-mô-hình-osi-và-mô-hình-tcpip)
+
+[17. Giao thức HTTP và HTTPS là gì?](#17-giao-thức-http-và-https-là-gì)
+
+[18. Giao thức SMTP là gì?](#18-giao-thức-smtp-là-gì)
+
+[19. DNS là gì?](#19-dns-là-gì)
+
+[20. Công dụng của router là gì và nó khác với gateway như thế nào?](#20-công-dụng-của-router-là-gì-và-nó-khác-với-gateway-như-thế-nào)
+
+[21. Giao thức TCP là gì?](#21-giao-thức-tcp-là-gì)
+
+[22. Giao thức UDP là gì?](#22-giao-thức-udp-là-gì)
+
+[23. So sánh TCP và UDP?](#23-so-sánh-tcp-và-udp)
+
+[24. Giao thức ICMP là gì?](#24-giao-thức-icmp-là-gì)
+
+[25. Giao thức DHCP là gì?](#25-giao-thức-dhcp-là-gì)
+
+[26. Giao thức ARP là gì?](#26-giao-thức-arp-là-gì)
+
+[27. Giao thức FTP là gì?](#27-giao-thức-ftp-là-gì)
+
+[28. Địa chỉ MAC là gì?](#28-địa-chỉ-mac-là-gì)
+
+[29. Sự khác biệt giữa địa chỉ IP và địa chỉ MAC?](#29-sự-khác-biệt-giữa-địa-chỉ-ip-và-địa-chỉ-mac)
+
+[30. Subnet là gì?](#30-subnet-là-gì)
+
+[31. So sánh Hub với Switch?](#31-so-sánh-hub-với-switch)
+
+[32. Sự khác biệt giữa ipconfig và ifconfig?](#32-sự-khác-biệt-giữa-ipconfig-và-ifconfig)
+
+[33. Tường lửa là gì?](#33-tường-lửa-là-gì)
+
+[34. Unicasting, Anycasting, Multicasting và Broadcasting là gì?](#34-unicasting-anycasting-multicasting-và-broadcasting-là-gì)
+
+[35. Điều gì xảy ra khi nhập google.com trên trình duyệt web?](#35-điều-gì-xảy-ra-khi-nhập-googlecom-trên-trình-duyệt-web)
 
 ## Câu hỏi phỏng vấn mạng máy tính cho Fresher
 
@@ -32,29 +106,29 @@ Các loại mạng có thể được phân loại và phân chia dựa trên kh
 
 ### 3. Giải thích về LAN?
 
-Mạng LAN được sử dụng rộng rãi để kết nối máy tính/laptop và thiết bị điện tử tiêu dùng cho phép chúng chia sẻ tài nguyên (ví dụ: máy in, máy fax) và trao đổi thông tin. Khi mạng LAN được sử dụng bởi các công ty hoặc tổ chức, chúng được gọi là mạng doanh nghiệp. Có hai loại mạng LAN khác nhau, tức là mạng LAN không dây (không có dây, khi sử dụng Wi-Fi) và mạng LAN có dây (sử dụng được bằng cáp LAN). Ngày nay, mạng LAN không dây rất phổ biến ở những nơi khó lắp đặt dây. Các sơ đồ dưới đây giải thích cả mạng LAN không dây và có dây.
+Mạng LAN được sử dụng rộng rãi để kết nối máy tính/laptop và thiết bị điện tử tiêu dùng cho phép chúng chia sẻ tài nguyên (ví dụ: máy in, máy fax) và trao đổi thông tin. Khi mạng LAN được sử dụng bởi các công ty hoặc tổ chức, chúng được gọi là mạng doanh nghiệp. Có hai loại mạng LAN khác nhau, tức là mạng LAN không dây (không có dây, khi sử dụng Wi-Fi) và mạng LAN có dây (sử dụng bằng cáp LAN). Ngày nay, mạng LAN không dây rất phổ biến ở những nơi khó lắp đặt dây. Các sơ đồ dưới đây giải thích cả mạng LAN không dây và có dây.
 
 ![](./assets/LAN_(Local_Area_Network).png)
 
 ### 4. VPN là gì?
 
-VPN hay Virtual Private Network là một mạng WAN riêng tư được xây dựng trên internet. Nó cho phép tạo một đường hầm bảo mật (secured tunnel) giữa hai mạng khác nhau sử dụng internet. Bằng cách dùng VPN, một client có thể kết nối từ xa tới mạng của tổ chức. So đồ dưới đây cho thấy một mạng wan của tổ chức ở Úc sử dụng VPN:
+VPN hay Virtual Private Network là một mạng WAN riêng tư được xây dựng trên internet. Nó cho phép tạo một đường hầm bảo mật (secured tunnel) giữa hai mạng khác nhau sử dụng internet. Bằng cách dùng VPN, một client có thể kết nối từ xa tới mạng của tổ chức. So đồ dưới đây cho thấy một mạng WAN của tổ chức ở Úc sử dụng VPN:
 
 ![](./assets/VPN_(Virtual_Private_Network).png)
 
 ### 5. Lợi ích của VPN?
 
-- VPN được sử dụng để kết nối các văn phòng ở các vị trí địa lý khác nhau từ xa và rẻ hơn khi so sánh với kết nối WAN.
+- VPN được sử dụng để kết nối từ xa các văn phòng ở các vị trí địa lý khác nhau, nó rẻ hơn khi so sánh với kết nối WAN.
 - VPN được sử dụng cho các giao dịch an toàn và truyền dữ liệu bí mật giữa nhiều văn phòng đặt tại các vị trí địa lý khác nhau.
 - VPN giữ cho thông tin của tổ chức được bảo mật trước mọi mối đe dọa hoặc sự xâm nhập tiềm ẩn bằng cách sử dụng ảo hóa.
 - VPN mã hóa lưu lượng truy cập internet và che giấu danh tính trực tuyến.
 
 ### 6. Các loại VPN khác nhau?
 
-- **Access VPN** được dùng để cung cấp kết nối cho người dùng di động từ xa và thiết bị viễn thông. Nó phục vụ như một sự thay thế cho kết nối dial-up hay ISDN (Integrated Services Digital Network). Nó là một giải pháp chi phí thấy và cung cấp một loạt kết nối.
+- **Access VPN** được dùng để cung cấp kết nối cho người dùng di động từ xa và thiết bị viễn thông. Nó phục vụ như một sự thay thế cho kết nối dial-up hay ISDN (Integrated Services Digital Network). Nó là một giải pháp chi phí thấp và cung cấp một loạt kết nối.
 - **Site-to-Site VPN** hay Router-to-Router VPN thường được dùng bởi các công ty lớn có các chi nhánh ở các địa điểm khác nhau để kết nối mạng cho các văn phòng ở các địa điểm khác nhau. Nó có hai kiểu phụ là:
-- **Intranet VPN**: hữu ích khi kết nối các văn phòng từ xa trên các khu vực địa lý khác nhau bằng cơ sở hạ tầng chung (kết nối internet và server) với các chĩnh sách hỗ trợ như mạng WAN riêng tư.
-- **Extranet VPN** sử dụng cơ sở hạ tầng chung qua mạng intranet, nhà cung cấp, khách hàng, đối tác và các thực thể khác và kết nối chúng bằng kết nối chuyên dụng. 
+- **Intranet VPN**: hữu ích khi kết nối các văn phòng từ xa trên các khu vực địa lý khác nhau bằng cơ sở hạ tầng chung (kết nối internet và server) với các chnh sách hỗ trợ như mạng WAN riêng tư.
+- **Extranet VPN** sử dụng cơ sở hạ tầng chung qua mạng intranet, nhà cung cấp, khách hàng, đối tác, các thực thể khác và các kết nối đến chúng bằng kết nối chuyên dụng. 
 
 ### 7. Nodes và links là gì?
 
@@ -83,7 +157,7 @@ Cấu trúc liên kết mạng là một bố trí vật lý của mạng, kết
 ![](./assets/Star_Topology.png)
 
 - Tất cả các nút được kết nối với một nút duy nhất được gọi là nút trung tâm.
-- Nó mạnh mẽ hơn. bus
+- Nó mạnh mẽ hơn bus
 - Nếu nút trung tâm bị lỗi, toàn bộ mạng sẽ bị hỏng.
 - Dễ dàng khắc phục sự cố.
 - Chủ yếu được sử dụng trong mạng gia đình và văn phòng.
@@ -162,17 +236,17 @@ Mô hình OSI có 7 tầng. Các nguyên tắc dùng cho mỗi tầng có thể 
 
 | Tầng | Đơn vị | Mô tả |
 |------|--------|-------|
-| 1.Physical | Bit | Lớp vật lý định nghĩa các đặc tính vật lý của mạng chẳng hạn như kết nối, cấp điện áp và thời gian. |
-| 2.Data Link | Frame | Các lớp liên kết dữ liệu định dạng các thông điệp vào một khung dữ liệu(Frame), và thêm vào đó một header chứa các địa chỉ phần cứng nơi nhận và địa chỉ nguồn của nó. Tiêu đề này chịu trách nhiệm cho việc tìm kiếm các thiết bị đích tiếp theo trên một mạng nội bộ. |
-| 3.Network | Package | Lớp này cung cấp địa chỉ logic mà router sẽ sử dụng để xác định đường đi đến đích.Trong hầu hết các trường hợp, địa chỉ logic ở đây có nghĩa là các địa chỉ IP (bao gồm nguồn & địa chỉ đích IP). |
-| 4.Transport | TPDU  | Lớp này duy trì kiểm soát luồng của dữ liệu, thực hiện kiểm tra lỗi và khôi phục dữ liệu giữa các thiết bị. Ví dụ phổ biến nhất của tầng giao vận là Transmission Control Protocol (TCP) và User Datagram Protocol (UDP). |
-| 5.Session | SPDU | Nhiệm vụ của lớp này là thiết lập, duy trì và kết thúc giao tiếp với các thiết bị nhận. |
-| 6.Presentation | PPDU | Lớp này đảm bảo việc trình bày dữ liệu, mà các thông tin liên lạc qua lớp này nằm trong các hình thức thích hợp đối với người nhận. Nói chung, nó hoạt động như một dịch giả của mạng. Ví dụ, bạn muốn gửi một email và tầng trình bày sẽ định dạng dữ liệu của bạn sang định dạng email. Hoặc bạn muốn gửi ảnh cho bạn bè của bạn, lớp Presentation sẽ định dạng dữ liệu của bạn vào các định dạng GIF, JPG hoặc PNG. |
-| 7.Application | APDU | Đây là lớp gần gũi nhất với người dùng cuối. Nó cung cấp giao diện giữa các ứng dụng với các lớp phía dưới. Nhưng chú ý rằng các chương trình bạn đang sử dụng (như một trình duyệt web - IE, Firefox hay Opera ...) không thuộc về lớp Application.Telnet, FTP, client email (SMTP), HyperText Transfer Protocol (HTTP) là những ví dụ của lớp Application. |
+| 1.Physical | Bit | Tầng vật lý định nghĩa các đặc tính vật lý của mạng chẳng hạn như kết nối, cấp điện áp và thời gian. |
+| 2.Data Link | Frame | Các tầng liên kết dữ liệu định dạng các thông điệp vào một khung dữ liệu(Frame), và thêm vào đó một tiêu đề (header) chứa các địa chỉ phần cứng nơi nhận và địa chỉ nguồn của nó. Tiêu đề này chịu trách nhiệm cho việc tìm kiếm các thiết bị đích tiếp theo trên một mạng cục bộ. |
+| 3.Network | Package | Tầng này cung cấp địa chỉ logic mà router sẽ sử dụng để xác định đường đi đến đích.Trong hầu hết các trường hợp, địa chỉ logic ở đây có nghĩa là các địa chỉ IP (bao gồm nguồn & địa chỉ IP đích). |
+| 4.Transport | TPDU  | Tầng này duy trì kiểm soát luồng của dữ liệu, thực hiện kiểm tra lỗi và khôi phục dữ liệu giữa các thiết bị. Ví dụ phổ biến nhất của tầng này là Transmission Control Protocol (TCP) và User Datagram Protocol (UDP). |
+| 5.Session | SPDU | Nhiệm vụ của tầng này là thiết lập, duy trì và kết thúc giao tiếp với các thiết bị nhận. |
+| 6.Presentation | PPDU | Tầng này đảm bảo việc trình bày dữ liệu, mà các thông tin liên lạc qua tầng này nằm trong các hình thức thích hợp đối với người nhận. Nói chung, nó hoạt động như một dịch giả của mạng. Ví dụ, bạn muốn gửi một email và tầng trình bày sẽ định dạng dữ liệu của bạn sang định dạng email. Hoặc bạn muốn gửi ảnh cho bạn bè của bạn, nó sẽ định dạng dữ liệu của bạn vào các định dạng GIF, JPG hoặc PNG. |
+| 7.Application | APDU | Đây là tầng gần gũi nhất với người dùng cuối. Nó cung cấp giao diện giữa các ứng dụng với các tầng phía dưới. Nhưng chú ý rằng các chương trình bạn đang sử dụng (như trình duyệt web - IE, Firefox hay Opera ...) không thuộc về tầng Application.Telnet, FTP, client email (SMTP), HyperText Transfer Protocol (HTTP) là những ví dụ của tầng Application. |
 
 ### 14. Mô tả mô hình TCP/IP?
 
-Nó là một phiên bản nén của mô hình OSI chỉ có 4 tầng. Nó được phát triển bởi Bộ Quốc phòng Hoa Kỳ (DoD) vào những năm 1980. Tên của mô hình này dựa trên 2 giao thức tiêu chuẩn được sử dụng, đó là TCP (Transmission Control Protocol) và IP (Internet Protocol).
+Nó là một phiên bản nén của mô hình OSI chỉ có 4 tầng. Được phát triển bởi Bộ Quốc phòng Hoa Kỳ (DoD) vào những năm 1980. Tên của mô hình này dựa trên 2 giao thức tiêu chuẩn được sử dụng, đó là TCP (Transmission Control Protocol) và IP (Internet Protocol).
 
 ### 15. Các tầng trong mô hình TCP/IP là gì?
 
@@ -181,9 +255,9 @@ Nó là một phiên bản nén của mô hình OSI chỉ có 4 tầng. Nó đư
 | Tầng | Mô tả |
 |------|-------|
 | 1.Link | Là sự kết hợp giữa tầng Vật lý và tầng liên kết dữ liệu của mô hình OSI. Chịu trách nhiệm truyền dữ liệu giữa hai thiết bị trong cùng một mạng. Tại đây, các gói dữ liệu được đóng vào khung (gọi là Frame) và được định tuyến đi đến đích đã được chỉ định ban đầu. |
-| 2.Internet | Gần giống như tầng mạng của mô hình OSI. Tại đây, nó cũng được định nghĩa là một giao thức chịu trách nhiệm truyền tải dữ liệu một cách logic trong mạng. Các phân đoạn dữ liệu sẽ được đóng gói (Packets) với kích thước mỗi gói phù hợp với mạng chuyển mạch mà nó dùng để truyền dữ liệu. Lúc này, các gói tin được chèn thêm phần Header chứa thông tin của tầng mạng và tiếp tục được chuyển đến tầng tiếp theo. Các giao thức chính trong tầng là IP, ICMP và ARP. |
-| 3.Transport | Chức năng chính của tầng 3 là xử lý vấn đề giao tiếp giữa các máy chủ trong cùng một mạng hoặc khác mạng được kết nối với nhau thông qua bộ định tuyến. Tại đây dữ liệu sẽ được phân đoạn, mỗi đoạn sẽ không bằng nhau nhưng kích thước phải nhỏ hơn 64KB. Cấu trúc đầy đủ của một Segment lúc này là Header chứa thông tin điều khiển và sau đó là dữ liệu. |
-| 4.Application | Đây là lớp giao tiếp trên cùng của mô hình. Đúng với tên gọi, tầng Ứng dụng đảm nhận vai trò giao tiếp dữ liệu giữa 2 máy khác nhau thông qua các dịch vụ mạng khác nhau (duyệt web, chat, gửi email, một số giao thức trao đổi dữ liệu: SMTP, SSH, FTP,...). Dữ liệu khi đến đây sẽ được định dạng theo kiểu Byte nối Byte, cùng với đó là các thông tin định tuyến giúp xác định đường đi đúng của một gói tin. |
+| 2.Internet | Gần giống như tầng mạng của mô hình OSI. Tại đây, nó cũng được định nghĩa là một giao thức chịu trách nhiệm truyền tải dữ liệu một cách logic trong mạng. Các phân đoạn dữ liệu (segment) sẽ được đóng gói (Packets) với kích thước mỗi gói phù hợp với mạng chuyển mạch mà nó dùng để truyền dữ liệu. Lúc này, các gói tin được chèn thêm phần Header chứa thông tin của tầng mạng và tiếp tục được chuyển đến tầng tiếp theo. Các giao thức chính trong tầng là IP, ICMP và ARP. |
+| 3.Transport | Chức năng chính của tầng 3 là xử lý vấn đề giao tiếp giữa các máy chủ trong cùng một mạng hoặc khác mạng được kết nối với nhau thông qua bộ định tuyến. Tại đây dữ liệu sẽ được phân đoạn, mỗi đoạn sẽ không bằng nhau nhưng kích thước phải nhỏ hơn 64KB. Cấu trúc đầy đủ của một phân đoạn lúc này là Header chứa thông tin điều khiển và sau đó là dữ liệu. |
+| 4.Application | Đây là tầng giao tiếp trên cùng của mô hình. Đúng với tên gọi, tầng này đảm nhận vai trò giao tiếp dữ liệu giữa 2 máy khác nhau thông qua các dịch vụ mạng khác nhau (trình duyệt web, chat, gửi email, một số giao thức trao đổi dữ liệu: SMTP, SSH, FTP,...). Dữ liệu khi đến đây sẽ được định dạng theo kiểu Byte nối Byte, cùng với đó là các thông tin định tuyến giúp xác định đường đi đúng của một gói tin. |
 
 ### 16. Sự khác biệt của mô hình OSI và mô hình TCP/IP?
 
@@ -198,9 +272,9 @@ Nó là một phiên bản nén của mô hình OSI chỉ có 4 tầng. Nó đư
 
 ### 17. Giao thức HTTP và HTTPS là gì?
 
-HTTP là viết tắt của HyperText Transfer Protocol, giao thức truyền tải siêu văn bản, nó xác định một tập hợp quy tắc và chuẩn để truyền tải dữ liệu trên World Wide Web (WWW). Nó giúp trình duyệt web và web server có thể giao tiếp. Nó là "stateless protocol trong đó mỗi lệnh là độc lập với các lệnh trước đó. HTTP là giao thức ở tầng ứng dụng xây dựng trên TCP. Cổng mặc định của nó là 80.
+HTTP là viết tắt của HyperText Transfer Protocol, giao thức truyền tải siêu văn bản, nó xác định một tập hợp quy tắc và chuẩn để truyền tải dữ liệu trên World Wide Web (WWW). Nó giúp trình duyệt web và web server có thể giao tiếp. Nó là "stateless protocol" trong đó mỗi lệnh là độc lập với các lệnh trước đó. HTTP là giao thức ở tầng ứng dụng xây dựng trên TCP. Cổng mặc định của nó là 80.
 
-Còn HTTPS là viết tắt của từ HyperText Transfer Protocol Secure. Nó là phiên bản bảo mật và nâng cao của HTTP. Trên cùng của HTTP, giao thức SSL/TLC được dùng cho bảo mật. Nó mã hóa dữ liệu truyền tải nhằm gia tăng bảo mật giữa Web sever đến các trình duyệt web. Nó sử dụng cổng mặc định là 443.
+Còn HTTPS là viết tắt của từ HyperText Transfer Protocol Secure. Nó là phiên bản bảo mật và nâng cao của HTTP. Cùng với HTTP, giao thức SSL/TLC được dùng cho bảo mật. Nó mã hóa dữ liệu truyền tải nhằm gia tăng bảo mật giữa Web sever đến các trình duyệt web. Nó sử dụng cổng mặc định là 443.
 
 ### 18. Giao thức SMTP là gì?
 
@@ -220,11 +294,14 @@ Các cổng (gateway) cũng được sử dụng để định tuyến và đi�
 
 ### 21. Giao thức TCP là gì?
 
-TCP hay TCP/IP là viết tắt của Transmission Control Protocol/Internet Protocol. Nó là một tập quy tác để các quyết định cách máy tính kết nối với Internent và truyền dữ liệu qua mạng. Nó tạo một mạng ảo khi có nhiều hơn một máy tính kết nối đến mạng và sử dụng mô hình bắt tay ba bước để thiết lập kết nối.
+TCP là viết tắt của cụm từ Transmission Control Protocol, tức là giao thức điều khiển truyền nhận. Giao thức này đóng vai trò kiểm tra và đảm bảo sự chuyển giao thông tin từ nơi nguồn tới nơi nhận một cách an toàn và đúng thứ tự.
+
+Hơn nữa, giao thức TCP đảm bảo không xảy ra sự chậm trễ trong đường truyền làm ảnh hưởng đến chất lượng gói tin. Bên cạnh đó, TCP là giao thức hướng kết nối, nghĩa là phải thiết lập kết nối trước khi truyền dữ liệu.
 
 ### 22. Giao thức UDP là gì?
 
-UDP (User Datagram Protocol) dựa trên Datagrams. Chủ yếu được dùng cho phát sóng đa hướng. Chức năng của nó tương tự TCP/IP ngoại trừ việc nó không dùng đến bắt tay ba bước và điều này làm nó kém tin cậy hơn.
+UDP là viết tắt của cụm từ User Datagram Protocol. UDP là một phần của bộ giao thức Internet được sử dụng bởi các chương trình chạy trên các máy tính khác nhau trên mạng. Không giống như TCP/IP, UDP được sử dụng để gửi các gói tin ngắn gọi là datagram, cho phép truyền nhanh hơn. Tuy nhiên, UDP không cung cấp kiểm tra lỗi nên không đảm bảo toàn vẹn dữ liệu.
+
 
 ### 23. So sánh TCP và UDP?
 
@@ -243,19 +320,17 @@ UDP (User Datagram Protocol) dựa trên Datagrams. Chủ yếu được dùng c
 
 ### 24. Giao thức ICMP là gì?
 
-ICMP được viết tắt bởi cụm từ Internet Control Message Protocol. Người đọc có thể hiểu nghĩa một cách đơn giản là một giao thức của gói Internet Protocol, hay được gọi là giao thức điều khiển truyền tin trên mạng.
+ICMP được viết tắt bởi cụm từ Internet Control Message Protocol. Có thể hiểu một cách đơn giản giao thức ICMP là một giao thức của gói Internet Protocol hay còn được gọi là giao thức điều khiển truyền tin qua mạng Internet. ICMP thuộc tầng vận chuyển (Transport Layer).
 
-ICMP được dùng để thông báo các lỗi xảy ra trong quá trình truyền đi của các gói dữ liệu trên mạng. Hay dùng để thăm dò và quản lý quá trình hoạt động của mạng. Cổng mặc định của nó là 7.
+Giao thức này được sử dụng để thông báo các lỗi có thể xảy ra trong quá trình truyền tin của các gói dữ liệu qua mạng. Chúng còn được sử dụng để thăm dò cũng như quản lý quá trình hoạt động của mạng Internet. Cổng mặc định của nó là 7.
 
 ### 25. Giao thức DHCP là gì?
 
-DHCP chính là từ viết tắt của cụm từ Dynamic Host Configuration Protocol (được dịch là Giao thức Cấu hình Host Động). Theo đó, DHCP là giao thức có chức năng cấp phát địa chỉ IP cho tất cả các thiết bị truy cập trên cùng một mạng thông qua máy chủ DHCP được tích hợp trên router. 
-
-Bên cạnh đó, DHCP còn có nhiệm vụ cấp thông số cần thiết của mạng đến các thiết bị. Cụ thể là thông tin về subnet mask, default gateway và dịch vụ DNS. Cổng mặc định của nó là 67.
+DHCP (Dynamic Host Configuration Protocol hay Giao thức cấu hình host động) là một giao thức được sử dụng để cung cấp quản lý nhanh chóng, tự động và tập trung cho việc phân phối địa chỉ IP trong mạng. DHCP cũng được sử dụng để cấu hình đúng subnet mask, cổng mặc định và thông tin về DNS server trên thiết bị. Cổng mặc định của nó là 67.
 
 ### 26. Giao thức ARP là gì?
 
-Giao thức phân giải địa chỉ (Address Resolution Protocol hay ARP) là một giao thức truyền thông được sử dụng để chuyển địa chỉ từ tầng mạng (Internet layer) sang tầng liên kết dữ liệu theo mô hình OSI. Đây là một chức năng quan trọng trong giao thức IP của mạng máy tính.
+ARP (Address Resolution Protocol) là giao thức mạng được dùng để tìm địa chỉ phần cứng (địa chỉ MAC) của thiết bị từ một địa chỉ IP. Nó được sử dụng khi một thiết bị muốn giao tiếp với các thiết bị khác trên mạng cục bộ (ví dụ trên mạng Ethernet mà yêu cầu địa chỉ vật lý trước khi gửi packets). Thiết bị gửi sử dụng ARP để dịch địa chỉ IP sang địa chỉ MAC. Thiết bị sẽ gửi một request ARP có chứa địa chỉ IP của thiết bị nhận. Tất cả thiết bị trên mạng cục bộ sẽ thấy thông điệp này, nhưng chỉ thiết bị có địa chỉ IP chứa trong request mới phản hồi lại với thông điệp chứa địa chỉ MAC của nó. Thiết bị gửi khi đó sẽ có đủ thông tin để gửi packet tới thiết bị nhận.
 
 ![](./assets/ARP_Protocol.png)
 
@@ -265,7 +340,7 @@ FTP - File Transfer Protocol (Giao thức truyền tải tập tin) được dù
 
 ### 28. Địa chỉ MAC là gì?
 
-Địa chỉ MAC là viết tắt của Media Access Control. Nó là một dãy 48-bit hoặc 64-bit duy nhất của phần cứng máy tính. Nó còn được gọi là địa chỉ vật lý nhúng với NIC (Network Interface Card) được sử dụng ở tầng Data Link. NIC là một thiết bị phần cứng được cài đặt trên máy tính để nó có thể được kết nối với internet.
+Địa chỉ MAC là viết tắt của Media Access Control. Nó là một dãy 48-bit hoặc 64-bit duy nhất của phần cứng máy tính. Nó còn được gọi là địa chỉ vật lý nhúng với NIC (Network Interface Card) được sử dụng ở tầng Data Link. NIC (card mạng) là một thiết bị phần cứng được cài đặt trên máy tính để nó có thể được kết nối với internet.
 
 ### 29. Sự khác biệt giữa địa chỉ IP và địa chỉ MAC?
 
@@ -301,11 +376,12 @@ Subnet (mạng con) là một mạng bên trong một mạng khác được tạ
 |----------|----------|
 | Internet Protocol Configuration | Interface Configuration |
 | Lệnh trong hệ điều hành Microsoft để xem và cấu hình interface mạng | Lệnh dùng trong MAC, Unix để xem cấu hình interface mạng |
-| Được sử dụng để lấy thông tin tổng hợp TCP/IP và cho phép thay đổi cài đặt DHCP và DNS |
+
+Cả hai đều được sử dụng để lấy thông tin tổng hợp TCP/IP và cho phép thay đổi cài đặt DHCP và DNS 
 
 ### 33. Tường lửa là gì?
 
-Tường lửa là một hệ thống an ninh mạng được sử dụng để giám sát lưu lượng đến và đi và chặn các lưu lượng giống nhau dựa trên các chính sách bảo mật của tường lửa. Nó hoạt động như một bức tường giữa internet (mạng công cộng) và các thiết bị mạng (mạng riêng). Nó có thể là thiết bị phần cứng hay chương trình phần mềm hoặc kết hợp cả hai. Nó bổ sung một lớp bảo mật cho mạng.
+Tường lửa là một hệ thống an ninh mạng được sử dụng để giám sát lưu lượng đến và đi đồng thời chặn các lưu lượng không mong muốn dựa trên các chính sách bảo mật của tường lửa. Nó hoạt động như một bức tường giữa internet (mạng công cộng) và các thiết bị mạng (mạng riêng). Nó có thể là thiết bị phần cứng hay chương trình phần mềm hoặc kết hợp cả hai. Nó bổ sung một lớp bảo mật cho mạng.
 
 ![](./assets/Firewall.png)
 
