@@ -4,11 +4,11 @@
 
 Trước khi bắt đầu với loạt câu hỏi phỏng vấn HTML, ta sẽ nói về HTML.
 
-HTML là viết tắt của HyperText Markup Language. Nó là ngôn ngữ định dạng tiêu chuẩn cho phát triển trang web được phát hành vào năm 1993. HTML là ngôn ngữ thông dịch trên trình duyệt, nó nói cho trình duyệt biết cách hiển thị và hiển thị như thế nào.
+HTML là viết tắt của HyperText Markup Language. Nó là ngôn ngữ định dạng tiêu chuẩn cho phát triển trang web được phát hành vào năm 1993. HTML là ngôn ngữ thông dịch trên trình duyệt, nó nói cho trình duyệt biết hiển thị cái gì và hiển thị như thế nào.
 
-HTML là ngôn ngữ quan trọng cho bất cứ ai muốn học về phát triển web. HTML độc lập là không đủ với các nhà phát triển web vì nó chỉ xác định cấu trúc dữ liệu được hiển thị trên trình duyệt cho trang web, để làm cho nó đẹp và linh động hơn, ta cần dùng CSS và JavaScript đi cùng.
+HTML là ngôn ngữ quan trọng cho bất cứ ai muốn học về phát triển web. HTML độc lập là không đủ với các nhà phát triển web vì nó chỉ xác định cấu trúc dữ liệu được hiển thị trên trình duyệt cho trang web, để làm cho trang web đẹp và linh động hơn, ta cần dùng CSS và JavaScript đi cùng.
 
-Phiên bản mới nhất của HTML là HTML5. Trong nó có hai thành phần chính là thẻ(tag) và thuộc tính(attributes). Ảnh dưới mô tả cơ bản về cấu trúc HTML.
+Phiên bản mới nhất của HTML là HTML5. Trong nó có hai thành phần chính là thẻ (tag) và thuộc tính (attributes). Ảnh dưới mô tả cơ bản về cấu trúc HTML.
 
 ![](./assets/html-intro.png)
 
@@ -452,3 +452,426 @@ HTML 5 hỗ trợ hai loại đồ hoạ:
     </body>
 </html>
 ```
+
+Cả hai ví dụ trên đều tạo output này, chúng là hai cách tiếp cận khác nhau do HTML5 cung cấp để triển khai đồ hoạ trên trang web.
+
+![](./assets/Explain_HTML5_Graphics.png)
+
+### 49. Các kiểu input mới trong HTML5 trong form?
+
+- Date - Chọn ngày bằng cách dùng `type="date"`
+- Week - Chọn tuần bằng cách dùng `type="week"`
+- Time - Chọn thời gian bằng cách dùng `type="time"`
+- Month - Chọn tháng bằng cách dùng `type="month"`
+- Datetime - Kết hợp ngày và thời gian dùng `type="datetime"`
+- Datetime-local - Kết hợp ngày và thời gian và chặn timezone,dùng `type="datetime"`
+- Color - Chấp nhận nhiều màu dùng `type="color"`
+- Email - Chấp nhận một hay nhiều email dùng `type="email"` 
+- Number - Chấp nhận một giá trị số với các kiểm tra bổ sung như min và max, sử dụng `type="number"`
+- Search - Cho phép truy vấn tìm kiếm văn bản dùng `type="search"`
+- Tel - Cho phép các số điện thoại khác nhau dùng `type="tel"`
+- Placeholder - Để hiển thị một gợi ý ngắn trước khi nhập giá trị bằng cách sử dụng `type="placeholder"`
+- Range - Chấp nhận giá trị số trong một phạm vi cụ thể dùng `type="range"`
+- Url - Chập nhận địa chỉ trang web dùng `type="url"`
+
+```html
+<form>  
+    <div>
+        <label>Date:</label>
+        <input type="date" id="date" />
+        <br>
+        <label>Week:</label>
+        <input type="week" id="week" />
+        <br>
+        <label>Month:</label>
+        <input type="month" id="month" />
+        <br>
+        <label>Time:</label>
+        <input type="time" id="time" />
+        <br>
+        <label>Datetime:</label>
+        <input type="datetime" id="datetime" />
+        <br>
+        <label>Datetime Local:</label>
+        <input type="datetime-local" id="datetime-local" />
+        <br>
+        <label>Color:</label>
+        <input type="color" id="color"/>
+        <br>
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="email address" />
+        <br>
+        <label>Number:</label>
+        <input type="number" id="number" />
+        <br>
+        <label>Search:</label>
+        <input type="search" id="search" />
+        <br>
+        <label>Phone:</label>
+        <input type="tel" id="phone" placeholder="Phone Number" pattern="\d{10}$" />
+        <br>
+        <label>Range:</label>
+        <input type="range" id="range" />
+        <br>
+        <label>URL:</label>
+        <input type="url" id="url"/>
+    </div>  
+</form>
+```
+
+![](./assets/Artboard_1_2x.png)
+
+### 50. Các thẻ mới cho phần tử media trong HTML5?
+
+* `<audio>`: dùng cho các file âm thanh, nhạc, nhúng nội dung audio mà không cần plugin.
+* `<video>`: dùng cho nhúng nội dung video.
+* `<source>`: dùng cho nhiều tài nguyên media như video, audio,...
+* `<embed>`: dùng cho nội dung nhúng hay ứng dụng mở rộng.
+* `track`: tiêu đề con cho video hay audio
+
+```html
+<label>
+       Video:
+</label>
+<video width="320" height="240" controls>
+    <source src="video.mp4" type="video/mp4">
+    <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">
+</video>
+<br>
+<label>
+    Embed:
+</label>
+<embed type="video/webm" src="https://www.youtube.com/embed/MpoE6s2psCw" width="400" height="300">
+<br>
+<label>
+    Audio:
+</label>
+<audio controls>
+    <source src="audio.mp3" type="audio/mpeg">
+</audio>
+```
+
+![](./assets/html5-new-tags-in-media-elements.png)
+
+### 51. Tại sao bạn nghĩ rằng việc bổ sung chức năng kéo và thả trong HTML5 là quan trọng? Bạn sẽ làm thế nào để tạo một hình ảnh có thể kéo được trong HTML5?
+
+Chức năng kéo và thả là một cách rất trực quan để chọn các file cục bộ. Điều này tương tự như việc hầu hết các hệ điều hành có chức năng sao chép, nó giúp cho người dùng làm việc dễ dàng. Trước khi có API kéo và thả, điều này chỉ có thể thực được bằng cách viết lập trình Javascript phức tạp hoặc các thư viện bên ngoài như jQuery.
+
+Để bật chức năng này, có một thuộc tính có thể kéo trong thẻ `<img>` và cần đặt thuộc tính **ondrop** và **ondragover** thành một event-handler có sẵn trong script.
+
+```html
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        function drop(ev) {
+            ...
+        }
+    </script>
+    </head>
+    <body>
+        ...
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" style="border: 1px solid #aaaaaa; width:350px; height: 70px;"></div>
+        <br>
+        <img id="drag1" src="img_logo.gif" draggable="true" width="336" height="69">
+            ...
+    </body>
+</html>
+```
+
+### 52. Tại sao ta cần phần tử MathML trong HTML5?
+
+MathML là viết tắt của Mathematical Markup Language. Nó dùng cho hiển thị các biểu thức hàm số toán học trên web. Với thẻ `<math>`:
+
+```html
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <math>
+            <mrow>
+                <mrow>
+                <msup>
+                    <mi> a </mi>
+                    <mn> 2 </mn>
+                </msup>
+                <mo> + </mo>
+                <msup>
+                    <mi> b </mi>
+                    <mn> 2 </mn>
+                </msup>
+                <mo> + </mo>
+                <mn> 2 </mn>
+                <mn> a </mn>
+                <mn> b </mn>
+                </mrow>
+                <mo> = </mo>
+                <mn> 0 </mn>
+            </mrow>
+        </math>
+    </body>
+</html>
+```
+
+Kết quả là phương trình a2 + b2 +2ab = 0
+
+### 53. Server-sent events trong HTML5 là gì? 
+
+Server-Sent Events (SSE) hay còn được biết đến với tên gọi Event Source là một Web Api cho phép kết nối thời gian thực giữa server và client (browser). SSE tạo ra kết nối một chiều từ server đến client sử dụng giao thức HTTP truyền thống với định nghĩa dữ liệu đơn giản cho phía server (event stream format) và API gọn nhẹ phía client.
+
+So với phương pháp polling từ client lên server để kiểm tra dữ liệu thì SSE hiệu quả hơn rất nhiều do client chỉ cần tạo kết nối HTTP lên server một lần, và server giữ kết nối đó để liên tục gửi data cho client.
+
+WebSockets thì phức tạp và hoành tráng hơn hẳn SSE. Tuy nhiên WebSockets là kết nối hai chiều mà đôi khi ta lại không cần chiều từ client lên server. Ngoài ra WebSockets là một giao thức hoàn toàn khác và đòi hỏi server phải hỗ trợ.
+
+Để dùng SSE, phần tử `<eventsource>` được dùng. Thuộc tính `src` dùng để chỉ định URL của server gửi luồng dữ liệu cho các sự kiện.
+
+```html
+<eventsource src = "/cgi-bin/myfile.cgi" />
+```
+
+### 54. Web workers là gì?
+
+Được thêm vào để mang lại khả năng thực thi song song và bất đồng bộ. Nó chạy nền để thực hiện các tác vụ tính toán tốn kém mà trang web không có khả năng đáp ứng. Nó thực hiện bằng cách tạo một luồng riêng cho các tác vụ như vậy. 
+Có 3 loại worker chính:
+- **Dedicated Workers**: là worker được dùng bởi một script duy nhất
+- **Shared Workers** là những worker được dùng bởi nhiều script chạy trong các cửa sổ, iframe khác nhau,...
+- **Service workers** những worker này hoạt động như một proxy server giữa ứng dụng web, trình duyệt và mạng. Chủ yếu được dùng để thông báo và đồng bộ hoá API.
+
+```html
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+<script>
+var w;
+function startWorker() {
+    if(typeof(Worker) !== "undefined") {
+        if(typeof(w) == "undefined") {
+            w = new Worker("demo_workers.js");
+        }
+        w.onmessage = function(event) {
+            document.getElementById("result").innerHTML = event.data;
+        };
+    }
+}
+function stopWorker() {
+    w.terminate();
+    w = undefined;
+}
+</script>
+```
+
+![](./assets/Artboard_2_2x.png)
+
+### 55. Việc sử dụng thuộc tính novalidate cho thẻ form trong HTML5 để làm gì?
+
+Giá trị của nó là kiểu boolean cho biết liệu dữ liệu đang được form gửi có được xác thực trước hay không. Nếu nó là false, các form có thể được gửi mà không cần xác thực.
+
+```html
+<form action = "" method = "get" novalidate>
+        Name:<br><input type="name" name="sname"><br>
+       Doubt:<br><input type="number" name="doubt"><br>
+        <input type="submit" value="Submit">
+</form>
+```
+
+### 56. Vector và Raster trong ảnh là gì?
+
+**Rasters**: xác định thứ tự của pixel trong grid với màu sắc chính xác của pixel đó. File định dạng raster như png, jpg, ...
+
+**Vector**: xác định thuật toán với hình dạng và đường đi xác định để kết xuất ảnh trên màn hình. Vd như svg
+
+### 57. Làm thế nào để hỗ trợ SVG trên trình duyệt cũ?
+
+Để hỗ trợ các trình duyệt cũ thay vì xác định tài nguyên của svg trong thuộc tính *src* của thẻ `<img>`, thì nên xác định nó trong thuộc tính *srcset* và trong *src*, file png dự phòng phải được xác định.
+
+```html
+<img src="circle.png" alt="circle" srcset="circle.svg">
+```
+
+### 58. Các cách để reponsive ảnh?
+
+* **Tiếp cận trực tiếp**: Sử dụng phần tử `<picture>`, hình ảnh được hiển thị đầy đủ trong bố cục màn hình có thể được phóng to với đối tượng chính được lấy nét cho bố cục chân dung. 
+
+### 59. File manifest trong HTML5 là gì?
+
+File manifest được sử dụng để liệt kê các tài nguyên có thể được lưu vào bộ nhớ đệm. Trình duyệt sử dụng thông tin này để làm cho trang web tải nhanh hơn lần đầu tiên. Có 3 phần trong mainfest:
+
+* CACHE Manifest - File cần lưu vào bộ đệm
+* Network - File không bao giờ lưu vào bộ đệm, cần kết nối mạng.
+* Fallback - File dự phòng trong trường hợp trang không tiếp cận được.
+
+```text
+CACHE MANIFEST
+# 2012-06-16 v1.0.0
+/style.css
+/logo.gif
+/main.js
+NETWORK:
+login.php
+FALLBACK:
+/html/ /offline.html
+```
+
+```html
+<!DOCTYPE HTML>
+<html manifest="tutorial.appcache">
+...
+...
+</html>
+```
+
+### 60. API định vị địa lý trong HTML5?
+
+API định vị địa lý được sử dụng để chia sẻ vị trí thực của máy khách với các trang web. Điều này giúp cung cấp nội dung dựa trên ngôn ngữ và trải nghiệm độc đáo cho người dùng, dựa trên vị trí của họ. Nó hoạt động với một thuộc tính mới của đối tượng điều hướng toàn cầu và hầu hết các trình duyệt hiện đại đều hỗ trợ điều này.
+
+```js
+var geolocation = navigator.geolocation;
+```
+
+### 61. Viết code minh hoạ API định vị địa lý?
+
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+        <p>Click "try it" button to get your coordinates.</p>
+        <button onclick="getLocation()">Try It</button>
+        <p id="demo"></p>
+        <script>
+            var x = document.getElementById("demo");
+            
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else { 
+                    x.innerHTML = "Geolocation functionality is not supported by this browser.";
+                }
+            }
+                
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude + 
+                "<br>Longitude: " + position.coords.longitude;
+            }
+        </script>
+    </body>
+</html>
+```
+
+Ví dụ trên yêu cầu người dùng cho phép truy cập dữ liệu vị trí thông qua API định vị địa lý và sau khi nhấp vào nút, tọa độ của vị trí thực của client sẽ được hiển thị.
+
+![](./assets/Geolocation_API.png)
+
+### 62. Giải thích về Web Component?
+
+Chúng được sử dụng để tạo các phần tử tùy chỉnh có thể sử dụng lại, nó rất khó thực hiện trong HTML truyền thống. Nó bao gồm ba công nghệ:
+
+**Custom elements** - Đây là các API JavaScript giúp xác định các phần tử tùy chỉnh và hành vi của chúng.
+Shadow DOM -Đây là các API JavaScript gắn cây shadow DOM được đóng gói vào một phần tử để giữ các tính năng của phần tử đó riêng tư và không bị ảnh hưởng bởi các phần khác.
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>composed and composedPath demo</title>
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <h1><code>composed</code> and <code>composedPath</code> demo</h1>
+        <open-shadow text="I have an open shadow root"></open-shadow>
+        <closed-shadow text="I have a closed shadow root"></closed-shadow>
+    </body>
+</html>
+```
+
+```js
+customElements.define('open-shadow',
+    class extends HTMLElement {
+        constructor() {
+            super();
+            const pElem = document.createElement('p');
+            pElem.textContent = this.getAttribute('text');
+            const shadowRoot = this.attachShadow({mode: 'open'});
+            shadowRoot.appendChild(pElem);
+        }
+    }
+);
+customElements.define('closed-shadow',
+    class extends HTMLElement {
+        constructor() {
+            super();
+            const pElem = document.createElement('p');
+            pElem.textContent = this.getAttribute('text');
+            const shadowRoot = this.attachShadow({mode: 'closed'});
+            shadowRoot.appendChild(pElem);
+        }
+    }
+);
+document.querySelector('html').addEventListener('click', e => {
+    console.log(e.composed);
+    console.log(e.composedPath());
+});
+```
+
+![](./assets/Explain_Web_Components_and_it’s_usage..png)
+
+Ở đây 2 phần tử tùy chỉnh được xác định là `<open-shadow>` và `<closed-shadow>` lấy nội dung văn bản của chúng và chèn chúng vào DOM bóng như nội dung của phần tử `<p>`.
+
+- **HTML Template** Các template đánh dấu được viết bằng các phần tử `<template>` và `<slot>` có thể được sử dụng lại nhiều lần làm cơ sở cho cấu trúc của phần tử tùy chỉnh. 
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Simple template</title>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <h1>Simple template</h1>
+        <template id="my-paragraph">
+            <style>
+            p {
+                color: white;
+                background-color: #666;
+                padding: 5px;
+            }
+            </style>
+            <p><slot name="my-text">My default text</slot></p>
+        </template>
+        <my-paragraph>
+            <span slot="my-text">Let's have some different text!</span>
+        </my-paragraph>
+        <my-paragraph>
+            <ul slot="my-text">
+                <li>Let's have some different text!</li>
+                <li>In a list!</li>
+            </ul>
+        </my-paragraph>
+    </body>
+</html>
+```
+
+```js
+customElements.define('my-paragraph',
+    class extends HTMLElement {
+        constructor() {
+            super();
+            const template = document.getElementById('my-paragraph');
+            const templateContent = template.content;
+            this.attachShadow({mode: 'open'}).appendChild(
+                templateContent.cloneNode(true)
+            );
+        }
+    }
+);
+const slottedSpan = document.querySelector('my-paragraph span');
+console.log(slottedSpan.assignedSlot);
+console.log(slottedSpan.slot);
+```
+
+![](./assets/explain-web-components-and-its-usage.png)
