@@ -161,7 +161,7 @@ Mảng hai chiều mô phỏng cấu trúc dạng bảng giúp dễ dàng lưu t
 
 ### 5. Danh sách liên kết là gì?
 
-Danh sách liên kết là một **chuỗi tuần tự các nút**, nơi các nút được liên kết với nhau thông qua con trỏ tham chiếu. Các phần tử **không được lưu trữ** tại các vị trí liền kề trong bộ nhớ. Chúng được liên kết bằng cách sử dụng con trỏ để tạo thành một chuỗi. Điều này tạo thành một liên kết dạng chuỗi để lưu trữ dữ liệu. 
+Danh sách liên kết là một **chuỗi tuần tự các nút**, trong đó các nút được liên kết với nhau thông qua con trỏ tham chiếu. Các phần tử **không được lưu trữ** tại các vị trí liền kề trong bộ nhớ. Chúng được liên kết bằng cách sử dụng con trỏ để tạo thành một chuỗi. Điều này tạo thành một liên kết dạng chuỗi để lưu trữ dữ liệu. 
 
 Mỗi nút thường có hai phần:
 - Trường dữ liệu
@@ -311,7 +311,7 @@ dequeue(q):
 
 Ở đây, đối với thao tác enqueue, phần tử mới được đẩy lên trên cùng của `stack1`.Thế nên, độ phức tạp thời gian hoạt động của enqueue là O(1).
 
-Với dequeue, nếu `stack2` trống, tất cả các phần tử từ `stack1` sẽ được chuyển đến `stack2` và trên cùng của `stack2` là kết quả. Về cơ bản, đảo ngược danh sách bằng cách đẩy vào một ngăn xếp và trả về phần tử được enqueue đầu tiên. Thao tác đẩy tất cả các phần tử vào ngăn xếp mới có độ phức tạp O(n).
+Với dequeue, nếu `stack2` trống, tất cả các phần tử từ `stack1` sẽ được chuyển đến `stack2` và pop phần tử trên cùng của `stack2` để lấy kết quả. Về cơ bản, đảo ngược danh sách bằng cách đẩy vào một ngăn xếp và trả về phần tử được enqueue đầu tiên. Thao tác đẩy tất cả các phần tử vào ngăn xếp mới có độ phức tạp O(n).
 
 Mã giả:
 
@@ -399,17 +399,17 @@ Phương thức `hashcode()` được dùng khi thêm một đối tượng kho�
 
 ### 18. Xử lý xung đột trong HashMap với Java?
 
-Lớp `java.util.HashMap` trong Java sử dụng phương pháp chuỗi để xử lý xung đột. Trong chuỗi, nếu giá trị mới có khoá trùng với giá trị đã thêm vào, thì đó các giá trị này được lưu trữ trong danh sách liên kết ở bucket của khoá dưới dạng chuỗi cùng với giá trị hiện có.
+Lớp `java.util.HashMap` trong Java sử dụng phương pháp chuỗi để xử lý xung đột. Trong chuỗi, nếu giá trị mới có khoá trùng với giá trị đã thêm vào, thì các giá trị này được lưu trữ trong danh sách liên kết ở bucket của khoá dưới dạng chuỗi cùng với giá trị hiện có.
 
 Trong trường hợp tệ nhất, tất cả các khoá đều có cùng hashcode, nó sẽ trả về bảng băm giống như là một danh sách liên kết. Trong trường hợp này, việc tìm kiếm một giá trị sẽ mất độ phức tạp thời gian là O(n) thay vì O(1). Do đó, cần phải cẩn thận khi lựa chọn thuật toán băm.
 
 ### 19. Độ phức tạp thời gian của thao tác get() và put() trong HashMap 
 
-Độ phức tạp thời gian là O(1) giả sử rằng hàm băm được sử dụng trong hashmap phân phối các phần tử một cách đồng nhất giữa các nhóm.
+Độ phức tạp thời gian là O(1) giả sử rằng hàm băm được sử dụng trong hashmap phân phối các phần tử một cách đồng nhất giữa các bucket.
 
 ### 20. Cơ sở dữ liệu nào được dùng cho triển khai bộ đệm LRU?
 
-Bộ đệm LRU (Least Recently Used) cho phép xác định nhanh một phần tử đã không được sử dụng trong thời gian dài, bằng cách sắp xếp các mục theo thứ tự sử dụng. Để đạt được điều này, hai cấu trúc dữ liệu được sử dụng: 
+Bộ đệm LRU (Least Recently Used) cho phép xác định nhanh một phần tử đã không được sử dụng trong thời gian dài, bằng cách sắp xếp các mục theo thứ tự sử dụng. Để thực hiện được điều này, hai cấu trúc dữ liệu được sử dụng: 
 
 - **Queue** - Triển khai này sử dụng một danh sách liên kết đôi. Kích thước tối đa của hàng đợi dựa trên kích thước bộ đệm, bằng tổng số frame khả dụng. Các trang ít được dùng gần đây nhất sẽ ở gần với phần trước của hàng đợi trong khi các trang sử dụng nhiều gần đây nhất sẽ ở cuối hàng.
 - **Hashmap** - Hashmap lưu trữ số trang dưới dạng khóa cùng với địa chỉ của nút hàng đợi tương ứng dưới dạng giá trị.
@@ -591,7 +591,7 @@ Ví dụ: ta có cây nhị phân như sau:
 
 ### 29. Cây tìm kiếm nhị phân là gì?
 
-Cây tìm kiếm nhị phân (BST) là một biến thể của cấu trúc dữ liệu cây nhị phân, lưu trữ dữ liệu một cách hiệu quả nhằm mục đích sao cho giá trị của các nút trong cây con bên trái nhỏ hơn giá trị của nút gốc và giá trị của các nút bên phải cao hơn nút gốc.
+Cây tìm kiếm nhị phân (BST) là một biến thể của cấu trúc dữ liệu cây nhị phân, lưu trữ dữ liệu một cách hiệu quả, trong đó các giá trị của các nút trong cây con bên trái nhỏ hơn giá trị của nút gốc và giá trị của các nút bên phải cao hơn nút gốc.
 
 Ngoài ra, từng cây con bên trái và bên phải cũng phải đảm bảo tính chất trên trong mọi trường hợp.
 
@@ -705,7 +705,7 @@ Ta có hai cách để biểu diễn đồ thị:
 
 ### 35. Sự khác biệt giữa cấu trúc dữ liệu cây và đồ thị 
 
-Cây và đồ thị được phân biệt bởi cấu trúc cây phải được kết nối và không bao giờ có thể có vòng lặp trong khi trong đồ thị không có hạn chế đó.
+Cây và đồ thị được phân biệt bởi cấu trúc cây phải được kết nối và không bao giờ có thể có vòng lặp (chu trình) trong khi trong đồ thị không có hạn chế đó.
 
 Cây cung cấp thông tin chi tiết về mối quan hệ giữa các nút theo hệ thống phân cấp còn đồ thị tuân theo mô hình mạng.
 

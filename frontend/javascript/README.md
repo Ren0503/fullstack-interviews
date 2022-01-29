@@ -1,5 +1,7 @@
 # Câu hỏi phỏng vấn JavaScript
 
+![](./assets/js.png)
+
 Được phát triển bởi Brendan Eich vào năm 1995, JavaScript là một trong những ngôn ngữ lập trình phổ biến nhất với các web developer.
 
 Nó được tạo ra cho phát triển các trang web động. Một chương trình JS được gọi là script, nó có thể được đính kèm vời bất kỳ trang web HTML nào. Các script sẽ tự động chạy khi trang được tải.
@@ -8,9 +10,71 @@ Nó được tạo ra cho phát triển các trang web động. Một chương t
 
 Dưới đây là các câu hỏi phỏng vấn JavaScript thường gặp.
 
+## Mục lục
+
+[1. Sự khác biệt giữa các kiểu dữ liệu trong JavaScript?](#1-sự-khác-biệt-giữa-các-kiểu-dữ-liệu-trong-javascript)
+
+[2. Giải thích về Hoisting trong Javascript?](#2-giải-thích-về-hoisting-trong-javascript)
+
+[3. Sự khác biệt giữa toán tử "==" và "===" là như thế nào?](#3-sự-khác-biệt-giữa-toán-tử--và--là-như-thế-nào)
+
+[4. Giải thích về ép kiểu ngầm trong JavaScript?](#4-giải-thích-về-ép-kiểu-ngầm-trong-javascript)
+
+[5. JavaScript là ngôn ngữ kiểu tĩnh hay kiểu động?](#5-javascript-là-ngôn-ngữ-kiểu-tĩnh-hay-kiểu-động)
+
+[6. Thuộc tính NaN trong JavaScript là gì?](#6-thuộc-tính-nan-trong-javascript-là-gì)
+
+[7. Giải thích về phép gán quá giá trị và phép gán qua tham chiếu?](#7-giải-thích-về-phép-gán-quá-giá-trị-và-phép-gán-qua-tham-chiếu)
+
+[8. IIFE là gì trong JavaScript?](#8-iife-là-gì-trong-javascript)
+
+[9. Giải thích về HOC(Higher Order Functions) trong JavaScript?](#9-giải-thích-về-hochigher-order-functions-trong-javascript)
+
+[10. Giải thích về "this"?](#10-giải-thích-về-this)
+
+[11. Giải thích về phương thức call(), aplly() và bind()?](#11-giải-thích-về-phương-thức-call-aplly-và-bind)
+
+[12. Currying trong JavaScript là gì?](#12-currying-trong-javascript-là-gì)
+
+[13. Giải thích về Scope và Scope Chain?](#13-giải-thích-về-scope-và-scope-chain)
+
+[14. Giải thích về Closures trong JavaScript?](#14-giải-thích-về-closures-trong-javascript)
+
+[15. Prototype là gì?](#15-prototype-là-gì)
+
+[16. Callback là gì?](#16-callback-là-gì)
+
+[17. Memoization là gì?](#17-memoization-là-gì)
+
+[18. Đệ quy là gì?](#18-đệ-quy-là-gì)
+
+[19. Hàm khởi tạo trong JavaScript](#19-hàm-khởi-tạo-trong-javascript)
+
+[20. DOM là gì?](#20-dom-là-gì)
+
+[21. Hàm arrow là gì?](#21-hàm-arrow-là-gì)
+
+[22. Sự khác biết của biến dùng var, let và const](#22-sự-khác-biết-của-biến-dùng-var-let-và-const)
+
+[23. Tham số còn lại và toán tử spread là gì?](#23-tham-số-còn-lại-và-toán-tử-spread-là-gì)
+
+[24 Sử dụng Promise trong JavaScript](#24-sử-dụng-promise-trong-javascript)
+
+[25. Lớp trong JavaScript?](#25-lớp-trong-javascript)
+
+[26. Hàm generator là gì?](#26-hàm-generator-là-gì)
+
+[27. Giải thích WeakSet trong JavaScript](#27-giải-thích-weakset-trong-javascript)
+
+[28. Giải thích WeakMap trong JavaScript](#28-giải-thích-weakmap-trong-javascript)
+
+[29. Cấu trúc đối tượng là gì?](#29-cấu-trúc-đối-tượng-là-gì)
+
+[30. Temporal Dead Zone là gì?](#30-temporal-dead-zone-là-gì)
+
 ## Câu hỏi dành cho Fresher
 
-### 1. Sự khác biệt giữa các kiểu dữ liệu trong JavaScript ?
+### 1. Sự khác biệt giữa các kiểu dữ liệu trong JavaScript?
 
 Trong JavaScript các kiểu dữ liệu được chia làm hai loại là kiểu nguyên thuỷ và đối tượng. Để biết kiểu dữ liệu của các biến JavaScript, ta có thể sử dụng **typeof**.
 
@@ -97,7 +161,7 @@ var obj1 = {
 var array1 = [5, "Hello", true, 4.1];  
 ```
 
-### 2. Giải thích về Hoisting trong Javascript ?
+### 2. Giải thích về Hoisting trong Javascript?
 
 Hoisting là một hành vi mặc định trong Javascript, nó sẽ chuyển tất cả khai báo biến và hàm lên trên cùng.
 
@@ -152,7 +216,7 @@ x = 23; // Báo lỗi x  chưa được khai báo
 var x; 
 ```
 
-### 3. Sự khác biệt giữa toán tử "==" và "===" là như thế nào
+### 3. Sự khác biệt giữa toán tử "==" và "===" là như thế nào?
 
 Cả hai đều dùng để so sánh, nhưng "==" có thể dùng với bất kỳ kiểu dữ liệu nào còn "===" chỉ dành cho cùng kiểu.
 
@@ -166,7 +230,7 @@ var y = "2";
 (x === y) // Trả về false vì typeof x là "number" còn typeof y là "string
 ```
 
-### 4. Giải thích về ép kiểu ngầm trong JavaScript ?
+### 4. Giải thích về ép kiểu ngầm trong JavaScript?
 
 Ép kiểu ngầm trong javascript là sự chuyển đổi tự động của giá trị từ kiểu dữ liệu này sang kiểu khác. Nó xảy ra khi thực hiện một biểu thức với các kiểu dữ liệu khác nhau.
 
@@ -272,7 +336,7 @@ var b = "226";
 a === b // Returns false because coercion does not take place and the  operands are of different types. Hence they are not equal.
 ```
 
-### 5. JavaScript là ngôn ngữ kiểu tĩnh hay kiểu động ?
+### 5. JavaScript là ngôn ngữ kiểu tĩnh hay kiểu động?
 
 JavaScript là ngôn ngữ kiểu động. Trong ngôn ngữ kiểu động, kiểu dữ liệu của biến được kiểm tra trong khi đang chạy chương trình ngược lại với kiểu tĩnh, nơi kiểu dữ liệu của biến được kiểm tra khi biên dịch.
 
@@ -285,7 +349,7 @@ var a = 23;
 var a = "Hello World!";
 ```
 
-### 6. Thuộc tính NaN trong JavaScript là gì ?
+### 6. Thuộc tính NaN trong JavaScript là gì?
 
 Thuộc tính NaN biểu diễn một giá trị **Not-a-Number**. Nó biểu thị một giá trị không phải là số.
 
@@ -302,7 +366,7 @@ isNaN(false) // Returns false
 isNaN(undefined) // Returns true
 ```
 
-### 7. Giải thích về phép gán quá giá trị và phép gán qua tham chiếu ?
+### 7. Giải thích về phép gán quá giá trị và phép gán qua tham chiếu?
 
 Trong JavaScript, kiểu dữ liệu nguyên thuỷ được gán với giá trị, còn kiểu đối tượng được gán bằng tham chiếu.
 
@@ -374,7 +438,7 @@ Từ ví dụ trên, ta có thể thấy rằng trong khi truyền các kiểu d
 
 Do đó, các kiểu dữ liệu đối tượng luôn được truyền bằng tham chiếu.
 
-### 8. IIFE là gì trong JavaScript ?
+### 8. IIFE là gì trong JavaScript?
 
 Immediately Invoked Function (IIFE) là một hàm được chạy ngay sau khi nó được định nghĩa.
 
@@ -412,7 +476,7 @@ Từ định nghĩa IIFE, ta biết rằng code sẽ chạy ngay sai khi khai b�
 
 Do đó để gọi function ta sử dụng dấu ngoặc đơn thứ hai.
 
-### 9. Giải thích về HOC(Higher Order Functions) trong JavaScript ?
+### 9. Giải thích về HOC(Higher Order Functions) trong JavaScript?
 
 Các hàm hoạt động trên các hàm khác bằng cách sử dụng chúng làm tham số hoặc kết quả trả về thì được gọi là Higher Order Functions - HOC. Ví dụ:
 
@@ -435,7 +499,7 @@ var x = higherOrder2();
 x()   // Returns "Do something"
 ```
 
-### 10. Giải thích về "this" 
+### 10. Giải thích về "this"?
 
 Từ khoá "this" trong javascript tham chiếu đến một đối tượng có thuộc tính là một hàm.
 
@@ -451,7 +515,7 @@ function doSomething() {
 doSomething();
 ```
 
-Như vậy theo định nghĩa, this tham chiếu đến một đối tượng có hàm là thuộc tính. Vậy trong đoạn code trên hàm là thuộc tính của đối tượng nào ?
+Như vậy theo định nghĩa, this tham chiếu đến một đối tượng có hàm là thuộc tính. Vậy trong đoạn code trên hàm là thuộc tính của đối tượng nào?
 
 Vì hàm được gọi từ ngữ cảnh tổng thể, nên **hàm sẽ là thuộc tính của đối tượng toàn cục**. Do đó, nếu ta chạy đoạn code trên trình duyệt kết quả sẽ là **window object**.
 
@@ -510,7 +574,7 @@ obj2.getAddress();
 
 Kết quả sẽ là lỗi, vì từ khóa this tham chiếu đến đối tượng `obj2`, nhưng `obj2` không có thuộc tính “address” ‘, do đó hàm `getAddress` sẽ xảy ra lỗi.
 
-### 11. Giải thích về phương thức call(), aplly() và bind()
+### 11. Giải thích về phương thức call(), aplly() và bind()?
 
 #### call()
 
@@ -601,7 +665,7 @@ detailsOfPerson1();
 // Returns Vivek, bike details: TS0452, Thunderbird
 ```
 
-### 12. Currying trong JavaScript là gì ?
+### 12. Currying trong JavaScript là gì?
 
 Currying là một kỹ thuật nâng cao để biến đổi một hàm với n tham số, thành n hàm với một tham số duy nhất.
 
@@ -643,7 +707,7 @@ curriedMultiply(4)(3); // Also returns 12
 
 Như ta có thể thấy trong đoạn code trên, chúng ta đã chuyển đổi hàm `multiply(a, b)` thành một hàm `curriedMultiply`, nhận một tham số tại một thời điểm.
 
-### 13. Giải thích về Scope và Scope Chain
+### 13. Giải thích về Scope và Scope Chain?
 
 Scope trong JS, xác định khả năng truy cập của các biến, hàm ở các phần khác nhau trong một đoạn code.
 
@@ -737,7 +801,7 @@ Như bạn có thể thấy trong đoạn code trên, nếu javascript engine kh
 
 Nếu biến cũng không được tìm thấy trong không gian chung, thì lỗi tham chiếu sẽ được đưa ra.
 
-### 14. Giải thích về Closures trong JavaScript
+### 14. Giải thích về Closures trong JavaScript?
 
 Closures là khả năng của một hàm ghi nhớ các biến và hàm được khai báo bên ngoài phạm vi của nó.
 
@@ -797,7 +861,7 @@ Do đó, `randomFunc()`, thay vì hủy giá trị của `obj1` sau khi thực t
 
 **Khả năng này của một hàm nhằm lưu trữ một biến để tham khảo thêm ngay cả sau khi nó được thực thi, được gọi là Closure.**
 
-### 15. Prototype là gì ?
+### 15. Prototype là gì?
 
 Tất cả các đối tượng javascript đều kế thừa các thuộc tính từ một **prototype**.
 
@@ -832,7 +896,7 @@ Javascript engine thấy rằng phương thức `push` không tồn tại trên 
 
 Bất cứ khi nào thuộc tính hoặc phương thức không được tìm thấy trên đối tượng hiện tại, javascript engine sẽ luôn tìm kiếm trong prototype của nó và nếu nó vẫn không tồn tại, nó sẽ tìm bên trong prototype của prototype, v.v.
 
-### 16. Callback là gì ?
+### 16. Callback là gì?
 
 Callback là một hàm sẽ được thực thi sau khi một hàm khác được thực thi.
 
@@ -871,7 +935,7 @@ Các hàm callback này chỉ được thực thi sau khi thực thi hàm `opera
 
 Do đó, callback là một hàm sẽ được thực thi sau khi một hàm khác được thực thi.
 
-### 17. Memoization là gì ?
+### 17. Memoization là gì?
 
 Memoization là một dạng bộ nhớ đệm trong đó giá trị trả về của một hàm được lưu vào bộ đệm dựa trên các tham số của nó. Nếu tham số của hàm đó không được thay đổi, phiên bản được lưu trong bộ nhớ cache của hàm sẽ được trả về.
 
@@ -924,7 +988,7 @@ Trong đoạn code trên, nếu ta chạy hàm `memoizedFunc` với cùng một 
 
 *Lưu ý* Mặc dù sử dụng memoization tiết kiệm thời gian, nhưng nó dẫn đến tiêu thụ bộ nhớ lớn hơn vì ta đang lưu trữ tất cả các kết quả được tính toán.
 
-### 18. Đệ quy là gì ?
+### 18. Đệ quy là gì?
 
 Đệ quy là một kỹ thuật lặp đi lặp lại một hoạt động bằng cách tự gọi hàm lặp đi lặp lại cho đến khi nó đi đến kết quả.
 
@@ -1001,7 +1065,7 @@ Dòng code trên sẽ tạo một đối tượng mới kiểu Person.
 
 Các hàm khởi tạo cho phép chúng ta nhóm các đối tượng tương tự nhau.
 
-### 20. DOM là gì ?
+### 20. DOM là gì?
 
 DOM là viết tắt của Document Object Model.
 
@@ -1015,7 +1079,7 @@ Ví dụ về cách code HTML được chuyển đổi thành DOM:
 
 ## Câu hỏi dành cho Experiencer
 
-### 21. Hàm arrow là gì ?
+### 21. Hàm arrow là gì?
 
 Arrow function được giới thiệu từ phiên bản ES6 của javascript.
 
@@ -1176,7 +1240,7 @@ y = 44; // Throws an error
 
 Trong đoạn code trên, mặc dù chúng ta có thể thay đổi giá trị của một thuộc tính bên trong biến được khai báo với từ khóa const, nhưng chúng ta không thể gán lại hoàn toàn chính biến đó.
 
-### 23. Tham số còn lại và toán tử spread là gì ?
+### 23. Tham số còn lại và toán tử spread là gì?
 
 Cả hai đều được giới thiệu ở phiên bản ES6
 
@@ -1227,7 +1291,7 @@ function randomFunc2(a,b,...args){
 }
 ```
 
-### Toán tử spread (...)
+#### Toán tử spread (...)
 
 Mặc dù cú pháp của toán tử spread hoàn toàn giống với tham số còn lại, nhưng toán tử spread được sử dụng để trải ra các phần tử của một đối tượng có thể lặp lại. Toán tử spread được sử dụng trong các câu lệnh, biểu thức hoặc khi gọi hàm.
 
@@ -1270,10 +1334,10 @@ Trước promise, callback được dùng cho các thao tác bất đồng bộ.
 
 Đối tượng promise có 4 trạng thái:
 
-- Pending: trạng thái bắt đầu, biểu diễn promise không phải là fulfilled, cũng không phải là rejected mà đang ở trạng thái pending.
-- Fulfilled: trạng thái này có nghĩa là thao tác bất đồng bộ đã hoàn tất.
-- Rejected: trạng này này có nghĩa là thao tác đã thất bại vì một vài lý do nào đó.
-- Settked: trạng thái này thể hiện promise đã rejected hoặc fulfilled.
+- **Pending**: trạng thái bắt đầu, biểu diễn promise không phải là fulfilled, cũng không phải là rejected mà đang ở trạng thái pending.
+- **Fulfilled**: trạng thái này có nghĩa là thao tác bất đồng bộ đã hoàn tất.
+- **Rejected**: trạng này này có nghĩa là thao tác đã thất bại vì một vài lý do nào đó.
+- **Settked**: trạng thái này thể hiện promise đã rejected hoặc fulfilled.
 
 Một promise được tạo bằng cách sử dụng phương thức khởi tạo Promise, hàm này nhận một hàm callback với hai tham số, `resolve` và `reject` tương ứng.
 
@@ -1328,7 +1392,7 @@ sumOfThreeElements(7, 0, 33, 41)
 // In the code above, the promise is rejected hence the catch() method gets executed
 ```
 
-### 25. Lớp trong JavaScript ?
+### 25. Lớp trong JavaScript?
 
 Được thêm vào ở phiên bản ES6, các lớp không là gì ngoài các cú pháp tuyệt vời cho các hàm khởi tạo.
 
@@ -1380,7 +1444,7 @@ Các điều cần nhớ về lớp:
 - Một lớp có thể kế thừa thuộc tính và phương thức từ lớp khác bằng từ khoá `extends`.
 - Tất cả cú pháp trong lớp phải theo tuần thủ chế độ strict (`use strict`). Lỗi sẽ xuất hiện nếu các quy tắc trong chế độ strict không được tuân thủ. 
 
-### 26. Hàm generator là gì ?
+### 26. Hàm generator là gì?
 
 Được giới thiệu ở phiên bản ES6, generator function là một lớp đặc biệt của hàm.
 
@@ -1487,7 +1551,7 @@ const map3 = new WeakMap();
 map3.set(obj, {age:23});
 ```
 
-### 29. Cấu trúc đối tượng là gì ?
+### 29. Cấu trúc đối tượng là gì?
 
 Cấu trúc đối tượng là một cách mới để trích xuất các phần tử từ một đối tượng hoặc một mảng.
 
@@ -1555,7 +1619,7 @@ console.log(third); // Outputs 3
 console.log(fourth); // Outputs 4
 ```
 
-### 30. Temporal Dead Zone là gì ?
+### 30. Temporal Dead Zone là gì?
 
 Temporal Dead Zone là hành vi xảy ra với khai báo biến sử dụng **let** hoặc **const**.
 
