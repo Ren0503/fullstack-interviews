@@ -1,13 +1,12 @@
 # Câu hỏi phỏng vấn Node.js
 
-![](./assets/nodejs.jpg)
+![](./assets/nodejs.jpeg)
 
 ## Node.js là gì
 
 Nodejs là một nền tảng được xây dựng, vận hành tại V8 JavaScript runtime của Chrome. Với Nodejs, bạn có thể chạy JavaScript trên server và thể xây dựng, phát triển các ứng dụng mạng nhanh chóng và dễ dàng.
 
 Nền tảng này bắt đầu được xây dựng, phát triển tại California từ năm 2009 với phần Core phía dưới được lập trình bằng C++ gần như 100%. Điều này tạo nên ưu thế về tốc độ xử lý cũng như hiệu năng của nền tảng này. Đến nay, Nodejs vẫn đang "gây bão" trong cộng đồng công nghệ bởi khả năng phát triển ứng dụng vượt trội.
-
 
 ## Câu hỏi phỏng vấn Node.js cho Fresher
 

@@ -775,3 +775,94 @@ Ta có :
 
 CSS Grid layout là một hệ thống layout 2 chiều (x,y) được dùng trong thiết kế UI. Theo định nghĩa từ Mozilla, grid (lưới) là một tổ hợp của những đường ngang và dọc cắt nhau – một nhóm xác định các cột và nhóm kia xác định các hàng. Các phần tử có thể được đặt lên lưới, dựa vào các đường hàng và cột này.
 
+### 30. Các cách để ẩn phần tử với CSS?
+
+- Sử dụng thuộc tính `display: none`. Phần tử sẽ không xuất hiện trong DOM. 
+- Sử dụng thuộc tính `visibility: hidden`, phần tử có xuất hiện trong DOM, nhưng không hiển thị trên màn hình cho người dùng.
+- Sử dụng thuộc tính `position: absolute`. Khả dụng bên ngoài màn hình.
+
+### 31. :root pseudo-class đề cập tới cái gì?
+
+### 32. Accessibility là gì?
+
+Accessibility có nghĩa là khả năng của một người nào đó trong việc tiếp cận với điều gì đó như internet, thiết bị thông minh, phương tiện công cộng,... Trong đó, không phân biệt bất kỳ điều kiện gì. Accessibility cũng được hiểu theo nghĩa khác là khả năng tiếp cận đến các thiết bị, sản phẩm, dịch vụ hay môi trường dành cho người khiếm khuyết.
+
+### 33. Làm thế nào để khôi phục giá trị mặc định của thuộc tính?
+
+Từ khoá `initial` có thể được dùng để khôi phục giá trị mặc định.
+
+### 34. Sự khác biệt giữa CSS grid và flexbox?
+
+1. CSS Grid là hệ thống dựng layout 2 chiều, có nghĩa là chúng ta có thể xử lý theo cột và hàng, không giống như Flexbox là hệ thống layout 1 chiều. ( xử lý theo 1 cột hoặc 1 hàng ).
+
+2. Điểm khác biệt cốt lõi giữa CSS Grid và Flexbox đó là: CSS Grid tiếp cận theo hướng nội dung còn Flexbox tiếp cận theo hướng bố cục (layout). Nếu bạn biết được rõ trước nội dung mình cần trình bày hãy dùng CSS Grid ngược lại thì chọn CSS Flexbox.
+
+3. Flexbox phù hợp với các website có layout đơn giản, CSS Grid phù hợp với website có layout phức tạp hơn.
+
+4. Nếu bạn chỉ cần dựng layout theo 1 hàng hoặc 1 cột thì Flexbox sẽ phù hợp hơn. Ngược lại, nếu bạn muốn xác định lưới và điều chỉnh nội dung theo 2 chiều - CSS Grid sẽ là lựa chọn của bạn.
+
+### 35. Calc dùng để làm gì?
+
+Trong CSS3, hàm `calc()` cho phép ta thực hiện các phép tiến trên giá trị thuộc tính. Thay vì khai báo trực tiếp, với **width** là giá trị tĩnh ta có thể dùng `calc()` để chỉ định giá trị **width** bằng các phép tính trên các giá trị số.
+
+```css
+.foo {
+	width: calc(100px + 50px)
+}
+```
+
+### 36. Tuỳ chỉnh thuộc tính biến trong CSS?
+
+Tuỳ chỉnh thuộc tính (thỉnh thoảng đề cập đến biến CSS) được định nghĩa bởi người dùng bao gồm giá trị cụ thể để sử dụng nhiều lần trong document. Giá trị là một tập hợp sử dụng ký hiệu **--**. Và giá trị được truy cập bằng hàm `var()`.
+
+```css
+:root {
+	--main-bg-color: brown
+}
+
+.one {
+	color: white;
+	background-color· var (--main-bg-color);
+	margin: l0px,
+	width: 50px,
+	height: 5Opx;
+	display: inline-block;
+}
+```
+
+### 37. Sự khác biệt của biến CSS và biến preprocessor (SASS, LESS, Stylus)?
+
+- Biến CSS có thể dùng mà không cần preprocessor. Đồng thời, tất cả trình duyệt đều hỗ trợ biến CSS.
+- Biến CSS có tác động nối tiếp. Còn preprocessor không cần.
+- Biến CSS có thể truy cập và quản lý trong JavaScript
+
+### 38. `* { box-sizing: border-box }` là gì?
+
+- Nó điều chỉnh tất cả phần tử có bao gồm padding, border trong không gian phần tử cho tính toàn chiều dài và chiều rộng.
+- Trong `box-sizing: border-box`, chiều cao phần tử được tính toán với: height + padding dọc + độ dài border dọc. Còn chiều dài là width + padding ngang + độ dài border ngang.
+
+### 39. !important trong CSS là gì?
+
+Các style có từ khoá important sẽ được ưu tiên cao nhất và ghi đè lên các thuộc tính bị trùng.
+
+```css
+p {
+ 	color: red !important;
+}
+#thing {
+ 	color: green;
+} 
+<p id="thing">Will be RED.</p>
+```
+
+### 40. Tính đặc hiệu trong CSS?
+
+Tính đặc hiệu hay độ ưu tiên (specificity) là cách mà trình duyệt quyết định sẽ áp dụng thuộc tính css nào với một phần tử khi có nhiều quy tắc css cùng trỏ đến phần tử đó. 
+
+Inline style sẽ được ưu tiên so với ID rồi đến giá trị lớp (pseudo-class hoặc attribute selector), universal selector **(*)** sẽ không có độ ưu tiên. ID Selector có độ ưu tiên cao hơn attribute selector.
+
+### 41. Progressive rendering là gì?
+
+Progressive rendering là một kỹ thuật sử dụng để cải thiện hiệu suất trang web (cụ thể là cải thiện thời gian tải web) để render nội dung cho hiển thị nhanh nhất có thể.
+
+Ta có thể triển khai progressive rendering bằng cách lazy loading với hành ảnh. Ta sử dụng Intersection Observer API cho lazy load ảnh. API làm việc 
