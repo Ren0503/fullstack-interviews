@@ -16,17 +16,103 @@ Hiện nay chúng ta đang sống trong kỷ nguyên kỹ thuật số, trong đ
 
 Các cuộc tấn công mạng, làm tổn hại hệ thống, đang trở thành mối quan tâm toàn cầu và các vi phạm an ninh khác có thể gây nguy hiểm cho nền kinh tế toàn cầu. Do đó, việc có một chiến lược an ninh mạng mạnh mẽ để bảo vệ dữ liệu nhạy cảm khỏi các vi phạm bảo mật cấp cao là rất quan trọng. Hơn nữa, khi số lượng các cuộc tấn công mạng tăng lên, các doanh nghiệp và tổ chức, đặc biệt là những tổ chức xử lý thông tin nhạy cảm như hồ sơ an ninh quốc gia, sức khỏe hoặc tài chính, phải sử dụng các biện pháp và quy trình an ninh mạng mạnh mẽ để bảo vệ dữ liệu nhạy cảm của họ.
 
+# Mục lục
+
+[1. Đối tượng chính trong an ninh mạng là gì?](#1-đối-tượng-chính-trong-an-ninh-mạng-là-gì)
+
+[2. Sự khác biệt giữa mối đe dọa, lỗ hổng bảo mật và rủi ro?](#2-sự-khác-biệt-giữa-mối-đe-dọa-lỗ-hổng-bảo-mật-và-rủi-ro)
+
+[3. XSS là gì? Và cách ngăn chặn nó?](#3-xss-là-gì-và-cách-ngăn-chặn-nó)
+
+[4. Tường lửa là gì?](#4-tường-lửa-là-gì)
+
+[5. VPN là gì?](#5-vpn-là-gì)
+
+[6. Hacker black hat, white hat và grey hat là gì?](#6-hacker-black-hat-white-hat-và-grey-hat-là-gì)
+
+[7. Các loại an ninh mạng?](#7-các-loại-an-ninh-mạng)
+
+[8. Ưu điểm của an ninh mạng?](#8-ưu-điểm-của-an-ninh-mạng)
+
+[9. Botnet là gì?](#9-botnet-là-gì)
+
+[10. Honeypot là gì?](#10-honeypot-là-gì)
+
+[11. Sự khác biệt giữa Đánh giá lỗ hổng và Kiểm tra thâm nhập?](#11-sự-khác-biệt-giữa-đánh-giá-lỗ-hổng-và-kiểm-tra-thâm-nhập)
+
+[12. Null Session nghĩa là gì?](#12-null-session-nghĩa-là-gì)
+
+[13. Các kiểu tấn công mạng phổ biến](#13-các-kiểu-tấn-công-mạng-phổ-biến)
+
+[14. Tấn công brute force là gì?](#14-tấn-công-brute-force-là-gì)
+
+[15. Shouder surfing là gì?](#15-shouder-surfing-là-gì)
+
+[16. Phishing là gì?](#16-phishing-là-gì)
+
+[17. Sự khác biệt giữa mã hoá và băm?](#17-sự-khác-biệt-giữa-mã-hoá-và-băm)
+
+[18. Xác thực hai yếu tố là gì?](#18-xác-thực-hai-yếu-tố-là-gì)
+
+[19. Làm thế nào để tránh tấn công brute force?](#19-làm-thế-nào-để-tránh-tấn-công-brute-force)
+
+[20. Tấn công xen giữa là gì?](#20-tấn-công-xen-giữa-là-gì)
+
+[21. Sự khác biệt giữa bảo vệ thông tin và bảo đảm thông tin?](#21-sự-khác-biệt-giữa-bảo-vệ-thông-tin-và-bảo-đảm-thông-tin)
+
+[22. Sự khác biệt giữa VPN và VLAN?](#22-sự-khác-biệt-giữa-vpn-và-vlan)
+
+[23. Bảo mật toàn phần và bảo vệ dữ liệu là gì?](#23-bảo-mật-toàn-phần-và-bảo-vệ-dữ-liệu-là-gì)
+
+[24. SSL và HTTPS cái nào đáng tin cậy hơn?](#24-ssl-và-https-cái-nào-đáng-tin-cậy-hơn)
+
+[25. Sự khác biệt giữa mã hoá đối xứng và bất đối xứng?](#25-sự-khác-biệt-giữa-mã-hoá-đối-xứng-và-bất-đối-xứng)
+
+[26. Tấn công DDoS là gì? Làm thế nào để chặn nó?](#26-tấn-công-ddos-là-gì-làm-thế-nào-để-chặn-nó)
+
+[27. Sự khác biệt giữa IDS và IPS?](#27-sự-khác-biệt-giữa-ids-và-ips)
+
+[28. Sniffing là gì?](#28-sniffing-là-gì)
+
+[29. Phân biệt black box test và white box test?](#29-phân-biệt-black-box-test-và-white-box-test)
+
+[30. System hardening là gì?](#30-system-hardening-là-gì)
+
+[31. Sự khác biệt giữa HIDS và NIDS?](#31-sự-khác-biệt-giữa-hids-và-nids)
+
+[32. Tấn công DNS là gì?](#32-tấn-công-dns-là-gì)
+
+[33. Sự khác biệt giữa mã hoá khối và mã hoá dòng?](#33-sự-khác-biệt-giữa-mã-hoá-khối-và-mã-hoá-dòng)
+
+[34. Sự khác biệt giữa spear phishing và phishing?](#34-sự-khác-biệt-giữa-spear-phishing-và-phishing)
+
+[35. ARP Poisoning là gì?](#35-RP-poisoning-là-gì)
+
+[36. SQL Injection là gì? Làm thế nào để ngăn chặn nó?](#36-sql-injection-là-gì-làm-thế-nào-để-ngăn-chặn-nó)
+
+[37. Sự khác biệt giữa virus và worm?](#37-sự-khác-biệt-giữa-virus-và-worm)
+
+[38. Dạng cookie nào có thể được sử dụng trong cuộc tấn công bằng phần mềm gián điệp?](#38-dạng-cookie-nào-có-thể-được-sử-dụng-trong-cuộc-tấn-công-bằng-phần-mềm-gián-điệp)
+
+[39. Làm thế nào quyết định vị trí của việc mã hoá?](#39-làm-thế-nào-quyết-định-vị-trí-của-việc-mã-hoá)
+
+[40. Virus Polymorphic là gì?](#40-virus-polymorphic-là-gì)
+
+[41. Active Reconnaissance là gì?](#41-active-reconnaissance-là-gì)
+
+[42. Theo bạn, Forward Secrecy nghĩa là gì và nó hoạt động như thế nào?](#42-theo-bạn-forward-secrecy-nghĩa-là-gì-và-nó-hoạt-động-như-thế-nào)
+
 ## Câu hỏi phỏng vấn an ninh mạng cho Fresher
 
 ### 1. Đối tượng chính trong an ninh mạng là gì?
 
-Mục tiêu chính của an ninh mạng là bảo vệ dữ liệu. Để bảo vệ dữ liệu khỏi các cuộc tấn công mạng, lĩnh vực bảo mật đưa ra mô hình tam giác gồm ba nguyên tắc. Bộ ba CIA là tên cho nguyên tắc này. Mô hình CIA nhằm giúp các tổ chức phát triển các chính sách cho kiến trúc bảo mật thông tin của họ. Một hoặc nhiều nguyên tắc này sẽ bị phá vỡ khi phát hiện ra vi phạm bảo mật. Tính bảo mật, tính toàn vẹn và tính khả dụng là ba thành phần của mô hình CIA. Đó là một mô hình bảo mật hướng dẫn các cá nhân thông qua nhiều khía cạnh của bảo mật CNTT. Chúng ta hãy xem xét kỹ hơn từng phần.
+Mục tiêu chính của an ninh mạng là bảo vệ dữ liệu. Để bảo vệ dữ liệu khỏi các cuộc tấn công mạng, lĩnh vực bảo mật đưa ra mô hình tam giác gồm ba nguyên tắc. Bộ ba CIA là tên cho nguyên tắc này. Mô hình CIA nhằm giúp các tổ chức phát triển các chính sách cho kiến trúc bảo mật thông tin của họ. Một hoặc nhiều nguyên tắc này sẽ bị phá vỡ khi phát hiện ra vi phạm bảo mật. Tính bảo mật, tính toàn vẹn và tính khả dụng là ba thành phần của mô hình CIA. Đó là một mô hình bảo mật hướng dẫn các cá nhân trên nhiều khía cạnh của bảo mật CNTT. Chúng ta hãy xem xét kỹ hơn từng phần.
 
 ![](./assets/Cyber_Security_objectives.jpg)
 
-- **Tính bảo mật** của thông tin là mức độ bảo mật cần thiết nhằm đảm bảo những dữ liệu quan trọng không bị rò rỉ hay tiết lộ. Kẻ tấn công có thể thực hiện nhiều phương thức nhằm đạt được mục đích là lấy những thông tin mong muốn. Những phương thức đó có thể là giám sát hệ thống mạng, lấy các file chứa mật khẩu, hay Social engineering. Thông tin có thể bị lộ do không sử dụng các phương thức mã hóa đủ mạnh khi truyền hay lưu trữ thông tin.
+- **Tính bảo mật** của thông tin là mức độ bảo mật cần thiết nhằm đảm bảo những dữ liệu quan trọng không bị rò rỉ hay tiết lộ. Kẻ tấn công có thể thực hiện nhiều phương thức nhằm đạt được mục đích là lấy những thông tin mong muốn. Những phương thức đó có thể là giám sát hệ thống mạng, lấy các file chứa mật khẩu, hay social engineering. Thông tin có thể bị lộ do không sử dụng các phương thức mã hóa đủ mạnh khi truyền hay lưu trữ thông tin.
 - **Tính toàn vẹn** của thông tin là mức độ bảo mật cần thiết nhằm đảm bảo độ tin tưởng của thông tin không bị thay đổi hay chỉ được chỉnh sửa bởi người có thẩm quyền. Kẻ tấn công có thể thực hiện nhiều phương thức nhằm thay đổi những thông tin mong muốn. Những phương thức đó có thể là đột nhập vượt qua các quá trình xác thực, hoặc tấn công khai thác lỗ hổng bảo mật của hệ thống. Đây là mức độ bảo mật thông tin quan trọng, hàng năm có rất nhiều tổ chức doanh nghiệp bị tấn công khai thác lỗ hổng bảo mật và bị thay đổi dữ liệu.
-- **Tính khả dụng**, khả năng đáp ứng của thông tin là điều rất quan trọng, điều này thể hiện tính sẵn sàng phục vụ của các dịch vụ. Khả năng đáp ứng của hệ thống chịu ảnh hưởng bởi khá nhiều thành phần: có thể là phần cứng, phần mềm hay hệ thống Backup. Khả năng đáp ứng của hệ thống cần được tính đến dựa trên số người truy cập và mức độ quan trọng của dữ liệu.
+- **Tính khả dụng**, khả năng đáp ứng của thông tin là điều rất quan trọng, điều này thể hiện tính sẵn sàng phục vụ của các dịch vụ. Khả năng đáp ứng của hệ thống chịu ảnh hưởng bởi khá nhiều thành phần: có thể là phần cứng, phần mềm hay hệ thống backup. Khả năng đáp ứng của hệ thống cần được tính đến dựa trên số người truy cập và mức độ quan trọng của dữ liệu.
 
 ### 2. Sự khác biệt giữa mối đe dọa, lỗ hổng bảo mật và rủi ro?
 
