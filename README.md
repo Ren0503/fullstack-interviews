@@ -47,6 +47,7 @@
 - [Kubernetes](./devops/kubernetes)
 
 
-# Nguồn 
+# Tham khảo 
 
-![](./ib_logo.svg)
+* [**Interviewbit**](https://www.interviewbit.com)
+

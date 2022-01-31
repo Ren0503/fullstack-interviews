@@ -31,4 +31,53 @@ ALTER COLUMN col_name [SET DATA] TYPE new_data_type;
 
 ### 4. Lệnh dùng cho tạo cơ sở dữ liệu trong Postgres?
 
-Cú pháp tạo cơ sở dữ liệu trong Postgres,
+Cú pháp tạo cơ sở dữ liệu trong Postgres trong psql là:
+
+```sql
+CREATE DATABASE db_name;
+```
+
+### 5. Cách để khởi động, dừng và khởi động lại trong PostgreSQL Server?
+
+- Để khởi động Postgres server:
+
+```text
+service postgresql start
+```
+
+- Sau khi server khởi động thành công, sẽ có thông báo như sau:
+
+```text
+Starting PostgreSQL: ok
+```
+
+- Để khởi động lại Postgres server:
+
+```text
+service postgresql restart
+```
+
+- Nếu khởi động lại thành công:
+
+```text
+Restarting PostgreSQL: server stopped
+ok
+```
+
+- Để dừng server, ta chạy lệnh:
+
+```text
+service postgresql stop
+```
+
+- Nếu dừng thành công:
+
+```text
+Stopping PostgreSQL: server stopped
+ok
+```
+
+### 6. Các kiểu partioned table?
+
+Partitioned table là một cấu trúc logic được dùng cho chia một bảng lớn thành các cấu trúc nhỏ hơn gọi là partition. Cách tiếp cận này được dùng để tăng hiệu suất truy vấn khi làm việc với bảng cơ sở dữ liệu lớn. Để tạo một partition, một khoá gọi là partition key được dùng cho các cột hoặc biểu thức, và một phương thức phân vùng cần định nghĩa. Có 3 kiểu phương thức phân vùng có sẵn được cung cấp bởi Postgres:
+- **Range Partitioning**: phương thức này hoàn thành  
