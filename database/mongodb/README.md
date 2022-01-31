@@ -15,9 +15,59 @@ Dữ liệu cấu trúc thường được lưu trữ dạng bảng trong khi d�
 - Nó kết hợp khả năng mở rộng quy mô với các tính năng như chỉ mục thứ cấp, truy vấn phạm vi, sắp xếp, tổng hợp và chỉ mục không gian địa lý.
 - MongoDB được phát triển bởi MongoDB Inc. và được cấp phép theo Server Side Public License (SSPL).
 
+## Mục lục
+
+[1. Lợi ích của MongoDB?](#1-lợi-ích-của-mongodb)
+
+[2. Document trong MongoDB là gì?](#2-document-trong-mongodb-là-gì)
+
+[3. Collection trong MongoDB là gì?](#3-collection-trong-mongodb-là-gì)
+
+[4. Cơ sở dữ liệu trong MongoDB](#4-cơ-sở-dữ-liệu-trong-mongodb)
+
+[5. MongoDB Shell là gì?](#5-mongodb-shell-là-gì)
+
+[6. Scale-Out xảy ra như thế nào trong MongoDB?](#6-scale-out-xảy-ra-như-thế-nào-trong-mongodb)
+
+[7. Các tính năng của MongoDB?](#7-các-tính-năng-của-mongodb)
+
+[8. Làm sao để thêm dữ liệu trong MongoDB?](#8-làm-sao-để-thêm-dữ-liệu-trong-mongodb)
+
+[9. Làm thế nào để cập nhật một document?](#9-làm-thế-nào-để-cập-nhật-một-document)
+
+[10. Cách xoá một document?](#10-cách-xoá-một-document)
+
+[11. Làm sao để truy vấn trong MongoDB?](#11-làm-sao-để-truy-vấn-trong-mongodb)
+
+[12. Các kiểu dữ liệu trong MongoDB?](#12-các-kiểu-dữ-liệu-trong-mongodb)
+
+[13. Khi nào sử dụng MongoDB?](#13-khi-nào-sử-dụng-mongodb)
+
+[14. Giải thích về indexing trong MongoDB?](#14-giải-thích-về-indexing-trong-mongodb)
+
+[15. Chỉ mục địa lý (Geospatial Indexes) trong MongoDB?](#15-chỉ-mục-địa-lý-geospatial-indexes-trong-mongodb)
+
+[16. Giải thích về quá trình sharding?](#16-giải-thích-về-quá-trình-sharding)
+
+[17. Giải thích về SET trong MongoDB?](#17-giải-thích-về-set-trong-mongodb)
+
+[18. Transaction trong MongoDB?](#18-transaction-trong-mongodb)
+
+[19. MongoDB Charts là gì?](#19-mongodb-charts-là-gì)
+
+[20. Aggregation trong MongoDB là gì?](#20-aggregation-trong-mongodb-là-gì)
+
+[21. Giải thích về khái niệm pipeline trong MongoDB?](#21-giải-thích-về-khái-niệm-pipeline-trong-mongodb)
+
+[22. Replica Set trong MongoDB là gì?](#22-replica-set-trong-mongodb-là-gì)
+
+[23. Giải thích về kiến trúc Replication trong MongoDB?](#23-giải-thích-về-kiến-trúc-replication-trong-mongodb)
+
+[24. Một số tiện ích để sao lưu và khôi phục trong MongoDB là gì?](#24-một-số-tiện-ích-để-sao-lưu-và-khôi-phục-trong-mongodb-là-gì)
+
 ## Câu hỏi phỏng vấn MongoDB cho Fresher
 
-### 1. Lợi ích của MongoDB ?
+### 1. Lợi ích của MongoDB?
 
 * Hiệu suất cao
 * Tính sẵn sàng cao – Nhân rộng
@@ -31,7 +81,7 @@ Dữ liệu cấu trúc thường được lưu trữ dạng bảng trong khi d�
 * Hỗ trợ không gian địa lý (Geospatial)
 * Tích hợp dễ dàng với BigData Hadoop
 
-### 2. Document trong MongoDB là gì >
+### 2. Document trong MongoDB là gì?
 
 Một document trong MongoDB là một tập hợp key/value. Nó được biểu diễn bằng map, hash, hoặc dictionary. Trong JavaScript, document được biểu diễn dưới dạng các đối tượng:
 
@@ -48,7 +98,7 @@ Các document phức tạp sẽ chứa nhiều cặp key/value:
 }
 ```
 
-### 3. Collection trong MongoDB 
+### 3. Collection trong MongoDB là gì?
 
 Collection là một nhóm document. Nếu một document trong MongoDB tương tự như một hàng trong SQL, thì một collection sẽ tương tự như một bảng.
 
@@ -70,7 +120,7 @@ Một số tên cơ sở dữ liệu dành riêng như sau:
 - *local*
 - *config*
 
-### 5. MongoDB Shell là gì.
+### 5. MongoDB Shell là gì?
 
 Nó là một JavaScript shell cho phép tương tác với một phiên bản MongoDB từ dòng lệnh. Nhờ đó, người ta có thể thực hiện các chức năng quản trị, kiểm tra một phiên bản hoặc sử dụng MongoDB.
 
@@ -106,7 +156,7 @@ Mongodb Sharded Cluster bao gồm các thành phần chính như sau:
 
 ![](./assets/Mongos.jpg)
 
-### 7. Các tính năng của MongoDB ? 
+### 7. Các tính năng của MongoDB? 
 
 - **Indexing** hỗ trợ chỉ mục thứ cấp và cung cấp tính năng đánh chỉ mục duy nhất, đa hợp, không gian địa lý và toàn văn bản.
 - **Aggregation** cung cấp framework aggregation dựa trên khái niệm xử lý dữ liệu trong pipelines.
@@ -114,7 +164,7 @@ Mongodb Sharded Cluster bao gồm các thành phần chính như sau:
 - **File storage** cung cấp giao thức đơn giản cho lưu trữ file và thông tin file.
 - **Sharing** là quá trình chia sẽ dữ liệu trên nhiều máy.
 
-### 8. Làm sao để thêm dữ liệu trong MongoDB ?
+### 8. Làm sao để thêm dữ liệu trong MongoDB?
 
 Phương thức thêm dữ liệu cơ bản trong MongoDB là "insert". Để thêm một document ta dùng `insertOne`:
 
@@ -124,7 +174,7 @@ Phương thức thêm dữ liệu cơ bản trong MongoDB là "insert". Để th
 
 Để thêm nhiều document vào một collection, ta có thể dùng `insertMany`, phương thức này cho phép chuyển một mảng document vào cơ sở dữ liệu.
 
-### 9. Làm thế nào để cập nhật một document ?
+### 9. Làm thế nào để cập nhật một document?
 
 Sau khi document được lưu trữ trong cơ sở dữ liệu, nó có thể được cập nhật bằng một trong các phương pháp sau: `updateOne`, `updateMany` và `replaceOne`. 
 
@@ -139,7 +189,7 @@ Sau khi document được lưu trữ trong cơ sở dữ liệu, nó có thể �
 }
 ```
 
-### 10. Cách xoá một document ?
+### 10. Cách xoá một document?
 
 Xoá trong MongoDB được hỗ trợ bằng `deleteOne` và `deleteMany`. Cả hai phương thức này đều nhận vào một bộ lọc document làm tham số đầu tiên. Bộ lọc chỉ định một tập hợp các tiêu chí phù hợp với việc xoá document.
 
@@ -147,7 +197,7 @@ Xoá trong MongoDB được hỗ trợ bằng `deleteOne` và `deleteMany`. Cả
 > db.books.deleteOne({"_id" : 3})
 ```
 
-### 11. Làm sao để truy vấn trong MongoDB ?
+### 11. Làm sao để truy vấn trong MongoDB?
 
 Phương thức `find` được dùng để thực hiện truy vấn trong MongoDB. Truy vấn trả về một tập con document trong một collection, có thể là không có document nào cũng có thể là toàn bộ. Document được trả về được xác định bởi tham số đầu tiên cần tìm là tiêu chí truy vấn document.
 
@@ -155,7 +205,7 @@ Phương thức `find` được dùng để thực hiện truy vấn trong Mongo
 > db.users.find({"age" : 24})
 ```
 
-### 12. Các kiểu dữ liệu trong MongoDB ? 
+### 12. Các kiểu dữ liệu trong MongoDB? 
 
 MongoDB hỗ trợ nhiều kiểu dữ liệu dưới dạng giá trị trong document. Các document trong MongoDB tương tự như các đối tượng trong JavaScript. Cùng với bản chất key/value thiết yếu của JSON, MongoDB bổ sung hỗ trợ cho một số kiểu dữ liệu bổ sung. Các kiểu dữ liệu phổ biến trong MongoDB là:
 
@@ -218,7 +268,7 @@ MongoDB hỗ trợ nhiều kiểu dữ liệu dưới dạng giá trị trong do
 - Code
 {"x" : function() { /* ... */ }}
 
-### 13. Khi nào sử dụng MongoDB ?
+### 13. Khi nào sử dụng MongoDB?
 
 Bạn nên sử dụng MongoDB khi bạn đang xây dựng các ứng dụng internet và doanh nghiệp cần phát triển nhanh chóng và mở rộng quy mô một cách gọn gàng. MongoDB phổ biến với các nhà dev đang xây dựng các ứng dụng có khả năng mở rộng bằng cách sử dụng các phương pháp agile.
 
