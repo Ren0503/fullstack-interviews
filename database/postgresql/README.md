@@ -4,7 +4,7 @@
 
 ## PostgreSQL là gì?
 
-PostgreSQL là một hệ thống quản trị cơ sở dữ liệu quan hệ-đối tượng (object-relational database management system) có mục đích chung, hệ thống cơ sở dữ liệu mã nguồn mở tiên tiến nhất hiện nay.
+PostgreSQL là một hệ thống quản trị cơ sở dữ liệu quan hệ và đối tượng (object-relational database management system) miễn phí và nguồn mở (RDBMS) tiên tiến nhất hiện nay, khả năng mở rộng cao và tuân thủ các tiêu chuẩn kỹ thuật. Nó được thiết kế để xử lý một loạt các khối lượng công việc lớn, từ các máy tính cá nhân đến kho dữ liệu hoặc dịch vụ Web có nhiều người dùng đồng thời.
 
 PostgreSQL được phát triển dựa trên POSTGRES 4.2 tại phòng khoa học máy tính Berkeley, Đại học California.
 
@@ -13,6 +13,60 @@ PostgreSQL được thiết kế để chạy trên các nền tảng tương t�
 PostgreSQL là một phần mềm mã nguồn mở miễn phí. Mã nguồn của phần mềm khả dụng theo license của PostgreSQL, một license nguồn mở tự do. Theo đó, bạn sẽ được tự do sử dụng, sửa đổi và phân phối PostgreSQL dưới mọi hình thức.
 
 PostgreSQL không yêu cầu quá nhiều công tác bảo trì bởi có tính ổn định cao. Do đó, nếu bạn phát triển các ứng dụng dựa trên PostgreSQL, chi phí sở hữu sẽ thấp hơn so với các hệ thống quản trị dữ liệu khác.
+
+## Mục lục
+
+[1. Các tính năng trong PostgreSQL?](#1-các-tính-năng-trong-postgresql)
+
+[2. Multi-version Concurrency Control trong Postgres là gì?](#2-multi-version-concurrency-control-trong-postgres-là-gì)
+
+[3. Làm thế nào để đánh chỉ mục trong Postgres?](#3-làm-thế-nào-để-đánh-chỉ-mục-trong-postgres)
+
+[4. Làm thế nào để thay đổi kiểu dữ liệu của cột?](#4-làm-thế-nào-để-thay-đổi-kiểu-dữ-liệu-của-cột)
+
+[5. Lệnh dùng cho tạo cơ sở dữ liệu trong Postgres?](#5-lệnh-dùng-cho-tạo-cơ-sở-dữ-liệu-trong-postgres)
+
+[6. Cách để khởi động, dừng và khởi động lại trong PostgreSQL Server?](#6-cách-để-khởi-động-dừng-và-khởi-động-lại-trong-postgresql-server)
+
+[7. Các kiểu partioned table?](#7-các-kiểu-partioned-table)
+
+[8. Token trong Postgres?](#8-token-trong-postgres)
+
+[9. Câu lệnh TRUNCATE là gì?](#9-câu-lệnh-truncate-là-gì)
+
+[10. Dung lượng của một bảng trong Postgres?](#10-dung-lượng-của-một-bảng-trong-postgres)
+
+[11. Sequence trong Postgres?](#11-sequence-trong-postgres)
+
+[12. Chuỗi trong Postgres?](#12-chuỗi-trong-postgres)
+
+[13. Làm cách nào để hiện thị tất cả cơ sở dữ liệu trong Postgres?](#13-làm-cách-nào-để-hiện-thị-tất-cả-cơ-sở-dữ-liệu-trong-postgres)
+
+[14. Xoá cơ sở dữ liệu trong Postgres?](#14-xoá-cơ-sở-dữ-liệu-trong-postgres)
+
+[15. Thuộc tính ACID là gì?](#15-thuộc-tính-acid-là-gì)
+
+[16. Giải thích kiến trúc của Postgres?](#16-giải-thích-kiến-trúc-của-postgres)
+
+[17. Lệnh enable-debug là gì?](#17-lệnh-enable-debug-là-gì)
+
+[18. Cách kiểm tra các hàng bị ảnh hưởng từ transactions trước đó?](#18-cách-kiểm-tra-các-hàng-bị-ảnh-hưởng-từ-transactions-trước-đó)
+
+[19. WAL là gì?](#19-wal-là-gì)
+
+[20. Hạn chế của lệnh DROP TABLE?](#20-hạn-chế-của-lệnh-drop-table)
+
+[21. Thực hiện tìm kiếm không phân biệt hoa thường trong Postgres?](#21-thực-hiện-tìm-kiếm-không-phân-biệt-hoa-thường-trong-postgres)
+
+[22. Backup cơ sở dữ liệu trong Postgres?](#22-backup-cơ-sở-dữ-liệu-trong-postgres)
+
+[23. Postgres có hỗ trợ full-text search?](#23-postgres-có-hỗ-trợ-full-text-search)
+
+[24. Truy vấn song song trong Postgres?](#24-truy-vấn-song-song-trong-postgres)
+
+[25. Giải thích về Triggers?](#25-giải-thích-về-triggers)
+
+[26. Sự khác biệt giữa commit và checkpoint?](#26-sự-khác-biệt-giữa-commit-và-checkpoint)
 
 ## Câu hỏi phỏng vấn PostgreSQL cho Fresher
 
