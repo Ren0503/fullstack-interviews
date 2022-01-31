@@ -1,12 +1,14 @@
 # Câu hỏi phỏng vấn MongoDB
 
+![](./assets/mongologo.png)
+
 Khi xử lý dữ liệu có hai kiểu dữ liệu mà ta có thể gặp là:
 - Dữ liệu có cấu trúc
 - Dữ liệu phi cấu trúc
 
-Dữ liệu cấu trúc thường được lưu trữ dạng bảng trong khi dữ liệu phi cấu trúc thì không. Để quản lý các tập hợp dữ liệu phi cấu trúc như log, dữ liệu IoT, cơ sở dữ liệu NoSQL được sử dụng.
+Dữ liệu cấu trúc thường được lưu trữ dạng bảng trong khi dữ liệu phi cấu trúc thì không. Để quản lý các tập hợp dữ liệu phi cấu trúc như log, dữ liệu IoT, big data,.... Các cơ sở dữ liệu NoSQL được sử dụng.
 
-MongoDB là gì?
+## MongoDB là gì?
 - MongoDB là cơ sở dữ liệu NoSQL mã nguồn mở được viết bằng C++. Nó sử dụng tài liệu dạng JSON để lưu trữ dữ liệu.
 - Nó là một cơ sở dữ liệu hướng tài liệu, cung cấp khả năng mở rộng dễ dàng, đa nền tảng.
 - MongoDB hoạt động dựa trên khái niệm Collection và Document.
@@ -17,12 +19,17 @@ MongoDB là gì?
 
 ### 1. Lợi ích của MongoDB ?
 
-- MongoDB hỗ trợ các truy vấn loại so sánh trường, dựa trên phạm vi, mẫu chuỗi. để tìm kiếm dữ liệu trong cơ sở dữ liệu
-- MongoDB hỗ trợ chỉ mục chính và phụ trên bất kỳ trường nào
-- MongoDB về cơ bản sử dụng các đối tượng JavaScript thay cho các thủ tục
-- MongoDB sử dụng lược đồ cơ sở dữ liệu động
-- MongoDB rất dễ tăng hoặc giảm quy mô
-- MongoDB có hỗ trợ sẵn có để phân vùng dữ liệu (Sharding).
+* Hiệu suất cao
+* Tính sẵn sàng cao – Nhân rộng
+* Khả năng mở rộng cao – Sharding
+* Năng động – Không có lược đồ cứng nhắc.
+* Linh hoạt – thêm / xóa trường có ít hoặc không ảnh hưởng đến ứng dụng
+* Dữ liệu không đồng nhất
+* Không joins
+* Phân phối được
+* Biểu diễn dữ liệu trong JSON hoặc BSON
+* Hỗ trợ không gian địa lý (Geospatial)
+* Tích hợp dễ dàng với BigData Hadoop
 
 ### 2. Document trong MongoDB là gì >
 
@@ -43,7 +50,7 @@ Các document phức tạp sẽ chứa nhiều cặp key/value:
 
 ### 3. Collection trong MongoDB 
 
-Collection là một nhóm document. nếu một document trong MongoDB tương tự như một hàng trong SQL, thì một collection sẽ tương tự như một bảng.
+Collection là một nhóm document. Nếu một document trong MongoDB tương tự như một hàng trong SQL, thì một collection sẽ tương tự như một bảng.
 
 Các document trong cùng một collection có thể khác nhau,... do tính chất **lược đồ dữ liệu động**.
 
@@ -56,7 +63,7 @@ Ví dụ:
 
 ### 4. Cơ sở dữ liệu trong MongoDB
 
-Nhóm các collection nằm trong cơ sở dữ liệu. MongoDB có thể có nhiều cơ sở dữ liệu, mỗi cơ sở dữ liệu chứa nhiều collection.
+Tập hợp các collection nằm trong cơ sở dữ liệu. MongoDB có thể có nhiều cơ sở dữ liệu, mỗi cơ sở dữ liệu chứa nhiều collection.
 
 Một số tên cơ sở dữ liệu dành riêng như sau:
 - *admin*
@@ -88,11 +95,14 @@ Shell là một trình thông dịch JavaScript đầy đủ tính năng, có kh
 
 ### 6. Scale-Out xảy ra như thế nào trong MongoDB?
 
-Mô hình dữ liệu hướng tài liệu trong MongoDB giúp việc tách dữ liệu trên nhiều server trở nên dễ dàng. Việc cân bằng và tải dữ liệu trên một cụm được thực hiện bởi MongoDB. Sau đó nó sẽ tự động phân phối các document.
+Để scale out trong MongoDB, ta thực hiện Sharding.
 
-Mongos hoạt động như một bộ định tuyến truy vấn, cung cấp interface giữa các ứng dụng client và cụm được shard.
+Sharding là một phương pháp để lưu trữ dữ liệu (storage) của cơ sở dữ liệu trên nhiều máy chủ. MongoDB sử dụng sharding để hỗ trợ việc phân tán một lượng dữ liệu trên nhiều máy chủ, ở đây có thể là các tập collection trong DB điều này giúp cho việc truy cập nhanh hơn, giảm tải việc quá tải ổ cứng cho một vài máy chủ và giúp hệ thống dễ dàng mở rộng khi có nhu cầu hơn.
 
-Config server lưu trữ siêu dữ liệu và cài đặt cấu hình cho cụm. MongoDB sử dụng config server để quản lý các khóa phân tán. Mỗi cụm được shard phải có config server riêng.
+Mongodb Sharded Cluster bao gồm các thành phần chính như sau:
+- **Shards**: Là nơi chứa dữ liệu, được phân tán bởi nhiều máy chủ theo cơ chế "replica set".
+- **Query routers - Mongos**: Là nơi điều hướng việc client truy cập chính xác dữ liệu vào shard nào, mỗi hệ thống Sharding có thể có nhiều query router.
+- **Config servers**: Là nơi chưa các metadata (nôm na là các thông số kỹ thuật) của hệ thống Sharding, nó chứa một bản đồ dữ liệu của việc thiết lập các Shards. Query routers dùng các metadata này xác định được chính xác việc truy vấn vào Shards nào trên hệ thống. Mỗi hệ thống Sharding có chính xác là 3 file Config servers.
 
 ![](./assets/Mongos.jpg)
 
@@ -218,3 +228,136 @@ MongoDB là một lựa chọn tuyệt vời nếu bạn cần:
 - Quy mô kho dữ liệu của bạn có một kích thước lớn.
 - Phát triển loại hình triển khai khi doanh nghiệp thay đổi.
 - Lưu trữ, quản lý và tìm kiếm dữ liệu với các văn bản, không gian địa lý hoặc chuỗi thời gian.
+
+## Câu hỏi phỏng vấn MongoDB cho Experienced
+
+### 14. Giải thích về indexing trong Mongodb?
+
+Chỉ mục (Index) hỗ trợ việc phân giải các truy vấn hiệu quả hơn. Nếu không có chỉ mục, MongoDB phải quét qua mọi Document của một Collection để chọn các Document mà kết nối với lệnh truy vấn. Việc quét này có thể không hiệu quả và yêu cầu MongoDB xử lý một số lượng lớn dữ liệu.
+
+Chỉ mục (Index) là các cấu trúc dữ liệu đặc biệt, lưu giữ một phần nhỏ của tập hợp dữ liệu, giúp việc độc collection một cách dễ dàng hơn. Chỉ mục lưu giữ giá trị của một trường cụ thể hoặc tập hợp các trường, được sắp xếp bởi giá trị của trường như đã được xác định trong chỉ mục.
+
+Để tạo chỉ mục, có thể dùng phương thức `createIndex`. Ví dụ:
+
+```
+> db.users.find({"username": "user101"}).explain("executionStats")
+```
+
+Ở đây, chế độ `executionStats` giúp ta hiểu tác dụng của việc sử dụng một chỉ mục để đáp ứng các truy vấn. 
+
+### 15. Chỉ mục địa lý (Geospatial Indexes) trong MongoDB?
+
+MongoDB có hai loại chỉ mục đia lý là: **2d** và **2dsphere**.
+
+Chỉ mục 2dsphere làm việc với các hình cầu mô phỏng bề mặt trái đất dựa trên hệ toạ độ WGS-84. Hệ toạ độ này mô hình hoá bề mặt trái đất như một hình cầu phẳng. Do đó, ác phép tính khoảng cách sử dụng chỉ mục 2dsphere, sẽ tính đến hình dạng của trái đất và cung cấp cách xử lý chính xác hơn về khoảng cách giữa hai thành phố.
+
+Ví dụ: Tính toán khoảng cách giữa hai thành phố
+
+- Sử dụng chỉ mục 2d cho các điểm lưu trữ trên mặt phẳng hai chiều:
+```js
+{
+    "name" : "New York City",
+    "loc" : {
+        "type" : "Point",
+        "coordinates" : [50, 2]
+    }
+}
+```
+
+- 2dsphere cho phép bạn chỉ định các điểm, đường thẳng, đa giác ở dạng GeoJSON. Một điểm được biểu diễn bởi một mảng hai phần tử[kinh độ, vĩ độ]:
+
+```js
+{
+    "name" : "Hudson River",
+    "loc" : {
+        "type" : "LineString",
+        "coordinates" : [[0,1], [0,2], [1,2]]
+    }
+}
+```
+
+### 16. Giải thích về quá trình sharding?
+
+Sharding là quá trình chia nhỏ dữ liệu giữa các máy. Đôi khi người ta cũng sử dụng thuật ngữ "partitioning" để mô tả khái niệm này. Ta có thể lưu trữ nhiều dữ liệu hơn và xử lý nhiều tải hơn mà không yêu cầu cấu hình máy mạnh hơn, bằng cách đặt một tập con dữ liệu trên mỗi máy.
+
+Trong hình bên dưới, RS0 và RS1 là shards. Sharding trong MongoDB cho ta tạo một cụm gồm nhiều máy (shards) và chia các tập hợp trên đó. Đặt các tập con dữ liệu vào mỗi shard. Nó cho phép ứng dụng của bạn phát triển vượt ngoài giới hạn của một server độc lập.
+
+![](./assets/sharded_client_connection.jpg)
+
+![](./assets/Non_sharded_client_connection.jpg)
+
+### 17. Giải thích về SET trong MongoDB?
+
+Nếu giá trị của trường không tồn tại, thiết lập `$set` giá trị có thể hữu ích cho cập nhật lược đồ hay thêm khoá người dùng định nghĩa.
+
+```js
+> db.users.findOne()
+{
+   "_id" : ObjectId("4b253b067525f35f94b60a31"),
+   "name" : "alice",
+   "age" : 23,
+   "sex" : "female",
+   "location" : "India"
+}
+```
+
+Để thêm trường vào ta có thể dừng `$set`:
+
+```
+> db.users.updateOne({"_id" : 
+ObjectId("4b253b067525f35f94b60a31")},
+... {"$set" : {"favorite book" : "Start with Why"}})
+```
+
+### 18. Transaction trong MongoDB?
+
+Transaction là một đơn vị xử lý logic trong cơ sở dữ liệu bao gồm một hoặc nhiều thao tác cơ sở dữ liệu, có thể là thao tác đọc hoặc ghi. Transaction cung cấp một tính năng hữu ích trong MongoDB để đảm bảo tính nhất quán.
+
+MongoDB cung cấp 2 API cho sử dụng transaction là:
+- **Core API**: tương tực với cú pháp của cơ sở dữ liệu quan hệ (start_transaction  và commit_transaction)
+- **Call-back API**: Đây là cách tiếp cận được khuyến nghị để sử dụng các transaction. Nó bắt đầu một transaction, thực hiện các hoạt động được chỉ định và commit (hoặc hủy bỏ do lỗi). Nó cũng tự động kết hợp logic xử lý lỗi cho "TransientTransactionError" và "UnknownTransactionCommitResult".
+
+### 19. MongoDB Charts là gì?
+
+MongoDB Charts là một công cụ để tạo các minh họa trực quan cho dữ liệu MongoDB của bạn. Trực quan hóa dữ liệu là một thành phần quan trọng để cung cấp sự hiểu biết rõ ràng về dữ liệu của bạn, làm nổi bật mối tương quan giữa các biến và giúp bạn dễ dàng phân biệt các mẫu và xu hướng trong bộ dữ liệu của mình. Biểu đồ MongoDB giúp cho việc truyền tải dữ liệu của bạn trở nên đơn giản hơn bằng cách cung cấp các công cụ có sẵn để dễ dàng chia sẻ và cộng tác trên các hình ảnh trực quan.
+
+Có hai cách triển khai MongoDB Charts là:
+
+* MongoDB Charts PaaS
+* MongoDB Charts Server
+
+### 20. Aggregation trong MongoDB là gì?
+
+Aggregation là một framework tổng hợp dữ liệu của MongoDB. Aggregation được xây dựng dựa trên mô hình xử lý dữ liệu dưới dạng pipeline. 
+
+Aggregation pipeline bao gồm nhiều giai đoạn. Trong mỗi giai đoạn, chúng ta sử dụng một aggregation operator để biến đổi dữ liệu của các input document. Các output document của giai đoạn phía trước sẽ là input document của giai đoạn ngay sau. Các aggregation operator có thể được sử dụng nhiều lần trong pipeline, ngoại trừ `$out`, `$merge`, và `$geoNear`.
+
+![](./assets/aggregation-framework.jpg)
+
+### 21. Giải thích về khái niệm pipeline trong MongoDB?
+
+Một giai đoạn riêng lẻ của một aggregation pipeline là một đơn vị xử lý dữ liệu. Nó nhận từng dòng document đầu vào, xử lý từng document một và tạo ra từng dòng document đầu ra (xem hình bên dưới).
+
+![](./assets/mongodb_aggregation_pipeline.jpg)
+
+### 22. Replica Set trong MongoDB là gì?
+
+Để giữ các bản sao dữ liệu giống hệt nhau trên nhiều server, ta sử dụng tính năng replication (sao chép). Sử dụng replication sẽ giữ cho ứng dụng của bạn chạy và dữ liệu của bạn an toàn, ngay cả khi có điều gì đó xảy ra với một hoặc nhiều server.
+
+Replication như vậy có thể được tạo bởi một replica set với MongoDB. Replica set  là một nhóm các tiến trình của Mongodb duy trì cùng một bộ dữ liệu. Các replica set cung cấp tính dự phòng và tính sẵn sàng cao và là cơ sở để triển khai nhập xuất dữ liệu khi cần thiết.
+
+### 23. Giải thích về kiến trúc Replication trong MongoDB?
+
+![](./assets/replication_architecture.jpg)
+
+- Một replica set chỉ có duy nhất một primary. Primary sẽ nhận các yêu cầu ghi. Primary ghi các thay đổi của nó vào oplog.
+- Các secondary sẽ có chung data set với primary, các yêu cầu đọc có thể scale trên primary và tất cả các secondary. Một replica set có thể có tối đa là 50 member.
+- Các member luôn giữ duy trì kết nối, trong trường hợp một member chết thì các member khác sẽ tự động được chuyển đổi dự phòng. Đây là một điểm khác biệt so với mysql.
+
+### 24. Một số tiện ích để sao lưu và khôi phục trong MongoDB là gì?
+
+Mongo shell không bao gồm các chức năng xuất, nhập, sao lưu hoặc khôi phục. Tuy nhiên, MongoDB đã tạo ra các phương thức để thực hiện điều này, do đó không cần đến việc viết script hoặc GUI phức tạp. Ở đây, một số script tiện ích được cung cấp có thể được sử dụng để lấy dữ liệu vào hoặc ra cơ sở dữ liệu hàng loạt. Các script tiện ích này là:
+- mongoimport
+- mongoexport
+- mongodump
+- mongorestore
