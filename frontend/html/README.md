@@ -12,6 +12,20 @@ Phiên bản mới nhất của HTML là HTML5. Trong nó có hai thành phần 
 
 ![](./assets/html-intro.png)
 
+## Mục lục
+
+[1. Thẻ HTML và phần tử là một?](#1-thẻ-html-và-phần-tử-là-một)
+
+[2. Thẻ và thuộc tính trong HTML là gì?](#2-thẻ-và-thuộc-tính-trong-html-là-gì)
+
+[3. Phần tử void trong HTML là gì?](#3-phần-tử-void-trong-html-là-gì)
+
+[4. Ưu điểm của khoảng trắng?](#4-ưu-điểm-của-khoảng-trắng)
+
+[5. HTML Entities là gì?](#5-html-entities-là-gì)
+
+
+
 ## Câu hỏi phỏng vấn cho Fresher
 
 ### 1. Thẻ HTML và phần tử là một?
@@ -28,7 +42,7 @@ Trong HTML sẽ có các phần tử không cần thẻ đóng. Ví dụ: `<br /
 
 ### 4. Ưu điểm của khoảng trắng?
 
-Trong HTML, một chuỗi ký tự khoảng trắng trống được coi là một ký tự khoảng trắng. Vì trình duyệt thu gọn nhiều khoảng trắng thành một ký tự khoảng trắng duy nhất và điều này giúp dev thụt lề các dòng văn bản mà không phải lo lắng về nhiều khoảng trắng và duy trì tính dễ đọc và dễ hiểu của code HTML.
+Trong HTML, một chuỗi ký tự khoảng trắng được coi là một ký tự khoảng trắng. Vì trình duyệt thu gọn nhiều khoảng trắng thành một ký tự khoảng trắng duy nhất và điều này giúp dev thụt lề các dòng văn bản mà không phải lo lắng về nhiều khoảng trắng và duy trì tính dễ đọc và dễ hiểu của code HTML.
 
 ### 5. HTML Entities là gì?
 
@@ -36,9 +50,9 @@ Trong HTML một vài ký tự dành riêng như `<`, `>`, `/`,... Để sử d�
 
 | Character | Entity Name | Entity Number |
 |-----------|-------------|---------------|
-| <         | &lt;        | &#60;         |
-| >         | &gt;        | &#62;         |
-| &         | &amp;        | &#38;         |
+| <         | `&lt;`        | `&#60;`         |
+| >         | `&gt;`        | `&#62;`         |
+| &         | `&amp;`        | `&#38;`         |
 
 ### 6. Các kiểu danh sách trong HTML?
 
@@ -694,7 +708,13 @@ Giá trị của nó là kiểu boolean cho biết liệu dữ liệu đang đư
 
 ### 58. Các cách để reponsive ảnh?
 
-* **Tiếp cận trực tiếp**: Sử dụng phần tử `<picture>`, hình ảnh được hiển thị đầy đủ trong bố cục màn hình có thể được phóng to với đối tượng chính được lấy nét cho bố cục chân dung. 
+* **Art direction**: Sử dụng các thẻ `picture`, `source` và `img`.
+
+Thẻ `<picture>` cung cấp một wrapper cho nhiều thẻ `source` và một thẻ `<image>`. 
+
+Thẻ `<source>` chỉ định nguồn media cụ thể. Trình duyệt sử dụng thẻ `<source>` với truy vấn media trả về true. Nếu không có truy vấn media nào trùng, trình duyệt sẽ tải ảnh từ thẻ `<img>`.
+
+Thẻ `<img>` sẽ hoạt động trên các trình duyệt không hỗ trở thẻ `<picture>`.
 
 ### 59. File manifest trong HTML5 là gì?
 
