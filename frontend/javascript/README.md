@@ -10,6 +10,8 @@ Nó được tạo ra cho phát triển các trang web động. Một chương t
 
 Dưới đây là các câu hỏi phỏng vấn JavaScript thường gặp.
 
+[Câu hỏi coding](./CODING.md)
+
 ## Mục lục
 
 [1. Sự khác biệt giữa các kiểu dữ liệu trong JavaScript?](#1-sự-khác-biệt-giữa-các-kiểu-dữ-liệu-trong-javascript)
