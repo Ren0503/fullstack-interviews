@@ -34,7 +34,7 @@ function add(a, b) {
 
 ![](./assets/Typescript.png)
 
-TypeScript bổ sung thêm các tính năng static typing, interface, class, modules và generics. TypeScript hoàn toàn là một công cụ compile-time. Khi biên dịch, chương trình sẽ chỉ còn là JavaScript đơn giản. TypeScript là một ngôn ngữ để phát triển quy mô ứng dụng JavaScript.
+TypeScript có tất cả tính năng của JavaScript đồng thời bổ sung thêm các tính năng static typing, interface, class, modules và generics. TypeScript hoàn toàn là một công cụ compile-time. Khi biên dịch, chương trình sẽ chỉ còn là JavaScript đơn giản. TypeScript là một ngôn ngữ để phát triển quy mô ứng dụng JavaScript.
 
 ![](./assets/Typescript_Artboard_3.png)
 
@@ -115,3 +115,191 @@ function notify(): void {
 }
 ```
 
+### 5. Kiểu unknown là gì?
+
+### 6. Các cách khai báo biến trong TypeScript?
+
+**var** khai báo một biến cục bộ hoặc toàn cục. Bạn có thể thiết lập giá trị khi khai báo. Các hành vi và phạm vi của nó tương tự với ở JavaScript. Ví dụ:
+
+```ts
+var foo = "bar";
+```
+
+**let** khai báo biến cục bộ. Tương tự var, bạn có thể thiết lập giá trị biến khi khai báo. Ví dụ:
+
+```ts
+let a = 5;
+
+if (true) {
+    let a = 10;
+    console.log(a);  // 10
+}
+console.log(a);  // 5
+```
+
+**const** khai báo hằng cục bộ không thể thay đổi sau khi khởi tạo.
+
+```ts
+const a = 5;
+
+if (true) {
+    a = 10; // Error: Cannot assign to 'a' because it is a constant.(2588)
+} 
+```
+
+### 7. Cung cấp cú pháp cho hàm với chú thích kiểu
+
+Hàm là các khối code để thực hiện một code cụ thể. Các hàm có thể tùy ý nhận một hoặc nhiều tham số, xử lý chúng và tùy chọn trả về một giá trị. Trong TypeScript hàm cần có chú thích kiểu là kiểu giá trị trả về của hàm.
+
+```ts
+function greet(name: string): string {
+  return `Hello, ${name}`;
+}
+
+let greeting = greet("Anders");
+console.log(greeting);  // "Hello, Anders"
+```
+
+### 8. Cách tạo đối tượng trong TypeScript?
+
+Đối tượng là một tập hợp key/value. Key là duy nhất. Nó gần tương đồng với mảng nên còn gọi là mảng liên kết. Tuy nhiên, mảng sử dụng chỉ mục là giá trị số, trong khi đối tượng cho phép bất kỳ kiểu dữ liệu nào là key.
+
+Trong TypeScript, kiểu đối tượng đề cập đến bất kỳ thuộc tính nào. Nó có thể định nghĩa danh sách thuộc tính và kiểu của nó. Ví dụ:
+
+```ts
+let pt: { x: number; y: number } = {
+  x: 10,
+  y: 20
+};
+```
+
+### 9. Tuỳ chọn thuộc tính trong TypeScript?
+
+Một đối tượng có thể có thuộc tính tuỳ chọn (có hoặc không có) bằng cách thêm `?` sau tên thuộc tính.
+
+```ts
+let pt: { x: number; y: number; z?: number } = {
+  x: 10,
+  y: 20
+};
+console.log(pt);
+```
+
+Trong ví dụ trên, thuộc tính `z` là tuỳ chọn, trình biên dịch không bắt buộc ta cung cấp khi khởi tạo đối tượng.
+
+### 10. Giải thích khái niệm null trong TypeScript?
+
+Trong lập trình, giá trị null cho biết không có giá trị. Một biến null không trỏ đến bất kỳ đối tượng nào. Do đó, bạn không thể truy cập bất kỳ thuộc tính nào trên biến hoặc gọi một phương thức trên đó.
+
+Trong TypeScript, giá trị null được chỉ định bằng từ khoá `null`. Ví dụ
+
+```ts
+function greet(name: string | null) {
+    if (name === null) {
+        console.log("Name is not provided");
+    } else {
+        console.log("Good morning, " + name.toUpperCase());
+    }
+}
+
+var foo = null;
+greet(foo); // "Name is not provided"
+
+foo = "Anders";
+greet(foo);  // "Good morning, ANDERS"
+```
+
+### 11. undefined trong TypeScript là gì?
+
+Khi một biến được khai báo mà không tạo giá trị, nó sẽ được gán giá trị undefined. 
+
+```ts
+console.log(null == null); // true
+console.log(undefined == undefined); // true
+console.log(null == undefined); // true, with type-conversion
+console.log(null === undefined); // false, without type-conversion
+console.log(0 == undefined); // false
+console.log('' == undefined); // false
+console.log(false == undefined); // false
+```
+
+### 12. Giải thích kiểu never trong TypeScript?
+
+Kiểu never trong TypeScript là một kiểu không chứa giá trị. Do đó, bạn không thể gán bất kỳ giá trị nào cho biến có kiểu never.
+
+```ts
+function error(message: string): never {
+    throw new Error(message);
+}
+```
+
+Câu hỏi đặt ra là tại sao cần kiểu `never` khi ta đã có `void`. Vì cả hai khá giống nhau, nhưng thực sự chúng lại là đại diện cho hai khái niệm khác nhau.
+
+Một hàm không trả về một giá trị nào ngầm hiểu là giá trị undefined trong JavaScript. Do đó, khi ta dùng `void` với một hàm thực tế nó vẫn nhận về kiểu undefined. Để đảm bảo hàm không nhận bất cứ giá trị nào, kiểu `never` được dùng cho những trường hợp như vậy.
+
+```ts
+const test = (arg): void => {
+    console.log(arg)
+}
+
+console.log(test('test'))
+
+// "test"
+// undefined
+```
+
+### 13. Cách enum hoạt động trong TypeScript?
+
+Enums cho phép chúng ta tạo các hằng số được đặt tên. Đây là một cách đơn giản để đặt tên thân thiện hơn cho các giá trị hằng số. Một enum được định nghĩa bởi từ khóa enum, theo sau là tên và các thành viên của nó.
+
+Ví dụ:
+
+```ts
+enum Team {
+    Alpha,
+    Beta,
+    Gamma,
+    Delta
+}
+
+let t: Team = Team.Delta;
+```
+
+Mặc định, enum bắt đầu đánh số từ 0. Bạn có thể ghi đè lên giá trị mặc định bằng cách gán giá trị cho các thành viên của nó. Ví dụ:
+
+```ts
+enum Author {
+  Anders = "Anders",
+  Hejlsberg = "Hejlsberg"
+};
+```
+
+### 14. Toán tử typeof trong TypeScript là gì?
+
+Tương tự JavaScript, đây là toán tử trả về kiểu dữ liệu của toán hạng.
+
+```ts
+console.log(typeof 10);  // "number"
+
+console.log(typeof 'foo');  // "string"
+
+console.log(typeof false);  // "boolean"
+
+console.log(typeof bar);  // "undefined"
+```
+
+### 15. Tham số còn lại trong TypeScript?
+
+Tham số còn lại (`...`) cho phép một hàm nhận một lượng không giới hạn tham số như là một mảng. 
+
+```ts
+function add(...values: number[]) {
+    let sum = 0;
+    values.forEach(val => sum += val);
+    
+    return sum;
+}
+
+const sum = add(5, 10, 15, 20);
+console.log(sum);  // 50
+```
