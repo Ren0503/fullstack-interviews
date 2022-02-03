@@ -26,7 +26,7 @@ Django được tạo vào năm 2003 bởi lập trình viên Adrian Holovaty v�
 
 ### 1. Giải thích kiến trúc Django?
 
-Django tuân theo mô hình kiến trúc MVT (Model View Template) thay vì mô hình MVC (Model View Controller) truyền thống. Nó khác với MVC ở chỗ, logic vốn của controller được xử lý ở chính view của framework. Còn template nằm ở tầng biểu diễn. HTML được kết hợp với Django Template Language (DTL). Các nhà phát triển cung cấp model, view và template sau đó ánh xạ nó vào URL, để Django phục vụ người dùng.
+Django tuân theo mô hình kiến trúc MVT (Model View Template) thay vì mô hình MVC (Model View Controller) truyền thống. Nó khác với MVC ở chỗ, logic vốn của controller được xử lý ở chính view của framework. Còn template nằm ở tầng biểu diễn. HTML được kết hợp với Django Template Language (DTL). Các nhà phát triển cung cấp model, view và template sau đó ánh xạ nó vào URL, để nó phục vụ người dùng.
 
 ![](./assets/mvt.png)
 
@@ -226,6 +226,16 @@ Context là một tên biến mẫu ánh xạ được cấp cho các đối tư
 
 ### 23. Hàm django.shortcuts.render là gì?
 
+Khi một hàm view trả về một trang web như HttpResponse thay vì một chuỗi, ta sử dụng `render()`. Hàm render là một hàm nhỏ giúp lập trình viên dễ dàng truyền dữ liệu vào template. Hàm này kết hợp template với dữ liệu thông qua template engine. Sau cùng, nó trả về một HttpResponse như một văn bản đã render, để trả về dữ liệu bởi model. Do đó, render() bỏ quả hầu hết công việc so với các template engine khác.
+
+Cú pháp:
+
+```py
+render(request, template_name, context=None, content_type=None, status=None, using=None)
+```
+
+Trong đó, `request` là một tham số dùng cho tạo response. `template_name` là HTML template dùng. `context` là dữ liệu được truyền vào trang web. Bạn cũng có thẻ chỉ định content-type, status của dữ liệu và render lại.
+
 ### 24. Đặc trưng của file settings.py?
 
 Như tên gọi, file này lưu trữ cấu hình hay thiết lập cho ứng dụng Django, như kết nối cơ sở dữ liệu, backend engine, middleware, các ứng dụng bên thứ 3, URL chính, thư mục lưu file static, template engine, key bảo mật, host được phép truy cập,...
@@ -242,4 +252,98 @@ ModelName.objects.all()
 ModelName.objects.filter(field_name="term")
 ```
 
-### 27
+### 27. Sử dụng file-based session như thế nào?
+
+Bạn cần thiết lập cài đặt `SESSION_ENGINE` thành `"django.contrib.sessions.backends.file"`.
+
+### 28. Mixin là gì?
+
+Mixin là kiểu đa kế thừa trong đó ta có thể kết hợp các hành vi và thuộc tính từ nhiều hơn một lớp cha. Nó cung cấp cách thông minh giúp sử dụng lại code từ nhiều lớp. Một hạn chế của việc sử dụng các mixin này là khó phân tích xem một lớp đang làm gì và phương thức nào cần ghi đè trong trường hợp code của nó quá rải rác giữa nhiều lớp.
+
+### 29. Field trong Django là gì?
+
+Field (trường) đề cập đến một lớp trừu tượng biểu diễn một cột trong bảng cơ sở dữ liệu. Lớp Field chỉ là một lớp con của RegisterLookupMixin. Trong Django, các trường này được dùng cho tạo bảng cơ sở dữ liệu (`db_types()`), được dùng để ánh xạ kiểu Python sang cơ sở dữ liệu sử dụng `get_prep_value()` và ngược lại bằng phương thúc `from_db_value()`. Do đó, các field là phần cơ bản trong các API khác nhau, chẳng hạn như model và querysets.
+
+### 31. Sự khác biệt giữa OneToOneField và ForeignKey Field?
+
+Cả hai đều kà các kiểu phổ biến dùng cho trường trong Django. Sự khác biệt của cả hai là ForeignKet bao gồm lựa chọn `on_delete` cung với một lớp model vì nó dùng cho mối quan hệ many-to-one trong khi OneToOneField dùng cho mối quan hệ one-to-one và chỉ yêu cầu lớp model.
+
+### 32. Kết hợp nhiều queryset trong một view?
+
+Cách dễ nhất là kết hợp các queryset vào một list. Ví dụ
+
+```py
+from itertools import chain
+
+result_list = list(chain(model1_list, model2_list, model3_list))
+```
+
+### 33. Lấy một mục cụ thể trong Model?
+
+```py
+ModelName.objects.get(id="term")
+```
+
+Nếu không có kết quả trùng, `get()` sẽ trả về một ngoại lệ **DoesNotExist**. Nếu nhiều hơn một kết quả, nó sẽ trả về **MultipleObjectsReturned**.
+
+### 34. Làm cách nào để lấy truy vấn SQL từ queryset?
+
+```py
+print(queryset.query)
+```
+
+### 35. Cách tuỳ chỉnh chức năng của Django Admin Interface?
+
+### 36. Sự khác biệt giữa select_related và prefetch_related?
+
+Cả hai hàm đều dùng cho lấy các trường liên quan từ model nhưng có vài khác biệt nhỏ. `select_related` dùng cho mối quan hệ với foreign key tức là dùng join trên chính truy vấn trong khi `prefetch_related` dùng cho các lookup riêng biệt và join phía python. Ví dụ
+
+- **select_related**
+
+```py
+from django.db import models
+class Country(models.Model):
+    country_name = models.CharField(max_length=5)
+class State(models.Model):
+    state_name = models.CharField(max_length=5)
+    country = model.ForeignKey(Country)
+>> states = State.objects.select_related('country').all()
+>> for state in states:
+…   print(state.state_name) 
+```
+
+```sql
+SELECT state_id, state_name, country_name FROM State INNER JOIN Country ON (State.country_id = Country.id)
+```
+
+- **prefetch_related**
+
+```py
+>> country = Country.objects.prefetch_related(‘state’).get(id=1)
+>> for state in country.state.all():
+…   print(state.state_name)
+```
+
+```sql
+SELECT id, country_name FROM country WHERE id=1;
+SELECT state_id, state_name WHERE State WHERE country_id IN (1);
+```
+
+### 37. Giải thích đối tượng Q trong Django ORM?
+
+Đối tượng Q được dùng cho viết các truy vấn phức tạp, như một hàm `filter()` với các điều kiện `AND` hay `OR`. Ví dụ:
+
+```py
+from django.db import models
+from django.db.models import Q
+>> objects = Models.objects.get(
+   Q(tag__startswith='Human'),
+   Q(category='Eye') | Q(category='Nose')
+)
+```
+
+Nó tượng tự câu truy vấn:
+
+```sql
+SELECT * FROM Model WHERE tag LIKE 'Human%' AND (category='Eye' OR category='Nose')
+```
