@@ -20,10 +20,10 @@
 
 ## Cơ sở dữ liệu
 
-- [**SQL**](./database/sql): 41 câu hỏi phỏng vấn SQL.
+- [**SQL**](./database/sql): 40 câu hỏi phỏng vấn SQL.
 - [**MySQL**](./database/mysql): 31 câu hỏi phỏng vấn MySQL.
-- [**PostgreSQL**](./database/postgresql): 24 câu hỏi phỏng vấn PostgreSQL.
-- [**MongoDB**](./database/mongodb): 25 câu hỏi phỏng vấn MongoDB.
+- [**PostgreSQL**](./database/postgresql): 26 câu hỏi phỏng vấn PostgreSQL.
+- [**MongoDB**](./database/mongodb): 24 câu hỏi phỏng vấn MongoDB.
 
 ## Frontend 
 
@@ -51,3 +51,4 @@
 
 * [**Interviewbit**](https://www.interviewbit.com)
 
+* [**Careercup**](https://github.com/careercup)
