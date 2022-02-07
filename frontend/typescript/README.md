@@ -303,3 +303,229 @@ function add(...values: number[]) {
 const sum = add(5, 10, 15, 20);
 console.log(sum);  // 50
 ```
+
+### 16. Tham số destructuring là gì?
+
+Tham số destructuring cho phép một hàm tách một đối tượng được cung cấp dưới dạng đối số thành một hoặc nhiều biến cục bộ.
+
+```ts
+function multiply({ a, b, c }: { a: number; b: number; c: number }) {
+    console.log(a * b * c);
+}
+
+multiply({ a: 1, b: 2, c: 3 });
+```
+
+Bạn có thể tối ưu code trên bằng cách dùng interface hoặc type:
+
+```ts
+type ABC = { a: number; b: number; c: number };
+
+function multiply({ a, b, c }: ABC) {
+    console.log(a * b * c);
+}
+
+multiply({ a: 1, b: 2, c: 3 });
+```
+
+### 17. Giải thích về cú pháp class trong TypeScript?
+
+TypeScript hỗ trợ lớp đầy đủ. Cú pháp TypeScript cho khai báo lớp tương tự JavaScript, với hỗ trợ khai báo kiểu cho các thuộc tính của nó.
+
+Ví dụ lớp Employee:
+
+```ts
+class Employee {
+    name: string;
+    salary: number;
+
+    constructor(name: string, salary: number) {
+            this.name = name;
+            this.salary = salary;
+    }
+    promote() : void {
+        this.salary += 10000;
+    }
+}
+```
+
+Ta có thể tạo đối tượng cho lớp bằng cách dùng từ khoá `new`
+
+```ts
+// Create a new employee
+let john = new Employee("John", 60000);
+
+console.log(john.salary);  // 60000
+john.promote();
+console.log(john.salary);  // 70000
+```
+
+### 18. Giải thích cú pháp arrow function trong TypeScript?
+
+Arrow function cung cấp cú pháp ngắn và thuận tiện hơn cho khai báo hàm. Nó còn được gọi là lambdas ở một số ngôn ngữ lập trình khác.
+
+Cú pháp khai báo hàm thông thường:
+
+```ts
+function add(x: number, y: number): number {
+    let sum = x + y;
+    return sum;
+}
+```
+
+Sử dụng arrow function:
+
+```ts
+let add = (x: number, y: number): number => {
+    let sum = x + y;
+    return sum;
+}
+```
+
+Bạn có thể đơn giản cú pháp hơn nữa bằng cách lược bỏ câu lệnh `return`. Nó được cho phép khi thân hàm chỉ có duy nhất một câu lệnh, ví dụ:
+
+```ts
+let add = (x: number, y: number): number => x + y; 
+```
+
+Arrow function thường được dùng cho các hàm callback trong TypeScript. Xem đoạn code bên dưới một vòng lặp qua một mảng số để lọc và trả về các bội của 5.
+
+```ts
+let numbers = [3, 5, 9, 15, 34, 35];
+
+let fiveMultiples = numbers.filter(num => (num % 5) == 0);
+
+console.log(fiveMultiples);  // [5, 15, 35]
+```
+
+### 19. Tham số tuỳ chọn trong TypeScript?
+
+Một hàm có thể có một hay nhiều tham số tuỳ chọn bằng cách thêm dấu `?` sau nó. Ví dụ:
+
+```ts
+function greet(name: string, greeting?: string) {
+    if (!greeting)
+        greeting = "Hello";
+
+    console.log(`${greeting}, ${name}`);
+}
+
+greet("John", "Hi");  // Hi, John
+greet("Mary", "Hola");  // Hola, Mary
+greet("Jane");  // Hello, Jane
+```
+
+### 20. Mục đích của file tsconfig.json?
+
+Một file tsconfig.json trong một thư mục đánh dấu thư mục đó là thư mục gốc của một dự án TypeScript. Nó cung cấp các tùy chọn trình biên dịch để biên dịch dự án.
+
+```ts
+{
+    "compilerOptions": {
+        "module": "system",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "outFile": "../../built/local/tsc.js",
+        "sourceMap": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "**/*.spec.ts"]
+}
+```
+
+## Câu hỏi phỏng vấn TypeScript cho Experienced
+
+### 21. Liệt kê các kiểu vòng lặp trong TypeScript?
+
+TypeScript cung cấp 3 cách lặp qua tập hợp như sau:
+
+- Vòng lặp **for**
+
+```ts
+let values = [10, "foo", true];
+
+for(let i=0; i<values.length; i++) {
+    console.log(values[i]);  // 10, "foo", true
+}
+```
+
+- Hàm **forEach**
+
+```ts
+let values = [10, "foo", true];
+values.forEach(val => {
+    console.log(val);  // 10, "foo", true
+})
+```
+
+- Câu lệnh **for..of**
+
+```ts
+let values = [10, "foo", true];
+for (let val of values) {
+    console.log(val); // 10, "foo", true
+}
+```
+
+### 22. Giải thích về kiểu symbol trong TypeScript?
+
+Symbol được giới thiệu ở ES6 và được hỗ trợ trong TypeScript. Tương tự như `number` hay `string`, `symbol` là một kiểu nguyên thuỷ. Được sử dụng để tạo thuộc tính duy nhất cho đối tượng.
+
+Bạn có thể tạo giá trị symbol bằng hàm khởi tạo `Symbol()`, thường dùng một khoá chuỗi:
+
+```ts
+let foo = Symbol();
+let bar = Symbol("bar");
+```
+
+Một khoá ký tự của symbol là duy nhất và bất biến.
+
+```ts
+let foo = Symbol("foo");
+let newFoo = Symbol("foo");
+
+let areEqual = foo === newFoo;
+console.log(areEqual);  // false, symbols are unique
+```
+
+### 23. Chuỗi tuỳ chọn trong TypeScript hoạt động thế nào?
+
+Chuỗi tuỳ chọn cho phép bạn truy cập thuộc tính và gọi phương thức trên một đối tượng dạng chuỗi. 
+
+TypeScript dừng ngay lập tức các biểu thức nếu nó trả về giá trị `null` hay `undefined`.
+
+Ví dụ, một biểu thức dài như sau:
+
+```ts
+let x = foo === null || foo === undefined ? undefined : foo.bar.baz();
+```
+
+có thể đơn giản thành:
+
+```ts
+let x = foo?.bar.baz();
+```
+
+### 24. Nạp chồng hàm trong TypeScript?
+
+Nạp chồng hàm cho phép ta khai báo nhiều hàm cùng tên, cùng với số lượng tham số cho từng hàm phải khác nhau.
+
+Ví dụ bên dưới khai báo hai hàm nạp chồng cho `builđate`. Hàm nạp chồng đầu tiên nhận về tham số kiểu *number*, trong khi tham số thứ hai nhận về 3 tham số kiểu *number*. 
+
+```ts
+function buildDate(timestamp: number): Date;
+function buildDate(m: number, d: number, y: number): Date;
+```
+
+### 25. Tự suy kiểu là gì?
+
+TypeScript có thể tự suy kiểu của biến nếu bạn không cung cấp kiểu cụ thể. Điều này gọi là tự suy kiểu. Nó thường dùng khi các biến hoặc tham số được khởi tạo khi khai báo.
+
+Ví dụ, đoạn code dưới đây TypeScript sẽ mặc định biến `foo` là kiểu string
+
+```ts
+let foo = "this is a string";
+console.log(typeof foo);  // "string"
+```
+
+### 26. 
