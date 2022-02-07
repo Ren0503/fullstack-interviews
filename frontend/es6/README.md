@@ -399,9 +399,9 @@ Khi một sự kiện xảy ra trong DOM, nó sẽ diễn ra hoàn toàn trên m
 ### 22. Sự khác biệt giữa for...of và for..in?
 
 - **for in** chạy trên các tên thuộc tính có thể liệt kê của một đối tượng.
-- **for of** lấy một trình lặp đối tượng cụ thể và lặp qua dữ liệu mà nó tạo ra.
+- **for of** lấy một đối tượng cụ thể và lặp qua dữ liệu mà nó tạo ra.
 
-Cả lệnh for..of và for..in đều lặp lại qua các danh sách, nhưng kết quả chúng trả về là khác nhau: for..in trả về danh sách các khóa trên đối tượng đang được lặp lại, trong khi for..of trả về danh sách các giá trị của thuộc tính số của đối tượng.
+Cả lệnh `for..of` và `for..in` đều lặp lại qua các danh sách, nhưng kết quả chúng trả về là khác nhau: `for..in` trả về danh sách các khóa trên đối tượng đang được lặp lại, trong khi `for..of` trả về danh sách các giá trị của thuộc tính của đối tượng.
 
 ```js
 let arr = [3, 4, 5];
@@ -417,9 +417,9 @@ for (let i of arr) {
 
 ### 23. Symbol trong ES6 là gì?
 
-Trong ES6 xuất hiện thêm một kiểu dữ liệu đó là Symbol, đây là kiểu dữ liệu dạng primitive type, nó sẽ tạo ra các ký tự duy nhất (unique) và không trả về một chuỗi mà nó chỉ là một dạng object, vì vậy bạn sẽ không thể thấy được giá trị thực của nó.
+Trong ES6 xuất hiện thêm một kiểu dữ liệu đó là Symbol, đây là kiểu dữ liệu nguyên thuỷ, nó sẽ tạo ra các ký tự duy nhất (unique) và không trả về một chuỗi mà nó chỉ là một dạng đối tượng, vì vậy bạn sẽ không thể thấy được giá trị thực của nó.
 
-Symbol được sinh ra dùng để xử lý cho bài toán mang tính duy nhất (unique), mỗi khi bạn tạo một đối tượng Symboy thì đối tượng đó sẽ không bao giờ trùng lặp với một đối tượng khác. Trước tiên ta cùng tìm hiểu cú pháp khởi tạo đã nhé.
+Symbol được sinh ra dùng để xử lý cho bài toán mang tính duy nhất (unique), mỗi khi bạn tạo một đối tượng Symboy thì đối tượng đó sẽ không bao giờ trùng lặp với một đối tượng khác. Cú pháp khởi tạo của Symbol.
 
 ```js
 let symbol = Symbol();
@@ -432,3 +432,103 @@ Babel là một công cụ chuyển đổi mã lệnh JavaScript hay JavaScript 
 Babel đảm bảo code của các lập trình viên luôn được biên dịch thành phiên bản tương thích các trình duyệt khác nhau mà không lo bị lỗi.
 
 "Chuẩn ECMAScript được ra đời để hạn chế sự khác biệt giữa các "ngôn ngữ" JavaScript khác nhau được định nghĩa bởi các trình duyệt khác nhau".
+
+Ví dụ, arrow function được giới thiệu ở ES6 sẽ được chuyển đổi về các function truyền thống. Nó cũng có thể chuyển đổi các cú pháp JS không chuẩn như JSX. Babel có thể tự động chèn các core-js cho các môi trường javascript không khả dụng. Ví dụ như phương thức `Array.from` hay Promise chỉ khả dụng trong ES6+, nhưng nó vẫn có thể sử dụng ở các phiên bản trước nhờ core-js.
+
+### 25. Tên các phương thức mảng có trong ES6?
+
+| Phương thức | Mô tả |
+|-------------|-------|
+| Array.from() | Tạo một đối tượng `Array` mới, được sao chép từ một đối tượng giống mảng hoặc có thể lặp lại |
+| Array.of() | Tạo một đối tượng `Array` mới từ một lượng biến đối số, bất kể số lượng hoặc kiểu của đối số |
+| Array.prototype.copyWithin() | Sao chép một chuỗi tuần tự phần tử mảng bên trong mảng |
+| Array.prototype.find() | Trả về phần tử trong mảng, nếu một phần tử trong mảng hàm kiểm trả hoặc trả về `undefined` nếu ngược lại |
+| Array.prototype.findIndex() | Trả về chỉ mục trong mảng, nếu một phần tử trong mảng thoả mãn hàm kiểm tra hoặc `-1` nếu ngược lại |
+| Array.prototype.entries() | Trả về một lần lặp mảng bao gồm cặp key/value cho từng chỉ mục trong mảng |
+| Array.prototype.keys() | Trả về lần lặp mảng mới bao gồm khoá cho từng chỉ mục trong mảng |
+| Array.prototype.values() | Trả về đối tượng lặp bao gồm giá trị cho từng chỉ mục trong mảng |
+| Array.prototype.fill() | Thay đổi tất cả phần tử với giá trị tĩnh, mặc định bắt đầu từ `0` và kết thúc ở cuối mảng.
+
+### 26. Tên các hàm chuỗi có trong ES6?
+
+| Phương thức | Mô tả |
+|-------------|-------|
+| startsWith | Nó xác định xem một chuỗi có bắt đầu bằng các ký tự của một chuỗi đã cho hay không |
+| endsWith | Nó xác định xem một chuỗi có kết thúc bằng các ký tự của một chuỗi đã cho hay không |
+| includes | Nó sẽ trả về true nếu đối số có trong chuỗi |
+| repeat | Nó tạo và trả về một chuỗi mới chứa số lượng bản sao nhất định của chuỗi mà phương thức này được gọi, được nối với nhau |
+
+### 27. So sánh code ES5 và ES6 cho tạo và tách đối tượng?
+
+**Tạo đối tượng** 
+
+- ES5
+
+```js
+// ES5 code
+var
+    x = 1, y = 2, z = 3;
+    ob = {
+        x : a,
+        y : b,
+        z : z
+    };
+
+// ob.x = 1, ob.y = 2, ob.z = 3
+```
+
+- ES6
+
+```js
+// ES6 code
+const
+    x = 1, y = 2, z = 3;
+    ob = {
+        x
+        y
+        z
+    };
+
+// ob.x = 1, ob.y = 2, ob.z = 3
+```
+
+**Phân tích đối tượng**
+
+- ES5
+
+```js
+// ES5 code
+var
+    ob = getObject(),
+    a = ob.a,
+    b = ob.b,
+    c = ob.c;
+```
+
+- ES6
+
+```js
+// ES6 code
+const { a , b , c } = getObject();
+```
+
+### 28. Hoán vị với Destrucuring Assignment?
+
+```js
+var a = 1, b = 2;
+
+[a, b] = [b, a];
+console.log(a); // 2
+console.log(b); // 1
+```
+
+### 29. Kết quả của toán tử spread ở code bên dưới?
+
+```js
+[...'apple']
+```
+
+Kết quả: [`a`, `p`, `p`, `l`, `e`]
+
+Giải thích: Một chuỗi là một kiểu có thể lặp, và như mảng toán tử spread chuyển đổi từng ký tự thành một phần tử. Kết quả mỗi ký tự của chuỗi trở thành một phần tử mảng.
+
