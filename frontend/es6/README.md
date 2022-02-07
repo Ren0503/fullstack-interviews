@@ -284,3 +284,151 @@ Kết quả:
 
 ### 17. Bạn hiểu gì về IIFE?
 
+IIFE là hàm JavaScript chạy ngay khi được khai báo. Nó được chia thành hai phần chính là:
+- Phần đầu tiên là một hàm ẩn danh lexical scope, được bao bọc bởi `()`.
+- Phần thứ hai là dấu ngoặc `()` dùng để chạy hàm ngay sau khi khai báo.
+
+```js
+(function () {    
+   console.log("Good Day");     
+})();
+```
+
+### 18. Các trạng thái của Promise trong ES6?
+
+Khi được khởi tạo thì Promise có một trong ba trạng thái sau:
+
+- **Fulfilled**: hành động xử lý xong và thành công
+- **Rejected**: hành động xử lý xong và thất bại
+- **Pending**: hành động đang chờ xử lý hoặc bị từ chối
+
+Trong đó hai trạng thái **Reject** và **Fulfilled** ta gọi là **Settled**, tức là đã xử lý xong.
+
+### 19. Export Default và Name Export trong ES6?
+
+Với sự hỗ trợ của lệnh import, export bây giờ khi ta cần xuất các hàm, đối tượng, và biến đến module JavaScript khác ta có hai cách sau:
+
+- **Named Export** dùng khi export nhiều giá trị cùng lúc. Tên của module được import phải trùng với tên module export.
+
+```js
+ //file rectangle.js
+function perimeter(x, y) {
+    return 2 * (x + y);
+}
+function area(x, y) {
+    return x * y;
+}
+export { perimeter, area };
+  
+   
+//while importing the functions in test.js
+import { perimeter, area } from './rectangle;
+console.log(perimeter(4, 6)) //20
+console.log(area(4, 6)) //24
+```
+
+- **Default Export** dùng khi export một module thành export mặc định. Một hàm, lớp, đối tượng hay bất cứ thứ gì cũng có thể dùng cho default export. Trong default export, tên có thể tuỳ ý miễn sao đúng file.
+
+```js
+// file module.js
+var a = 6; 
+export default a;
+  
+// test.js
+// while importing a in test.js
+import b from './module'; 
+console.log(b);        
+// output will be 6
+```
+
+- **Dùng cả hai**, trong cùng một file ta có thể dùng cả hai cách.
+
+```js
+ //index.js
+var a = 3;
+const b = 8;
+function show() {
+    return "This is a default export."
+}
+function product(a , b) {
+    return a * b;
+}
+export { show as default, a, b, product };
+```
+
+```js
+//test.js file
+import any_other_name, { a, b, product} from './index.js';
+console.log(any_other_name()); //This is a default export.
+console.log(a); //3
+```
+
+### 20. Từ khoá nào dùng cho kế thừa trong ES6?
+
+Từ khoá `extends` dùng cho triển khai kế thừa trong ES6.
+
+```js
+class Classroom {
+    constructor(students) {
+        this.students = students;
+    }
+    room() {
+        console.log('This class has  ' + this.students + ' students');
+    }
+}
+ 
+class sectionA extends Classroom {
+    constructor(students) {
+        super(students);
+    }
+    sec() {
+        console.log('section A');
+    }
+}
+  
+let secA = new sectionA(40);
+ 
+secA.room();
+secA.sec();
+```
+
+### 21. Bubbling và Capturing là gì?
+
+Khi một sự kiện xảy ra trong DOM, nó sẽ diễn ra hoàn toàn trên một phần tử. Sự kiện nổi lên (bubble) phần tử cha, hay tổ tiên của nó cho đến khi nó tới giai đoạn Bubbling. Trong khi đó, sự kiện bắt đầu từ ngoài window đến khi phần tử nhận sự kiện thì là giai đoạn Capturing.
+
+### 22. Sự khác biệt giữa for...of và for..in?
+
+- **for in** chạy trên các tên thuộc tính có thể liệt kê của một đối tượng.
+- **for of** lấy một trình lặp đối tượng cụ thể và lặp qua dữ liệu mà nó tạo ra.
+
+Cả lệnh for..of và for..in đều lặp lại qua các danh sách, nhưng kết quả chúng trả về là khác nhau: for..in trả về danh sách các khóa trên đối tượng đang được lặp lại, trong khi for..of trả về danh sách các giá trị của thuộc tính số của đối tượng.
+
+```js
+let arr = [3, 4, 5];
+
+for (let i in arr) {
+   console.log(i); // "0", "1", "2",
+}
+
+for (let i of arr) {
+   console.log(i); // "3", "4", "5"
+}
+```
+
+### 23. Symbol trong ES6 là gì?
+
+Trong ES6 xuất hiện thêm một kiểu dữ liệu đó là Symbol, đây là kiểu dữ liệu dạng primitive type, nó sẽ tạo ra các ký tự duy nhất (unique) và không trả về một chuỗi mà nó chỉ là một dạng object, vì vậy bạn sẽ không thể thấy được giá trị thực của nó.
+
+Symbol được sinh ra dùng để xử lý cho bài toán mang tính duy nhất (unique), mỗi khi bạn tạo một đối tượng Symboy thì đối tượng đó sẽ không bao giờ trùng lặp với một đối tượng khác. Trước tiên ta cùng tìm hiểu cú pháp khởi tạo đã nhé.
+
+```js
+let symbol = Symbol();
+```
+
+### 24. Babel là gì?
+
+Babel là một công cụ chuyển đổi mã lệnh JavaScript hay JavaScript transpiler, được dùng với mục đích chuyển đổi mã lệnh JavaScript được viết dựa trên tiêu chuẩn ECMAScript phiên bản mới về phiên bản cũ hơn trước đó.
+
+Babel đảm bảo code của các lập trình viên luôn được biên dịch thành phiên bản tương thích các trình duyệt khác nhau mà không lo bị lỗi.
+
+"Chuẩn ECMAScript được ra đời để hạn chế sự khác biệt giữa các "ngôn ngữ" JavaScript khác nhau được định nghĩa bởi các trình duyệt khác nhau".
