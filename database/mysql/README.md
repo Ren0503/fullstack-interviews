@@ -14,7 +14,6 @@ Hiện tại MySQL là cơ sở dữ liệu phổ biến nhất thế giới.
 
 ## Câu hỏi phỏng vấn MySQL cho Fresher
 
-
 ### 1. MySQL là gì?
 
 MySQL là hệ quản trị cơ sở dữ liệu mã nguồn mở lớn nhất thế giới, đặc biết được dùng rất nhiều cho các dự án, ứng dụng, website trên internet.
@@ -207,3 +206,106 @@ Bạn có thể thêm người dùng bằng cách dùng lệnh CREATE và chỉ 
 ```sql
 CREATE USER 'testuser' IDENTIFIED BY "sample password";
 ```
+
+## Câu hỏi phỏng vấn MySQL cho Experienced
+
+### 21. View trong MySQL là gì?
+
+Trong MySQL, một view bao gồm một tập hợp hàng được trả về nếu một truy vấn được thực thi. Nó còn gọi là một "bảng ảo". View giúp việc truy xuất dễ dàng hơn thông qua tên alias.
+
+Các ưu điểm của view:
+- Đơn giản
+- Bảo mật
+- Dễ bảo trì
+
+### 22. Tạo và thực thi view trong MySQL
+
+Tạo một view được thực hiện thông qua lệnh CREATE VIEW. Ví dụ:
+
+```sql
+CREATE
+   [OR REPLACE]
+   [ALGORITHM = {MERGE | TEMPTABLE | UNDEFINED }]
+   [DEFINER = { user | CURRENT_USER }]
+   [SQL SECURITY { DEFINER | INVOKER }]
+   VIEW view_name [(column_list)]
+   AS select_statement
+   [WITH [CASCADED | LOCAL] CHECK OPTION]
+```
+
+### 23. MySQL Trigger là gì?
+
+Trigger là trình kích hoạt, sẽ được kích hoạt khi có một tác động nào đó vào nó.
+
+Trong MySQL, Trigger có nghĩa là một đoạn code SQL xử lý một chức năng nào đó, nó hoạt động ngầm và được chạy khi một trong các tác động như chèn, sửa đó hay xoá dữ liệu trong bảng.
+
+Trigger có nhiều mục đích, bao gồm:
+- Kiểm tra dữ liệu
+- Đồng bộ hoá dữ liệu
+- Đảm bảo các mối quan hệ giữa các bảng
+
+### 24. Có bao nhiêu Trigger khả dụng trong MySQL?
+
+Có 6 Trigger được cho phép trong cơ sở dữ liệu MySQL:
+- Trước khi chèn
+- Sau khi chèn
+- Trước khi sửa
+- Sau khi sửa
+- Trước khi xoá
+- Sau khi xoá
+
+### 25. MySQL Server là gì?
+
+MySQL Server là máy tính hay một hệ các máy tính cài đặt phần mềm MySQL dành cho server để giúp bạn lưu trữ dữ liệu trên đó, để máy khách có thể truy cập vào quản lý. Dữ liệu này được đặt trong các bảng, và các bảng có mối liên hệ với nhau. MySQL server nhanh, an toàn, đáng tin cậy. Phần mềm MySQL cũng miễn phí và được phát triển, phân phối và hỗ trợ bởi Oracle Corporation.
+
+### 26. MySQL Client là gì?
+
+Là các chương trình MySQL khả dụng để giao tiếp với server. Dành cho mục đích quản trị, các phần quan trong được liệt kê dưới đây:
+
+• **mysql** — Một chương trình tương tác cho phép bạn gửi các câu lệnh SQL đến server và xem kết quả. Bạn cũng có thể sử dụng mysql để thực thi các script(file chứa câu lệnh SQL).
+
+• **mysqladmin** — Một chương trình quản trị để thực hiện các tác vụ như tắt server, kiểm tra cấu hình hoặc theo dõi trạng thái của nó nếu nó có vẻ không hoạt động bình thường.
+
+• **mysqldump** — Một công cụ để sao lưu cơ sở dữ liệu của bạn hoặc sao chép cơ sở dữ liệu sang một máy chủ khác.
+
+• **mysqlcheck & myisamchk** — Các chương trình giúp bạn thực hiện kiểm tra, phân tích và tối ưu hóa bảng, cũng như sửa chữa nếu bảng bị hỏng. mysqlcheck hoạt động với các bảng MyISAM và ở một mức độ nào đó với các bảng cho các công cụ lưu trữ khác. myisamchk chỉ được sử dụng với các bảng MyISAM.
+
+### 27. Các kiểu quan hệ trong MySQL?
+
+Có 3 kiểu quan hệ trong MySQL
+
+- One-to-One: là mối quan hệ giữa hai bảng trong đó mỗi bản ghi trong một bảng được liên kết với tối đa một bản ghi trong bảng kia.
+- One-to-Many: là mối quan hệ được sử dụng phổ biến nhất trong đó một bản ghi trong bảng được liên kết với nhiều bản ghi trong bảng khác.
+- Many-to-Many: được sử dụng trong các trường hợp khi cần có nhiều thực thể ở cả hai bên để tạo mối quan hệ.
+
+### 28. Giải thích kiến trúc của MySQL?
+
+![](./assets/architecture.png)
+
+Như bạn có thể thấy trên hình, kiến trúc logic của MySQL gồm 3 layers chính.
+
+- Layer trên cùng chỉ ra các services mà MySQL cung cấp cho các hệ thống mạng client/server bao gồm xử lí kết nối, xác thực, bảo mật.
+- Layer ở giữa, là trung tâm xử lí của MySQL bao gồm việc phân tích câu truy vấn, tối ưu hóa, caching và các hàm sẵn có trong MySQL.
+- Layer dưới cùng bao gồm storage engine chịu trách nhiệm cho với lưu trữ và lấy ra dữ liệu. Các storage engine phổ biến hiện nay của MySQL là InnoDB và MyISAM
+
+### 29. Mở rộng trong MySQL?
+
+Trong MySQL, khả năng mở rộng thực ra là khả năng xử lý tải và sẽ hữu ích khi nghĩ về tải từ một số góc độ khác nhau như:
+
+* Số lượng dữ liệu
+* Số lượng người dùng
+* Hoạt động người dùng
+* Kích thước của các bộ dữ liệu liên quan
+
+### 30. Sharding trong MySQL?
+
+harding là một mẫu kiến trúc cơ sở dữ liệu liên quan đến phân vùng ngang - thực tế tách một hàng bảng Bảng thành nhiều bảng khác nhau, được gọi là partitions. Mỗi partitions có cùng schema và cột, nhưng cũng có các hàng hoàn toàn khác nhau. Tương tự, dữ liệu được giữ trong mỗi partitions là duy nhất và độc lập với dữ liệu được giữ trong các partitions khác.
+
+Có thể hữu ích khi so sánh suy nghĩ về phân vùng ngang theo cách nó liên quan đến phân vùng dọc. Trong một bảng được phân vùng theo chiều dọc, toàn bộ các cột được tách ra và đưa vào các bảng mới, riêng biệt. Dữ liệu được giữ trong một phân vùng dọc độc lập với dữ liệu trong tất cả các phân vùng khác và mỗi dữ liệu chứa cả các hàng và cột riêng biệt. Sơ đồ sau minh họa cách bảng có thể được phân vùng theo cả chiều ngang và chiều dọc
+
+![](./assets/sharding.png)
+
+### 31. Transaction Storage Engines trong MySQL là gì?
+
+Để có thể sử dụng transaction cơ sở của MySQL, bạn phải sử dụng storage engine InnoDB của MySQL. Đây là Storage Engine mặc định trong MySQL 5.7. InnoDB là một Storage Engine transaction-safe (tuân thủ ACID) cho MySQL có các commit, rollback và khả năng khôi phục lỗi để bảo vệ dữ liệu người dùng. Row-level locking của InnoDB và kiểu nonlocking read của Oracle-style làm tăng sự đồng thời và hiệu suất của nhiều người dùng. InnoDB lưu trữ dữ liệu người dùng trong các clustered indexes để giảm I/O cho các truy vấn thông thường dựa trên các primary key. Để duy trì tính toàn vẹn của dữ liệu, InnoDB cũng hỗ trợ các ràng buộc toàn vẹn Foreign Key.
+
