@@ -3,7 +3,7 @@
 ![](./assets/es6.jpg)
 ## ES6 là gì?
 
-ECMAScript, hay ES6, đã được xuất bản vào tháng 6 năm 2015. Sau đó nó được đổi tên thành ECMAScript 2015. Hỗ trợ trình duyệt web đầy đủ cho ngôn ngữ vẫn chưa hoàn thành, mặc dù việc hỗ trợ cho các phần chính đã được tiến hành. Các trình duyệt web chính hỗ trợ một số tính năng của ES6. Tuy nhiên, có thể sử dụng phần mềm được gọi là trình chuyển đổi để chuyển đổi code ES6 thành ES5, vì ES5 được hỗ trợ tốt hơn trên hầu hết các trình duyệt.
+ECMAScript, hay ES6, đã được xuất bản vào tháng 6 năm 2015. Sau đó nó được đổi tên thành ECMAScript 2015. Các trình duyệt web hỗ trợ đầy đủ cho ngôn ngữ vẫn chưa hoàn thành, mặc dù việc hỗ trợ cho các phần chính đã được tiến hành. Các trình duyệt web chính hỗ trợ một số tính năng của ES6. Tuy nhiên, có thể sử dụng phần mềm được gọi là trình chuyển đổi để chuyển đổi code ES6 thành ES5, vì ES5 được hỗ trợ tốt hơn trên hầu hết các trình duyệt.
 
 ## Câu hỏi phỏng vấn ES6 dành cho Fresher
 
@@ -259,11 +259,49 @@ Các ưu điểm của class ở ES6:
 - Cú pháp đơn giản và ít lỗi hơn.
 - Khi xây dựng một hệ phân cấp kế thừa, ES6 kết hợp cú pháp cũ và mới, làm giảm lỗi và đơn giản hoá các quy trình.
 - Class trong ES6 ngăn chặn lỗi do toán tử `new`. Nếu một đối tượng không hợp lệ khởi tạo, class sẽ loại trừ vấn đề này bằng cách để constructor trả về lỗi.
-- Class còn gọi một phương thức từ prototype. Với cú pháp ES6, nó dễ dừng hơn các phiên bản trước.
+- Class còn gọi một phương thức từ prototype. Với cú pháp ES6, nó dễ dùng hơn các phiên bản trước.
 
 ### 14. Cách tạo class trong ES6?
 
-Từ khoá `class` dùng cho tạo lớp trong ES6. Ta có thể dùng biểu thức lớp hoặc khai báo lớp đẻ tạo. Chỉ có hàm và contrustor là được cho phép trong lớp. Các thành phần 
+Từ khoá `class` dùng cho tạo lớp trong ES6. Ta có thể dùng biểu thức lớp hoặc khai báo lớp để tạo. Chỉ có hàm và contrustor là được cho phép trong lớp. Các thành phần này gọi chung là thuộc tính dữ liệu của lớp.
+
+Constructor trong lớp có trách nhiệm cấp phát bộ nhớ cho đối tượng của lớp. Hàm của lớp chịu trách nhiệm thực hiện các hành động trên đối tượng.
+
+Cú pháp ở ES5
+
+```js
+var varName = new className {
+    // something
+}
+```
+
+Cú pháp ở ES6
+
+```js
+class className {
+    // Something
+}
+```
+
+### 15. Biểu thức lớp là gì?
+
+Trong ES6, một cách khác để khai báo lớp là dùng biểu thức lớp. Giống như một biểu thức hàm, có thể có tên hoặc không. Nếu có tên, tên đó là duy nhất trong thân lớp. 
+
+```js
+var Product = class {
+    constructor (num1, num2) {
+    this.num1 = num1;
+    this.num2 = num2;
+    }
+    multiplication() {
+    return this.num1 * this.num2;
+    }
+}
+console.log(new Product(5,8).multiplication());
+// expected output: 40
+```
+
+Cú pháp của một biểu thức lớp tương tự như cú pháp của một câu lệnh lớp (khai báo). Mặt khác, các biểu thức lớp cho phép bạn bỏ qua tên lớp ("định danh ràng buộc"), điều này không thể thực hiện được với các câu lệnh lớp. Ngoài ra, không giống như khai báo lớp, biểu thức lớp cho phép bạn khai báo lại các lớp mà không gây ra bất kỳ lỗi kiểu nào. Nó không bắt buộc phải sử dụng thuộc tính constructor. Loại lớp được tạo bằng từ khóa này sẽ luôn là "function".
 
 ### 16. Tham số mặc định là gì?
 
@@ -532,3 +570,258 @@ Kết quả: [`a`, `p`, `p`, `l`, `e`]
 
 Giải thích: Một chuỗi là một kiểu có thể lặp, và như mảng toán tử spread chuyển đổi từng ký tự thành một phần tử. Kết quả mỗi ký tự của chuỗi trở thành một phần tử mảng.
 
+## Câu hỏi phỏng vấn ES6 dành cho Experienced
+
+### 30. Prototype Design Pattern với ES6?
+
+Prototype Pattern tạo ra các đối tượng mới, nhưng thay vì trả về các đối tượng chưa được khởi tạo, nó trả về các đối tượng có giá trị được sao chép từ một đối tượng prototype - hoặc sample. Nó còn được gọi là Properties Pattern.
+
+Việc khởi tạo các đối tượng nghiệp vụ với các giá trị phù hợp với cài đặt mặc định của cơ sở dữ liệu là một ví dụ về công dụng của Prototype Pattern. Các giá trị mặc định từ đối tượng prototype được sao chép thành một đối tượng nghiệp vụ mới được tạo.
+
+Mẫu Prototype hiếm khi được sử dụng trong các ngôn ngữ truyền thống, nhưng JavaScript, sử dụng nó trong việc tạo ra các đối tượng và prototype mới.
+
+### 31. WeakMap trong ES6 là gì? Nó khác Map như thế nào?
+
+WeakMap là một tập hợp các key/value, gần giống như Map. Key của WeakMap phải là đối tượng, trong khi value có thể là bất kỳ thứ gì. Các tham chiếu đối tượng đến key được tổ chức rất yếu, có nghĩa là nếu không có tham chiếu nào khác đến đối tượng, nó sẽ bị bộ dọn rác dọn dẹp. WeakMap, không giống như Map, cho phép bộ gọn rác hoàn thành nhiệm vụ của nó. Mảng key sẽ bảo toàn các tham chiếu đến đối tượng key trong map được xây dựng thủ công, cấm chúng bị dọn dẹp. Các tham chiếu đến đối tượng key trong WeakMap được tổ chức "yếu", có nghĩa là chúng không cản trở việc dọn rác nếu không có tham chiếu nào khác đến đối tượng. API Map và API WeakMap là giống nhau.
+
+### 32. Lợi thế của hàm khởi tạo với cú pháp arrow?
+
+Lợi ích của việc dùng hàm arrow như phương thức trong constructor là giá trị của **this** là tập hợp ở thời điểm hàm tạo và không thể thay đổi trong tương lai. Kết quả, bất cứ khi nào constructor dùng cho tạo đối tượng mới, **this** đề cập đến đối tượng này.
+
+```js
+const Shape = function(shapeName) {
+    this.shapeName = shapeName;
+    this.showName1 = function() { console.log(this.shapeName); };
+    this.showName2 = () => { console.log(this.shapeName); };
+};
+
+const circle = new Shape('Circle');
+const square = new Shape('Square');
+
+circle.showName1(); // Circle
+circle.showName2(); // Square
+
+// The regular function can have its 'this' value changed, but the arrow function cannot
+circle.showName1.call(square); // Square (because "this" is now the square object)
+circle.showName2.call(square); // Circle
+
+circle.showName1.apply(square); // Square (because 'this' is now the square object)
+circle.showName2.apply(square); // Circle
+
+circle.showName1.bind(square)(); // Square (because 'this' is now the square object)
+circle.showName2.bind(square)(); // Circle
+
+var showNameFromPic1 = circle.showName1;
+sayNameFromPic1(); // undefined (because 'this' is now the pic object)
+
+var showNameFromPic2 = circle.showName2;
+showNameFromPic2(); // Circle
+```
+
+Điểm chính ở đây là đối với một hàm bình thường, **this** có thể được sửa đổi, nhưng đối với một hàm arrow, ngữ cảnh luôn giống nhau. Bạn sẽ không phải lo lắng về việc thay đổi ngữ cảnh nếu bạn chuyển hàm arrow sang các khu vực khác trong ứng dụng của mình.
+
+### 33. Temporal Dead Zone là gì?
+
+Variable Hoisting không áp dụng cho phép ràng buộc trong ES6, do đó, cho phép các khai báo không đưa lên đầu ngữ cảnh thực thi hiện tại. Một ReferenceError được ném ra nếu biến trong block được tham chiếu trước khi nó được khởi tạo (không giống như một biến được khai báo bằng var, sẽ chỉ sở hữu giá trị không xác định). Từ đầu block cho đến khi quá trình khởi tạo được thực hiện, biến nằm trong "Temporal Dead Zone".
+
+```js
+console.log(a); // undefined
+console.log(b); // causes ReferenceError: aLet is not defined
+var a = 1;
+let b = 2;
+```
+
+### 34. Sự khác biệt giữa Set và WeakSet trong ES6?
+
+**Set:** bằng cách dùng lớp `Set()`, người dùng có thể định nghĩa một đối tượng có thể lặp lai không đồng nhất giống như mảng. Đối tượng này sẽ bao gồm các giá trị riêng biệt, các phần tử không nên chỉ khác biệt theo giá trị mà còn theo kiểu. tức là "2" và 2 sẽ được coi là khác nhau.
+
+```js
+var set1= new Set([0, 1, 2]);
+
+set1.add(3); // 0, 1, 2, 3
+set1.add(2); // 0, 1, 2, 3
+set1.add({x:1, y:2}); // 0, 1, 2, {x:1, y:2}
+set1.add("Good"); // 0, 1, 2, {x:1, y:2}, 'Good'
+ 
+set1.has("Hello"); // false
+set1.has("Good");  // true
+set1.delete("Good"); // 'Good' deleted
+set1.has("Good"); // false
+ 
+set1.size; // 4
+set1.clear(); // Set Cleared
+```
+
+**WeakSet():** là một tập hợp tương tự Set vì nó giữ lại các giá trị duy nhất, nhưng nó chỉ có thể chứa các đối tượng. Nếu một đối tượng trong WeakSet của bạn không còn biến tham chiếu nào khác, nó sẽ tự động bị xóa
+
+```js
+var weakSet1 = new WeakSet([{x:1}]);
+var ob1 = {o:1};
+var ob2 = {o:2};
+
+weakSet1.has(ob1); //false
+weakSet1.add(ob1); 
+weakSet1.add(ob2); 
+weakSet1.has(ob2); // true
+delete ob1; // you can't delete objects in this way. Use scope to execute this.
+myWeakSet.has(ob1); // false, because you deleted ob1, so WeakSet releases it automatically
+myWeakSet.delete(ob2); // ob2 deleted from the set
+myWeakSet.add(1); // ERROR, no primitive value
+```
+
+| Set | WeakSet |
+|-----|---------|
+| Bao gồm nhiều kiểu giá trị | Chỉ chứa kiểu đối tượng |
+| Dùng `.size` để tìm số lượng phần tử | Dùng `.length` để tìm số lượng phần tử |
+| `.forEach()` khả dụng cho vòng lặp | `.forEach` không khả dụng cho vòng lặp |
+| Không tự huỷ | Một đối tượng phần tử sẽ được bị bộ thu gom rác dọn dẹp nếu nó không còn tham chiếu nào khác |
+
+### 35. Proxy trong ES6 là gì?
+
+Các đối tượng proxy được sử dụng để tùy chỉnh hành vi cho các hoạt động cơ bản như tra cứu thuộc tính, gán, liệt kê, gọi hàm, ...
+
+Chúng ta cần xác định ba thuật ngữ quan trọng:
+- **handler** - đối tượng giữ cho cho trap
+- **trap** - phương thức cho phép bạn truy cập một thuộc tính
+- **target** - đối tượng được ảo hoá bởi proxy
+
+```js
+const handle = {
+    get: function(ob, prp) {
+        return prp in ob ?
+        ob[prp] :
+        37;
+    }
+};
+
+const x = new Proxy({}, handle);
+x.a = 2;
+x.b = undefined;
+
+console.log(x.a, x.b); 
+//  2, undefined
+
+console.log('c' in x, x.c); 
+//  false, 37
+```
+
+Proxy có rất nhiều ứng dụng trong thế giới thực.
+- Xác thực.
+- Sửa chữa giá trị.
+- Tiện ích mở rộng cho tra cứu thuộc tính.
+- Truy cập thuộc tính đang được theo dõi.
+- Tham chiếu có thể được gọi.
+- Triển khai DOM trong javascript.
+
+### 36. Sự khác biệt giữa const và Object.freeze()?
+
+Const là một thuộc tính áp dụng cho các ràng buộc ("biến"). Nó tạo ra một ràng buộc bất biến, có nghĩa là bạn không thể thay đổi giá trị của nó.
+
+```js
+const a = {
+    b: "apple"
+};
+
+let c = {
+    d: "mango"
+};
+
+a = c; // ERROR "a" is read-only
+```
+
+**Object.freeze()** là một hàm hoạt động với các giá trị, chủ yếu là các giá trị đối tượng. Nó làm cho một đối tượng trở nên bất biến, nghĩa là không thể thay đổi các thuộc tính của nó.
+
+**freeze()** trả về cùng một đối tượng đã được cung cấp cho nó dưới dạng một tham số. Nó không tạo ra một bản sao freeze. Nếu tham số của phương thức này không phải là một đối tượng (một nguyên thủy) trong ES5, một TypeError sẽ xảy ra. Một đối số không phải đối tượng trong ES6 sẽ được xử lý như thể nó là một đối tượng thông thường được đóng băng và sẽ được trả về.
+
+```js
+let a = {
+    b: "apple"
+};
+let c = {
+    d: "mango"
+};
+Object.freeze(a);
+a.b = "kiwi"; //TypeError: Cannot assign to read only property 'name' of object
+console.log(a);
+```
+
+### 37. Tại sao đoạn code này không hoạt động như một IIFE? Điều gì cần được sửa đổi để nó được phân loại là IIFE?
+
+```js
+function f(){ }();
+```
+
+Trình phân tích cú pháp JavaScript thông dịch hàm `f(){}();` như hàm `f(){}` và `();` trong đó cái trước là khai báo hàm trong khi cái sau (một cặp dấu ngoặc đơn) là nỗ lực thực thi một hàm mà không chỉ định tên, dẫn đến **Uncaught SyntaxError: Unexpected token**
+
+`(function f(){})()` và `(function f(){}())` là hai cách để sửa lỗi liên quan đến việc thêm nhiều dấu ngoặc hơn. Các hàm này không khả dụng trong phạm vi toàn cục và bạn thậm chí có thể bỏ qua tên của chúng nếu bạn không cần tham chiếu đến chúng trong nội dung.
+
+Bạn cũng có thể sử dụng toán tử void: `void function f(){}();` Tuy nhiên, có một điểm hạn chế trong chiến lược này. Bởi vì đánh giá của một biểu thức nhất định luôn không được xác định, bạn không thể sử dụng hàm IIFE nếu nó trả về bất kỳ thứ gì. Hãy xem xét tình huống sau:
+
+```js
+ // Don't add JS syntax to this code block to prevent Prettier from formatting it.
+const f = void
+function b() {
+    return 'f';
+}();
+
+console.log(f); // undefined
+```
+
+### 38. Giải thích về Internationalization và Localization?
+
+Đây là các API chuẩn JavaScript hỗ trợ các hoạt động như đối chiếu, định dạng số, định dạng tiền tệ và định dạng ngày và giờ.
+
+* **Đối chiếu:** Đây là một phương pháp để tìm kiếm và sắp xếp các chuỗi trong một tập hợp. Nó có một đối số ngôn ngữ và nhận biết được Unicode.
+* **Định dạng số:** Các dấu phân cách được bản địa hóa và nhóm chữ số có thể được sử dụng để định dạng số. Định dạng kiểu, hệ thống số, phần trăm và độ chính xác nằm trong số các mục khác.
+* **Định dạng tiền tệ:** Các ký hiệu tiền tệ, dấu phân tách bản địa hóa và nhóm chữ số là những cách phổ biến nhất để định dạng số.
+* **Định dạng ngày và giờ:** Các dấu phân cách và thứ tự được bản địa hóa được sử dụng để định dạng. Định dạng có thể ngắn hoặc dài và có thể bao gồm các đặc điểm khác như vị trí và múi giờ.
+
+### 39. Webpack là gì?
+
+Webpack là một công cụ để gói các file javascript để sử dụng trong các trình duyệt. Webpack phân tích ứng dụng và tạo các gói bằng cách tạo một biểu đồ phụ thuộc ánh xạ từng module của dự án được yêu cầu. Nó cho phép bạn thực thi môi trường được host bởi Babel. Webpack có lợi thế là kết hợp nhiều module và gói vào một file JavaScript duy nhất. Nó bao gồm một máy chủ nhà dev, hỗ trợ cập nhật code và quản lý assets.
+
+Ví dụ
+
+folder_name/index.js
+
+```js
+import bar from './func.js";
+func();
+```
+
+folder_name/func.js
+```js
+export default function func() {
+    // body of the function
+}
+```
+
+webpack.config.js
+
+```js
+const path = require('path');
+
+module.exports = {
+    entry: './folder_name/index.js',
+    output: {
+        path: path.resolve(__dirname, 'dict'),
+        filename: 'bundle.js',
+    },
+};
+```
+
+page.html
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        ...
+    </head>
+    <body>
+        ...
+        <script src="dict/bundle.js"></script>
+    </body>
+</html>
+```
