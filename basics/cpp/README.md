@@ -342,3 +342,148 @@ Kế thừa là quá trình tạo các lớp mới, được gọi là lớp d�
 ![](./assets/Inheritance_in_C__.png)
 
 Các lớp `Bus`, `Car` và `Truck` kế thừa thuộc tính từ lớp `Vehicle`. Điều quan trọng nhất của kế thừa là khả năng sử dụng lại code.
+
+## Câu hỏi phỏng vấn C++ cho Experienced
+
+### 21. Copy constructor là gì?
+
+Một copy constructor là một hàm thành viên được tạo khi một đối tượng sử dụng đối tượng khác ở cùng lớp.
+
+```cpp
+class A{
+    int x,y;
+    A(int x, int y){
+        this->x=x;
+        this->y=y;
+    }
+
+};
+int main(){
+    A a1(2,3);
+    A a2=a1;     //default copy constructor is called
+    return 0;
+}
+```
+
+### 22. Sự khác biệt giữa shall copy và deep copy?
+
+| Shallow Copy | Deep Copy |
+|--------------|-----------|
+| Lưu trữ tham chiếu của đối tượng từ địa chỉ bộ nhớ gốc | Tạo một bản sao mới và riêng biệt của toàn bộ đối tượng với địa chỉ bộ nhớ duy nhất của nó |
+| Nhanh hơn | Chậm hơn |
+| Phản ánh những thay đổi được thực hiện đối với đối tượng mới/được sao chép trong đối tượng gốc | Không phản ánh những thay đổi được thực hiện đối với đối tượng mới/được sao chép trong đối tượng gốc |
+
+### 23. Sự khác biệt hàm ảo và hàm thuần ảo?
+
+Một hàm ảo là một hàm thành viên trong lớp cơ sở mà bạn xác định lại trong một lớp dẫn xuất. Nó được khai báo bằng từ khóa `virtual`.
+
+```cpp
+class base {
+    public:
+        virtual void func() {
+
+        }
+};
+```
+
+Một hàm thuần ảo là một hàm không có phần thực thi và được khai báo bằng cách gán với 0. Nó không có phần thân.
+
+```cpp
+class base{
+    public:
+        virtual void fun()=0;
+};
+```
+
+Ở đây, dấu = không liên quan gì đến việc gán và giá trị 0 không được gán cho bất kỳ thứ gì. Nó được sử dụng để chỉ cho trình biên dịch biết rằng một hàm sẽ thuần và nó sẽ không có gì cả.
+
+### 24. Nếu lớp D có nguồn gốc từ một lớp cơ sở B. Khi tạo một đối tượng kiểu D thì thứ tự constructor của các lớp này sẽ được gọi như thế nào?
+
+Lớp dẫn xuất có hai phần, một phần cơ sở và một phần dẫn xuất. Khi C++ xây dựng các đối tượng dẫn xuất, nó sẽ làm như vậy theo từng giai đoạn. Đầu tiên, lớp cơ sở nhất (ở trên cùng của cây kế thừa) được xây dựng. Sau đó, mỗi lớp con được xây dựng theo thứ tự cho đến khi lớp con nhiều nhất được xây dựng cuối cùng.
+Vì vậy, constructor đầu tiên của lớp B sẽ được gọi và sau đó mới gọi constructor của lớp D.
+
+Trong quá trình huỷ thứ tự ngược lại được tuân theo. Đó là destructor bắt đầu từ lớp dẫn xuất nhất và hoạt động theo cách của nó xuống lớp cơ sở.
+Vì vậy, destructor đầu tiên của lớp D sẽ được gọi và sau đó sẽ đến destructor của lớp B.
+
+### 25. Ta có thể gọi hàm ảo từ một constructor không?
+
+Có, chúng ta có thể gọi một hàm ảo từ một constructor. Nhưng hành vi có một chút khác biệt trong trường hợp này. Khi một hàm ảo được gọi, cuộc gọi ảo sẽ được giải quyết trong thời gian chạy. Nó luôn luôn là hàm thành viên của lớp hiện tại được gọi. Tức là hàm ảo không hoạt động trong constructor.
+
+```cpp
+class base{
+    private:
+        int value;
+    public:
+        base(int x){
+            value=x;
+        }
+        virtual void fun(){
+        
+        }
+}
+
+class derived{
+    private:
+        int a;
+    public:
+        derived(int x, int y):base(x){
+            base *b;
+            b=this;
+            b->fun();      //calls derived::fun()
+        }
+        void fun(){
+            cout<<"fun inside derived class"<<endl;
+        }
+}
+```
+
+### 26. Con trỏ void là gì?
+
+Con trỏ void là một con trỏ không có kiểu dữ liệu nào được liên kết với nó. Nó có thể chứa bất kỳ loại địa chỉ nào.
+
+```cpp
+void *ptr;
+char *str;
+
+p = str;        // no error
+str = p;        // error because of type mismatch
+```
+
+Chúng ta có thể gán một con trỏ thuộc bất kỳ loại nào cho một con trỏ void nhưng điều ngược lại là không đúng trừ khi bạn ép kiểu nó bằng
+
+```cpp
+str=(char*) ptr;
+```
+
+### 27. Con trỏ this là gì?
+
+Các hàm thành viên của mọi đối tượng đều có một con trỏ được đặt tên là `this`, con trỏ này trỏ đến chính đối tượng. Giá trị `this` được đặt thành địa chỉ của đối tượng mà nó được gọi. Nó có thể được sử dụng để truy cập dữ liệu trong đối tượng mà nó trỏ tới.
+
+```cpp
+class A{
+    private:
+        int value;
+    public:
+        void setvalue(int x){
+            this->value=x; 
+        }
+};
+
+int main(){
+    A a;
+    a.setvalue(5);
+    return 0;
+}
+```
+
+### 28. Cấp phát và giải phóng bộ nhớ trong C++?
+
+Toán tử `new` dùng cho cấp phát bộ nhớ và toán tử `delete` dùng cho giải phóng bộ nhớ trong C++.
+
+```cpp
+int value=new int;  		//allocates memory for storing 1 integer
+delete value;          		// deallocates memory taken by value
+
+int *arr=new int[10];    	//allocates memory for storing 10 int
+delete []arr;              	// deallocates memory occupied by arr
+```
