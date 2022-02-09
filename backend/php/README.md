@@ -12,9 +12,9 @@ PHP cũng là ngôn ngữ cho xây dựng WordPress chiếm khoảng 80% website
 
 ## Tại sao lại học PHP
 
-PHP không phải là ngôn ngữ script phía server duy nhất có sẵn – vẫn còn nhiều ngôn ngữ khác nữa. Tuy nhiên, nó lợi thế hơn các đối thủ cạnh tranh nếu như bạn đang chạy trang web WordPress.
+PHP không phải là ngôn ngữ script phía server duy nhất có sẵn – vẫn còn nhiều ngôn ngữ khác nữa. Tuy nhiên, nó có lợi thế hơn các đối thủ cạnh tranh nếu như bạn đang chạy trang web WordPress.
 
-Như chúng tôi đã đề cập trước đó, WordPress được xây dựng dựa trên việc sử dụng PHP. Vì vậy sử dụng ngôn ngữ này giúp cải thiện đáng kể số lượng tùy chỉnh có thể có trên trang web. Bạn có thể sử dụng nó để sửa đổi plugins và themes có sẵn hoặc tự tạo plugin! Nếu bạn muốn trở thành nhà phát triển và WordPress, bạn bắt buộc phải học PHP.
+Như chúng tôi đã đề cập trước đó, WordPress được xây dựng dựa trên việc sử dụng PHP. Vì vậy sử dụng ngôn ngữ này giúp cải thiện đáng kể số lượng tùy chỉnh có thể có trên trang web. Bạn có thể sử dụng nó để sửa đổi plugins và themes có sẵn hoặc tự tạo plugin! Nếu bạn muốn trở thành nhà phát triển WordPress, bạn bắt buộc phải học PHP.
 
 Nếu vẫn chưa bị thuyết phục, đây là một số lý do khác khiến PHP là ngôn ngữ script tuyệt vời để sử dụng:
 
@@ -38,7 +38,7 @@ Nếu vẫn chưa bị thuyết phục, đây là một số lý do khác khiế
 
 Session là một cách để lưu trữ thông tin (trong các biến) được sử dụng trên nhiều trang.
 
-Không giống như một cookie, thông tin được lưu trữ trên server, chứ không được lưu trữ trên máy tính người dùng.
+Không giống như một cookie, thông tin session được lưu trữ trên server, chứ không được lưu trữ trên máy tính người dùng.
 
 Khi bạn làm việc với một ứng dụng, bạn mở nó, thực hiện một số thay đổi, và sau đó bạn đóng nó lại. Điều này giống như một phiên (session). Máy tính biết bạn là ai. Nó biết khi bạn bắt đầu ứng dụng và khi bạn kết thúc. Nhưng trên internet có một vấn đề: máy chủ web không biết bạn là ai hoặc bạn làm gì, vì địa chỉ HTTP không duy trì trạng thái.
 
@@ -52,15 +52,16 @@ PEAR là viết tắt của **PHP Extension and Application Repository**. Mục 
 
 PEAR  nó cung cấp:
 
-• Một thư viện có cấu trúc các mã nguồn mở cho người dùng PHP
-• Một hệ thống phân phối và đóng gói mã nguồn
-• Một phong cách chuẩn viết mã trong PHP
-• PHP Foundation Classes (PFC)
-• PHP Extension Community Library (PECL)
+- Một thư viện có cấu trúc các mã nguồn mở cho người dùng PHP.
+- Một hệ thống phân phối và đóng gói mã nguồn
+- Một phong cách chuẩn viết mã trong PHP
+- PHP Foundation Classes (PFC)
+- PHP Extension Community Library (PECL)
 
 ### 4. Giải thích sự khác biệt giữa $message và $$message?
 
 | $message | $$message |
+|----------|-----------|
 | Là biến thông thường | Là biến tham chiếu |
 | Có tên và lưu trữ giá trị cố định | Lưu trữ dữ liệu về biến |
 | Lưu trữ dữ liệu cố định | Dữ liệu được lưu có thể thay đổi khi giá trị của biến thay đổi |
@@ -115,11 +116,11 @@ PHP là ngôn ngữ server-side trong khi HTML là ngôn ngữ client-side. Vì 
 
 ### 11. @ trong PHP là gì?
 
-PHP có một toán tử kiểm soát lỗi, tức là ký hiệu (`@`). Bất cứ khi nào nó được sử dụng với một biểu thức, bất kỳ thông báo lỗi nào có thể được tạo ra bởi biểu thức đó sẽ bị bỏ qua.
+PHP có một toán tử kiểm soát lỗi, tức là ký hiệu (`@`). Bất cứ khi nào nó được sử dụng với một biểu thức, thì tất cả thông báo lỗi nào có thể được tạo ra bởi biểu thức đó sẽ bị bỏ qua.
 
 ### 12. Giải thích về Parser trong PHP?
 
-Một PHP Parser là một phần mềm chuyển mã nguồn PHP thành code mà máy tính có thể hiểu được. Tức là bất cứ tập hợp mà tập hướng dẫn mà ta đưa ra dưới dạng code PHP đều được trình phân tích cú pháp chuyển đổi thành dạng máy có thể đọc được.
+Một PHP Parser là một phần mềm chuyển mã nguồn PHP thành code mà máy tính có thể hiểu được. Tức là bất cứ tập hướng dẫn nào mà ta đưa ra dưới dạng code PHP đều được trình phân tích cú pháp chuyển đổi thành dạng máy có thể đọc được.
 
 Ta có thể parse code PHP bằng cách dùng hàm `token_get_all()`.
 
@@ -209,6 +210,254 @@ setcookie(name, value, expire, path, domain, secure, httponly);
 Ví dụ:
 
 ```php
-setcookie(“instrument_selected”, “guitar”)
+setcookie("instrument_selected", "guitar")
 ```
 
+### 21. Thuật ngữ "Escaping to PHP" là gì?
+
+PHP parsing engine cần một cách để phân biệt code PHP với các phần tử trang khác. Cơ chế để thực hiện điều này gọi là "escaping to PHP". Escaping có nghĩa là giảm sự trùng lặp khi dùng chuỗi.
+
+Ví dụ, khi bạn khai báo một chuỗi trong cặp dấu nháy đơn hoặc kép:
+
+"Hello, Interviewer"
+
+Nhưng nếu ta thêm dấu nháy vào chuỗi:
+
+"Hello "Interviewer""
+
+Bây giờ ta gặp vấn đề - trình thông dịch sẽ không hiểu chuỗi kết thúc ở đấu. Nếu ta vẫn muốn giữ dấu nháy ta có hai cách. Hoặc là ta sử dụng dấu nháy đơn bọc bên ngoài.
+
+'Hello "Interviewer"'
+
+Hoặc ta dùng escape
+
+"Hello \"Interviewer\""
+
+Bất kỳ dấu nháy kép nào đứng trước dấu gạch chéo đều được escape và được hiểu là một phần giá trị của chuỗi.
+
+### 22. Giải thích về Path Traversal?
+
+Path traversal hay còn gọi là Directory traversal là một lỗ hổng bảo mật cho phép kẻ tấn công đọc các file TÙY Ý trên server. Nó dẫn đến việc bị lộ thông tin nhạy cảm của ứng dụng web như thông tin đăng nhập, một số file hoặc thư mục hệ điều hành.
+
+Sở dĩ nói là TÙY Ý, bởi vì trên server sẽ có sự phân quyền và sở hữu đối với các file và folder, admin sẽ sử dụng Access Control List để quy định ai được sử dụng những file này nhằm mục đích gì (read, write, excute). Còn Path Traversal sẽ thực hiện hành vi truy cập vào các file hay folder bị hạn chế truy cập như thế này.
+
+Ví dụ: ta có một button `Show File` dùng để mở một vài URL.
+
+Với tấn công path traversal kiểu cổ điển, kẻ tấn công có thể truy cập file hệ thống `/etc/paswd` (giả sử là hệ thống Unix/Linux). Nếu ứng dụng nhận giá trị của tham số file từ URL và chuyển nó đến lệnh gọi hệ thống, nó sẽ đi qua đường dẫn tương đối `../../etc/passwd` bắt đầu từ `/var/www` và yêu cầu hệ thống tải file password.
+
+Kỹ thuật này còn được gọi là **dot-dot-slash**, vì nó thường ký tự `../` hoặc `\..` trên Windows để lên đường dẫn cao hơn.
+
+### 23. Phương thức final và lớp final là gì?
+
+Từ khoá `final` trong khai báo phương thức chỉ ra rằng phương thức đó sẽ không thể bị ghi đè bởi lớp con. Một lớp được khai báo là final sẽ không thể có lớp con.
+
+Điều này đặc biệt hữu ích khi chúng ta đang tạo một lớp bất biến như lớp String. Chỉ các lớp và phương thức mới có thể được khai báo là final, các thuộc tính không thể được khai báo là final.
+
+## Câu hỏi phỏng vấn PHP cho Experienced
+
+### 24. Các bước tạo cơ sở dữ liệu dùng PHP và MySQL?
+
+4 bước để tạo cơ sở dữ liệu MySQL trong PHP:
+- Thiết lập kết nối đến MySQL Server bằng PHP script.
+- Kết nối được xác thực. Nếu nó thành công, ta có thể viết một truy vấn để kiểm thử.
+- Truy vấn tạo cơ sở dữ liệu là input và được lưu dạng biến chuỗi sau đó.
+- Sau đó, truy vấn tạo lần lượt được thực thi.
+
+### 25. Hàm session_start() và session_destroy() trong PHP?
+
+Hàm session_start () được sử dụng để bắt đầu một phiên mới. Ngoài ra, nó có thể tiếp tục một phiên hiện có đang bị dừng. 
+
+```php
+session_start();
+```
+
+Hàm session_destroy() dùng để huỷ tất cả biến phiên.
+
+```php
+<?php
+session_start();
+session_destroy();
+?>
+```
+
+### 26. Memcache và Memcached trong PHP là gì?
+
+Memcached là một daemon bộ nhớ đệm hiệu quả được thiết kế đặc biệt để giảm tải cơ sở dữ liệu trong các ứng dụng web động. Memcache cung cấp giao diện hướng đối tượng và thủ tục tiện dụng cho Memcached.
+
+Memcache là không gian lưu trữ bộ nhớ. Chúng tôi có thể chạy Memcache trên một hoặc một số máy chủ. Do đó, có thể chia sẻ một phiên bản Memcache duy nhất giữa nhiều dự án.
+
+Có thể cấu hình một ứng dụng client để nói chuyện với một tập hợp các trường hợp riêng biệt. Do đó, nó được phép chạy hai tiến trình Memcache khác nhau trên cùng một máy chủ. Mặc dù chạy trên cùng một máy chủ, cả hai quy trình Memcache như vậy vẫn độc lập, trừ khi có một phân vùng dữ liệu
+
+### 27. Các cách khác nhau để xử lý tập kết quả của MySQL trong PHP?
+
+Có 4 cách xử lý tập kết quả MySQL trong PHP là:
+- `mysqli_fetch_array()`: Trả về hàng hiện tại của tập kết quả dưới dạng một mảng kết hợp, một mảng số hoặc cả hai.
+- `mysqli_fetch_assoc()`: Trả về hàng hiện tại của tập hợp kết quả dưới dạng một mảng kết hợp.
+- `mysqli_fetch_object()`: Trả về hàng hiện tại của tập hợp kết quả dưới dạng một đối tượng.
+- `mysqli_fetch_row()`: Trả về hàng kết quả dưới dạng một mảng được liệt kê.
+
+### 28. Cách kết nối URL trong PHP?
+
+Bất kỳ URL nào cũng có thể kết nối đến PHP dễ dàng bằng cách dùng thư viện cURL. Nó là một thư viện mặc định với cài đặt chuẩn của PHP. 
+
+Thuật ngữ cURL là viết tắt của client-side URL. cURL sử dụng libcurl(client-side URL Transfer Library). Nó hỗ trợ các phương thức như FTP, FTPS, HTTP/1, HTTP POST, HTTP PUT, HTTP proxy, HTTPS, IMAP, Kerberos,... Nó cho phép bạn kết nối một URL và truy xuất hiển thi thông tin của trang web đó (như nội dung HTML của trang, HTTP Header hay dữ liệu liên kết với chúng).
+
+#### Các bước kết nối URL sử dụng PHP cURL POST:
+
+1. Tạo phiên cURL
+2. Khai báo URL mà bạn muốn POST. Ta có thể nhập trực tiếp URL này vào tham số tuỳ chọn chèn URL hoặc ta có thể gán nó cho một đối tượng.
+3. Bây giờ, xác định tuỳ chọn cURL mà bạn muốn thực thi với POST.
+4. Sau khi thiết lập tất cả hàm, thì thực thi cURL của chúng ta.
+5. Sau đó đóng cURL và lặp lại đối tượng để kiểm tra phản hồi của chúng.
+
+```php
+//Step 1 To initialize curl
+    $ch = curl_init();
+//Step 2 To set url where you want to post
+    $url = 'http://www.localhost.com';
+//Step 3 Set curl functions which are needs to you
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_POST,true);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch,CURLOPT_POSTFIELD,'postv1 = value1&postv2 = value2');
+//Step 4 To execute the curl
+    $result = curl_exec($ch);
+//Step 5 Close curl
+    curl_close($ch);
+```
+
+### 29. Tạo API cho PHP?
+
+**Bước 1 - Tạo cơ sở dữ liệu**
+
+```sql
+CREATE DATABASE phptest
+```
+
+**Bước 2 - Tạo bảng:** Sau khi tạo cơ sở dữ liệu, bạn phải tạo một bảng với dữ liệu giả. Để tạo một bảng, hãy chạy truy vấn đưa ra bên dưới:
+
+```sql
+CREATE TABLE IF NOT EXISTS `transactions` 
+(
+    `id` int(20) NOT NULL AUTO_INCREMENT,
+    `order_id` int(50) NOT NULL,
+    `amount` decimal(9,2) NOT NULL,
+    `response_code` int(10) NOT NULL,
+    `response_desc` varchar(50) NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `order_id` (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+```
+
+**Bước 3 - Kết nối đến cơ sở dữ liệu:** Tạo file db.php và dán đoạn code bên dưới vào nó.
+
+```php
+<?php
+    // Enter your Host, username, password, database below.
+    $con = mysqli_connect("localhost","root","","phptest");
+    if (mysqli_connect_errno())
+    {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        die();
+    }
+?>
+```
+
+**Bước 4 - Tạo file REST API:** Tạo file api.php và tiếp tục dạn đoạn code bên dưới vào.
+
+```php
+<?php
+    header("Content-Type:application/json");
+    if (isset($_GET['order_id']) && $_GET['order_id']!="") {
+        include('db.php');
+        $order_id = $_GET['order_id'];
+        $result = mysqli_query($con,
+            "SELECT * FROM `transactions` WHERE order_id=$order_id");
+        if(mysqli_num_rows($result)>0) {
+            $row = mysqli_fetch_array($result);
+            $amount = $row['amount'];
+                $response_code = $row['response_code'];
+                $response_desc = $row['response_desc'];
+            response($order_id, $amount, $response_code, $response_desc);
+            mysqli_close($con);
+        }
+        else {
+            response(NULL, NULL, 200,"No Record Found");
+        }
+    }
+    else {
+        response(NULL, NULL, 400,"Request is invalid");
+    }
+
+    function response($order_id,$amount,$response_code, $response_desc) {
+        $response['order_id'] = $order_id;
+        $response['amount'] = $amount;
+        $response['response_code'] = $response_code;
+            $response['response_desc'] = $response_desc;
+        $json_response = json_encode($response);
+        echo $json_response;
+    }
+?>
+```
+
+Đoạn code trên sẽ chấp nhận yêu cầu GET và trả về kết quả đầu ra ở định dạng JSON.
+
+Bây giờ bạn có thể nhận được đầu ra như dưới đây:
+
+![](./assets/Output.png)
+
+### 30. PDO là gì?
+
+PHP Data Objects (PDO) là một lớp truy xuất cơ sở dữ liệu cung cấp một phương pháp thống nhất để làm việc với nhiều loại cơ sở dữ liệu khác nhau. Khi làm việc với PDO bạn sẽ không cần phải viết các câu lệnh SQL cụ thể mà chỉ sử dụng các phương thức mà PDO cung cấp, giúp tiết kiệm thời gian và làm cho việc chuyển đổi Hệ quản trị cơ sở dữ liệu trở nên dễ dàng hơn, chỉ đơn giản là thay đổi Connection String (chuỗi kết nối CSDL).
+
+Bạn chỉ cần nắm rõ API mà PDO cung cấp là có thể làm việc được với nhiều Hệ quản trị cơ sở dữ liệu khác nhau như MySQL, SQLite, PostgreSQL, Microsoft SQL Server,... và có thể dễ dàng chuyển đổi chúng.
+
+### 31. Sự khác biệt giữa GET và POST?
+
+| GET | POST |
+|-----|------|
+| Phương thức GET dùng để yêu cầu dữ liệu từ một nguồn cụ thể | Phương thức POST dùng để gửi dữ liệu đến server như một package trong một giao tiếp riêng biệt với script xử lý |
+| Dữ liệu được gửi dưới dạng tham số URL là chuỗi các cặp tên-giá trị được phân tách bằng dấu và (&) | Dữ liệu được gửi trong POST sẽ không hiện trong URL |
+| Phương thức GET không thể được dùng để gửi dữ liệu nhị phân như hình ảnh hoặc tài liệu word | Phương thức POST có thể được sử dụng để gửi ASCII cũng như dữ liệu nhị phân như hình ảnh và tài liệu văn bản |
+| Không được sử dụng phương pháp này nếu bạn có bất kỳ thông tin nhạy cảm nào như mật khẩu được gửi đến server | Thông tin nhạy cảm có thể được gửi bằng phương pháp này |
+| Nó có thể được sử dụng để gửi form mà người dùng có thể đánh dấu kết quả | Không thể đánh dấu các submission bằng form với POST |
+| Bạn chỉ có thể sử dụng phương pháp này cho dữ liệu không an toàn | Dữ liệu được gửi qua phương thức này được bảo mật |
+| Phương thức GET không an toàn vì các tham số có thể được lưu trữ trong log server web hoặc lịch sử trình duyệt | Phương pháp POST an toàn hơn GET vì các tham số không được lưu trữ trong log server web hoặc lịch sử trình duyệt |
+
+### 32. Type hinting trong PHP là gì?
+
+Trong PHP, kiểu gợi ý - type hinting, được sử dụng để chỉ định kiểu dữ liệu mong đợi (mảng, đối tượng, interface, v.v.) cho một đối số trong khai báo hàm. Nó đã được giới thiệu trong PHP5.
+
+Bất cứ khi nào hàm được gọi, PHP sẽ kiểm tra xem các đối số có thuộc kiểu người dùng mong muốn hay không. Nếu đối số không thuộc kiểu được chỉ định, sẽ hiển thị lỗi và chương trình sẽ không thực thi.
+
+Nó hữu ích trong việc tổ chức code tốt hơn và cải thiện thông báo lỗi.
+
+```php
+//sendEmail() function argument $email is type hinted of Email Class. It means to call this function you must have to pass an email object otherwise an error is generated.
+<?php
+    function sendEmail (Email $email)
+    {
+      $email->send();
+    }
+?>
+```
+
+### 33. Làm thế nào để dừng việc thực thi script trong PHP?
+
+Để chấm dứt việc thực thi script trong PHP, hàm `exit()` được sử dụng. Nó là một hàm có sẵn để xuất ra một thông báo và sau đó kết thúc script hiện tại.
+
+Thông báo mà bạn muốn hiển thị được chuyển dưới dạng tham số cho hàm `exit()`. Việc kết thúc script sẽ được thực hiện bởi hàm này sau khi hiển thị thông báo. Nó là một tên bí danh của hàm `die()`. Nó không trả lại bất kỳ giá trị nào.
+
+Cú pháp: `exit(mesage)`
+
+Trong đó message là một tham số được truyền dưới dạng một đối số. Nó xác định một thông báo hoặc trạng thái.
+
+Ví dụ:
+
+```php
+<?php
+    $site = "https://www.interviewbit.com//";
+    fopen($site,"r")
+    or exit("Unable to connect to $site");
+?>
+```
