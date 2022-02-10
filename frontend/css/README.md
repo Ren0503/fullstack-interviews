@@ -15,24 +15,23 @@ CSS3 là bản nâng cấp mới nhất của CSS với mục đích mở rộng
 ## Câu hỏi phỏng vấn CSS cho Fresher
 ### 1. Mô hình hộp trong CSS là gì? Thuộc tính CSS nào là một phần của nó?
 
-Các phần tử trong HTML có thể được coi là những chiếc hộp. Trong CSS, thuật ngữ “mô hình hộp” được dùng để nói về việc thiết kế, dàn layout.
+Các phần tử trong HTML có thể được coi là những chiếc hộp. Trong CSS, thuật ngữ "mô hình hộp" được dùng để nói về việc thiết kế, xây dựng layout.
 
-Về cơ bản mô hình hộp CSS là một chiếc hộp bao xung quanh phần tử HTML, gồm lề, đường viền, padding và nội dung bên trong. Hình ảnh dưới đây cho thấy vị trí và mối liên hệ giữa các thành phần này.
+Về cơ bản mô hình hộp CSS là một chiếc hộp bao xung quanh phần tử HTML, gồm margin, border, padding và nội dung bên trong. Hình ảnh dưới đây cho thấy vị trí và mối liên hệ giữa các thành phần này.
 
 ![](./assets/Box_Model_in_CSS.jpg)
 
-* **Content** - nội dung trong hộp, nơi hiển thị văn bản và hình ảnh
-* **Padding** - phần khoảng trắng xung quanh nội dung, trong suốt
-* **Border** - đường viền xung quanh nội dung và padding
-* **Margin** - phần lề bên ngoài đường viền, trong suốt
+* **Content** - nội dung trong hộp, nơi hiển thị văn bản và hình ảnh.
+* **Padding** - phần khoảng trắng xung quanh nội dung.
+* **Border** - đường viền xung quanh nội dung và padding.
+* **Margin** - phần lề bên ngoài đường viền.
 
 ### 2. Ưu điểm của CSS?
 
-- CSS giúp bạn thực hiện định kiểu mọi thứ mình muốn lên một file khác. Nhờ vậy, bạn có thể tạo ra được những phong cách phù hợp rồi mới tích hợp các file CSS lên trên cùng file của HTML. Điều này sẽ giúp cho HTML được makup rõ ràng nhất và người dùng có thể quản lý website dễ dàng hơn. 
-- Sử dụng CSS sẽ giúp bạn không cần thực hiện lặp lại các mô tả cho từng thành phần. Từ đó, bạn có thể tiết kiệm được tối đa thời gian làm việc với nó, làm code ngắn lại giúp kiểm soát dễ dàng hơn các lỗi không đáng có. 
-- CSS giúp người dùng nhiều styles trên một trang web HTML nên khả năng điều chỉnh trang của bạn trở nên vô hạn. 
-- Nhờ CSS mà mã nguồn của trang Web sẽ được tổ chức gọn gàng hơn, trật tự hơn, nội dung trang ư web sẽ được tách bạch hơn trong việc định dạng hiển thị. Từ đó, quá trình cập nhập nội dung sẽ dễ dàng hơn và có thể hạn chế tối thiểu làm rối cho mã HTML. 
-- CSS tạo ra nhiều kiểu dáng nên có thể được áp dụng với nhiều trang web, từ đó giảm tránh việc lặp lại các định dạng của các trang web giống nhau. 
++ Tiết kiệm thời gian, công sức trong việc code web/ xây dựng giao diện; kiểm soát dễ dàng các lỗi không đáng có trên web
++ CSS cung cấp nhiều thuộc tính cụ thể hơn HTML giúp tạo ra nhiều style khác nhau và có thể áp dụng được cho nhiều web.
++ CSS giúp tốc độ load trang web nhanh chóng hơn, dễ dàng bảo trì, tương thích với các thiết bị di động.
++ CSS thiết lập nhiều kiểu chữ khác nhau giúp website của bạn trở nên khác biệt hơn; tự động sắp xếp chữ khi chèn hình ảnh (thuộc tính shape-outsite); đặt nội dung theo các chiều khác nhau/ thay đổi chế độ viết theo mong muốn của mình (thuộc tính write-mode); có thể tạo chữ lớn ở đầu dòng (thuộc tính first-letter)…
 
 ### 3. Hạn chế của CSS?
 
@@ -865,4 +864,73 @@ Inline style sẽ được ưu tiên so với ID rồi đến giá trị lớp (
 
 Progressive rendering là một kỹ thuật sử dụng để cải thiện hiệu suất trang web (cụ thể là cải thiện thời gian tải web) để render nội dung cho hiển thị nhanh nhất có thể.
 
-Ta có thể triển khai progressive rendering bằng cách lazy loading với hành ảnh. Ta sử dụng Intersection Observer API cho lazy load ảnh. API làm việc 
+Ta có thể triển khai progressive rendering bằng cách lazy loading với hình ảnh. Ta sử dụng Intersection Observer API cho lazy load ảnh. API giúp đơn giản hoá việc phát hiện một phần tử đi vào viewport và thực hiện hành động khi phần tử đó thực hiện hành động. Khi image vào viewport, ta mới bắt đầu tải ảnh. 
+
+Ví dụ:
+
+```html
+<img class="lazy"
+src="placeholder-image.jpg"
+data-src="image-to-lazy-load-1x.jpg"
+data-srcset="image-to-lazy-load-2x.jpg 2x, image-to-lazy-load-1x.jpg 1x"
+alt="I'm an image!">
+```
+
+```js
+document.addEventListener("DOMContentLoaded", function() {
+	var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+	if ("IntersectionObserver" in window) {
+		let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+			entries.forEach(function(entry) {
+				if (entry.isIntersecting) {
+				let lazyImage = entry.target;
+				lazyImage.src = lazyImage.dataset.src;
+				lazyImage.srcset = lazyImage.dataset.srcset;
+				lazyImage.classList.remove("lazy");
+				lazyImageObserver.unobserve(lazyImage);
+				}
+			});
+		});
+
+		lazyImages.forEach(function(lazyImage) {
+			lazyImageObserver.observe(lazyImage);
+		});
+	} else {
+		// Possibly fall back to event handlers here
+	}
+});
+```
+
+### 42. Lợi thế của dùng translate() thay vì position absolute?
+
+Translate() không làm cho trình duyệt kích hoạt vẽ lại layout, mà chỉ thực hiện soạn thảo. Còn position: absolute làm trình duyệt phải vẽ lại các luồng DOM. Thế nền `translate()` đem về hiệu suất tốt hơn.
+
+### 44. Style nào sẽ được tải và áp dụng trước trong code sau?
+
+```html
+<head>
+	<link href="style1.css" rel=" stylesheet">
+	<link href="style2.css" rel="stylesheet">
+</head>
+```
+
+Style1.css sẽ được áp dụng trước vì CSS thực hiện theo thứ tự xuất hiện trong HTML.
+
+### 44. Làm sao để biết trình duyệt có hỗ trợ một tính năng nhất định không?
+
+Sử dụng `@supports` trong CSS để biết trình duyệt có hỗ trợ tính năng hay không.
+
+```css
+@supports (display: grid) {
+	div {
+		display: grid;
+	}
+}
+```
+
+### 45. Cách position absolute hoạt động?
+
+Absolute là một cơ chế định vị mạnh mẽ cho phép người dùng đặt bất kỳ phần tử ở đâu vào một vị trí chính xác. Thuộc tính CSS như `right`, `left`, `top`, `bottom` sẽ xác định vị trí chính xác cần đặt phần tử. Trong absolute cần xem xét các điểm sau:
+- Các phần tử được áp dụng absolute sẽ bị xoá khỏi luồng thông thường của HTML document.
+- Các phần tử sẽ được  relative sẽ 

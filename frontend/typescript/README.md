@@ -528,4 +528,18 @@ let foo = "this is a string";
 console.log(typeof foo);  // "string"
 ```
 
-### 26. 
+### 26. Contextual Typing là gì?
+
+Khi trình biên dịch TypeScript sử dụng vị trí (hoặc ngữ cảnh) của một biến để suy ra kiểu của nó, nó được gọi là nhập theo ngữ cảnh (Contextual Typing).
+
+Trong ví dụ sau, TypeScript sử dụng thông tin kiểu hàm `Window.onmousedown` để suy ra kiểu của biểu thức hàm ở phía bên phải của phép gán. Điều này cho phép nó suy ra kiểu của tham số `e`, tham số này có thuộc tính button nhưng không có thuộc tính có tên `foo`.
+
+```ts
+window.onmousedown = function (e) {
+    console.log(e.button); //<- OK
+    console.log(e.foo); //<- Error!
+};
+```
+
+### 27. noImplicitAny là gì?
+
