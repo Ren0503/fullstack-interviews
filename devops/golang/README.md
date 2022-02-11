@@ -64,3 +64,46 @@ Go là ngôn ngữ case-sensitive.
 
 ### 5. Go Pointer là gì?
 
+Con trỏ (pointer) trong Go là các biến giữ địa chỉ của biến khác. Con trỏ hỗ trợ hai toán tử là:
+- Toán tử `*`: còn được gọi là toán tử tham chiếu được dùng để truy cập giá trị trong địa chỉ được lưu trữ bởi con trỏ.
+- Toán tử `&`: còn được gọi là toán tử địa chỉ được dùng để trả về địa chỉ của biến được lưu trữ bởi con trỏ.
+
+Điều này được minh họa trong sơ đồ dưới đây. Ở đây, chúng ta có một biến `x` được gán cho `100`. Chúng ta lưu trữ `x` trong địa chỉ bộ nhớ `0x0201`. Bây giờ, khi chúng ta tạo một con trỏ tên `Y` cho biến `x`, chúng ta gán giá trị là `&x` để lưu trữ địa chỉ của biến `x`. Biến con trỏ được lưu trong địa chỉ `0x0208`. Bây giờ để lấy giá trị được lưu trong địa chỉ được lưu trong con trỏ, chúng ta chỉ cần viết `int z: = * Y`.
+
+![](./assets/Golang_pointers.png)
+
+Con trỏ được dùng cho các mục đích sau:
+- Cho phép hàm thay đổi trực tiếp giá trị tham số được truyền cho nó. 
+- Để tăng hiệu suất trong các trường hợp cạnh khi có cấu trúc dữ liệu lớn. Sử dụng con trỏ giúp sao chép dữ liệu lớn một cách hiệu quả.
+- Giúp biểu thị sự thiếu giá trị. Ví dụ: trong khi giải nén dữ liệu JSON vào một struct, sẽ rất hữu ích khi biết nếu khóa có hay không có thì khóa hiện diện với giá trị 0.
+
+### 6. Chuỗi ký tự trong Golang?
+
+Chuỗi ký tự là những biến lưu trữ các hằng chuỗi có thể là một ký tự đơn lẻ hoặc có thể là kết quả của việc nối một chuỗi ký tự. Go cung cấp hai loại chuỗi ký tự:
+- Chuỗi ký tự thuần: Ở đây giá trị của chuỗi không bị gián đoạn giữa các dấu backqoute(`).
+
+```go
+`interview`
+```
+
+- Chuỗi ký tự thông dịch: ở đây các chuỗi ký tự được đặt trong dấu hoặc kép, giá trị có thể xuống dòng.
+
+```go
+"Interviewbit
+Website"
+```
+
+### 7. Cú pháp vòng lặp for trong Golang?
+
+Cú pháp vòng lặp for như sau:
+
+```go
+for [condition |  ( init; condition; increment ) | Range]  
+{  
+   statement(s);  
+   //more statements
+}
+```
+
+Trong đó:
+
