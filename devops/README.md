@@ -81,14 +81,14 @@ Dựa vào hình trên, ta có cái nhìn tổng thể về quy trình CI:
 - Các nhà phát triển thường xuyên kiểm tra code trong không gian làm việc cục bộ của họ và làm việc trên các tính năng họ được giao.
 - Sau khi hoàn tất công việc, code được commit và push lên repository chung từ xa được xử lý bằng cách sử dụng các công cụ kiểm soát phiên bản hiệu quả như git.
 - CI Server theo dõi các thay đổi được thực hiện đối với repository chung và nó pull các thay đổi ngay khi phát hiện ra chúng.
-- Sau đó, CI Server sẽ kích hoạt việc build code và chạy các unit test và tích hợp nếu được thiết lập.
+- Sau đó, CI Server sẽ kích hoạt việc build code và chạy các kiểm thử đơn vị và kiểm tra tích hợp nếu được thiết lập.
 - Nhóm được thông báo về kết quả build. Trong trường hợp không thành công, nhóm phải làm việc để khắc phục sự cố càng sớm càng tốt và sau đó quá trình lặp lại.
 
 ### 8. Tại sao lại cần tích hợp liên tục?
 
 Bằng cách kết hợp Tích hợp liên tục cho cả quá trình phát triển và thử nghiệm, người ta nhận thấy rằng chất lượng phần mềm đã được cải thiện và thời gian cung cấp các tính năng của phần mềm đã giảm đáng kể.
 
-Điều này cũng cho phép nhóm phát triển phát hiện và sửa lỗi ở giai đoạn ban đầu vì mỗi commit đối với repository chung được build tự động và chạy dựa trên các trường hợp thử nghiệm đơn vị và tích hợp.
+Điều này cũng cho phép nhóm phát triển phát hiện và sửa lỗi ở giai đoạn ban đầu vì mỗi commit đối với repository chung được build tự động và chạy dựa trên các trường hợp kiểm thử đơn vị và kiểm tra tích hợp.
 
 ### 9. Kiểm tra liên tục là gì?
 
@@ -103,3 +103,189 @@ Thực hiện điều này sẽ tăng tốc đáng kể quy trình làm việc, 
 - Giảm thời gian trung bình cần thiết để hồi phục sau sự cố.
 - Tăng tần suất triển khai khi việc triển khai diễn ra.
 - Giảm tỷ lệ triển khai không thành công.
+
+### 11. Các giai đoạn trong DevOps?
+
+Có 6 giai đoạn chính trong DevOps:
+
+#### Planning:
+
+Đây là giai đoạn đầu tiên của vòng đời DevOps bao gồm sự hiểu biết thấu đáo về dự án để cuối cùng phát triển sản phẩm tốt nhất. Khi được thực hiện đúng cách, giai đoạn này cung cấp các đầu vào khác nhau cần thiết cho các giai đoạn development và operating. Giai đoạn này cũng giúp tổ chức đạt được sự rõ ràng về quá trình phát triển và quản lý dự án.
+
+Công cụ: Google Apps, Asana, Microsoft Team,...
+
+#### Development:
+
+Giai đoạn planning được theo sau bởi giai đoạn Development, trong đó dự án được xây dựng bằng cách phát triển cơ sở hạ tầng hệ thống, phát triển các tính năng bằng cách viết code, sau đó xác định các trường hợp test và quy trình tự động hóa. Các nhà phát triển lưu trữ code của họ trong một trình quản lý code được gọi là repository từ xa, hỗ trợ cộng tác nhóm bằng cách cho phép xem, sửa đổi và tạo phiên bản của code.
+
+Công cụ như git, IDE như Eclipse, VS Code và các công nghệ sử dụng có thể là Java, Nodejs,...
+
+#### Continuous Integration (CI):
+
+Giai đoạn này là trung tâm của toàn bộ vòng đời DevOps. Đó là một thực tiễn phát triển phần mềm, trong đó các developer yêu cầu cam kết thay đổi code nguồn thường xuyên hơn. Việc này có thể diễn ra hàng ngày hoặc hàng tuần. Sau đó, mọi commit được build và điều này cho phép phát hiện sớm các vấn đề nếu chúng có mặt. Code xây dựng không chỉ liên quan đến việc biên dịch, mà nó còn bao gồm kiểm thử đơn vị, kiểm tra tích hợp, xem xét mã và đóng gói.
+
+Code hỗ trợ chức năng mới liên tục được tích hợp với code hiện có. Do đó, có sự phát triển không ngừng của phần mềm. Code cập nhật cần được tích hợp liên tục và thông suốt với hệ thống để phản ánh các thay đổi tới người dùng cuối.
+
+Công cụ như Jenkins, CircleCI,...
+
+#### Deployment:
+
+DevOps hỗ trợ quá trình tự động hóa triển khai bằng cách sử dụng các công cụ và script có mục tiêu cuối cùng là tự động hóa quy trình bằng cách kích hoạt tính năng. Tại đây, các dịch vụ đám mây có thể được sử dụng như một phương tiện hỗ trợ nâng cấp từ quản lý cơ sở hạ tầng hữu hạn lên quản lý tối ưu hóa chi phí với tiềm năng tài nguyên vô hạn.
+
+Công cụ như Microsoft Azure, Amazon Web Services, Heroku,..
+
+#### Operations:
+
+Giai đoạn này thường xảy ra trong suốt vòng đời của sản phẩm/phần mềm do những thay đổi của cơ sở hạ tầng động. Điều này cung cấp cho nhóm các cơ hội để tăng tính khả dụng, khả năng mở rộng và chuyển đổi hiệu quả của sản phẩm.
+
+Công cụ như Loggly, BlueJeans, Appdynamics,...
+
+#### Monitoring:
+
+Là một giai đoạn liên quan đến tất cả các yếu tố hoạt động của toàn bộ quy trình DevOps, nơi thông tin quan trọng về việc sử dụng phần mềm được ghi lại và xử lý cẩn thận để tìm ra xu hướng và xác định các khu vực có vấn đề. Thông thường, việc giám sát được tích hợp trong khả năng hoạt động của ứng dụng phần mềm.
+
+Công cụ như Nagios, Splunk,...
+
+### 12. DevOps khác với Agile như thế nào?
+
+![](./assets/Agile_Methodology.jpg)
+
+| |	Agile | DevOps |
+|-|-|-|
+| Định nghĩa | Agile đề cập đến một cách tiếp cận lặp đi lặp lại, tập trung vào sự cộng tác, phản hồi của khách hàng và các bản phát hành nhỏ, nhanh chóng. | DevOps được coi là một thực tế đưa các nhóm phát triển và nhóm hoạt động lại gần nhau. |
+| Mục đích | Agile giúp quản lý các dự án phức tạp. | Mô hình chính của DevOps là quản lý các quy trình kỹ thuật từ đầu đến cuối. |
+| Công việc	| Mô hình agile tập trung vào những thay đổi liên tục. | DevOps tập trung vào kiểm thử và phân phối liên tục. |
+| Thực hiện	| Agile có thể được thực hiện dựa trên những chiến lược có sẵn như sprint, safe and scrum. | Mục tiêu chính của DevOps là tập trung vào cộng tác, vì vậy nó không có bất kỳ framework được chấp nhận phổ biến nào. |
+| Kỹ năng team | Phát triển nhanh, nhấn mạnh đào tạo tất cả các thành viên trong nhóm để có kỹ năng đồng đều. | DevOps chia và dàn trải kỹ năng giữa các nhóm phát triển và vận hành.
+| Team size	| Nhóm nhỏ là cốt lõi của Agile.Khi nhóm nhỏ hơn, số người càng ít thì họ càng di chuyển nhanh hơn. | Kích thước nhóm tương đối lớn. |
+| Thời lượng | Quá trình agile được quản lý theo đơn vị "sprints".Thời gian này ít hơn một tháng cho mỗi giai đoạn. | DevOps tập trung vào thời giạn release những bản phát hành chính thức. Mục tiêu là bàn giao code sản phẩm hang ngày, hàng giờ. |
+| Phản hồi | Phản hồi được đưa ra bởi khách hàng. | Phản hồi đến từ nhóm nội bộ. |
+| Mục tiêu | Phát triển phần mềm. | Giải pháp kinh doanh đầu cuối và giao hàng nhanh. |
+| Nguyên tắc Shift-Left | Tận dụng shift-left. 'Shift Left' có nghĩa là thay đổi từ phải sang trái bắt nguồn từ 'Giai đoạn Kiểm thử' hoặc rõ hơn là liên quan đến Kiểm thử ở mọi giai đoạn và kiểm thử liên tục trong suốt quá trình phát triển phần mềm . Hỗ trợ việc tạo thành các nhóm Scrum Agile, bao gồm các QA có các vai trò khác nhau. | Tận dụng cả hai, cả trái và phải (shift left và shift right). |
+| Nhấn mạnh	| Agile nhấn mạnh vào phương pháp phát triển phần mềm để phát triển phần mềm. Khi phần mềm được phát triển và phát hành, team agile sẽ không quan tâm điều gì xảy ra với nó. | DevOps là tất cả về việc lấy phần mềm đã sẵn sàng để phát hành và triển khai nó một cách đáng tin cậy và an toàn. |
+| Chức năng xuyên suốt | Bất kỳ thành viên nhóm nào cũng có thể làm những gì cần thiết cho tiến độ của dự án. Ngoài ra, khi mỗi thành viên trong nhóm có thể thực hiện mọi công việc, nó làm tăng sự hiểu biết và liên kết giữa chúng.| Trong DevOps, các nhóm phát triển và các nhóm hoạt động riêng biệt. Vì vậy, giao tiếp khá phức tạp. |
+| Giao tiếp	| Scrum là phương pháp phổ biến nhất để triển khai phát triển phần mềm Agile. Cuộc họp scrum hàng ngày được thực hiện. | Giao tiếp trong DevOps liên quan đến thông số kỹ thuật và tài liệu thiết kế. Điều quan trọng là nhóm hoạt động phải hiểu đầy đủ về việc phát hành phần mềm và các hệ thống phần cứng / mạng để chạy quá trình triển khai. |
+| Tài liệu | Phương pháp Agile ưu tiên cho hệ thống có tài liệu hoàn chỉnh. Tuy nhiên, nó có thể sẽ không tốt khi bạn đang cố gắng chuyển mọi thứ sang một nhóm khác để triển khai.	| Trong DevOps, tài liệu quy trình là quan trọng nhất vì nó sẽ được gửi cho nhóm hoạt động để triển khai. Tự động khắc phục, giảm thiểu tác động của việc tài liệu mô tả thiếu.Tuy nhiên, trong sự phát triển của phần mềm phức tạp, thật khó để chuyển tất cả các kiến thức cần thiết. |
+| Tự động hóa | Agile không nhấn mạnh vào tự động hóa. Mặc dù nó hỗ trợ. | Tự động hóa là mục tiêu chính của DevOps. Nó hoạt động trên nguyên tắc để tối đa hóa hiệu quả khi triển khai phần mềm. |
+| Mục tiêu | Nó giải quyết khoảng cách giữa nhu cầu của khách hàng và các nhóm phát triển và thử nghiệm. | Nó giải quyết khoảng cách giữa phát triển, kiểm thử và Ops.|
+| Tiêu điểm | Nó tập trung vào sự sẵn sàng chức năng và phi chức năng. | Nó tập trung nhiều hơn vào sự sẵn sàng hoạt động và kinh doanh. |
+| Tầm quan trọng | Agile tập trung vào quá trình phát triển phần mềm. | Phát triển, kiểm thử và thực hiện tất cả đều quan trọng không kém. |
+| Tốc độ so với rủi ro | Các nhóm sử dụng Agile hỗ trợ thay đổi nhanh chóng và cấu trúc ứng dụng mạnh mẽ. | Trong phương pháp DevOps, các team phải đảm bảo rằng những thay đổi được thực hiện cho kiến trúc không tạo ra rủi ro cho toàn bộ dự án. |
+| Chất lượng | Agile sản xuất các bộ ứng dụng tốt hơn với các yêu cầu mong muốn. Nó có thể dễ dàng thích ứng theo những thay đổi được thực hiện về thời gian, trong suốt cuộc đời dự án. | DevOps, cùng với tự động và gỡ lỗi sớm, góp phần tạo ra chất lượng tốt hơn. Các nhà phát triển cần tuân theo các phương pháp tốt nhất về Mã hóa và Kiến trúc để duy trì các tiêu chuẩn chất lượng. |
+| Công cụ được sử dụng | JIRA, Bugzilla, Kanboard là một số công cụ Agile phổ biến. | Puppet, Chef, TeamCity OpenStack, AWS là các công cụ DevOps phổ biến. |
+| Thách thức | Phương pháp nhanh nhẹn cần các đội làm việc hiệu quả hơn, rất khó để phù hợp với mọi thời gian. | Quá trình DevOps cần phải phát triển, thử nghiệm và môi trường sản xuất để sắp xếp công việc. |
+| Lợi thế | Agile cung cấp chu kỳ phát triển ngắn hơn và phát hiện khiếm khuyết được cải thiện.	| DevOps hỗ trợ chu kỳ phát hành của Agile. |
+
+### 13. Sự khác biệt giữa Continuous Deployment và Continuous Delivery?
+
+| Continuous Deployment | Continuous Delivery |
+|-|-|
+| Việc triển khai đến môi trường production hoàn toàn tự động và không cần sự can thiệp của thủ công. | Trong quá trình này, cần một số can thiệp thủ công với sự chấp thuận của người quản lý để triển khai tới môi trường production. |
+| Tại đây, ứng dụng được chạy bằng cách làm theo bộ hướng dẫn tự động và không cần phê duyệt. | Ở đây, hoạt động của ứng dụng phụ thuộc vào quyết định của nhóm. |
+
+![](./assets/Difference_between_Continuous_Deployment_and_Continuous_Delivery.jpg)
+
+### 14. Vài lầm tưởng về DevOps?
+
+- DevOps là một tiến trình không phải văn hoá.
+- DevOps là Agile.
+- Nên có một nhóm DevOps riêng.
+- DevOps giải quyết mọi vấn đề.
+- DevOps cũng như các nhà phát triển chạy môi trường production.
+- DevOps tuân theo quản lý theo hướng phát triển.
+- DevOps không tập trung nhiều vào phát triển.
+- Vì chúng tôi là một tổ chức độc đáo, chúng tôi không theo số đông và do đó chúng tôi sẽ không triển khai DevOps.
+- Chúng tôi không có tập hợp người phù hợp, do đó chúng tôi không thể triển khai văn hóa DevOps. 
+
+### 15. Memcached là gì?
+
+Hiểu đơn giản Memcached là một ứng dụng Linux, tuy nhiên do Memcached là mã nguồn mở nên chúng đã được các nhà lập trình phát triển cho nền tảng Windows sử dụng. Hệ thống này có các ưu điểm nổi trội thu hút rất nhiều người sử dụng phổ biến hiện nay, cụ thể như:
+
+- Memcached là một cache, nó là một dịch vụ độc lập hoàn toàn như MySQL.
+- Memcached cung cấp cho người dùng khả năng lưu trữ đối tượng bất kỳ vào bên trong bộ nhớ RAM.
+- Memcached là một NoSQL được thiết kế với hiệu năng làm việc rất cao. Chúng hoạt động theo phương thức distrubuted memory object caching.
+- Memcached được tích hợp có tác dụng giảm tải cơ sở dữ liệu (database) cho ứng dụng, website và tối ưu tốc độ website của người dùng.
+
+##### Ưu điểm của Memcached
+
+- Ở mức nhỏ, mọi người thường sử dụng Memcached để làm nơi lưu trữ dữ liệu dùng để chia sẻ và thường là lưu session. Điều này vô cùng tiện lợi trong các kiểu loadbalancing đơn giản như là: nginx hay pound. Lúc này các bạn không phải quá lo lắng tới vấn đề persistence session.
+- Ở mức độ lớn hơn một chút, mọi người sử dụng Memcached để giảm thiểu read từ db cho các dữ liệu ít thay đổi và cần phải tính toán nhiều. Chúng còn được dùng để xử lý query phức tạp và tiêu tốn tài nguyên.
+- Ở mức độ cao hơn nữa, người ta thường sử dụng Memcached để shard db (chia nhỏ db theo row tức là theo chiều ngang). Tuy nhiên hiệu năng làm việc của nó vẫn còn gây tranh cãi khi so sánh với việc partition db.
+- Hơn nữa, các thể của Memcached còn được cài đặt trên cả hệ điều hành Windows và Linux.
+
+##### Hạn chế của Memcached
+
+Memcached không có cơ chế thẩm định mức độ chính xác của thông tin dữ liệu lưu trong nó. Điều này có thể thấy được cấu trúc hệ thống không có bất cứ sự liên hệ nào với db mà nằm hoàn toàn độc lập.
+
+Muốn sử dụng hệ thống này thì phải thuê máy chủ và cài Memcached vào máy chủ.
+
+Chưa đồng bộ tự động với cơ sở dữ liệu khi database thay đổi. Cụ thể như việc Database có dữ liệu là A và Memcached cũng có dữ liệu như vậy. Lúc này database sẽ đổi sang giá trị B nhưng Memcached vẫn là A.
+
+Viết trực tiếp vào memcached, sau một thời gian nó sẽ chuyên vào db gặp khá nhiều nguy hiểm, điển hình như việc không kịp viết từ memcached vào db mà server memcached đã tèo. Do đó không nên sử dụng memcached cho các dữ liệu mang tính cốt lõi
+
+### 16. Các chiến lược branching khác nhau dùng trong VCS?
+
+Branching là một khái niệm quan trong trong các VCS (version control system) như git. Một vài kiểu branching phổ biến là:
+
+#### Feature branching
+
+- Kiểu branching này đảm bảo các tính năng riêng biệt của dự án được duy trì trong branch,
+- Sau khi các tính năng được xác minh đầy đủ, branch sẽ được merge (hợp) vào branch chính.
+
+#### Task branching
+
+- Ở đây, mỗi tác vụ được duy trì trong branch của nó với khoá tác vụ là tên branch.
+- Đặt tên branch là tên tác vụ giúp dễ dàng xác định tác vụ nào đang được đề cập trong branch nào.
+
+#### Release branching
+
+- Kiểu branch này được thực hiện sau khi một tập tính năng dành cho một bản phát hành hoàn thành, chúng có thể nhan bản thành một branch gọi là release branch. Bất kỳ tính năng nào khác sẽ không được thêm vào branch này.
+- Chỉ các bản sửa lỗi, tài liệu và các hoạt động liên quan được thực hiện trong một release branch.
+- Khi mọi thứ đã sẵn sàng, các bản phát hành sẽ được merge vào branch chính và được đánh thẻ (tag) với số phiên bản phát hành.
+- Những thay đổi này cũng cần được đẩy vào develop branch vốn sẽ tiến triển với sự phát triển tính năng mới.
+
+### 17. Các KPI dùng để đánh giá DevOps?
+
+KPI là viết tắt của Key Performance Indicators, tạm dịch là các chỉ số hiệu suất chính. Một vài KPI phổ biến để đánh giá độ thành công của DevOps:
+
+- Sử dụng ứng dụng, hiệu suất và lưu lượng truy cập
+- Tỷ lệ phần trăm vượt qua trường hợp thử nghiệm tự động.
+- Độ khả dụng ứng dụng
+- Thay đổi yêu cầu kích cỡ
+- Vé khách hàng
+- Tần suất và thời gian triển khai thành công
+- Tỷ lệ lỗi/không đạt
+- Triển khai không thành công
+- Thời gian phát hiện (MTTD)
+- Thời gian chờ khôi phục (MTTR)
+
+### 18. CBD trong DevOps là gì?
+
+CBD là viết tắt của Component-Based Development. Đó là một cách độc đáo để tiếp cận phát triển sản phẩm. Tại đây, các nhà phát triển tiếp tục tìm kiếm các thành phần code được xác định rõ ràng, đã được kiểm tra và xác minh, đồng thời giúp nhà phát triển phát triển lại từ đầu.
+
+
+### 19. Resilience Testing là gì?
+
+Resilience Testing là một quy trình phần mềm kiểm tra hành vi của ứng dụng trong các tình huống hỗn loạn và không kiểm soát được. Nó cũng đảm bảo rằng dữ liệu và chức năng không bị mất sau khi gặp sự cố.
+
+### 20. Phân biệt continous testing và automation testing?
+
+| Continuous Testing | Automation Testing |
+|-|-|
+| Đây là quá trình thực hiện tất cả các trường hợp kiểm thử tự động và được thực hiện như một phần của quá trình phân phối. | Đây là một quá trình thay thế kiểm thử thủ công bằng cách giúp các nhà phát triển tạo các trường hợp kiểm thử có thể chạy nhiều lần mà không cần can thiệp thủ công. |
+| Quá trình này tập trung vào các rủi ro nghiệp vụ liên quan đến việc phát hành phần mềm càng sớm càng tốt. | Quá trình này giúp nhà phát triển biết liệu các tính năng mà họ đã phát triển có không có lỗi hay không bằng cách lấy tập hợp các điểm đạt/không đạt làm tài liệu tham khảo. |
+
+### 21. DevOps pipeline là gì?
+
+Nói chung, pipeline là một tập hợp các tác vụ/quy trình tự động được xác định và tuân theo bởi nhóm kỹ sư phần mềm. DevOps pipeline là một pipeline cho phép các kỹ sư DevOps và nhà phát triển phần mềm biên dịch, xây dựng và triển khai code phần mềm một cách hiệu quả và đáng tin cậy cho môi trường sản xuất một cách dễ dàng.
+
+![](./assets/DevOps_pipeline.jpg)
+
+Luồng hoạt động như sau:
+- Nhà phát triển làm việc để hoàn thành một chức năng.
+- Nhà phát triển triển khai code của mình vào môi trường thử nghiệm.
+- Người kiểm tra làm việc để xác thực tính năng. Nhóm kinh doanh cũng có thể can thiệp và cung cấp phản hồi.
+- Các nhà phát triển làm việc trên test và phản hồi kinh doanh theo cách cộng tác liên tục.
+- Sau đó, code được phát hành cho production và được xác thực lại.
+
+### 22. Cách Ansible hoạt động trong DevOps?

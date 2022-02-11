@@ -107,3 +107,112 @@ for [condition |  ( init; condition; increment ) | Range]
 
 Trong đó:
 
+- Bước `init` thực thi đầu tiên. Điều này chỉ được thực hiện một lần khi bắt đầu vòng lặp. Nhằm mục đích khai báo và khởi tạo các biến điều khiển vòng lặp. Trường này là tùy chọn nếu chúng ta đã khởi tạo các biến điều khiển vòng lặp trước đó. Ngay cả khi chúng ta không làm gì ở đây, dấu chấm phẩy vẫn cần phải hiện diện.
+- Bước `condition` là để đánh giá. Nếu `condition` thoả mãn, thân vòng lặp sẽ được thực thi. Nếu `condition` không thoả mãn, vòng lặp sẽ dùng lại. Sau khi thân vòng lặp thực thi nếu điều kiện vẫn thoả mãn nó sẽ thực thi lệnh `increment` để cập nhật biến điều kiển vòng lặp. Quá trình này được tiếp tục đến khi nào `condition` trở thành false.
+- Nếu `Range` được đề cập, vòng lặp sẽ thực thi với từng mục trong Range.
+
+Ví dụ:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+   // For loop to print numbers from 1 to 5
+   for j := 1; j <= 5; j++ {
+      fmt.Println(j)
+   }
+
+}
+```
+
+Kết quả:
+
+```
+1
+2
+3
+4
+5
+```
+
+### 8. Phạm vi biến trong Go?
+
+Phạm vi biến được định nghĩa là một phần của chương trình mà biến có thể được truy cập. Mọi biến đều được xác định phạm vi tĩnh (có nghĩa là phạm vi biến có thể được xác định tại thời điểm biên dịch) trong Go có nghĩa là phạm vi được khai báo tại thời điểm biên dịch chính nó. Có hai phạm vi trong cờ vây, đó là:
+
+- Biến cục bộ: Được khai bao trong một hàm hay khối chỉ được truy cập trong các hàm/khối đó.
+- Biến toàn cục: Được khai báo bên ngoài hàm hay khối được truy cập trên toàn bộ file.
+
+### 9. Goroutine là gì?
+
+Goroutines là các hàm hoặc phương thức chạy đồng thời với các hàm/ phương thức khác. Goroutines có thể được coi là những luồng gọn nhẹ. Chi phí tạo một Goroutine tương đối thấp so với một luồng. Do vậy, những ứng dụng Go có hàng ngàn Goroutines chạy đồng thời là điều hết sức bình thường. Goroutines được quản lý bởi Go Runtime. 
+
+Ta có thể bắt đầu một goroutines bắt cách chỉ định từ khoá `go` trước khi gọi hàm. Hàm sau đó sẽ được gọi và chạy như một goroutine.
+
+```go
+package main
+import (
+   "fmt"
+   "time"
+)
+func main() {
+   go sampleRoutine()
+   fmt.Println("Started Main")
+   time.Sleep(1 * time.Second)
+   fmt.Println("Finished Main")
+}
+
+func sampleRoutine() {
+   fmt.Println("Inside Sample Goroutine")
+}
+```
+
+Trong đoạn code trên, ta thấy hàm `sampleRoutine()` được gọi bởi từ khoá `go` ở phía trước. Khi một hàm được gọi là một goroutine, nó sẽ trả về ngay lập tức dòng kế tiếp trong chương trình đó là lý do tại sao "Started Main" sẽ in đầu tiên, và goroutine sẽ được lên lịch và chạy đồng thời trong nền. Câu lệnh `sleep` đảm bảo rằng goroutine sẽ hoàn thành trước hàm main.
+
+Kết quả chương trình:
+
+```
+Started Main
+Inside Sample Goroutine
+Finished Main
+```
+
+### 10. Có thể trả về nhiều giá trị từ một hàm trong Go?
+
+Có, bằng cách phân tách các giá trị bằng dấu phẩy trong câu lênh return và gán nó cho nhiều biến như ví dụ bên dưới:
+
+```go
+package main
+import (
+	"fmt"
+)
+
+func reverseValues(a,b string)(string, string){
+    return b,a    //notice how multiple values are returned
+}
+
+func main(){
+    val1,val2:= reverseValues("interview","question")    // notice how multiple values are assigned
+    fmt.Println(val1, val2)
+}
+```
+
+Ở ví dụ trên, ta có hàm `reverseValues` đơn giản là đảo ngược trật tự input. Trong 
+main, ta gọi hàm `reverseValues` và giá trị trả về đượC gán cho `val1` và `val2`.
+
+Kết quả:
+
+```
+question interview
+```
+
+### 11. Có thể khai báo nhiều biến khác kiểu trong cùng một dòng không?
+
+```go
+var a,b,c= 9, 7.1, "interviewbit"
+```
+
+Có, ở trên ta gán kiểu integer, float và chuỗi cho ba biến trong cùng một dòng.
+
+
