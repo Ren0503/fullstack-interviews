@@ -14,7 +14,7 @@ Go là một ngôn ngữ lập trình mã nguồn mở cấp cao được phát 
 
 - Go là một ngôn ngữ lập trình đa năng, cấp cao, static typing và mạnh mẽ bằng cách cung cấp hỗ trợ cho việc thu gom rác và lập trình đồng thời.
 - Trong Go, các chương trình được xây dựng bằng cách sử dụng các package (gói) giúp quản lý các phần dependencies (phụ thuộc) một cách hiệu quả. Nó cũng sử dụng mô hình compile-link để tạo các file nhị phân thực thi từ mã nguồn. 
-- Go là một ngôn ngữ đơn giản với cấu trúc cú pháp thanh lịch và dễ hiểu. Nó có một bộ sưu tập tích hợp các thư viện tiêu chuẩn mạnh mẽ giúp các nhà phát triển giải quyết vấn đề mà không cần đến các package của bên thứ ba. 
+- Go là một ngôn ngữ đơn giản với cấu trúc cú pháp thanh lịch và dễ hiểu. Nó có một tập hợp có sẵn các thư viện tiêu chuẩn mạnh mẽ giúp các nhà phát triển giải quyết vấn đề mà không cần đến các package của bên thứ ba. 
 - Go có hỗ trợ first-class cho concurrency có khả năng sử dụng kiến trúc bộ xử lý đa lõi theo lợi thế của nhà phát triển và sử dụng bộ nhớ hiệu quả. Điều này giúp các ứng dụng mở rộng quy mô theo cách đơn giản hơn.
 
 ### 2. Tại sao nên học Golang?
@@ -215,4 +215,191 @@ var a,b,c= 9, 7.1, "interviewbit"
 
 Có, ở trên ta gán kiểu integer, float và chuỗi cho ba biến trong cùng một dòng.
 
+### 12. Slice trong Go là gì?
 
+Slice là kiểu dữ liệu mô tả dãy các đối tượng cùng kiểu dữ liệu như mảng nhưng không cố định chiều dài như mảng. Slice được khai báo là `[]<kiểu dữ liệu>` nên nó như là mảng không xác định chiều dài. Thực ra mỗi khi khai báo 1 biến kiểu slice, Go sẽ tạo 1 mảng để chứa dữ liệu cho nó.
+
+Một biến kiểu slice gồm 3 thành phần: 
+
+- Con trỏ tham chiếu đến mảng chứa các phần tử của slice.
+- Chiều dài (số phần tử).
+- Sức chứa (số phần tử tối đa, là chiều dài mảng chứa các phần tử). 
+
+Ví dụ
+
+```go
+package main
+ 
+import "fmt"
+ 
+func main() {
+ 
+   // Creating an array
+   arr := [6]string{"This","is", "a","Go","interview","question"}
+
+   // Print array
+   fmt.Println("Original Array:", arr)
+
+   // Create a slice
+   slicedArr := arr[1:4]
+
+   // Display slice
+   fmt.Println("Sliced Array:", slicedArr)
+
+   // Length of slice calculated using len()
+   fmt.Println("Length of the slice: %d", len(slicedArr))
+
+   // Capacity of slice calculated using cap()
+   fmt.Println("Capacity of the slice: %d", cap(slicedArr))
+}
+```
+
+Ở đây ta sử dụng slice để tìm 3 phần tử tính từ phần tử thứ 2 trong mảng gốc. Sau đó ta tìm độ dài và sức chứa của slice.
+
+Kết quả:
+
+```
+Original Array: [This is a Go interview question ]
+Sliced Array: [is a Go]
+Length of the slice: 3
+The capacity of the slice: 5
+```
+
+![](./assets/slice.png)
+
+### 13. Go Interface là gì?
+
+Go interface là một tập hợp các phương thức đặc trưng xác định. Nó là kiểu tuỳ chọn cho phép nhận các giá trị có triển khai các phương thức này. Các interface là trừu tượng, đó là lý do ta không thể tạo đối tượng của nó. Nhưng ta có thể tạo biến interface sau đó gán cho một giá trị cụ thể mà các phương thức interface yêu cầu. Interface có thể hoạt động như:
+1. Tập hợp phương thức đặc trưng
+2. Kiểu tuỳ chọn
+
+Chúng được tạo bằng từ khoá `type` theo sau tên của interface và cuối cùng là từ khoá `interface`. Cú pháp:
+
+```go
+type name_of_interface interface {
+   // Method signatures
+}
+```
+
+Interface cũng thúc đẩy tính trừu tượng. Trong Go, ta có thể dùng interface để tạo các trừu tượng chung có thể được sử dụng bằng nhiều kiểu bằng cách xác định các khai báo phương thức tương thích với interface.
+
+```go
+package main
+ 
+import "fmt"
+ 
+// "Triangle" data type
+type Triangle struct {
+	base, height float32
+}
+ 
+// "Square" data type
+type Square struct {
+	length float32
+}
+ 
+// "Rectangle" data type
+type Rectangle struct {
+	length, breadth float32
+}
+ 
+// To calculate area of triangle
+func (triangle Triangle) Area() float32 {
+	return 0.5 * triangle.base * triangle.height
+}
+ 
+// To calculate area of square
+func (square Square) Area() float32 {
+	return square.length * square.length
+}
+ 
+// To calculate area of rectangle
+func (rect Rectangle) Area() float32 {
+	return rect.length * rect.breadth
+}
+ 
+// Area interface for achieving abstraction
+type Area interface {
+	Area() float32
+}
+ 
+func main() {
+	// Declare and assign values to varaibles
+	triangleObject := Triangle{base: 20, height: 10}
+	squareobject := Square{length: 25}
+	rectObject := Rectangle{length: 15, breadth: 20}
+ 
+	// Define a variable of type interface
+	var shapeObject Area
+ 
+	// Assign to "Triangle" type variable to the Area interface
+	shapeObject = triangleObject
+	fmt.Println("Triangle Area = ", shapeObject.Area())
+ 
+	// Assign to "Square" type variable to the Area interface
+	shapeObject = squareobject
+	fmt.Println("Square Area = ", shapeObject.Area())
+ 
+	// Assign to "Rectangle" type variable to the Area interface
+	shapeObject = rectObject
+	fmt.Println("Rectangle Area = ", shapeObject.Area())
+}
+```
+
+Trong ví dụ trên, ta có 3 kiểu hình dạng là triangle, square và rectangle. Ta cũng khai báo hàm `Area()` để tính toán diện tích của các hình dựa trên input được truyền. Ta cũng khai báo interface tên `Area` để xác định phương thức đặt trưng `Area()`. Trong hàm main, ta tạo đối tương gán đối tượng với interface và tính diện tích theo phương thức được khai báo trong interface. Do đó, ta không cần biết cụ thể về hàm được gọi. Phương thức interface sẽ giải quyết vấn đề này khi xem xét kiểu đối tượng. Điều này gọi là trừu tượng.
+
+```
+Triangle Area =  100
+Square Area =  625
+Rectangle Area =  300
+```
+
+### 14. Golang có nhanh hơn các ngôn ngữ lập trình khác?
+
+Golang nhanh hơn các ngôn ngữ lập trình khác vì mô hình đồng thời và quản lý bộ nhớ đơn giản và hiệu quả. Quá trình biên dịch mã máy diễn ra rất nhanh và hiệu quả. Ngoài ra, các phần phụ thuộc được liên kết với một tệp nhị phân duy nhất, do đó loại bỏ các phần phụ thuộc vào máy chủ.
+
+### 15. Cách kiểm tra key trong Go map?
+
+Map nói chung là một tập hợp các phần tử theo cặp key-value. Một key đề cập đến một value. Map cung cấp truy cập nhanh hơn với độ phức tạp O(1) đối với các giá trị nếu biết key. Một map được biểu diễn như hình bên dưới.
+
+![](./assets/How_can_we_check_if_the_Go_map_contains_a_key.png)
+
+Mỗi lần giá trị được lưu trữ trong cặp key-value trong map, ta có thể truy xuất đến đối tượng bằng cách dùng `map_name[key_name]` và ta có thể kiểm tra key có tồn tại không bằng cách thực hiện như sau:
+
+```go
+if val, isExists := map_obj["foo"]; isExists {
+   //do steps needed here
+}
+```
+
+Từ đoạn code trên, chúng ta có thể thấy rằng hai biến đang được khởi tạo. Biến `val` sẽ nhận giá trị tương ứng với khóa "foo" từ map. Nếu không có giá trị nào, ta sẽ nhận được "giá trị không" và biến khác `isExists` sẽ nhận giá trị bool là true nếu khóa "foo" có trong map, ngược lại thì là false. Sau đó, điều kiện `isExists` được kiểm tra, nếu giá trị là true, thì phần thân của if sẽ được thực thi.
+
+### 16. Go Channel là gì?
+
+Go channel là một phương tiện sử dụng goroutines giao tiếp các giá trị dữ liệu với nhau. Nó là một kỹ thuật cho phép truyền dữ liệu đến các goroutines khác. Một channel có thể truyền dữ liệu cùng kiểu. Việc truyền dữ liệu trong channel là hai chiều có nghĩa là các goroutines có thể sử dụng cùng một channel để gửi hoặc nhận dữ liệu như thể hiện trong hình ảnh bên dưới:
+
+![](./assets/Go_channels.png)
+
+Một channel có thể tạo với từ khoá `chan`:
+
+```go
+var channel_name chan Type
+```
+
+Nó cũng có thể tạo bằng hàm `make()`:
+
+```go
+channel_name:= make(chan Type)
+```
+
+Để gửi dữ liệu tới channel, ta có thể dùng toán tử `<-`:
+
+```go
+channel_name <- element
+```
+
+Để nhận dữ liệu ta có thể dùng cú pháp:
+
+```go
+channel_name <- element
+```
