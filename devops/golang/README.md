@@ -403,3 +403,108 @@ channel_name <- element
 ```go
 channel_name <- element
 ```
+
+## Câu hỏi phỏng vấn Golang cho Experienced
+
+### 17. Giải thích đoạn code bên dưới?
+
+```go
+type DemoStruct struct {
+   Val int
+}
+//A.
+func demo_func() DemoStruct {
+   return DemoStruct{Val: 1}
+}
+//B.
+func demo_func() *DemoStruct {
+   return &DemoStruct{}
+}
+//C.
+func demo_func(s *DemoStruct) {
+   s.Val = 1
+}
+```
+
+A - Vì hàm có kiểu trả về là struct, nên hàm sẽ trả về bản sao của struct với giá trị là 1.
+B - Vì hàm trả về `*DemoStruct`, là một tham chiếu đến struct, nó trả về con trỏ đến giá trị struct được tạo trong hàm.
+C - Vì hàm mong đợi đối tượng struct hiện có là một tham số trong hàm, và ta đặt giá trị cho thuộc tính của nó, khi kết thúc quá trình thực hiện, giá trị của biến `Val` của đối tượng struct được đặt thành 1.
+
+### 18. Định dạng chuỗi mà không in nó?
+
+Ta có thể dùng hàm Sprintf như sau:
+
+```go
+return fmt.Sprintf ("Size: %d MB.", 50)
+```
+
+Hàm định dạng `fmt.Sprintf` mà không in nó ra.
+
+### 19. Type Assertion trong Go là gì?
+
+Type assertion nhận giá trị interface và truy xuất giá trị của kiểu dữ liệu được chỉ định rõ ràng. Cú pháp:
+
+```go
+t := i.(T)
+```
+
+Ở đây, câu lệnh khẳng định rằng giá trị interface `i` có kiểu cụ thể là `T` và gán giá trị của kiểu `T` cho biến `t`. Trong trường hợp không có kiểu cụ thể `T`, thì câu lệnh sẽ dẫn đến panic.
+
+Để kiểm tra, nếu một interface có kiểu cụ thể, chúng ta có thể thực hiện bằng cách sử dụng hai giá trị được trả về bởi xác nhận kiểu. Một giá trị là giá trị cơ bản và giá trị kia là giá trị bool cho biết xác nhận đã hoàn thành hay chưa. Cú pháp sẽ là:
+
+```go
+t, isSuccess := i.(T)
+```
+
+Ở đây, nếu giá trị interface `i` có `T`, thì giá trị cơ bản sẽ được gán cho `t` và giá trị `isSuccess` trở thành true. Ngược lại, câu lệnh `isSuccess` sẽ false và giá trị của t sẽ có giá trị 0 tương ứng với kiểu T. Điều này đảm bảo không có panic nếu khẳng định không thành công.
+
+### 20. Kiểm tra kiểu của biến khi đang chạy?
+
+Trong Go, chúng ta có thể sử dụng một kiểu switch đặc biệt để kiểm tra kiểu biến khi đang chạy. Câu lệnh switch này được gọi là **type switch**.
+
+Hãy xem xét đoạn code sau, nơi chúng ta đang kiểm tra kiểu của biến v và thực hiện một số thao tác.
+
+```go
+switch v := param.(type) { 
+default:
+   fmt.Printf("Unexpected type %T", v)
+case uint64:
+   fmt.Println("Integer type")
+case string:
+   fmt.Println("String type")
+}
+```
+
+Trong đoạn code trên, chúng ta đang kiểm tra kiểu của biến v, nếu kiểu của biến là uint64, thì đoạn code sẽ in ""Integer type". Nếu kiểu của biến là một chuỗi, cpde sẽ in ra "String type". Nếu kiểu không khớp, default sẽ được thực thi và nó chạy các câu lệnh trong khối default.
+
+### 21. Có nên sử dụng biến toàn cục trong các chương trình triển khai goroutines?
+
+Việc sử dụng các biến toàn cục trong goroutines không được khuyến khích vì nó có thể được nhiều goroutines truy cập và sửa đổi đồng thời. Điều này có thể dẫn đến kết quả ngoài dự tính.
+
+### 22. Cách sử dụng một empty struct?
+
+Empty struct được dùng khi ta muốn tiết kiệm bộ nhớ. Điều này là do chúng không sử dụng bất kỳ bộ nhớ nào cho các giá trị. Cú pháp là:
+
+```go
+a := struct{}{}
+```
+
+Kích thước của empty struct là 0 khi sử dụng `println(unsafe.Sizeof(a))`.
+
+Lợi ích của empty struct là cho các nhà phát triển thấy rằng chúng không có bất kỳ giá trị nào. Mục đích là thông tin thuần tuý. Một số ví dụ trong đó empty struct rất hữu ích như sau: 
+
+- **Khi triển khai tập dữ liệu:** ta có thể dùng empty struct để triển khai một tập dữ liệu.
+
+```go
+map_obj := make(map[string]struct{})
+for _, value := range []string{"interviewbit", "golang", "questions"} {
+   map_obj[value] = struct{}{}
+}
+fmt.Println(map_obj)
+```
+
+Kết quả:
+
+```
+map[interviewbit:{} golang:{} questions:{}]
+```

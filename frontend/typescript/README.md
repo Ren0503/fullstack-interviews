@@ -543,3 +543,26 @@ window.onmousedown = function (e) {
 
 ### 27. noImplicitAny là gì?
 
+### 28. Interface là gì?
+
+Interface trong typescript cho phép bạn định nghĩ thuộc tính là gì và phương thức là gì mà đối tượng cần để được thực thi (implement). Nếu đối tượng tuân thủ đúng khuôn mẫu interface thì đối tượng đã implement interface ấy sẽ được thi hành đúng. Nếu interface không được thi hành đúng đắn thì typescript sẽ phát sinh lỗi ngay lập tức.
+
+```ts
+interface Employee {
+    name: string;
+    salary: number;
+}
+
+function process(employee: Employee) {
+    console.log(`${employee.name}'s salary = ${employee.salary}`);
+}
+
+let john: Employee = {
+    name: "John Doe",
+    salary: 150000
+}
+
+process(john);  // "John Doe's salary = 150000"
+```
+
+### 
