@@ -6,33 +6,55 @@
 
 Nodejs là một nền tảng được xây dựng, vận hành tại V8 JavaScript runtime của Chrome. Với Nodejs, bạn có thể chạy JavaScript trên server và thể xây dựng, phát triển các ứng dụng mạng nhanh chóng và dễ dàng.
 
-Nền tảng này bắt đầu được xây dựng, phát triển tại California từ năm 2009 với phần Core phía dưới được lập trình bằng C++ gần như 100%. Điều này tạo nên ưu thế về tốc độ xử lý cũng như hiệu năng của nền tảng này. Đến nay, Nodejs vẫn đang "gây bão" trong cộng đồng công nghệ bởi khả năng phát triển ứng dụng vượt trội.
+Nền tảng này bắt đầu được xây dựng, phát triển tại California từ năm 2009 với phần core phía dưới được lập trình bằng C++ gần như 100%. Điều này tạo nên ưu thế về tốc độ xử lý cũng như hiệu năng của nền tảng này. Đến nay, Nodejs vẫn đang "gây bão" trong cộng đồng công nghệ bởi khả năng phát triển ứng dụng vượt trội.
 
 ## Câu hỏi phỏng vấn Node.js cho Fresher
 
-### 1. First class function là gì ?
+### 1. First class function là gì?
 
 First class function hay hàm hạng nhất là khi một hàm được sử dụng như một biến (được gán, truyền như tham số hay trả về). Có nhiều ngôn ngữ lập trình như Scala, Haskell, và JavaScript... đều có hàm hạng nhất.
 Các hàm này có thể truyền dưới dạng tham số hay trả về cho một hàm khác gọi là HOC(high-order function).
 
 Các hàm `map()` và `filter()` là các HOC phổ biến được dùng.
 
-### 2. Node.js  hoạt động thế nào ?
+### 2. Node.js hoạt động thế nào?
 
-Ý tưởng chính của Node js là sử dụng non-blocking, hướng sự vào ra dữ liệu thông qua các tác vụ thời gian thực một cách nhanh chóng. Bởi vì, Node js có khả năng mở rộng nhanh chóng, khả năng xử lý một số lượng lớn các kết nối đồng thời bằng thông lượng cao. Nếu như các ứng dụng web truyền thống, các request tạo ra một luồng xử lý yêu cầu mới và chiếm RAM của hệ thống thì việc tài nguyên của hệ thống sẽ được sử dụng không hiệu quả. Chính vì lẽ đó giải pháp mà Node js đưa ra là sử dụng luồng đơn (Single-Threaded), kết hợp với non-blocking I/O để thực thi các request, cho phép hỗ trợ hàng chục ngàn kết nối đồng thời.
+Node hoàn toàn theo cơ chế event-driven. Về cơ bản server bao gồm một luồng duy nhất xử lý từ sự kiện này đến sự kiện khác.
 
-### 3. Quản lý package trong ứng dụng Node.js ?
+Một yêu cầu mới đến là một loại sự kiện. Server bắt đầu xử lý nó và khi có hoạt động blocking IO, nó sẽ không đợi cho đến khi hoàn thành mà thay vào đó sẽ đăng ký một hàm callback. Sau đó, server ngay lập tức bắt đầu xử lý một sự kiện khác (có thể là một yêu cầu khác). Khi hoạt động IO kết thúc, đó là một loại sự kiện khác và server sẽ xử lý nó (tức là tiếp tục làm việc theo yêu cầu) bằng cách thực hiện lệnh callback ngay khi có thời gian.
+
+Vì vậy, server không bao giờ cần tạo thêm các luồng hoặc chuyển đổi giữa các luồng, có nghĩa là nó có rất ít chi phí. Nếu bạn muốn sử dụng đầy đủ nhiều lõi phần cứng, bạn chỉ cần bắt đầu nhiều đối tượng node.js
+
+Nền tảng Node.js không tuân theo mô hình đa luồng. Mà nó theo mô hình đơn luồng với Event Loop. Mô hình xử lý trong Node.js chủ yếu dựa trên mô hình JavaScript Event và cơ chế callback.
+
+Các bước trong mô hình xử lý đơn luồng với Event Loop:
+- Client gửi yêu cầu đến web server.
+- Web server Node.js duy trì một Thread pool để cung cấp dịch vụ cho các yêu cầu từ client.
+- Node.js nhận các yêu cầu này và đặt nó vào một hàng đợi. Gọi là Event Queue.
+- Trong Nodejs có một thành phần là Event Loop. Nó sử dụng một vòng lặp để nhận yêu cầu và xử lý chúng.
+- Event Loop sử dụng một luồng duy nhất. Nó được gọi là trái tim của Node.js
+- Event Loop kiểm tra yêu cầu có ở trong Event Queue. Nếu khong nó sẽ đợi cho đến khi yêu cầu đến.
+- Nếu có, nó lấy yêu cầu từ Event Queue:
+    - Nó bắt đầu xử lý yêu cầu đó.
+    - Nếu yêu cầu đó không phải là blocking IO, thì nó xử lý và chuẩn bị phản hồi để gửi về client.
+    - Nếu nó cần vài thao tác blocking IO như tương tác với cơ sở dữ liệu, hệ thống file, mạng thì nó sẽ có cách tiếp cận khác:
+        + Kiểm tra luồng khả dụng từ Thread Pool
+        + Chọn luồng và gán nó cho yêu cầu client.
+        + Các luồng này nhận yêu cầu và xử lý chúng thực hiện hành động blocking IO, chuẩn bị phản hồi và gửi nó về Event Loop.
+        + Event Loop lấy nó và gửi phản hồi đó về lại client.
+    
+### 3. Quản lý package trong ứng dụng Node.js?
 
 Khi thảo luận về Node js thì một điều chắc chắn không nên bỏ qua là xây dựng package quản lý sử dụng các công cụ NPM mà mặc định với mọi cài đặt Node js. Ý tưởng của mô-đun NPM là khá tương tự như Ruby-Gems: một tập hợp các hàm có sẵn có thể sử dụng được, thành phần tái sử dụng, tập hợp các cài đặt dễ dàng thông qua kho lưu trữ trực tuyến với các phiên bản quản lý khác nhau. Bên cạnh npm cũng có thể sử dụng yarn với bộ chức năng tương tự.
 
-### 4. Node.js có tốt hơn các framework khác ?
+### 4. Node.js có tốt hơn các framework khác?
 
 - **Bất đồng bộ**: Đặc điểm đầu tiên của Nodejs là tính bất đồng bộ. Node.js không cần đợi API trả dữ liệu về, vậy nên mọi APIs nằm trong thư viện Node.js đều không được đồng bộ, hiểu đơn giản là chúng không hề blocking (khóa). Server có cơ chế riêng để gửi thông báo và nhận phản hồi về các hoạt động của Node.js và API đã gọi.
 - **Tốc độ nhanh**: Với phần core phía dưới lập trình gần như toàn bộ bằng ngôn ngữ C++, kết hợp với V8 Javascript Engine mà Google Chrome cung cấp, tốc độ vận hành, thực hiện code của thư viện Node.js diễn ra rất nhanh.
 - **Đơn giản/Hiệu quả**: Tiến trình vận hành của Node.js đơn giản song lại mang đến hiệu năng cao nhờ ứng dụng mô hình single thread và các sự kiện lặp. Một loạt cơ chế sự kiện cho phép server trả về phản hồi bằng cách không block, đồng thời tăng hiệu quả sử dụng. Các luồng đơn cung cấp dịch vụ cho nhiều request hơn hẳn Server truyền thống.
 - **Không đệm**: Nền tảng Node.js không có vùng đệm, tức không cung cấp khả năng lưu trữ dữ liệu buffer.
 - **Có giấy phép**: Đây là nền tảng đã được cấp giấy phép, phát hành dựa trên MIT License.
-### 5. Các bước để luồng điều khiển kiểm soát các lệnh gọi hàm ?
+### 5. Các bước để luồng điều khiển kiểm soát các lệnh gọi hàm?
 
 - Kiểm soát trật tự thực thi
 - Thu thập dữ liệu
@@ -81,6 +103,30 @@ Có hai kiểu hàm API:
 - Hàm bất đồng bộ, non-blocking: sử dụng chủ yếu cho các hoạt động I/O có thể tách ra khỏi vòng lặp chính.
 - Hàm đồng bộ, blocking: sử dụng cho các hoạt động ảnh hưởng đến tiến trình đang chạy trong vòng lặp chính.
 
+**Hàm blocking** trong các thao tác blocking, tất cả code khác sẽ bị ngăn khi cho đến khi thực hiện xong thao tác IO. Vd:
+
+```js
+const fs = require('fs');
+const data = fs.readFileSync('/file.md'); // blocks here until file is read
+console.log(data);
+// moreWork(); will run after console.log
+```
+
+Dòng code thứ hai chặn việc thực thi JavaScript bổ sung cho đến khi toàn bộ file được đọc. `moreWork()` sẽ chỉ được gọi sau `console.log`.
+
+**Hàm non-blocking** trong các thao tác non-blocking, nhiều lệnh gọi IO có thể thực hiện mà chương trình không bị tạm dừng. Vd:
+
+```js
+const fs = require('fs');
+fs.readFile('/file.md', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+// moreWork(); will run before console.log
+```
+
+Vì `fs.readFile()` là không chặn, `moreWork()` không phải đợi file đọc xong trước khi được gọi.
+
 ### 12. REPL là gì?
 
 REPL là từ viết tắt của Read Eval Print Loop (hiểu nôm na là: Đọc – Đánh giá – In – Lặp) và nó biểu diễn môi trường máy tính như màn hình console trong Linux shell nơi bạn có thể gõ các dòng lệnh và hệ thống sẽ trả về các kết quả. NodeJS cũng có môi trường REPL. Nó để thực hiện các tác vụ mong muốn:
@@ -93,10 +139,16 @@ REPL là từ viết tắt của Read Eval Print Loop (hiểu nôm na là: Đọ
 
 **Loop**: Lặp các dòng lệnh đến khi người dùng gõ ctrl-c hai lần.
 
-### 13. Hai tham số mà async.queue nhận làm đầu vào?
+### 13. Sự khác biệt giữa bất đồng bộ và non-blocking?
 
-- Hàm tác vụ (Task function)
-- Giá trị đồng thời (Concurrency Value)
+- **Bất đồng bộ:** Kiến trúc của bất đồng bộ giải thích rằng thông điệp được gửi sẽ không trả lời ngay lập tức giống như chúng ta gửi mail nhưng không nhận được trả lời ngay lập tức. Nó không có bất kỳ sự phụ thuộc hay thứ tự nào. Do đó cải thiện hiệu quả và hiệu suất của hệ thống. Server lưu trữ thông tin và khi hành động được thực hiện, nó sẽ được thông báo.
+- **Non-blocking:** Non-blocking phản hồi ngay lập tức với bất kỳ dữ liệu nào có sẵn. Hơn nữa, nó không chặn bất kỳ quá trình thực thi nào và tiếp tục chạy từng yêu cầu. Nếu một câu trả lời không thể được truy xuất hơn trong những trường hợp đó, API trả về ngay lập tức với một lỗi. Tính năng non-block hầu hết được sử dụng với I/O (input/output). Bản thân Node.js dựa trên mô hình I/O non-blocking. Hàm callback sẽ được gọi khi hoạt động hoàn thành. Lệnh gọi non-blocking sử dụng sự trợ giúp của javascript cung cấp chức năng callback.
+
+| Bất đồng bộ | Non-blocking |
+|-|-|
+| Bất đồng bộ không phản hồi ngay lập tức | Non-blocing phản hồi ngay lập tức nếu dữ liệu khả dụng còn không nó sẽ trả về lỗi |
+| Bất đồng bộ cải thiện hiệu quả bằng cách thực hiện tác vụ nhanh chóng vì phản hồi có thể đến sau đó, trong lúc đó có thể hoàn thành các tác vụ khác | Non-blocking không chặn bất kỳ quá trình thực thi nào và nếu dữ liệu có sẵn, nó sẽ truy xuất thông tin một cách nhanh chóng |
+| Là đối nghịch của đồng bộ | Là đối nghịch của blocking IO |
 
 ### 14. Ý nghĩa của module.exports?
 
@@ -130,37 +182,79 @@ ESLint có thể dùng với bất kỳ IDE nào để đảm bảo code style n
 
 ### 16. Callback hell là gì?
 
+Callback hell là một hiện tượng ảnh hưởng đến nhà phát triển JavaScript khi cố gắng thực thi nhiều hoạt động bất đồng bộ lần lượt.
+
+Một hàm bất đồng bộ là một hàm trong đó một số hoạt động bên ngoài phải hoàn thành trước khi kết quả có thể được xử lý; nó là "bất đồng bộ" theo nghĩa là có một khoảng thời gian không thể đoán trước trước khi có kết quả. Các hàm như vậy yêu cầu một hàm callback để xử lý lỗi và xử lý kết quả.
+
 ```js
-async_A(function(){
-    async_B(function(){
-        async_C(function(){
-            async_D(function(){
-            ....
-            });
+getData(function(a){
+    getMoreData(a, function(b){
+        getMoreData(b, function(c){ 
+            getMoreData(c, function(d){ 
+	            getMoreData(d, function(e){ 
+		            ...
+		        });
+	        });
         });
     });
 });
 ```
 
-Đối với ví dụ trên, chúng ta đang truyền các hàm callback và nó làm cho code không thể đọc được càng không thể bảo trì, do đó chúng ta nên thay đổi logic bất đồng bộ để tránh điều này.
+Cách tránh callback hell
+- Dùng async từ npm
+- Dùng promise
+- Dùng async-await
 
 ### 17. Event-Loop trong Node.js là gì?
 
-Bất cứ thứ gì bất đồng bộ đều được quản lý bởi event loop sử dụng queue và listener. Ta có thể mường tượng với sơ đồ sau:
+Event loop  là thứ cho phép Node.js thực hiện các hoạt động I/O non-blocking - mặc dù thực tế là JavaScript là đơn luồng - bằng cách giảm tải các hoạt động cho nhân hệ thống bất cứ khi nào có thể.
 
-![](./assets/Nodejs-event_loop.png)
+Node.js là ứng dụng đơn luồng, nhưng hỗ trợ đồng thời thông qua khái niệm **event** và **callbacks**. Tất cả API của Node.js là bất đồng bộ và đơn luồng, ta sử dụng hàm async để duy trì tính đồng thời. Node sử dụng observer pattern. Luồng node giữ một event loop và bất cứ khi nào một tác vụ được hoàn thành, nó sẽ kích hoạt sự kiện tương ứng để báo hiệu cho hàm listener-event thực thi.
 
-Khi hàm main được chạy thì các đoạn code trong main sẽ được thực thi. Nó sẽ lần lượt đẩy các hàm vào bên trong call stack theo nguyên tắc LIFO.
+#### Lập trình event-driven
 
-Các hàm hay tác vụ liên quan đến Events (click, change, listener, …), AJAX (Call APIs), Timing (setTimeout, setInterval) sẽ được đẩy từ call stack sang Web APIs. Còn lại thì sẽ được thực thi trong call stack đến khi nào xong thì pop nó ra cho hàm bên dưới được thực thi.
+Trong ứng dụng event-driven, nó là vòng lặp chính cho lắng nghe tất cả sự kiện sau đó kích hoạt một hàm callback khi một sự kiện được phát hiện.
 
-Ở Web APIs sẽ tận dụng các nhân của thiết bị để xử lý riêng biệt các tác vụ này. Sau khi hoàn tất thì Web APIs sẽ trả về một callback và đẩy nó vào trong Callback Queue.
+Mặc dù các sự kiện trông khá giống với các hàm callback, sự khác biệt nằm ở chỗ các hàm callback được gọi khi một hàm bất đồng bộ trả về kết quả của nó, trong khi việc xử lý sự kiện hoạt động trên observer pattern. Các hàm lắng nghe các sự kiện hoạt động như các Observers. Bất cứ khi nào một sự kiện được kích hoạt, hàm listener của nó sẽ bắt đầu thực thi. Node.js có nhiều sự kiện có sẵn thông qua module sự kiện và lớp EventEmitter được sử dụng để liên kết sự kiện và event-listeners như sau:
 
-Callack Queue hoạt động theo nguyên tắc của queue là FIFO (vào trước ra trước) không như stack.
+```js
+// Import events module
+var events = require('events');
 
-Event loop hiểu nôm na là một vòng lặp vô tận, nó luôn trực chờ ở đó để quan sát Callback Queue và Call stack.
+// Create an eventEmitter object
+var eventEmitter = new events.EventEmitter();
+```
 
-Bất kể khi nào mà call stack trống (tất cả các hàm được pop ra) thì nó sẽ lấy các callback ở trong Callback Queue và ném đưa trong Call Stack để tiếp tục thực thi.
+Ví dụ:
+
+```js
+// Import events module
+var events = require('events');
+
+// Create an eventEmitter object
+var eventEmitter = new events.EventEmitter();
+
+// Create an event handler as follows
+var connectHandler = function connected() {
+   console.log('connection succesful.');
+  
+   // Fire the data_received event 
+   eventEmitter.emit('data_received');
+}
+
+// Bind the connection event with the handler
+eventEmitter.on('connection', connectHandler);
+ 
+// Bind the data_received event with the anonymous function
+eventEmitter.on('data_received', function() {
+   console.log('data received succesfully.');
+});
+
+// Fire the connection event 
+eventEmitter.emit('connection');
+
+console.log("Program Ended.");
+```
 
 ### 18. Nếu node.js đơn luồng thì nó xử lý đồng thời như thế nào?
 
@@ -199,13 +293,13 @@ Cả hai đều dùng để chuyển sang chế độ bất đồng bộ bởi h
 
 **`timers–>pending callbacks–>idle,prepare–>connections(poll,data,etc)–>check–>close callbacks`**
 
-Ở phương thức process.nextTick() này, thêm hàm callback để bắt đầu ở event queue kế tiếp, còn phương thức setImmediate() đặt hàm vào giai đoạn kiếm tra của event queue kế tiếp.
+Ở phương thức process.nextTick() này, thêm hàm callback để bắt đầu ở event queue kế tiếp, còn phương thức setImmediate() đặt hàm vào giai đoạn kiểm tra của event queue kế tiếp.
 
 ### 20. Nodejs giải quyết vấn đề block I/O như thế nào?
 
 Vì node có event loop có thể dùng cho tất cả hoạt động I/O bật đồng bộ mà không cần blocking ở hàm chính.
 
-Ví dụ: nếu một cuộc gọi mạng xảy ra, nó sẽ được lập lịch trong event loop thay vì luồng chính. Nếu có nhiều lệnh gọi I/O như vậy, mỗi lệnh gọi sẽ được xếp vào hàng đợi tương ứng để thực thi (ngoài luồng chính).
+Ví dụ: nếu một cuộc gọi mạng xảy ra, nó sẽ được lập lịch trong event loop thay vì luồng chính. Nếu có nhiều lệnh gọi I/O như vậy, mỗi lệnh gọi sẽ được xếp vào hàng đợi tương ứng để thực thi.
 
 Vì vậy, ngay cả khi đơn luồng các hoạt động I/O vẫn được xử lý theo cách non-blocking.
 
@@ -261,11 +355,22 @@ Middleware nằm giữa request và logic nghiệp vụ. Nó được dùng đ�
 
 ### 25. Giải thích Reactor Pattern trong Nodejs?
 
-Reactor pattern là một pattern cho thao tác non-blocking I/O. Nhưng rộng hơn nó được dùng cho cả kiến trúc event-driven.
+Reactor Pattern là một ý tưởng về các hoạt động I/O non-blocking trong Node.js. Ơattern này cung cấp một trình xử lý (handler), với Node.js là một hàm callback, được liên kết với mỗi thao tác I/O. Khi một yêu cầu I/O được tạo, nó sẽ được gửi đến bộ phân kênh (demultiplexer).
 
-Có hai thành phần chính là:
-- **Reactor**: có nhiệm vụ gửi sự kiện I/O cho handler phù hợp
-- **Handler**: có nhiệm vụ thực hiện công việc với sự kiện
+Bộ phân kênh này là một interface thông báo được sử dụng để xử lý đồng thời trong chế độ I/O non-blocking và thu thập mọi yêu cầu dưới dạng sự kiện và xếp từng sự kiện vào một hàng đợi. Do đó, bộ phân kênh cung cấp Event Queue, mà chúng ta thường nghe. Khi một yêu cầu được thu thập bởi bộ phân kênh, nó sẽ trả lại quyền điều khiển cho hệ thống và không chặn I/O. Đồng thời, có Event Loop lặp lại các mục trong Event Queue. Mọi sự kiện đều có một hàm callback được liên kết với nó và hàm callback đó được gọi khi Event Loop lặp lại.
+
+Ngoài ra, hàm callback chủ yếu có các lệnh callback khác được liên kết bên trong đại diện cho một số hoạt động bất đồng bộ. Các hoạt động này được chèn vào Event Queue bởi bộ phân kênh và sẵn sàng được xử lý khi Event Loop lặp lại chúng. Đó là lý do tại sao các cuộc gọi đến các hoạt động khác phải bất đồng bộ.
+
+Khi tất cả các mục trong Event Queue được xử lý và không còn hoạt động nào đang chờ xử lý, Node.js sẽ tự động dừng ứng dụng.
+
+![](./assets/reactor-pattern.jpg)
+
+1. Ứng dụng tạo hoạt động I/O mới bằng cách gửi yêu cầu đến Event Demultiplexer. Ứng dụng cũng chỉ định một trình xử lý (handler), trình xử lý này sẽ được gọi khi hoạt động hoàn tất. Gửi một yêu cầu mới đến Event Demultiplexer là một lời gọi non-blocking và ngay lập tức trả lại quyền điều khiển cho ứng dụng.
+2. Khi một tập hợp các thao tác I/O hoàn tất, Event Demultiplexer sẽ đẩy các sự kiện mới vào Event Queue.
+3. Tại thời điểm này, Event Loop lặp lại các mục của Event Queue.
+4. Đối với mỗi sự kiện, trình xử lý liên quan được gọi.
+5. Trình xử lý, là một phần của code ứng dụng, sẽ cung cấp lại quyền điều khiển cho Event Loop khi quá trình thực thi của nó hoàn tất (5a). Tuy nhiên, các hoạt động bất đồng bộ mới có thể được yêu cầu trong quá trình thực thi trình xử lý (5b), khiến các hoạt động mới được chèn vào Event Demultiplexer (1), trước khi điều khiển được đưa trở lại Event Loop.
+6. Khi tất cả các mục trong Event Queue được xử lý, vòng lặp sẽ chặn lại trên Event Demultiplexer, sau đó sẽ kích hoạt một chu kỳ khác.
 
 ### 26. Tại sao tách biệt app và server trong Express?
 
@@ -288,93 +393,85 @@ Một vài thoát mã:
 
 ### 29. Giải thích khái niệm stub trong Nodejs?
 
-Stubs được sử dụng trong các bài kiểm tra viết, là một phần quan trọng của sự phát triển. Nó thay thế toàn bộ chức năng đang được kiểm tra.
+Theo dõi và xác minh cho các kiểm tra thử nghiệm node.js. Cho phép bạn xác thực và ghi đè hành vi của các đoạn code lồng nhau, chẳng hạn như phương thức, require() và npm  module hoặc thậm chí các thực thể của lớp. Thư viện này được lấy cảm hứng từ node-gently, MockJS và mock-require.
 
-Điều này giúp ích trong các tình huống mà ta cần kiểm tra:
+#### Tính năng của Stub:
+- Tạo ra các đối tượng đơn giản, nhẹ có khả năng kéo dài xuống cây của chúng
+- Tương thích với Nodejs
+- Dễ dàng mở rộng trực tiếp hoặc thông qua ExtensionManager
+- Đi kèm với các tiện ích mở rộng có thể sử dụng, được xác định trước
 
-- Các cuộc gọi bên ngoài làm cho các bài kiểm tra chậm và khó ghi (ví dụ: cuộc gọi HTTP / cuộc gọi DB)
-Kích hoạt các kết quả khác nhau cho một đoạn mã (ví dụ: điều gì sẽ xảy ra nếu một lỗi được ném ra / nếu nó vượt qua)
+Stub là hàm/chương trình mô phỏng hành vi của các thành phần/module. Stubs cung cấp các câu trả lời soạn trước cho các lệnh gọi hàm được thực hiện trong các trường hợp thử nghiệm. 
 
-```js
-const request = require('request');
-const getPhotosByAlbumId = (id) => {
-const requestUrl = `https://jsonplaceholder.typicode.com/albums/${id}/photos?_limit=3`;
-return new Promise((resolve, reject) => {
-    request.get(requestUrl, (err, res, body) => {
-        if (err) {
-            return reject(err);
-        }
-        resolve(JSON.parse(body));
-    });
-});
-};
-module.exports = getPhotosByAlbumId;
-```
-
-Để kiểm tra hàm này, ta có stub:
+Ví dụ:
 
 ```js
-const expect = require('chai').expect;
-const request = require('request');
-const sinon = require('sinon');
-const getPhotosByAlbumId = require('./index');
-describe('with Stub: getPhotosByAlbumId', () => {
-    before(() => {
-        sinon.stub(request, 'get')
-            .yields(null, null, JSON.stringify([
-                {
-                    "albumId": 1,
-                    "id": 1,
-                    "title": "A real photo 1",
-                    "url": "https://via.placeholder.com/600/92c952",
-                    "thumbnailUrl": "https://via.placeholder.com/150/92c952"
-                },
-                {
-                    "albumId": 1,
-                    "id": 2,
-                    "title": "A real photo 2",
-                    "url": "https://via.placeholder.com/600/771796",
-                    "thumbnailUrl": "https://via.placeholder.com/150/771796"
-                },
-                {
-                    "albumId": 1,
-                    "id": 3,
-                    "title": "A real photo 3",
-                    "url": "https://via.placeholder.com/600/24f355",
-                    "thumbnailUrl": "https://via.placeholder.com/150/24f355"
-                }
-            ]));
-    });
-    after(() => {
-        request.get.restore();
-    });
-    it('should getPhotosByAlbumId', (done) => {
-        getPhotosByAlbumId(1).then((photos) => {
-            expect(photos.length).to.equal(3);
-            photos.forEach(photo => {
-                expect(photo).to.have.property('id');
-                expect(photo).to.have.property('title');
-                expect(photo).to.have.property('url');
-            });
-            done();
-        });
-    });
+var fs = require('fs');
+
+var readFileStub = sinon.stub(fs, 'readFile', function (path, cb) {  
+  return cb(null, 'filecontent');
 });
+
+expect(readFileStub).to.be.called;  
+readFileStub.restore();
 ```
 
 ### 30. Even Emitter trong Nodejs là gì?
 
 EventEmitter là một lớp Node.js bao gồm tất cả các đối tượng về cơ bản có khả năng emitting ra các sự kiện. Điều này có thể được thực hiện bằng cách đính kèm các sự kiện đã đặt tên được emitt ra bởi đối tượng bằng cách sử dụng một hàm `eventEmitter.on()`. Vì vậy, bất cứ khi nào đối tượng này throw một sự kiện, các hàm kèm theo sẽ được gọi đồng bộ.
 
+Ví dụ
 
 ```js
-const EventEmitter = require('events');
-class MyEmitter extends EventEmitter {}
-const myEmitter = new MyEmitter();
-myEmitter.on('event', () => {
-    console.log('an event occurred!');
-});
-myEmitter.emit('event');
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+// listener #1
+var listner1 = function listner1() {
+   console.log('listner1 executed.');
+}
+
+// listener #2
+var listner2 = function listner2() {
+   console.log('listner2 executed.');
+}
+
+// Bind the connection event with the listner1 function
+eventEmitter.addListener('connection', listner1);
+
+// Bind the connection event with the listner2 function
+eventEmitter.on('connection', listner2);
+
+var eventListeners = require('events').EventEmitter.listenerCount
+   (eventEmitter,'connection');
+console.log(eventListeners + " Listner(s) listening to connection event");
+
+// Fire the connection event 
+eventEmitter.emit('connection');
+
+// Remove the binding of listner1 function
+eventEmitter.removeListener('connection', listner1);
+console.log("Listner1 will not listen now.");
+
+// Fire the connection event 
+eventEmitter.emit('connection');
+
+eventListeners = require('events').EventEmitter.listenerCount(eventEmitter,'connection');
+console.log(eventListeners + " Listner(s) listening to connection event");
+
+console.log("Program Ended.");
+```
+
+Kết quả:
+
+```
+2 Listner(s) listening to connection event
+listner1 executed.
+listner2 executed.
+Listner1 will not listen now.
+listner2 executed.
+1 Listner(s) listening to connection event
+Program Ended.
 ```
 
 ### 31. Tăng cường hiệu suất Node.js thông qua phân cluster?
