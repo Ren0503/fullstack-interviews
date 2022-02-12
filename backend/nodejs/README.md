@@ -118,7 +118,7 @@ const getSolutionInPython = async ({
 module.exports = { getSolutionInJavaScript, getSolutionInPython }
 ```
 
-Bây giừo ta có thể sử dụng lại các hàm trên ở file khác:
+Bây giờ ta có thể sử dụng lại các hàm trên ở file khác:
 
 ```js
 const { getSolutionInJavaScript, getSolutionInPython} = require("./utils")
@@ -191,7 +191,7 @@ Hash: 1222
 
 Khi cần xử lý đồng thời, thư viện libuv trong node.js sẽ dùng thread pool để tạo thêm luồng cho xử lý đồng thời như vậy. 
 
-### 19. Sự khác biệt giauwx process.nextTick() và setImmediate()?
+### 19. Sự khác biệt giữa process.nextTick() và setImmediate()?
 
 Cả hai đều dùng để chuyển sang chế độ bất đồng bộ bởi hàm listener.
 
@@ -249,9 +249,222 @@ Nó có 4 kiểu chính là:
 
 ### 23. Buffers trong node.js?
 
-Buffer là một vùng dự trữ tạm thời chứa các dữ liệu đang được chuyển từ nơi này đến nơi khác. Buffer có kích thước xác định và giới hạn. Kích thước của buffer được xác định bằng những thuật toán cho từng trường hợp cụ thể. Buffer là một kỹ thuật được phát triển nhằm ngăn chặn sự tắc nghẽn dữ liệu khi truyền từ nơi này đến nơi khác.
+Buffer là một vùng lưu trữ tạm thời chứa các dữ liệu đang được chuyển từ nơi này đến nơi khác. Buffer có kích thước xác định và giới hạn. Kích thước của buffer được xác định bằng những thuật toán cho từng trường hợp cụ thể. Buffer là một kỹ thuật được phát triển nhằm ngăn chặn sự tắc nghẽn dữ liệu khi truyền từ nơi này đến nơi khác.
 
-Buffer là một class trong Node.js API dùng để giao tiếp với các dữ liệu nhị phân. Buffer class đã được khai báo trong phạm vi global trong các phiên bản Node.js sau này, nên chúng ta không cần phải require('buffer') để sử dụng. 
+Buffer là một class trong Node.js API dùng để giao tiếp với các dữ liệu nhị phân. Buffer class đã được khai báo trong phạm vi global trong các phiên bản Node.js sau này, nên chúng ta không cần phải `require('buffer')` để sử dụng. 
 
 ### 24. Middleware là gì?
 
+Middleware nằm giữa request và logic nghiệp vụ. Nó được dùng để ghi log, giới hạn truy cập, định tuyến, xác thực hay bất cứ điều gì không phải là một phần của logic nghiệp vụ. Ngoài ra third-party middleware chẳng hạn như body-parser có thể viết middleware của riêng mình cho một trường hợp cụ thể.
+
+## Câu hỏi phỏng vấn Node.js cho Experienced
+
+### 25. Giải thích Reactor Pattern trong Nodejs?
+
+Reactor pattern là một pattern cho thao tác non-blocking I/O. Nhưng rộng hơn nó được dùng cho cả kiến trúc event-driven.
+
+Có hai thành phần chính là:
+- **Reactor**: có nhiệm vụ gửi sự kiện I/O cho handler phù hợp
+- **Handler**: có nhiệm vụ thực hiện công việc với sự kiện
+
+### 26. Tại sao tách biệt app và server trong Express?
+
+Server có trách nhiệm khởi tạo routes, middleware và các logic ứng dụng khác trong khi đó app là tất cả logic nghiệp vụ để phục vụ các routes của server. Điều này đảm bảo rằng các logic nghiệp vụ sẽ được đóng gói và phân tách với logic ứng dụng giúp dự án dễ đọc và bảo trì.
+
+### 27. Tại sao Nodejs lại dùng V8 Engine?
+
+Thực tế, ta có nhiều hơn một lựa chọn về Javascript Engine chẳng hạn như Spidermonkey từ Firefox, Chakra từ Edge nhưng V8 của Google là phiên bản phát triển nhất (vì nó là mã nguồn mở nên có một cộng đồng lớn giúp phát triển các tính năng và sửa lỗi) và nhanh nhất (vì nó được viết bằng c ++). Cho đến hiện tại nó như một  JavaScript Engine và WebAssembly. 
+
+### 28. Thoát mã trong Node.js?
+
+Thoát mã (exit code) cung cấp ý tưởng về cách tạm dừng hay huỷ chương trình.
+
+Một vài thoát mã:
+- Uncaught fatal exception - (code - 1) - Đã có một ngoại lệ không được xử lý
+- Unused - (code - 2) - Cái này được đặt trước bởi bash
+- Fatal Error - (code - 5) - Đã xảy ra lỗi trong V8 với đầu ra stderr của mô tả
+- Internal Exception handler Run-time failure - (code - 7) - Đã có một ngoại lệ khi hàm khởi động được gọi
+- Internal JavaScript Evaluation Failure - (code - 4) - Đã có một ngoại lệ khi quá trình khởi động không thể trả về giá trị hàm khi được đánh giá.
+
+### 29. Giải thích khái niệm stub trong Nodejs?
+
+Stubs được sử dụng trong các bài kiểm tra viết, là một phần quan trọng của sự phát triển. Nó thay thế toàn bộ chức năng đang được kiểm tra.
+
+Điều này giúp ích trong các tình huống mà ta cần kiểm tra:
+
+- Các cuộc gọi bên ngoài làm cho các bài kiểm tra chậm và khó ghi (ví dụ: cuộc gọi HTTP / cuộc gọi DB)
+Kích hoạt các kết quả khác nhau cho một đoạn mã (ví dụ: điều gì sẽ xảy ra nếu một lỗi được ném ra / nếu nó vượt qua)
+
+```js
+const request = require('request');
+const getPhotosByAlbumId = (id) => {
+const requestUrl = `https://jsonplaceholder.typicode.com/albums/${id}/photos?_limit=3`;
+return new Promise((resolve, reject) => {
+    request.get(requestUrl, (err, res, body) => {
+        if (err) {
+            return reject(err);
+        }
+        resolve(JSON.parse(body));
+    });
+});
+};
+module.exports = getPhotosByAlbumId;
+```
+
+Để kiểm tra hàm này, ta có stub:
+
+```js
+const expect = require('chai').expect;
+const request = require('request');
+const sinon = require('sinon');
+const getPhotosByAlbumId = require('./index');
+describe('with Stub: getPhotosByAlbumId', () => {
+    before(() => {
+        sinon.stub(request, 'get')
+            .yields(null, null, JSON.stringify([
+                {
+                    "albumId": 1,
+                    "id": 1,
+                    "title": "A real photo 1",
+                    "url": "https://via.placeholder.com/600/92c952",
+                    "thumbnailUrl": "https://via.placeholder.com/150/92c952"
+                },
+                {
+                    "albumId": 1,
+                    "id": 2,
+                    "title": "A real photo 2",
+                    "url": "https://via.placeholder.com/600/771796",
+                    "thumbnailUrl": "https://via.placeholder.com/150/771796"
+                },
+                {
+                    "albumId": 1,
+                    "id": 3,
+                    "title": "A real photo 3",
+                    "url": "https://via.placeholder.com/600/24f355",
+                    "thumbnailUrl": "https://via.placeholder.com/150/24f355"
+                }
+            ]));
+    });
+    after(() => {
+        request.get.restore();
+    });
+    it('should getPhotosByAlbumId', (done) => {
+        getPhotosByAlbumId(1).then((photos) => {
+            expect(photos.length).to.equal(3);
+            photos.forEach(photo => {
+                expect(photo).to.have.property('id');
+                expect(photo).to.have.property('title');
+                expect(photo).to.have.property('url');
+            });
+            done();
+        });
+    });
+});
+```
+
+### 30. Even Emitter trong Nodejs là gì?
+
+EventEmitter là một lớp Node.js bao gồm tất cả các đối tượng về cơ bản có khả năng emitting ra các sự kiện. Điều này có thể được thực hiện bằng cách đính kèm các sự kiện đã đặt tên được emitt ra bởi đối tượng bằng cách sử dụng một hàm `eventEmitter.on()`. Vì vậy, bất cứ khi nào đối tượng này throw một sự kiện, các hàm kèm theo sẽ được gọi đồng bộ.
+
+
+```js
+const EventEmitter = require('events');
+class MyEmitter extends EventEmitter {}
+const myEmitter = new MyEmitter();
+myEmitter.on('event', () => {
+    console.log('an event occurred!');
+});
+myEmitter.emit('event');
+```
+
+### 31. Tăng cường hiệu suất Node.js thông qua phân cluster?
+
+Các ứng dụng Node.js chạy trên một bộ xử lý duy nhất, có nghĩa là theo mặc định, chúng không tận dụng được hệ thống đa lõi. Chế độ cluster được sử dụng để khởi động nhiều tiến trình node.js do đó có nhiều phiên bản của event-loop. Khi chúng tôi bắt đầu sử dụng cluster trong một ứng dụng nodejs phía sau, nhiều tiến trình node.js được tạo ra nhưng cũng có một tiến trình mẹ được gọi là trình quản lý cluster chịu trách nhiệm theo dõi tình trạng của các phiên bản riêng lẻ trong ứng dụng của ta.
+
+![](./assets/clustering_in_Nodejs.png)
+
+### 32. Thread pool là gì?
+
+Thread pool được xử lý bởi thư viện libuv. libuv là thư viện C đa nền tảng, cung cấp hỗ trợ các hoạt động bất đồng bộ I/O như hệ thống file, mạng, đồng thời,...
+
+![](./assets/nodejs-thread-pool.png)
+
+### 33. WASI là gì?
+
+Web assembly cung cấp triển khai đặc tả WebAssembly System Interface thông qua API WASI trong node.js được triển khai bằng cách sử dụng lớp WASI. Việc thêm lớp WASI được thực hiện bởi nó có thể sử dụng hệ điều hành cơ bản thông qua tập hợp các hàm giống như POSIX, do đó, cho phép ứng dụng sử dụng hiệu quả hơn các tài nguyên và các tính năng yêu cầu quyền truy cập cấp hệ thống.
+
+### 34. Các luồng worker khác gì với cluster?
+
+**Cluster**
+
+- Có một tiến trình trên mỗi CPU với IPC để giao tiếp.
+- Trong trường hợp muốn nhiều server chấp nhận yêu cầu HTTP thông qua cổng đơn, cluster có thể hữu ích.
+- Các tiến trình được sinh từ mỗi CPU, do đó sẽ có bộ nhớ và thực thể node riêng biệt, dẫn đến các vấn đề về bộ nhớ.
+
+**Worker Thread**
+
+- Chỉ có một tiến trình trong nhiều luồng.
+- Mỗi luồng có một thực thể node(một event-loop, một js-engine) với hầu hết API có thể truy cập.
+- Chia sẻ bộ nhớ với các luồng khác (SharedArrayBuffer)
+- Có thể được dùng cho các tác vụ đòi hỏi nhiều CPU như xử lý dữ liệu hoặc truy cập hệ thống file vì Node là đơn luồng, các tác vụ đồng bộ có thể thực hiện hiệu quả hơn nhờ worker của thread.
+
+### 35. Làm thế nào để đo thời gian của các hoạt động không đồng bộ?
+
+API Performance cung cấp cho chúng ta các công cụ để tìm ra các chỉ số hiệu suất cần thiết. Một ví dụ đơn giản sẽ là sử dụng `async_hooks` và `perf_hooks`
+
+```js
+'use strict';
+const async_hooks = require('async_hooks');
+const {
+    performance,
+    PerformanceObserver
+} = require('perf_hooks');
+const set = new Set();
+const hook = async_hooks.createHook({
+    init(id, type) {
+        if (type === 'Timeout') {
+            performance.mark(`Timeout-${id}-Init`);
+            set.add(id);
+        }
+    },
+    destroy(id) {
+    if (set.has(id)) {
+        set.delete(id);
+        performance.mark(`Timeout-${id}-Destroy`);
+        performance.measure(`Timeout-${id}`,
+                            `Timeout-${id}-Init`,
+                            `Timeout-${id}-Destroy`);
+        }
+    }
+});
+hook.enable();
+const obs = new PerformanceObserver((list, observer) => {
+    console.log(list.getEntries()[0]);
+    performance.clearMarks();
+    observer.disconnect();
+});
+obs.observe({ entryTypes: ['measure'], buffered: true });
+setTimeout(() => {}, 1000);
+```
+
+Điều này sẽ cung cấp cho chúng ta thời gian chính xác để thực hiện lệnh callback.
+
+### 36. Làm thế nào để đo lường hiệu suất của các hoạt động không đồng bộ?
+
+API Perfomance cung cấp cho chúng tôi các công cụ để tìm ra các chỉ số hiệu suất cần thiết.
+
+```js
+const { PerformanceObserver, performance } = require('perf_hooks');
+const obs = new PerformanceObserver((items) => {
+    console.log(items.getEntries()[0].duration);
+    performance.clearMarks();
+});
+obs.observe({ entryTypes: ['measure'] });
+performance.measure('Start to Now');
+performance.mark('A');
+doSomeLongRunningProcess(() => {
+    performance.measure('A to Now', 'A');
+    performance.mark('B');
+    performance.measure('A to B', 'A', 'B');
+});
+```
