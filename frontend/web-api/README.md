@@ -10,7 +10,7 @@
 
 Web API đầu được giới thiệu sớm bởi các trang thương mại điện tử trên Internet. theo thời gian nó ngày càng ngày phổ biến và được sử dụng rộng rãi bởi nhiều tổ chức, doanh nghiệp trên thế giới.
 
-## Câu hỏi phỏng vấn Web API cho Fresher
+## Câu hỏi phỏng vấn Web API
 
 ### 1. Tại sao Web API quan trọng?
 
@@ -82,3 +82,19 @@ Nó không có bất kỳ kiểu dữ liệu cụ thể nào. Nó có thể tr�
 - Nó cũng xử lý và kiểm soát nhiều loại cuộc gọi khác nhau, trả về nhiều định dạng dữ liệu khác nhau.
 - Nó được coi là tốt nhất để sử dụng nó trong các ứng dụng dành cho thiết bị di động vì nó truyền ít dữ liệu giữa máy khách và máy chủ hơn.
 - Nó sử dụng các lệnh gọi HTTP đơn giản để giao tiếp giữa các máy thay vì sử dụng các tùy chọn phức tạp hơn như CORBA, COM +, SOAP hoặc RPC.
+
+### 8. Sự khác biệt giữa REST và SOAP?
+
+
+| SOAP | REST |
+|-|-|
+| Một giao thức gửi nhận thông điệp có định dạng XML | Một loại kiến trúc bao gồm các quy tắc để thao tác với server |
+| Sử dụng WSDL để giao tiếp giữa máy chủ và máy khách | Sử dụng XML hoặc JSON để gửi nhận dữ liệu |
+| Gọi các dịch vụ thông qua phương thức RPC | Gọi các dịch vụ qua đường dẫn URL |
+| Kết quả trả về không dễ đọc | Kết quả trả về dễ đọc vì đơn giản chỉ là text XML hoặc JSON |
+| Có thể truyền qua nhiều giao thức khác nhau như HTTP, SMTP, FTP,…	| Chỉ có thể truyền qua HTTP |
+| JS có thể dùng để gọi SOAP, nhưng rất khó để làm | Quá đơn giản nếu dùng JS |
+| Hiệu suất không tốt bằng REST | Hiệu suất tốt hơn SOAP, tốn ít tài nguyên CPU hơn, code ngắn gọn hơn |
+
+### 9. Web API 2.0 là gì?
+

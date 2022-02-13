@@ -40,7 +40,7 @@ Session là một cách để lưu trữ thông tin (trong các biến) được
 
 Không giống như một cookie, thông tin session được lưu trữ trên server, chứ không được lưu trữ trên máy tính người dùng.
 
-Khi bạn làm việc với một ứng dụng, bạn mở nó, thực hiện một số thay đổi, và sau đó bạn đóng nó lại. Điều này giống như một phiên (session). Máy tính biết bạn là ai. Nó biết khi bạn bắt đầu ứng dụng và khi bạn kết thúc. Nhưng trên internet có một vấn đề: máy chủ web không biết bạn là ai hoặc bạn làm gì, vì địa chỉ HTTP không duy trì trạng thái.
+Khi bạn làm việc với một ứng dụng, bạn mở nó, thực hiện một số thay đổi, và sau đó bạn đóng nó lại. Điều này giống như một phiên (session). Máy tính biết bạn là ai. Nó biết khi bạn bắt đầu ứng dụng và khi bạn kết thúc. Nhưng trên internet có một vấn đề: máy chủ web không biết bạn là ai hoặc bạn làm gì, vì giao thức HTTP không duy trì trạng thái.
 
 Các biến session giải quyết vấn đề này bằng cách lưu trữ thông tin người dùng được sử dụng trên nhiều trang (ví dụ: tên người dùng, sở thích, v.v.). Theo mặc định, các biến session tồn tại cho đến khi người dùng đóng trình duyệt.
 
@@ -300,7 +300,7 @@ Có 4 cách xử lý tập kết quả MySQL trong PHP là:
 
 Bất kỳ URL nào cũng có thể kết nối đến PHP dễ dàng bằng cách dùng thư viện cURL. Nó là một thư viện mặc định với cài đặt chuẩn của PHP. 
 
-Thuật ngữ cURL là viết tắt của client-side URL. cURL sử dụng libcurl(client-side URL Transfer Library). Nó hỗ trợ các phương thức như FTP, FTPS, HTTP/1, HTTP POST, HTTP PUT, HTTP proxy, HTTPS, IMAP, Kerberos,... Nó cho phép bạn kết nối một URL và truy xuất hiển thi thông tin của trang web đó (như nội dung HTML của trang, HTTP Header hay dữ liệu liên kết với chúng).
+Thuật ngữ cURL là viết tắt của client-side URL. cURL sử dụng libcurl (client-side URL Transfer Library). Nó hỗ trợ các phương thức như FTP, FTPS, HTTP/1, HTTP POST, HTTP PUT, HTTP proxy, HTTPS, IMAP, Kerberos,... Nó cho phép bạn kết nối một URL và truy xuất hiển thi thông tin của trang web đó (như nội dung HTML của trang, HTTP Header hay dữ liệu liên kết với chúng).
 
 #### Các bước kết nối URL sử dụng PHP cURL POST:
 

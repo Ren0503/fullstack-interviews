@@ -2,11 +2,7 @@
 
 ![](./assets/react.png)
 
-React là một trong những thư viện phổ biến nhất hiện nay có chứa nhiều JavaScript mã nguồn mở dùng để xây dựng giao diện giao tiếp với người dùng. Nhờ công nghệ mới Render trang web mà nó có tốc độ phản hồi nhanh chóng với user. Người khai sinh ra ReactJS đó chính không ai khác đó chính là một tên tuổi mà ai ai cũng biết “Facebook”.
-
-Nó được sử dụng tại các ông lớn (Netflix, American Express, Facebook, WhatsApp, Airbnb, eBay, Instagram,…) như một thư viện UL giúp 2 mạng xã hội lớn này xây dựng UI (giao diện với người dùng) thân thiện, có tính tương tác cao.
-
-Điểm đến cuối cùng mà các nhà sáng tạo muốn ReactJS hướng tới đó chính là đáp ứng mục tiêu mỗi website khi đã sử dụng ReactJS thì phải đảm bảo có tốc độ Load nhanh, mượt, đơn giản và có khả năng mở rộng cao.
+React là một thư viện JavaScript mã nguồn mở, linh hoạt và hiệu quả cho phép các nhà phát triển tạo ra các ứng dụng web đơn giản, nhanh chóng và có thể mở rộng. Jordan Walke, một kỹ sư phần mềm đang làm việc cho Facebook đã tạo ra React. Nó được triển khai lần đầu tiên trên news feed của Facebook vào năm 2011 và trên Instagram vào năm 2012. Các nhà phát triển từ nền tảng Javascript có thể dễ dàng phát triển các ứng dụng web với sự trợ giúp của React.
 
 Việc lựa chọn công nghệ phù hợp để ứng dụng hoặc phát triển web đang trở nên khó khăn hơn. React đã được coi là thư viện/framework frontend phát triển nhanh nhất trong số tất cả. Sự phát triển của Javascript đang nổi lên và ổn định trên thị trường và nhu cầu tuyển dụng React đang tăng lên theo cấp số nhân. React rõ ràng là một lợi thế đối với các nhà phát triển front-end vì nó có đường cong học tập nhanh, trừu tượng rõ ràng và các thành phần có thể tái sử dụng. Hiện tại, vẫn chưa có dấu hiệu dùng cho React vì nó vẫn sẽ tiếp tục phát triển.
 
@@ -246,6 +242,28 @@ class ClassRoom extends React.Component{
 
 ### 8. Virtual DOM là gì?
 
-Virtual DOM được xây dựng như 1 lớp nằm trên DOM. Virtual DOM cung cấp một phương tiện bổ trợ cho DOM và hệ thống các sự kiện (events system), thay vì tác động trực tiếp đến DOM. Cụ thể hơn, Virtual DOM được sử dụng để tái thể hiện (re-render) hiệu quả DOM bằng cách sử dụng thuật toán tìm sự khác biệt và chỉ tái thể hiện những thành phần bị thay đổi. Việc này giúp việc thực hiện vô cùng nhanh. React giữ lại 2 phiên bản của 1 Virtual DOM: nguyên bản và bản được cập nhật.
+Virtual DOM là một khái niệm trong đó biểu diễn ảo của DOM thực được lưu giữ bên trong bộ nhớ và được đồng bộ hóa với DOM thực bởi một thư viện như ReactDOM.
 
 ![](./assets/virtual_DOM.png)
+
+#### Tại sao cần Virtual DOM
+
+Thao tác DOM là một phần không thể thiếu của bất kỳ ứng dụng web nào, nhưng thao tác DOM khá chậm khi so sánh với các thao tác khác trong JavaScript. Hiệu quả của ứng dụng bị ảnh hưởng khi một số thao tác DOM đang được thực hiện. Hầu hết các framework JavaScript cập nhật toàn bộ DOM ngay cả khi một phần nhỏ của DOM thay đổi.
+
+Ví dụ: hãy xem xét một danh sách đang được hiển thị bên trong DOM. Nếu một trong các mục trong danh sách thay đổi, toàn bộ danh sách sẽ được hiển thị lại thay vì chỉ hiển thị mục đã được thay đổi/cập nhật. Đây được gọi là cập nhật không hiệu quả.
+
+Để giải quyết vấn đề cập nhật không hiệu quả, team React đã đưa ra khái niệm virtual DOM.
+
+![](./assets/virtual_DOM-how_does_it_work.png)
+
+Đối với mỗi đối tượng DOM, có một đối tượng DOM ảo tương ứng (bản sao), có các thuộc tính giống nhau. Sự khác biệt chính giữa đối tượng DOM thực và đối tượng DOM ảo là bất kỳ thay đổi nào trong đối tượng DOM ảo sẽ không phản ánh trực tiếp trên màn hình. Hãy coi một đối tượng DOM ảo như một bản thiết kế của đối tượng DOM thực. Bất cứ khi nào một phần tử JSX được hiển thị, mọi đối tượng DOM ảo sẽ được cập nhật.
+
+> Lưu ý- Người ta có thể nghĩ rằng việc cập nhật mọi đối tượng DOM ảo có thể không hiệu quả, nhưng không phải vậy. Cập nhật DOM ảo nhanh hơn nhiều so với cập nhật DOM thực vì chúng tôi chỉ cập nhật bản thiết kế của DOM thực.
+
+React sử dụng hai virtual DOM để hiển thị giao diện người dùng. Một cái được sử dụng để lưu trữ trạng thái hiện tại của các đối tượng và cái còn lại để lưu trữ trạng thái trước đó của các đối tượng. Bất cứ khi nào DOM ảo được cập nhật, React so sánh hai DOM ảo và biết về đối tượng DOM ảo nào đã được cập nhật. Sau khi biết đối tượng nào đã được cập nhật, React chỉ hiển thị các đối tượng đó bên trong DOM thực thay vì hiển thị DOM thực hoàn chỉnh. Bằng cách này, với việc sử dụng virtual DOM, react sẽ giải quyết được vấn đề cập nhật không hiệu quả.
+
+### 9. Sự khác biệt giữa controlled component và uncontrolled component?
+
+### 41. Cách tự động chuyển hướng sau khi đăng nhập?
+
+Package `react-router` cung cấp component 
