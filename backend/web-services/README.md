@@ -151,6 +151,8 @@ Việc triển khai các dịch vụ web nói chung phụ thuộc vào các côn
 
 Tính đồng bộ (Synchronicity) thường đề cập đến sự ràng buộc của client với việc thực thi chức năng và nó có thể được thực hiện theo hai cách, tức là đồng bộ và bất đồng bộ. Trong lời gọi đồng bộ, client chặn và đợi cho đến khi dịch vụ hoàn thành hoạt động trước khi tiếp tục công việc của nó. Trong lệnh gọi bất đồng bộ, client được phép gọi một dịch vụ và thực thi các chức năng khác.
 
+## Câu hỏi phỏng vấn cho Experienced
+
 ### 18. Dịch vụ web RESTful là gì?
 
 REST (Representational State Transfer) là một kiến trúc stateless kiểu client-server sử dụng cho phát triển ứng dụng có thể truy cập trên toàn web. Nó là một kiểu dịch vụ web với mục tiêu chính là làm cho các dịch vụ web trở nên hiệu quả hơn. Nó có thể được định nghĩa là dịch vụ web sử dụng các phương thức HTTP để triển khai kiến trúc REST. Không giống như SOAP dựa trên giao thức, các dịch vụ RESTful dựa trên kiến trúc. Nó không chứa bất kỳ contract hoặc file WSDL nào.
@@ -356,3 +358,44 @@ SOA (Service Oriented Architecture) về cơ bản là một cách tiếp cận 
 - File Webservice.Disco 
 - File Web.Config 
 - Thư mục Bin
+
+### 30. Tại sao dịch vụ web lại quan trọng?
+
+Các dịch vụ web rất quan trọng vì chúng cung cấp các giao thức web chuẩn hóa, tức là HTTP hoặc HTTPS để tương tác, giao tiếp và trao đổi thông tin ở định dạng XML qua internet. Một số lợi thế của nó bao gồm:
+
+- Cho phép các thiết bị nói chuyện với nhau và chia sẻ dữ liệu hoặc dịch vụ giữa chúng.
+- Làm cho nền tảng ứng dụng và công nghệ độc lập.
+- Sử dụng giao thức tiêu chuẩn được chuẩn hóa để giao tiếp.
+- Người dùng SOAP qua giao thức HTTP có thể sử dụng internet chi phí thấp của họ để triển khai các dịch vụ web.
+- Cho phép logic nghiệp vụ của các hệ thống khác nhau khả dụng trên web.
+- Có thể được sử dụng cùng lúc bởi nhiều ứng dụng client.
+
+### 31. DISCO là gì?
+
+DISCO (Discovery) là một công nghệ của Microsoft đang được sử dụng để khám phá các dịch vụ web. Đây là quá trình định vị và thẩm vấn các mô tả dịch vụ web, là bước sơ bộ để có quyền truy cập vào các dịch vụ web qua Internet. Tổ chức cung cấp các dịch vụ web thường cung cấp file DISCO trên máy chủ của mình bao gồm các liên kết của tất cả các dịch vụ web có sẵn để nó có thể được sử dụng trong mạng cục bộ.
+
+### 32. Giải thích về BEEP?
+
+BEEP (Blocks Extensible Exchange Protocol) về cơ bản là một framework IETF (Internet Engineering Task Force) thường được sử dụng để phát triển các giao thức ứng dụng mạng. Người ta có thể tạo các giao thức mới này cho các ứng dụng khác nhau như nhắn tin tức thời, quản lý mạng, truyền file, cung cấp nội dung, v.v. Nó được phân lớp trực tiếp qua TCP. BEEP có các tính năng tích hợp khác nhau như xác thực, bảo mật, giao thức bắt tay ban đầu, xử lý lỗi, v.v.
+
+### 33. URL trong dịch vụ web REST?
+
+Trong dịch vụ web dựa trên REST, URL (Uniform Resource Locator) thường được sử dụng để định vị tài nguyên trên server đang lưu trữ dịch vụ web. Mỗi tài nguyên trong dịch vụ sẽ có ít nhất một UR: được sử dụng để xác định nó. Các client của dịch vụ web thường sử dụng URL để truy cập tài nguyên. Định dạng của nó được đưa ra dưới đây:
+
+```
+<protocol>://<service-name>/<ResourceType>/<ResourceID>
+```
+
+### 34. Bảo mật trong dịch vụ web?
+
+Bảo mật được coi là một tính năng rất quan trọng trong bất kỳ ứng dụng web nào. Nó là điều cần thiết trong các dịch vụ web để chúng có thể làm cho thông tin và giao dịch bí mật hoặc nhạy cảm trở nên đáng tin cậy hơn. Trong các dịch vụ web, bảo mật đạt được thông qua SSL (Service Socket Layer) giúp phát triển nền tảng EST (Entrust Secure Transaction).
+
+### 35. Sự khác biệt của dịch vụ web với CORBA và DCOM?
+
+| Dịch vụ web | CORBA & DCOM |
+|-|-|
+| Các dịch vụ web về cơ bản truyền hoặc nhận thông điệp từ các ứng dụng bằng giao thức HTTP. Để encode dữ liệu, chúng sử dụng XML | Về cơ bản, chúng truyền hoặc nhận thông điệp từ các ứng dụng bằng các giao thức không chuẩn như RPC, IIOP (Inter Internet Object Protocol),... |
+| WSDL dùng cho xác định dịch vụ web | CORBA Interface Description Language dùng cho xác định thành phần CORBA và Mircosoft Interface Definition Language dùng cho xác định thành phần DCOM |
+| UDDI dùng cho khám phá dịch vụ web | CORBA registry dùng cho khám phá thành phần CORBA và DCOM registry dùng cho xác định thành phần DCOM |
+| Thân thiện với tường lửa | CORBA dùng giao thức IIOP không thân thiện lắm |
+
