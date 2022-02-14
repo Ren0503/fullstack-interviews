@@ -544,5 +544,46 @@ let [name, setName] = useState('');
 
 ### 18. Cách dùng useEffect?
 
+React Hook useEffect được dùng cho thực hiện side effect trong function component. Với useEffect, ta sẽ thông báo cho React biết các component của bạn yêu cầu phải thực hiện điều gì đó sau khi render component hoặc sau khi thay đổi trạng thái. Function đã được truyền sẽ được React nhớ và gọi sau khi quá trình cập nhật DOM kết thúc. Nhừo điều này ta có thể thực hiện các thao tác khác nhau như tìm nạp dữ liệu, thiệt lập tiêu đều, quản lý DOM trực tiếp,... mà không nhắm đến giá trị output. Hook useEffect sẽ chạy theo mặc định sau lần render đầu tiên và mỗi lần cập nhật component. React đảm bảo tằng DOM sẽ  được cập nhật vào thời điểm effect chạy bởi nó.
 
+useEffect nhận vào hai thám số: `useEffect(callback[, dependencies]);`
 
+Trong đó tham số calback đầu tiên biểu diễn hàm chứa logic side-effect và sẽ thực thi ngay lập tức khi ta thực hiện thay đổi lên DOM. Tham số dependencies thứ hai biểu diễn mảng các dependencies. useEffect chỉ thực thi nếu các dependencies có thay đổi khi render.
+
+Ví dụ:
+
+```jsx
+import { useEffect } from 'react';
+
+function WelcomeGreetings({ name }) {
+    const msg = `Hi, ${name}!`;     // Calculates output
+
+    useEffect(() => {
+        document.title = `Welcome to you ${name}`;    // Side-effect!
+    }, [name]);
+
+    return <div>{msg}</div>;         // Calculates output
+}
+```
+
+Đoạn code trên sẽ cập nhật tiêu đề document nó được xem như một side-effect vì nó không tính toán output trực tiếp. Đó là lý do tại sao cập nhật tiêu đề document  được đặt trong callback và cung cấp cho `useEffect()`.
+
+Hãy cân nhắc rằng bạn không muốn thực hiện cập nhật tiêu đề document mỗi lần render component `WelcomeGreetings` và bạn muốn nó chỉ được thực thi khi prop `name` thay đổi thì bạn cần cung cấp `name` làm phụ thuộc đến `useEffect(callback, [name])`.
+
+### 19. Sử dụng refs với React Hooks?
+
+Trước đây, các ref chỉ giới hạn trong các class component nhưng giờ đây nó cũng có thể được truy cập trong các function component thông qua `useRef` trong React Hook.
+
+Các refs được sử dụng cho:
+
+- Quản lý tiêu điểm, phát lại phương tiện hoặc lựa chọn văn bản.
+- Tích hợp với các thư viện DOM của bên thứ ba.
+- Kích hoạt các ảnh động bắt buộc.
+
+### 20. Hook tuỳ chỉnh là gì?
+
+Một hook tùy chỉnh(custom hooks) là một hàm trong Javascript có tên bắt đầu bằng **use** và gọi các hook khác. Nó là một phần của bản cập nhật hook React v16.8 và cho phép bạn sử dụng lại logic trạng thái mà không cần phải cấu trúc lại cấu trúc phân cấp component.
+
+Trong hầu hết các trường hợp, hook tùy chỉnh được coi là đủ để thay thế render props và HoC (High-Order components) và giảm số lượng lồng ghép cần thiết. Hooks  tuỳ chỉnh sẽ cho phép bạn tránh nhiều lớp trừu tượng hoặc wrapper hell có thể đi kèm với render props và HoC.
+
+Nhược điểm của Hooks tuỳ chỉnh là nó không thể được sử dụng bên trong các lớp.
