@@ -2,9 +2,9 @@
 
 ![](./assets/react.png)
 
-React là một thư viện JavaScript mã nguồn mở, linh hoạt và hiệu quả cho phép các nhà phát triển tạo ra các ứng dụng web đơn giản, nhanh chóng và có thể mở rộng. Jordan Walke, một kỹ sư phần mềm đang làm việc cho Facebook đã tạo ra React. Nó được triển khai lần đầu tiên trên news feed của Facebook vào năm 2011 và trên Instagram vào năm 2012. Các nhà phát triển từ nền tảng Javascript có thể dễ dàng phát triển các ứng dụng web với sự trợ giúp của React.
+React là một thư viện JavaScript mã nguồn mở, linh hoạt và hiệu quả cho phép các nhà phát triển tạo ra các ứng dụng web đơn giản, nhanh chóng và có thể mở rộng. Jordan Walke, một kỹ sư phần mềm làm việc cho Facebook đã tạo ra React. Nó được triển khai lần đầu tiên trên news feed của Facebook vào năm 2011 và trên Instagram vào năm 2012. Các nhà phát triển từ nền tảng Javascript có thể dễ dàng phát triển các ứng dụng web với sự trợ giúp của React.
 
-Việc lựa chọn công nghệ phù hợp để ứng dụng hoặc phát triển web đang trở nên khó khăn hơn. React đã được coi là thư viện/framework frontend phát triển nhanh nhất trong số tất cả. Sự phát triển của Javascript đang nổi lên và ổn định trên thị trường và nhu cầu tuyển dụng React đang tăng lên theo cấp số nhân. React rõ ràng là một lợi thế đối với các nhà phát triển front-end vì nó có đường cong học tập nhanh, trừu tượng rõ ràng và các thành phần có thể tái sử dụng. Hiện tại, vẫn chưa có dấu hiệu dùng cho React vì nó vẫn sẽ tiếp tục phát triển.
+Ở hiện tại, việc lựa chọn công nghệ phù hợp để ứng dụng hoặc phát triển web đang trở nên khó khăn hơn. React đã được coi là thư viện/framework frontend phát triển nhanh nhất trong số tất cả. Sự phát triển của Javascript đang nổi lên và ổn định trên thị trường và nhu cầu tuyển dụng React đang tăng lên theo cấp số nhân. React rõ ràng là một lợi thế đối với các nhà phát triển front-end vì nó có đường cong học tập nhanh, trừu tượng rõ ràng và các thành phần có thể tái sử dụng. Hiện tại, vẫn chưa có dấu hiệu dừng cho React vì nó vẫn sẽ tiếp tục phát triển.
 
 ## Câu hỏi phỏng vấn React cho Fresher
 
@@ -22,8 +22,8 @@ Tính năng của React:
 ### 2. Lợi ích khi dùng React?
 
 - ReactJS giúp cho việc viết các đoạn code Javascript sẽ trở nên dễ dàng hơn vì nó sử dụng một cú pháp đặc biệt đó chính là cú pháp JSX. Thông qua JSX cho phép nhúng code HTML và Javascript.
-- ReactJS cho phép Developer phá vỡ những cấu tạo UI phức tạp thành những component độc lập. Dev sẽ không phải lo lắng về tổng thể ứng dụng web, giờ đây Developer dễ dàng chia nhỏ các cấu trúc UI/UX phức tạp thành từng component đơn giản hơn. 
-Đi kèm với ReactJS là rất nhiều các công cụ phát triển giúp cho việc  debug code một cách dễ dàng hơn.
+- ReactJS cho phép nhà phát triển phá vỡ những cấu trúc UI phức tạp thành những component độc lập. Các nhà phát triển sẽ không phải lo lắng về tổng thể ứng dụng web, giờ đây có thể dễ dàng chia nhỏ các cấu trúc UI/UX phức tạp thành từng component đơn giản hơn. 
+- Đi kèm với ReactJS là rất nhiều các công cụ phát triển giúp cho việc debug code một cách dễ dàng hơn.
 - Một trong những ưu điểm nữa của ReactJS đó là sự thân thiện với SEO. Hầu như các JS Frameworks không thân thiện với các tìm kiếm mặc dù đã được cải thiện nhiều nhưng dưới sự hỗ trợ của các render dữ liệu trả về dưới dạng web page giúp cho SEO chuẩn hơn.
 - React cùng với React Native, Redux, Electro cùng với nhiều công cụ hữu ích khác giúp nhà phát triển xây dựng được đa dạng loại ứng dụng phù hợp với nhiều yêu cầu.
 
@@ -76,7 +76,7 @@ const listElements = ids.map((id)=>{
 #### Ý nghĩa của keys
 
 - Key giúp react định danh các phần tử được thêm, sửa hay xoá.
-- Key đuọc cho bởi mảng phần tử cho cung cấp định danh duy nhất của từng phần tử.
+- Key được cho bởi mảng phần tử cho cung cấp định danh duy nhất của từng phần tử.
 - Không dùng key, React sẽ không hiểu thứ tự của từng phần tử.
 - Với key, React sẽ phân biệt các phần tử riêng lẻ được thêm, sửa và xoá.
 - Key được dùng cho hiển thị danh sách dữ liệu từ API.
@@ -110,7 +110,7 @@ ReactDOM.render(container,rootElement);
 
 Trước khi giới thiệu hooks ở phiên bản 16, các function component được gọi là stateless component và ít khi được dùng trong React. Sau khi hook ra đời, các function component giờ đã ngang hàng với class component.
 
-Dù function component đang là trend hiện tại, nhưng class component vẫn còn rất quan trọng. Dưới đây là một vài so sánh cơ bản 
+Dù function component đang là trend hiện tại, nhưng class component vẫn còn rất quan trọng. Dưới đây là một vài so sánh cơ bản:
 
 - **Khai báo**
 
@@ -125,7 +125,7 @@ function card(props){
     )
 }
 
-const card = (props) =>{
+const card = (props) => {
     return(
         <div className="main-container">
             <h2>Title of the card</h2>
@@ -264,6 +264,285 @@ React sử dụng hai virtual DOM để hiển thị giao diện người dùng.
 
 ### 9. Sự khác biệt giữa controlled component và uncontrolled component?
 
-### 41. Cách tự động chuyển hướng sau khi đăng nhập?
+| Tính năng | Uncontrolled | Controlled 
+|-|-|-|
+| Truy xuất giá trị một lần (như khi submit) | Yes | Yes |
+| Xác thực submit | Yes | Yes |
+| Xác thực trường | No | Yes |
+| Điều kiện cho kích hoạt nút submit | No | Yes |
+| Định dạng đầu vào | No | Yes |
+| Cung cấp nhiều input cho một mẫu dữ liệu | No | Yes |
+| Input động | No | Yes |
 
-Package `react-router` cung cấp component 
+**Controlled component**
+
+Trong controlled component, giá trị của phần tử input được điều khiển bởi React. Ta lưu trữ trạng thái của phần tử input trong code, và sử dụng callback, với bất kỳ thay đổi nào đến input sẽ được phản ánh tương tự trong code.
+
+Khi người dùng nhập dữ liệu vào phần tử input trong controlled component, hàm `onChange` kích hoạt và trong code, ta kiểm tra giá trị nhập vào là hợp lệ hay không. Nếu hợp lệ, ta thay đổi trạng thái và re-render phần tử input với giá trị mới.
+
+```jsx
+function FormValidation(props) {
+    let [inputValue, setInputValue] = useState("");
+    let updateInput = e => {
+        setInputValue(e.target.value);
+    };
+    return (
+        <div>
+            <form>
+            <input type="text" value={inputValue} onChange={updateInput} />
+            </form>
+        </div>
+    );
+}
+```
+
+Như đoạn code trên, giá trị của phần tử input được xác định bởi biến `inputValue`. Bất kỳ thay đổi nào đến phần tử input sẽ được xử lý bởi hàm `updateInput`.
+
+**Uncontrolled component**
+
+Trong uncontrolled component, giá trị của phần tử input được xử lý bởi chính DOM. Các phần tử input này hoạt động giống như phần tử input HTML.
+
+Trạng thái của phần tử input được xử lý bởi DOM. Nên khi giá trị input thay đổi, callback sẽ không được gọi. Hoặc có thể nói là React không thực hiện bất cứ hàng động nào khi xảy ra thay đổi.
+
+Khi người dùng nhập dữ liệu vào trường input, dữ liệu cập nhật được hiển thị trực tiếp. Để truy cập giá trị phần tử input, ta có thể dùng **ref**.
+
+```jsx
+function FormValidation(props) {
+    let inputValue = React.createRef();
+    let handleSubmit = e => {
+        alert(`Input value: ${inputValue.current.value}`);
+        e.preventDefault();
+    };
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+            <input type="text" ref={inputValue} />
+            <button type="submit">Submit</button>
+            </form>
+        </div>
+    );
+}
+```
+
+### 10. Props trong React là gì?
+
+Props trong React là dữ liệu được truyền cho các component. Nó có thể là giá trị đơn hoặc đối tượng có tập giá trị được truyền cho component trong suốt quá trình bằng cách thực hiện truyền tham số (tương tự với cú pháp thuộc tính trong HTML). Ta có thể nói props là dữ liệu kế thừa được truyền từ component cha sang component con.
+
+Các chức năng của props:
+- Truyền dữ liệu tuỳ chỉnh đến component.
+- Kích hoạt thay đổi trạng thái
+- Sử dụng cho render dữ liệu.
+
+### 11. Giải thích state và props?
+
+| Props | State |
+|-|-|
+| Bất biến | Có thể thay đổi |
+| Hiệu suất tốt hơn | Phạm vi cục bộ |
+| Truyền được cho component khác | Truyền được giống như props |
+| | Có phương thức setState để đổi giá trị |
+| | Đổi trạng bất đồng bộ |
+
+**React State**
+
+Tất cả component đều có sẵn đối tượng state, bao gồm tất cả giá trị thuộc tính cùng với component đó. Nói cách khác, đối tượng state điều khiển hành vi của component. Bất kỳ thay đổi giá trị thuộc tính nào của đối tượng state sẽ dẫn đến re-render component.
+
+*Khai báo đối tượng state*
+
+```jsx
+class Car extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            brand: "BMW",
+            color: "black"
+        }
+    }
+}
+```
+
+*Dùng và cập nhật đối tượng state*
+
+```jsx
+class Car extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            brand: "BMW",
+            color: "Black"
+        };
+    }
+    changeColor() {
+        this.setState(prevState => {
+            return { color: "Red" };
+        });
+    }
+    render() {
+        return (
+            <div>
+                <button onClick={() => this.changeColor()}>Change Color</button>
+                <p>{this.state.color}</p>
+            </div>
+        );
+    }
+}
+```
+
+**React Props**
+
+Tất cả component đều nhận vào một đối thượng tham số gọi là props (viết tắt của properties). Props có thể được truyền đi component khác và các component này nhận props như một đối số.
+
+*Truyền props cho component*
+
+```jsx
+<Car brand="Mercedes"/>
+```
+
+*Nhận props từ component khác*
+
+Trong class:
+
+```jsx
+class Car extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            brand: this.props.brand,
+            color: "Black"
+        };
+    }
+}
+```
+
+Trong function:
+
+```jsx
+function Car(props) {
+    let [brand, setBrand] = useState(props.brand);
+}
+```
+
+### 12. Các kiểu side effect trong React component?
+
+Có hai kiểu side effect trong React.
+- **Effect không có cleanup:** Side effect này sẽ được sử dụng trong `useEffect` không hạn chế trình duyệt cập nhật màn hình. Nó cũng cải thiện khả năng phản hồi của một ứng dụng. Một vài ví dụ phổ biến là yêu cầu mạng, logging, chỉnh sửa DOM thủ công, v.v.
+- **Effect có cleanup:** Một số Hook effect sẽ yêu cầu cleanup sau khi cập nhật xong DOM. Ví dụ: nếu bạn muốn thiết lập đăng ký nguồn dữ liệu bên ngoài, nó yêu cầu dọn dẹp bộ nhớ, nếu không có thể xảy ra sự cố rò rỉ bộ nhớ. Có một thực tế là React sẽ thực hiện dọn dẹp bộ nhớ khi các component unmounting. Nhưng các effect sẽ chạy mỗi phương thức `render()` hơn là cho bất kỳ phương thức cụ thể nào. Do đó, chúng ta có thể nói rằng, trước khi thực thi các hiệu ứng thời gian, React cũng sẽ dọn dẹp các hiệu ứng từ lần hiển thị trước đó.
+
+### 13. Prop drilling trong React?
+
+Đôi khi trong việc phát triển các ứng dụng React, cần phải truyền dữ liệu từ một thành phần cao hơn trong hệ thống phân cấp đến một thành phần được lồng sâu vào nhau. Để truyền dữ liệu giữa các thành phần như vậy, ta chuyển các props từ một thành phần nguồn và tiếp tục truyền phần hỗ trợ cho thành phần tiếp theo trong hệ thống phân cấp cho đến khi chúng ta tiếp cận thành phần được lồng sâu.
+
+Hạn chế của sử dụng prop drilling là việc truy cập dữ liệu sẽ vô cùng phức tạp trong các ứng dụng lớn.
+
+### 14. Error boundary là gì?
+
+Được giới thiệu ở React v16, error boundary cung cấp một cách để xử lý lỗi xảy ra trong giai đoạn render.
+
+Bất kỳ component nào sử dụng các phương thức lifecycle cũng được xem là một error boundary. Các vị trí mà error boundary có thể được phát hiện:
+
+1. Giai đoạn Render
+2. Trong một phương thức lifecycle
+3. Trong constructor
+
+**Không dùng error boundary**
+
+```jsx
+class CounterComponent extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            counterValue: 0
+        }
+        this.incrementCounter = this.incrementCounter.bind(this);
+    }
+
+    incrementCounter(){
+        this.setState(prevState => counterValue = prevState+1);
+    }
+    render(){
+        if(this.state.counter === 2){
+            throw new Error('Crashed');
+        }
+        return(
+            <div>
+                <button onClick={this.incrementCounter}>Increment Value</button>
+                <p>Value of counter: {this.state.counterValue}</p>
+            </div>
+        )
+    }
+}
+```
+
+Trong đoạn code trên, khi `counterValue` bằng 2, ta có lỗi bên trong phương thức render.
+
+Khi không dùng error boundary, ta sẽ thấy một trang trống thay vì lỗi. Bất cứ lỗi nào trong phương thức render đều dẫn đến unmounting component. Để hiển thị lỗi khi đó, ta sử dụng error boundary.
+
+**Sử dụng error boundary**: error bounary là một component sử dụng một hoặc cả hai phương thức sau:
+
+- `getDerivedStateFromError`
+-  `componentDidCatch`
+
+Ví dụ:
+
+```jsx
+class ErrorBoundary extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { hasError: false };
+    }
+    static getDerivedStateFromError(error) {     
+        return { hasError: true }; 
+    }
+    componentDidCatch(error, errorInfo) {       
+        logErrorToMyService(error, errorInfo); 
+    }
+    render() {
+        if (this.state.hasError) {     
+            return <h4>Something went wrong</h4>     
+        }
+        return this.props.children;
+    }
+}
+```
+
+Trong đoạn code trên, hàm `getDerivedStateFromError` render một fallback UI interface khi phương thực render có lỗi.
+
+`componentDidCatch` ghi lại thông tin lỗi vào một dịch vụ theo dõi lỗi.
+
+Bây giờ với error boundary ta có thể render CounterComponent như sau:
+
+```jsx
+<ErrorBoundary>
+    <CounterComponent />
+</ErrorBoundary>
+```
+
+### 15. React Hooks là gì?
+
+React Hooks là các hàm có sẵn cho phép các nhà phát triển sử dụng các phương thức trạng thái (state) và vòng đời (lifecycle) trong các component React. Đây là những tính năng mới được bổ sung có sẵn trong phiên bản React 16.8. Mỗi lifecycle của một component có 3 giai đoạn bao gồm mount, unmount và update. Cùng với đó, các component có state và props. Hooks sẽ cho phép các nhà phát triển sử dụng các phương pháp này để cải thiện việc tái sử dụng code với tính linh hoạt cao hơn trong việc điều hướng cây component.
+
+Sử dụng Hook, tất cả các tính năng của React có thể được sử dụng mà không cần viết các class component. Ví dụ, trước phiên bản React 16.8, nó yêu cầu một class component để quản lý trạng thái của một component. Nhưng bây giờ bằng cách sử dụng hook useState, chúng ta có thể giữ trạng thái trong một function component.
+
+### 16. Tại sao lại cần React Hook?
+
+React hooks đã được giới thiệu trong phiên bản 16.8 của React. Trước đây, các function component được gọi là stateless component. Chỉ các class component mới được sử dụng cho các phương thức quản lý trạng thái và vòng đời. Nhưng vì class component quá nặng nếu như chỉ cần thay đổi một vài state hay phương thức trong lifecycle. Điều đó dẫn đến sự ra đời của React Hooks.
+
+Ví dụ: sử dụng hook useState
+
+```jsx
+function Person(props) {
+// We are declaring a state variable called name.
+// setName is a function to update/change the value of name
+let [name, setName] = useState('');
+}
+```
+
+### 17. Các quy tắc sử dụng React Hooks?
+
+- Chỉ có thể gọi hooks trong function component (không thể dùng trong class).
+- Chỉ có thể gọi ở cấp cao, không thể gọi trong hàm, vòng lặp hay điều kiện.
+
+### 18. Cách dùng useEffect?
+
+
+
