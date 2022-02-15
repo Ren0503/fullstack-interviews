@@ -6,6 +6,20 @@ React là một thư viện JavaScript mã nguồn mở, linh hoạt và hiệu 
 
 Ở hiện tại, việc lựa chọn công nghệ phù hợp để ứng dụng hoặc phát triển web đang trở nên khó khăn hơn. React đã được coi là thư viện/framework frontend phát triển nhanh nhất trong số tất cả. Sự phát triển của Javascript đang nổi lên và ổn định trên thị trường và nhu cầu tuyển dụng React đang tăng lên theo cấp số nhân. React rõ ràng là một lợi thế đối với các nhà phát triển front-end vì nó có đường cong học tập nhanh, trừu tượng rõ ràng và các thành phần có thể tái sử dụng. Hiện tại, vẫn chưa có dấu hiệu dừng cho React vì nó vẫn sẽ tiếp tục phát triển.
 
+## Mục lục
+
+[1. React là gì](#1-react-là-gì)
+
+[2. Lợi ích khi dùng React?](#2-lợi-ích-khi-dùng-react)
+
+[3. Hạn chế của React?](#3-hạn-chế-của-react)
+
+[4. useState() trong React là gì?](#4-usestate-trong-react-là-gì)
+
+[5. Keys trong React?](#5-keys-trong-react)
+
+[6. JSX là gì?](#6-jsx-l%C3%A0-g%C3%AC)
+
 ## Câu hỏi phỏng vấn React cho Fresher
 
 ### 1. React là gì?
@@ -1086,7 +1100,7 @@ Static typing đề cập đến quá trình kiểm tra code trong suốt thời
 ### 32. Hiệu suất của React Hook so với lớp?
 
 - React Hooks sẽ tránh được rất nhiều chi phí như tạo thực thể, liên kết các sự kiện, .., có trong các lớp.
-- Các hook trong React sẽ dẫn đến các cây component nhỏ hơn vì chúng sẽ tránh được việc lồng nhau tồn tại trong HOC và sẽ render props dẫn đến việc React phải thực hiện ít công việc hơn.
+- Các hook trong React sẽ dẫn đến các cây component nhỏ hơn vì chúng sẽ tránh được việc lồng nhau tồn tại trong HOC và sẽ render props dẫn đến việc React phải thực hiện ít công việc hơn.r
 
 ### 33. Các hook có thay thế được lớp hoàn toàn?
 
@@ -1094,4 +1108,56 @@ Mục đích của Hook là thay thế các chức năng được cung cấp b�
 - `getSnapshotBeforeUpdate()`
 - `getDerivedStateFromError()`
 - `componentDidCatch()`
+
+### 34. React Router là gì?
+
+React Router đề cập đến thư viện tiêu chuẩn được sử dụng để định tuyến trong React. Nó cho phép chúng tôi xây dựng một ứng dụng web trong React với điều hướng mà không cần làm mới trang khi người dùng điều hướng. Nó cũng cho phép thay đổi URL của trình duyệt và sẽ giữ cho giao diện người dùng đồng bộ với URL. React Router sẽ sử dụng cấu trúc component để gọi các component, sử dụng thông tin thích hợp có thể được hiển thị.
+
+Cài đặt với npm:
+
+```
+npm install react-router-dom
+```
+
+### 35. React Hook có thể thay thế Redux?
+
+React Hook không thể được coi là sự thay thế cho Redux (Nó là một thư viện JavaScript mã nguồn mở, hữu ích trong việc quản lý trạng thái ứng dụng) khi nói đến việc quản lý toàn bộ state trong các ứng dụng phức tạp lớn, mặc dù React sẽ cung cấp một hook `useReducer` quản lý các chuyển đổi trạng thái tương tự như Redux. Nhưng Redux hữu ích ở cấp độ thấp hơn của hệ thống phân cấp component để xử lý các phần của state phụ thuộc vào nhau, thay vì khai báo nhiều hook `useState`.
+
+Trong các ứng dụng web thương mại lớn hơn, độ phức tạp sẽ cao, vì vậy chỉ sử dụng React Hook có thể không đủ. Một số nhà phát triển sẽ cố gắng giải quyết thách thức với sự trợ giúp của React Hooks và những người khác sẽ kết hợp React Hooks với Redux.
+
+### 36. Render có điều kiện trong React?
+
+Render có điều kiện đề cập kết quả động của giao diện người dùng dựa trên điều kiện state. Nó hoạt động tương tự điều kiện JavaScript. Sử dụng render có điều kiện, nó có thể chuyển đổi các hàm ứng dụng cụ thể, API dữ liệu, ẩn hoặc hiện các phần tử, phân quyền, xử lý xác thức,...
+
+Các cách khác nhau cho triển khai render có điều kiện trong React:
+- Sử dụng if-else phù hợp với các ứng dụng vừa và nhỏ.
+- Sử dụng toán tử ba ngôi (`?:`) giúp giảm bớt câu lệnh if-else phức tạp.
+- Sử dụng biến phần tử, phù hợp cho viết code sạch.
+
+### 37. Tạo component cho chuyển trang khác nhau?
+
+```jsx
+import HomePage from './HomePage'
+import AboutPage from './AboutPage'
+import FacilitiesPage from './FacilitiesPage'
+import ContactPage from './ContactPage'
+import HelpPage from './HelpPage'
+
+const PAGES = {
+    home: HomePage,
+    about: AboutPage,
+    facilitiess: FacilitiesPage,
+    contact: ContactPage
+    help: HelpPage
+}
+
+const Page = (props) => {
+    const Handler = PAGES[props.page] || HelpPage
+    return <Handler {...props} />
+}
+// The PAGES object keys can be used in the prop types for catching errors during dev-time.
+Page.propTypes = {
+    page: PropTypes.oneOf(Object.keys(PAGES)).isRequired
+}
+```
 
