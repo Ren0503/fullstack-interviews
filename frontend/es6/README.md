@@ -5,6 +5,86 @@
 
 ECMAScript, hay ES6, đã được xuất bản vào tháng 6 năm 2015. Sau đó nó được đổi tên thành ECMAScript 2015. Các trình duyệt web hỗ trợ đầy đủ cho ngôn ngữ vẫn chưa hoàn thành, mặc dù việc hỗ trợ cho các phần chính đã được tiến hành. Các trình duyệt web chính hỗ trợ một số tính năng của ES6. Tuy nhiên, có thể sử dụng phần mềm được gọi là trình chuyển đổi để chuyển đổi code ES6 thành ES5, vì ES5 được hỗ trợ tốt hơn trên hầu hết các trình duyệt.
 
+## Mục lục
+
+[1. Các tính năng nổi bật của ES6?](#1-c%C3%A1c-t%C3%ADnh-n%C4%83ng-n%E1%BB%95i-b%E1%BA%ADt-c%E1%BB%A7a-es6)
+
+[2. Hỗ trợ hướng đối tượng trong ES6 như thế nào?](#2-h%E1%BB%97-tr%E1%BB%A3-h%C6%B0%E1%BB%9Bng-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-trong-es6-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[3. Sự khác biệt giữa ES5 và ES6?](#3-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-es5-v%C3%A0-es6)
+
+[4. Sự khác biệt giữa let và const?](#4-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-let-v%C3%A0-const)
+
+[5. Thảo luận về hàm arrow?](#5-th%E1%BA%A3o-lu%E1%BA%ADn-v%E1%BB%81-h%C3%A0m-arrow)
+
+[6. Khi nào không nên dùng hàm arrow?](#6-khi-n%C3%A0o-kh%C3%B4ng-n%C3%AAn-d%C3%B9ng-h%C3%A0m-arrow)
+
+[7. Hàm generator là gì?](#7-h%C3%A0m-generator-l%C3%A0-g%C3%AC)
+
+[8. Toán tử spread trong ES6?](#8-to%C3%A1n-t%E1%BB%AD-spread-trong-es6)
+
+[9. Giải thích về destructuring trong ES6?](#9-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-destructuring-trong-es6)
+
+[10. Promise trong ES6 là gì?](#10-promise-trong-es6-l%C3%A0-g%C3%AC)
+
+[11. Giải thích về Rest parameter trong ES6?](#11-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-rest-parameter-trong-es6)
+
+[12. Thảo luận về template literal trong ES6?](#12-th%E1%BA%A3o-lu%E1%BA%ADn-v%E1%BB%81-template-literal-trong-es6)
+
+[13. Ưu điểm của class trong ES6?](#13-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-class-trong-es6)
+
+[14. Cách tạo class trong ES6](#14-c%C3%A1ch-t%E1%BA%A1o-class-trong-es6)
+
+[15. Biểu thức lớp là gì?](#15-bi%E1%BB%83u-th%E1%BB%A9c-l%E1%BB%9Bp-l%C3%A0-g%C3%AC)
+
+[16. Tham số mặc định là gì?](#16-tham-s%E1%BB%91-m%E1%BA%B7c-%C4%91%E1%BB%8Bnh-l%C3%A0-g%C3%AC)
+
+[17. Bạn hiểu gì về IIFE?](#17-b%E1%BA%A1n-hi%E1%BB%83u-g%C3%AC-v%E1%BB%81-iife)
+
+[18. Các trạng thái của Promise trong ES6?](#18-c%C3%A1c-tr%E1%BA%A1ng-th%C3%A1i-c%E1%BB%A7a-promise-trong-es6)
+
+[19. Export Default và Name Export trong ES6?](#19-export-default-v%C3%A0-name-export-trong-es6)
+
+[20. Từ khoá nào dùng cho kế thừa trong ES6?](#20-t%E1%BB%AB-kho%C3%A1-n%C3%A0o-d%C3%B9ng-cho-k%E1%BA%BF-th%E1%BB%ABa-trong-es6)
+
+[21. Bubbling và Capturing là gì?](#21-bubbling-v%C3%A0-capturing-l%C3%A0-g%C3%AC)
+
+[22. Sự khác biệt giữa for...of và for..in?](#22-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-forof-v%C3%A0-forin)
+
+[23. Symbol trong ES6 là gì?](#23-symbol-trong-es6-l%C3%A0-g%C3%AC)
+
+[24. Babel là gì?](#24-babel-l%C3%A0-g%C3%AC)
+
+[25. Tên các phương thức mảng có trong ES6](#25-t%C3%AAn-c%C3%A1c-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-m%E1%BA%A3ng-c%C3%B3-trong-es6)
+
+[26. Tên các hàm chuỗi có trong ES6?](#26-t%C3%AAn-c%C3%A1c-h%C3%A0m-chu%E1%BB%97i-c%C3%B3-trong-es6)
+
+[27. So sánh code ES5 và ES6 cho tạo và tách đối tượng?](#27-so-s%C3%A1nh-code-es5-v%C3%A0-es6-cho-t%E1%BA%A1o-v%C3%A0-t%C3%A1ch-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng)
+
+[28. Hoán vị với Destrucuring Assignment?](#28-ho%C3%A1n-v%E1%BB%8B-v%E1%BB%9Bi-destrucuring-assignment)
+
+[29. Kết quả của toán tử spread ở code bên dưới?](#29-k%E1%BA%BFt-qu%E1%BA%A3-c%E1%BB%A7a-to%C3%A1n-t%E1%BB%AD-spread-%E1%BB%9F-code-b%C3%AAn-d%C6%B0%E1%BB%9Bi)
+
+[30. Prototype Design Pattern với ES6?](#30-prototype-design-pattern-v%E1%BB%9Bi-es6)
+
+[31. WeakMap trong ES6 là gì? Nó khác Map như thế nào?](#31-weakmap-trong-es6-l%C3%A0-g%C3%AC-n%C3%B3-kh%C3%A1c-map-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[32. Lợi thế của hàm khởi tạo với cú pháp arrow?](#32-l%E1%BB%A3i-th%E1%BA%BF-c%E1%BB%A7a-h%C3%A0m-kh%E1%BB%9Fi-t%E1%BA%A1o-v%E1%BB%9Bi-c%C3%BA-ph%C3%A1p-arrow)
+
+[33. Temporal Dead Zone là gì?](#33-temporal-dead-zone-l%C3%A0-g%C3%AC)
+
+[34. Sự khác biệt giữa Set và WeakSet trong ES6?](#34-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-set-v%C3%A0-weakset-trong-es6)
+
+[35. Proxy trong ES6 là gì?](#35-proxy-trong-es6-l%C3%A0-g%C3%AC)
+
+[36. Sự khác biệt giữa const và Object.freeze()?](#36-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-const-v%C3%A0-objectfreeze)
+
+[37. Tại sao đoạn code này không hoạt động như một IIFE? Điều gì cần được sửa đổi để nó được phân loại là IIFE?](#37-t%E1%BA%A1i-sao-%C4%91o%E1%BA%A1n-code-n%C3%A0y-kh%C3%B4ng-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-nh%C6%B0-m%E1%BB%99t-iife-%C4%91i%E1%BB%81u-g%C3%AC-c%E1%BA%A7n-%C4%91%C6%B0%E1%BB%A3c-s%E1%BB%ADa-%C4%91%E1%BB%95i-%C4%91%E1%BB%83-n%C3%B3-%C4%91%C6%B0%E1%BB%A3c-ph%C3%A2n-lo%E1%BA%A1i-l%C3%A0-iife)
+
+[38. Giải thích về Internationalization và Localization?](#38-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-internationalization-v%C3%A0-localization)
+
+[39. Webpack là gì?](#39-webpack-l%C3%A0-g%C3%AC)
+
 ## Câu hỏi phỏng vấn ES6 dành cho Fresher
 
 ### 1. Các tính năng nổi bật của ES6
@@ -22,7 +102,9 @@ ECMAScript, hay ES6, đã được xuất bản vào tháng 6 năm 2015. Sau đ�
 * Hỗ trợ map/set
 
 ### 2. Hỗ trợ hướng đối tượng trong ES6 như thế nào?
+
 - **Classes** có thể tạo lớp trong ES6. Về cơ bản, hàm lớp xây dựng một khuôn mẫu mà từ đó ta có thể tạo các đối tượng. Khi tạo một thực thế mới của lớp, phương thức constructor sẽ được gọi.
+
 - **Methods** phương thức tĩnh có thể được tìm thấy trong các lớp. Một phương thức tĩnh không giống như một đối tượng mà nó là một hàm được liên kết với lớp. Một phương thức tĩnh không thể được gọi từ một thực thể của lớp.
 
 Ta hãy xem qua getter và setter nhé.
