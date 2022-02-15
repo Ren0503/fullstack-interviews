@@ -631,7 +631,9 @@ StrictMode giúp giải quyết các vấn đề sau:
     - Một số phương thức lifecycle không an toàn khi dùng bất đồng bộ trong ứng dụng react. Với thư viện bên thứ 3, thật khó để đảm bảo một số phương thức lifecycle nhất định không được dùng.
     - StrictMode giúp ta bằng cách cung cấp cảnh báo với bất kỳ class component nào sử dụng phương thức lifecycle không an toàn.
 - **Cảnh báo sử dụng chuỗi API kế thừa**
-    - Nếu ng
+    - Nếu sử dụng phiên bản cũ của React, **callback ref** được đề nghị là cách để quản lý **refs** thay vì dùng **chuỗi refs**. StringMode đưa ra cảnh báo nếu bản sử dụng chuỗi ref để quản lý refs.
+- **Cảnh báo sử dụng findDOMNode**
+    - Phương thức `findDOMNode()` dùng để tìm cây của node DOM. Phương thức này đã không còn hỗ trợ trogn React. Do đó, StrictMode đưa ra cảnh báo khi ta dùng phương thức này.
 
 ### 22. Ngăn chặn re-render trong React?
 
@@ -720,7 +722,7 @@ class RandomComponent extends React.Component {
 }
 ```
 
-**Javascript Object:** ta có thể tạo đối tượng JavaScript và tập mô tả thuộc tính style. 
+**Javascript Object:** ta có thể tạo đối tượng JavaScript và tập mô tả thuộc tính style. Các đối tượng có thể dùng như giá trị của thuộc tính style.
 
 ```jsx
 class RandomComponent extends React.Component {
@@ -745,7 +747,7 @@ class RandomComponent extends React.Component {
 }
 ```
 
-**CSS Stylesheet:**
+**CSS Stylesheet:** Ta sẽ tạo một file CSS riêng và viết tất cả style cho component trong file đó. Sau đó import nó vào file React.
 
 ```jsx
 import './RandomComponent.css';
@@ -762,7 +764,7 @@ class RandomComponent extends React.Component {
 }
 ```
 
-**CSS Module**
+**CSS Module:** Tương tự như file CSS, nhưng ta sửa thành `.module.css`, với cách này tên lớp sẽ được mã hoá, đồng thời nó hỗ trợ kiểu viết tương tự sass.
 
 ```css
 .paragraph{
@@ -792,4 +794,304 @@ class RandomComponent extends React.Component {
 
 - **useMemo()**
     - Là hook dùng cho caching CPU.
-    - Thỉnh thoảng, 
+    - Đôi khi trong các ứng dụng web, các hàm đắt (tính toán nhiều, tốn bộ nhớ) được gọi liên túc do re-render đẫn đến tốc độ render chậm, hiệu suất kém.
+    - useMemo() có thể sử dụng cho cache cám hàm như vậy. Bằng cách dùng useMemo() các hàm đó chỉ được gọi khi cần thiết.
+- **React.PureComponent**
+    - Là class component cơ sở để kiểm tra state và props của một component để biết khi nào nó nên được cập nhật.
+    - Thay vì dùng React.Component, ta có sử dụng React.PureComponent để giảm việc re-render không cần thiết.
+- **Duy trì vị trí state**
+    - Đây là quá trình chuyển state đến nơi bạn nhất có thể.
+    - Thỉnh thoảng ta có các state không cần thiết nằm trong component cha để gây khó đọc và bảo trì hơn, thậm chí là dẫn đến re-render không cần thiết.
+    - Để tốt hơn, ta chuyển các state vô nghĩa ở component cha sang một component riêng biệt.
+- **Lazy Loading**
+    - Đây là kỹ thuật dùng để giảm thời gian tải của ứng dụng React. Lazy loading giúp tối ưu hiệu suất ứng dụng web bằng cách chỉ tải khi cần thiết.
+
+### 25. Truyền dữ liệu giữa các component?
+
+![](./assets/How_to_pass_data_between_react_components.png)
+
+**Từ component cha sang component con (dùng props)**
+
+Ta có thể làm như sau:
+
+```jsx
+import ChildComponent from "./Child";
+
+function ParentComponent(props) {
+    let [counter, setCounter] = useState(0);
+    let increment = () => setCounter(++counter);
+   
+    return (
+        <div>
+            <button onClick={increment}>Increment Counter</button>
+            <ChildComponent counterValue={counter} />
+        </div>
+    );
+}
+```
+
+Như ta có thể thấy trong đoạn code trên, ta đang hiển thị component con bên trong component cha, bằng cách cung cấp một prop tên là `counterValue`. Giá trị của `counter` được chuyển từ component cha sang con.
+
+Ta có thể sử dụng dữ liệu được chuyển đến component con như sau:
+
+```jsx
+function ChildComponent(props) {
+    return (
+        <div>
+            <p>Value of counter: {props.counterValue}</p>
+        </div>
+    );
+}
+```
+
+**Từ component con sang cha (dùng callback)**
+
+Ta có các bước sau:
+- Tạo một callback trong component cha nhận dữ liệu cần thiết như tham số.
+- Truyền callback này như props cho component con.
+- Gửi dữ liệu từ component con bằng cách dùng callback.
+
+Ví dụ:
+
+Tạo callback và gửi nó như prop đến component con:
+
+```jsx
+function ParentComponent(props) {
+    let [counter, setCounter] = useState(0);
+    let callback = valueFromChild => setCounter(valueFromChild);
+
+    return (
+        <div>
+            <p>Value of counter: {counter}</p>
+            <ChildComponent callbackFunc={callback} counterValue={counter} />
+        </div>
+    );
+}
+```
+
+Sau đó ta truyền dữ liệu từ component con đến component cha:
+
+```jsx
+function ChildComponent(props) {
+    let childCounterValue = props.counterValue;
+    
+    return (
+        <div>
+            <button onClick={() => props.callbackFunc(++childCounterValue)}>
+                Increment Counter
+            </button>
+        </div>
+    );
+}
+```
+
+Bây giờ khi ta click vào button, ta sẽ tăng giá trị `childCounterValue` đến `props.callbackFunc`.
+
+### 26. High-Order Component là gì?
+
+High-Order Component (HOC) là một hàm nhận một component làm tham số và trả về một component mới.
+
+![](./assets/Higher_Order_Components.png)
+
+*Tại sao lại cần HOC*
+
+Trong phát triển ứng dụng React, ta có thể phát triển component khá giống nhau với vài sự khác biệt nhỏ. Trong hầu hết trường hợp, việc phát triển các component tương tự không phải là vấn đề, nhưng khi ứng dụng lớn hơn, chúng ta cần giữ cho code mình DRY. Do đó, chúng ta muốn một sự trừu tượng cho phép chúng ta xác định logic này ở một nơi duy nhất và chia sẻ nó trên các component. HOC cho phép chúng ta tạo ra sự trừu tượng đó.
+
+Ví dụ:
+
+Component sau dùng để hiển thị danh sách bài viết:
+
+```jsx
+// "GlobalDataSource" is some global data source
+class ArticlesList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            articles: GlobalDataSource.getArticles(),
+        };
+    }
+    componentDidMount() {
+        // Listens to the changes added
+        GlobalDataSource.addChangeListener(this.handleChange);
+    }
+    componentWillUnmount() {
+        // Listens to the changes removed
+        GlobalDataSource.removeChangeListener(this.handleChange);
+    }
+    handleChange() {
+        // States gets Update whenver data source changes
+        this.setState({
+            articles: GlobalDataSource.getArticles(),
+        });
+    }
+    render() {
+        return (
+            <div>
+                {this.state.articles.map((article) => (
+                    <ArticleData article={article} key={article.id} />
+                ))}
+            </div>
+        );  
+    }
+}
+```
+
+Component sau dùng để hiển thị danh sách người dùng:
+
+```jsx
+// "GlobalDataSource" is some global data source
+class UsersList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            users: GlobalDataSource.getUsers(),
+        };
+    }
+    componentDidMount() {
+        // Listens to the changes added
+        GlobalDataSource.addChangeListener(this.handleChange);
+    }
+    componentWillUnmount() {
+        // Listens to the changes removed
+        GlobalDataSource.removeChangeListener(this.handleChange);
+    }
+    handleChange() {
+        // States gets Update whenver data source changes
+        this.setState({
+            users: GlobalDataSource.getUsers(),
+        });
+    }
+    render() {
+        return (
+            <div>
+            {this.state.users.map((user) => (
+                <UserData user={user} key={user.id} />
+            ))}
+            </div>
+        );
+    }
+}
+```
+
+Bây giờ ta có hai component có chức năng giống nhau chỉ khác về API được gọi. Ta sẽ tạo một HOC dùng chung cho cả hai:
+
+```jsx
+// Higher Order Component which takes a component
+// as input and returns another component
+// "GlobalDataSource" is some global data source
+function HOC(WrappedComponent, selectData) {
+    return class extends React.Component {
+        constructor(props) {
+            super(props);
+            this.handleChange = this.handleChange.bind(this);
+            this.state = {
+                data: selectData(GlobalDataSource, props),
+            };
+        }
+        componentDidMount() {
+            // Listens to the changes added
+            GlobalDataSource.addChangeListener(this.handleChange);
+        }
+        componentWillUnmount() {
+            // Listens to the changes removed
+            GlobalDataSource.removeChangeListener(this.handleChange);
+        }
+        handleChange() {
+            this.setState({
+            data: selectData(GlobalDataSource, this.props),
+            });
+        }
+        render() {
+            // Rendering the wrapped component with the latest data data
+            return <WrappedComponent data={this.state.data} {...this.props} />;
+        }
+    };
+}
+```
+
+Trong đoạn code trên ta tạo HOC trả về một component và thực hiện vài hành động có thể dùng chung trên cả component `ArticleList` và `UsersList`.
+
+Tham số thứ hai là hàm gọi cho phương thức trên API.
+
+Ta đã giảm code trùng lặp giữa `componentDidUpdate` và `componentDidMount`. Bây giờ ta có component `ArticleList` và `UsersList` như sau:
+
+```jsx
+const ArticlesListWithHOC = HOC(ArticlesList, (GlobalDataSource) => GlobalDataSource.getArticles());
+const UsersListWithHOC = HOC(UsersList, (GlobalDataSource) => GlobalDataSource.getUsers());
+```
+
+### 27. Các giai đoạn trong vòng đời component?
+
+Có 3 giai đoạn trong vòng đời component React.
+- **Mounting**: đề cập đến việc đưa phần tử vào DOM của trình duyệt. Vì React dùng virtual DOM, toàn bộ DOM của trình duyệt đã render sẽ không được làm mới. Bao gồm các phương thức trong giai đoạn này bao gồm: `constructor` và `componentDidMount`.
+- **Updating**: Trong giai đoạn này, component sẽ được cập nhật khi có thay đổi state hoặc props của component. Các phương thức trong giai đoạn này: `getDerivedStateFromProps`, `shouldComponentUpdate`, `render`, và `componentDidUpdate`.
+- **Unmounting**: Ở giai đoạn cuối, component sẽ bị xoá khỏi DOM. Giai đoạn này  sẽ có phương thức là `componentWillUnmount`.
+
+![](./assets/different_phases_of_the_component_lifecycle.png)
+
+### 28. Các phương thức trong vòng đời component?
+
+Trong vòng đời của React sẽ có các phương thức sẽ được gọi tự động ở các giai đoạn khác nhau trong vòng đời của component và do đó nó cung cấp khả năng kiểm soát tốt những gì xảy ra tại điểm được gọi. Nó cung cấp năng lực để kiểm soát và thao tác hiệu quả những gì diễn ra trong suốt vòng đời của component.
+
+Ví dụ: nếu bạn đang phát triển ứng dụng YouTube, thì ứng dụng sẽ sử dụng mạng để đệm video và nó tiêu tốn pin (giả sử chỉ có hai mạng này). Sau khi phát video, nếu người dùng chuyển sang bất kỳ ứng dụng nào khác, thì bạn nên đảm bảo rằng các tài nguyên như mạng và pin đang được sử dụng hiệu quả nhất. Bạn có thể dừng hoặc tạm dừng tải video vào bộ đệm, do đó sẽ ngừng sử dụng pin và mạng khi người dùng chuyển sang ứng dụng khác sau khi phát video.
+
+Vì vậy, chúng ta có thể nói rằng nhà phát triển sẽ có thể tạo ra một ứng dụng chất lượng với sự trợ giúp của các phương pháp vòng đời và nó cũng giúp các nhà phát triển đảm bảo lập kế hoạch những gì và làm như thế nào tại các thời điểm sinh, phát triển hoặc chết của giao diện người dùng.
+
+Các phương thức trong vòng đời:
+- `constructor()`: phương thức được gọi khi component được tạo trước khi thực hiện bất kỳ hành động gì. Nó giúp tạo state và props.
+- `getDerivedStateFromProps()`: nó sẽ gọi trước khi phần tử được render vào DOM. Nó giúp thiết lập đối tượng state dựa trên props khởi tạo. Phương thức `getDerivedStateFromProps` sẽ có một state như đối số và trả về một đối tượng để thay đổi state. Nó sẽ là phương thức đầu tiên được gọi khi thực hiện cập nhật.
+- `render()`: phương thức này sẽ render HTML từ DOM với thay đổi mới nhất. Phương thức `render` sẽ được gọi mỗi khi có thay đổi đến component.
+- `componentDidMount()`: phương thức sẽ được gọi sau khi render component. Ta có thể chạy lệnh cần component đã được lưu trong DOM.
+- `shouldComponentUpdate()`: trả về giá trị boolean để quyết định xem có render hay không. Mặc định sẽ là True.
+- `getSnapshotBeforeUpdate()`: cung cáp truy cập cho props cung như state trước khi cập nhật. Nó dùng cho kiểm tra giá trị trước khi cập nhật.
+- `componentDidUpdate()`: được gọi sau khi cập nhật component trong DOM.
+- `componentWillUnmount()`: phương thức được gọi khi component bị xoá khỏi DOM.
+
+### 29. React hook có làm việc với static typing?
+
+Static typing đề cập đến quá trình kiểm tra code trong suốt thời gian biên dịch để đảm bảo mọi biến đề sẽ được nhập. React Hook là hàm được thiết kế để đảm bảo mọi thuộc tính sẽ được nhập tĩnh. Để thực thi nhập tĩnh chặt chẽ hơn trong code, ta có thể sử dụng API React với các Hook tùy chỉnh.
+
+### 30. Các kiểu Hooks trong React?
+
+**Hook có sẵn**: là các hooks được hỗ trợ sẵn trong React:
+    - **Hook cơ bản**:
+        + `useState()`: là component dùng cho thiết lập và chỉnh sửa state.
+        + `useEffect()`: cho phép thực hiện side effect trên function component.
+        + `useContext()`: dùng cho tạo dữ liệu chung có thể truy cập trong hệ phân cấp component mà không cần truyền dữ liệu theo props từ trên xuống.
+    - **Hook nâng cao**:
+        + `useReducer()`: dùng cho các logic state phức tạp có nhiều giá trị con khi cập nhật state phụ thuộc vào state trước đó. Nó sẽ giúp tối ưu hoá hiệu suất component khi kích hoạt các bản cập nhật sâu hơn vì nó được truyền xuống thay vì callback.
+        + `useMemo()`: điều này sẽ được sử dụng để tính toán lại giá trị đã ghi nhớ khi có sự thay đổi trong một trong các phần phụ thuộc. Việc tối ưu hóa này sẽ giúp tránh các tính toán tốn kém trên mỗi lần render.
+        + `useCallback()`: hữu ích khi truyền callback vào component con đã tối ưu hoá và phụ thuộc vào tham chiếu để ngăn chặn các render không cần thiết.
+        + `useImperativeHandle()`: cho phép chỉnh sửa thực thể sẽ được truyền cho đối tượng ref.
+        + `useDebugValue()`: dùng cho hiển thị nhãn hoặc hook tuỳ chỉnh trong React DevTools.
+        + `useRef()`: Nó sẽ cho phép tạo một tham chiếu đến phần tử DOM trực tiếp trong function component.
+        + `useLayoutEffect()`: dùng cho đọc bố cục từ DOM và re-render bất đồng bộ.
+
+**Hook tuỳ chỉnh**: là một hàm JavaScript. Hoạt động giống như một hàm thông thường với "use" phía trước để React hiểu đó là một hook tuỳ chỉnh và sẽ mô tả các hàm đặc biệt theo quy tắc của Hook. Hơn thế nữa, việc phát triển hook tuỳ chỉnh cho phép bạn trích xuất logic component trong các hàm có thể tái sử dụng
+
+![](./assets/types_of_Hooks_in_React.png)
+
+### 31. Sự khác biệt giữa lớp và React Hook?
+
+| React Hook | Lớp |
+|-|-|
+| Được dùng cho function component | Được dùng cho class component |
+| Không yêu cầu khai báo constructor | Cần constructor trong các class component |
+| Không yêu cầu con trỏ this cho khai báo hay chỉnh sửa | Cần dùng this cho khai báo state (this.state) và chỉnh sửa (this.setState()) |
+| Dễ sử dụng với useState | Không có hàm cụ thể giúp ta truy cập state với setState tương ứng |
+| Hữu dụng khi triển khai Redux và Context API | Quá trình thiết lập state lâu, nên class state sẽ không được ưu tiên |
+
+### 32. Hiệu suất của React Hook so với lớp?
+
+- React Hooks sẽ tránh được rất nhiều chi phí như tạo thực thể, liên kết các sự kiện, .., có trong các lớp.
+- Các hook trong React sẽ dẫn đến các cây component nhỏ hơn vì chúng sẽ tránh được việc lồng nhau tồn tại trong HOC và sẽ render props dẫn đến việc React phải thực hiện ít công việc hơn.
+
+### 33. Các hook có thay thế được lớp hoàn toàn?
+
+Mục đích của Hook là thay thế các chức năng được cung cấp bởi lớp. Nhưng có các phương thức mà Hook vẫn chưa thay thế được lớp:
+- `getSnapshotBeforeUpdate()`
+- `getDerivedStateFromError()`
+- `componentDidCatch()`
+
