@@ -11,6 +11,50 @@ C# là ngôn ngữ lập trình hướng đối tượng được phát triển 
 
 Vì C# là một ngôn ngữ lập trình được sử dụng rộng rãi như vậy, nên rất nhiều tổ chức lớn và nhỏ sử dụng sản phẩm của họ. Vì vậy, hãy chuẩn bị cho mình những câu hỏi C# cơ bản và nâng cao để hoàn thành tốt các cuộc phỏng vấn.
 
+## Mục lục 
+
+[1. C# khác với C/C++ như thế nào?](#1-c-kh%C3%A1c-v%E1%BB%9Bi-cc-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[2. CLR là gì?](#2-clr-l%C3%A0-g%C3%AC)
+
+[3. Bộ dọn rác trong C#?](#3-b%E1%BB%99-d%E1%BB%8Dn-r%C3%A1c-trong-c)
+
+[4. Các kiểu class trong C#?](#4-c%C3%A1c-ki%E1%BB%83u-class-trong-c)
+
+[5. Sự khác biệt giữa lớp trừu tượng và interface?](#5-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-l%E1%BB%9Bp-tr%E1%BB%ABu-t%C6%B0%E1%BB%A3ng-v%C3%A0-interface)
+
+[6. Sự khác biệt giữa từ khoá ref và out?](#6-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-t%E1%BB%AB-kho%C3%A1-ref-v%C3%A0-out)
+
+[7. Phương thức mở rộng trong C#?](#7-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-m%E1%BB%9F-r%E1%BB%99ng-trong-c)
+
+[8. Generic trong C#?](#8-generic-trong-c)
+
+[9. Lớp partial trong C# là gì?](#9-l%E1%BB%9Bp-partial-trong-c-l%C3%A0-g%C3%AC)
+
+[10. Sự khác biệt giữa late binding và early binding trong C#?](#10-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-late-binding-v%C3%A0-early-binding-trong-c)
+
+[11. Mảng trong C# là gì?](#11-m%E1%BA%A3ng-trong-c-l%C3%A0-g%C3%AC)
+
+[12. Sự khác biệt giữa Array và ArrayList trong C#?](#12-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-array-v%C3%A0-arraylist-trong-c)
+
+[13. Kế thừa và đa kế thừa trong C#?](#13-k%E1%BA%BF-th%E1%BB%ABa-v%C3%A0-%C4%91a-k%E1%BA%BF-th%E1%BB%ABa-trong-c)
+
+[14. Boxing và Unboxing trong C#?](#14-boxing-v%C3%A0-unboxing-trong-c)
+
+[15. Thuộc tính trong C# là gì?](#15-thu%E1%BB%99c-t%C3%ADnh-trong-c-l%C3%A0-g%C3%AC)
+
+[16. Indexer trong C# là gì?](#16-indexer-trong-c-l%C3%A0-g%C3%AC)
+
+[17. Sự khác biệt giữa toán tử == và phương thức equals() trong C#?](#17-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-to%C3%A1n-t%E1%BB%AD--v%C3%A0-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-equals-trong-c)
+
+[18. Nạp chồng trong C#](#18-n%E1%BA%A1p-ch%E1%BB%93ng-trong-c)
+
+[19. Reflection trong C#?](#19-reflection-trong-c)
+
+[20. Sự khác biệt giữa hằng và readonly trong C#?](#20-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-h%E1%BA%B1ng-v%C3%A0-readonly-trong-c)
+
+[21. Sự khác biệt giữa String và StringBuilder?](#21-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-string-v%C3%A0-stringbuilder)
+
 ## Câu hỏi phỏng vấn C# cho Fresher
 
 ### 1. C# khác với C/C++ như thế nào?
@@ -179,7 +223,17 @@ Method Name: M5
 
 ### 8. Generic trong C#?
 
-In C# collections, defining any kind of object is termed okay which compromises C#’s basic rule of type-safety. Therefore, generics were included to type-safe the code by allowing re-use of the data processing algorithms. Generics in C# mean not linked to any specific data type. Generics reduce the load of using boxing, unboxing, and typecasting objects. Generics are always defined inside angular brackets <>. To create a generic class, this syntax is used:
+Trong C#, lập trình tổng quát (generics) là một dạng lập trình đặc biệt trong đó kiểu dữ liệu (của biến thành viên, biến cục bộ, tham số, kiểu trả về của phương thức,...) không được xác định ở giai đoạn xây dựng đơn vị code (như lớp, phướng thức) mà chỉ được xác định ở giai đoạn khởi tạo và sử dụng.
+
+Để thực hiện điều này, ở giai đoạn khai báo người ta dùng một kiểu dữ liệu giả. Ở giai đoạn sử dụng, kiểu dữ liệu giả sẽ được thay thế bằng kiểu dữ liệu thực. Cú pháp dùng cho generic:
+
+```csharp
+GenericList<float> list1 = new GenericList<float>();
+GenericList<Features> list2 = new GenericList<Features>();
+GenericList<Struct> list3 = new GenericList<Struct>();
+```
+
+Ở đây, `GenericList<float>` là lớp generic. Với mỗi thực thể của `Generic<T>`, mỗi khi T xuất hiện trong lớp đều được thay thế bằng kiểu tham số ở thời điểm chạy. Bằng cách thay thế T, ta tạo ra ba kiểu khác nhau sử dụng cùng một lớp.
 
 ### 9. Lớp partial trong C# là gì?
 
@@ -226,7 +280,156 @@ Cú pháp `<Data Type>[] <Name_Array>`
 - Thành viên trong mảng là có thứ tự và bắt đầu từ 0.
 - Kiểu mảng là kiểu tham chiếu đến kiểu mảng cơ sở.
 
-### 12. Indexer trong C# là gì?
+### 12. Sự khác biệt giữa Array và ArrayList trong C#?
+
+Array (mảng) là một tập hợp biến có cùng kiểu được gộp lại dưới một cái tên. Trong khi ArrayList là tập hợp các đối tượng có chỉ mục riêng biệt. Với ArrayList bạn có thể truy cập với các tính ănng như cấp phát bộ nhớ động, thêm, tìm và sắp xếp mục trên ArrayList.
+
+- Khi khai bao một mảng ta phải thiết lập kích cỡ tĩnh, do đó bộ nhớ là cố định. Trong khi ArrayList, có thể tăng giảm tuỳ ý.
+- Mảng đi cùng với namespace `system.array` trong khi ArrayList đi cùng với namespace `system.collection`.
+- Tất cả mục trong một mảng có cùng kiểu dữ liệu trong khi ArrayList có thể giống hoặc khác kiểu dữ liệu.
+- Trong khi mảng không chấp nhận null, thì ArrayList chấp nhận giá trị null
+
+```csharp
+// C# program to illustrate the ArrayList
+using System;
+using System.Collections;
+ 
+class IB {
+ 
+    // Main Method
+    public static void Main(string[] args)
+    {
+    
+        // Create a list of strings
+        ArrayList al = new ArrayList();
+        al.Add("Bruno");
+        al.Add("Husky");
+        al.Add(10);
+        al.Add(10.10);
+    
+        // Iterate list element using foreach loop
+        foreach(var names in al)
+        {
+            Console.WriteLine(names);
+        }
+    }
+}
+```
+
+## Câu hỏi phỏng vấn C# cho Experienced
+
+### 13. Kế thừa và đa kế thừa trong C#?
+ 
+Kế thừa là một hoặc nhiều thuộc tính được truyền từ lớp cha sang lớp con.
+
+![](./assets/Multiple-inheritance_in_C_.png)
+
+Ví dụ, lớp `C` kế thừa thuộc tính từ lớp `A` và lớp `B`. Đây là một ví dụ về kế thừa.
+
+```csharp
+// C# program to illustrate
+// multiple class inheritance
+using System;
+using System.Collections;
+
+// Parent class 1
+class Scaler {
+
+    // Providing the implementation
+    // of features() method
+    public void features()
+    {
+
+        // Creating ArrayList
+        ArrayList My_features= new ArrayList();
+
+        // Adding elements in the
+        // My_features ArrayList
+        My_features.Add("Abstraction");
+        My_features.Add("Encapsulation");
+        My_features.Add("Inheritance");
+
+        Console.WriteLine("Features provided by OOPS:");
+        foreach(var elements in My_features)
+        {
+            Console.WriteLine(elements);
+        }
+    }
+}
+
+// Parent class 2
+class Scaler2 :Scaler{
+
+    // Providing the implementation
+    // of courses() method
+    public void languages()
+    {
+
+        // Creating ArrayList
+        ArrayList My_features = new ArrayList();
+
+        // Adding elements in the
+        // My_features ArrayList
+        My_features.Add("C++");
+        My_features.Add("C#");
+        My_features.Add("JScript");
+        
+
+        Console.WriteLine("\nLanguages that use OOPS concepts:");
+        foreach(var elements in My_features)
+        {
+            Console.WriteLine(elements);
+        }
+    }
+}
+
+// Child class
+class ScalertoScaler : Scaler2 {
+}
+
+public class Scaler1 {
+
+    // Main method
+    static public void Main()
+    {
+
+        // Creating object of ScalertoScaler class
+        ScalertoScaler obj = new ScalertoScaler();
+        obj.features();
+        obj.languages();
+    }
+}
+```
+
+C# không hỗ trợ đa kế thừa, thay vào đó bạn có thể dùng interface cho kế thừa thuộc tính bằng tên lớp.
+
+### 14. Boxing và Unboxing trong C#?
+
+**Boxing** là quá trình chuyển dữ liệu từ kiểu tham trị sang kiểu tham chiếu.Quá trình boxing một biến kiểu tham trị sẽ khởi tạo một đối tượng trong vùng nhớ heap và sao chép giá trị của biến tham trị vào đối tượng mới này. Và quá trình boxing được thực hiện nhờ quá trình chuyển đổi ngầm định.
+
+
+```csharp
+int num = 23; // 23 will assigned to num
+Object Obj = num; // Boxing
+```
+
+**Unboxing** là quá trình ngược lại với Boxing, tức là đưa từ kiểu tham chiếu ra kiểu tham trị. Quá trình này sẽ được thực hiện một cách tường minh. Gồm có 2 bước :
+1. Kiểm tra chắc chắn rằng đối tượng đã được boxing đúng kiểu giá trị đưa ra.
+2. Sao chép giá trị sang biến dữ liệu kiểu tham trị.
+
+```csharp
+int num = 23;         // value type is int and assigned value 23
+Object Obj = num;    // Boxing
+int i = (int)Obj;    // Unboxing
+```
+
+### 15. Thuộc tính trong C# là gì?
+
+Các thuộc tính trong C# là các thành viên công khai của một lớp nơi chúng cung cấp khả năng truy cập các thành viên riêng tư của một lớp. Nguyên tắc cơ bản của đóng gói cho phép bạn ẩn một số thuộc tính nhạy cảm với người dùng bằng cách đặt các biến ở chế độ riêng tư. Các thành viên riêng tư không thể truy cập nếu không trong một lớp. Do đó, bằng cách sử dụng các thuộc tính trong C#, bạn có thể dễ dàng truy cập các thành viên riêng tư và thiết lập giá trị của chúng.
+
+Các giá trị có thể được gán dễ dàng bằng cách sử dụng các phương thức get và set, còn được gọi là trình truy cập. Trong khi phương thức get trích xuất giá trị, phương thức set sẽ gán giá trị cho các biến.
+
+### 16. Indexer trong C# là gì?
 
 Indexer được gọi là mảng thông minh cho phép truy cập vào một biến thành viên. Các indexer cho phép các biến thành viên sử dụng các tính năng của một mảng. Chúng được tạo bằng từ khóa `Indexer`. Indexer không phải là thành viên tĩnh. 
 
@@ -242,7 +445,7 @@ Indexer được gọi là mảng thông minh cho phép truy cập vào một bi
 }
 ```
 
-### 13. Sự khác biệt giữa toán tử == và phương thức equals() trong C#?
+### 17. Sự khác biệt giữa toán tử == và phương thức equals() trong C#?
 
 Cả hai đều dùng cho so sánh giá trị đối tượng, ví dụ:
 
@@ -261,7 +464,7 @@ Console.WriteLine(x.Equals(y));
 
 **Phương thức Equals()** dùng so sánh giá trị hai được mang bởi các đối tượng. Trả về true khi tất cả giá trị được mang bởi đối tượng bằng nhau.
 
-### 14. Nạp chồng trong C#?
+### 18. Nạp chồng trong C#?
 
 Nạp chồng (Overloading) có nghĩa là khi các phương thức có cùng tên nhưng mang các giá trị khác nhau để sử dụng trong một ngữ cảnh khác. Chỉ có phương thức main() không thể được nạp chồng.
 
@@ -274,20 +477,20 @@ Vd:
 
 ```csharp
 public class Area {
-   public double area(double x) {
-       double area = x * x;
-       return area;
-   }
-   public double area(double a, double b) {
-       double area = a * b;
-       return area;
-   }
+    public double area(double x) {
+        double area = x * x;
+        return area;
+    }
+    public double area(double a, double b) {
+        double area = a * b;
+        return area;
+    }
 }
 ```
 
 Ở đây, phương thức Area được sử dụng hai lần. Trong khai báo đầu tiên, một đối số được sử dụng trong khi trong khai báo thứ hai, có hai đối số được sử dụng. Sử dụng các tham số khác nhau trong cùng một phương thức, chúng ta có thể nạp chồng phương thức `area()`.
 
-### 15. Reflection trong C#?
+### 19. Reflection trong C#?
 
 Reflection trong C# trích xuất metadata từ các kiểu dữ liệu trong thời gian chạy.
 
@@ -304,8 +507,7 @@ Reflection trong C# trích xuất metadata từ các kiểu dữ liệu trong th
 * EventInfo
 * PropertyInfo
 
-
-### 16. Sự khác biệt giữa hằng và readonly trong C#?
+### 20. Sự khác biệt giữa hằng và readonly trong C#?
 
 Từ khoá **const** trong C# dùng để khai báo hằng trong suốt chương trình. Điều này có nghĩa là sau khi biến được khai báo là hằng, giá trị của nó không thể thay đổi.
 
@@ -314,18 +516,18 @@ Trong C# hằng là một số, chuỗi, tham chiếu null hoặc giá trị boo
 ```csharp
 class IB {
  
-   // Constant fields
-   public const int xvar = 20;
-   public const string str = "InterviewBit";
- 
-   // Main method
-   static public void Main()
-   {
- 
-       // Display the value of Constant fields
-       Console.WriteLine("The value of xvar: {0}", xvar);
-       Console.WriteLine("The value of str: {0}", str);
-   }
+    // Constant fields
+    public const int xvar = 20;
+    public const string str = "InterviewBit";
+    
+    // Main method
+    static public void Main()
+    {
+    
+        // Display the value of Constant fields
+        Console.WriteLine("The value of xvar: {0}", xvar);
+        Console.WriteLine("The value of str: {0}", str);
+    }
 }
 ```
 
@@ -371,7 +573,7 @@ The value of xvar1 is 50, and yvar2 is 60
 - Các hằng số là tĩnh theo mặc định trong khi readonly nên có một giá trị được gán khi phương thức khởi tạo được khai báo.
 - Hằng số có thể được khai báo trong các hàm trong khi các sửa đổi readonly có thể được sử dụng với các kiểu tham chiếu.
 
-### 17. Sự khác biệt giữa String và StringBuilder?
+### 21. Sự khác biệt giữa String và StringBuilder?
 
 Sự khác biệt chính giữa String và StringBuilder là các đối tượng String là bất biến trong khi StringBuilder tạo ra một chuỗi ký tự có thể thay đổi. StringBuilder sẽ thực hiện các thay đổi đối với đối tượng hiện có hơn là tạo đối tượng mới.
 
