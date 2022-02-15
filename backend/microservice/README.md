@@ -5,7 +5,7 @@
 ## Microservice là gì?
 
 Microservice là một kỹ thuật phát triển phần mềm, một biến thể của kiến trúc hướng dịch vụ cấu trúc một ứng dụng như một tập hợp các dịch vụ được ghép lỏng lẻo. Trong kiến trúc microservice, các dịch vụ được xử lý tốt và các giao thức rất nhẹ. Các ứng dụng được mô hình hoá dưới dạng các dịch vụ, nó giúp:
-- Dễ bảo trì và kiếm
+- Dễ bảo trì và kiếm tra
 - Kết nối mềm
 - Có thể triển khai độc lập
 - Được thiết kế hoặc tổ chức dựa trên khả năng doanh nghiệp
@@ -103,3 +103,38 @@ Microservice là một kỹ thuật phát triển phần mềm, một biến th�
 Một bounded context là một mẫu trung tâm trong DDD (Domain-Driven Design), đề cập đến sự cộng tác giữa các mô hình và nhóm lớn. DDD chia nhỏ các mô hình lớn thành nhiều ngữ cảnh để giúp chúng dễ quản lý hơn. Ngoài ra, nó giải thích mối quan hệ của họ một cách rõ ràng. Khái niệm này thúc đẩy phương pháp tiếp cận hướng đối tượng để phát triển các dịch vụ gắn với mô hình dữ liệu và cũng chịu trách nhiệm đảm bảo tính toàn vẹn và khả năng thay đổi của mô hình dữ liệu nói trên.
 
 ![](./assets/Bounded_Context.jpg)
+
+### 9. Viết các đặc điểm cơ bản của Thiết kế Microservice?
+
+- Dựa trên khả năng kinh doanh: Các dịch vụ được phân chia và tổ chức xoay quanh khả năng kinh doanh.
+- Sản phẩm không phải dự án: Một sản phẩm nên thuộc về team có trách nhiệm xử lý nó.
+- Dựa vào các framework message: Loại bỏ các bus dịch vụ tập trung bằng cách nắm lấy khái niệm phân quyền.
+
+### 10. Các thách thức khi sử dụng Microservices?
+
+Những thách thức mà ta phải đối mặt khi sử dụng microservices có thể là cả chức năng và kỹ thuật như dưới đây:
+
+#### Thách thức chức năng:
+
+- Yêu cầu thiết lập cơ sở hạ tầng nặng.
+- Cần đầu tư nặng.
+- Yêu cầu lập kế hoạch quá mức để xử lý hoặc quản lý chi phí hoạt động
+
+#### Thách thức kỹ thuật:
+
+- Các microservices luôn phụ thuộc lẫn nhau. Vì vậy, chúng phải giao tiếp với nhau.
+- Nó là một mô hình có nhiều liên quan vì là một hệ thống phân tán.
+- Bạn cần chuẩn bị cho các hoạt động nhiều chi phí nếu bạn đang sử dụng kiến trúc Microservice.
+- Để hỗ trợ các dịch vụ vi mô được phân phối không đồng nhất, bạn cần các chuyên gia có tay nghề cao.
+- Rất khó để tự động hóa vì số lượng các thành phần ít hơn. Vì lý do đó, mỗi thành phần phải được xây dựng, triển khai và giám sát riêng biệt.
+- Rất khó để quản lý cấu hình trên các môi trường khác nhau cho tất cả các thành phần.
+- Những thách thức liên quan đến triển khai, gỡ lỗi và thử nghiệm.
+
+### 11. Giải thích PACT trong Microservices?
+
+PACT được định nghĩa là một công cụ mã nguồn mở cho phép các nhà cung cấp dịch vụ và người tiêu dùng kiểm tra các tương tác một cách tách biệt với các hợp đồng đã được thực hiện để tăng độ tin cậy của tích hợp microservice. Nó cũng cung cấp hỗ trợ cho nhiều ngôn ngữ, chẳng hạn như Ruby, Java, Scala, .NET, JavaScript, Swift/Objective-C.
+
+### 12. Giải thích cách microservice giao tiếp với các phần khác?
+
+Giao tiếp giữa các microservice có thể thực hiện:
+- HTTP/REST với JSON hoặc 

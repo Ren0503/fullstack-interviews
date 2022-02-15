@@ -45,10 +45,10 @@
 ### Backend
 
 - Kiến thức:
-    - [**Web Services**](./backend/web-services):
-    - [**Node.js**](./backend/nodejs): 
-    - [**Django**](./backend/django):
-    - [**Microservice**](./backend/microservice)
+    - [**Web Services**](./backend/web-services): 35 câu hỏi phỏng vấn dịch vụ Web.
+    - [**Node.js**](./backend/nodejs): 36 câu hỏi phỏng vấn Node.js
+    - [**Django**](./backend/django): 37 câu hỏi phỏng vấn Django.
+    - [**Microservice**](./backend/microservice): 
 - Ngôn ngữ:
     - [**PHP**](./backend/php): 33 câu hỏi phỏng vấn về PHP.
 

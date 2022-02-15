@@ -587,3 +587,209 @@ Một hook tùy chỉnh(custom hooks) là một hàm trong Javascript có tên b
 Trong hầu hết các trường hợp, hook tùy chỉnh được coi là đủ để thay thế render props và HoC (High-Order components) và giảm số lượng lồng ghép cần thiết. Hooks  tuỳ chỉnh sẽ cho phép bạn tránh nhiều lớp trừu tượng hoặc wrapper hell có thể đi kèm với render props và HoC.
 
 Nhược điểm của Hooks tuỳ chỉnh là nó không thể được sử dụng bên trong các lớp.
+
+## Câu hỏi phỏng vấn React cho Experienced
+
+### 21. Strict mode trong React là gì?
+
+StrictMode là công cụ được thêm vào ở React v16.3 để highlight các vấn đề tiềm ẩn trong React. Nó thực hiện kiểm tra bổ sung lên ứng dụng.
+
+```jsx
+function App() {
+    return (
+        <React.StrictMode>
+            <div classname="App">
+                <Header/>
+                <div>
+                    Page Content
+                </div>
+                <Footer/>
+            </div>
+        </React.StrictMode>
+    );
+}
+```
+
+Để khởi động StrictMode, thẻ `<React.StrictMode>` được thêm vào ứng dụng:
+
+```js
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+<React.StrictMode>
+  <App />
+</React.StrictMode>,
+rootElement
+);
+```
+
+StrictMode giúp giải quyết các vấn đề sau:
+
+- **Xác định các component với phương thức lifecycle**
+    - Một số phương thức lifecycle không an toàn khi dùng bất đồng bộ trong ứng dụng react. Với thư viện bên thứ 3, thật khó để đảm bảo một số phương thức lifecycle nhất định không được dùng.
+    - StrictMode giúp ta bằng cách cung cấp cảnh báo với bất kỳ class component nào sử dụng phương thức lifecycle không an toàn.
+- **Cảnh báo sử dụng chuỗi API kế thừa**
+    - Nếu ng
+
+### 22. Ngăn chặn re-render trong React?
+
+Nguyên nhân cho re-render:
+    - Re-render một component và con của nó xảy ra khi props hoặc state của component thay đổi
+    - Re-render component không có cập nhật, sẽ ảnh hưởng đến hiệu suất của ứng dụng
+
+Cách để chặn re-render:
+
+```jsx
+class Parent extends React.Component {
+    state = { messageDisplayed: false };
+    
+    componentDidMount() {
+        this.setState({ messageDisplayed: true });
+    }
+    
+    render() {
+        console.log("Parent is getting rendered");
+        return (
+            <div className="App">
+                <Message />
+            </div>
+        );
+    }
+}
+    
+class Message extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { message: "Hello, this is vivek" };
+    }  
+    
+    render() {
+        console.log("Message is getting rendered");
+        return (
+            <div>
+                <p>{this.state.message}</p>
+            </div>
+        );
+    }
+}
+```
+
+Component `Parent` là cha của component `Message`. Bất kỳ thay đổi nào đến `Parent` sẽ dẫn đến re-render ở cả `Message`. Để ngăn chặn điều này, ta sử dụng phương thức `shouldComponentUpdate()`:
+
+```jsx
+class Message extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { message: "Hello, this is vivek" };
+    }
+
+    shouldComponentUpdate() {
+        console.log("Does not get rendered");
+        return false;
+    }
+
+    render() {
+        console.log("Message is getting rendered");
+        return (
+            <div>
+                <p>{this.state.message}</p>
+            </div>
+        );
+    }
+}
+```
+
+Như đã thấy, ta trả về false cho phương thức `shouldComponentUpdate()` ngăn chặn component con bị re-render.
+
+### 23. Các cách khác nhau để chỉnh style component?
+
+**Inline Styling:** ta có thể chỉnh style trực tiếp lên phần tử bằng cách dùng thuộc tính `style`. Nhớ giá trị của `style` luôn là đối tượng JavaScript:
+
+```jsx
+class RandomComponent extends React.Component {
+    render() {
+        return (
+            <div>
+            <h3 style={{ color: "Yellow" }}>This is a heading</h3>
+            <p style={{ fontSize: "32px" }}>This is a paragraph</p>
+            </div>
+        );
+    }
+}
+```
+
+**Javascript Object:** ta có thể tạo đối tượng JavaScript và tập mô tả thuộc tính style. 
+
+```jsx
+class RandomComponent extends React.Component {
+    paragraphStyles = {
+        color: "Red",
+        fontSize: "32px"
+    };
+
+    headingStyles = {
+        color: "blue",
+        fontSize: "48px"
+    };
+
+    render() {
+        return (
+            <div>
+            <h3 style={this.headingStyles}>This is a heading</h3>
+            <p style={this.paragraphStyles}>This is a paragraph</p>
+            </div>
+        );
+    }
+}
+```
+
+**CSS Stylesheet:**
+
+```jsx
+import './RandomComponent.css';
+
+class RandomComponent extends React.Component {
+    render() {
+        return (
+            <div>
+                <h3 className="heading">This is a heading</h3>
+                <p className="paragraph">This is a paragraph</p>
+            </div>
+        );
+    }
+}
+```
+
+**CSS Module**
+
+```css
+.paragraph{
+    color:"red";
+    border:1px solid black;
+}
+```
+
+Ta có thể import file vào component như sau:
+
+```jsx
+import styles from  './styles.module.css';
+
+class RandomComponent extends React.Component {
+    render() {
+        return (
+            <div>
+                <h3 className="heading">This is a heading</h3>
+                <p className={styles.paragraph} >This is a paragraph</p>
+            </div>
+        );
+    }
+}
+```
+
+### 24. Các kỹ thuật tối ưu hiệu suất ứng dụng React?
+
+- **useMemo()**
+    - Là hook dùng cho caching CPU.
+    - Thỉnh thoảng, 

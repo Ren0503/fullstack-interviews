@@ -113,8 +113,10 @@ Các câu lệnh thường dùng trong django.
 
 ### 10. Jinja là gì?
 
-Jinja là một template engine phổ biến trong Python. Các tính năng của nó:
-- Sandbox Execution - Đây là một framework sa
+Jinja2 là một ngôn ngữ tạo template cung cấp cho các lập trình viên Python, được tạo ra dựa trên ý tưởng của Django template.
+
+Jinja2 được sử dụng để tạo HTML, XML hoặc các định dạng file khác dựa trên nguyên tắc kết hợp các dữ liệu vào các vị trí đã được đánh dấu trong văn bản.
+
 
 ### 11. Django URL là gì?
 
@@ -153,8 +155,7 @@ Bất cứ khi nào chỉnh sửa model, ta cần kích hoạt vài hành độn
 | django.db.models.pre_init & django.db.models.post_init | Gửi trước hoặc sau khi phương thức `_init_()` của model được gọi |
 | django.db.models.signals.pre_save & django.db.models.signals.post_save | Gửi trước hoặc sau khi phương thức `save()` của model được gọi |
 | django.db.models.signals.pre_delete & django.db.models.signals.post_delete | Gửi trước hoặc sau phương thức `delete()` của model hoặc queryset được gọi |
-| django.db.models.signals.pre_delete &
-django.db.models.signals.post_delete | Gửi khi `ManyToManyField` được thay đổi |
+| django.db.models.signals.pre_delete & django.db.models.signals.post_delete | Gửi khi `ManyToManyField` được thay đổi |
 | django.core.signals.request_started & django.core.signals.request_finished | Gửi khi yêu cầu HTTP bắt đầu hoặc kết thúc |
 
 ### 15. Giải thích về caching trong Django?
@@ -294,6 +295,8 @@ print(queryset.query)
 
 ### 35. Cách tuỳ chỉnh chức năng của Django Admin Interface?
 
+Có nhiều cách để tùy chỉnh chức năng của Django Admin Interface. Bạn có thể dựa trên form thêm/thay đổi do Django tạo tự động, bạn có thể thêm module JavaScript bằng cách sử dụng tham số js. Tham số này về cơ bản là danh sách các URL trỏ đến các module JavaScript sẽ được đưa vào dự án của bạn trong thẻ  `<script>`. Bạn cũng có thể viết lượt xem cho quản trị viên nếu bạn muốn.
+
 ### 36. Sự khác biệt giữa select_related và prefetch_related?
 
 Cả hai hàm đều dùng cho lấy các trường liên quan từ model nhưng có vài khác biệt nhỏ. `select_related` dùng cho mối quan hệ với foreign key tức là dùng join trên chính truy vấn trong khi `prefetch_related` dùng cho các lookup riêng biệt và join phía python. Ví dụ
@@ -342,7 +345,7 @@ from django.db.models import Q
 )
 ```
 
-Nó tượng tự câu truy vấn:
+Nó tương tự câu truy vấn:
 
 ```sql
 SELECT * FROM Model WHERE tag LIKE 'Human%' AND (category='Eye' OR category='Nose')
