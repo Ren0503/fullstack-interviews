@@ -508,3 +508,284 @@ Kết quả:
 ```
 map[interviewbit:{} golang:{} questions:{}]
 ```
+
+Ở đây, ta khởi tạo giá trị của key bằng một empty struct và khởi tạo `map_obj` từ empty struct đó.
+
+- Trong duyệt đồ thị trong bản đồ theo dõi các đỉnh đã truy cập. Ví dụ, hãy xem xét đoạn code dưới đây, ta đang khởi tạo giá trị của empty struct đã truy cập đỉnh.
+
+```go
+visited := make(map[string]struct{})
+for _, isExists := visited[v]; !isExists {
+   // First time visiting a vertex.
+   visited[v] = struct{}{}
+}
+```
+
+Khi một channel cần gửi tín hiệu sự kiện mà không cần gửi bất kỳ dữ liệu nào. Từ đoạn code dưới đây, ta có thể thấy rằng ta đang gửi một tín hiệu bằng cách gửi empty struct đến channel đuọc gửi đến workerRoutine.
+
+```go
+func workerRoutine(ch chan struct{}) {
+   // Receive message from main program.
+   <-ch
+   println("Signal Received")
+
+   // Send a message to the main program.
+   close(ch)
+}
+
+func main() {
+   //Create channel
+   ch := make(chan struct{})
+   
+   //define workerRoutine
+   go workerRoutine(ch)
+
+   // Send signal to worker goroutine
+   ch <- struct{}{}
+
+   // Receive a message from the workerRoutine.
+   <-ch
+   println(“Signal Received")
+}
+```
+
+Kết quả là:
+
+```
+Signal Received
+Signal Received
+```
+
+### 23. Cách sao chép slice và map trong Go?
+
+**Sao chép slice:** Ta có thể dùng phương thức có sẵn `copy()` như sau:
+
+```go
+slice1 := []int{1, 2}
+slice2 := []int{3, 4}
+slice3 := slice1
+copy(slice1, slice2)
+fmt.Println(slice1, slice2, slice3)
+```
+
+Trong đoạn code trên, ta sao chép giá trị của `slice2` vào `slice1` và sử dụng `slice3` để giữa một tham chiếu đến slice gốc để kiểm tra slice có được sao chép hay không. Kết quả sẽ là:
+
+```
+[3 4] [3 4] [3 4]
+```
+
+Nếu ta muốn sao chép slice mà không có nội dung, ta chỉ cần dùng toán tử `=` như code bên dưới:
+
+```go
+slice1 := []int{1, 2}
+slice2 := []int{3, 4}
+slice3 := slice1
+slice1 = slice2
+fmt.Println(slice1, slice2, slice3)
+```
+
+Kết quả là:
+
+```
+[3 4] [3 4] [1 2]
+```
+
+**Sao chép map:** Ta có thể sao chép một map bằng cách duyệt qua khoá của map. Không có hàm có sẵn cho sao chép map. Code thực hiện điều đó có thể là:
+
+```go
+map1 := map[string]bool{"Interview": true, "Bit": true}
+map2 := make(map[string]bool)
+for key, value := range map1 {
+	map2[key] = value
+}
+```
+
+Ở code trên, ta lặp qua nội dung của `map1` và thêm giá trị vào `map2` với khoá tương ứng.
+
+Nếu ta chỉ muốn sao chép mô tả không có nội dung của map, ta có thể dùng toán tử `=` như sau:
+
+```go
+map1 := map[string]bool{"Interview": true, "Bit": true}
+map2 := map[string]bool{"Interview": true, "Questions": true}
+map3 := map1
+map1 = map2    //copy description
+fmt.Println(map1, map2, map3)
+```
+
+Kết quả:
+
+```
+map[Interview:true Questions:true] map[Interview:true Questions:true] map[Interview:true Bit:true]
+```
+
+### 24. GoPATH khác với GoROOT như thế nào?
+
+Biến GoPATH là một biến môi trường được sử dụng để tượng trưng cho các thư mục ngoài `$GoROOT`, kết hợp nguồn và mã nhị phân của dự án Go. Biến `GoROOT` xác định vị trí của Go SDK. Chúng ta không phải sửa đổi biến trừ khi ta dự định sử dụng nhiều phiên bản Go. GoPATH xác định gốc của không gian làm việc trong khi GoROOT xác định vị trí của Go SDK.
+
+### 25. Cách xử lý lỗi trong Go?
+
+Trong Go, lỗi là một kiểu interface trong đó bất kỳ kiểu nào triển khia phương thức `Error()` đều được xem là lỗi. Go không có `try/catch` như các ngôn ngữ lập trình khác để xử lý lỗi. Thay vào đó chúng trả về dưới dạng bình thường. Cú pháo tạo interface lỗi:
+
+```go
+type error_name interface {
+   Error() string
+}
+```
+
+Chúng ta sử dụng điều này bất cứ khi nào ta nhận thấy rằng có khả năng một hàm có thể bị sai trong quá trình chuyển đổi kiểu hoặc các cuộc gọi mạng. Hàm sẽ trả về một lỗi dưới dạng biến trả về của nó nếu có sự cố. Người gọi phải kiểm tra giá trị lỗi này và xác định lỗi. Bất kỳ giá trị nào khác `nil` được gọi là lỗi.
+
+Là một phần của các phương pháp xử lý lỗi, các lớp bảo vệ nên được sử dụng thay thế cho các câu lệnh if-else. Chúng cũng nên được gói theo cách có ý nghĩa vì chúng có thể được chuyển qua call stack. Các lỗi cùng loại không nên được ghi lại hoặc xử lý nhiều lần.
+
+### 26. Cách truy cập dữ liệu đồng thời nào an toàn hơn? Map hay Channel?
+
+Channel an toàn hơn cho truy cập dữ liệu đồng thời vì nó có cơ chế blocking/locking để goroutines chia sẻ bộ nhớ đồng thời giữa nhiều luồng.
+
+Map không an toàn vì nó không có cơ chế locking. Khi sử dụng map, ta phải sử dụng cơ chế locking như mutex để gửi dữ liệu một cách an toàn thông qua goroutines.
+
+### 27. Cách sắp xếp một slice của struct tuỳ chỉnh?
+
+Ta có thể sắp xếp một slice của struct tuỳ chỉnh bằng cách dùng hàm `sort.Sort` và `sort.Stable`. Các phương thức này sắp xếp bắt kỳ tập hợp nào triển khai interface `sort.Interface` có phương thức `Len()`, `Less()` và `Swap()` như bên dưới:
+
+```go
+type Interface interface {
+   // Find number of elements in collection
+   Len() int
+   
+   // Less method is used for identifying which elements among index i and j are lesser and is used for sorting
+   Less(i, j int) bool
+   
+   // Swap method is used for swapping elements with indexes i and j
+   Swap(i, j int)
+}
+```
+
+Ví dụ ta có struct như sau:
+
+```go
+type Human struct {
+   name string
+   age int
+}
+```
+
+Ngoài ra, hãy xem xét chúng ta có một slice của struct `Human` thuộc loại `AgeFactor` cần được sắp xếp dựa trên độ tuổi. `AgeFactor` thực hiện các phương thức của `sort.Interface`. Sau đó, chúng ta có thể gọi phương thức `sort.Sort()` trên đối tượng như được hiển thị trong đoạn code dưới đây:
+
+```go
+// AgeFactor implements sort.Interface that sorts the slice based on age field.
+type AgeFactor []Human
+func (a AgeFactor) Len() int           { return len(a) }
+func (a AgeFactor) Less(i, j int) bool { return a[i].age < a[j].age }
+func (a AgeFactor) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+
+func main() {
+   audience := []Human{
+      {"Alice", 35},
+      {"Bob", 45},
+      {"James", 25},
+   }
+   sort.Sort(AgeFactor(audience))
+   fmt.Println(audience) 
+}
+```
+
+Kết quả:
+
+```
+[{James 25} {Alice 35} {Bob 45}]
+```
+
+### 28. Hiểu gì về Shadowing trong Go?
+
+Shadowing là một nguyên tắc khi một biến ghi đè một biến trong một phạm vi cụ thể. Điều này có nghĩa là khi một biến được khai báo trong inner scope có cùng tên và kiểu dữ liệu ở outer scope, thì biến đó được xem là shadow (che khuất). Biến bên ngoài được khai báo trước biến shadow.
+
+```go
+var numOfCars = 2    // Line 1
+type Car struct{
+	name string
+	model string
+	color string
+}
+cars:= [
+   {
+      name:"Toyota",
+      model:"Corolla",
+      color:"red"
+   },
+   {
+      name:"Toyota",
+      model:"Innova",
+      color:"gray"
+   }
+]
+
+func countRedCars(){
+   for i:=0; i<numOfCars; i++{
+      if cars[i].color == "red" {
+         numOfCars +=1    // Line 2
+         fmt.Println("Inside countRedCars method ", numOfCars)    //Line 3
+      }
+   }   
+}
+```
+
+Ở đây ta gọi hàm `countRedCars` trong đó ta sẽ đếm số lượng xe màu đỏ. Ta có biến `numOfCars` khai báo ở dòng 1. Trong phương thức `countRedCars` ta có lệnh if để kiểm tra có phải màu đỏ không, nếu có tăng `numOfCars` lên 1. Điểm hấp dẫn ở đây là giá trị của biến `numOfCars` sau khi kết thúc lệnh if sẽ ảnh hưởng đến giá trị biến `numOfCars` ở outer scope.
+
+### 29. Hàm variadic trong Go là gì?
+
+Hàm nhận một số đối số thay đổi được gọi là hàm variadic. Chúng ta có thể truyền không hoặc nhiều tham số trong hàm variadic. Ví dụ tốt nhất về một hàm variadic là `fmt.Printf` yêu cầu một đối số cố định làm tham số đầu tiên và nó có thể chấp nhận bất kỳ đối số nào. Cú pháp của hàm variadic là:
+
+- Ở đây, chúng ta thấy rằng kiểu của tham số cuối cùng được đặt trước bởi ký hiệu dấu ba chấm (...) cho biết rằng hàm có thể nhận bất kỳ số lượng tham số nào nếu kiểu được chỉ định.
+- Bên trong hàm variadic, `... type` có thể được hình dung như một slice. Chúng ta cũng có thể chuyển slice hiện có (hoặc nhiều slice) của kiểu được đề cập đến hàm dưới dạng tham số thứ hai. Khi không có giá trị nào được chuyển vào trong hàm variadic, slice được coi là nil.
+- Các hàm này thường được sử dụng để định dạng chuỗi.
+- Tham số Variadic không thể được chỉ định làm giá trị trả về, nhưng chúng ta có thể trả về biến kiểu slice từ hàm
+
+Ví dụ:
+
+```go
+func function_name(arg1, arg2...type)type{
+   // Some statements
+}
+```
+
+```go
+package main
+ 
+import(
+   "fmt"
+   "strings"
+)
+ 
+// Variadic function to join strings and separate them with hyphen
+func joinstring(element...string)string{
+   return strings.Join(element, "-")
+}
+ 
+func main() {
+   
+  // To demonstrate zero argument
+   fmt.Println(joinstring())
+    
+   // To demonstrate multiple arguments
+   fmt.Println(joinstring("Interview", "Bit"))
+   fmt.Println(joinstring("Golang", "Interview", "Questions"))
+    
+}
+```
+
+Ở đây hàm variadic là `joinstring` nhận một lượng tham số kiểu string. Ta đang cố gắng nối các đối số được phân tách bằng ký hiệu gạch nối. Ở đây đang chứng minh hành vi của hàm variadic bằng cách đầu tiên chuyển 0 đối số và sau đó chuyển nhiều đối số cho hàm. Kết quả:
+
+```
+Interview-Bit
+Golang-Interview-Questions
+```
+
+### 30. Bạn hiểu gì về kiểu dữ liệu byte và rune?
+
+`byte` và `rune` là hai kiểu số nguyên là tên bí danh cho `uint8` và `int32`.
+
+byte biểu diễn ký tự ASCII trong khi rune biểu diễn ký tự Unicode mặc định là UTF-8.
+
+Các ký tự hoặc chuỗi rune có thể biểu diễn bằng dấu nháy đơn như 'a', 'v', '\n'.
+
+Rune còn gọi là điểm code và có thể có giá trị số. Vd như `0x61` tương ứng với ký tự `a`.
+
