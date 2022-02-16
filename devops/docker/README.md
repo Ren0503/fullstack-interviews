@@ -82,8 +82,80 @@ Docker image registry có thể là công khai hoặc riêng tư và DockerHub l
 
 Có 3 thành phần Docker là:
 
-Docker Client: This component performs “build” and “run” operations for the purpose of opening communication with the docker host.
-Docker Host: This component has the main docker daemon and hosts containers and their associated images. The daemon establishes a connection with the docker registry.
-Docker Registry: This component stores the docker images. There can be a public registry or a private one. The most famous public registries are Docker Hub and Docker Cloud.
+* **Docker Client:** Thành phần này sẽ thực hiện hành động "build" và "run" nhằm mục đích mở ra giao tiếp với docket host.
+* **Docker Host:** Thành phần này gồm daemon chính của docker, các host container và image của chúng. Daemon thiết lập một kết nối đến docker registry.
+* **Docker Registry:** Thành phần này lưu trữ docker image. Nó có thể là công khai hoặc riêng tư. Các registry công khai nổi tiếng là Docker Hub và Docker Cloud.
 
 ![](./assets/docker_components.png)
+
+### 11. Docker Hub là gì?
+
+- Là một nền tảng đám mây được cung cấp bởi Docker cho phép lưu trữ công khai image của Docker đồng thời cho phép tìm kiếm và chia sẻ với người khác.
+
+- Image có thể được đẩy lên Docker Hub bằng câu lệnh `docker push`.
+
+### 12. Lệnh để export một docket image như một archive?
+
+Cú pháp đó là:
+
+```
+docker save -o <exported_name>.tar <container-name>
+```
+
+### 13. Lệnh để import một Docker image đến một Docker host khác?
+
+```
+docker load -i <export_image_name>.tar
+```
+
+### 14. Có thể xoá container bị tạm dừng khỏi Docker không?
+
+Không thể! Container phải bị dừng trạng thái trước khi ta có thể xoá chúng.
+
+### 15. Lệnh kiểm tra phiên bản Docker client và server?
+
+Để kiểm tra tất cả không tin phiên bản client và server là:
+
+```
+docker version
+```
+
+Để lấy chỉ phiên bản server, ta có thể chạy:
+
+```
+docker version --format '{{.Server.Version}}'
+```
+
+### 16. Sự khác biệt giữa ảo hoá (virtualization) và containerization?
+
+| virtualization | containerization |
+|-|-|
+| Nó giúp chạy nhiều hệ điều hành trên phần cứng của một server vật lý | Nó giúp triển khai nhiều ứng dụng trên cùng hệ điều hành trên một máy ảo hoặc server |
+| Hypervisors cung cấp các máy ảo tổng thể cho hệ điều hành khách | Container đảm bảo cung cấp môi trường/không gian người dùng biệt lập để chạy các ứng dụng. Mọi thay đổi được thực hiện trong container không phản ánh trên server hoặc các container khác của cùng server |
+| Các máy ảo này tạo thành một phần trừu tượng của lớp phần cứng hệ thống, điều này có nghĩa là mỗi máy ảo trên host hoạt động giống như một máy vật lý | Container tạo thành sự trừu tượng của lớp ứng dụng có nghĩa là mỗi container tạo thành một ứng dụng khác nhau |
+
+### 17. Sự khác biệt giữa lớp COPY và ADD trong Dockerfile?
+
+Cả hai có chức năng giống nhau, nhưng `COPY` được ưa thích hơn vì mức độ minh bạch cao hơn `ADD`.
+
+`COPY` cung cấp các hỗ trợ cơ bản cho sao chép file cục bộ trong khi `ADD` cung cấp tính năng bổ sung như URL từ xa và hỗ trợ xuất `tar`.
+
+### 18. Container có thể tự khởi động lại?
+
+Có, chỉ có thể thực hiện được khi đang sử dụng một số chính sách do docker xác định trong khi sử dụng lệnh `run` của docker. Sau đây là các chính sách hiện có:
+1. **Off**: container sẽ không được khởi động lại trong trường hợp nó bị dừng hoặc bị lỗi.
+2. **Un-failure**: Ở đây, container chỉ khởi động lại khi nó gặp lỗi không liên quan đến người dùng.
+3. **Unless-stop**: Sử dụng chính sách này, đảm bảo rằng container chỉ có thể khởi động lại khi người dùng thực hiện lệnh để dừng nó.
+4. **Always**: Bất kể lỗi hay dừng, container luôn được khởi động lại trong loại chính sách này.
+
+Các chính sách này có thể dùng như sau:
+
+```
+docker run -dit — restart [restart-policy-value] [container_name]
+```
+
+### 19. Sự khác biệt giữa Docker Image và Layer?
+
+Image: được xây dựng từ một loạt các lớp instruction. Một image tương ứng với container và được sử dụng để vận hành nhanh chóng do cơ chế lưu vào bộ nhớ đệm của mỗi bước.
+
+Layer: Mỗi layer tương ứng với một instruction của image. 
