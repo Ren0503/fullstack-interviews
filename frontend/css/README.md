@@ -6,16 +6,16 @@
 
 CSS là chữ viết tắt của Cascading Style Sheets, nó là một ngôn ngữ được sử dụng để tìm và định dạng lại các phần tử được tạo ra bởi các ngôn ngữ đánh dấu (HTML). Nói ngắn gọn hơn là ngôn ngữ tạo phong cách cho trang web. Bạn có thể hiểu đơn giản rằng, nếu HTML đóng vai trò định dạng các phần tử trên website như việc tạo ra các đoạn văn bản, các tiêu đề, bảng,…thì CSS sẽ giúp chúng ta có thể thêm style vào các phần tử HTML đó như đổi bố cục, màu sắc trang, đổi màu chữ, font chữ, thay đổi cấu trúc…
 
-CSS được phát triển bởi W3C (World Wide Web Consortium) vào năm 1996, vì HTML không được thiết kế để gắn tag để giúp định dạng trang web.
+CSS được phát triển bởi W3C (World Wide Web Consortium) vào năm 1996, vì HTML không được thiết kế để gắn thẻ để giúp định dạng trang web.
 
-Phương thức hoạt động của CSS là nó sẽ tìm dựa vào các vùng chọn, vùng chọn có thể là tên một thẻ HTML, tên một ID, class hay nhiều kiểu khác. Sau đó là nó sẽ áp dụng các thuộc tính cần thay đổi lên vùng chọn đó.
+Phương thức hoạt động của CSS là nó sẽ tìm dựa vào các selector, selector có thể là tên một thẻ HTML, tên một ID, class hay nhiều kiểu khác. Sau đó là nó sẽ áp dụng các thuộc tính cần thay đổi lên vùng chọn đó.
 
-CSS3 là bản nâng cấp mới nhất của CSS với mục đích mở rộng CSS2.1 . CSS3 bổ sung, mang đến nhiều tính năng mới như bo tròn góc, tạo độ bóng, gradient, transitions hay animations cũng như các bố cục mới như multiple-column, flexbox hay grid layout.
+CSS3 là bản nâng cấp mới nhất của CSS với mục đích mở rộng "CSS2.1" . CSS3 mang đến nhiều tính năng mới như bo tròn góc, tạo độ bóng, gradient, transitions hay animations cũng như các bố cục mới như multiple-column, flexbox hay grid layout.
 
 ## Câu hỏi phỏng vấn CSS cho Fresher
 ### 1. Mô hình hộp trong CSS là gì? Thuộc tính CSS nào là một phần của nó?
 
-Các phần tử trong HTML có thể được coi là những chiếc hộp. Trong CSS, thuật ngữ "mô hình hộp" được dùng để nói về việc thiết kế, xây dựng layout.
+Các phần tử trong HTML có thể được coi là những chiếc hộp. Trong CSS, thuật ngữ "mô hình hộp" được dùng để nói về việc thiết kế, xây dựng bố cục.
 
 Về cơ bản mô hình hộp CSS là một chiếc hộp bao xung quanh phần tử HTML, gồm margin, border, padding và nội dung bên trong. Hình ảnh dưới đây cho thấy vị trí và mối liên hệ giữa các thành phần này.
 
@@ -28,9 +28,9 @@ Về cơ bản mô hình hộp CSS là một chiếc hộp bao xung quanh phần
 
 ### 2. Ưu điểm của CSS?
 
-+ Tiết kiệm thời gian, công sức trong việc code web/ xây dựng giao diện; kiểm soát dễ dàng các lỗi không đáng có trên web
-+ CSS cung cấp nhiều thuộc tính cụ thể hơn HTML giúp tạo ra nhiều style khác nhau và có thể áp dụng được cho nhiều web.
-+ CSS giúp tốc độ load trang web nhanh chóng hơn, dễ dàng bảo trì, tương thích với các thiết bị di động.
++ Tiết kiệm thời gian, công sức trong việc code web/xây dựng giao diện; kiểm soát dễ dàng các lỗi không đáng có trên web
++ CSS cung cấp nhiều thuộc tính cụ thể hơn HTML giúp tạo ra nhiều style khác nhau và có thể áp dụng được cho nhiều loại web.
++ CSS giúp tốc độ tải trang web nhanh chóng hơn, dễ dàng bảo trì, tương thích với các thiết bị di động.
 + CSS thiết lập nhiều kiểu chữ khác nhau giúp website của bạn trở nên khác biệt hơn; tự động sắp xếp chữ khi chèn hình ảnh (thuộc tính shape-outsite); đặt nội dung theo các chiều khác nhau/ thay đổi chế độ viết theo mong muốn của mình (thuộc tính write-mode); có thể tạo chữ lớn ở đầu dòng (thuộc tính first-letter)…
 
 ### 3. Hạn chế của CSS?
@@ -313,7 +313,7 @@ bg-color = #00f;
 
 ### 10. Việc kiểm tra trang web trên các trình duyệt khác nhau có quan trọng không?
 
-Điều quan trọng nhất là kiểm tra một trang web trong các trình duyệt khác nhau khi bạn thiết kế lần đầu tiên hoặc khi thực hiện các thay đổi lớn. Tuy nhiên, điều quan trọng là phải lặp lại các kiểm tra này theo định kỳ, vì các trình duyệt trải qua rất nhiều bản cập nhật và thay đổi.
+Điều quan trọng nhất là kiểm tra một trang web trong các trình duyệt khác nhau khi bạn thiết kế lần đầu tiên hoặc khi thực hiện các thay đổi lớn. Tuy nhiên, điều quan trọng là phải lặp lại các kiểm tra này theo định kỳ, vì các trình duyệt thường xuyên có các bản cập nhật và thay đổi.
 
 ### 11. Phần tử Pseudo và các lớp Pseudo là gì?
 
@@ -328,7 +328,7 @@ bg-color = #00f;
 Trong ví dụ bên dưới, màu sẽ xuất hiện ở dòng đầu tiên trong đoạn văn
 
 ```css
-p: :first-line {
+p::first-line {
 	color: #ffOOOO;
 	font-variant: small-caps;
 }
@@ -353,17 +353,21 @@ a:hover {
 
 ### 12. Làm thế nào để chỉ định các đơn vị trong CSS? Những cách khác nhau để làm điều đó là gì?
 
-Có nhiều cách khác nhau để chỉ định các đơn vị trong CSS như px, em, pt, phần trăm (%). px (Pixel) cung cấp khả năng kiểm soát chi tiết và duy trì căn chỉnh vì 1 px hoặc nhiều của 1 px được đảm bảo trông sắc nét. px không phải là tầng. em duy trì kích thước tương đối. bạn có thể có phông chữ đáp ứng. Em, sẽ xếp tầng 1em bằng kích thước phông chữ hiện tại của phần tử hoặc mặc định của trình duyệt. Nếu bạn để font-size thành 16px thì 1em = 16px. Thực tế phổ biến là đặt kích thước phông chữ nội dung mặc định thành 62,5% (bằng 10px).
+Có nhiều cách khác nhau để chỉ định các đơn vị trong CSS như `px`, `em`, `pt`, phần trăm (`%`). 
 
-pt (điểm) thường được sử dụng trong in ấn. 1pt = 1/72 inch và nó là một đơn vị có kích thước cố định.
+- Pixel (px) cung cấp khả năng kiểm soát chi tiết và duy trì căn chỉnh vì 1 hoặc nhiều px được đảm bảo sự sắc nét. px không phân tầng.
 
-% (phần trăm) đặt kích thước phông chữ so với kích thước phông của nội dung. Do đó, bạn phải đặt kích thước phông chữ của phần nội dung thành kích thước hợp lý.
+- em duy trì kích thước tương đối. Bạn có thể có phông chữ reponse. Em, sẽ xếp tầng 1em bằng kích thước phông chữ hiện tại của phần tử hoặc mặc định của trình duyệt. Nếu bạn để font-size thành 16px thì 1em = 16px. Thực tế phổ biến là đặt kích thước phông chữ nội dung mặc định thành 62,5% (bằng 10px).
+
+- pt (điểm) thường được sử dụng trong in ấn. 1pt = 1/72 inch và nó là một đơn vị có kích thước cố định.
+
+- % (phần trăm) đặt kích thước phông chữ so với kích thước phông của nội dung. Do đó, bạn phải đặt kích thước phông chữ của phần nội dung thành kích thước hợp lý.
 
 ### 13. Liệu margin-top hoặc margin-bottom có ảnh hưởng đến các phần tử inline không?
 
 Không, nó không ảnh hưởng đến các phần tử inline. Các phần tử inline ở cùng dòng với nội dung của trang.
 
-### 14. Thuộc tính nào được sử dụng để thay đổi mặt phông chữ?
+### 14. Thuộc tính nào được sử dụng để thay đổi dạng phông chữ?
 
 Chúng ta có thể sử dụng thuộc tính `font-family` để thực hiện được điều này. Thuộc tính font-family được sử dụng để chỉ định phông chữ nào cần được áp dụng trên phần tử DOM. Nó có thể chứa một số tên phông chữ như một phần của cơ chế “dự phòng” trong trường hợp trình duyệt không hỗ trợ phông chữ. Ví dụ, chúng ta có thể sử dụng:
 
@@ -382,7 +386,7 @@ Trong đoạn code trên, ta đang áp dụng thuộc tính font-family cho ph�
 Nếu bạn không muốn `font-face` của phần tử văn bản là phông chữ Times New Roman/ Times/serif và bạn muốn sử dụng phông chữ Arial/Helvetica/sans-serif, thì ta có thể cập nhật thuộc tính CSS của phần tử văn bản như:
 
 ```css
- p {
+p {
     font-family: Arial, Helvetica, sans-serif;
 }
 ```
@@ -392,7 +396,7 @@ Nếu bạn không muốn `font-face` của phần tử văn bản là phông ch
 | Adaptive Design | Responsive Design |
 |-----------------|-------------------|
 | Tập trung vào thiết kế trang web dựa trên nhiều kích thước bố cục cố định | Tập trung vào việc hiển trị nội dung trên cơ sở không gian trình duyệt có sẵn |
-| Khi một trang web được phát triển bằng cách sử dụng thiết kế adaptive được mở trên trình duyệt máy tính để bàn, trước tiên không gian có sẵn sẽ được phát hiện và sau đó bố cục có kích thước phù hợp nhất sẽ được chọn và sử dụng để hiển thị nội dung. Thay đổi kích thước của cửa sổ trình duyệt không ảnh hưởng đến thiết kế | Khi một trang web được phát triển bằng cách sử dụng thiết kế responsive được mở trên trình duyệt trên máy tính để bàn và khi chúng tôi cố gắng thay đổi kích thước cửa sổ trình duyệt, nội dung của trang web được sắp xếp động và tối ưu để phù hợp với cửa sổ |
+| Khi một trang web được phát triển bằng cách sử dụng thiết kế adaptive được mở trên trình duyệt máy tính để bàn, trước tiên không gian có sẵn sẽ được phát hiện và sau đó bố cục có kích thước phù hợp nhất sẽ được chọn và sử dụng để hiển thị nội dung. Thay đổi kích thước của cửa sổ trình duyệt không ảnh hưởng đến thiết kế | Khi một trang web được phát triển bằng cách sử dụng thiết kế responsive được mở trên trình duyệt trên máy tính để bàn và khi ta thay đổi kích thước cửa sổ trình duyệt, nội dung của trang web được sắp xếp động và tối ưu để phù hợp với cửa sổ |
 | Thông thường, các thiết kế adaptive sử dụng sáu chiều rộng màn hình tiêu chuẩn - 320px, 480px, 760px, 960px, 1200px, 1600 . Các kích thước này được phát hiện và các bố cục thích hợp được tải | Thiết kế này sử dụng các truy vấn CSS để thay đổi kiểu tùy thuộc vào thuộc tính thiết bị mục tiêu để thích ứng với các màn hình khác nhau |
 | Đầu tiên phải mất rất nhiều thời gian và nỗ lực để xem xét các lựa chọn và thực tế của người dùng cuối, sau đó thiết kế các giải pháp thích ứng tốt nhất có thể cho họ | Nói chung, thiết kế responsive cần ít công việc hơn để xây dựng và thiết kế các trang web linh hoạt có thể chứa nội dung từ màn hình tùy thuộc vào kích thước màn hình |
 | Cung cấp nhiều quyền kiểm soát thiết kế để phát triển các trang web cho các màn hình cụ thể | Không có nhiều quyền kiểm soát thiết kế được cung cấp ở đây |
@@ -455,7 +459,7 @@ div{
 
 ### 18. Opacity được quy định như thế nào trong CSS3?
 
-Opacity ám chỉ mức độ nội dung trong suốt hoặc không trong suốt. Chúng ta có thể sử dụng thuộc tính có tên opacity nhận các giá trị từ 0 đến 1. 0 chỉ định rằng phần tử là hoàn toàn trong suốt, trong đó 1 có nghĩa là phần tử hoàn toàn không trong suốt. Chúng ta có thể sử dụng thuộc tính opacity như sau:
+Opacity ám chỉ mức độ nội dung trong suốt hoặc không trong suốt. Chúng ta có thể sử dụng thuộc tính có tên opacity nhận các giá trị từ 0 đến 1. 0 chỉ định rằng phần tử là hoàn toàn trong suốt, trong khi 1 có nghĩa là phần tử hoàn toàn không trong suốt. Chúng ta có thể sử dụng thuộc tính opacity như sau:
 
 ```css
 div { 
@@ -644,7 +648,7 @@ p {
 }
 ```
 
-và chúng tôi cũng có khai báo sau bên dưới nó hoặc trong một biểu định kiểu khác đã được liên kết với trang:
+và chúng ta cũng có khai báo sau bên dưới nó hoặc trong một biểu định kiểu khác đã được liên kết với trang:
 
 ```css
 p {
@@ -652,7 +656,7 @@ p {
 }
 ```
 
-Chúng tôi có xung đột về thuộc tính màu ở đây cho các phần tử của đoạn văn. Ở đây, trình duyệt chỉ cần phân tầng để xác định đâu là kiểu mới nhất và cụ thể nhất và áp dụng kiểu đó. Vì chúng tôi có `color:black;` như một khai báo cụ thể nhất, màu đen được áp dụng cho các phần tử của đoạn văn. Bây giờ nếu bạn muốn đảm bảo màu trắng được áp dụng cho đoạn văn, chúng ta có thể xác định trọng số cho kiểu đó bằng cách thêm `!important` như hình dưới đây:
+Ỏ đây, chúng ta có xung đột về thuộc tính màu cho các phần tử của đoạn văn. Trình duyệt chỉ cần phân tầng để xác định đâu là kiểu mới nhất và cụ thể nhất và áp dụng kiểu đó. Vì ta có `color:black;` như một khai báo cụ thể nhất, màu đen được áp dụng cho các phần tử của đoạn văn. Bây giờ nếu bạn muốn đảm bảo màu trắng được áp dụng cho đoạn văn, chúng ta có thể xác định trọng số cho kiểu đó bằng cách thêm `!important` như hình dưới đây:
 
 ```css
 p {
@@ -666,17 +670,17 @@ p {
 
 ### 24. Giải thích thuộc tính position CSS?
 
-- **static**: vị trí/tĩnh mặc định của phần tử và bạn đặt đâu phần tử sẽ nằm ở đó.
+- **static**: vị trí mặc định/tĩnh của phần tử và bạn đặt đâu phần tử sẽ nằm ở đó.
 - **relative**: vị trí của phần tử sẽ tương đối so với vị trí tĩnh bạn đặt và khoản không gian xung quanh phần tử sẽ được giữ nguyên.
 - **fixed**: vị trí sẽ nằm cố định một chỗ, dù bạn có làm gì, phần tử vẫn nằm cố định 1 vị trí trên màn hình.
 - **absolute**: vị trí của phần tử sẽ được xác định từ padding của phần tử cha.
-- **sticky**: vị trí của phần tử sẽ được định vị khi người dùng sử dụng thanh cuộn.
+- **sticky**: vị trí của phần tử sẽ được định vị khi người dùng sử dụng thanh scroll.
 
 ![](./assets/CSS_Position_Property.jpg)
 
 ### 25. Khi nào thì xảy ra DOM reflow?
 
-Reflow là tên của quá trình mà trình duyệt web tính toán lại vị trí và hình dạng của các phần tử trong tài liệu, nhằm mục đích hiển thị lại một phần hoặc toàn bộ tài liệu.
+Reflow là tên của quá trình mà trình duyệt web tính toán lại vị trí và hình dạng của các phần tử trong document, nhằm mục đích hiển thị lại một phần hoặc toàn bộ document.
 
 Reflow xảy ra khi:
 
@@ -685,13 +689,13 @@ Reflow xảy ra khi:
 - Di chuyển một phần tử DOM.
 - Tạo hoạt ảnh cho một phần tử DOM.
 - Thực hiện các phép đo một phần tử như `offsetHeight` hoặc `getComputedStyle`.
-- Thay đổi kiểu CSS
+- Thay đổi kiểu CSS.
 
 ### 26. Sự khác biệt giữa các thuộc tính Box Sizing?
 
-Thuộc tính CSS box-sizing đặt cách tính tổng chiều rộng và chiều cao của một phần tử.
-- **Context-box:** Giá trị chiều rộng và chiều cao mặc định chỉ áp dụng cho nội dung của phần tử. Padding và border được thêm vào bên ngoài hộp.
-- **Padding-box:** Giá trị chiều rộng và chiều cao mặc định chỉ áp dụng cho nội dung của phần tử và padding của nó. Border được thêm vào bên ngoài hộp. Hiện tại chỉ có Firefox hỗ trợ padding-box.
+Thuộc tính CSS box-sizing quy định cách tính tổng chiều rộng và chiều cao của một phần tử.
+- **Context-box:** Giá trị chiều rộng và chiều cao mặc định chỉ áp dụng cho nội dung của phần tử. Padding và border nằm ở bên ngoài hộp.
+- **Padding-box:** Giá trị chiều rộng và chiều cao mặc định chỉ áp dụng cho nội dung của phần tử và padding của nó. Border nằm ở bên ngoài hộp. Hiện tại chỉ có Firefox hỗ trợ padding-box.
 - **Border-box:**  Giá trị chiều rộng và chiều cao áp dụng cho nội dung, padding và border. 
 
 ### 27. Làm sao để căn giữa một div trong một div khác?
@@ -772,7 +776,7 @@ Ta có :
 
 ### 29. Hệ thống grid là gì?
 
-CSS Grid layout là một hệ thống layout 2 chiều (x,y) được dùng trong thiết kế UI. Theo định nghĩa từ Mozilla, grid (lưới) là một tổ hợp của những đường ngang và dọc cắt nhau – một nhóm xác định các cột và nhóm kia xác định các hàng. Các phần tử có thể được đặt lên lưới, dựa vào các đường hàng và cột này.
+CSS Grid layout là một hệ thống layout 2 chiều (x,y) được dùng trong thiết kế UI. Theo định nghĩa từ Mozilla, grid (lưới) là một tổ hợp của những đường ngang và dọc cắt nhau – một nhóm xác định các cột và nhóm kia xác định các hàng. Các phần tử có thể được đặt lên grid, dựa vào các đường hàng và cột này.
 
 ### 30. Các cách để ẩn phần tử với CSS?
 
@@ -781,6 +785,8 @@ CSS Grid layout là một hệ thống layout 2 chiều (x,y) được dùng tro
 - Sử dụng thuộc tính `position: absolute`. Khả dụng bên ngoài màn hình.
 
 ### 31. :root pseudo-class đề cập tới cái gì?
+
+:root selector cho phép bạn chỉ đến phần tử "cha" cao nhất trong DOM, hoặc cây document. Nó được xác định trong tài liệu đặc tả CSS Selectors Level 3.
 
 ### 32. Accessibility là gì?
 
@@ -933,4 +939,220 @@ Sử dụng `@supports` trong CSS để biết trình duyệt có hỗ trợ tí
 
 Absolute là một cơ chế định vị mạnh mẽ cho phép người dùng đặt bất kỳ phần tử ở đâu vào một vị trí chính xác. Thuộc tính CSS như `right`, `left`, `top`, `bottom` sẽ xác định vị trí chính xác cần đặt phần tử. Trong absolute cần xem xét các điểm sau:
 - Các phần tử được áp dụng absolute sẽ bị xoá khỏi luồng thông thường của HTML document.
-- Các phần tử sẽ được  relative sẽ 
+- Bố cục HTML sẽ không tạo bất kỳ không gian nào cho các phần tử này trong bố cục trang.
+- Các phần tử sẽ được định vị relative với phần tử cha (tổ tiên) gần nhất. Nếu không có phần tử cha nào nó sẽ được đặt tương ứng với container ban đầu.
+- Vị trí cuối cùng của phần tử được xác định dựa trên các giá trị `top`, `left`, `right` và `bottom` được cung cấp.
+
+### 46. Các hoạt động của overflow:hidden?
+
+Thuộc tính overflow của CSS được dùng khi bạn scroll qua một vùng nội dung mà kích thước nội dung nhiều hơn kích thước container chứa nó. Nếu overflow là hidden, nội dụng sẽ được cắt bớt cho phù hợp container, hay có thể nói phần nội dung dư sẽ bị ẩn. Ví dụ:
+
+```css
+div {
+    width: 150px;
+    height: 50px;
+    overflow: hidden;
+}
+```
+
+Nếu nội dung của div rất lớn và vượt ra ngoài phạm vi 50px, thì phần nội dung nằm ngoài 50px sẽ bị ẩn.
+
+### 47. Bạn có thể căn chỉnh nội dung của thẻ `<p>` nằm ngay trung tâm của thẻ `<div>`?
+
+Ta có thể dùng thuộc tính `text-align: center` bên trong div cha, để căn chỉnh nội dung nằm ngay trung tâm theo chiều ngang. Nhưng không ngay trung tâm chiều dọc. Để chỉnh nó theo chiều dọc ta cần làm gán position của phần tử cha là `relative` và ở phần tử con là `absolute`. Các phần tử con có giá trị `top`, `bottom` sẽ là ở giữa theo chiều dọc. Khi ta thiết lập margin là auto. Nó giả sự cả phần tử con và cha sẽ có giá trị height và width.
+
+Xem như ta có height và width của phần tử div là 20% kích cỡ màn hình. Ta có height văn bản là 1.2em và width là 20%. Nếu muốn chỉnh văn bản nằm ở trung tâm div ta làm như sau:
+
+```css
+div {
+    position : relative;  // Make position relative
+    height : 20%;
+    width : 20%;
+    text-align : center; //Align to center horizontally
+}
+p {
+    position : absolute; // Make position absolute
+    top:0;                // Give values of top, bottom,left, right to 0
+    bottom:0;
+    left:0;
+    right:0;
+    margin : auto;        // Set margin as auto
+    height : 1.2 em;
+    width : 20%;
+}
+```
+
+### 48. Margin khác Padding như thế nào?
+
+Thuộc tính margin được dùng để tạo không gian xung quanh phần tử. Ta có thể tạo không gian cho border được xác định ở bên ngoài. Ta có các thuộc tính sau cho margin:
+
+* margin-top
+* margin-right
+* margin-bottom
+* margin-left
+
+Các giá trị mà thuộc tính có thể có:
+
+* auto – Trình duyệt tự động tính toán margin khi ta sử dụng.
+* length – Giá trị có thể là `px`, `pt`, `cm`, `em`,... các giá trị có thể âm hoặc dương.
+* % - Ta cũng có thể cung cấp giá trị phần trăm cho margin
+* inherit - sử dụng giá trị từ phần tử cha.
+
+Thuộc tính padding dùng cho tạo không gian xung quanh nội dung phần tử và bên trong border. Padding có các thuộc tính con sau:
+
+* padding-top
+* padding-right
+* padding-bottom
+* padding-left
+
+Lưu ý: padding không có giá trị âm.
+
+![](./assets/CSS_Margin_vs._Padding.png)
+
+### 49. Cách để tự động đánh số giá trị heading của section và category?
+
+Ta có thể dùng khái niệm CSS counter (bộ đếm). Điều này cho phép chúng ta điều chỉnh hình thức của nội dung dựa trên vị trí trong document. Để sử dụng nó, trước tiên chúng ta cần khởi tạo giá trị của thuộc tính `counter-reset`, giá trị này là 0 theo mặc định. Thuộc tính tương tự cũng được sử dụng để thay đổi giá trị thành bất kỳ số nào mà chúng ta cần. Sau khi khởi tạo, giá trị của bộ đếm có thể tăng hoặc giảm bằng cách sử dụng thuộc tính `counter-increment`. Tên của bộ đếm không được là các từ khóa CSS như `none`, `initial`, `inherit`, v.v. Nếu các từ khóa CSS được sử dụng, thì khai báo sẽ bị bỏ qua.
+
+Ví dụ:
+
+```css
+body {
+  	counter-reset: header;   /* define counter named 'header' whose initial value is 0 by default */
+}
+
+h2::before {
+	counter-increment: header;   /* The value of header counter by 1.*/
+	content: "Header " counter(header) ": ";  /* To display word Header and the value of the counter with colon before it.*/
+}
+```
+
+### 50. Sự khác biệt giữa nth-child() và nth-of-type()?
+
+Cả hai đều là pseudo-classes.
+
+`nth-child()` được dùng để so khớp các phần tử dựa trên số đại diện cho vị trí của một phần tử dựa trên các phần tử anh chị em.
+
+Ví dụ, trong đoạn code dưới đây, ta cung cấp `nth-child(4)` thì phần tử con thứ 4 sẽ được chọn bất kể loại. 
+
+```css
+.example:nth-child(4) {   
+    background: black; 
+}
+```
+
+```html
+<div class="example">
+	<p>This is a paragraph.</p>
+	<p>This is a paragraph.</p>
+	<p>This is a paragraph.</p>
+	<div>This is a div.</div> <!-- 4th Element to select and apply style-->
+	<div>This is a div.</div> 
+	<p>This is a paragraph.</p>
+	<p>This is a paragraph.</p>
+	<div>This is a div.</div>
+</div>
+```
+
+`nth-of-type()` cũng tương tự nhưng chỉ so khớp với các phần tử anh chị em cùng loại. Số để xác định trong `nth-of-type()` có thể là một hàm hoặc từ khoá như odđ hay even.
+
+Ví dụ: nếu ta cấp `p:nth-of-type(even)` thì các thẻ `<p>` và số thứ tự chẵn được áp dụng. 
+
+```css
+.example p:nth-of-type(even) { 
+    background: black; 
+}
+```
+
+```html
+<div class="example">
+	<p>This is a paragraph.</p> 
+	<p>This is a paragraph.</p> <!-- Select this and apply style-->
+	<p>This is a paragraph.</p> 
+	<div>This is a div.</div>
+	<div>This is a div.</div> 
+	<p>This is a paragraph.</p> <!-- Select this and apply style-->
+	<p>This is a paragraph.</p> 
+	<div>This is a div.</div>
+	<p>This is a paragraph.</p> <!-- Select this and apply style-->
+	<div>This is a div.</div>
+</div>
+```
+
+### 51. CSS Sprite là gì?
+
+CSS Sprite dùng cho kết hợp nhiều hình ảnh thành một hình ảnh lớn. Nó thường dùng cho biểu diễn icons. Các ưu điểm của nó là:
+
+- Giảm số lượng yêu cầu HTTP để lấy nhiều ảnh vì nó cho phép chỉ gửi một yêu cầu.
+- Nó giúp tải trước các nội dung giúp hiển thị các icon hoặc hinh ảnh khi di chuột và các pseudo-state khác.
+- Khi có nhiều hình ảnh, trình duyệt sẽ thực hiện các lệnh gọi riêng biệt để lấy hình ảnh cho từng hình ảnh đó.
+
+Sử dụng sprites, các hình ảnh được kết hợp thành một và chúng ta chỉ cần gọi hình ảnh đó bằng một lệnh gọi.
+
+Hãy xem xét một ví dụ trong đó ứng dụng của chúng ta yêu cầu 3 hình ảnh như hình dưới đây (Không có Section Sprites). Nếu chúng ta đang cố gắng tải các hình ảnh một cách độc lập, chúng ta cần 3 yêu cầu HTTP khác nhau để lấy dữ liệu. Nhưng nếu chúng ta có CSS Sprites trong đó cả 3 hình ảnh được kết hợp thành 1 được phân tách bằng một số khoảng trắng, thì chúng ta chỉ yêu cầu 1 HTTP Request.
+
+![](./assets/CSS_Sprites.png)
+
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#home-icon {
+				left: 0px;
+				width: 46px;
+				background: url('spriteFile.gif') 0 0;
+			}
+
+			#prev-icon {
+				left: 63px;
+				width: 43px;
+				background: url('spriteFile.gif') -47px 0;
+			}
+
+			#next-icon {
+				left: 129px;
+				width: 43px;
+				background: url('spriteFile.gif') -91px 0;
+			}
+		</style>
+	</head>
+	<body>
+
+		<img id="home-icon" src="spriteFile.gif" width="1" height="1">    <!-- To display home icon here -->
+		<img id="next-icon" src="spriteFile.gif" width="1" height="1">    <!-- To display next icon icon here -->
+		<img id="prev-icon" src="spriteFile.gif" width="1" height="1">    <!-- To display previous icon icon here -->
+
+	</body>
+</html>
+```
+
+Trong đoạn code trên, chúng ta đang cố gắng truy cập từng phần tử - `home`, `previous` và `next` - từ file sprite bằng cách sử dụng thuộc tính left, width. Hình ảnh được hiển thị trong phần img nhờ thuộc tính `background`. Lưu ý rằng nguồn của hình ảnh (thuộc tính `src` của thẻ img) chỉ là một file là `spriteFile.gif` và tùy thuộc vào các quy tắc được chỉ định trong id selector, hình ảnh được tải tương ứng.
+
+### 52. Tweening trong CSS?
+
+Tweening là quá trình lấp đầy khoảng trống giữa các chuỗi khóa, tức là giữa các keyframes đã được tạo. Keyframes là những frame đại diện cho điểm bắt đầu và điểm kết thúc của hành động hoạt ảnh. Tweening liên quan đến việc tạo keyframe giữa hai hình ảnh để tạo ấn tượng rằng hình ảnh đầu tiên đã phát triển mượt mà sang hình ảnh thứ hai. Với mục đích này, chúng tôi sử dụng các thuộc tính như transforms - matrix, translate, scale, rotate,...
+
+Trong đoạn code bên dưới, ta tạo frame trung gian của các phần tử đoạn văn để chuyển từ đầu đến góc bên phải của trình duyệt.
+
+```css
+p {
+	animation-duration: 2s;
+	animation-name: slidethrough;
+}
+
+@keyframes slidethrough {
+	from {
+		margin-left: 100%;
+		width: 300%; 
+	}
+
+	to {
+		margin-left: 0%;
+		width: 100%;
+	}
+}
+```
+
+Ở đây, phần tử đoạn văn chỉ định rằng quá trình hoạt ảnh sẽ mất 2 giây để thực hiện từ đầu đến cuối. Điều này được thực hiện bằng cách sử dụng thuộc tính `animation-duration`. Tên hoạt ảnh của `@keyframes` được xác định bằng cách sử dụng thuộc tính `animation-name`. Keyframe trung gian được xác định bằng cách sử dụng quy tắc `@keyframes`. 
+
+Trong ví dụ, chúng ta chỉ có 2 keyframe. Keyframe đầu tiên bắt đầu ở `0%` và chạy cho đến lề trái `100%`, là cạnh ngoài cùng bên phải của phần tử container. Keyframe thứ hai bắt đầu ở `100%` trong đó lề trái được đặt là `0%` và chiều rộng được đặt là `100%`, kết quả là kết thúc hoạt ảnh nghiêng về phía bên trái của container.
