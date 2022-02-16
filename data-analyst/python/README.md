@@ -128,4 +128,132 @@ myEmptyFunc()    # nothing happens
 
 ### 8. Module và package trong Python?
 
-Python package và module là hai cơ chế cho phép **lập trình module** trong Python. Việc module hoá đem lại các lợi ích như:s 
+Python package và module là hai cơ chế cho phép **lập trình module** trong Python. Việc module hoá đem lại các lợi ích như:
+
+### 30. Sự khác biệt giữa .py và .pyc?
+
+- Các file `.py` chứa mã nguồn của một chương trình. Trong khi đó, file `.pyc` chứa mã bytecode của chương trình của bạn. Chúng tôi nhận được mã bytecode sau khi biên dịch file `.py` (mã nguồn). Các file `.pyc` không được tạo cho tất cả các file mà bạn chạy. Nó chỉ được tạo cho các file mà bạn nhập.
+
+- Trước khi thực hiện một chương trình python, trình thông dịch python kiểm tra các file đã biên dịch. Nếu file có mặt, máy ảo sẽ thực thi file đó. Nếu không tìm thấy, nó sẽ kiểm tra file `.py`. Nếu được tìm thấy, hãy biên dịch nó thành file `.pyc` và sau đó máy ảo python thực thi nó.
+
+Có file `.pyc` giúp bạn tiết kiệm thời gian biên dịch
+### 31. Python là ngôn ngữ thông dịch?
+
+- Python là một ngôn ngữ không được thông dịch hoặc biên dịch. Thông dịch hoặc biên dịch là thuộc tính của việc triển khai. Python là một bytecode (tập hợp các hướng dẫn có thể đọc được của trình thông dịch) được thông dịch chung.
+- Mã nguồn là một file có phần mở rộng .py.
+- Python biên dịch mã nguồn thành một tập hợp các hướng dẫn cho một máy ảo. Trình thông dịch Python là một triển khai của máy ảo đó. Định dạng trung gian này được gọi là "bytecode".
+- Mã nguồn `.py` đầu tiên được biên dịch để cung cấp `.pyc` là mã bytecode. Bytecode này sau đó có thể được thông dịch bởi CPython chính thức hoặc JIT (trình biên dịch Just in Time) do PyPy biên dịch.
+
+### 32. Truyền tham số bằng giá trị và bằng tham chiếu trong Python?
+
+- Truyền bằng giá trị: Sao chép đối tượng thực được truyền. Thay đổi giá trị của đối tượng sao chép sẽ không ảnh hướng đến đối tượng gốc.
+- Truyền bằng tham chiếu: Tham chiếu đến đối tượng thực được truyền. Thay đổi giá trị ở đối tượng mới sẽ thay đổi cả giá trị ở đối tượng gốc.
+
+```py
+def appendNumber(arr):
+   arr.append(4)
+arr = [1, 2, 3]
+print(arr)  #Output: => [1, 2, 3]
+appendNumber(arr)
+print(arr)  #Output: => [1, 2, 3, 4]
+```
+
+### 33. Iterator trong Python?
+
+- Một iterator là một đối tượng.
+- Nó nhớ trạng thái của nó, tức là nó đang ở đâu trong vòng lặp (xem đoạn code bên dưới).
+- Phương thức `__iter__()` khởi tạo một iterator.
+- Nó có phương thứ `__next__()` để trả về mục tiếp theo trong lần lặp và trỏ đến phần tử tiếp theo. Khi đến cuối đối tượng có thể lặp lại `__next__()` trả về `StopIteration exception`
+- Nó có thể tự lặp lại.
+- Iterator là một đối tượng mà chúng ta có thể lặp qua đối tượng như list, string,..
+
+```py
+class ArrayList:
+   def __init__(self, number_list):
+      self.numbers = number_list
+   def __iter__(self):
+      self.pos = 0
+      return self
+   def __next__(self):
+      if(self.pos < len(self.numbers)):
+         self.pos += 1
+         return self.numbers[self.pos - 1]
+      else:
+         raise StopIteration
+array_obj = ArrayList([1, 2, 3])
+it = iter(array_obj)
+print(next(it)) #output: 2
+print(next(it)) #output: 3
+print(next(it))
+#Throws Exception
+#Traceback (most recent call last):
+#...
+#StopIteration
+```
+
+### 34. Cách xoá một file trong Python?
+
+Ta có thể dùng lệnh `os.remove(file_name)`:
+
+```py
+import os
+os.remove("ChangedFile.csv")
+print("File Removed!")
+```
+
+### 35. Giải thích hàm split() và join() trong Python?
+
+- Bạn có thể dùng hàm split() để tách chuỗi dựa trên một dấu phân cách trong list của chuỗi.
+- Bạn có thể dùng hàm join() để kết hợp một list của chuỗi dựa trên khoảng cách đựa cho từ chuỗi đơn.
+
+```py
+string = "This is a string."
+string_list = string.split(' ') #delimiter is ‘space’ character or ‘ ‘
+print(string_list) #output: ['This', 'is', 'a', 'string.']
+print(' '.join(string_list)) #output: This is a string.
+```
+
+### 36. *args và *kwargs là gì?
+
+#### *args
+- *args là cú pháp đặc biệt dùng trong hàm để xác định độ dài biến tham số được truyền vào.
+- "*" nghĩa là độ dài biến và "args" là tên dùng theo quy ước. 
+
+```py
+def multiply(a, b, *argv):
+   mul = a * b
+   for num in argv:
+      mul *= num
+   return mul
+print(multiply(1, 2, 3, 4, 5)) #output: 120
+```
+
+#### *kwargs
+
+- *kwargs là cú pháp đặc biệt trong hàm để xác định độ dài biến tham số có từ khoá.
+- Ở đâu "kwargs" được dùng theo quy ước.
+- Đối số có từ khóa có nghĩa là một biến có tên khi được truyền cho một hàm.
+- Nó thực sự là một dictionary về tên biến và giá trị của nó.
+
+```py
+def tellArguments(**kwargs):
+   for key, value in kwargs.items():
+      print(key + ": " + value)
+tellArguments(arg1 = "argument 1", arg2 = "argument 2", arg3 = "argument 3")
+#output:
+# arg1: argument 1
+# arg2: argument 2
+# arg3: argument 3
+```
+### 37. Chỉ mục âm là gì và cách sử dụng?
+
+- Chỉ mục âm là chỉ mục tính từ phía cuối của list, tuple hoặc string.
+- Arr[-1] nghĩa là phần tử cuối cùng của mảng Arr[].
+
+```py
+arr = [1, 2, 3, 4, 5, 6]
+#get the last element
+print(arr[-1]) #output 6
+#get the second last element
+print(arr[-2]) #output 5
+```
