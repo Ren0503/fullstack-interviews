@@ -24,6 +24,32 @@ Phiên bản mới nhất của HTML là HTML5. Trong nó có hai thành phần 
 
 [5. HTML Entities là gì?](#5-html-entities-là-gì)
 
+[6. Các kiểu danh sách trong HTML?](#6-c%C3%A1c-ki%E1%BB%83u-danh-s%C3%A1ch-trong-html)
+
+[7. Thuộc tính class trong HTML là gì?](#7-thu%E1%BB%99c-t%C3%ADnh-class-trong-html-l%C3%A0-g%C3%AC)
+
+[8. Sự khác nhau của thuộc tính id và class trong phần HTML?](#8-s%E1%BB%B1-kh%C3%A1c-nhau-c%E1%BB%A7a-thu%E1%BB%99c-t%C3%ADnh-id-v%C3%A0-class-trong-ph%E1%BA%A7n-t%E1%BB%AD-html)
+
+[9. multipart/form-data là gì?](#9-multipartform-data-l%C3%A0-g%C3%AC)
+
+[10. Mô tả cấu trúc của HTML?](#10-m%C3%B4-t%E1%BA%A3-c%E1%BA%A5u-tr%C3%BAc-c%E1%BB%A7a-html)
+
+[11. Cách để tối ưu tải tài nguyên website?](#11-c%C3%A1ch-%C4%91%E1%BB%83-t%E1%BB%91i-%C6%B0u-t%E1%BA%A3i-t%C3%A0i-nguy%C3%AAn-website)
+
+[12. Thẻ định dạng khác nhau trong HTML](#12-th%E1%BA%BB-%C4%91%E1%BB%8Bnh-d%E1%BA%A1ng-kh%C3%A1c-nhau-trong-html)
+
+[13. Các thể loại Doctypes khả dụng](#13-c%C3%A1c-th%E1%BB%83-lo%E1%BA%A1i-doctypes-kh%E1%BA%A3-d%E1%BB%A5ng)
+
+[14. Hãy giải thích cách hiển thị tập ký tự đang được sử dụng trong HTML?](#14-h%C3%A3y-gi%E1%BA%A3i-th%C3%ADch-c%C3%A1ch-hi%E1%BB%83n-th%E1%BB%8B-t%E1%BA%ADp-k%C3%BD-t%E1%BB%B1-%C4%91ang-%C4%91%C6%B0%E1%BB%A3c-s%E1%BB%AD-d%E1%BB%A5ng-trong-html)
+
+[15. Sự khác nhau giữa thẻ `<strong>` và `<b>`, thẻ `<em>` và `<i>`?](#15-s%E1%BB%B1-kh%C3%A1c-nhau-gi%E1%BB%AFa-th%E1%BA%BB-strong-v%C3%A0-b-th%E1%BA%BB-em-v%C3%A0-i)
+
+[16. Đặc trưng của thẻ `<head>` và `<body>` trong HTML?](#16-%C4%91%E1%BA%B7c-tr%C6%B0ng-c%E1%BB%A7a-th%E1%BA%BB-head-v%C3%A0-body-trong-html)
+
+[17. Chúng ta có thể hiển thị một trang bên trong một trang web hoặc lồng các trang web vào nhau có được không?](#17-ch%C3%BAng-ta-c%C3%B3-th%E1%BB%83-hi%E1%BB%83n-th%E1%BB%8B-m%E1%BB%99t-trang-b%C3%AAn-trong-m%E1%BB%99t-trang-web-ho%E1%BA%B7c-l%E1%BB%93ng-c%C3%A1c-trang-web-v%C3%A0o-nhau-c%C3%B3-%C4%91%C6%B0%E1%BB%A3c-kh%C3%B4ng)
+
+[18. Cell Padding khác với Cell Spacing như thế nào?](#18-cell-padding-kh%C3%A1c-v%E1%BB%9Bi-cell-spacing-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
 
 
 ## Câu hỏi phỏng vấn cho Fresher

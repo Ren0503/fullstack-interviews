@@ -201,3 +201,21 @@ Trong OAuth2 định nghĩa 4 vai trò:
 - **Authorization server:** làm nhiệm vụ xác thực, kiểm tra thông tin mà user gửi đến từ đó cấp quyền truy cập cho ứng dụng bằng việc sinh ra các đoạn mã access token. Đôi khi authorization server cũng chính là resource server.
 
 ![](./assets/oauth.jpg)
+
+### 20. Distributed Transactions là gì?
+
+Giao dịch phân tán (distributed transactions) là một cách tiếp cận lỗi thời trong kiến trúc microservice ngày nay khiến nhà phát triển gặp phải các vấn đề nghiêm trọng về khả năng mở rộng. Các giao dịch được phân phối cho một số dịch vụ được gọi để hoàn thành giao dịch theo trình tự. Với rất nhiều bộ phận chuyển động, nó rất phức tạp và dễ bị hỏng hóc.
+
+### 21. Idempotence là gì?
+
+Thuật ngữ "Idempotence" đề cập đến việc thực hiện lặp đi lặp lại một nhiệm vụ mặc dù cùng một kết quả. Nói cách khác, nó là một tình huống trong đó một nhiệm vụ được thực hiện lặp đi lặp lại với kết quả cuối cùng được giữ nguyên.
+ 
+Cách sử dụng: Khi dịch vụ từ xa hoặc nguồn dữ liệu nhận được hướng dẫn nhiều lần, Idempotence đảm bảo rằng nó sẽ xử lý từng yêu cầu một lần.
+
+### 22. Ent-to-end microservices testing là gì?
+
+Thông thường, end-to-end (E2E) microservice testing là một kỹ thuật không phối hợp, chi phí cao được sử dụng để đảm bảo rằng tất cả các thành phần hoạt động cùng nhau cho một hành trình hoàn chỉnh của người dùng. Thông thường, nó được thực hiện thông qua giao diện người dùng, bắt chước cách nó xuất hiện với người dùng. Nó cũng đảm bảo tất cả các quy trình trong quy trình làm việc hoạt động bình thường.
+
+### 23. Thuật ngữ Euruka trong Microservices?
+
+Eureka Server, còn được gọi là Netflix Service Discovery Server, là một ứng dụng theo dõi tất cả các ứng dụng dịch vụ client. Vì mọi Microservice đăng ký với Server Eureka, Eureka biết tất cả các ứng dụng client đang chạy trên các cổng và địa chỉ IP khác nhau. Nó thường sử dụng Spring Cloud và không nặng về quá trình phát triển ứng dụng.

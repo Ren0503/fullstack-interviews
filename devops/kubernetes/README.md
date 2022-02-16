@@ -31,3 +31,20 @@ Hình ảnh sau đây mô tả luồng công việc của Kubernetes từ cấp 
 
 ![](./assets/Kubernetes_Workflow.jpg)
 
+## Câu hỏi phỏng vấn Kubernetes cho Fresher?
+
+### 1. Làm thế nào để thực hiện bảo trì trên node K8?
+
+Bất cứ khi nào có sẵn các bản vá bảo mật, quản trị viên Kubernetes phải thực hiện nhiệm vụ bảo trì để áp dụng bản vá bảo mật cho container đang chạy nhằm ngăn nó khỏi lỗ hổng bảo mật, đây thường là một phần không thể tránh khỏi trong quản trị. Hai lệnh sau rất hữu ích để thoát node K8s một cách an toàn.
+
+```
+kubectl cordon
+kubectl drain –ignore-daemon set
+```
+
+Lệnh đầu tiên chuyển node sang chế độ bảo trì hoặc làm cho node không khả dụng, tiếp theo là lệnh `kubectl drain` sẽ loại bỏ pod khỏi node. Sau khi lệnh thoát thành công, bạn có thể thực hiện bảo trì.
+
+Lưu ý nếu bạn muốn thực hiện bảo trì trên một pod đơn, có thể dùng hai lệnh sau:
+
+- `kubectl get nodes`: hiển thị tất cả node
+- `kubectl drain <node name>`: thoát một node cụ thể

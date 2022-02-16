@@ -96,5 +96,6 @@ Nó không có bất kỳ kiểu dữ liệu cụ thể nào. Nó có thể tr�
 | JS có thể dùng để gọi SOAP, nhưng rất khó để làm | Quá đơn giản nếu dùng JS |
 | Hiệu suất không tốt bằng REST | Hiệu suất tốt hơn SOAP, tốn ít tài nguyên CPU hơn, code ngắn gọn hơn |
 
-### 9. Web API 2.0 là gì?
+### 9. Giải thích các kiểu định dạng media?
+
 

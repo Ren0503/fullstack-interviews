@@ -289,3 +289,38 @@ Luồng hoạt động như sau:
 - Sau đó, code được phát hành cho production và được xác thực lại.
 
 ### 22. Cách Ansible hoạt động trong DevOps?
+
+Nó là một công cụ DevOps tự động mã nguồn mở giúp hiện đại hoá quá trình phát triển và triển khai của ứng dụng theo cách nhanh hơn. Nó phổ biến nhờ sự đơn giản trong việc hiểu, áp dụng và sử dụng nó, nó giúp mọi người trên toàn cầu làm việc theo cách cộng tác.
+
+| Ansible | Developers | Operations | QA | Client/Business |
+|-|-|-|-|
+| Challenges | Các nhà phát triển có xu hướng tập trung nhiều thời gian vào việc tạo công cụ hơn là cung cấp kết quả | Nhóm vận hành sẽ yêu cầu công nghệ đồng nhất có thể được sử dụng bởi các nhóm kỹ năng khác nhau một cách dễ dàng | Nhóm Đảm bảo chất lượng sẽ yêu cầu theo dõi những gì đã được thay đổi trong tính năng và khi nào nó được thay đổi | Khách hàng lo lắng về việc đưa sản phẩm ra thị trường càng sớm càng tốt |
+
+### 23. Cách Ansible hoạt động?
+
+Ansible có hai loại server:
+- Máy điều khiển
+- Nút
+
+Để điều này hoạt động, Ansible được cài đặt trên máy điều khiển bằng cách sử dụng các nút được quản lý bằng cách sử dụng SSH. Vị trí của các nút sẽ được chỉ định và cấu hình trong kho của máy điều khiển.
+
+Ansible không yêu cầu bất kỳ cài đặt nào trên các máy chủ nút từ xa do bản chất của nó là không có tác nhân. Do đó, không cần thực hiện quy trình nền nào trong khi quản lý bất kỳ nút nào từ xa.
+
+Ansible có thể quản lý nhiều nút từ một hệ thống điều khiển duy nhất khi tôi sử dụng Ansible Playbooks thông qua kết nối SSH. Playbook có định dạng YAML và có khả năng thực hiện nhiều tác vụ.
+
+### 24. Cách AWS làm việc với DevOps?
+
+AWS là viết tắt Amazon Web Services và là nhà cung cấp dịch vụ đám mây phổ biến nhất. AWS giúp DevOps như sau:
+- **Tài nguyên linh hoạt:** AWS cung cấp tài nguyên linh hoạt sẵn sàng để sử dụng.
+- **Mở rộng quy mô:** Hàng nghìn máy có thể được triển khai trên AWS bằng cách sử dụng sức mạnh tính toán và lưu trữ không giới hạn.
+- **Tự động hóa:** Rất nhiều tác vụ có thể được tự động hóa bằng cách sử dụng các dịch vụ khác nhau do AWS cung cấp.
+- **Bảo mật:** AWS an toàn và sử dụng các tùy chọn bảo mật khác nhau được cung cấp dưới tên gọi Quản lý danh tính và truy cập (IAM), việc triển khai và xây dựng ứng dụng có thể được bảo mật.
+
+### 25. Cách chuẩn bị để phát triển một dự án sử dụng phương pháp DevOps có thể là gì?
+
+Dự án có thể được phát triển theo các giai đoạn dưới đây bằng cách sử dụng DevOps:
+
+- **Giai đoạn 1: Lập kế hoạch:** Lập kế hoạch và đưa ra lộ trình bằng cách thực hiện đánh giá kỹ lưỡng các quy trình đã có để xác định các lĩnh vực cần cải tiến và các điểm hạn chế.
+- **Giai đoạn 2: PoC:** Đưa ra một bằng chứng về PoC (proof of concept) chỉ để có ý tưởng về những phức tạp liên quan. Sau khi PoC được phê duyệt, công việc triển khai thực tế của dự án sẽ bắt đầu.
+- **Giai đoạn 3: Theo dõi DevOps:** Khi dự án đã sẵn sàng để triển khai, có thể theo sau quá trình văn hóa DevOps thực tế bằng cách sử dụng các giai đoạn của nó như kiểm soát phiên bản, tích hợp liên tục, thử nghiệm liên tục, triển khai liên tục, phân phối liên tục và giám sát liên tục.
+
