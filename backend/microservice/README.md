@@ -137,4 +137,8 @@ PACT được định nghĩa là một công cụ mã nguồn mở cho phép cá
 ### 12. Giải thích cách microservice giao tiếp với các phần khác?
 
 Giao tiếp giữa các microservice có thể thực hiện:
-- HTTP/REST với JSON hoặc 
+- HTTP/REST với JSON hoặc giao thức nhị phân cho request/response.
+- Websocket cho streaming
+- Một broker hoặc server dùng cho các thuật toán routing.
+
+RabbitMQ, Kafka,... có thể dùng như một message broker, mỗi cái được xây dựng để xử lý message cụ thể. 
