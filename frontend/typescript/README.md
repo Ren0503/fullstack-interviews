@@ -117,6 +117,22 @@ function notify(): void {
 
 ### 5. Kiểu unknown là gì?
 
+Kiểu unknown là kiểu đối chứng với kiểu any. Bạn có thể gán cho kiểu unknown với bất cứ thứ gì , nhưng không thể gán bất kỳ thứ gì bằng kiểu unknown (có thể khi ta thu hẹp kiểu dựa trên luồng điều khiển). Bạn không thể thực hiện bất kỳ thao tác nào trên một biến thuộc kiểu unknown mà không xác định trước loại cụ thể của biến đó.
+
+Hãy xem xét ví dụ sau. Chúng ta tạo biến unknown `foo` và gán giá trị chuỗi cho nó. Nếu chúng ta cố gắng gán biến unknown vào một biến chuỗi `bar`, trình biên dịch sẽ báo lỗi.
+
+```ts
+let foo: unknown = "Akshay";
+let bar: string = foo; // Type 'unknown' is not assignable to type 'string'.(2322)
+```
+
+Bạn có thể thu hẹp một biến của một kiểu unknown thành một kiểu gì đó cụ thể bằng cách thực hiện kiểm tra kiểu hoặc kiểm tra so sánh hoặc sử dụng bảo vệ kiểu. Ví dụ: chúng ta có thể loại bỏ lỗi trên bằng cách
+
+```ts
+let foo: unknown = "Akshay";
+let bar: string = foo as string;
+```
+
 ### 6. Các cách khai báo biến trong TypeScript?
 
 **var** khai báo một biến cục bộ hoặc toàn cục. Bạn có thể thiết lập giá trị khi khai báo. Các hành vi và phạm vi của nó tương tự với ở JavaScript. Ví dụ:
@@ -543,6 +559,33 @@ window.onmousedown = function (e) {
 
 ### 27. noImplicitAny là gì?
 
+Thông thường, nếu ta không cung cấp kiểu cho biến, TypeScript sẽ giả sử rằng đó là kiểu any. Ví dụ, đoạn code sau, tham số `s` sẽ được xem như là kiểu any. Nó hoạt động cùng với chuỗi được truyền:
+
+```ts
+function parse(s) {
+    console.log(s.split(' '));
+}
+parse("Hello world");  // ["Hello", "world"]
+```
+
+Tuy nhiên, code sẽ sinh lỗi ngay khi ta truyền một số hoặc kiểu khác chuỗi vào phương thức `split()`. Ví dụ:
+
+```ts
+function parse(s) {
+    console.log(s.split(' '));  // [ERR]: s.split is not a function
+}
+parse(10); 
+```
+
+**noImplicitAny** là một trình biên dịch tuỳ chọn mà bạn thiết lập trong file tsconfig.json. Nó ép trình biên dịch TypeScript báo lỗi bất cứ khi nào nó đựa ra một biến kiểu any. Điều này ngăn việc vô tình tạo các lỗi tương tự:
+
+```ts
+// Parameter 's' implicitly has an 'any' type.(7006)
+function parse(s) {
+console.log(s.split(' '));  // [ERR]: s.split is not a function
+}
+```
+
 ### 28. Interface là gì?
 
 Interface trong typescript cho phép bạn định nghĩ thuộc tính là gì và phương thức là gì mà đối tượng cần để được thực thi (implement). Nếu đối tượng tuân thủ đúng khuôn mẫu interface thì đối tượng đã implement interface ấy sẽ được thi hành đúng. Nếu interface không được thi hành đúng đắn thì typescript sẽ phát sinh lỗi ngay lập tức.
@@ -565,4 +608,380 @@ let john: Employee = {
 process(john);  // "John Doe's salary = 150000"
 ```
 
-### 
+### 29. Các quyền truy cập trong TypeScript?
+
+TypeScript cung cấp ba từ khoá cho điều khiển truy cập thành viên của lớp, như thuộc tính hay phương thức:
+
+- **public**: có thể truy cập ở bất cứ đâu kể cả bên ngoài lớp. Tất cả lớp thành viên mặc định là public.
+- **protected**: là thành viên chỉ có thể truy cập bởi lớp con của lớp chứa thành viện đó. Bên ngoài không thể truy cập vào các thành viên protected.
+- **private**: chỉ có thể truy cập bên trong lớp đó.
+
+### 30 TypeScript có hỗ trợ static class không?
+
+TypeScript không có hỗ trợ static class, không giống như các ngôn ngữ lập trình hướng đối tượng như C# hay Java.
+
+Các ngôn ngữ này cần các static class vì tất cả code, tức là dữ liệu và các hàm, cần phải nằm trong một lớp và không thể tồn tại độc lập. Các static class cung cấp một cách để cho phép các hàm này mà không cần liên kết chúng với bất kỳ đối tượng nào.
+
+Trong TypeScript, bạn có thể tạo bất kỳ dữ liệu và nào nào dưới dạng các đối tượng đơn giản mà không cần tạo một lớp chứa. Do đó, TypeScript không cần các static class. Một lớp singleton chỉ là một đối tượng đơn giản trong TypeScript
+
+### 31. Lớp trừu tượng là gì?
+
+Các lớp trừu tượng tương tự như các interface ở chỗ chúng chỉ định một hợp đồng cho các đối tượng và bạn không thể khởi tạo chúng trực tiếp. Tuy nhiên, không giống như các interface, một lớp trừu tượng có thể cung cấp các chi tiết triển khai cho một hoặc nhiều thành viên của nó.
+
+Một lớp trừu tượng đánh dấu một hoặc nhiều thành viên của nó là trừu tượng. Bất kỳ lớp nào kế thừa một lớp trừu tượng phải cung cấp một triển khai cho các thành viên trừu tượng của lớp cha.
+
+Đây là một ví dụ về một lớp trừu tượng `Writer` với hai hàm thành viên. Phương thức `write()` được đánh dấu là trừu tượng, trong khi phương thức `welcome()` là triển khai. Cả hai lớp `FictionWriter` và `RomanceWriter` kế thừa từ `Writer` phải cung cấp triển khai cụ thể của chúng cho phương thức `write`.
+
+```ts
+abstract class Writer {
+    abstract write(): void;
+
+    greet(): void {
+        console.log("Hello, there. I am a writer.");
+    }
+}
+
+class FictionWriter extends Writer {
+    write(): void {
+        console.log("Writing a fiction.");
+    }
+}
+
+class RomanceWriter extends Writer {
+    write(): void {
+        console.log("Writing a romance novel.");
+    }
+}
+
+const john = new FictionWriter();
+john.greet();  // "Hello, there. I am a writer."
+john.write();  // "Writing a fiction."
+
+const mary = new RomanceWriter();
+mary.greet();  // "Hello, there. I am a writer."
+mary.write();  // "Writing a romance novel."
+```
+
+### 32. Hàm ẩn danh là gì?
+
+Một hàm ẩn danh là một hàm không có tên. Các hàm ẩn danh thường được sử dụng như các hàm callback, tức là chúng được chuyển cho các hàm khác, chỉ được gọi bởi hàm khác vào thời điểm sau đó. Ví dụ,
+
+```ts
+setTimeout(function () {
+  console.log('Run after 2 seconds')
+}, 2000);
+```
+
+Bạn có thể gọi một hàm ẩn danh ngay sau khi nó được tạo. Nó được gọi là IIFE, ví dụ:
+
+```ts
+(function() {
+  console.log('Invoked immediately after creation');
+})();
+```
+
+### 33. Kiểu union trong TypeScript?
+
+Kiểu union là một kiểu cấu trúc đặc biệt trong TypeScript biểu thị một giá trị có thể có nhiều kiểu. Phân tách bằng ký hiệu `|`.
+
+Hãy xem xét ví dụ sau đây trong đó biến `value` thuộc kiểu union bao gồm chuỗi và số. Value được khởi tạo thành chuỗi "Foo". Bởi vì nó chỉ có thể là một chuỗi hoặc một số, ta có thể thay đổi nó thành một số sau đó và trình biên dịch TypeScript không phàn nàn.
+
+```ts
+let value: string | number = "Foo";
+value = 10;  // Okay
+```
+
+Tuy nhiên, nếu ta gán cho nó một giá trị thuộc kiểu không được bao gồm trong kiểu union, nó sẽ báo lỗi:
+
+```ts
+value = true;  // Type 'boolean' is not assignable to type 'string | number'.(2322)
+```
+
+### 34. Kiểu intersection là gì?
+
+Kiểu intersection cho phép bạn kết hợp các thành viên của hai hoặc nhiều kiểu bằng cách sử dụng toán tử `&`. Điều này cho phép bạn kết hợp các kiểu hiện có để có được một kiểu duy nhất với tất cả các tính năng bạn cần.
+
+Ví dụ: Ta tạo kiểu `Supervisor` mới từ thành viên của kiểu `Employee` và `Manager`:
+
+```ts
+interface Employee {
+    work: () => string;
+}
+
+interface Manager {
+    manage: () => string;
+}
+
+type Supervisor = Employee & Manager;
+
+// john can both work and manage
+let john: Supervisor;
+```
+
+### 35. Alias là gì?
+
+Alias (tên bí danh) cung cấp một tên mới cho kiểu hiện có. Nó không có kiểu mới mà cung cấp tên mới đề cập đến kiểu đó.
+
+Ví dụ: bạn có đặt bí danh cho kiểu union đế tránh nhập tất cả kiểu ở mọi nơi mà giá trị đó đang sử dụng.
+
+```ts
+type alphanumeric = string | number;
+let value: alphanumeric = "";
+value = 10;
+```
+
+### 36. Kiểu tuple trong TypeScript?
+
+Tuple là kiểu đặc biệt trong TypeScript. Chúng tương tự như mảng có một số phần tử cố định với một kiểu đã biết. Tuy nhiên, các kiểu không cần phải giống nhau.
+
+```ts
+// Declare a tuple type and initialize it
+let values: [string, number] = ["Foo", 15];
+
+// Type 'boolean' is not assignable to type 'string'.(2322)
+// Type 'string' is not assignable to type 'number'.(2322)
+let wrongValues: [string, number] = [true, "hello"]; // Error
+```
+
+Ở TypeScript 3.0, một tuple có thể chỉ định một hoặc nhiều kiểu tuỳ chọn sử dụng ? như bên dưới:
+
+```ts
+let values: [string, number, boolean?] = ["Foo", 15];
+```
+
+### 37. Giải thích cách hoạt động typle destructuring trong TypeScript?
+
+Bạn có thể destructuring phần tử tuple bằng cách dùng toán tử (=). Các biến destructuring nhận kiểu của phần tử tuple tương ứng.
+
+```ts
+let employeeRecord: [string, number] = ["John Doe", 50000];
+let [emp_name, emp_salary] = employeeRecord;
+console.log(`Name: ${emp_name}`);  // "Name: John Doe"
+console.log(`Salary: ${emp_salary}`);  // "Salary: 50000"
+```
+
+Sau destructuring, bạn không thể gán giá trị cho kiểu khác cho biến bị destructuring. Ví dụ:
+
+```ts
+emp_name = true;  // Type 'boolean' is not assignable to type 'string'.(2322)
+```
+
+### 38. Xác nhận kiểu trong TypeScript là gì?
+
+Đôi khi, bạn với tư cách là một lập trình viên có thể biết nhiều hơn về kiểu của một biến mà TypeScript có thể suy luận. Thông thường, điều này xảy ra khi bạn biết kiểu đối tượng cụ thể hơn kiểu hiện tại của nó. Trong những trường hợp như vậy, bạn có thể yêu cầu trình biên dịch TypeScript không suy ra kiểu của biến bằng cách sử dụng xác nhận kiểu.
+
+TypeScript cung cấp hai cú pháp cho xác nhận kiểu:
+
+- Dùng `as`
+
+```ts
+let value: unknown = "Foo";
+let len: number = (value as string).length;
+```
+
+- Dùng `<>`
+
+```ts
+let value: unknown = "Foo";
+let len: number = (<string>value).length;
+```
+
+### 39. Cách để ép kiểm tra null trong TypeScript?
+
+Con trỏ null là một trong những nguyên nhân phổ biến dẫn đến lỗi runtime unexpected trong lập trình. TypeScript giúp bạn tránh chúng ở một mức độ cao bằng cách thực thị kiểm tra null nghiêm ngặt (strict null checks).
+
+Ta có thể thực hiện theo hai cách:
+- cung cấp cờ --strictNullChecks trong trình biên dịch TypeScript.
+- thiết lập thuộc tính strictNullChecks là true trong cấu hình tsconfig.json. 
+
+Khi cờ là false, TypeScript bỏ qua các giá trị null và undefined trong code. Khi nó là true, null và undefined có các kiểu riêng biệt. Trình biên dịch throw một lỗi nếu bạn cố gắng sử dụng chúng ở những nơi mà một giá trị cụ thể được mong đợi.
+
+### 40. Cách làm cho thuộc tính đối tượng bất biến trong TypeScript?
+
+Bạn có thể làm cho thuộc tính đối tượng là bất biến bằng cách dùng từ khoá `readonly`.
+
+```ts
+interface Coordinate {
+    readonly x: number;
+    readonly y: number;
+}
+```
+
+Khi bạn đánh dấu một thuộc tính là readonly, nó chỉ có thể được đặt khi bạn khởi tạo đối tượng. Khi đối tượng được tạo, bạn không thể thay đổi nó.
+
+```ts
+let c: Coordinate = { x: 5, y: 15 };
+c.x = 20; // Cannot assign to 'x' because it is a read-only property.(2540)
+```
+
+### 41. File khai báo kiểu là gì?
+
+Một dự án TypeScript điển hình tham chiếu đến các thư viện TypeScript của bên thứ ba khác như jQuery để thực hiện các tác vụ thông thường. Có thông tin kiểu cho file thư viện giúp bạn mã hóa bằng cách cung cấp thông tin chi tiết về kiểu, đặc trưng phương thức, ... và cung cấp IntelliSense.
+
+File khai báo kiểu là file văn bản kết thúc bằng phần mở rộng `.d.ts` cung cấp cách khai báo sự tồn tại của một số kiểu hoặc giá trị mà không thực sự cung cấp triển khai cho các giá trị đó. Nó chứa các khai báo kiểu nhưng không có bất kỳ code nguồn nào. Nó không tạo ra file `.js` sau khi biên dịch.
+
+### 42. Các chỉ thị dấu gạch chéo ba là gì?
+
+Chỉ thị ba dấu gạch chéo là các chú thích một dòng chứa một thẻ XML. TypeScript sử dụng thẻ XML này làm chỉ thị trình biên dịch.
+
+Bạn chỉ có thể đặt lệnh ba gạch chéo ở đầu file chứa. Chỉ các nhận xét đơn hoặc nhiều dòng mới có thể xuất hiện trước lệnh gạch chéo ba. TypeScript coi chúng như những bình luận thông thường nếu nó xuất hiện ở giữa một khối mã, sau một câu lệnh.
+
+Công dụng chính của chỉ thị ba dấu gạch chéo là bao gồm các file khác trong quá trình biên dịch. Ví dụ: lệnh sau đây hướng dẫn trình biên dịch bao gồm một file được chỉ định bởi đường dẫn trong file TypeScript có chứa.
+
+```ts
+/// <đường dẫn tham chiếu = "..." />
+```
+
+Lệnh ba gạch chéo cũng sắp xếp đầu ra khi sử dụng --out hoặc --outFile. Các file đầu ra được tạo ra vị trí file đầu ra theo thứ tự giống như các file đầu vào.
+
+### 43. Giải thích toán tử in?
+
+Toán tử in được sử dụng để tìm xem một thuộc tính có nằm trong đối tượng được chỉ định hay không. Nó trả về true nếu thuộc tính thuộc về đối tượng. Nếu không, nó trả về false.
+
+```ts
+const car = { make: 'Hyundai', model: 'Elantra', year: 2017 };
+console.log('model' in car);  // true
+console.log('test' in car);  // false
+```
+
+### 44. Giải thích từ khoá implement trong TypeScript?
+
+Một implement được dùng để kiểm tra một lớp có thoả mãn hợp đồng được chỉ định bởi một interface hay không. 
+
+```ts
+interface Runnable {
+    run(): void;
+}
+
+class Job implements Runnable {
+    run() {
+        console.log("running the scheduled job!");
+    }
+}
+
+// Class 'Task' incorrectly implements interface 'Runnable'.
+// Property 'run' is missing in type 'Task' but required in type 'Runnable'.(2420)
+class Task implements Runnable {
+    perform() {
+        console.log("pong!");
+    }
+}
+```
+
+Một lớp có thể triển khai nhiều hơn một interface. Trong trường hợp này, lớp phải chỉ định tất cả các hợp đồng của các giao diện đó.
+
+### 45. Các kiểu chuỗi ký tự là gì?
+
+Trong TypeScript, bạn có thể đề cập các chuỗi và số cụ thể dưới dạng các kiểu.
+
+```ts
+let foo: "bar" = "bar";
+
+// OK
+foo = "bar";
+
+// Error: Type '"baz"' is not assignable to type '"bar"'.(2322)
+foo = "baz";
+```
+
+Riêng các loại chuỗi ký tự thì không hữu ích. Tuy nhiên, bạn có thể kết hợp chúng thành union. Điều này cho phép bạn chỉ định tất cả các giá trị chuỗi mà một biến có thể nhận, lần lượt hoạt động giống như enums. Điều này có thể hữu ích cho các tham số hàm.
+
+```ts
+function greet(name: string, greeting: "hi" | "hello" | "hola") {
+// ...
+}
+
+greet("John", "hello");
+
+// Error: Argument of type '"Howdy?"' is not assignable to parameter of type '"hi" | "hello" | "hola"'.(2345)
+greet("Mary", "Howdy?");
+```
+
+### 46. Các kiểu chữ mẫu là gì?
+
+Các kiểu chữ mẫu tương tự như kiểu chữ chuỗi. Bạn có thể kết hợp chúng với các kiểu chữ cụ thể để tạo ra một kiểu chữ chuỗi mới. Các kiểu ký tự mẫu cho phép chúng tôi sử dụng các kiểu ký tự chuỗi làm khối xây dựng để tạo các kiểu ký tự chuỗi mới.
+
+```ts
+type Point = "GraphPoint";
+
+// type Shape = "Grid GraphPoint"
+type Shape = `Grid ${Point}`;
+```
+
+Các kiểu chữ của mẫu cũng có thể mở rộng thành nhiều chuỗi thông qua các hợp nhất. Nó giúp chúng tôi tạo tập hợp mọi ký tự chuỗi có thể có mà mỗi thành viên liên minh có thể đại diện.
+
+```ts
+type Color = "green" | "yellow";
+type Quantity = "five" | "six";
+
+// type ItemTwo = "five item" | "six item" | "green item" | "yellow item"
+type ItemOne = `${Quantity | Color} item`; 
+```
+
+### 47. Kế thừa trong TypeScript?
+
+Tính kế thừa cho phép một lớp mở rộng một lớp khác và sử dụng lại và sửa đổi hành vi được định nghĩa trong lớp kia. Lớp kế thừa một lớp khác được gọi là lớp dẫn xuất và lớp nhận được kế thừa được gọi là lớp cơ sở.
+
+Trong TypeScript, một lớp chỉ có thể mở rộng một lớp. TypeScript sử dụng từ khóa `extend` để xác định mối quan hệ giữa lớp cơ sở và các lớp dẫn xuất.
+
+```ts
+class Rectangle {
+    length: number;
+    breadth: number
+
+    constructor(length: number, breadth: number) {
+        this.length = length;
+        this.breadth = breadth
+    }
+
+    area(): number {
+        return this.length * this.breadth;
+    }
+}
+
+class Square extends Rectangle {
+    constructor(side: number) {
+        super(side, side);
+    }
+
+    volume() {
+        return "Square doesn't have a volume!"
+    }
+}
+
+const sq = new Square(10);
+
+console.log(sq.area());  // 100
+console.log(sq.volume());  // "Square doesn't have a volume!"
+```
+
+Trong ví dụ trên, vì lớp Square mở rộng chức năng từ Rectangle, chúng ta có thể tạo một thể hiện của hình vuông và gọi cả hai phương thức `area()` và `volume()`.
+
+### 48. Kiểu điều kiện là gì?
+
+Kiểu có điều kiện cho phép bạn chọn động một trong hai loại có thể dựa trên một điều kiện. Điều kiện được thể hiện dưới dạng một bài kiểm tra mối quan hệ kiểu.
+
+```ts
+C extends B ? TypeX : TypeY
+```
+
+### 49. Kiểu hàm trong TypeScript?
+
+Hàm là một kiểu toàn cục trong TypeScript. Nó có các thuộc tính như bind, call và apply, cùng với các thuộc tính khác có trên tất cả các giá trị hàm.
+
+```ts
+function perform(fn: Function) {
+    fn(10);
+}
+```
+
+### 50. Liệt kê một số kiểu tiện ích được cung cấp bởi TypeScript và giải thích cách sử dụng của chúng?
+
+TypeScript cung cấp nhiều kiểu tiện ích khác nhau giúp cho việc chuyển đổi kiểu thông thường trở nên dễ dàng. Các loại tiện ích này có sẵn trên toàn cục. Dưới đây là một số kiểu tiện ích thiết yếu có trong TypeScript.
+
+| Kiểu tiện ích | Mô tả |
+|-|-|
+| Partial<Type> | Tạo một kiểu với tất cả các thuộc tính của Type được đặt thành tùy chọn |
+| Required<Type> | Tạo một kiểu bao gồm tất cả các thuộc tính của Type được đặt thành bắt buộc |
+| Readonly<Type> | Tạo một kiểu với tất cả các thuộc tính của Type được đặt thành readonly |
+| Record<Keys, Type> | Tạo một kiểu đối tượng với các khóa thuộc tính là kiểu Keys và giá trị là Type |
