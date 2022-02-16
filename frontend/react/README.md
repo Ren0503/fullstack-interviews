@@ -1134,30 +1134,369 @@ Các cách khác nhau cho triển khai render có điều kiện trong React:
 - Sử dụng toán tử ba ngôi (`?:`) giúp giảm bớt câu lệnh if-else phức tạp.
 - Sử dụng biến phần tử, phù hợp cho viết code sạch.
 
-### 37. Tạo component cho chuyển trang khác nhau?
+### 37. Sự khác biệt giữa NavLink và Link?
+
+`<Link>` dùng cho điều hướng các trang khác nhau trong ứng dụng web. Còn `<NavLink>` được dùng để thêm thuộc tính cho hoạt động chuyển hướng.
+
+**Cú pháp**
+- Link:
 
 ```jsx
-import HomePage from './HomePage'
-import AboutPage from './AboutPage'
-import FacilitiesPage from './FacilitiesPage'
-import ContactPage from './ContactPage'
-import HelpPage from './HelpPage'
+<Link to="/">Home</Link>
+```
 
-const PAGES = {
-    home: HomePage,
-    about: AboutPage,
-    facilitiess: FacilitiesPage,
-    contact: ContactPage
-    help: HelpPage
-}
+- NavLink:
 
-const Page = (props) => {
-    const Handler = PAGES[props.page] || HelpPage
-    return <Handler {...props} />
-}
-// The PAGES object keys can be used in the prop types for catching errors during dev-time.
-Page.propTypes = {
-    page: PropTypes.oneOf(Object.keys(PAGES)).isRequired
+```jsx
+<NavLink to="/" activeClassName="active">Home</NavLink>
+```
+
+**Ví dụ**
+
+index.css
+
+```css
+.active {
+  color: blue;
 }
 ```
 
+Routes.js
+
+```jsx
+import ReactDOM from 'react-dom'
+import './index.css'
+import { Route, NavLink, BrowserRouter as Router, Switch } from 'react-router-dom'
+import App from './App'
+import Users from './users'
+import Contact from './contact'
+import Notfound from './notfound'
+
+const Routes = (
+    <Router>
+        <div>
+            <ul>
+                <li>
+                <NavLink exact activeClassName="active" to="/">
+                    Home
+                </NavLink>
+                </li>
+                <li>
+                <NavLink activeClassName="active" to="/users">
+                    Users
+                </NavLink>
+                </li>
+                <li>
+                <NavLink activeClassName="active" to="/contact">
+                    Contact
+                </NavLink>
+                </li>
+            </ul>
+            <hr />
+            <Switch>
+                <Route exact path="/" component={App} />
+                <Route path="/users" component={Users} />
+                <Route path="/contact" component={Contact} />
+                <Route component={Notfound} />
+            </Switch>
+        </div>
+    </Router>
+)
+
+ReactDOM.render(Routes, document.getElementById('root'))
+```
+
+### 38. withRouter trong react-router-dom là gì?
+
+`withRouter()` là một HOC cho phép truy cập thuộc tính đối tượng `history` ứng với `<Route>` gần nhất. Nó sẽ truyền `match`, `location` và `history` như props đến component được bọc bất cứ khi nào nó render.
+
+Ví dụ:
+
+```jsx
+import React from "react"
+import PropTypes from "prop-types"
+import { withRouter } from "react-router"
+
+// A simple component that shows the pathname of the current location
+class ShowTheLocation extends React.Component {
+    static propTypes = {
+        match: PropTypes.object.isRequired,
+        location: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
+    }
+
+    render() {
+        const { match, location, history } = this.props
+
+        return <div>You are now at {location.pathname}</div>
+    }
+}
+
+const ShowTheLocationWithRouter = withRouter(ShowTheLocation)
+```
+
+### 39. Cách hiển thị dữ liệu API với Axios?
+
+Axios là một promise dựa trên HTTP để tạo yêu cầu HTTP đến trình duyệt hay web server.
+
+**Tính năng**
+- **Interceptors**: Truy cập cấu hình yêu cầu hoặc phản hồi (header, dữ liệu, v.v.) khi chúng gửi đến hoặc đi. Các hàm này có thể hoạt động như các cổng để kiểm tra cấu hình hoặc thêm dữ liệu.
+- **Instances**: Tạo thực thể có thể tái sử dụng như baseUrl, headers, và cấu hình khác đã thiết lập.
+- **Defaults**: Thiết lập giá trị chung cho header chung (như Authorization) với các yêu cầu. Nó hữu ích khi bạn cần xác thực đến server trên mọi yêu cầu.
+
+**Cài đặt**
+
+```
+npm install axios -- save
+```
+
+Các phương thức thường dùng:
+
+- `axios.request(config)`
+- `axios.get(url[, config])`
+- `axios.delete(url[, config])`
+- `axios.head(url[, config])`
+- `axios.options(url[, config])`
+- `axios.post(url[, data[, config]])`
+- `axios.put(url[, data[, config]])`
+- `axios.patch(url[, data[, config]])`
+
+Ví dụ POST:
+
+```js
+
+axios.post('/url',{data: 'data'})
+    .then((res)=>{
+        //on success
+    })
+    .catch((error)=>{
+        //on error
+    })
+```
+
+Ví dụ GET:
+
+```js
+axios.get('/url')
+    .then((res)=>{
+        //on success
+    })
+    .catch((error)=>{
+        //on error
+    })
+```
+
+Xử lý nhiều yêu cầu đồng thời:
+
+```js
+function getUserAccount() {
+    return axios.get('/user/12345')
+}
+
+function getUserPermissions() {
+    return axios.get('/user/12345/permissions')
+}
+
+axios.all([getUserAccount(), getUserPermissions()])
+    .then(axios.spread(function (acct, perms) {
+        // Both requests are now complete
+    }))
+```
+
+POST trong Component:
+
+```jsx
+import React from 'react'
+import axios from 'axios'
+
+export default class PersonList extends React.Component {
+    state = {
+        name: '',
+    }
+
+    handleChange = event => {
+        this.setState({ name: event.target.value })
+    }
+
+    handleSubmit = event => {
+        event.preventDefault()
+
+        const user = {
+        name: this.state.name
+        }
+
+        axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
+        .then(res => {
+            console.log(res)
+            console.log(res.data)
+        })
+    }
+
+    render() {
+        return (
+        <div>
+            <form onSubmit={this.handleSubmit}>
+            <label>
+                Person Name:
+                <input type="text" name="name" onChange={this.handleChange} />
+            </label>
+            <button type="submit">Add</button>
+            </form>
+        </div>
+        )
+    }
+}
+```
+
+### 40. Caching trong React?
+
+Ta có thể caching dữ liệu trong React bằng nhiều cách như:
+- Local Storage
+- Redux Store
+- Giữa dữ liệu giữa mounting và unmounting
+
+Memoization là một kỹ thuật mà chúng ta sẽ sử dụng để đảm bảo rằng chúng ta không gặp phải API nếu chúng tôi đã thực hiện một số loại yêu cầu tìm nạp nó ở một số giai đoạn đầu tiên. Việc lưu trữ kết quả của các cuộc gọi tốn kém sẽ tiết kiệm thời gian tải cho người dùng, nhờ đó tăng hiệu suất tổng thể.
+
+Ví dụ:
+
+```jsx
+const cache = {}
+
+const useFetch = (url) => {
+    const [status, setStatus] = useState('idle')
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        if (!url) return
+
+        const fetchData = async () => {
+            setStatus('fetching')
+
+            if (cache[url]) {
+                const data = cache[url]
+                setData(data)
+                setStatus('fetched')
+            } else {
+                const response = await fetch(url)
+                const data = await response.json()
+                cache[url] = data // set response in cache
+                setData(data)
+                setStatus('fetched')
+            }
+        }
+
+        fetchData()
+    }, [url])
+
+    return { status, data }
+}
+```
+
+Ở đây ta ánh xạ URL tới dữ liệu của ta. Nếu ta thực hiện yêu cầu nạp dữ liệu hiện có, chúng ta sẽ lấy dữ liệu từ cache cục bộ của mình. Nếu không, ta tiếp tục thực hiện yêu cầu và đặt kết quả vào cache. Điều này đảm bảo tằng ta không gọi lại API khi đã có dữ liệu cục bộ.
+
+#### Dùng `useRef()`
+
+Với `useRef()`, ta có thể thiết lập và truy xuất dữ liệu có thể thay đổi dễ dàng và lưu giá trị suốt vòng đời component.
+
+```jsx
+const useFetch = (url) => {
+   const cache = useRef({})
+    const [status, setStatus] = useState('idle')
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        if (!url) return
+
+        const fetchData = async () => {
+            setStatus('fetching')
+
+            if (cache.current[url]) {
+                const data = cache.current[url]
+                setData(data)
+                setStatus('fetched')
+            } else {
+                const response = await fetch(url)
+                const data = await response.json()
+                cache.current[url] = data // set response in cache
+                setData(data)
+                setStatus('fetched')
+            }
+        }
+
+        fetchData()
+    }, [url])
+
+    return { status, data }
+    }
+```
+
+#### Sử dụng localStorage
+
+```jsx
+const InitialState = {
+   someState: 'a'
+}
+class App extends Component {
+
+    constructor(props) {
+        super(props)
+
+        // Retrieve the last state
+        this.state = localStorage.getItem("appState") ? JSON.parse(localStorage.getItem("appState")) : InitialState
+
+    }
+
+    componentWillUnmount() {
+        // Remember state for the next mount
+        localStorage.setItem('appState', JSON.stringify(this.state))
+    }
+
+    render() {
+        ...
+    }
+}
+
+export default App
+```
+
+#### Giữ dữ liệu giữa mounting và unmounting
+
+```jsx
+import React, { Component } from 'react'
+
+// Set initial state
+let state = { counter: 5 }
+
+class Counter extends Component {
+
+    constructor(props) {
+        super(props)
+
+        // Retrieve the last state
+        this.state = state
+
+        this.onClick = this.onClick.bind(this)
+    }
+
+    componentWillUnmount() {
+        // Remember state for the next mount
+        state = this.state
+    }
+
+    onClick(e) {
+        e.preventDefault()
+        this.setState(prev => ({ counter: prev.counter + 1 }))
+    }
+
+    render() {
+        return (
+            <div>
+                <span>{ this.state.counter }</span>
+                <button onClick={this.onClick}>Increase</button>
+            </div>
+        )
+    }
+}
+
+export default Counter
+```
