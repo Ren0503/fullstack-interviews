@@ -50,7 +50,91 @@ Phiên bản mới nhất của HTML là HTML5. Trong nó có hai thành phần 
 
 [18. Cell Padding khác với Cell Spacing như thế nào?](#18-cell-padding-kh%C3%A1c-v%E1%BB%9Bi-cell-spacing-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
 
+[19. Làm thế nào chúng ta có thể ghép hai hoặc nhiều hàng hoặc nhiều cột thành một hàng hoặc cột duy nhất trong một bảng HTML?](#19-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-ch%C3%BAng-ta-c%C3%B3-th%E1%BB%83-gh%C3%A9p-hai-ho%E1%BA%B7c-nhi%E1%BB%81u-h%C3%A0ng-ho%E1%BA%B7c-nhi%E1%BB%81u-c%E1%BB%99t-th%C3%A0nh-m%E1%BB%99t-h%C3%A0ng-ho%E1%BA%B7c-c%E1%BB%99t-duy-nh%E1%BA%A5t-trong-m%E1%BB%99t-b%E1%BA%A3ng-html)
 
+[20. Có thể thay đổi một phần tử inline thành một phần tử block không?](#20-c%C3%B3-th%E1%BB%83-thay-%C4%91%E1%BB%95i-m%E1%BB%99t-ph%E1%BA%A7n-t%E1%BB%AD-inline-th%C3%A0nh-m%E1%BB%99t-ph%E1%BA%A7n-t%E1%BB%AD-block-kh%C3%B4ng)
+
+[21. Chúng ta có thể định vị một phần tử HTML bằng bao nhiêu cách?](#21-ch%C3%BAng-ta-c%C3%B3-th%E1%BB%83-%C4%91%E1%BB%8Bnh-v%E1%BB%8B-m%E1%BB%99t-ph%E1%BA%A7n-t%E1%BB%AD-html-b%E1%BA%B1ng-bao-nhi%C3%AAu-c%C3%A1ch)
+
+[22. Có bao nhiêu cách để hiển thị phần tử HTML?](#22-c%C3%B3-bao-nhi%C3%AAu-c%C3%A1ch-%C4%91%E1%BB%83-hi%E1%BB%83n-th%E1%BB%8B-ph%E1%BA%A7n-t%E1%BB%AD-html)
+
+[23. Sự khác biệt giữa `dislay: none` và `visibility: hidden`?](#23-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-dislay-none-v%C3%A0-visibility-hidden)
+
+[24. Làm sao để chỉ định liên kết trong HTML và giải thích thuộc tính `target`?](#24-l%C3%A0m-sao-%C4%91%E1%BB%83-ch%E1%BB%89-%C4%91%E1%BB%8Bnh-li%C3%AAn-k%E1%BA%BFt-trong-html-v%C3%A0-gi%E1%BA%A3i-th%C3%ADch-thu%E1%BB%99c-t%C3%ADnh-target)
+
+[25. Có bao nhiêu cách để dùng CSS cùng với HTML?](#25-c%C3%B3-bao-nhi%C3%AAu-c%C3%A1ch-%C4%91%E1%BB%83-d%C3%B9ng-css-c%C3%B9ng-v%E1%BB%9Bi-html)
+
+[26. Sự khác biệt giữa thẻ `<link>` và thẻ `<a>`?](#26-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-th%E1%BA%BB-link-v%C3%A0-th%E1%BA%BB-a)
+
+[27. Cách để thêm code javascript vào HTML?](#27-c%C3%A1ch-%C4%91%E1%BB%83-th%C3%AAm-code-javascript-v%C3%A0o-html)
+
+[28. Thẻ script dùng ở head hay body?](#28-th%E1%BA%BB-script-d%C3%B9ng-%E1%BB%9F-head-hay-body)
+
+[29. Form là gì và cách tạo form trong HTML?](#29-form-l%C3%A0-g%C3%AC-v%C3%A0-c%C3%A1ch-t%E1%BA%A1o-form-trong-html)
+
+[30. Xử lý sự kiện trong HTML?](#30-x%E1%BB%AD-l%C3%BD-s%E1%BB%B1-ki%E1%BB%87n-trong-html)
+
+[31. Các ưu điểm của HTML5 so với các phiên bản trước?](#31-c%C3%A1c-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-html5-so-v%E1%BB%9Bi-c%C3%A1c-phi%C3%AAn-b%E1%BA%A3n-tr%C6%B0%E1%BB%9Bc)
+
+[32. Cách để thêm nhạc và video vào web?](#32-c%C3%A1ch-%C4%91%E1%BB%83-th%C3%AAm-nh%E1%BA%A1c-v%C3%A0-video-v%C3%A0o-web)
+
+[33. Phần tử inline và block trong HTML5?](#33-ph%E1%BA%A7n-t%E1%BB%AD-inline-v%C3%A0-block-trong-html5)
+
+[34. Sự khác biệt giữa thẻ img và thẻ figure?](#34-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-th%E1%BA%BB-img-v%C3%A0-th%E1%BA%BB-figure)
+
+[35. Làm thế nào để chỉ định metadata trong HTML5?](#35-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-ch%E1%BB%89-%C4%91%E1%BB%8Bnh-metadata-trong-html5)
+
+[36. Thẻ `<datalist>` và thẻ `<select>` là giống nhau?](#36-th%E1%BA%BB-datalist-v%C3%A0-th%E1%BA%BB-select-l%C3%A0-gi%E1%BB%91ng-nhau)
+
+[37. Image Map là gì?](#37-image-map-l%C3%A0-g%C3%AC)
+
+[38. Phần tử Sematic là gì?](#38-ph%E1%BA%A7n-t%E1%BB%AD-sematic-l%C3%A0-g%C3%AC)
+
+[39. Sự khác biệt giữa thẻ `<meter>` và thẻ `<process>`?](#39-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-th%E1%BA%BB-meter-v%C3%A0-th%E1%BA%BB-process)
+
+[40. Có thể kéo và thả trong HTML5 không?](#40-c%C3%B3-th%E1%BB%83-k%C3%A9o-v%C3%A0-th%E1%BA%A3-trong-html5-kh%C3%B4ng)
+
+[41. Sự khác biệt giữa phần tử SVG và Canvas trong HTML5?](#41-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-ph%E1%BA%A7n-t%E1%BB%AD-svg-v%C3%A0-canvas-trong-html5)
+
+[42. Các kiểu file audio có thể dùng trong HTML5?](#42-c%C3%A1c-ki%E1%BB%83u-file-audio-c%C3%B3-th%E1%BB%83-d%C3%B9ng-trong-html5)
+
+[43. Thông số kỹ thuật trong HTML5 là gì?](#43-th%C3%B4ng-s%E1%BB%91-k%E1%BB%B9-thu%E1%BA%ADt-trong-html5-l%C3%A0-g%C3%AC)
+
+[44. Các khái niệm về web storage trong HTML5?](#44-c%C3%A1c-kh%C3%A1i-ni%E1%BB%87m-v%E1%BB%81-web-storage-trong-html5)
+
+[45. Microdata là gì?](#45-microdata-l%C3%A0-g%C3%AC)
+
+[46. Thẻ nào được dùng để biểu diễn kết quả tính toán?](#46-th%E1%BA%BB-n%C3%A0o-%C4%91%C6%B0%E1%BB%A3c-d%C3%B9ng-%C4%91%E1%BB%83-bi%E1%BB%83u-di%E1%BB%85n-k%E1%BA%BFt-qu%E1%BA%A3-t%C3%ADnh-to%C3%A1n)
+
+[47. Mối quan hệ giữa thẻ `<h1>` và `<header>` trong HTML5?](#47-m%E1%BB%91i-quan-h%E1%BB%87-gi%E1%BB%AFa-th%E1%BA%BB-h1-v%C3%A0-header-trong-html5)
+
+[48. Giải thích về đồ hoạ trong HTML5?](#48-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-%C4%91%E1%BB%93-ho%E1%BA%A1-trong-html5)
+
+[49. Các kiểu input mới trong HTML5 trong form?](#49-c%C3%A1c-ki%E1%BB%83u-input-m%E1%BB%9Bi-trong-html5-trong-form)
+
+[50. Các thẻ mới cho phần tử media trong HTML5?](#50-c%C3%A1c-th%E1%BA%BB-m%E1%BB%9Bi-cho-ph%E1%BA%A7n-t%E1%BB%AD-media-trong-html5)
+
+[51. Tại sao bạn nghĩ rằng việc bổ sung chức năng kéo và thả trong HTML5 là quan trọng? Bạn sẽ làm thế nào để tạo một hình ảnh có thể kéo được trong HTML5?](#51-t%E1%BA%A1i-sao-b%E1%BA%A1n-ngh%C4%A9-r%E1%BA%B1ng-vi%E1%BB%87c-b%E1%BB%95-sung-ch%E1%BB%A9c-n%C4%83ng-k%C3%A9o-v%C3%A0-th%E1%BA%A3-trong-html5-l%C3%A0-quan-tr%E1%BB%8Dng-b%E1%BA%A1n-s%E1%BA%BD-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-t%E1%BA%A1o-m%E1%BB%99t-h%C3%ACnh-%E1%BA%A3nh-c%C3%B3-th%E1%BB%83-k%C3%A9o-%C4%91%C6%B0%E1%BB%A3c-trong-html5)
+
+[52. Tại sao ta cần phần tử MathML trong HTML5?](#52-t%E1%BA%A1i-sao-ta-c%E1%BA%A7n-ph%E1%BA%A7n-t%E1%BB%AD-mathml-trong-html5)
+
+[53. Server-sent events trong HTML5 là gì?](#53-server-sent-events-trong-html5-l%C3%A0-g%C3%AC)
+
+[54. Web workers là gì?](#54-web-workers-l%C3%A0-g%C3%AC)
+
+[55. Việc sử dụng thuộc tính novalidate cho thẻ form trong HTML5 để làm gì?](#55-vi%E1%BB%87c-s%E1%BB%AD-d%E1%BB%A5ng-thu%E1%BB%99c-t%C3%ADnh-novalidate-cho-th%E1%BA%BB-form-trong-html5-%C4%91%E1%BB%83-l%C3%A0m-g%C3%AC)
+
+[56. Vector và Raster trong ảnh là gì?](#56-vector-v%C3%A0-raster-trong-%E1%BA%A3nh-l%C3%A0-g%C3%AC)
+
+[57. Làm thế nào để hỗ trợ SVG trên trình duyệt cũ?](#57-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-h%E1%BB%97-tr%E1%BB%A3-svg-tr%C3%AAn-tr%C3%ACnh-duy%E1%BB%87t-c%C5%A9)
+
+[59. File manifest trong HTML5 là gì?](#59-file-manifest-trong-html5-l%C3%A0-g%C3%AC)
+
+[60. API định vị địa lý trong HTML5?](#60-api-%C4%91%E1%BB%8Bnh-v%E1%BB%8B-%C4%91%E1%BB%8Ba-l%C3%BD-trong-html5)
+
+[61. Viết code minh hoạ API định vị địa lý?](#61-vi%E1%BA%BFt-code-minh-ho%E1%BA%A1-api-%C4%91%E1%BB%8Bnh-v%E1%BB%8B-%C4%91%E1%BB%8Ba-l%C3%BD)
+
+[62. Giải thích về Web Component?](#62-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-web-component)
 
 ## Câu hỏi phỏng vấn cho Fresher
 
@@ -732,15 +816,35 @@ Giá trị của nó là kiểu boolean cho biết liệu dữ liệu đang đư
 <img src="circle.png" alt="circle" srcset="circle.svg">
 ```
 
-### 58. Các cách để reponsive ảnh?
+### 58. Progressive rendering là gì?
 
-* **Art direction**: Sử dụng các thẻ `picture`, `source` và `img`.
+Progressive Rendering là một kỹ thuật render tuần tự các phần của trang web trong server và streaming đến client từng phần thay vì đợi render toàn bộ trang.
 
-Thẻ `<picture>` cung cấp một wrapper cho nhiều thẻ `source` và một thẻ `<image>`. 
+Nó ngụ ý rằng một tài quan trọng được tạo trên server, bạn có thể stream đến client mà không cần đợi những thứ không quan trọng hiển thị. Nó kết hợp cả SSR và CSR.
 
-Thẻ `<source>` chỉ định nguồn media cụ thể. Trình duyệt sử dụng thẻ `<source>` với truy vấn media trả về true. Nếu không có truy vấn media nào trùng, trình duyệt sẽ tải ảnh từ thẻ `<img>`.
+#### Server-side rendering (SSR)
 
-Thẻ `<img>` sẽ hoạt động trên các trình duyệt không hỗ trở thẻ `<picture>`.
+Server side rendering hay SSR là cách thông thường cho việc render trang web ở trình duyệt. Như các bước mô tả bên dưới cách truyền thống để rendering nội dung web như các bước dưới đây :
+
+1. Người dùng gửi một yêu cầu tới website( Thông thường thông qua trình duyeejt)
+2. Phía server kiểm tra và chuẩn bị nội dung HTML sau khi đã đi qua một lượt các script có trong trang web
+3. Các đoạn HTML đã được biên dịch được gửi tới trình duyệt của người dùng cho việc render.
+4. Trình duyệt tải về HTML và làm các trang có thể nhìn thấy với người dùng
+5. Trình duyệt sau đó tải về Javasciprt(JS) và tiến hành thực thi JS, nó làm cho trang web có thể tương tác
+
+#### Client-side rendering 
+
+Client side rendering là một cách tiếp cận khác về việc làm thế nào một trang web được xử lí để hiển thị trên trình duyệt. Ở CSR, gánh nặng về việc biên dịch nội dung, sinh ra HTML được chuyển tới phía trình duyệt người dùng.
+
+Cách tiếp cận này được tiếp sức mạnh từ các framework Javascript và các thư viện. Luồng chính của một trang web render trong trường hợp Client-side rendering như sau:
+
+1. Người dùng gửi request tới webiste
+2. Thay vì một server, một con CDN có thể được sử dụng để gửi HTML, CSS và các file hỗ trợ cho người dùng.
+3. Trình duyệt tải HTML và JS trong khi nhìn thấy một biểu tượng loading
+4. Sau khi trình duyệt lấy JS về, nó sẽ tạo các yêu cầu API thông qua Ajax và lấy về các nội dung động và xử lí chúng để render ra nội dung cuối cùng.
+5. Sau khi server phản hồi, nội dung cuối cùng sẽ được render sử dụng quá trình xử lí DOM trên trình duyệt người dùng.
+
+![](./assets/progressive-rendering.png)
 
 ### 59. File manifest trong HTML5 là gì?
 
