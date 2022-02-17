@@ -943,23 +943,61 @@ Absolute là một cơ chế định vị mạnh mẽ cho phép người dùng �
 - Các phần tử sẽ được định vị relative với phần tử cha (tổ tiên) gần nhất. Nếu không có phần tử cha nào nó sẽ được đặt tương ứng với container ban đầu.
 - Vị trí cuối cùng của phần tử được xác định dựa trên các giá trị `top`, `left`, `right` và `bottom` được cung cấp.
 
-### 46. Các hoạt động của overflow:hidden?
+### 46. Các thuộc tính của overflow trong CSS?
 
-Thuộc tính overflow của CSS được dùng khi bạn scroll qua một vùng nội dung mà kích thước nội dung nhiều hơn kích thước container chứa nó. Nếu overflow là hidden, nội dụng sẽ được cắt bớt cho phù hợp container, hay có thể nói phần nội dung dư sẽ bị ẩn. Ví dụ:
+Thuộc tính overflow trong CSS dùng để xử lý khi kích thước nội dụng vượt qua kích thước container.
+
+Cú pháp:
 
 ```css
-div {
-    width: 150px;
-    height: 50px;
-    overflow: hidden;
-}
+overflow: visible|hidden|scroll|auto|initial|inherit;
 ```
 
-Nếu nội dung của div rất lớn và vượt ra ngoài phạm vi 50px, thì phần nội dung nằm ngoài 50px sẽ bị ẩn.
+Các thuộc tính:
+- visible: phần nội dung tràn sẽ được hiển thị bên ngoài box phần tử.
+- hidden: phần nội dung tràn bị ẩn đi.
+- scroll: phần nội dung tràn được cắt, những sẽ được hiển thị khi scroll xuống.
+- auto: tương tự như scroll
+- initial: thiết lập giá trị mặc định
+- inherit: kế thừa thuộc tính của phần tử cha
+- overflow-x: chỉ định đỉnh trái/phải của nội dung nếu nội dung tràn khỏi phạm vi của nó.
+- overflow-y: chỉ định đỉnh trên/dưới của nội dung nếu nội dung tràn khỏi phạm vi của nó.
+
+Ví dụ:
+
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CSS Overflow Property</title>
+		<style>
+		div {
+			background-color: #eee;
+			width: 200px;
+			height: 100px;
+			border: 1px dotted black;
+			overflow: scroll;
+			padding: 10px;
+		}
+		</style>
+	</head>
+	<body>
+		<h2>CSS Overflow Property</h2>
+		<p>Setting the overflow value to scroll, the overflow is clipped and a scrollbar
+			is added to scroll inside the box.
+		</p>
+
+		<div>You can use the overflow property when you want to have better control of 
+			the layout. The overflow property specifies what happens if content overflows 
+			an element's box.
+		</div>
+	</body>
+</html>
+```
 
 ### 47. Bạn có thể căn chỉnh nội dung của thẻ `<p>` nằm ngay trung tâm của thẻ `<div>`?
 
-Ta có thể dùng thuộc tính `text-align: center` bên trong div cha, để căn chỉnh nội dung nằm ngay trung tâm theo chiều ngang. Nhưng không ngay trung tâm chiều dọc. Để chỉnh nó theo chiều dọc ta cần làm gán position của phần tử cha là `relative` và ở phần tử con là `absolute`. Các phần tử con có giá trị `top`, `bottom` sẽ là ở giữa theo chiều dọc. Khi ta thiết lập margin là auto. Nó giả sự cả phần tử con và cha sẽ có giá trị height và width.
+Ta có thể dùng thuộc tính `text-align: center` bên trong div cha, để căn chỉnh nội dung nằm ngay trung tâm theo chiều ngang. Nhưng không ngay trung tâm chiều dọc. Để chỉnh nó theo chiều dọc ta cần làm gán position của phần tử cha là `relative` và ở phần tử con là `absolute`. Các phần tử con có giá trị `top`, `bottom`, `left`, `right` là 0 để nó nằm ở giữa theo chiều dọc. Sau đó ta thiết lập margin là auto. Nó giả sử cả phần tử con và cha sẽ có giá trị height và width.
 
 Xem như ta có height và width của phần tử div là 20% kích cỡ màn hình. Ta có height văn bản là 1.2em và width là 20%. Nếu muốn chỉnh văn bản nằm ở trung tâm div ta làm như sau:
 
@@ -984,7 +1022,7 @@ p {
 
 ### 48. Margin khác Padding như thế nào?
 
-Thuộc tính margin được dùng để tạo không gian xung quanh phần tử. Ta có thể tạo không gian cho border được xác định ở bên ngoài. Ta có các thuộc tính sau cho margin:
+Thuộc tính margin được dùng để tạo không gian xung quanh phần tử. Ta có thể tạo không gian được xác định ở bên ngoài border. Ta có các thuộc tính sau cho margin:
 
 * margin-top
 * margin-right
@@ -1053,7 +1091,7 @@ Ví dụ, trong đoạn code dưới đây, ta cung cấp `nth-child(4)` thì ph
 </div>
 ```
 
-`nth-of-type()` cũng tương tự nhưng chỉ so khớp với các phần tử anh chị em cùng loại. Số để xác định trong `nth-of-type()` có thể là một hàm hoặc từ khoá như odđ hay even.
+`nth-of-type()` cũng tương tự nhưng chỉ so khớp với các phần tử anh chị em cùng loại. Số để xác định trong `nth-of-type()` có thể là một hàm hoặc từ khoá như odd hay even.
 
 Ví dụ: nếu ta cấp `p:nth-of-type(even)` thì các thẻ `<p>` và số thứ tự chẵn được áp dụng. 
 
@@ -1083,7 +1121,7 @@ Ví dụ: nếu ta cấp `p:nth-of-type(even)` thì các thẻ `<p>` và số th
 CSS Sprite dùng cho kết hợp nhiều hình ảnh thành một hình ảnh lớn. Nó thường dùng cho biểu diễn icons. Các ưu điểm của nó là:
 
 - Giảm số lượng yêu cầu HTTP để lấy nhiều ảnh vì nó cho phép chỉ gửi một yêu cầu.
-- Nó giúp tải trước các nội dung giúp hiển thị các icon hoặc hinh ảnh khi di chuột và các pseudo-state khác.
+- Nó giúp tải trước các nội dung giúp hiển thị các icon hoặc hình ảnh khi di chuột và các pseudo-state khác.
 - Khi có nhiều hình ảnh, trình duyệt sẽ thực hiện các lệnh gọi riêng biệt để lấy hình ảnh cho từng hình ảnh đó.
 
 Sử dụng sprites, các hình ảnh được kết hợp thành một và chúng ta chỉ cần gọi hình ảnh đó bằng một lệnh gọi.
@@ -1130,9 +1168,9 @@ Trong đoạn code trên, chúng ta đang cố gắng truy cập từng phần t
 
 ### 52. Tweening trong CSS?
 
-Tweening là quá trình lấp đầy khoảng trống giữa các chuỗi khóa, tức là giữa các keyframes đã được tạo. Keyframes là những frame đại diện cho điểm bắt đầu và điểm kết thúc của hành động hoạt ảnh. Tweening liên quan đến việc tạo keyframe giữa hai hình ảnh để tạo ấn tượng rằng hình ảnh đầu tiên đã phát triển mượt mà sang hình ảnh thứ hai. Với mục đích này, chúng tôi sử dụng các thuộc tính như transforms - matrix, translate, scale, rotate,...
+Tweening là quá trình lấp đầy khoảng trống giữa các chuỗi khóa, tức là giữa các keyframes đã được tạo. Keyframes là những frame đại diện cho điểm bắt đầu và điểm kết thúc của hành động hoạt ảnh. Tweening liên quan đến việc tạo keyframe giữa hai hình ảnh để tạo ấn tượng rằng hình ảnh đầu tiên đã di chuyển mượt mà sang hình ảnh thứ hai. Với mục đích này, chúng ta sử dụng các thuộc tính như transforms - matrix, translate, scale, rotate,...
 
-Trong đoạn code bên dưới, ta tạo frame trung gian của các phần tử đoạn văn để chuyển từ đầu đến góc bên phải của trình duyệt.
+Trong đoạn code bên dưới, ta tạo frame trung gian của các phần tử `<p>` để chuyển từ đầu đến phía bên trái của trình duyệt.
 
 ```css
 p {
@@ -1156,3 +1194,203 @@ p {
 Ở đây, phần tử đoạn văn chỉ định rằng quá trình hoạt ảnh sẽ mất 2 giây để thực hiện từ đầu đến cuối. Điều này được thực hiện bằng cách sử dụng thuộc tính `animation-duration`. Tên hoạt ảnh của `@keyframes` được xác định bằng cách sử dụng thuộc tính `animation-name`. Keyframe trung gian được xác định bằng cách sử dụng quy tắc `@keyframes`. 
 
 Trong ví dụ, chúng ta chỉ có 2 keyframe. Keyframe đầu tiên bắt đầu ở `0%` và chạy cho đến lề trái `100%`, là cạnh ngoài cùng bên phải của phần tử container. Keyframe thứ hai bắt đầu ở `100%` trong đó lề trái được đặt là `0%` và chiều rộng được đặt là `100%`, kết quả là kết thúc hoạt ảnh nghiêng về phía bên trái của container.
+
+### 53. DOM là gì và cách nó liên kết với CSS?
+
+DOM (Document Object Model) là một interface lập trình cho HTML và XML. Nó xác định cấu trsuc của document và cách mà document được hiển thị và quản lý. Document này cho phép javascript truy cập và quản lý phần tử và style của web. Mô hình được xây dựng theo cấu trúc cây đối tượng và xác định:
+- Các phần tử HTML là đối tượng
+- Thuộc tính của tất cả phần tử HTML
+- Phương thức truy cập đến tất cả phần tử HTML
+- Sự kiện với tất cả phần tử HTML
+
+![](./assets/DOM.png)
+
+#### DOM Document
+
+Là chủ sở hữu tất cả đối tượng trong web. Nếu bạn muốn truy cập đến bất kỳ phần tử nào đều phải bắt đầu với document. Nó còn chứa các thuộc tính và phương thức quan trọng cho truy cập và chỉnh sửa trang web.
+
+#### Tìm kiếm phần tử HTML
+
+| Phương thức | Mô tả |
+|-|-|
+| getElementById() | Dùng để lấy các phần tử đơn theo id |
+| getElementsByClassName() | Dùng để lấy mảng phần tử theo tên lớp |
+| getElementsByTagName() | Dùng để lấy phần tử đơn theo tên tag |
+| querySelector()| Trả về phần tử đầu tiến ứng với một Selector cụ thể. Nó có thể lấy theo id, lớp, tag hay bất cứ selector nào hợp lệ trong CSS |
+| querySelectorAll() | Giống với querySelector() ngoại trừ việc nó trả về tất cả phần tử phù hợp với CSS Selector |
+
+#### Thay đổi phần tử HTML
+
+Thuộc tính innerHTML có thể dùng cho thay đổi nội dung của phần tử HTML. Trong ví dụ này ta lấy phần tử với id của header và thiết lập nội dung trong nó là "Hello World"
+
+```js
+// Example: Using text
+document.getElementById("#header").innerHTML = "Hello World!";
+
+// Example: Using text with tag
+document.getElementsByTagName("div").innerHTML = "<h1>Hello World!</h1>"
+```
+
+##### Thay đổi giá trị thuộc tính
+
+Ta cũng có thể thay đổi giá trị thuộc tính như sau:
+
+```js
+document.getElementsByTag("img").src = "image.jpg";
+```
+
+##### Thay đổi style
+
+Để đổi style cho một phần tử HTML ta cần thay đổi thuộc tính style của phần tử. Ta có thể viết như sau:
+
+```js
+document.getElementsByTag("h1").style.borderBottom = "solid 3px #000";
+```
+
+##### Thêm và xoá phần tử
+
+**Thêm phần tử**: tạo một phần tử div sử dụng phương thức `createElement()`  để lấy tên tag như tham số và lưu nó vào biến. Sau đó ta thêm nội dung và chèn nó vào DOM
+
+```js
+var div = document.createElement("div");
+
+var newContent = document.createTextNode("Hello World!"); 
+div.appendChild(newContent);
+document.body.insertBefore(div, currentDiv);
+```
+
+Ở đây ta dùng phương thức `createTextNode()` để lấy một chuỗi làm tham số sau đó chèn phần tử div mới trước một div đã tồn tại trong document.
+
+**Xoá phần tử**: dùng phương thức `removeChild()`
+
+```js
+var elem = document.querySelector('#header');
+elem.parentNode.removeChild(elem);
+```
+
+**Thay thế phần tử**
+
+```js
+var div = document.querySelector('#div');
+var newDiv = document.createElement('div');
+
+newDiv.innerHTML = "Hello World2";
+div.parentNode.replaceChild(newDiv, div);
+```
+
+Ở đây ta dùng phương thức `replaceChild()` nhận tham số thứ nhất là phần tử mới và tham số thứ hai là phần tử cần thay thế.
+
+#### Viết trức tiếp vào HTML output string
+
+Ta có thể viết biểu thức HTML và JS trức tiếp vào HTML output stream bằng cách phương thức `write()`. Phương thức `write()` có thế nhận nhiều tham số sẽ xuất hiện trong document theo thứ tự của chúng.
+
+```js
+// HTML Content
+document.write("<h1>Hello World!</h1><p>This is a paragraph!</p>");
+
+// date object
+document.write(Date());
+```
+
+#### Xử lý sự kiện
+
+HTML DOM cho phép JavaScript phản ứng với sự kiện HTML, ví dụ tải trang, nhập trường input, click chuột,...
+
+**Gán sự kiện**
+
+```js
+document.getElementById("btn").onclick = changeText();
+```
+
+**Lắng nghe sự kiện**
+
+```js
+document.getElementById("btn").addEventListener('click', runEvent);
+```
+
+#### Quan hệ giữa các nút
+
+Các nút(node) trong DOM có hệ phân cấp quan hệ với các nút khác. Điều này có nghĩa là nút được cấu trúc như cây. Ta sử dụng thuật ngữ nút cha, nút anh và nút con để mô tả mối quan hệ giữa chúng.
+
+Nút cao nhất được gọi là root và không có cha. Root trong HTML thường là thẻ `<tag>` vì nó không có thẻ nào trên nó.
+
+Để di chuyển giữa các nút, ta có thể dùng các thuộc tính:
+
+- parentNode
+- childNodes
+- firstChild
+- lastChild
+- nextSibling
+
+Ví dụ:
+
+```js
+var parent = document.getElementById("heading").parentNode
+```
+
+### 54. Chi tiết cách CSS hoạt động?
+
+Ngôn ngữ CSS được thiết kế để sử dụng cùng với ngôn ngữ "đánh dấu" như HTML. CSS xác định cách các phần tử HTML được định dạng - kiểm soát bố cục, màu sắc, phông chữ của chúng, ... Khi trình duyệt hiển thị một document, nó phải kết hợp nội dung của document với thông tin style của nó. Nó xử lý document theo một số giai đoạn, mà chúng ta đã liệt kê bên dưới.
+
+1. Trình duyệt tải HTML (ví dụ: nhận nó từ mạng).
+2. Nó chuyển đổi HTML thành DOM.
+3. Sau đó, trình duyệt sẽ tìm nạp hầu hết các tài nguyên được liên kết với tài liệu HTML, chẳng hạn như hình ảnh và video được nhúng và CSS được liên kết.
+4. Trình duyệt phân tích cú pháp CSS đã nạp và sắp xếp các quy tắc khác nhau theo kiểu selector của chúng thành các "nhóm" khác nhau, ví dụ: phần tử, lớp, ID, ... Dựa trên các selector mà nó tìm thấy, nó sẽ tìm ra các quy tắc nên được áp dụng cho các nút nào trong DOM và đính kèm kiểu cho chúng theo yêu cầu (bước trung gian này được gọi là cây render).
+5. Cây render được bố trí trong cấu trúc mà nó sẽ xuất hiện sau khi các quy tắc đã được áp dụng cho nó.
+6. Hiển thị trực quan của trang được hiển thị trên màn hình.
+
+Sơ đồ sau đây cũng cung cấp một cái nhìn đơn giản về quy trình:
+
+![](./assets/css-dom.png)
+
+#### DOM và CSSOM
+
+DOM có cấu trúc giống như cây. Mỗi phần tử, thuộc tính và đoạn văn bản trong ngôn ngữ đánh dấu sẽ trở thành một nút DOM trong cấu trúc cây. Các nút được xác định bởi mối quan hệ của chúng với các nút DOM khác. Một số phần tử là nút cha của các nút con và các nút con có anh chị em. Trình duyệt trải qua một quá trình bao gồm conversion, tokenization, lexing và parsing, cuối cùng tạo nên DOM và CSSOM.
+
+- **Conversion**: Đọc các byte raw của HTML và CSS trên đĩa hoặc mạng.
+- **Tokenization**: Chia nhỏ đầu vào thành nhiều đoạn (ví dụ: thẻ bắt đầu, thẻ kết thúc, tên thuộc tính, giá trị thuộc tính), loại bỏ các ký tự không liên quan như khoảng trắng và ngắt dòng.
+- **Lexing**: Giống như tokenizer, nhưng nó cũng xác định loại của mỗi mã thông báo (một số, một chuỗi ký tự hay một toán tử bình đẳng).
+- **Parsing**: Lấy dòng mã thông báo từ lexer, diễn giải mã thông báo bằng cách sử dụng một ngữ pháp cụ thể và biến nó thành một cây cú pháp trừu tượng.
+
+Ví dụ:
+
+```html
+<p>
+  Let's use:
+  <span>Cascading</span>
+  <span>Style</span>
+  <span>Sheets</span>
+</p>
+```
+
+Trong DOM, nút tương ứng với phần tử `<p>` là cha. Các con của nó là nút text và 3 nút tương ứng là phần tử `<span>`. Quan hệ phân cấp của nó như sau:
+
+```
+P
+├─ "Let's use:"
+├─ SPAN
+|  └─ "Cascading"
+├─ SPAN
+|  └─ "Style"
+└─ SPAN
+   └─ "Sheets"
+```
+
+Áp dụng CSS vào DOM:
+
+```css
+span {
+  border: 1px solid black;
+  background-color: lime;
+}
+```
+
+Khi cả hai cấu trúc cây được tạo, công cụ render sau đó sẽ gắn các cấu trúc dữ liệu vào cái được gọi là cây render như một phần của quá trình bố trí. Cây render là một biểu diễn trực quan của document cho phép vẽ nội dung của trang theo đúng thứ tự của chúng.
+
+Cây render xây dựng theo thứ tự sau:
+
+- Bắt đầu từ gốc của cây DOM, đi qua từng nút hiển thị.
+- Bỏ qua các nút không hiển thị.
+- Đối với mỗi nút hiển thị, hãy tìm các quy tắc CSSOM phù hợp và áp dụng chúng.
+- Phát ra các nút hiển thị với nội dung và kiểu tính toán của chúng.
+- Cuối cùng, xuất một cây render chứa cả thông tin nội dung và style của tất cả nội dung hiển thị trên màn hình.
