@@ -4,7 +4,7 @@
 
 ## Java là gì?
 
-Java là một ngôn ngữ lập trình có mục đích chung và hướng đối tượng được phát triển cho môi trường phân tán và phát triển phần mềm cho các thiết bị điện tử tiêu dùng như TV, VCR,...
+Java là một ngôn ngữ lập trình hướng đối tượng được phát triển cho môi trường phân tán và phát triển phần mềm đa nền tảng.
 
 Ngôn ngữ lập trình Java là một ngôn ngữ độc lập với nền tảng, có nghĩa là không có giới hạn đối với bất kỳ phần cứng hoặc hệ điều hành cụ thể nào. Nó cung cấp cho người dùng cơ sở để 'viết một lần, chạy ở mọi nơi'. Nhiều hệ điều hành như Sun Solaris, RedHat, Windows, v.v., hỗ trợ Java.
 
@@ -214,4 +214,121 @@ public class MultipleCatch {
 Ở đây khối catch thứ hai sẽ được thực thi vì phép chia bởi 0(i/x). Trong trường hợp x lớn 0 thì khối catch đầu tiên sẽ thực thi vì vòng lặp chạy đến khi i = n và chỉ số mảng đến n-1.
 
 ### 12. Giải thích từ khoá final trong biến, phương thức và lớp?
+
+Trong Java, từ khoá `final` được dùng cho xác định một thứ gì đó là một hằng và không thể chỉnh sửa nữa.
+
+- biến `final`:
+    - Khi một biến được khai báo là final trong Java, giá trị không thể chỉnh sửa sau khi gán.
+    - Nếu không có bất kỳ giá trị nào được gán cho biến, nó có thể được gán bằng constructor của lớp.
+- phương thức `final`:
+    -Một phương thức được khai báo là final nó sẽ không thể bị ghi đè bởi lớp con của nó.
+    - Một constructor không thể là final vì một lớp có thể được kế thừa còn constructor thì không. Do đó, khi đánh dấu constructor là final, Java sẽ trả về lỗi - `modifier final not allowed here`
+- lớp `final`:
+    - Một lớp được khai báo là final thì không có bất kỳ lớp nào có thể kế thừa lớp đó. 
+
+### 13. Các từ khoá final, finally và finalize là giống nhau?
+
+**Final:** dùng cho các lớp, biến hoặc phương thức. Việc kế thừa một lớp final hay ghi đè một phương thức final sẽ bị hạn chế bởi việc sử dụng từ khoá final. Giá trị biến trở thành hằng sau khi dùng từ khoá final. Ví dụ:
+
+```java
+final int a=100;
+a = 0;  // error
+```
+
+**Finally:** Nó là block hiện diện trong chương trình nơi tất cả code được viết bên trong nó được thực thi kể cả việc xử lý ngoại lệ. Ví dụ:
+
+```java
+try {
+    int variable = 5;
+}
+catch (Exception exception) {
+    System.out.println("Exception occurred");
+}
+finally {
+    System.out.println("Execution of finally block");
+}
+```
+
+**Finalize:** Trước khi thu gom rác của một đối tượng, phương thức finalize được gọi để hoạt động dọn dẹp được thực hiện. Ví dụ:
+
+```java
+public static void main(String[] args) {
+    String example = new String("InterviewBit");
+    example = null;
+    System.gc(); // Garbage collector called
+}
+public void finalize() {
+    // Finalize called
+}
+```
+
+### 14. Khi nào dùng từ khoá super?
+
+Từ khoá `super` được dùng để truy cập các trường ẩn và ghi đề phương thức hoặc thuộc tính của lớp cha.
+Nó dùng trong các trường hợp sau:
+- Truy cập dữ liệu thành viên của lớp cha khi tên thành viên của lớp cha và lớp con giống nhau.
+- Để gọi phương thức khởi tạo tham số và mặc định của lớp cha bên trong lớp con.
+- Truy cập phương thức lớp cha khi lớp con ghi đè chúng.
+
+Ví dụ:
+
+```java
+public class Parent{
+    protected int num = 1;
+    
+    Parent(){
+        System.out.println("Parent class default constructor.");
+    }
+    
+    Parent(String x){
+        System.out.println("Parent class parameterised constructor.");
+    }
+    
+    public void foo(){
+        System.out.println("Parent class foo!");
+    }
+}
+   
+public class Child extends Parent{
+    private int num = 2;
+    
+    Child(){
+        System.out.println("Child class default Constructor");
+        
+        super();    // to call default parent constructor
+        super("Call Parent");    // to call parameterised constructor.
+    }
+    
+    void printNum(){
+        System.out.println(num);
+        System.out.println(super.num); //prints the value of num of parent class
+    }
+    
+    @Override
+    public void foo(){
+        System.out.println("Parent class foo!");
+        super.foo();    //Calls foo method of Parent class inside the Overriden foo method of Child class.
+    }
+}
+```
+
+### 15. Phương thức tĩnh có thể nạp chồng?
+
+Đúng! Có thể có hai hoặc nhiều phương thức tĩnh trong một lớp có cùng tên nhưng khác tham số đầu vào.
+
+### 16. Có thể ghi đè phương thức tĩnh?
+
+- Không! Việc khai báo các phương thức tĩnh có cùng một đặc trưng có thể được thực hiện trong lớp con nhưng tính đa hình thời gian chạy không thể diễn ra trong những trường hợp như vậy.
+
+- Ghi đè hoặc đa hình động xảy ra trong thời gian chạy, nhưng các phương thức tĩnh được tải và tra cứu thời gian biên dịch một cách tĩnh. Do đó, các phương thức này không thể bị ghi đè.
+
+### 17. Đối tượng chính của bộ dọn rác?
+
+Mục tiêu chính của quá trình này là giải phóng không gian bộ nhớ bị chiếm bởi các đối tượng không cần thiết và không thể truy cập trong quá trình thực thi chương trình Java bằng cách xóa các đối tượng không thể truy cập đó.
+
+Điều này đảm bảo rằng tài nguyên bộ nhớ được sử dụng hiệu quả, nhưng nó không đảm bảo rằng sẽ có đủ bộ nhớ để thực thi chương trình.
+
+### 18. Phần nào trong bộ nhớ bị xoá trong quá trình dọn rác?
+
+Heap
 
