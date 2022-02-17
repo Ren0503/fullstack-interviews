@@ -25,13 +25,13 @@
 - Ngôn ngữ lập trình:
     - [**SQL**](./database/sql): 40 câu hỏi phỏng vấn SQL.
 
-### Frontend
+### Frontend (Complete)
 
 - Kiến thức:
     - [**Web API**](./frontend/web-api): 20 câu hỏi phỏng vấn Web API.
     - [**React**](./frontend/react): 40 câu hỏi phỏng vấn ReactJS.
-    - [**HTML**](./frontend/html): 63 câu hỏi phỏng vấn HTML. (62/63)
-    - [**CSS**](./frontend/CSS): 54 câu hỏi phỏng vấn CSS. (45/54)
+    - [**HTML**](./frontend/html): 62 câu hỏi phỏng vấn HTML.
+    - [**CSS**](./frontend/CSS): 54 câu hỏi phỏng vấn CSS.
 - Ngôn ngữ lập trình:
     - [**JavaScript**](./frontend/javascript): 30 câu hỏi phỏng vấn JavaScript.
     - [**ES6**](./frontend/es6): 39 câu hỏi phỏng vấn ES6.
