@@ -85,6 +85,24 @@ Nó không có bất kỳ kiểu dữ liệu cụ thể nào. Nó có thể tr�
 
 ### 8. Sự khác biệt giữa REST và SOAP?
 
+**REST (Representational State Transfer):** mô tả một phong cách cấu trúc hệ thống mạng. Nó không yêu cầu băng thông rộng khi bạn gửi yêu cầu đến server. Nó chứa các thông điệp định dạng JSON. Ví dụ
+
+```js
+{"city":"Mumbai","state":"Maharashtra"}
+```
+
+**SOAP (Simple Object Access Protocol):** Nó là một giao thức đơn giản và nhẹ thường được sử dụng để trao đổi thông tin có cấu trúc và được đánh máy trên Web. Nó hoạt động chủ yếu với HTTP và RPC. Giao thức này chủ yếu được sử dụng cho các ứng dụng B2B mà người ta có thể xác định hợp đồng dữ liệu với nó. Thông điệp SOAP có nội dung nặng hơn và do đó sử dụng băng thông lớn hơn.
+
+```xml
+<?xml version="1.0"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2001/12/soap-envelope" SOAP-ENV:encodingStyle=" http://www.w3.org/2001/12/soap-encoding">
+    <soap:Body>
+        <Demo.guru99WebService xmlns="http://tempuri.org/">   
+            <EmployeeID>int</EmployeeID>   
+        </Demo.guru99WebService> 
+    </soap:Body>
+</SOAP-ENV:Envelope>
+```
 
 | SOAP | REST |
 |-|-|
@@ -96,6 +114,52 @@ Nó không có bất kỳ kiểu dữ liệu cụ thể nào. Nó có thể tr�
 | JS có thể dùng để gọi SOAP, nhưng rất khó để làm | Quá đơn giản nếu dùng JS |
 | Hiệu suất không tốt bằng REST | Hiệu suất tốt hơn SOAP, tốn ít tài nguyên CPU hơn, code ngắn gọn hơn |
 
-### 9. Giải thích các kiểu định dạng media?
+### 9. Giao thức hỗ trợ Web API?
 
+Web API chỉ hỗ trợ giao thức HTTP
 
+### 10. XML và JSON là gì?
+
+**XML (Extensible Markup Language):**
+
+- Được thiết kế đặc biệt để lưu trữ và truyền tải dữ liệu.
+- Giống như HTML nhưng linh hoạt hơn cho phép người dùng tự tạo thẻ.
+- Dùng cho biểu diễn thông tin có cấu trúc như dữ liệu, tài liệu, cấu hình,...
+
+**JSON (JavaScript Object Notation):**
+
+- Là định dạng nhẹ được thiết kế để lưu trữ và truyền tải dữ liệu.
+- Là chuẩn định dạng văn bản dùng cho biểu diễn cấu trúc dữ liệu dựa trên đối tượng JavaScript.
+- Nó nhanh và dễ sử dụng.
+
+### 11. Đối tượng sử dụng Web API?
+
+Một loạt các ứng dụng client như trình duyệt, thiết bị di động, iPhone, ..., sử dụng web API. Nó cũng dùng cùng với các ứng dụng native yêu cầu dịch vụ web nhưng không hỗ trợ SOAP. Nó cũng có thể được sử dụng bởi bất kỳ ứng dụng client nào hỗ trợ các hành động HTTP như GET, DELETE, POST, PUT.
+
+### 12. Web API và MVC có gì khác?
+
+MVC (Model-View-Controller) là mô hình thiết kế ứng dụng bao gồm 3 phần chính là model, view và controller. Nó cho phép người viết code xác định các thành phần khác nhau của ứng dụng và cập nhật chúng dễ dàng hơn. Nó chủ yếu được sử dụng để phát triển mô hình giao diện người dùng. Mục đích chính của nó là hiển thị các mẫu trong cấu trúc để giữ cho màn hình và dữ liệu được tách biệt cho phép cả hai thay đổi mà không ảnh hưởng đến những người khác.
+
+| MVC | Web API |
+|-|-|
+| Dùng cho xây dựng ứng dụng web dựa trên dữ liệu và view | Dùng cho xây dựng dịch vụ HTTP chỉ dựa trên dịch vụ |
+| Trả về dữ liệu dạng JSON |Trả về các định dạng dữ liệu khác nhau XML, JSON |
+| Hỗ trợ tự lưu trữ | Không hỗ trợ tự lưu trữ |
+| Không hỗ trợ dịch vụ RESTful | Hỗ trợ dịch vụ RESTful |
+| Trả về view (HTML) | Trả về phản hồi HTTP |
+
+![](./assets/MVC_vs_Web_API.png)
+
+### 13. CORS là gì?
+
+CORS (Cross-Origin Resource Sharing) là một kĩ thuật được sinh ra để làm cho việc tương tác giữa client và server được dễ dàng hơn, nó cho phép JavaScript ở một trang web có thể tạo yêu cầu HTTP lên một REST API được host ở một domain khác.
+
+Trong trường hợp đơn giản nhất, phía client (ứng dụng web đạng chạy ở trình duyệt đó) sẽ tạo yêu cầu GET, POST, PUT, HEAD,... để yêu cầu server làm một việc gì đó. Những yêu cầu này sẽ được đính kèm một header tên là `Origin` để chỉ định origin của client code (giá trị của header này chính là domain của trang web).
+
+Server sẽ xem xét `Origin` để biết được nguồn này có phải là nguồn hợp lệ hay không. Nếu hợp lệ, server sẽ trả về response kèm với header `Access-Control-Allow-Origin`. Header này sẽ cho biết xem client có phải là nguồn hợp lệ để trình duyệt tiếp tục thực hiện quá trình yêu cầu.
+
+Trong trường hợp thông thường, `Access-Control-Allow-Origin` sẽ có giá trị giống như `Origin`, một số trường hợp giá trị của `Access-Control-Allow-Origin` sẽ nhìn giống giống như Regex hay chỉ đơn giản là `*`, tuy nhiên thì cách dùng `*` thường được coi là không an toàn, ngoại trừ trường hợp API của bạn được public hoàn toàn và ai cũng có thể truy cập được.
+
+Và như thế, nếu không có header `Access-Control-Allow-Origin` hoặc giá trị của nó không hợp lệ thì trình duyệt sẽ từ chối chúng ta.
+
+![](./assets/cors.png)
