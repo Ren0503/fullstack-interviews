@@ -219,3 +219,55 @@ Thông thường, end-to-end (E2E) microservice testing là một kỹ thuật k
 ### 23. Thuật ngữ Euruka trong Microservices?
 
 Eureka Server, còn được gọi là Netflix Service Discovery Server, là một ứng dụng theo dõi tất cả các ứng dụng dịch vụ client. Vì mọi Microservice đăng ký với Server Eureka, Eureka biết tất cả các ứng dụng client đang chạy trên các cổng và địa chỉ IP khác nhau. Nó thường sử dụng Spring Cloud và không nặng về quá trình phát triển ứng dụng.
+
+### 24. Giải thích sự quan trọng của reports và dashboard trong microservices?
+
+Giám sát một hệ thống thường liên quan đến việc sử dụng các report (báo cáo) và dashboard (trang tổng quan). Sử dụng report và dashboard cho các microservices có thể giúp bạn:
+
+- Xác định microservices hỗ trợ tài nguyên nào.
+- Xác định dịch vụ nào bị ảnh hưởng bất cứ khi nào thay đổi được thực hiện hoặc xảy ra đối với các thành phần.
+- Làm cho tài liệu dễ dàng truy cập bất cứ khi nào cần thiết.
+- Xem lại các phiên bản thành phần đã triển khai.
+- Xác định mức độ phát triển và tuân thủ từ các thành phần.
+
+### 25. Reactive Extension là?
+
+Reactive Programming như một khái niệm đã tồn tại trong hơn 20 năm nhưng đã không phát triển cho đến Reactive Extensions ra đời. Reactive Extension (còn được gọi là ReactiveX hay RX) là giao diện lập trình ứng dụng (Application Programming Interface-API) hoặc lập trình không đồng bộ với các luồng có thể quan sát được.
+
+ReactiveX có hai lớp: lớp có thể quan sát (Observable) và lớp quan sát (Observer). Observable là nguồn dữ liệu của các luồng hoặc các sự kiện và Observer là lớp sử dụng (hoặc phản ứng lại) các phần tử được tạo ra.
+
+Một Observable có thể có nhiều Observer để mỗi mục dữ liệu được tạo ra sẽ được nhận bởi một Observer. Trong ReactiveX, một Observer theo dõi một Observable. Sau đó, Observable tạo ra các luồng dữ liệu, Observer sẽ lắng nghe và phản ứng lại. Điều này tạo ra một loạt các hoạt động trên luồng dữ liệu. Một chủ thể vừa có thể hoạt động như Observer vừa có thể đóng vai trò là Observable.
+
+Chúng ta cũng có thể áp dụng toán tử cho các luồng. Các toán tử xác định cách thức và thời điểm Observable sẽ tạo luồng. Hầu hết các toán tử thực thi các hàm trên Observable và trả về một Observable.
+
+### 26. Giải thích các kiểu test thường dùng trong Microservices?
+
+Vì có nhiều microservice hoạt động cùng nhau, việc test microservice trở nên khá phức tạp khi làm việc với microservices. Do đó, các bài test được phân loại theo cấp độ của chúng:
+
+![](./assets/explain-type-of-tests-mostly-used-in-microservices.jpg)
+
+- **Test cấp thấp:** các test này xử lý với công nghệ, như unit test và performance test. Đây là quá trình tự động hoàn thành
+- **Test cấp trung bình:** chúng ta có các bài test như stress test và usability test.
+- **Test cấp cao:** chúng tôi có một số test chấp nhận hạn chế. Các bài test chấp nhận giúp các bên liên quan hiểu và xác minh các tính năng của phần mềm.
+
+### 27. Kiểm tra kim tự tháp Mike Cohn's là gì?
+
+Kiểm tra kim tự tháp Mike Cohn's giải thích các kiểu khác nhau của test tự động cần cho phát triển phần mềm. Kiểm tra kim tự tháp về cơ bản là được sử dụng để tối đa hoá tự động hoá tất cả các cấp độ test, bao gồm unit testing, service testing, UI testing,...Kim tự tháp cũng cho biết rằng các unit test nhanh hơn và cô lập hơn, trong khi các ui test, tốn nhiều thời gian hơn và tập trung vào tích hợp.
+
+![](./assets/Mike_Cohn’s_Test_Pyramid.jpg)
+
+Theo kim tự tháp, số lượng bài test phải cao nhất ở lớp đầu tiên. Ở lớp service, ít test được thực hiện hơn ở mức unit test, nhưng lớn hơn ở mức end-to-end.
+
+### 28. Giải thích Container trong Microservices?
+
+Container là công nghệ hữu ích để phân bổ và chia sẻ tài nguyên. Nó được coi là phương pháp hiệu quả nhất và dễ dàng nhất để quản lý các ứng dụng dựa trên microservice để phát triển và triển khai chúng riêng lẻ. Sử dụng Docker, bạn cũng có thể đóng gói một microservice cùng với các phần phụ thuộc của nó trong một container image, sau đó có thể được sử dụng để cuộn các phiên bản theo yêu cầu của microservice mà không cần thực hiện thêm bất kỳ công việc nào.
+
+![](./assets/Explain_Container_in_Microservices.jpg)
+
+### 29. Vai trò của Docker trong Microservices?
+
+Docker thường cung cấp một môi trường container, trong đó bất kỳ ứng dụng nào cũng có thể được host. Điều này được thực hiện bằng cách đóng gói chặt chẽ cả ứng dụng và các phụ thuộc cần thiết để hỗ trợ nó. Các sản phẩm đóng gói này được gọi là Container và vì Docker đã quen với việc đó nên chúng được gọi là Docker container. Về bản chất, Docker cho phép bạn chứa các microservice của mình và quản lý các microservices này dễ dàng hơn.
+
+### 30. Giải thích cách thực hiện khám phá dịch vụ trong kiến trúc microservices?
+
+Có nhiều cách để thiết lập tính năng khám phá dịch vụ, nhưng Eureka của Netflix là cách hiệu quả nhất. Đây là một thủ tục đơn giản, không phức tạp và không tạo thêm nhiều dung lượng cho ứng dụng. Nó cũng hỗ trợ một loạt các ứng dụng web. Một số chú thích được cung cấp bởi Spring Cloud để làm cho việc sử dụng nó trở nên đơn giản nhất có thể và để ẩn đi các khái niệm phức tạp.
