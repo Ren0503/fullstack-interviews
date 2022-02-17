@@ -158,4 +158,35 @@ docker run -dit — restart [restart-policy-value] [container_name]
 
 Image: được xây dựng từ một loạt các lớp instruction. Một image tương ứng với container và được sử dụng để vận hành nhanh chóng do cơ chế lưu vào bộ nhớ đệm của mỗi bước.
 
-Layer: Mỗi layer tương ứng với một instruction của image. 
+Layer: Mỗi layer tương ứng với một instruction của image của Dockerfile. Nói đơn giản hơn layer còn là image nhưng nó là image của instruction.
+
+Ví dụ:
+
+```
+FROM ubuntu:18.04 
+COPY . /myapp 
+RUN make /myapp 
+CMD python /myapp/app.py 
+```
+
+Quan trọng hơn, mỗi layer là một tập khác cảu layer trước đó.
+
+Kết quả xây dựng file docker này là một image. Trong khi instruction hiện tại trong file thêm layer vào image.
+
+### 35. Làm sao đảm bảo container1 chạy trước container2 trong khi dùng docker compose?
+
+Docker-compose không đợi bất kỳ container nào "sẵn sảng" trước khi đến container kế tiếp. Để thực thi như vậy, ta có thể sử dụng:
+
+- Bạn có thể sử dụng “depend_on” đã được thêm vào phiên bản 2 của docker-compose khi được hiển thị trong file docker-compose.yml mẫu bên dưới:
+
+```
+version: "2.4"
+services:
+ backend:
+   build: .
+   depends_on:
+     - db
+ db:
+   image: postgres
+```
+

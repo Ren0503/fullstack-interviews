@@ -48,3 +48,30 @@ Lưu ý nếu bạn muốn thực hiện bảo trì trên một pod đơn, có t
 
 - `kubectl get nodes`: hiển thị tất cả node
 - `kubectl drain <node name>`: thoát một node cụ thể
+
+### 2. Làm cách nào để kiểm soát việc sử dụng tài nguyên của POD?
+
+Ta có thể dùng limit và request:
+
+- **Request:** Số lượng tài nguyên đang được yêu cầu cho một container. Nếu một container vượt quá yêu cầu tài nguyên của nó, nó có thể được điều chỉnh trở lại.
+- **Limit:** Giới hạn trên đối với các tài nguyên mà một container duy nhất có thể sử dụng. Nếu nó cố gắng vượt quá giới hạn được xác định trước này, nó có thể bị chấm dứt nếu K8's quyết định rằng một container khác cần những tài nguyên này. Nếu bạn nhạy cảm với việc khởi động lại pod, bạn nên đặt tổng tất cả các giới hạn tài nguyên container nhỏ hơn hoặc bằng tổng dung lượng tài nguyên cho cụm của bạn.
+
+Ví dụ:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+ name: demo
+spec:
+ containers:
+ - name: example1
+ image:example/example1
+ resources:
+   requests:
+     memory: "_Mi"
+     cpu: "_m"
+   limits:
+     memory: "_Mi"
+     cpu: "_m"
+```

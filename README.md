@@ -35,7 +35,7 @@
 - Ngôn ngữ lập trình:
     - [**JavaScript**](./frontend/javascript): 30 câu hỏi phỏng vấn JavaScript.
     - [**ES6**](./frontend/es6): 39 câu hỏi phỏng vấn ES6.
-    - [**TypeScript**](./frontend/typescript): 50 câu hỏi phỏng vấn TypeScript.(28/50)
+    - [**TypeScript**](./frontend/typescript): 50 câu hỏi phỏng vấn TypeScript.
 
 ### Backend
 
@@ -45,7 +45,7 @@
     - [**Django**](./backend/django): 37 câu hỏi phỏng vấn Django. 
     - [**Nginx**](./backend/nginx): 18 câu hỏi phỏng vấn Nginx.
     - [**WebSocket**](./backend/websocket/): 12 câu hỏi phỏng vấn WebSocket.
-    - [**Microservice**](./backend/microservice): 
+    - [**Microservice**](./backend/microservice): 34 câu hỏi phỏng vấn Microservice(23/34)
 - Ngôn ngữ:
     - [**C#**](./backend/csharp): 30 câu hỏi phỏng vấn C#.
     - [**PHP**](./backend/php): 33 câu hỏi phỏng vấn về PHP.
@@ -53,9 +53,9 @@
 ### Devops
 
 - Kiến thức
-    - [DevOps cơ bản](./devops/devops)
-    - [**Docker**](./devops/docker)
-    - [**Kubernetes**](./devops/kubernetes)
+    - [DevOps cơ bản](./devops/devops): 35 câu hỏi phỏng vấn DevOps (25/35)
+    - [**Docker**](./devops/docker): 35 câu hỏi phỏng vấn Docker(20/35)
+    - [**Kubernetes**](./devops/kubernetes): 26 câu hỏi phỏng vấn Kubernetes(2/26)
     - [**Git**](./devops/git)
     - [**Agile**](./devops/agile)
 - Ngôn ngữ lập trình:
@@ -64,21 +64,20 @@
 ### Data Analyst
 
 - Kiến thức:
-    - [**Phân tích dữ liệu cơ bản**](./data-analyst)
-    - [**Numpy**](./data-analyst/numpy)
-    - [**Pandas**](./data-analyst/pandas)
-    - [**Power BI**](./data-analyst/power-bi)
+    - [**Phân tích dữ liệu cơ bản**](./data-analyst): 34 câu hỏi phỏng vấn phân tích dữ liệu (6/34)
+    - [**Numpy**](./data-analyst/numpy): 11 câu hỏi phỏng vấn NumPy
+    - [**Pandas**](./data-analyst/pandas): 10 câu hỏi phỏng vấn Pandas
 
 - Ngôn ngữ lập trình:
-    - [**Python**](./data-analyst/python)
+    - [**Python**](./data-analyst/python): 37 câu hỏi phỏng vấn Python (17/37)
 
 ### Mobile
 - Kiến thức
-    - [**Android**](./mobile/android): 39 câu hỏi phỏng vấn về Android.
-    - [**iOS**](./mobile/ios): 36 câu hỏi phỏng vấn về iOS.
-    - [**React Native**](./mobile/react-native/): 30 câu hỏi phỏng vấn về React Native.
+    - [**Android**](./mobile/android): 39 câu hỏi phỏng vấn về Android.(14/39)
+    - [**iOS**](./mobile/ios): 36 câu hỏi phỏng vấn về iOS.(1/36)
+    - [**React Native**](./mobile/react-native/): 30 câu hỏi phỏng vấn về React Native. (8/30)
 - Ngôn ngữ lập trình:
-    - [**Java**](./mobile/java): 54 câu hỏi phỏng vấn về Java.
+    - [**Java**](./mobile/java): 54 câu hỏi phỏng vấn về Java.(11/54)
     
 # Tham khảo 
 

@@ -130,6 +130,54 @@ myEmptyFunc()    # nothing happens
 
 Python package và module là hai cơ chế cho phép **lập trình module** trong Python. Việc module hoá đem lại các lợi ích như:
 
+### 26. Pickling và unpickling là gì?
+
+Thư viện Python cung cấp một tính năng - tuần tự hóa (serialization) ra khỏi hộp. Việc tuần tự hóa một đối tượng đề cập đến việc chuyển đổi nó thành một định dạng có thể được lưu trữ, để sau này có thể giải mã hóa đối tượng để lấy được đối tượng ban đầu. Ở đây, mô-đun dưa muối phát huy tác dụng.
+
+### 27. Generator trong Python là gì?
+
+Generator là hàm trả về một tập hợp mục có thể lặp lại, mỗi lần một mục, theo một cách nhất định. Nói chung, các generator được sử dụng để tạo các trình vòng lặp - iterator với một cách tiếp cận khác. Chúng sử dụng từ khóa `yield` thay vì quay lại để trả về một đối tượng generator. 
+
+Ví dụ generator với số fibonacci:
+
+```py
+## generate fibonacci numbers upto n
+def fib(n):
+   p, q = 0, 1
+   while(p < n):
+       yield p
+       p, q = q, p + q
+x = fib(10)    # create generator object 
+ 
+## iterating using __next__(), for Python2, use next()
+x.__next__()    # output => 0
+x.__next__()    # output => 1
+x.__next__()    # output => 1
+x.__next__()    # output => 2
+x.__next__()    # output => 3
+x.__next__()    # output => 5
+x.__next__()    # output => 8
+x.__next__()    # error
+ 
+## iterating using loop
+for i in fib(10):
+   print(i)    # output => 0 1 1 2 3 5 8
+```
+
+### 28. PYTHONPATH là gì?
+
+PYTHONPATH là một biến môi trường mà bạn có thể đặt để thêm các thư mục bổ sung nơi Python sẽ tìm kiếm các module và package. Điều này đặc biệt hữu ích trong việc duy trì các thư viện Python mà bạn không muốn cài đặt ở vị trí mặc định chung.
+
+### 29. Hàm help() và dir() để làm gì?
+
+Hàm `help()` dùng để hiển thị tài liệu cho các module, class, function, keyword. Nó không có tham số truyền vào, dùng để hiển thị tiện ích tương tác trên console.
+
+Hàm `dir()` trả về một danh sách các thuộc tính và phương thức hợp lệ của đối tượng mà nó được gọi. Nó hoạt động khác nhau với các đối tượng khác nhau nhằm mục đích tạo ra dữ liệu phù hợp nhất thay vì thông tin đầy đủ.
+
+- Đối với các đối tượng module/thư viện, nó trả về danh sách tất cả các thuộc tính, có trong module đó.
+- Đối với đối tượng lớp, nó trả về danh sách tất cả các thuộc tính hợp lệ và thuộc tính cơ sở.
+- Không có đối số nào được truyền, nó trả về một danh sách các thuộc tính trong phạm vi hiện tại.
+
 ### 30. Sự khác biệt giữa .py và .pyc?
 
 - Các file `.py` chứa mã nguồn của một chương trình. Trong khi đó, file `.pyc` chứa mã bytecode của chương trình của bạn. Chúng tôi nhận được mã bytecode sau khi biên dịch file `.py` (mã nguồn). Các file `.pyc` không được tạo cho tất cả các file mà bạn chạy. Nó chỉ được tạo cho các file mà bạn nhập.
