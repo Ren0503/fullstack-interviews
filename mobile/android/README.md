@@ -307,98 +307,116 @@ Android cung cấp một bộ tập hợp các lớp view đóng vai trò là co
 
 Dalvik hoạt động như một máy ảo và nó chịu trách nhiệm chạy mọi ứng dụng Android. Nhờ Dalvik, một thiết bị sẽ có khả năng thực thi nhiều phiên bản của máy ảo một cách hiệu quả thông qua việc quản lý bộ nhớ tốt hơn.
 
-### 29. Lịch sử các phiên bản Android?
+## Câu hỏi phỏng vấn Android cho Experienced
 
-**Android 1.0**
+### 29. Broadcast receivers là gì?
 
-Hệ quản lý Android thời hạn đầu ra mắt mang những đặc thù, tính năng mê hoặc phải kể đến như :
+Một broadcast receiver là một cơ chế được dùng để lắng nghe sự kiện ở level hệ thống như SMS, cuộc gọi,... bằng ứng dụng host. Nó được triển khai như một lớp con của lớp `BroadcastReceiver` và mỗi thông báo được broadcast như một đối tượng intent.
 
-- Thanh thông tin kéo từ trên xuống được cho phép người dùng xem nhanh những thông tin ngày giờ, tin nhắn, cuộc gọi … ,
-- Màn hình chính và Widget : màn hình hiển thị chính gồm những hình tượng chương trình người dùng hay truy vấn và những Widget là những ứng dụng nhỏ trên màn hình hiển thị chính, hoạt động giải trí và phân phối thông tin liên tục .
-- Tích hợp chặt chẽ với Gmail
+```java
+public class MyReceiver extends BroadcastReceiver 
+{
+    public void onReceive(context,intent){}
+}
+```
 
-**Android 1.1** 
+### 30. Giải thích cấu trúc thư mục khi tạo ứng dụng Android?
 
-Hệ điều hành Android qua các phiên bản cập nhậtPhiên bản update tiên phong của hệ quản lý Android giúp tinh chỉnh và điều khiển và sửa những lỗi gặp phải trên phiên bản 1.0. Tính năng update ứng dụng từ động qua OTA ( Over The Air ) được bổ trợ và được xem như thể một nâng cấp cải tiến đáng giá vì những hệ quản lý và điều hành di động trước đó đều phải nhờ tới một chiếc máy tính để thực thi việc này .
+**App:**
 
-**Android 1.5 Cupcake**
+Nó mô tả các đặc điểm cơ bản của ứng dụng và xác định từng thành phần của nó.
 
-Android 1.5 có lẽ rằng có vai trò cực kỳ quan trọng trong quy trình trưởng thành của Android khi nó bổ trợ cho hệ quản lý này những tính năng điển hình nổi bật giúp nó cạnh tranh đối đầu với những nền tảng đối thủ cạnh tranh khác. Đây cũng là bản Android tiên phong được Google gọi tên theo những món món ăn với vần âm khởi đầu được xếp theo thứ tự alphabet.Về mặt giao diện, Android 1.5 không có nhiều điểm biến hóa so với người nhiệm kỳ trước đó của mình. Google chỉ điểm thêm vài điểm để làm giao diện trông bóng bẩy, mượt mà hơn một tí, ví dụ điển hình như widget tìm kiếm có độ trong suốt nhẹ, hình tượng app drawer có 1 số ít hoa văn nhỏ mới, v.v. Nói chung, giao diện không phải là một điểm nhấn của Android 1.5 mà người ta chăm sóc nhiều hơn đến những tính năng mới mà nó mang lại .
+**java:**
 
-**Android 1.6 Donut**
+- Nó bao gồm các file mã nguồn `.java` hoặc `.kt` (dùng Kotlin) của dự án. Theo mặc định nó chứa file `MainActivity.java` hoặc `MainActivity.kt`.
+- Bạn tạo tất cả activity với file mở rộng `.java` hoặc `.kt` và nó cũng bao gồm code của ứng dụng.
 
-Phiên bản bánh Donut này, mặc dầu chỉ thêm có 0.1 vào mã số của Android 1.5 nhưng nó cũng mang lại nhiều nâng cấp cải tiến đáng giá. Một vài điểm trong giao diện được cải tổ, vài tính năng nhỏ được thêm vào, ở đầu cuối là tương hỗ cho mạng CDMA .Bổ sung tính năng hoàn toàn có thể chạy trên nhiều độ phân giải và tỉ lệ màn hình hiển thị khác nhau, được cho phép những thiết bị có nhiều độ phân giải hơn là 320 x 480. Hiện nay, tất cả chúng ta có những chiếc smartphone Android chạy ở độ phân giải QVGA, HVGA, WVGA, FWVGA, qHD, và 720 p. Vài chiếc máy tính bảng còn đạt mức 1920 x 1080 nữa .
+**res:**
 
-**Android 2.0 và 2.1 Eclair**
+- Nó dùng cho lưu trữ giá trị cho tài nguyên được sử dụng trong các dự án Android khác nhau bao gồm các tính năng về màu sắc, kiểu dáng, kích thước,...
+- Bao gồm các file xml như styles.xml, strings.xml, colors.xml,...
 
-Đầu tháng 9 năm 2009, Android 2.0 đã được ra đời trên chiếc Motorola Droid cùng những tính năng mới :Hỗ trợ nhiều thông tin tài khoản người dùng : lần tiên phong, nhiều thông tin tài khoản Google hoàn toàn có thể được đăng nhập trên cùng một thiết bị chạy Android. Tài khoản Microsoft Exchange cũng được tương hỗ trong Eclair. Người dùng hoàn toàn có thể duyệt qua danh bạ, email của từng thông tin tài khoản. Google giờ đây được cho phép những nhà tăng trưởng bên thứ ba tích hợp dịch vụ của họ vào trong mục Account này, đồng thời tương hỗ tự động hóa đồng điệu hóa .Hệ điều hành AndroidQuick Contact : khi chạm vào 1 số ít liên lạc nào đó, có một menu nhỏ sẽ Open để bạn tương tác theo nhiều cách : gửi email, gọi điện, gửi tin nhắn và hơn thế nữa. Miễn là nơi nào có hình tượng contact Open là nơi đó hoàn toàn có thể dùng Quick Contact. Sau này có thêm Twitter, Facebook và nhiều dịch vụ đồng nhất khác cũng tích hợp tính năng riêng của mình vào Quick Contact .
+**Scripts:**
 
-**Android 2.1**
+Là file tự động tạo bao gồm compileSdkVersion, buildToolsVersion, minSdkVersion, targetSdkVersion, applicationId, versionCode, và versionName. Ví dụ, build.gradle là một file script trong thư mục root, xác định cấu hình xây dựng sẽ được triển khai cho tất cả module trong dự án của bạn.
 
-Ra mắt hầu hết để sửa lỗi và thêm hàm API để lập trình viên can thiệp sâu hơn vào mạng lưới hệ thống nhưng nó đã tương hỗ thêm vài tính năng lý thú như Live Wallpaper, chuyển giọng nói thành văn bản và một màn hình hiển thị khóa mới. Android 2.1 được lưu lại bởi sự sinh ra của chiếc Nexus One do HTC sản xuất, chiếc điện thoại thông minh Nexus tiên phong chạy Android chuẩn của Google .
+### 31. Sự khác biệt giữa Serializable và Parcelable?
 
-**Android 2.2 Froyo**
+Trong phát triển ứng dụng, thông thường nó cần chuyển dữ liệu từ activity này sang activity khác. Dữ liệu này cần được thêm vào một đối tượng intent tương ứng. Một số hành động bổ sung được yêu cầu để làm cho dữ liệu phù hợp để chuyển. Để làm được điều đó, đối tượng phải có thể được serializable hoặc parcelable.
 
-Android 2.2 được ra đời trong năm 2010. Nexus One là chiếc điện thoại cảm ứng tiên phong được tăng cấp lên Android 2.2, sớm hơn nhiều so với tổng thể những hãng khác. Giao diện màn hình hiển thị chính đã được đổi khác, từ 3 màn hình hiển thị chính tăng lên thành 5 màn hình hiển thị. Google đã có nhiều nỗ lực để giao diện Android được vui và đẹp hơn, dễ dùng hơn, bắt kịp phần nào với giao diện của bên thứ ba như HTC Sense ví dụ điển hình .Froyo còn có một trình xem ảnh mới với năng lực hiển thị hình ảnh 3D : nghiêng máy thì dãy ảnh sẽ nghiên theo, đồng thời nó mang trong mình nhiều hiệu ứng hoạt động thích mắt khác. Tính năng trạm phát Wifi ( Wifi Hotspot ) cũng Open, cách copy, paste mới tốt hơn. Nhiều tính năng bảo mật thông tin mới cũng Open .
+#### Serializable
 
-**Android 2.3 Gingerbread**
+- Serializable là một interface Java tiêu chuẩn. Trong cách tiếp cận này, bạn đánh đấu một lớp Serializable bằng cách triển khai interface và Java sẽ tự động tuần tự (serialize) nó.
+- Sự đối chiếu được sử dụng trong quá trình này và nhiều đối tượng bổ sung được tạo ra. Điều này dẫn đến việc thu gom nhiều rác và hoạt động kém hiệu quả.
 
-Khoảng nửa năm sau khi FroYo Open, Google đã trở lại với bản Android 2.3. Google ra mắt nó với nhiều tính năng mới, tập trung chuyên sâu vào việc tăng trưởng game, đa phương tiện và phương pháp tiếp thị quảng cáo mới. Bên cạnh đó, chiếc Nexus S do Samsung sản xuất cũng Open với vai trò là người tiếp sau cho Nexus One. Nexus S có vài biến hóa nhỏ so với người bạn bè Galaxy S .
+#### Parcelable
 
-**Android 3.x HonyComb**
+- Parcelable là một interface Android cụ thể. Với các tiếp cận này bạn có thể triển khai, sự tuần tự hoá của bạn.
+- Đối chiếu không được dùng trong quá trình này nên không tạo ra rác.
+- Parcelable hiệu quả hơn nhiều so với Serializable vì nó giải quyết được một số vấn đề với lược đồ tuần tự hóa mặc định trong Java. Ngoài ra, nó nhanh hơn vì nó được tối ưu hóa để sử dụng trên Android và hiển thị kết quả tốt hơn.
 
-Honeycomb là phiên bản Android dành riêng cho máy tính bảng, và loại sản phẩm tiên phong dùng hệ điều hành quản lý này Motorola Xoom. Mặc dù Android 3.0 không có nhiều dấu ấn đặc biệt quan trọng trên thị trường nhưng nó là nền tảng cho Android 4.0 với những tính năng như. Ngoài ra, Honeycomb còn tương hỗ cho việc bố cục tổng quan ứng dụng theo nhiều cột để hướng đến việc tương hỗ máy tính bảng tốt hơn .
+### 32. Cơ sở dữ liệu nào được sử dụng trong Android?
 
-**Android 4.0 Ice Cream Sandwich**
+SQLite là cơ sở dữ liệu quan hệ mã nguồn mở được sử dụng trong Android. SQLite engine là serverless và độc lập. Thay vì đi theo mối quan hệ client-server như các RDBSM khác, SQLite engine dễ dàng tích hợp với ứng dụng. Thư viện có thể được gọi động và nó có thể sử dụng các lệnh gọi hàm đơn giản để giảm độ trễ khi truy cập cơ sở dữ liệu.
 
-Cuối năm 2011, Google chính thức ra mắt điện thoại cảm ứng Galaxy Nexus, thiết bị tiên phong trên thị trường sử dụng Android 4.0 Ice Cream Sandwich. Có thể nói Android 4.0 là sự đổi khác lớn nhất trong lịch sử dân tộc tăng trưởng của Android tính đến ngày viết bài này. Android 4.0 tương hỗ một bộ font mới tên là Roboto được cho là tối ưu hóa để dùng trên những màn hình hiển thị độ phân giải ngày càng cao hơn, đồng thời để hiển thị được nhiều thông tin hơn trên màn hình hiển thị .Hệ thống thông tin ( Notification ) già nua của Android đã được làm mới trọn vẹn, đẹp hơn, tiện lợi hơn, nhất là tính năng trượt ngang để xóa từng thông tin riêng không liên quan gì đến nhau. Tương tự như vậy cho tính năng Recent Apps và cả trình duyệt của máy. Bàn phím cũng được làm mới với năng lực tự động hóa sửa lỗi cao hơn, việc sao chép, cắt dán chữ và nội dung cũng tốt hơn khi nào hết .Đây cũng là lần tiên phong Google hợp nhất hệ quản lý dành cho smartphone và cho máy tính bảng vào làm một .
+### 33. Sự khác biệt giữa Service và Thread?
 
-**Android 4.1 Jelly Bean**
+| Service | Thread |
+|-|-|
+| Service là một thành phần ứng dụng tạo điều kiện cho ứng dụng chạy nền theo trình tự thực hiện các thao tác lâu dài mà không có sự tương tác với người dùng | Một thread là một đơn vị thực thi đồng thời |
+| Nó để lộ các chức năng đến ứng dụng khác bằng cách gọi Context.bindService() | Google mang lại các trình xử lý và vòng lặp vào thread |
+| Khi ứng dụng bị huỷ, service không bị huỷ | Khi ứng dụng bị huỷ, thread bị huỷ |
 
-Đánh dấu sự ra đời với chiếc máy tính bảng Nexus 7 do Asus sản xuất.
+### 34. Content Provider là gì?
 
-Về giao diện, không có nhiều biến hóa so với Android 4.0, vẫn là màn hình hiển thị chính với thanh dock bên dưới quen thuộc. Sự Open của Google Now cho thấy rằng Google đã mở màn bước chân vào việc cạnh tranh đối đầu với Siri .Trên Android 4.1 bạn hoàn toàn có thể tìm kiếm bằng giọng nói và những tác dụng trả không chỉ đơn thuần là những dòng tìm kiếm nữa mà nó được phong cách thiết kế theo dạng thẻ đồ họa, mưu trí hơn, trực quan hơn. Không chỉ tìm kiếm theo nhu yếu. Nhưng có lẽ rằng quan trọng hơn hết của Jelly Bean không phải là về giao diện hay ứng dụng mới mà về Project Butter giúp mang lại độ mượt chưa từng có cho Android .
+Content provider là một block xây dựng chính của ứng dụng Android, quản lý quyền truy cập để tạo repository dữ liệu trung tâm. Nó hoạt động như một interface tiêu chuẩn kết nối dữ liệu trong một tiến trình với code chạy trong một tiến trình khác. Vì vậy, nó có thể được dùng để chia sẻ dữ liệu giữa các ứng dụng khác nhau.
 
-**Android 4.2 Jelly Bean**
+Chúng có trách nhiệm đóng gói dữ liệu và cung cấP cơ chế cho bảo mật dữ liệu. Nó được triển khai như một lớp con của lớp ContentProvider và phải triển khai một tập APIs để khởi động ứng dụng khác cho thực hiện giao dịch.
 
-Ngày 30/10/2012, Google chính thức công bố update hệ quản lý và điều hành Android của hãng lên phiên bản 4.2 và vẫn giữ nguyên tên gọi " Jelly Bean " ( có nghĩa là kẹo dẻo đậu ). Được hãng gọi là " một mùi vị mới của Jelly Bean ", Android 4.2 mang trong mình nhiều tính năng mới như tương hỗ Miracast, bàn phím hoàn toàn có thể nhập liệu bằng cách vẽ những đường nét từ kí tự này đến kí tự khác, chính sách chụp ảnh toàn cảnh Photo Sphere, ứng dụng Gmail mới và còn rất nhiều thứ khác nữa .Một nâng cấp cải tiến lớn và quan trọng của Android 4.2 đó là việc tương hỗ nhiều thông tin tài khoản người dùng trên máy tính bảng để hoàn toàn có thể thuận tiện san sẻ trong mái ấm gia đình hoặc nơi thao tác. Mỗi thông tin tài khoản sẽ có tài liệu app của riêng họ. Ví dụ, người dùng A cài game Angry Birds, người này chơi và đã ghi được một số ít điểm cũng như lên được màn cao hơn. Khi người B sử dụng máy bằng thông tin tài khoản khác, game này vẫn hiện hữu trên máy nhưng dưới dạng một bản cài mới, không có sẵn data của người A .
+```java
+public class MyContentprovider extends ContentProvider 
+{
+    public void onCreate(){}
+}
+```
 
-**Android 4.3 Jelly Bean**
+### 35. Ý nghĩa của file .dex?
 
-Lại thêm một thế hệ Jelly Bean nữa và lần này là Android 4.3. Ngày 24/7/2013, Google đã chính thức ra đời hệ quản lý và điều hành này song song với chiếc Nexus 7 ( 2013 ). Đây là phiên bản Android mới nhất đang xuất hiện trên thị trường và đi kèm những tính năng mới như tương hỗ liên kết Bluetooth Smart, bộ API OpenGL ES 3.0, bổ trợ tính năng sử dụng Wi-Fi để xác định ngay cả khi người dùng tắt liên kết này đi cùng nhiều đổi khác lớn nhỏ khác .Bên cạnh tính năng Multi User của Android 4.2 như đã nói ở trên, Google bổ trợ thêm một tính năng mới cho Android 4.3 đó là Restricted Profile. Mỗi thành viên sẽ có một " hồ sơ " riêng của mình và chỉ hoàn toàn có thể làm được những gì được chỉ định trong " hồ sơ ". Ví dụ, cha mẹ hoàn toàn có thể khóa tính năng in-app purchase của một ứng dụng nào đó để ngăn con trẻ vô tình mua hàng trăm USD. Ngoài ra, khi vận dụng vào môi trường tự nhiên doanh nghiệp thì nó sẽ được cho phép người quản trị phân quyền cho nhân viên cấp dưới thuận tiện hơn .
+Các chương trình Android được DVM biên dịch thành file `.dex` (Dalvik Executable file), sau đó được nén thành file `.apk` trên thiết bị. Các file `.dex` được tạo bằng cách dịch các ứng dụng đã biên dịch được viết bằng java. `.dex` là định dạng được tối ưu hóa để lưu trữ hiệu quả và thực thi có thể ánh xạ bộ nhớ.
 
-**Android 4.4 Kitkat**
+### 36. Sự khác biệt giữa compileSdkVersion và targetSdkVersion?
 
-Thế hệ sau đó của Android là Android 4.4 và không còn mang tên Jelly Bean nữa mà gọi là KitKat. Nếu như bạn chưa biết thì KitKat là một loại bánh xốp bọc chocolate của hãng Nestle. Cách đặt tên này cũng trọn vẹn khớp với trình tự vần âm mà những phiên bản Android sử dụng làm tên mã .Google bật mý thêm rằng " tiềm năng của chúng tôi với Android KitKat đó là mang thưởng thức Android đáng kinh ngạc đến cho mọi người ". Android Kitkat Open tiên phong trên chiếc smartphone Nexus 5. Những nâng cấp cải tiến trên Android Kitkat gồm có Chế độ toàn màn hình hiển thị – Immersive Mode, Hiệu ứng chuyển cảnh màn hình hiển thị – Transition Manager, Storage Access Framework, Chromium WebView, NFC, Cổng hồng ngoại – Infrared Blasters …Giao diện : Tông màu chủ yếu của font chữ là xanh và đen được sử dụng trên Android Jelly Bean được Google biến hóa bằng tông màu đen và ghi trên Android 4.4 Kitkat vừa ra đời, biểu lộ rõ ở những dòng chữ trên thanh thông tin Notification. Bên cạnh đó, Android Kitkat cũng có bộ hình tượng, thư mục mới, giao diện nhìn chung được làm phẳng bớt, vô hiệu những chi tiết cụ thể đổ bóng và thêm hiệu ứng trong suốt vào nhiều phần, như ba phim ảo bên dưới hay thanh thông tin ở phía trên .Hệ điều hành AndroidDù là phiên bản mới, Android 4.4 Kitkat lại không yên cầu thông số kỹ thuật phần cứng mạnh hơn, thậm chí còn tương hỗ tốt cả những thiết bị cũ với phần cứng không cao, như có RAM chỉ đạt dung tích 512 MB. Hệ điều hành quản lý mới được Google tối ưu năng lực hoạt động giải trí, cho hiệu năng cao hơn tới 1,6 lần phiên bản trước .
+#### compileSdkVersion
 
-**Android 5.0 Lollipop**
+- `compileSdkVersion` là phiên bản API mà ứng dụng được biên dịch dựa trên đó. Điều này có nghĩa là bạn có thể sử dụng các tính năng API của Android có trong phiên bản API đó (hiển nhiên là tất cả các phiên bản trước đó). 
+- Nếu bạn thử và sử dụng các tính năng của API 16 nhưng đặt `compileSdkVersion` thành 15, bạn sẽ gặp lỗi biên dịch. Nếu bạn đặt `compileSdkVersion` thành 16, bạn vẫn có thể chạy ứng dụng trên thiết bị API 15 miễn là các đường dẫn thực thi của ứng dụng không cố gắng gọi bất kỳ API cụ thể nào cho API 16.
 
-Sau hơn một năm Android 4.0 KitKat ra đời, Google đã chính thức trình làng phiên bản hậu duệ mới nhất với tên gọi Android Lollipop, được nhìn nhận là hệ điều hành quản lý có những biến hóa rõ ràng và đáng kể nhất trong lịch sử vẻ vang Android từ trước đến nay .Thiết kế " Material " mới : Ngôn ngữ đồ họa mới của Android được lấy cảm hứng từ vạn vật thiên nhiên, vật lý và phong thái đậm, đổ bóng giống như in ấn. Nói cách khác, đó là một phong cách thiết kế dựa trên những đặc tính của giấy .Các tính năng khác cũng được nâng cấp cải tiến như : phong cách thiết kế báo nhắc trọn vẹn mới, tương hỗ chip 64 bit và cải tổ thời lượng pin .
+#### targetSdkVersion
 
-**Android 6.0 Marshmallow**
+- `targetSdkVersion` không liên quan gì đến cách ứng dụng của bạn được biên dịch hoặc những API nào bạn có thể sử dụng. `targetSdkVersion` nhằm mục đích chỉ ra rằng bạn đã thử nghiệm ứng dụng của mình trên phiên bản API mà bạn chỉ định. Nó là một chứng nhận hoặc dấu hiệu mà bạn cung cấp cho hệ điều hành Android để gợi ý về cách nó sẽ xử lý ứng dụng của bạn về các tính năng của hệ điều hành.
 
-Vào ngày 5/10/2015 thì Google đã trình làng đến người dùng phiên bản Android sau đó với mã hiệu Marshmallow ( kẹo dẻo ) với những biến hóa đợt update này tuy nhỏ nhưng thiên về khuynh hướng hoàn thành xong tương tác người dùng, cho một thưởng thức tuyệt vời hơn .Về mặt giao diện người dùng, màn hình hiển thị chính trên Android M có vẻ như có khá ít đổi khác so với phiên bản trước ngoại trừ logo Google, tuy nhiên khi bạn vào trong Menu ứng dụng bạn hoàn toàn có thể thấy khá nhiều đổi khác. Các ứng dụng được bố trị và cuộn xuống theo chiều dọc, ở phía trên cùng là thanh tìm kiếm và có một điểm mê hoặc là máy sẽ tự động hóa gợi ý cho bạn 4 apps để sử dụng tùy theo từng khu vực mà bạn đang ở .Tính năng mới Now on Tap : khi ở màn hình hiển thị của bất kể ứng dụng ( ví dụ trình duyệt web ) đang hiển thị thông tin, bạn hoàn toàn có thể giữ nút home và máy sẽ khởi đầu " quét " những thông tin đang được hiển thị trên màn hình hiển thị, gửi về Google và Google sẽ phản hồi lại cho bạn những thông tin, gợi ý có ích tương quan. Việc tích hợp Google theo cách này nâng thưởng thức người dùng lên một tầm cao mới .Tiết kiệm nguồn năng lượng hơn : Khi ở trạng thái không sử dụng, điện thoại cảm ứng Android đốt pin khá nhiều nếu so sánh với những điện thoại thông minh hệ điều hành quản lý khác. Google đã cho sinh ra chính sách Doze để xử lý yếu tố về pin chờ điện thoại thông minh này. Khi máy bạn không được sử dụng, chính sách Doze sẽ được kích hoạt và sẽ hoạt động giải trí hơi giống như khi bạn bật chính sách Airplane trên điện thoại cảm ứng vậy : không liên kết, không thông tin, không có bất kể việc chạy ứng dụng nào diễn ra trong quy trình này để bảo vệ cho máy ở trạng thái tiết kiệm chi phí nguồn năng lượng tối đa hoàn toàn có thể. Chỉ một số ít thông tin quan trọng như cuộc gọi, báo thức, tin nhắn là hoàn toàn có thể hiển thị trong trạng thái Doze này .Ngoài ra Android 6. cũng mang lại cho người dùng 1 số ít tính năng mới như : sử dụng thẻ SD cắm ngoài như bộ nhớ trong hay chính thức tương hỗ nhận diện vân tay và Google Pay .
+- Ví dụ: đặt giá trị `targetSdkVersion` thành "11" trở lên cho phép hệ thống áp dụng theme mặc định mới (Holo) cho ứng dụng khi chạy trên Android 3.0 trở lên. Nó cũng vô hiệu hóa chế độ tương thích màn hình khi chạy trên màn hình lớn hơn (vì hỗ trợ API cấp 11 mặc nhiên hỗ trợ màn hình lớn hơn).
 
-**Android 7.0 Nougat**
+### 37. Các lớp Java liên quan đến cảm biến trong Android?
 
-Android 7.0 Nougat được Google tung ra vào ngày 22 tháng 8 năm năm nay và những thiết bị Nexus sẽ là những chiếc smartphone tiên phong được update phiên bản mới này. Tên gọi chính thức của phiên bản Android 7.0 đã được Google xác nhận, đó chính là một loại kẹo truyền thống lịch sử có tên Nougat .Android 7.0 tương hỗ một số ít tính năng mới đáng kể như :Hỗ trợ Menu quy đổi nhanh giữa những setup mạng lưới hệ thống : Một menu hamburger ( hình tượng dấu 3 gạch nằm ngang ) đã được thêm vào Cài đặt của mạng lưới hệ thống. Ví dụ như khi bạn đang trong phần setup Bluetooth bạn hoàn toàn có thể nhanh gọn chuyển đến những setup khác của mạng lưới hệ thống bằng cách sử dụng Menu bên trái này .Trả lời nhanh tin nhắn từ thanh thông tin : Trong những bổ trợ mới, thì đây là tính năng mới mẻ và lạ mắt và khá giống với hệ điều hành quản lý iOS của Apple. Tin nhắn hoàn toàn có thể được vấn đáp nhanh từ thông tin của chính nó. Với tính năng này người dùng không cần phải rời khỏi ứng dụng hiện tại để vấn đáp một tin nhắn hoặc thậm chí còn là mở khóa điện thoại cảm ứng .Chế độ chia đôi màn hình hiển thị : Cuối cùng thì Google đã thêm tính năng vào Android 7.0, đây là tính năng mà bạn thường thấy trên những máy tính bảng, những dòng điện thoại thông minh của Samsung hay LG. Người dùng hoàn toàn có thể chia màn hình thành 2 phần, sử dụng 2 ứng dụng song song cùng 1 lúc. Và bạn còn hoàn toàn có thể tùy chọn size hành lang cửa số cho mỗi ứng dụng bằng cách kèo thanh màu đen giữa 2 ứng dụng sang trái hoặc phải, lên hoặc xuống. +
+Cảm biến Android API cung cấp nhiều lớp và interface dùng cho cảm biến trên Android. Các lớp và interface quan trọng cho các API cảm biến như sau:
+- **Lớp Sensor:** giúp bạn tạo một thực thể của cảm biến cụ thể. Nó cung cấp phương thức để xác định khả năng của cảm biến.
+- **Lớp SensorManager:** lớp này được sử dụng để tạo một thực thể của dịch vụ cảm biến. Nó cung cấp các phương thức để truy cập và liệt kê các cảm biến, đăng ký và hủy đăng ký các trình nghe cảm biến, ...
+- **Lớp SensorEvent:** lớp Java này dùng cho tạo đối tượng cảm biến sự kiện. Nó cung cấp thông tin về sự kiện cảm biến bao gồm dữ liệu cảm biến (dạng raw), độ chính xác của dữ liệu, loại cảm biến, thời gian của sự kiện, ...
+- **Interface SensorEventListener:** interface được dùng để tạo hai phương thức callback để nhận thông báo sự kiện cảm biến khi giá trị hoặc độ chính xác cảm biến thay đổi. Hai phướng thức đó là:
+    - `void onAccuracyChanged(Sensor sensor, int accuracy)` được gọi khi độ chính xác cảm biến thay đổi.
+    -  `void onSensorChanged(SensorEvent event)` được gọi khi giá trị cảm biến thay đổi.
 
-Trung tâm thông báo được làm mới: Trung tâm thông báo đã được google thiết kế lại. Các biểu tượng, phím tắt trên thanh thông báo được thu gọn và nổi bật hơn, bạn có thể mở rộng các phím tắt bằng phím mũi tên phía bên trái góc trên màn hình. Các thông báo chung từ 1 ứng dụng bây giờ đã được tối ưu gộp lại với nhau thành 1 dòng duy nhất và bạn có thể mở rộng bằng cách sử dụng nút mũi tên hoặc thao tác với 2 ngón tay. Giúp tối ưu hóa không gian trong trung tâm thông báo.
+### 38. JobScheduler là gì?
 
-Xem thêm: Nâng cao khả năng ứng dụng công nghệ thông tin vào dạy, học ở Học viện Lục quân hiện nay
+JobScheduler API được dùng cho lên lịch các công việc khác nhau dựa trên framework được thực thi trong tiến trình riêng của ứng dụng. Nó cho phép ứng dụng của bạn thực hiện các tác vụ đã cho trong khi vẫn cân nhắc đến pin thiết bị và chi phí cho kiểm soát thời gian.
 
-Ngoài ra còn 1 số ít tính năng đáng chú ý quan tâm như : tương hỗ chính sách trong thực tiễn ảo với VR, tích hợp chính sách tiết kiệm ngân sách và chi phí tài liệu, chính sách tiết kiệm ngân sách và chi phí pin Doze được nâng cấp cải tiến …
+JobScheduler hỗ trợ lập lịch hàng loạt công việc. Hệ thống android có thể kết hợp các công việc để giảm mức tiêu thụ pin.
 
-**Android 8 Oreo**
+JobManager tự động xử lý tình trạng không đáng tin cậy của mạng để giúp việc xử lý tải lên dễ dàng hơn.
 
-Vào ngày 21/08/2017 Google đã chính thức ra mắt phiên bản Android 8 Oreo sau khi tung ra 4 phiên bản dùng thử. Android 8 tập trung chuyên sâu hầu hết vào nâng cấp cải tiến thưởng thức người dùng, độ bảo đảm an toàn bảo mật thông tin và nền tảng kiến thiết xây dựng .Giới hạn ứng dụng chạy nền : Mặc dù đã được ra mắt ở những phiên bản Android trước đó, nhưng người dùng chỉ thực sự sử dụng được tính năng này khi kích hoạt chính sách nhà tăng trưởng. Vì vậy trên Android 8 Oreo, Google đã tăng cường năng lực tự động hóa số lượng giới hạn những hoạt động giải trí ngầm mà ứng dụng hoàn toàn có thể thực thi được. Sự nâng cấp cải tiến này giúp những lập trình viên hoàn toàn có thể tạo ra ứng dụng ít có ảnh hưởng tác động xấu đến thiết bị cũng như dung tích pin .Tính năng hạn chế ứng dụng chạy nền trên Android 8Tính năng hạn chế ứng dụng chạy nền trên Android 8.0 .Tính năng picture-in-picture : Thay đổi lớn không kém phần trên Android 8 chính là được cho phép sử dụng tính năng đa nhiệm picture-in-picture trong YouTube. Người dùng hoàn toàn có thể hoàn toàn có thể vừa liên tục xem video trên 1 màn hình hiển thị thu nhỏ, vừa hoàn toàn có thể dùng những những ứng dụng khác 1 cách thuận tiện .Tính năng picture-in-picture trên Android 8.0Tính năng picture-in-picture trên Android 8.0 .Chế độ nhập liệu tự động hóa : Tính năng này được cho phép bạn đồng điệu tài liệu của những ứng dụng có nhu yếu mật mã đăng nhập với hệ điều hành quản lý Android. Điều đó nghĩa là Android 8 được cho phép tự động hóa điền những thông tin tương quan đến mật mã, thông tin tài khoản khi cần mà không cần phụ thuộc vào vào 1 ứng dụng quản trị mật mã thứ 3. Nhờ vậy mà quy trình đăng nhập sẽ trở nên thuận tiện, thuận tiện hơn và hạn chế thực trạng mất thông tin cá thể .Chế độ nhập liệu tự động trên Android 8Chế độ nhập liệu tự động hóa trên Android 8.0 .Ngoài ra Android 8.0 còn bổ trợ thêm những tính năng điển hình nổi bật như : Nhóm thông tin theo từng kênh, tương hỗ điều hướng với bàn phím vật lý, lan rộng ra dải màu trong những ứng dụng hình ảnh, cải tổ chất lượng âm thanh và camera, ..
+Các ví dụ về sử dụng JobScheduler:
+- Tác vụ cần được thực hiện khi thiết bị được kết nối với nguồn điện.
+- Tác vụ yêu cầu kết nối Wi-Fi hoặc truy cập mạng.
+- Tác vụ chạy thường xuyên mà thời gian không quan trọng.
 
-**Android 9 Pie**
-
-Sau 1 năm ra đời Android 8 Oreo, Google cũng chính thức trình làng Android 9 Pie vào ngày 07/08/2018. Android 9 là phiên bản phát hành lớn thứ 9 của hệ quản lý Android. Ở phiên bản hệ điều hành quản lý mới lần này, những chiếc smartphone đến từ Google là Pixel được phép tăng cấp tiên phong, sau đó là những máy Nokia của HMD Global .Tối ưu thời lượng pin bằng AI : Ở Android 9, Google đã đưa ra tính năng Apdaptive Battery nhằm mục đích tối ưu hóa tuổi thọ pin trên điện thoại thông minh. Dựa vào AI, tính năng này sẽ Dự kiến những ứng dụng mà người dùng hoàn toàn có thể sẽ không sử dụng trong 1 khoảng chừng thời hạn tới. Từ đó, thiết bị của bạn sẽ hạn chế cung ứng pin cho những ứng dụng này. Vì vậy, thời lượng pin trên smartphone của người dùng sẽ tránh bị tiêu tốn vô những ứng dụng không thiết yếu mà chỉ tập trung chuyên sâu vào những ứng dụng ưa thích của người dùng .Tính năng Apdaptive Battery trên Android 9 giúp tối ưu hóa pin của người dùngTính năng Apdaptive Battery trên Android 9 giúp tối ưu hóa pin của người dùng. Nguồn : Digitaltrends .Tìm kiếm nâng cao hơn : Tính năng tìm kiếm không còn đơn thuần chỉ là tìm kiếm khi đưa ra hiển thị hình tượng ứng dụng cùng những ứng dụng có tương quan mà còn phân phối thêm những thông tin khác để tương tác với ứng dụng trong hiệu quả tìm kiếm. Ví dụ nếu bạn tìm kiếm Grab trong điện thoại thông minh, thiết bị sẽ trả về những thông tin khác như ước tính về thời hạn và ngân sách cho những chuyến đi đến khu vực nào đó dựa vào thói quen sử dụng của người dùng .Với Android 9, người dùng có thể tìm kiếm chuyên sâu hơnVới Android 9, người dùng hoàn toàn có thể tìm kiếm nâng cao hơn .Nâng cấp bảo mật thông tin : Android 9 sẽ hạn chế thực trạng sử dụng micro, camera, … trong thiết bị của bạn trừ khi ứng dụng chuyển sang trạng thái trạng nền. Trong trường hợp những ứng dụng này nỗ lực truy vấn vào những tài nguyên trên sẽ có thông tin lỗi hiện ra. Tính năng này giúp nâng cao quyền bảo mật thông tin thông tin cá thể hơn khi sử dụng những ứng dụng .Ngoài ra, quyền bảo mật trên Android 9 cũng được nâng cao hơn nhiều.Ngoài ra, quyền bảo mật thông tin trên Android 9 cũng được nâng cao hơn nhiều .Android 9 Pie cũng cung ứng thêm 1 vài tính năng khác như : Tăng cường số lượng thiết bị liên kết bluetooth từ 2 lên 5, thống kê thời hạn sử dụng ứng dụng, bổ trợ nút xoay màn hình hiển thị khi xem video, …
-
-**Android 10**
-Khác với những phiên bản Android từ thế hệ 7 trở đi sẽ được đặt tên theo 1 món bánh hoặc kẹo ngọt nào đó thì hệ quản lý và điều hành thế hệ thứ 10 được Google ra mắt có cái tên khá đơn thuần là Android 10, không đặt theo tên 1 món ăn nào cả. Android 10 được phát hành vào 03/09/2019, trễ hơn đôi chút so với những thế hệ nhiệm kỳ trước đó ( thường được phát hành vào tháng 08 ) .Chế độ Dark Mode : Nhắc đến Android 10 không thể nào không nhắc tới Dark Mode, được cho phép người dùng bật và tắt chính sách này ngay trên menu thiết lập nhanh một cách thuận tiện. Bên cạnh đó, để cá thể hóa nhu yếu người dùng, Google còn mang đến những lựa chọn tùy chỉnh kích hoạt dựa trên thời hạn thực hoặc hoàn toàn có thể bật / tắt bằng tay thủ công và kích hoạt Dark Mode ngay cả trên những ứng dụng thứ 3 .Hệ điều hành di động thế hệ thứ 10 của Google mang đến cho người dùng tính năng Dark ModeHệ quản lý di động thế hệ thứ 10 của Google mang đến cho người dùng tính năng Dark Mode .Cử chỉ điều hướng mới : Trên Android 10 tất cả chúng ta sẽ không còn thấy sự Open của 3 nút bấm quen thuộc mà thay vào đó là 1 thanh ngang nhỏ dùng để điều hướng theo cử chỉ của người dùng. Với Android 10, người dùng hoàn toàn có thể vuốt lên để trở về màn hình hiển thị chính, vuốt từ cạnh trái hoặc cạnh phải để quay lại, khá giống trên những thiêt bị iPhone .Android 10 đã thay đổi các nút bấm thành thanh điều hướngAndroid 10 đã đổi khác những nút bấm thành thanh điều hướng .Kiểm soát quyền truy vấn : Cũng như những phiên bản hệ quản lý trước, Android 10 khá chú trọng vào yếu tố quyền riêng tư của người dùng. Vì vậy ở hệ điều hành quản lý này, người dùng có hẳn 1 TT bảo mật thông tin mới cũng như một TT vị trí trong phần Cài đặt để hoàn toàn có thể quản trị những ứng dụng nào đang nhu yếu vị trí, nhật ký cuộc gọi, máy ảnh, micro … Cũng nhờ vậy mà người dùng hoàn toàn có thể biến hóa quyền truy vấn của những ứng dụng này nhanh gọn, thuận tiện và thuận tiện .Android 10 có trung tâm kiểm soát để người dùng có thể quản lý quyền truy cập của các ứng dụng.Android 10 có TT trấn áp để người dùng hoàn toàn có thể quản trị quyền truy vấn của những ứng dụng .Các tính năng khác trên Android 10 mà tất cả chúng ta hoàn toàn có thể đề cập đến như : Hỗ trợ tốt hơn trên những dòng điện thoại cảm ứng gập, cải tổ tính năng san sẻ nhanh, tương hỗ HDR10 +, quyền trấn áp con cháu ngặt nghèo hơn …
-
-**Android 11**
-Nối tiếp Android 10 thì vào 09/2020, Google đã chính thức công bố hệ quản lý và điều hành di động thế hệ thứ 11 vào 09/2020 với tên gọi cũng đơn thuần không kém phần là Android 11. Phiên bàn này được kỳ vọng sẽ mang đến nhiều tính năng cũng như nâng cấp cải tiến mới cho những smartphone Android .Tích hợp quay màn hình hiển thị : Có lẽ ở những giao diện tùy chỉnh khác đã có sẵn tính năng này từ trước nhưng với những smartphone sử dụng Android thuần thì phải đến thế hệ thư 11 này, người dùng mới được quay màn hình hiển thị trực tiếp mà không cần trải qua ứng dụng thứ 3. Tính năng này được cho phép người dùng vừa quay màn hình hiển thị vừa ghi âm giọng nói cũng như âm thanh của mạng lưới hệ thống cùng 1 lúc .Android 11 tích hợp sẵn tính năng quay màn hình bên trongAndroid 11 tích hợp sẵn tính năng quay màn hình hiển thị bên trong .Kiểm soát quyền truy vấn 1 lần : Người dùng sử dụng smartphone đang chạy Android 11 có quyền được cho phép những ứng dụng truy vấn vào 1 vài quyền riêng tư nhưng chỉ duy nhất 1 lần mà thôi. Sau khi sử dụng xong, hệ thông sẽ ngay lập tức tịch thu quyền đó trong lần chạy tiếp theo. Nhờ tính năng này, Android 11 sẽ hạn chế rủi ro tiềm ẩn lạm quyền từ những ứng dụng sau khi người dùng sử dụng .Kiểm soát quyền truy cập 1 lần trên Android giúp hạn chế việc lạm quyền của các ứng dụng ít sử dụng.Kiểm soát quyền truy vấn 1 lần trên Android giúp hạn chế việc lạm quyền của những ứng dụng ít sử dụng .Ngoài những tính năng kể trên, phiên bản hệ quản lý và điều hành Android 11 còn cung ứng cho người dùng thêm 1 vài tính năng hay ho khác như : Tăng kích cỡ quay video lan rộng ra, khủng hoảng bong bóng chat, đổi khác giao diện của trình phát nhạc, đề xuất kiến nghị những ứng dụng hay dùng, lịch sử vẻ vang thông tin …
