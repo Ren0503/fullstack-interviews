@@ -173,6 +173,111 @@ Quan trọng hơn, mỗi layer là một tập khác cảu layer trước đó.
 
 Kết quả xây dựng file docker này là một image. Trong khi instruction hiện tại trong file thêm layer vào image.
 
+### 20. Mục đích của tham số volume trong lệnh chạy docker là gì?
+
+Cú pháp của lệnh chạy docker sử dụng volumn là: `docker run -v host_path:docker_path <container_name>`.
+
+Tham số volume được dùng cho đồng bộ hoá một thư mục trong container với bất kỳ thư mục host nào. Ví dụ: `docker run -v /data/app:usr/src/app myapp`. Lệnh trên gắn thứ mục `/data/app` trong host vào thư mục `usr/src/app`. Ta có thể đồng bộ container với file dữ liệu từ host mà không cần khởi động lại.
+
+Điều này đảm bảo rằng ngay cả khi container bị xóa, dữ liệu của container vẫn tồn tại trong vị trí host lưu trữ được ánh xạ theo volume, làm cho nó trở thành cách dễ dàng nhất để lưu trữ dữ liệu container.
+
+### 21. Docker volume được lưu ở đâu trong docker?
+
+Volume được tạo và quản lý bởi Docker và không thể truy cập bằng thực thể khác docker. Nó được lưu trữ trong hệ thống file host Docker ở `/var/lib/docker/volumes/`.
+
+### 22. Lệnh docker info là gì?
+
+Lệnh lấy thông tin chi tiết về Docker được cài đặt trên hệ thống host. Thông tin có thể giống như số lượng container hoặc image và chúng đang chạy ở trạng thái nào và các thông số kỹ thuật phần cứng như tổng bộ nhớ được cấp phát, tốc độ của bộ xử lý, phiên bản kernel,...
+
+### 23. Ý nghĩa của các lệnh up, run và start của docker compose?
+
+- Sử dụng lệnh `up` để duy trì docker-compose (lý tưởng là mọi lúc), chúng ta có thể khởi động hoặc khởi động lại tất cả các mạng, dịch vụ và driver được liên kết với ứng dụng được chỉ định trong file docker-compos.yml. Bây giờ, nếu chúng ta đang chạy docker-compose ở chế độ "attached" thì tất cả log từ các container sẽ có thể truy cập được đối với chúng ta. Trong trường hợp docker-compose được chạy ở chế độ "detached", thì khi các container được khởi động, nó sẽ thoát ra và không hiển thị log nào.
+- Sử dụng lệnh `run`, docker-compose có thể chạy các tác vụ một lần hoặc đột xuất dựa trên các yêu cầu nghiệp vụ. Ở đây, tên dịch vụ phải được cung cấp và docker chỉ bắt đầu dịch vụ cụ thể đó và cả các dịch vụ khác mà dịch vụ đích phụ thuộc (nếu có).
+  - Lệnh này hữu ích để kiểm tra container và cũng thực hiện các tác vụ như thêm hoặc xóa dữ liệu vào container,...
+- Sử dụng lệnh `start`, chỉ những container đó mới có thể được khởi động lại đã được tạo và sau đó dừng lại. Điều này không hữu ích cho việc tạo các container mới của riêng nó.
+
+### 24. Các yêu cầu cơ bản để Docker chạy trên mọi hệ thống?
+
+Docker có thể chạy trên cả nền tảng Linux và Windows.
+
+- Đối với nền tảng Windows, ít nhất docker cần có Windows 10 64bit với bộ nhớ RAM 2GB. Đối với các phiên bản thấp hơn, có thể cài đặt docker bằng cách sử dụng toolbox trợ giúp. Docker có thể được tải xuống từ trang web https://docs.docker.com/docker-for-windows/.
+- Đối với nền tảng Linux, Docker có thể chạy trên nhiều phiên bản Linux khác nhau như Ubuntu> = 12.04, Fedora> = 19, RHEL> = 6.5, CentOS> = 6, v.v.
+
+### 25. Cách đăng nhập vào docker registry?
+
+Sử dụng lệnh `docker login`  để đăng nhập vào kho lưu trữ đám mây của riêng họ có thể được nhập và truy cập.
+
+### 26. Các instructions phổ biến trong Dockerfile?
+
+- **FROM:** dùng cho thiết lập image cơ sở cho instruction sắp tới. File docker được xem là hợp lệ nếu nó bắt đầu bằng FROM.
+- **LABEL:** dùng cho tổ chức image dựa trên dự án, module hoặc license. Nó còn giúp tự động hoá như một cặp key-value cụ thể trong khi xác định label mà sau này có thể được truy cập và xử lý theo chương trình.
+- **RUN:** dùng cho thực thi instruction theo sau nó trên top image hiện tại trong lớp mới. Lưu ý: mỗi lần thực thi lệnh RUN, chúng ta thêm các lớp trên image và sử dụng lớp đó cho các bước tiếp theo.
+- **CMD:** dùng cho cung cấp giá trị mặc định của container thực thi. Trong trường hợp nhiều lệnh CMD, lệnh cuối cùng sẽ được xem xét.
+
+### 27. Sự khác biệt giữa Daemon Logging và Container Logging?
+
+Trong Docker, logging được hỗ trợ ở hai level là level Daemon và level Container.
+
+- **Daemon**: gồm 4 kiểu level:
+  + Debug có tất cả dữ liệu xuất hiện trong quá trình thực thi của tiến trình daemon.
+  + Info quan tâm tất cả thông tin cùng với lỗi trong suốt quá trị thực thi tiến trình daemon.
+  + Error gồm các lỗi xảy ra trong quá trình thực thi tiến trình daemon.
+  + Fatal chức lỗi fatal trong quá trình thực thi tiến trình daemon.
+- **Container:**
+  - Level container có thể thực hiện logging bằng lệnh: `sudo docker run –it <container_name> /bin/bash`.
+  - Để kiểm tra log của level container ta có thể thực hiện: `sudo docker logs <container_id>`.
+
+### 28. Cách thiết lập giao tiếp giữa docker host và linux host?
+
+Điều này có thể được thực hiện bởi mạng bằng cách xác định "ipconfig" trên docker host. Lệnh này đảm bảo rằng một adapter ethernet được tạo miễn là docker có mặt trong host.
+
+### 29. Cách xoá một container:
+
+Ta có hai bước xoá container:
+1. `docker stop <container_id>`
+2. `docker rm <container_id>`
+
+### 30. Sự khác biệt giữa CMD và ENTRYPOINT?
+
+- Lệnh CMD cung cấp các giá trị mặc định có thể thực thi cho một container đang thực thi. Trong trường hợp file thực thi phải được bỏ qua thì việc sử dụng lệnh ENTRYPOINT cùng với định dạng mảng JSON phải được kết hợp.
+- ENTRYPOINT chỉ định rằng lệnh bên trong nó sẽ luôn được chạy khi container khởi động. Lệnh này cung cấp một tùy chọn để cấu hình các tham số và các file thực thi. Nếu DockerFile không có lệnh này, thì nó sẽ vẫn được kế thừa từ image cơ sở được đề cập trong lệnh FROM.
+  - ENTRYPOINT được sử dụng phổ biến nhất là `/bin/sh` hoặc `/bin/bash` cho hầu hết các image cơ sở.
+
+Thực tế, tất cả Dockerfile nên có ít nhất một trong hai lệnh.
+
+## Câu hỏi phỏng vấn Docker cho Experienced
+
+### 31. Có thể dùng JSON thay cho YAML khi phát triển docker-compose trong Docker không?
+
+Có thể. Ta có thể chạy docker-compose trong json, như
+
+```shell
+docker-compose -f docker-compose.json up
+```
+
+### 32. Bạn có thể chạy bao nhiêu container trong docker và các yếu tố ảnh hưởng đến giới hạn này là gì?
+
+Không có giới hạn xác định rõ ràng về số lượng container có thể chạy trong docker. Nhưng tất cả phụ thuộc vào những hạn chế - cụ thể hơn là những hạn chế về phần cứng. Kích thước của ứng dụng và tài nguyên CPU có sẵn là 2 yếu tố quan trọng ảnh hưởng đến giới hạn này. Trong trường hợp ứng dụng của bạn không quá lớn và bạn có tài nguyên CPU dồi dào, thì chúng ta có thể chạy một số lượng lớn các container.
+
+### 33. Vòng đời của container trong Docker?
+
+Các giai đoạn khác nhau của docker container từ khi bắt đầu tạo cho đến khi kết thúc được gọi là vòng đời của docker container.
+
+Các giai đoạn quan trọng nhất là:
+- **Created:** Đây là trạng thái mà container vừa được tạo mới nhưng chưa bắt đầu.
+- **Running:** Trong trạng thái này, container sẽ chạy với tất cả các quy trình liên quan của nó.
+- **Paused:**  Trạng thái này xảy ra khi container đang chạy bị tạm dừng.
+- **Stopped:** Trạng thái này xảy ra khi container đang chạy đã bị dừng.
+- **Deleted:** Trong trường hợp này, container ở trạng thái chết.
+
+![](./assets/docker-container-lifecycle.png)
+
+### 34. Làm thế nào để sử dụng docker cho nhiều môi trường ứng dụng?
+
+- Tính năng docker-compose của docker sẽ hỗ trợ bạn tại đây. Trong file docker-compose, chúng ta có thể xác định nhiều dịch vụ, mạng và container cùng với ánh xạ volume một cách rõ ràng và sau đó chúng ta chỉ cần gọi lệnh `docker-compose up`.
+
+- Khi có nhiều môi trường tham gia - đó có thể là máy chủ dev, staging, uat hoặc production, chúng ta muốn xác định các quy trình và phụ thuộc dành riêng cho server chủ để chạy ứng dụng. Trong trường hợp này, chúng ta có thể tiếp tục tạo file docker-compose theo môi trường cụ thể có tên là `docker-compos. {environment}.yml` và sau đó dựa trên môi trường, chúng ta có thể thiết lập và chạy ứng dụng.
+
 ### 35. Làm sao đảm bảo container1 chạy trước container2 trong khi dùng docker compose?
 
 Docker-compose không đợi bất kỳ container nào "sẵn sảng" trước khi đến container kế tiếp. Để thực thi như vậy, ta có thể sử dụng:
