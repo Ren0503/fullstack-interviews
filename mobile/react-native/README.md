@@ -164,3 +164,147 @@ Redux là một công cụ quản lý trạng thái được dùng cho các ứn
 
 ### 9. Các hàm thời gian trong React Native?
 
+- **setTimeout, clearTimeout**
+
+Có các yêu cầu nghiệp vụ, `setTimeout` để thực thi một mẫu code sau một khoảng thời gian chờ đợi. `clearTimeout` dùng để xoá timer lại thời gian được bắt đầu.
+
+```js
+setTimeout(() => {
+    yourFunction();
+}, 3000);
+```
+
+- **setInterval, clearInterval**
+
+Là phương thức để gọi một hàm hoặc chạy code sau những khoảng thời gian cụ thể, được chỉ định trong tham số thứ hai.
+
+```js
+setInterval(() => {
+    console.log('Interval triggered');
+}, 1000);
+```
+
+Một hàm hoặc khối code được liên kết với một khoảng thời gian sẽ thực thi cho đén khi nó bị dừng. Để dùng khoảng thời gian, ta dùng phương thức `clearInterval()`.
+
+- **setImmediate, clearImmediate**
+
+Gọi hàm thực thi sớm nhất có thể.
+
+```js
+var immediateID = setImmediate(function);
+// The below code displays the alert dialog immediately.
+var immediateId = setImmediate(
+    () => {    alert('Immediate Alert');
+}
+```
+
+`clearImmediate()` dùng để huỷ hành động ngay lập tức nếu nó được thiết lập bằng `setImmediate()`.
+
+- **requestAnimationFrame, cancelAnimationFrame**
+
+Là chuẩn để thực hiện ảnh động.
+
+Gọi một hàm để cập nhật ảnh động trước khi đến frame ảnh động kế tiếp.
+
+```js
+var requestID = requestAnimationFrame(function);
+// The following code performs the animation.
+var requestId = requestAnimationFrame(
+    () => { // animate something}
+)
+```
+
+`cancelAnimationFrame()` dùng để huỷ hàm được thiết lập bởi `requestAnimationFrame()`.
+
+### 10. Cách debug ứng dụng React Native và các công cụ cần thiết?
+
+Trong React Native, có rất nhiều cách debug khác nhau với nhiều công cụ khác nhau, do React Native chạy trên cả hai môi trường Android và iOS. 
+
+- Danh mục:
+Reload: reloads the app
+Debug JS Remotely: opens a channel to a JavaScript debugger
+Enable Live Reload: makes the app reload automatically on clicking Save
+Enable Hot Reloading: watches for changes accrued in a changed file
+Toggle Inspector: toggles an inspector interface, which allows us to inspect any UI element on the screen and its properties, and presents an interface that has other tabs like networking, which shows us the HTTP calls, and a tab for performance.
+
+![](./assets/developer-menu.png)
+
+
+### 11. Props Drilling là gì?
+
+Props Drilling là một khái niệm đề cập đến quá trình truyền dữ liệu từ component cha đến component con chính xác NHƯNG ở giữa có rất nhiều component truyền props như một chuỗi.
+
+![](./assets/Props_Drilling.png)
+
+#### Các bước tránh nó
+
+- React Context API
+- Composition
+- Render props
+- HOC
+- Redux, Mobx
+
+### 12. Mô tả kết nối mạng trong React Native?
+
+React Native cung cấp fetch API cho kết nối mạng. Để lấy nội dung từ một URL, ta có thể làm như sau:
+
+```js
+fetch('https://mywebsite.com/endpoint/', {
+    method: 'POST',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        firstParam: 'yourValue',
+        secondParam: 'yourOtherValue'
+    })
+});
+```
+
+Kết nối mạng là một hoạt động bất đồng bộ. Các phương thức fetch sẽ trả về một Promise giúp dễ dàng viết code hoạt động theo cách bất đồng bộ:
+
+```js
+const getMoviesFromApi = () => {
+    return fetch('https://reactnative.dev/movies.json')
+        .then((response) => response.json())
+        .then((json) => {
+            return json.movies;
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
+```
+
+API XMLHttpRequest là api sẵn có trong React Native. Ta cũng có thể sử dụng axios với frisbee với api này.
+
+```js
+var request = new XMLHttpRequest();
+request.onreadystatechange = (e) => {
+    if (request.readyState !== 4) {
+        return;
+    }
+
+    if (request.status === 200) {
+        console.log('success', request.responseText);
+    } else {
+        console.warn('error');
+    }
+};
+
+request.open('GET', 'https://mywebsite.com/endpoint/');
+request.send();
+```
+
+### 13. Liệt kê các điểm chính để tích hợp React Native trong một ứng dụng Android?
+
+Các điểm chính cần lưu ý để tích hợp các React Native vào ứng dụng Android của bạn là:
+
+- Thiết lập cấu trúc thư mục và phụ thuộc React Native.
+- Phát triển các component React Native của bạn trong JavaScript.
+- Thêm ReactRootView vào ứng dụng Android của bạn. Chế độ xem này sẽ đóng vai trò là container cho component React Native của bạn.
+- Khởi động React Native server và chạy ứng dụng native của bạn.
+- Cuối cùng, chúng tôi cần xác minh việc React Native trong ứng dụng của bạn hoạt động như mong đợi.
+
+### 14. Code React Native được xử lý như thế nào?

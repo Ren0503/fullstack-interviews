@@ -37,7 +37,7 @@
     - [**ES6**](./frontend/es6): 39 câu hỏi phỏng vấn ES6.
     - [**TypeScript**](./frontend/typescript): 50 câu hỏi phỏng vấn TypeScript.
 
-### Backend
+### Backend(Complete)
 
 - Kiến thức:
     - [**Web Services**](./backend/web-services): 35 câu hỏi phỏng vấn dịch vụ Web.
@@ -45,7 +45,7 @@
     - [**Django**](./backend/django): 37 câu hỏi phỏng vấn Django. 
     - [**Nginx**](./backend/nginx): 18 câu hỏi phỏng vấn Nginx.
     - [**WebSocket**](./backend/websocket/): 12 câu hỏi phỏng vấn WebSocket.
-    - [**Microservice**](./backend/microservice): 34 câu hỏi phỏng vấn Microservice(23/34)
+    - [**Microservice**](./backend/microservice): 34 câu hỏi phỏng vấn Microservices.
 - Ngôn ngữ:
     - [**C#**](./backend/csharp): 30 câu hỏi phỏng vấn C#.
     - [**PHP**](./backend/php): 33 câu hỏi phỏng vấn về PHP.
@@ -69,12 +69,12 @@
     - [**Pandas**](./data-analyst/pandas): 10 câu hỏi phỏng vấn Pandas
 
 - Ngôn ngữ lập trình:
-    - [**Python**](./data-analyst/python): 37 câu hỏi phỏng vấn Python (17/37)
+    - [**Python**](./data-analyst/python): 37 câu hỏi phỏng vấn Python (24/37)
 
 ### Mobile
 - Kiến thức
-    - [**Android**](./mobile/android): 39 câu hỏi phỏng vấn về Android.(14/39)
-    - [**iOS**](./mobile/ios): 36 câu hỏi phỏng vấn về iOS.(1/36)
+    - [**Android**](./mobile/android): 39 câu hỏi phỏng vấn về Android.
+    - [**iOS**](./mobile/ios): 36 câu hỏi phỏng vấn về iOS.(6/36)
     - [**React Native**](./mobile/react-native/): 30 câu hỏi phỏng vấn về React Native. (8/30)
 - Ngôn ngữ lập trình:
     - [**Java**](./mobile/java): 54 câu hỏi phỏng vấn về Java.(11/54)

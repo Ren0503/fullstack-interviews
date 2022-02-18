@@ -36,7 +36,7 @@ Ngôn ngữ thông dịch là ngôn ngữ thực thi từng dòng lệnh, ví d�
 
 PEP là viết tắt của **Python Enhancement Proposal**. Một PEP là một tài liệu thiết kế chính thống cung cấp thông tin từ cộng đồng Python hoặc mô tả tính năng mới của Python. PEP 8 đặc biệt quan trọng vì nó ghi lại các hướng dẫn về phong cách code Python. Rõ ràng là việc đóng góp cho cộng đồng nguồn mở Python đòi hỏi bạn phải tuân theo các nguyên tắc về phong cách này một cách nghiêm ngặt.
 
-## 4. Scope trong Python
+### 4. Scope trong Python
 
 Phạm vi (scope) đề cập đến vùng code mà từ đó đối tượng trong Python có thể truy cập được. Do đó, ta không thể truy cập bất kỳ đối tượng cụ thể nào từ bất kỳ nơi nào trong code, việc truy cập phải được cho phép theo phạm vi của đối tượng.
 
@@ -128,7 +128,141 @@ myEmptyFunc()    # nothing happens
 
 ### 8. Module và package trong Python?
 
-Python package và module là hai cơ chế cho phép **lập trình module** trong Python. Việc module hoá đem lại các lợi ích như:
+Package và module là hai cơ chế cho phép **lập trình module** trong Python. Việc module hoá đem lại các lợi ích như:
+- **Tính đơn giản:** Làm việc trên một module duy nhất giúp bạn tập trung vào một phần tương đối nhỏ của vấn đề hiện tại. Điều này làm cho việc phát triển dễ dàng hơn và ít bị lỗi hơn.
+- **Khả năng bảo trì:** Các module được thiết kế để thực thi các logic giữa các miền vấn đề khác nhau. Nếu chúng được viết theo cách làm giảm sự phụ thuộc lẫn nhau, thì ít có khả năng các sửa đổi trong một module có thể ảnh hưởng đến các phần khác của chương trình.
+- **Khả năng tái sử dụng:** Các chức năng được xác định trong một module có thể được sử dụng lại dễ dàng bởi các phần khác của ứng dụng.
+- **Phạm vi:** Các module thường xác định một không gian tên riêng biệt, giúp tránh nhầm lẫn giữa các số nhận dạng từ các phần khác của chương trình.
+
+**Modules**, là một file Python đơn giản với mở rộng `.py` và có một tập hàm, lớp hoặc biến được khai báo và triển khai. Nó có thể được import ở file khác bằng lệnh `import`. Vd:
+
+```py
+from foo import bar
+```
+
+**Package** cho phép cấu trúc phân cấp module bằng cách dùng ký hiệu `.`
+
+### 9. Các quyền truy cập thuộc tính trong Python?
+
+- **Global** là các biến công khai được khai báo ở global scope. Để dùng các biến này trong hàm, ta sử dụng từ khoá `global`.
+- **Protected** là thuộc tính được khai báo với dấu gạch dưới phía trước để định danh, vd `_sara`. Nó có thể truy cập và chỉnh sửa bên ngoài lớp. 
+- **Private** là thuộc tính với hai dấu gạch dưới phía trước để định danh, vd: `__ansh`. Nó không thể truy cập hay chỉnh sửa bên ngoài lớp.
+
+### 10. Self trong Python?
+
+Self được sử dụng để đại diện cho thực thể của lớp. Với từ khóa `this`, bạn có thể truy cập các thuộc tính và phương thức của lớp trong python. Nó liên kết các thuộc tính với các đối số đã cho. self được sử dụng ở những nơi khác nhau và thường được cho là một từ khóa. Nhưng không giống như trong C ++, self không phải là một từ khóa trong Python.
+
+### 11. __init__ là gì?
+
+`__init__` là một phương thức khởi tạo trong Python và tự động gọi bộ nhớ cấp phát khi một đối tượng/thực thể mới được tạo. Tất cả lớp đều có phương thức `__init_-` liên kết với chúng. Nó giúp phân biệt phương thức và thuộc tính từ biến cục bộ.
+
+```py
+# class definition
+class Student:
+   def __init__(self, fname, lname, age, section):
+      self.firstname = fname
+      self.lastname = lname
+      self.age = age
+      self.section = section
+# creating a new object
+stu1 = Student("Sara", "Ansh", 22, "A2")
+```
+
+### 12. break, continue và pass trong Python?
+
+| | |
+|-|-|
+| Break | lệnh break huỷ vòng lặp ngay lập tức và chuyển luồng điều khiển đến phần thân sau vòng lặp đó |
+| Continue | lệnh continue huỷ vòng lặp hiện tại của câu lệnh, nó bỏ quả phần code của vòng lặp hiện tại và chuyển luồng điều khiển đến vòng lặp kế tiếp |
+| Pass | Từ khoá pass trong Python dùng để lấp đầy các empty block, tương tự một câu lệnh trống (`;`) trong Java, C++ |
+
+```py
+pat = [1, 3, 2, 1, 2, 3, 1, 0, 1, 3]
+for p in pat:
+   pass
+   if (p == 0):
+       current = p
+       break
+   elif (p % 2 == 0):
+       continue
+   print(p)    # output => 1 3 1 3 1
+print(current)    # output => 0
+```
+
+### 13. Unit test trong Python là gì?
+
+- Unit test là một framework kiểm thử đơn vị của Python.
+- Unit test là các thành phần kiểm tra
+Đây là lý do tại sao cần phải kiểm tra từng thành phần một cách chính xác để chúng ta biết thành phần nào có thể chịu trách nhiệm cao cho sự cố của phần mềm.
+
+### 14. Docstring là gì?
+
+Docstring hay documentation string là một chuỗi nhiều dòng dùng để ghi lại một đoạn code cụ thể.
+
+Docstrign mô tả hàm hoặc phương thức hoạt động.
+
+### 15. Slicing trong Python?
+
+Slicing mô tả hành vi phân tách các mục trong một đối tượng dạng mảng (array, string, list và tuple). Cú pháp **[start: stop: step]**
+
+- start là chỉ mục bắt đầu tách.
+- stop là chỉ mục dừng lại.
+- step là số bước nhảy.
+
+Giá trị mặc định của start là 0, stop là số lượng mục, step là 1.
+
+```py
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(numbers[1 : : 2])  
+
+#output : [2, 4, 6, 8, 10]
+```
+
+### 16. Các thực thi Python script trên Unix?
+
+Script phải bắt đầu với `#!/usr/bin/env python`
+
+### 17. Sự khác biệt giữa array và list trong Python?
+
+- Array (mảng) trong Python bao gồm các phần tử có cùng kiểu dữ liệu. 
+- List (danh sách) trong Python gồm các phần tử có thể khác kiểu dữ liệu.
+
+```py
+import array
+a = array.array('i', [1, 2, 3])
+for i in a:
+   print(i, end=' ')    #OUTPUT: 1 2 3
+a = array.array('i', [1, 2, 'string'])    #OUTPUT: TypeError: an integer is required (got type str)
+
+a = [1, 2, 'string']
+for i in a:
+   print(i, end=' ')    #OUTPUT: 1 2 string
+```
+
+## Câu hỏi phỏng vấn cho Experienced
+
+### 18. Quản lý bộ nhớ trong Python?
+
+Bộ nhớ trong Python được xử lý bởi **Python Memory Manager**. Bộ nhớ được cấp phát bởi manager trong một **private heap space** dành riêng cho Python. Tất cả đối tượng Python được lưu trữ trong heap này và là riêng tư, nó không thể truy cập bởi lập trình viện. Tuy nhiên, Python cung cấp một vài hàm API cốt lõi cho làm việc trên **private heap space**.
+
+Ngoài ra, Python có một bộ dọn rác có sẵn để dọn dẹp bộ nhớ không được sử dụng cho **private heap space**.
+
+![](./assets/Memory_Management_in_Python.jpg)
+
+### 19. Namespace là gì?
+
+Namespace trong Python đề cập đến tên đối tượng trong một chương trình duy nhất và có thể dùng mà không có xung đột. Python triển khai các namespace này như một từ điển với tên giống như là khoá ánh xạ tới đối tượng tương ứng giống như giá trị. Nó cho phép nhiều namespace sử dụng cùng tên và ánh xạ nó đến các đối tượng riêng biệt. Một vài ví dụ của namespace:
+- **Local Namespace** bao gồm tên cục bộ bên trong một hàm. Namespace được tạo tạm thời cho gọi hàm và sẽ bị xoá khi hàm đó trả về.
+- **Global Namespace** bao gồm tên từ các package/module khác được import để sử dụng trong dự án hiện tại. Namespace này được tạo khi package được import trong script cho đến khi script được thực thi.
+- **Built-in Namespace** bao gồm các hàm có sẵn của Python và tên có sẵn cho các kiểu thực thi khác nhau.
+
+Vòng đời của namespace dựa trên đối tượng mà nó ánh xạ. Nên ở ngoài phạm vi của đối tượng, thì vòng đời của namespace sẽ kết thúc. Do đó, không thể truy cập vào trong đối tượng namespace từ bên ngoài namespace.
+
+![](./assets/Python_namespaces.jpg)
+
+### 20. Scope Resolution trong Python?
+
+
 
 ### 26. Pickling và unpickling là gì?
 
