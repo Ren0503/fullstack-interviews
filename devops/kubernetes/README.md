@@ -75,3 +75,25 @@ spec:
      memory: "_Mi"
      cpu: "_m"
 ```
+
+### 3. Các dịch vụ K8 khác nhau chạy trên một node?
+
+Cụm K8 bao gồm hai kiểu executor node và master.
+
+**Executor node:**
+
+- Kube-proxy: dịch vụ này có trách nhiệm giao tiếp của pods trong cụm và đến bên ngoài mạng, nó chạy trên mọi node. Dịch vụ này chịu trách nhiệm duy trì giao thức mạng khi pod của bạn thiết lập một giao tiếp mạng.
+
+- kubelet: Mỗi node chạy một dịch vụ kubelet để cập nhật node đang chạy tương ứng với file cấu hình (YAML hay JSON).
+
+*Lưu ý*: dịch vụ kubelet chỉ dành cho các container được tạo bởi Kubernetes.
+
+**Dịch vụ master**
+
+- Kube-apiserver: Dịch vụ master API hành động như một entry point đến cụm K8.
+- Kube-scheduler: Lập lịch POD theo các tài nguyên có sẵn trên các executor node.
+- Kube-controller-manager: là một vòng điều khiển theo dõi trạng thái được chia sẻ của cụm thông qua apiserver và thực hiện các thay đổi cố gắng di chuyển trạng thái hiện tại sang trạng thái ổn định mong muốn.
+
+### 4. PBD là gì?
+
+Quản trị viên Kubernetes có thể tạo một loại triển khai: PodDisruptBudget (PBD) để ứng dụng có tính khả dụng cao, nó đảm bảo rằng số lượng tối thiểu các nhóm đang chạy được tôn trọng như đã đề cập trong file thông số kỹ thuật `minAvailable` thuộc tính. Điều này rất hữu ích trong khi thực hiện thoát nơi thoát sẽ tạm dừng cho đến khi PDB được tôn trọng để đảm bảo Tính sẵn sàng cao (HA) của ứng dụng. Tệp thông số kỹ thuật sau đây cũng hiển thị minAvailable as 2 ngụ ý số lượng tối thiểu của một nhóm có sẵn (ngay cả sau cuộc bầu cử).

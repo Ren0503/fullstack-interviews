@@ -295,6 +295,8 @@ Nó là một công cụ DevOps tự động mã nguồn mở giúp hiện đạ
 | Ansible | Developers | Operations | QA | Client/Business |
 |-|-|-|-|
 | Challenges | Các nhà phát triển có xu hướng tập trung nhiều thời gian vào việc tạo công cụ hơn là cung cấp kết quả | Nhóm vận hành sẽ yêu cầu công nghệ đồng nhất có thể được sử dụng bởi các nhóm kỹ năng khác nhau một cách dễ dàng | Nhóm Đảm bảo chất lượng sẽ yêu cầu theo dõi những gì đã được thay đổi trong tính năng và khi nào nó được thay đổi | Khách hàng lo lắng về việc đưa sản phẩm ra thị trường càng sớm càng tốt |
+| Need | Các nhà phát triển cần phản hồi các tính năng/lỗi mới và mở rộng quy mô nỗ lực dựa trên nhu cầu | Nhóm vận hành cần một công cụ quản lý trung tâm để giám sát các hệ thống khác nhau và khối lượng công việc của nó | Nhóm QA cần tập trung vào việc giảm thiểu rủi ro do lỗi của con người càng nhiều càng tốt đối với sản phẩm không có lỗi | Khách hàng cần tạo lợi thế cạnh tranh cho sản phẩm của mình trên thị trường |
+| Ansible giúp gì | Giúp các nhà phát triển phát hiện ra lỗi ở giai đoạn sớm hơn và hỗ trợ họ triển khai nhanh hơn một cách đáng tin cậy | Giúp nhóm Vận hành giảm thiểu nỗ lực của họ trong việc che giấu nhân viên CNTT và giảm thời gian triển khai. Ngoài ra, Ansible hỗ trợ họ thực hiện các bản vá tự động | Giúp nhóm QA thiết lập các trường hợp thử nghiệm tự động không phân biệt môi trường để đạt được kết quả chính xác và đáng tin cậy hơn. Giúp xác định các đường cơ sở bảo mật giống hệt nhau và giúp họ giảm bớt gánh nặng của việc tuân theo các tài liệu truyền thống | Giúp nhóm Kinh doanh đảm bảo nhóm CNTT đang đi đúng hướng. Đồng thời giúp họ tối ưu hóa thời gian dành cho việc lập chiến lược và đổi mới dự án. Giúp các nhóm cộng tác một cách hiệu quả |
 
 ### 23. Cách Ansible hoạt động?
 
@@ -324,3 +326,51 @@ Dự án có thể được phát triển theo các giai đoạn dưới đây b
 - **Giai đoạn 2: PoC:** Đưa ra một bằng chứng về PoC (proof of concept) chỉ để có ý tưởng về những phức tạp liên quan. Sau khi PoC được phê duyệt, công việc triển khai thực tế của dự án sẽ bắt đầu.
 - **Giai đoạn 3: Theo dõi DevOps:** Khi dự án đã sẵn sàng để triển khai, có thể theo sau quá trình văn hóa DevOps thực tế bằng cách sử dụng các giai đoạn của nó như kiểm soát phiên bản, tích hợp liên tục, thử nghiệm liên tục, triển khai liên tục, phân phối liên tục và giám sát liên tục.
 
+## Câu hỏi phỏng vấn DevOps cho Experienced
+
+### 26. Giải thích khái niệm "Shift left to reduce failure" trong DevOps?
+
+Để hiểu khái niệm này, trước tiên ta phải hiểu các vòng tròn SDLC truyền thống hoạt động. Bao gồm hai bên chính:
+- Bên trái của vòng tròn bao gồm các giai đoạn planning, design và development.
+- Bên phải của vòng tròn bao gồm stress testing, production staging và user acceptance.
+
+Trong DevOps, dịch chuyển sang trái đơn giản là thực hiện nhiều tác vụ diễn ra ở cuối quá trình phát triển ứng dụng sang các giai đoạn phát triển ứng dụng càng sớm càng tốt. Từ biểu đồ dưới đây, chúng ta có thể thấy rằng nếu các hoạt động dịch sang trái được thực hiện, khả năng xảy ra lỗi trong giai đoạn sau của quá trình phát triển ứng dụng sẽ giảm đi đáng kể vì nó đã được xác định và giải quyết trong các giai đoạn trước đó.
+
+![](./assets/DevOps_Shift_left_to_reduce_failure_concept.jpg)
+
+Các cách phổ biến thực hiện dịch trái trong DevOps:
+- Làm việc cùng với nhóm phát triển trong khi tạo quá trình triển khai và tự động hoá kiểm thử. Đây là bước đầu tiên để thực hiện dịch trái. Bởi vì hầu hết các lỗi tìm thấy trong môi trường production không được tìm thấy sớm, những lỗi này có thể liên kết trực tiếp với:
+    - Các quy trình triển khai khác nhau được nhóm phát triển sử dụng trong khi phát triển các tính năng của chúng.
+    - Quy trình triển khai production đôi khi có xu hướng khác với quy trình phát triển. Có thể có sự khác biệt trong công cụ và đôi khi quá trình này cũng có thể là thủ công.
+- Cả nhóm phát triển và nhóm vận hành đều được kỳ vọng sẽ nắm quyền sở hữu để phát triển và duy trì các quy trình tiêu chuẩn để triển khai bằng cách sử dụng các khả năng của đám mây và pattern. Điều này giúp tạo niềm tin rằng việc triển khai production sẽ thành công.
+- Sử dụng các pattern để tránh sự mâu thuẫn mức cấu hình trong các môi trường khác nhau đang được sử dụng. Điều này sẽ yêu cầu nhóm nhà phát triển và nhóm vận hành hợp tác và làm việc để phát triển một quy trình tiêu chuẩn hướng dẫn các nhà phát triển kiểm tra ứng dụng của họ trong môi trường phát triển giống như cách họ kiểm tra trong môi trường sản xuất.
+
+### 28. Khái niệm đằng sau lệnh sudo trong Linux?
+
+Sudo là viết tắt của `superuser do` trong đó superuser là root của Linx. Nó là chương trình cho hệ thống Linux/Unix cho phép người dùng chạy chương trình với những đặc quyền bảo mật của người dùng khác trong hệ điều hành. 
+
+### 29. Giải thích kiến trúc Jenkins?
+
+Jenkins tuân theo kiến trúc master-slave. Master pull code gần nhất từ github repo bất cứ khi nao có một commit từ code. Master yêu cầu slave thực hiện hành động như build, test, run và tạo báo cáo test case. Hoạt động này được phân tán trên tất cả slave theo cùng một cách thức.
+
+Jenkins còn dùng cho nhiều slave bởi vì có thể có khả năng yêu cầu các test case khác nhau chạy trên các mỗi trường khác nhau sau khi thực hiện commit code.
+
+![](./assets/Architecture_of_Jenkins.jpg)
+
+### 30. Giải thích khái niệm "infrastructure as code" (IaC)?"
+
+Infrastructive as Code, tạm dịch là cơ sở hạ tầng dưới dạng code, dựa trên việc cơ sở hạ tầng có thể nhận thức giống như bất kỳ code nào, thế nên còn gọi nó là "cơ sở hạ tầng có thể lập trình". Nó cung cấp các phương tiện để xác định và quản lý cơ sở hạ tầng CNTT bằng cách dùng file cấu hình.
+
+Khái niệm này trở nên nổi tiếng vì những hạn chế liên quan đến cách quản lý cơ sở hạ tầng truyền thống. Theo truyền thống, cơ sở hạ tầng được quản lý theo cách thủ công và những người chuyên dụng phải thiết lập các máy chủ một cách vật lý. Sau khi bước này được thực hiện, ứng dụng sẽ được triển khai. Cấu hình và thiết lập thủ công thường xuyên xảy ra lỗi do con người và sự không nhất quán.
+
+Điều này cũng làm tăng chi phí thuê và quản lý nhiều người, từ kỹ sư mạng đến kỹ thuật viên phần cứng để quản lý các tác vụ cơ sở hạ tầng. Vấn đề chính đối với cách tiếp cận truyền thống là giảm khả năng mở rộng và tính khả dụng của ứng dụng, điều này ảnh hưởng đến tốc độ xử lý yêu cầu. Việc cấu hình thủ công cũng tốn nhiều thời gian và trong trường hợp ứng dụng có lượng người dùng sử dụng tăng đột biến, các quản trị viên sẽ cố gắng hết sức để giữ cho hệ thống luôn sẵn sàng chịu tải lớn. Điều này sẽ ảnh hưởng đến tính khả dụng của ứng dụng.
+
+IaC giải quyết tất cả vấn đề trên. Nó có hai cách để triển khai:
+- Cách tiếp cận mệnh lệnh: Cách tiếp cận này "đưa ra các mệnh lệnh" và xác định một chuỗi các hướng dẫn có thể giúp hệ thống đạt được đầu ra cuối cùng.
+- Cách tiếp cận so sánh: Cách tiếp cận này "công bố" kết quả mong muốn trước tiên dựa trên cơ sở hạ tầng được xây dựng để đạt được kết quả cuối cùng.
+
+### 31. Lập trình theo cặp là gì?
+
+Lập trình theo cặp là một kỹ thuật thực tế trong đó hai lập trình viên làm việc trên cùng một hệ thống, cùng một thiết kế và cùng một code. Họ tuân theo các quy tắc của "Lập trình cực đoan". Ở đây, một lập trình viên được gọi là "driver" trong khi người kia đóng vai trò là "observer" liên tục theo dõi tiến độ dự án để xác định bất kỳ vấn đề nào khác. 
+
+### 32. Blue/Green Deployment Pattern?
