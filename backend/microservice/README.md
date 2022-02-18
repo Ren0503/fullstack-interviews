@@ -4,7 +4,7 @@
 
 ## Microservice là gì?
 
-Microservice là một kỹ thuật phát triển phần mềm, một biến thể của kiến trúc hướng dịch vụ cấu trúc một ứng dụng như một tập hợp các dịch vụ được ghép lỏng lẻo. Trong kiến trúc microservice, các dịch vụ được xử lý tốt và các giao thức rất nhẹ. Các ứng dụng được mô hình hoá dưới dạng các dịch vụ, nó giúp:
+Microservice là một kỹ thuật phát triển phần mềm, một biến thể của kiến trúc hướng dịch vụ cấu trúc một ứng dụng như một tập hợp các dịch vụ được kết nối lỏng lẻo. Trong kiến trúc microservice, các dịch vụ được xử lý tốt và các giao thức rất nhẹ. Các ứng dụng được mô hình hoá dưới dạng các dịch vụ, nó giúp:
 - Dễ bảo trì và kiếm tra
 - Kết nối mềm
 - Có thể triển khai độc lập
@@ -25,7 +25,7 @@ Microservice là một kỹ thuật phát triển phần mềm, một biến th�
 - **Quyền tự chủ của nhóm:** Các nhà phát triển làm việc độc lập với nhau, cho phép tiến trình dự án nhanh hơn.
 - **Phân phối liên tục:** Cho phép phát hành phần mềm thường xuyên thông qua hệ thống tự động hóa phát triển, kiểm tra và phê duyệt phần mềm.
 - **Trách nhiệm:** Microservices không tập trung vào các ứng dụng như các dự án. Thay vào đó, họ coi các ứng dụng là sản phẩm mà họ chịu trách nhiệm.
-**Quản trị phi tập trung:** Lựa chọn công cụ phù hợp theo công việc là mục tiêu. Các nhà phát triển có thể chọn các công cụ tốt nhất để giải quyết vấn đề của họ
+- **Quản trị phi tập trung:** Lựa chọn công cụ phù hợp theo công việc là mục tiêu. Các nhà phát triển có thể chọn các công cụ tốt nhất để giải quyết vấn đề của họ
 - **Kết hợp Agile:** Microservices tạo điều kiện cho kết hợp với phương pháp Agile. Có thể tạo các tính năng mới một cách nhanh chóng và loại bỏ chúng bất cứ lúc nào
 
 ### 2. Các thành phần chính trong Microservices?
@@ -92,7 +92,12 @@ Microservice là một kỹ thuật phát triển phần mềm, một biến th�
 
 ### 7. Cohesion và Coupling là gì?
 
-**Khớp nối (Cohesion):** Nó được định nghĩa là mối quan hệ giữa các modile phần mềm A và B, và mức độ một module phụ thuộc hoặc tương tác với một module khác. Các khớp nối được chia thành ba loại chính. Các module có thể được ghép nối nhiều (phụ thuộc nhiều), liên kết lỏng lẻo và tách rời khỏi nhau. Loại khớp nối tốt nhất là khớp nối lỏng, được thực hiện thông qua các interface.
+**Khớp nối (Cohesion):** Nó được định nghĩa là mối quan hệ giữa các module phần mềm A và B, và mức độ một module phụ thuộc hoặc tương tác với một module khác. Các cohesion nối được chia thành ba loại chính:
+- Các module phụ thuộc nhiều vào nhau.
+- Các module ít phụ thuộc (lỏng lẻo).
+- Các module tách rời hoàn toàn.
+
+Loại cohesion tốt nhất là loại ít phụ thuộc, được thực hiện thông qua các interface.
 
 **Liên kết (Coupling):** Nó được định nghĩa là mối quan hệ giữa hai hoặc nhiều phần tử của một module phục vụ cùng một mục đích. Nói chung, một module có tính liên kết cao có thể thực hiện một chức năng cụ thể một cách hiệu quả mà không cần giao tiếp với bất kỳ module nào khác. Tính liên kết cao nâng cao chức năng của module.
 
@@ -100,7 +105,7 @@ Microservice là một kỹ thuật phát triển phần mềm, một biến th�
 
 ### 8. Bounded Context là gì?
 
-Một bounded context là một mẫu trung tâm trong DDD (Domain-Driven Design), đề cập đến sự cộng tác giữa các mô hình và nhóm lớn. DDD chia nhỏ các mô hình lớn thành nhiều ngữ cảnh để giúp chúng dễ quản lý hơn. Ngoài ra, nó giải thích mối quan hệ của họ một cách rõ ràng. Khái niệm này thúc đẩy phương pháp tiếp cận hướng đối tượng để phát triển các dịch vụ gắn với mô hình dữ liệu và cũng chịu trách nhiệm đảm bảo tính toàn vẹn và khả năng thay đổi của mô hình dữ liệu nói trên.
+Một bounded context là một mẫu trung tâm trong DDD (Domain-Driven Design), đề cập đến sự cộng tác giữa các mô hình và nhóm lớn. DDD chia nhỏ các mô hình lớn thành nhiều ngữ cảnh để giúp chúng dễ quản lý hơn. Ngoài ra, nó giải thích mối quan hệ của chúng một cách rõ ràng. Khái niệm này thúc đẩy phương pháp tiếp cận hướng đối tượng để phát triển các dịch vụ gắn với mô hình dữ liệu và cũng chịu trách nhiệm đảm bảo tính toàn vẹn và khả năng thay đổi của mô hình dữ liệu nói trên.
 
 ![](./assets/Bounded_Context.jpg)
 
@@ -123,10 +128,10 @@ Những thách thức mà ta phải đối mặt khi sử dụng microservices c
 #### Thách thức kỹ thuật:
 
 - Các microservices luôn phụ thuộc lẫn nhau. Vì vậy, chúng phải giao tiếp với nhau.
-- Nó là một mô hình có nhiều liên quan vì là một hệ thống phân tán.
+- Nó là một mô hình có nhiều liên kết vì là một hệ thống phân tán.
 - Bạn cần chuẩn bị cho các hoạt động nhiều chi phí nếu bạn đang sử dụng kiến trúc Microservice.
-- Để hỗ trợ các dịch vụ vi mô được phân phối không đồng nhất, bạn cần các chuyên gia có tay nghề cao.
-- Rất khó để tự động hóa vì số lượng các thành phần ít hơn. Vì lý do đó, mỗi thành phần phải được xây dựng, triển khai và giám sát riêng biệt.
+- Để hỗ trợ các microservices phân phối không đồng nhất, bạn cần các chuyên gia với tay nghề cao.
+- Rất khó để tự động hóa vì số lượng các thành phần nhỏ hơn. Vì lý do đó, mỗi thành phần phải được xây dựng, triển khai và giám sát riêng biệt.
 - Rất khó để quản lý cấu hình trên các môi trường khác nhau cho tất cả các thành phần.
 - Những thách thức liên quan đến triển khai, gỡ lỗi và thử nghiệm.
 
@@ -149,7 +154,7 @@ Client certificates là một loại chứng chỉ kỹ thuật số thường c
 
 ### 14. Giải thích về CDC?
 
-Như tên của nó, CDC (Consumer-Driven Contract) về cơ bản đảm bảo khả năng tương thích giao tiếp dịch vụ bằng cách thiết lập một thỏa thuận giữa người tiêu dùng và nhà cung cấp dịch vụ về định dạng dữ liệu được trao đổi giữa họ. Một thỏa thuận như thế này được gọi là hợp đồng. Về cơ bản, nó là một mẫu được sử dụng để phát triển các Microservices để chúng có thể được các hệ thống bên ngoài sử dụng một cách hiệu quả.
+Như tên của nó, CDC (Consumer-Driven Contract) về cơ bản đảm bảo khả năng tương thích giao tiếp dịch vụ bằng cách thiết lập một thỏa thuận giữa người tiêu dùng và nhà cung cấp dịch vụ về định dạng dữ liệu được trao đổi giữa họ. Một thỏa thuận như thế này được gọi là hợp đồng (contract). Nó là một mẫu được sử dụng để phát triển các Microservices để chúng có thể được các hệ thống bên ngoài sử dụng một cách hiệu quả.
 
 ### 15. Các công ty nổi tiếng sử dụng kiến trúc Microservices?
 
@@ -165,11 +170,11 @@ Semantic monitoring, còn được gọi là giám sát tổng hợp, sử dụn
 
 ### 17. Continuos monitoring là gì?
 
-Giám sát liên tục (continuos monitoring) liên quan đến việc xác định các vấn đề tuân thủ và rủi ro trong môi trường tài chính và hoạt động của công ty. Nó bao gồm con người, quy trình và hệ thống làm việc hỗ trợ hoạt động hiệu quả và hiệu quả.
+Giám sát liên tục (continuos monitoring) liên quan đến việc xác định các vấn đề tuân thủ và rủi ro trong môi trường tài chính và hoạt động của công ty. Nó bao gồm con người, quy trình và hệ thống làm việc hỗ trợ hoạt động hiệu quả.
 
 ### 18. Domain Driven Design là gì?
 
-DDD (Domain Driven Design) là một phương pháp tiếp cận trong việc phân tích và phát triển phần mềm khi giải quyết những vấn đề nghiệp vụ phức tạp. Ý tưởng cơ bản của phương pháp này là việc xây dựng sự kết nối chặt chẽ giữa thiết kế phần mềm và mô hình nghiệp vụ trong suốt vòng đời phát triển sản phẩm. Để tạo nên sự kết nối này, DDD đưa ra 3 yêu cầu cơ bản:
+DDD (Domain Driven Design) là một phương pháp tiếp cận trong việc phân tích và phát triển phần mềm khi giải quyết những vấn đề nghiệp vụ phức tạp. Ý tưởng cơ bản của phương pháp này là việc xây dựng kết nối chặt chẽ giữa thiết kế phần mềm và mô hình nghiệp vụ trong suốt vòng đời phát triển sản phẩm. Để tạo nên sự kết nối này, DDD đưa ra 3 yêu cầu cơ bản:
 
 - Trọng tâm của dự án là những nguyên tắc và logic nghiệp vụ
 - Thiết kế phần mềm cần phải phản ánh chính xác mô hình nghiệp vụ
@@ -197,8 +202,8 @@ Trong OAuth2 định nghĩa 4 vai trò:
 
 - **Resource owner:** là những người dùng có khả năng cấp quyền truy cập, chủ sở hữu của tài nguyên mà ứng dụng muốn lấy.
 - **Resource server:** nơi lưu trữ các tài nguyên, có khả năng xử lý yêu cầu truy cập đến các tài nguyên được bảo vệ.
-- **Client**: là những ứng dụng bên thứ 3 muốn truy cập vào phần tài nguyên được chia sẻ với tư cách của người sở hữu (resource owner) và tất nhiên trước khi truy cập ứng dụng cần được sự ủy quyền của user.
-- **Authorization server:** làm nhiệm vụ xác thực, kiểm tra thông tin mà user gửi đến từ đó cấp quyền truy cập cho ứng dụng bằng việc sinh ra các đoạn mã access token. Đôi khi authorization server cũng chính là resource server.
+- **Client**: là những ứng dụng bên thứ 3 muốn truy cập vào phần tài nguyên được chia sẻ với tư cách của người sở hữu (resource owner) và tất nhiên trước khi truy cập ứng dụng cần được sự ủy quyền của người dùng.
+- **Authorization server:** làm nhiệm vụ xác thực, kiểm tra thông tin mà người dùng gửi đến từ đó cấp quyền truy cập cho ứng dụng bằng việc sinh ra các đoạn access token. Đôi khi authorization server cũng chính là resource server.
 
 ![](./assets/oauth.jpg)
 
@@ -232,7 +237,7 @@ Giám sát một hệ thống thường liên quan đến việc sử dụng cá
 
 ### 25. Reactive Extension là?
 
-Reactive Programming như một khái niệm đã tồn tại trong hơn 20 năm nhưng đã không phát triển cho đến Reactive Extensions ra đời. Reactive Extension (còn được gọi là ReactiveX hay RX) là giao diện lập trình ứng dụng (Application Programming Interface-API) hoặc lập trình không đồng bộ với các luồng có thể quan sát được.
+Reactive Programming như một khái niệm đã tồn tại trong hơn 20 năm nhưng đã không phát triển cho đến Reactive Extensions ra đời. Reactive Extension (còn được gọi là ReactiveX hay Rx) là giao diện lập trình ứng dụng (Application Programming Interface-API) hoặc lập trình bất đồng bộ với các luồng có thể quan sát được.
 
 ReactiveX có hai lớp: lớp có thể quan sát (Observable) và lớp quan sát (Observer). Observable là nguồn dữ liệu của các luồng hoặc các sự kiện và Observer là lớp sử dụng (hoặc phản ứng lại) các phần tử được tạo ra.
 
@@ -248,7 +253,7 @@ Vì có nhiều microservice hoạt động cùng nhau, việc test microservice
 
 - **Test cấp thấp:** các test này xử lý với công nghệ, như unit test và performance test. Đây là quá trình tự động hoàn thành
 - **Test cấp trung bình:** chúng ta có các bài test như stress test và usability test.
-- **Test cấp cao:** chúng tôi có một số test chấp nhận hạn chế. Các bài test chấp nhận giúp các bên liên quan hiểu và xác minh các tính năng của phần mềm.
+- **Test cấp cao:** chúng ta có một số test chấp nhận hạn chế. Các bài test chấp nhận giúp các bên liên quan hiểu và xác minh các tính năng của phần mềm.
 
 ### 27. Kiểm tra kim tự tháp Mike Cohn's là gì?
 
