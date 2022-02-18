@@ -374,3 +374,48 @@ IaC giải quyết tất cả vấn đề trên. Nó có hai cách để triển
 Lập trình theo cặp là một kỹ thuật thực tế trong đó hai lập trình viên làm việc trên cùng một hệ thống, cùng một thiết kế và cùng một code. Họ tuân theo các quy tắc của "Lập trình cực đoan". Ở đây, một lập trình viên được gọi là "driver" trong khi người kia đóng vai trò là "observer" liên tục theo dõi tiến độ dự án để xác định bất kỳ vấn đề nào khác. 
 
 ### 32. Blue/Green Deployment Pattern?
+
+Blue-green pattern là một kiểu triển khai liên tục, là một pattern phát hành ứng dụng tập trung vào việc chuyển lưu lượng người dùng từ phiên bản phần mềm/dịch vụ đang hoạt động trước đó sang bản phát hành mới gần nhất - cả hai phiên bản đều chạy trên môi trường production.
+
+Môi trường blue (xanh lam) biểu thị phiên bản cũ của ứng dụng trong khi môi trường green (xanh lá) là phiên bản mới nhất.
+
+Lưu lượng của production sẽ chuyển dần từ môi trường blue sang green và một khi nó được chuyển hoàn toàn, môi trường blue sẽ được giữ lại trong trường hợp cần thiết.
+
+![](./assets/Blue_Green_Deploy.gif)
+
+Trong pattern này, nhóm phải đảm bảo hai môi trường production giống hệt nhau những chỉ một trong chúng là LIVE tạo một thời điểm nhất định. Vì môi trường blue ổn định hơn, nên nó thường là LIVE.
+
+### 33. Hiệu ứng Dogpile là gì?
+
+Hiệu ứng Dogpile được dùng để chỉ sự kiện xảy ra khi cache đã hết hạn, và trang web phải chịu nhiều yêu cầu từ client tại cùng một thời điểm. Hiệu ứng này có thể phòng tránh bằng cách sử dụng khoá semaphore. Trong hệ thống này, khi giá trị hết hạn, tiến trình bắt đầu sẽ có được khoá và bắt đầu sinh giá trị mới.
+
+### 34. Các bước cần thực hiện để cấu hình git repo để nó chạy quá trình kiểm tra code trước khi thực hiện bất kỳ commit nào?
+
+Sanity testing còn gọi là smoke testing là một quy trình được sử dụng để xác định xem có hợp lý để tiến hành thử nghiệm hay không.
+
+Git repo cung cấp một hook gọi là pre-commit, được kích hoạt ngay khi một commit xảy ra. Một script đơn giản có thể dùng hook này để viết smoke test.
+
+Script có thể sử dụng các công cụ khác như linters và thực hiện smoke testing về những commit trong repo.
+
+```shell
+#!/bin/sh
+files=$(git diff –cached –name-only –diff-filter=ACM | grep '.py$')
+if [ -z files ]; then
+exit 0
+fi
+unfmtd=$(pyfmt -l $files)
+if [ -z unfmtd ]; then
+exit 0
+fi
+echo "Some .py files are not properly fmt'd"
+exit 1
+```
+
+Đoạn script trên kiểm tra bất kỳ file .py nào sẽ được commit có đúng định dạng hay không bằng cách sử dụng công cụ *pyfmt*. Nếu các file không được định dạng đúng, thì script sẽ ngăn thay đổi được commit với repo bằng lệnh thoát với status 1.
+
+### 35. Làm thế nào có thể đảm bảo một script chạy mỗi khi repo nhận được các commit mới thông qua git push?
+
+Có ba cách thiết lập script trên repo đích để được thực thi tùy thuộc vào thời điểm script phải được kích hoạt chính xác. Những phương tiện này được gọi là hook và chúng có ba loại:
+- **Pre-receive hook:** Hook này gọi trước khi tham chiếu được cập nhật khi commit đang được push. Hook này hữu ích trong việc đảm bảo các script liên quan đến việc thực thi các chính sách phát triển được chạy.
+- **Update hook:** Hook này kích hoạt khi script chạy trước bất kỳ cập nhật nào thực sự được thực hiện. Hook này được gọi một lần cho mọi commit đã được push vào repo.
+- **Post-receive hook:** Hook này giúp kích hoạt script sau khi các cập nhật hoặc thay đổi đã được repo đích chấp nhận. Hook này lý tưởng để định cấu hình các script triển khai, mọi script dựa trên tích hợp liên tục hoặc quy trình thông báo qua email cho nhóm, ...
