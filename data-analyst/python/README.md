@@ -262,7 +262,8 @@ Vòng đời của namespace dựa trên đối tượng mà nó ánh xạ. Nên
 
 ### 20. Scope Resolution trong Python?
 
-
+Thỉnh thoảng trong cùng một scope sẽ có đối tượng cùng tên nhưng khác chứ năng. Trong trường hợp đó, scope resolution sẽ được Python tự động chạy. Một vài ví dụ hành vi như:
+- 
 
 ### 26. Pickling và unpickling là gì?
 

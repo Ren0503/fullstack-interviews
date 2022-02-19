@@ -53,9 +53,9 @@
 ### Devops
 
 - Kiến thức
-    - [DevOps cơ bản](./devops/devops): 35 câu hỏi phỏng vấn DevOps (25/35)
-    - [**Docker**](./devops/docker): 35 câu hỏi phỏng vấn Docker(20/35)
-    - [**Kubernetes**](./devops/kubernetes): 26 câu hỏi phỏng vấn Kubernetes(2/26)
+    - [**DevOps cơ bản**](./devops): 35 câu hỏi phỏng vấn DevOps.
+    - [**Docker**](./devops/docker): 35 câu hỏi phỏng vấn Docker.
+    - [**Kubernetes**](./devops/kubernetes): 26 câu hỏi phỏng vấn Kubernetes
     - [**Git**](./devops/git)
     - [**Agile**](./devops/agile)
 - Ngôn ngữ lập trình:
@@ -83,4 +83,10 @@
 
 * [**Interviewbit**](https://www.interviewbit.com)
 
-* [**Careercup**](https://github.com/careercup)
+* [**Code Problems**](https://github.com/blakeembrey/code-problems)
+
+* [**Fullstack Cafe**](https://www.fullstack.cafe)
+
+* [**Learning Zone**](https://github.com/learning-zone)
+
+* [**Career Guru99**](https://career.guru99.com/top-18-nginx-interview-question/)
