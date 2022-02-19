@@ -337,3 +337,363 @@ Ví dụ bây giờ, có một số thay đổi trạng thái xảy ra, do đó 
 
 ![](./assets/android_platform.png)
 
+### 16. Các component cốt lõi trong React Native?
+
+Các component cốt lỗi thường được dùng trong React Native: `<View>`, `<Text>`, `<Image>`, `<ScrollView>` và `<TextInput>`.
+
+| React Native Component | Android View | iOS view | Web view | Mô tả |
+|-|-|-|-|-|
+| <View> | <ViewGroup> | <UIView> | <div> | Một container hỗ trợ bố cục với kiểu flexbox, một số điều khiển cảm ứng và điều khiển trợ năng |
+| <Text> | <TextView> | <UITextView> | <p> | Hiển thị style, lồng chuỗi văn bản hoặc xử lý sự kiện |
+| <Image> | <ImageView> | <UIImageView> | <img> | Hiển thị ảnh |
+| <ScrollView> | <ScrollView> | <UIScrollView> | <div> | Một container scroll chung có thể chứa nhiều component và view |
+| <TextInput> | <EditText> | <UITextField> | <input type="text"> | Cho phép người dùng nhập văn bản |
+
+### 17. ListView trong React Native?
+
+ListView là một component bao gồm danh sách các mục được hiển thị và có thể scroll theo chiều dọc.
+
+```jsx
+export default class MyListComponent extends Component {  
+    constructor() {  
+        super();  
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});  
+        this.state = {  
+            dataSource: ds.cloneWithRows(['Android','iOS', 'Java','Php', 'Hadoop', 'Sap', 'Python','Ajax', 'C++']), 
+        };
+    }  
+    render() {  
+        return ( 
+            <ListView 
+                dataSource={this.state.dataSource}  
+                renderRow={  
+                (rowData) =>  
+                <Text style={{fontSize: 30}}>{rowData}</Text>} 
+            />  
+        ); 
+    }  
+}
+```
+
+### 18. Làm thế nào bạn có thể viết code khác nhau cho IOS và Android trong cùng một codebase?
+
+Module platform sẽ phát hiện từng nền tảng khi ứng dụng được chạy.
+
+```jsx
+import { Platform, Stylesheet } from 'react-native';
+
+const styles = Stylesheet.create({
+    height: Platform.OS === 'IOS' ? 200 : 400
+})
+```
+
+Ngoài ra, phương thức `Platform.select` lấy một đối tượng chứa Platform.OS làm khóa và trả về giá trị cho nền tảng bạn hiện đang sử dụng. 
+
+```jsx
+import { Platform, StyleSheet } from 'react-native';
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        ...Platform.select({
+            ios: {
+                backgroundColor: 'red',
+            },
+            android: {
+                backgroundColor: 'green',
+            },
+            default: {
+                // other platforms, web for example
+                backgroundColor: 'blue',
+            },    
+        }),
+    },
+});
+```
+
+### 19. Touchable và cách dùng nó trong React Native?
+
+Các cử chỉ chạm có thể được ghi lại bằng các component Touchable và có thể hiển thị phản hồi khi một cử chỉ được nhận dạng.
+
+Tùy thuộc vào loại phản hồi bạn muốn cung cấp, mà chọn loại component Touchable.
+
+- Nhìn chung, chúng ta sử dụng `TouchableHighlight` ở bất kỳ nơi nào sử dụng button hoặc link đến web. Chế độ nền của view sẽ tối đi khi người dùng nhấn nút xuống.
+
+- Chúng ta có thể sử dụng `TouchableNativeFeedback` trên Android để hiển thị các gợn sóng phản ứng bề mặt mực phản ứng với thao tác chạm của người dùng.
+
+- `TouchableOpacity` có thể được sử dụng để cung cấp phản hồi bằng cách giảm độ mờ của button, cho phép nhìn thấy nền trong khi người dùng nhấn xuống.
+
+- Nếu chúng ta cần xử lý một cử chỉ nhấn nhưng bạn không muốn hiển thị bất kỳ phản hồi nào, hãy sử dụng `TouchableWithoutFeedback`.
+
+```jsx
+import React, { Component } from 'react';
+import { 
+    Platform, 
+    StyleSheet, 
+    Text, 
+    TouchableHighlight, 
+    TouchableOpacity, 
+    TouchableNativeFeedback, 
+    TouchableWithoutFeedback, 
+    View 
+} from 'react-native';
+
+export default class Touchables extends Component {
+    _onPressButton() {
+        alert('You tapped the button!')
+    }
+    _onLongPressButton() {
+        alert('You long-pressed the button!')
+    }
+    render() {
+        return (
+            <View style={styles.container}>
+                <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
+                    <View style={styles.button}>
+                        <Text style={styles.buttonText}>TouchableHighlight</Text>
+                    </View>
+                </TouchableHighlight>
+            </View>
+        );
+    }
+}
+```
+
+### 20. Component FlatList là gì?
+
+Component FlatList hiển thị dữ liệu có cấu trúc trong một danh dách có thể scroll. Nó hoạt động với những danh sách dữ liệu lớn và số lượng mục có thể thay đổi theo thời gian.
+
+**Tính năng:**
+
+FlatList chỉ hiển thị các phần tử được render hiện đang hiển thị trên màn hình, không hiển thị tất cả các phần tử của danh sách cùng một lúc.
+
+```jsx
+import React, { Component } from 'react';  
+import { AppRegistry, FlatList,  
+   StyleSheet, Text, View,Alert } from 'react-native';  
+
+export default class FlatListBasics extends Component {  
+    renderSeparator = () => {  
+        return (  
+            <View  
+                style={{  
+                    height: 1,  
+                    width: "100%",  
+                    backgroundColor: "#000",  
+                }}  
+            />  
+        );  
+    };  
+    //handling onPress action  
+    getListViewItem = (item) => {  
+        Alert.alert(item.key);  
+    }  
+ 
+    render() {  
+        return (  
+            <View style={styles.container}>  
+                <FlatList  
+                    data={[  
+                        {key: 'Android'},{key: 'iOS'}, {key: 'Java'},{key: 'Swift'},  
+                        {key: 'Php'},{key: 'Hadoop'},{key: 'Sap'},  
+                    ]}  
+                    renderItem={({item}) =>  
+                        <Text style={styles.item}  
+                                onPress={this.getListViewItem.bind(this, item)}>{item.key}</Text>}  
+                    ItemSeparatorComponent={this.renderSeparator}  
+                />  
+            </View>  
+        );  
+    }
+}  
+AppRegistry.registerComponent('AwesomeProject', () => FlatListBasics);  
+```
+
+### 21. Cách định tuyến với React Navigation trong React Native?
+
+Một trong những thư viện phổ biến để định tuyến và điều hướng trong ứng dụng React Native là React Navigation.
+
+Thư viện này giúp giải quyết vấn đề điều hướng giữa nhiều màn hình và chia sẻ dữ liệu giữa chúng.
+
+```jsx
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+const MyStack = () => {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+            <Stack.Screen
+                name="Home"
+                component={HomeScreen}
+                options={{ title: 'Welcome' }}
+            />
+            <Stack.Screen name="Profile" component={ProfileScreen} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
+};
+```
+
+### 22. Các cách thiết kế style trong ứng dụng React Native?
+
+#### Dùng thuộc tính style
+
+Bạn có thể thêm style vào component của mình bằng cách sử dụng các thuộc tính style. Bạn chỉ cần thêm các thuộc tính style vào phần tử của mình và nó chấp nhận một đối tượng thuộc tính.
+
+```jsx
+import React, {Component} from 'react';
+import {Platform, StyleSheet, Text, View} from 'react-native';
+
+export default class App extends Component<Props> {
+    render() {
+        return (
+        <View style={{flex:1,justifyContent:"center",backgroundColor:"#fff", alignItems:"center"}}>
+            <View style={{width:200,height:150,backgroundColor:"red",padding:10}}>
+                <Text style={{fontSize:20, color:"#666"}}>Styled with style props</Text>
+            </View>
+        </View>
+        );
+    }
+}
+```
+
+![](./assets/Image-11.png)
+
+#### Dùng StyleSheet
+
+Đối với một codebase cực kỳ lớn hoặc bạn muốn đặt nhiều thuộc tính cho các phần tử của mình, việc viết quy tắc tạo style trực tiếp bên trong các thuộc tính style sẽ làm cho code trở nên phức tạp hơn, đó là lý do tại sao React Native cung cấp cho chúng ta một cách khác để viết code ngắn gọn bằng phương thức StyleSheet:
+
+```jsx
+import { StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+    container: {
+        flex:1,
+        justifyContent:"center",
+        backgroundColor:"#fff",
+        alignItems:"stretch"
+    },
+    title: {
+        fontSize:20,
+        color:"#fff"
+    },
+    item1: {
+        backgroundColor:"orange",
+        flex:1
+    },
+    item2: {
+        backgroundColor:"purple",
+        flex:1
+    },
+    item3: {
+        backgroundColor:"yellow",
+        flex:1
+    },
+});
+```
+
+Khi ta truyền đối tượng style vào component thông qua thuộc tính style:
+
+```jsx
+<View style={styles.container}>
+    <View style={styles.item1}>
+        <Text style={{fontSize:20, color:"#fff"}}>Item number 1</Text>
+    </View>
+    <View style={styles.item2}>
+        <Text style={{fontSize:20, color:"#fff"}}>Item number 1</Text>
+    </View>
+    <View style={styles.item3}>
+        <Text style={{fontSize:20, color:"#fff"}}>Item number 1</Text>
+    </View>
+    <View style={styles.item4}>
+        <Text style={{fontSize:20, color:"#fff"}}>Item number 1</Text>
+    </View>
+</View>
+```
+
+#### styled-components
+
+Ta có thể đã sử dụng styled-component để tạo style với React Native để có tạo style như CSS bình thường. Để sử dụng nó trong dự án chỉ cần chạy lệnh cài đặt module như sau:
+
+```
+npm install styled-component
+```
+
+Ví dụ
+
+```jsx
+import React, {Component} from 'react';
+import { StyleSheet,Text, View} from 'react-native';
+import styled from 'styled-components';
+
+const Container=styled.View`
+   flex:1;
+   padding:50px 0;
+   justify-content:center;
+   background-color:#f4f4f4;
+   align-items:center
+`;
+const Title=styled.Text`
+    font-size:20px;
+    text-align:center;
+    color:red;
+`;
+const Item=styled.View`
+    flex:1;
+    border:1px solid #ccc;
+    margin:2px 0;
+    border-radius:10px;
+    box-shadow:0 0 10px #ccc;
+    background-color:#fff;
+    width:80%;
+    padding:10px;
+`;
+
+export default class App extends Component {
+    render() {
+        return (
+            <Container>
+                <Item >
+                    <Title >Item number 1</Title>
+                </Item>
+                <Item >
+                    <Title >Item number 2</Title>
+                </Item>
+                <Item >
+                    <Title >Item number 3</Title>
+                </Item>
+                <Item >
+                    <Title >Item number  4</Title>
+                </Item>
+            </Container>
+        );
+    }
+}
+```
+
+### 23. Giải thích Async Storage trong React Native?
+
+- Async Storage trong React Native tương đương với Local Storage trên web.
+- Async Storage là một module do cộng đồng duy trì cho React Native, cung cấp một kho lưu trữ key-value bất đồng bộ, không được mã hóa. Async Storage không được chia sẻ giữa các ứng dụng: mọi ứng dụng đều có môi trường sandbox riêng và không có quyền truy cập vào dữ liệu từ ứng dụng khác
+
+Dùng Async Storage khi:
+- Dữ liệu không nhạy cảm liên tục trên các lần chạy ứng dụng
+- Trạng thái Redux
+- Trạng thái GraphQL
+- Lưu trữ các biến toàn cục trên toàn ứng dụng
+
+Không dùng cho:
+- Token
+- Khoá bí mật
+
+### 24. Nguyên nhân thực sự đằng sau các vấn đề về hiệu suất trong React Native là gì?
+
+Nguyên nhân thực sự đằng sau các vấn đề về hiệu suất React Native là mỗi luồng (tức là luồng Native và JS) quá nhanh. Tắc nghẽn hiệu suất trong ứng dụng React Native xảy ra khi bạn chuyển các thành phần từ luồng này sang luồng khác một cách không cần thiết hoặc nhiều hơn mức cần thiết. Quy tắc ngón tay cái chính được dùng để tránh bất kỳ vấn đề nào liên quan đến hiệu suất trong React Native và giữ cho các lần vượt qua bridge ở mức tối thiểu.
+
+- Luồng Native được xây dựng để chạy Java/Kotlin, Swift/Objective C.
+- Luồng Javascript là luồng chính chạy mọi thứ từ hoạt ảnh dựa trên javascript đến các component giao diện người dùng khác.
+- Bridge như tên cho thấy hoạt động như một điểm giao tiếp trung gian cho luồng Native và JS.
+
