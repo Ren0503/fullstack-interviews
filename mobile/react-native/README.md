@@ -308,3 +308,32 @@ Các điểm chính cần lưu ý để tích hợp các React Native vào ứng
 - Cuối cùng, chúng tôi cần xác minh việc React Native trong ứng dụng của bạn hoạt động như mong đợi.
 
 ### 14. Code React Native được xử lý như thế nào?
+
+- Khi bắt đầu khởi động ứng dụng, luồng chính bắt đầu thực thi và tải JS bundles.
+- Khi code JS đã được tải hoàn tất, luồng chính gửi nó vào luồng JS khác vì JS thực hiện các tính toán nặng trong một thời gian, luồng UI sẽ không phải chịu ảnh hưởng gì cả.
+- Khi React bắt đầu render, Reconciler bắt đầu "driffing", và nó tạo một virtual DOM (layout) mới, nó gửi các thay đổi đến luồng khác. (Luồng shadow)
+- Luồng shadow tính toán bố cụ và gửi tham số/đối tượng bố cục đến luồng chính. 
+- Vì chỉ luồng chính mới có thể hiển thị thứ gì đó trên màn hình, nên luồng shadow sẽ gửi bố cục đã tạo đến luồng chính và chỉ khi đó giao diện người dùng mới hiển thị.
+
+### 15. Bridge trong React Native là gì?
+
+Bridge là một lớp hoặc một kết nối chịu trách nhiệm gắn kết môi trường Native và JavaScript lại với nhau.
+
+Sơ đồ:
+
+![](./assets/bridge_in_react_native.png)
+
+- Lớp gần nhất với thiết bị mà ứng dụng chạy trên đó là Lớp Native.
+ 
+- Bridge về cơ bản là một lớp truyền tải hoạt động như một kết nối giữa các module Javascript và Native, nó thực hiện công việc vận chuyển các thông báo phản hồi được tuần tự hóa bất đồng bộ từ JavaScript đến các module Native.
+
+Ví dụ bây giờ, có một số thay đổi trạng thái xảy ra, do đó React Native sẽ cập nhật hàng loạt UI và gửi nó đến Bridge. Bridge sẽ chuyển phản hồi được tuần tự hóa này đến lớp Native, lớp này sẽ xử lý tất cả các lệnh mà nó có thể phân biệt với phản hồi được tuần tự hóa và sẽ cập nhật giao diện người dùng cho phù hợp.
+
+**Nền tảng iOS**
+
+![](./assets/IOS_Platform.png)
+
+**Nền tảng Android**
+
+![](./assets/android_platform.png)
+

@@ -263,7 +263,82 @@ Vòng đời của namespace dựa trên đối tượng mà nó ánh xạ. Nên
 ### 20. Scope Resolution trong Python?
 
 Thỉnh thoảng trong cùng một scope sẽ có đối tượng cùng tên nhưng khác chứ năng. Trong trường hợp đó, scope resolution sẽ được Python tự động chạy. Một vài ví dụ hành vi như:
-- 
+- Module Python có tên như 'math' và 'cmath' có nhiều hàm giống nhau như `log10()`, `acos()`, `exp()`. Để giải quyết vấn đề xung đột, ta cần thêm tên module vào phía trước chúng như `math.exp()` và `cmath.exp()`
+- Hãy xem xét đoạn code dưới đây, một đối tượng `temp` đã được khởi tạo bằng 10 trên toàn cục và sau đó là 20 khi gọi hàm. Tuy nhiên, lệnh gọi hàm không thay đổi giá trị của `temp` trên toàn cục. Ở đây, chúng ta có thể quan sát thấy rằng Python vẽ ra một ranh giới rõ ràng giữa các biến toàn cục và cục bộ, coi các namespace của chúng là danh tính riêng biệt.
+
+```py
+temp = 10   # global-scope variable
+def func():
+   temp = 20   # local-scope variable
+   print(temp)
+print(temp)   # output => 10
+func()    # output => 20
+print(temp)   # output => 10
+```
+
+Hành vi này có thể bị ghi đè bằng cách dùng từ khoá `global` trong hàm như ví dụ bên dưới.
+
+```py
+temp = 10   # global-scope variable
+def func():
+   global temp
+   temp = 20   # local-scope variable
+   print(temp)
+print(temp)   # output => 10
+func()    # output => 20
+print(temp)   # output => 20
+```
+
+### 21. Decorator trong Python là gì?
+
+Decorator trong Python về cơ bản là các hàm bổ sung chức năng cho một hàm hiện có trong Python mà không thay đổi cấu trúc của chính hàm đó. Chúng được biểu diễn là `@decorator_name` bằng Python và được gọi theo kiểu từ dưới lên. Ví dụ:
+
+```py
+# decorator function to convert to lowercase
+def lowercase_decorator(function):
+   def wrapper():
+      func = function()
+      string_lowercase = func.lower()
+      return string_lowercase
+   return wrapper
+# decorator function to split words
+def splitter_decorator(function):
+   def wrapper():
+      func = function()
+      string_split = func.split()
+      return string_split
+   return wrapper
+@splitter_decorator # this is executed next
+@lowercase_decorator # this is executed first
+def hello():
+   return 'Hello World'
+hello()   # output => [ 'hello' , 'world' ]
+```
+
+Cái hay của decorator nằm ở chỗ bên cạnh việc thêm chức năng vào đầu ra của phương thức, chúng thậm chí có thể chấp nhận các đối số cho các hàm và có thể sửa đổi thêm các đối số đó trước khi truyền nó vào chính hàm. Hàm lồng nhau bên trong, tức là hàm 'wrapper', đóng một vai trò quan trọng ở đây. Nó được dùng để thực thi tính năng đóng gói, do đó tự ẩn mình khỏi phạm vi toàn cục.
+
+```py
+# decorator function to capitalize names
+def names_decorator(function):
+   def wrapper(arg1, arg2):
+      arg1 = arg1.capitalize()
+      arg2 = arg2.capitalize()
+      string_hello = function(arg1, arg2)
+      return string_hello
+   return wrapper
+@names_decorator
+def say_hello(name1, name2):
+   return 'Hello ' + name1 + '! Hello ' + name2 + '!'
+say_hello('sara', 'ansh')   # output => 'Hello Sara! Hello Ansh!'
+```
+
+### 22. Dict và List trong Python?
+
+### 25. Sự khác biệt giữa xrange và range trong Python?
+
+xrange() và range() khá giống nhau về chức năng. Cả hai đều tạo một chuỗi số nguyên, với khác biệt duy nhất là `range()` trả về một list trong khi `xrange()` trả về một đối tượng xrange.
+
+Bởi vì không giống như `range()`, `xrange()` không tạo ra một list tĩnh, nó tạo ra giá trị khi đang di chuyển. Kỹ thuật này thường được sử dụng với kiểu đối và đã được gọi là "năng suất".
 
 ### 26. Pickling và unpickling là gì?
 

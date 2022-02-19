@@ -49,35 +49,26 @@
 - Ngôn ngữ:
     - [**C#**](./backend/csharp): 30 câu hỏi phỏng vấn C#.
     - [**PHP**](./backend/php): 33 câu hỏi phỏng vấn về PHP.
+    - [**Python**](./data-analyst/python): 37 câu hỏi phỏng vấn Python (24/37)
+        - [**Numpy**](./data-analyst/numpy): 11 câu hỏi phỏng vấn NumPy
+        - [**Pandas**](./data-analyst/pandas): 10 câu hỏi phỏng vấn Pandas
 
-### Devops
+### Devops (Complete)
 
 - Kiến thức
     - [**DevOps cơ bản**](./devops): 35 câu hỏi phỏng vấn DevOps.
     - [**Docker**](./devops/docker): 35 câu hỏi phỏng vấn Docker.
     - [**Kubernetes**](./devops/kubernetes): 26 câu hỏi phỏng vấn Kubernetes
-    - [**Git**](./devops/git)
-    - [**Agile**](./devops/agile)
 - Ngôn ngữ lập trình:
     - [**Golang**](./devops/golang): 30 câu hỏi phỏng vấn Golang
-
-### Data Analyst
-
-- Kiến thức:
-    - [**Phân tích dữ liệu cơ bản**](./data-analyst): 34 câu hỏi phỏng vấn phân tích dữ liệu (6/34)
-    - [**Numpy**](./data-analyst/numpy): 11 câu hỏi phỏng vấn NumPy
-    - [**Pandas**](./data-analyst/pandas): 10 câu hỏi phỏng vấn Pandas
-
-- Ngôn ngữ lập trình:
-    - [**Python**](./data-analyst/python): 37 câu hỏi phỏng vấn Python (24/37)
 
 ### Mobile
 - Kiến thức
     - [**Android**](./mobile/android): 39 câu hỏi phỏng vấn về Android.
     - [**iOS**](./mobile/ios): 36 câu hỏi phỏng vấn về iOS.(6/36)
-    - [**React Native**](./mobile/react-native/): 30 câu hỏi phỏng vấn về React Native. (8/30)
+    - [**React Native**](./mobile/react-native/): 30 câu hỏi phỏng vấn về React Native. (15/30)
 - Ngôn ngữ lập trình:
-    - [**Java**](./mobile/java): 54 câu hỏi phỏng vấn về Java.(11/54)
+    - [**Java**](./mobile/java): 54 câu hỏi phỏng vấn về Java.(20/54)
     
 # Tham khảo 
 
