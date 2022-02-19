@@ -34,7 +34,7 @@ Ngôn ngữ thông dịch là ngôn ngữ thực thi từng dòng lệnh, ví d�
 
 ### 3. PEP 8 là gì và tại sao nó lại quan trọng?
 
-PEP là viết tắt của **Python Enhancement Proposal**. Một PEP là một tài liệu thiết kế chính thống cung cấp thông tin từ cộng đồng Python hoặc mô tả tính năng mới của Python. PEP 8 đặc biệt quan trọng vì nó ghi lại các hướng dẫn về phong cách code Python. Rõ ràng là việc đóng góp cho cộng đồng nguồn mở Python đòi hỏi bạn phải tuân theo các nguyên tắc về phong cách này một cách nghiêm ngặt.
+PEP là viết tắt của **Python Enhancement Proposal**. Một PEP là một tài liệu thiết kế chính thống cung cấp thông tin từ cộng đồng Python hoặc mô tả tính năng mới của Python. PEP 8 đặc biệt quan trọng vì nó ghi lại các hướng dẫn về phong cách code Python. Rõ ràng là việc đóng góp cho cộng đồng mã nguồn mở Python đòi hỏi bạn phải tuân theo các nguyên tắc về phong cách này một cách nghiêm ngặt.
 
 ### 4. Scope trong Python
 
@@ -130,17 +130,19 @@ myEmptyFunc()    # nothing happens
 
 Package và module là hai cơ chế cho phép **lập trình module** trong Python. Việc module hoá đem lại các lợi ích như:
 - **Tính đơn giản:** Làm việc trên một module duy nhất giúp bạn tập trung vào một phần tương đối nhỏ của vấn đề hiện tại. Điều này làm cho việc phát triển dễ dàng hơn và ít bị lỗi hơn.
-- **Khả năng bảo trì:** Các module được thiết kế để thực thi các logic giữa các miền vấn đề khác nhau. Nếu chúng được viết theo cách làm giảm sự phụ thuộc lẫn nhau, thì ít có khả năng các sửa đổi trong một module có thể ảnh hưởng đến các phần khác của chương trình.
-- **Khả năng tái sử dụng:** Các chức năng được xác định trong một module có thể được sử dụng lại dễ dàng bởi các phần khác của ứng dụng.
-- **Phạm vi:** Các module thường xác định một không gian tên riêng biệt, giúp tránh nhầm lẫn giữa các số nhận dạng từ các phần khác của chương trình.
+- **Khả năng bảo trì:** Các module được thiết kế để thực thi các logic giữa các miền vấn đề khác nhau. Nếu chúng được viết theo cách làm giảm sự phụ thuộc lẫn nhau, thì các sửa đổi trong một module ít gây ảnh hưởng đến các phần khác của chương trình.
+- **Khả năng tái sử dụng:** Các hàm được khai báo trong một module có thể được sử dụng lại dễ dàng bởi các phần khác của ứng dụng.
+- **Phạm vi:** Các module thường xác định một namespace riêng biệt, giúp tránh nhầm lẫn giữa các định danh từ các phần khác của chương trình.
 
-**Modules**, là một file Python đơn giản với mở rộng `.py` và có một tập hàm, lớp hoặc biến được khai báo và triển khai. Nó có thể được import ở file khác bằng lệnh `import`. Vd:
+**Modules**, là một file Python với mở rộng `.py` và có một tập hàm, lớp hoặc biến được khai báo và triển khai trong nó. Nó có thể được import ở file khác bằng lệnh `import`. Vd:
 
 ```py
 from foo import bar
 ```
 
-**Package** cho phép cấu trúc phân cấp module bằng cách dùng ký hiệu `.`
+**Package** cho phép cấu trúc phân cấp module bằng cách dùng ký hiệu `.`. Nếu như module giúp tránh xung đột giữa các tên biến toàn cục thì các package giúp tránh xung đột giữa các tên module.
+
+Việc tạo một package rất dễ dàng vì nó sử dụng cấu trúc file vốn có của hệ thống. Vì vậy, chỉ cần nhồi các module vào một thư mục là bạn sẽ có nó, tên thư mục là tên package. Việc import một module hoặc nội dung của nó từ package này yêu cầu tên package làm tiền tố cho tên module được nối bằng dấu chấm.
 
 ### 9. Các quyền truy cập thuộc tính trong Python?
 
@@ -150,7 +152,7 @@ from foo import bar
 
 ### 10. Self trong Python?
 
-Self được sử dụng để đại diện cho thực thể của lớp. Với từ khóa `this`, bạn có thể truy cập các thuộc tính và phương thức của lớp trong python. Nó liên kết các thuộc tính với các đối số đã cho. self được sử dụng ở những nơi khác nhau và thường được cho là một từ khóa. Nhưng không giống như trong C ++, self không phải là một từ khóa trong Python.
+Self được sử dụng để đại diện cho thực thể của lớp. Với từ khóa `this`, bạn có thể truy cập các thuộc tính và phương thức của lớp trong python. Nó liên kết các thuộc tính với các đối số đã cho. Self được sử dụng ở những nơi khác nhau và thường được cho là một từ khóa. Nhưng không giống như trong C ++, self không phải là một từ khóa trong Python.
 
 ### 11. __init__ là gì?
 
@@ -173,7 +175,7 @@ stu1 = Student("Sara", "Ansh", 22, "A2")
 | | |
 |-|-|
 | Break | lệnh break huỷ vòng lặp ngay lập tức và chuyển luồng điều khiển đến phần thân sau vòng lặp đó |
-| Continue | lệnh continue huỷ vòng lặp hiện tại của câu lệnh, nó bỏ quả phần code của vòng lặp hiện tại và chuyển luồng điều khiển đến vòng lặp kế tiếp |
+| Continue | lệnh continue huỷ lần lặp hiện tại của câu lệnh, nó bỏ quả phần code của lần lặp hiện tại và chuyển luồng điều khiển đến lần lặp kế tiếp |
 | Pass | Từ khoá pass trong Python dùng để lấp đầy các empty block, tương tự một câu lệnh trống (`;`) trong Java, C++ |
 
 ```py
@@ -192,9 +194,8 @@ print(current)    # output => 0
 ### 13. Unit test trong Python là gì?
 
 - Unit test là một framework kiểm thử đơn vị của Python.
-- Unit test là các thành phần kiểm tra
-Đây là lý do tại sao cần phải kiểm tra từng thành phần một cách chính xác để chúng ta biết thành phần nào có thể chịu trách nhiệm cao cho sự cố của phần mềm.
-
+- Unit test có nghĩa là kiểm tra các thành phần khác nhau của phần mềm một cách riêng biệt. Bạn có thể biết lý do tại sao unit test lại quan trọng không? Hãy tưởng tượng một tình huống, bạn đang xây dựng phần mềm sử dụng ba thành phần là A, B và C. Bây giờ, giả sử phần mềm của bạn bị hỏng tại một thời điểm. Làm thế nào bạn sẽ tìm thấy thành phần nào chịu trách nhiệm cho sự cố đó? Có thể thành phần A bị lỗi, thành phần B bị lỗi, và điều này thực sự đã làm hỏng phần mềm. Có thể có nhiều cách kết hợp như vậy.
+- Đây là lý do tại sao cần phải kiểm tra từng thành phần đúng cách để thành phần nào có thể chịu trách nhiệm chính cho sự cố của phần mềm.
 ### 14. Docstring là gì?
 
 Docstring hay documentation string là một chuỗi nhiều dòng dùng để ghi lại một đoạn code cụ thể.
@@ -205,9 +206,9 @@ Docstrign mô tả hàm hoặc phương thức hoạt động.
 
 Slicing mô tả hành vi phân tách các mục trong một đối tượng dạng mảng (array, string, list và tuple). Cú pháp **[start: stop: step]**
 
-- start là chỉ mục bắt đầu tách.
-- stop là chỉ mục dừng lại.
-- step là số bước nhảy.
+- `start` là chỉ mục bắt đầu tách.
+- `stop` là chỉ mục dừng lại.
+- `step` là số bước nhảy.
 
 Giá trị mặc định của start là 0, stop là số lượng mục, step là 1.
 
@@ -218,7 +219,7 @@ print(numbers[1 : : 2])
 #output : [2, 4, 6, 8, 10]
 ```
 
-### 16. Các thực thi Python script trên Unix?
+### 16. Cách thực thi Python script trên Unix?
 
 Script phải bắt đầu với `#!/usr/bin/env python`
 
@@ -332,17 +333,127 @@ def say_hello(name1, name2):
 say_hello('sara', 'ansh')   # output => 'Hello Sara! Hello Ansh!'
 ```
 
-### 22. Dict và List trong Python?
+### 22. Dict và List comprehensions trong Python?
+
+Python comprehensions, giống như decorator, chúng là những cấu trúc cú pháp tuyệt vời cho xây dựng một list, dictionaries hay set có thể chỉnh sửa và chọn lọc. Sử dụng comprehensions giúp tiết kiệm thời gian và code trở nên rõ ràng hơn. Ta có các ví dụ sau đây:
+
+- Thực hiện phép toán trên một list:
+
+```py
+my_list = [2, 3, 5, 7, 11]
+squared_list = [x**2 for x in my_list]    # list comprehension
+# output => [4 , 9 , 25 , 49 , 121]
+squared_dict = {x:x**2 for x in my_list}    # dict comprehension
+# output => {11: 121, 2: 4 , 3: 9 , 5: 25 , 7: 49}
+```
+
+- Thực hiện lọc theo điều kiện trên một list:
+
+```py
+my_list = [2, 3, 5, 7, 11]
+squared_list = [x**2 for x in my_list if x%2 != 0]    # list comprehension
+# output => [9 , 25 , 49 , 121]
+squared_dict = {x:x**2 for x in my_list if x%2 != 0}    # dict comprehension
+# output => {11: 121, 3: 9 , 5: 25 , 7: 49}
+```
+
+- Kết hợp nhiều list thành một:
+
+```py
+a = [1, 2, 3]
+b = [7, 8, 9]
+[(x + y) for (x,y) in zip(a,b)]  # parallel iterators
+# output => [8, 10, 12]
+[(x,y) for x in a for y in b]    # nested iterators
+# output => [(1, 7), (1, 8), (1, 9), (2, 7), (2, 8), (2, 9), (3, 7), (3, 8), (3, 9)] 
+```
+
+- Làm phẳng list đa chiều:
+
+```py
+my_list = [[10,20,30],[40,50,60],[70,80,90]]
+flattened = [x for temp in my_list for x in temp]
+# output => [10, 20, 30, 40, 50, 60, 70, 80, 90]
+```
+
+### 23. Lambda trong Python?
+
+Lambda là một hàm ẩn danh trong Python, có thể chấp nhận bất kỳ số lượng đối số nào, nhưng chỉ có thể có một biểu thức duy nhất. Nó thường được sử dụng trong các tình huống yêu cầu một hàm ẩn danh trong một khoảng thời gian ngắn. Các hàm Lambda có thể được sử dụng theo một trong hai cách:
+
+- Gán hàm lambda cho một biến:
+
+```py
+mul = lambda a, b : a * b
+print(mul(2, 5))    # output => 10
+```
+
+- Bộc hàm lambda trong một hàm khác:
+
+```py
+def myWrapper(n):
+   return lambda a : a * n
+mulFive = myWrapper(5)
+print(mulFive(2))    # output => 10
+```
+
+### 24. Sao chép đối tượng trong Python?
+
+Trong Python, câu lệnh gán (toán tử `=`) không sao chép các đối tượng. Thay vào đó, nó tạo ra một ràng buộc giữa đối tượng hiện có và tên biến mục tiêu. Để tạo bản sao của một đối tượng bằng Python, chúng ta cần sử dụng module **copy**. Hơn nữa, có hai cách để tạo bản sao cho đối tượng đã cho bằng cách sử dụng module **copy**
+
+- **Shallow copy** là một bản sao khôn ngoan của một đối tượng. Đối tượng được sao chép được tạo có bản sao chính xác của các giá trị trong đối tượng gốc. Nếu một trong hai giá trị là một tham chiếu đến các đối tượng khác, thì chỉ cần sao chép các địa chỉ tham chiếu cho cùng một.
+- **Deep copy** sao chép tất cả các giá trị một cách đệ quy từ đối tượng nguồn sang đối tượng đích, tức là nó thậm chí sao chép các đối tượng được tham chiếu bởi đối tượng nguồn.
+
+```py
+from copy import copy, deepcopy
+list_1 = [1, 2, [3, 5], 4]
+## shallow copy
+list_2 = copy(list_1) 
+list_2[3] = 7
+list_2[2].append(6)
+list_2    # output => [1, 2, [3, 5, 6], 7]
+list_1    # output => [1, 2, [3, 5, 6], 4]
+## deep copy
+list_3 = deepcopy(list_1)
+list_3[3] = 8
+list_3[2].append(7)
+list_3    # output => [1, 2, [3, 5, 6, 7], 8]
+list_1    # output => [1, 2, [3, 5, 6], 4]
+```
 
 ### 25. Sự khác biệt giữa xrange và range trong Python?
 
 xrange() và range() khá giống nhau về chức năng. Cả hai đều tạo một chuỗi số nguyên, với khác biệt duy nhất là `range()` trả về một list trong khi `xrange()` trả về một đối tượng xrange.
 
-Bởi vì không giống như `range()`, `xrange()` không tạo ra một list tĩnh, nó tạo ra giá trị khi đang di chuyển. Kỹ thuật này thường được sử dụng với kiểu đối và đã được gọi là "năng suất".
+Bởi vì không giống như `range()`, `xrange()` không tạo ra một list tĩnh, nó tạo ra giá trị đang di chuyển. Kỹ thuật này thường được sử dụng với generator và được gọi là **yielding**.
+
+Yielding là rất quan trọng trong các ứng dụng mà bộ nhớ là một hằng. Việc tạo list tĩnh như trong `range()` có thể dẫn đến `Memory Error` trong những điều kiện như vậy, trong khi `xrange()` có thể xử lý nó một cách tối ưu bằng cách sử dụng vừa đủ bộ nhớ cho generator (ít hơn đáng kể khi so sánh).
+
+```py
+for i in xrange(10):    # numbers from o to 9
+   print i       # output => 0 1 2 3 4 5 6 7 8 9
+for i in xrange(1,10):    # numbers from 1 to 9
+   print i       # output => 1 2 3 4 5 6 7 8 9
+for i in xrange(1, 10, 2):    # skip by two for next
+   print i       # output => 1 3 5 7 9
+```
 
 ### 26. Pickling và unpickling là gì?
 
-Thư viện Python cung cấp một tính năng - tuần tự hóa (serialization) ra khỏi hộp. Việc tuần tự hóa một đối tượng đề cập đến việc chuyển đổi nó thành một định dạng có thể được lưu trữ, để sau này có thể giải mã hóa đối tượng để lấy được đối tượng ban đầu. Ở đây, mô-đun dưa muối phát huy tác dụng.
+Thư viện Python cung cấp một tính năng - tuần tự hóa (serialization) ra khỏi hộp. Việc tuần tự hóa một đối tượng đề cập đến việc chuyển đổi nó thành một định dạng có thể được lưu trữ, để sau này có thể giải mã hóa đối tượng để lấy được đối tượng ban đầu. Ở đây, module **pickle** được dùng.
+
+**Pickling:**
+
+- Pickling là tên của quá trình tuần tự hóa trong Python. Bất kỳ đối tượng nào trong Python đều có thể được tuần tự hóa thành một luồng byte và được kết xuất dưới dạng file trong bộ nhớ. Quá trình pickling là nhỏ gọn nhưng các đối tượng pickle có thể được nén thêm. Hơn nữa, pickle theo dõi các đối tượng mà nó đã tuần tự hóa và việc tuần tự hóa có thể di động qua các phiên bản.
+- Hàm dùng cho quá trình này là `pickle.dump()`.
+
+**Unpickling:**
+
+- Unpickling là nghịch đảo hoàn toàn của pickling. Nó giải mã dòng byte để tạo lại các đối tượng được lưu trữ trong file và tải đối tượng vào bộ nhớ.
+- Hàm dùng cho quá trình này là `pickle.load()`.
+
+![](./assets/differences_between_pickling_and_unpickling.jpg)
+
+*Lưu ý:* Python có một module tuần tự hóa khác, nguyên thủy hơn được gọi là **marshall**, tồn tại chủ yếu để hỗ trợ các file .pyc trong Python và khác biệt đáng kể với pickle.
 
 ### 27. Generator trong Python là gì?
 
@@ -395,7 +506,7 @@ Hàm `dir()` trả về một danh sách các thuộc tính và phương thức 
 - Trước khi thực hiện một chương trình python, trình thông dịch python kiểm tra các file đã biên dịch. Nếu file có mặt, máy ảo sẽ thực thi file đó. Nếu không tìm thấy, nó sẽ kiểm tra file `.py`. Nếu được tìm thấy, hãy biên dịch nó thành file `.pyc` và sau đó máy ảo python thực thi nó.
 
 Có file `.pyc` giúp bạn tiết kiệm thời gian biên dịch
-### 31. Python là ngôn ngữ thông dịch?
+### 31. Python được thông dịch?
 
 - Python là một ngôn ngữ không được thông dịch hoặc biên dịch. Thông dịch hoặc biên dịch là thuộc tính của việc triển khai. Python là một bytecode (tập hợp các hướng dẫn có thể đọc được của trình thông dịch) được thông dịch chung.
 - Mã nguồn là một file có phần mở rộng .py.
