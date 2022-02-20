@@ -699,3 +699,51 @@ Nguyên nhân thực sự đằng sau các vấn đề về hiệu suất React 
 
 ### 25. Các bước để tối ưu hoá ứng dụng?
 
+- Sử dụng Proguard để giảm thiểu kích cỡ ứng dụng (Nó thực hiện bằng cách tách bytecode Java (và các phụ thuộc của nó) mà ứng dụng của bạn không sử dụng).
+- Tạo file APK đã giảm kích thước cho kiến trúc CPU cụ thể. Khi bạn làm như vậy, ứng dụng của bạn sẽ tự động lấy file APK liên quan với kiến trúc điện thoại cụ thể của chúng.
+- Nén các hình ảnh và phần tử đồ hoạ cụ thể . Các lựa chọn khác để giảm kích cở ảnh như file APNG thay vì PNG.
+- Không lưu dữ liệu JSON (raw), ta cần nén chúng và chuyển vào các đối tượng ID tĩnh.
+- Tối ưu hoá thư viện native
+- Tối ưu hoá số lượng thao tác state và nhớ dùng pure component và memoized khi cần.
+- Sử dụng global state cho các trường hợp tệ nhật khi state thay đổi một điều khiển đơn như TextInput hay CheckBox để render trên toàn ứng dụng. Sử dụng thư viện như Redux hay Overmind.js để quản lý state với hiệu suất tốt hơn.
+- Sử dụng thuộc tính key trên các danh sách mục, nó giúp React Native chọn được mục cần cập nhật khi render danh sách dữ liệu dài.
+- Sử dụng `VirtualizedList`, `FlatList` và `SectionList` cho tập dữ liệu lớn.
+- Xoá tất cả timer đang hoạt động nếu nó dẫn đến các vấn đề rò rỉ bộ nhớ.
+
+### 26. Cách giải sự cố rò rỉ bộ nhớ trong React Native?
+
+Trong bộ nhớ JavaScript được quản lý tự động bởi Garbage Collector (GC). Nói tóm lại, Garbage Collector là một tiến trình nền định kỳ duyệt qua biểu đồ của các đối tượng được cấp phát và các tham chiếu của chúng. Nếu tình cờ gặp một phần của biểu đồ không được tham chiếu trực tiếp hoặc gián tiếp từ các đối tượng gốc (ví dụ: các biến trên ngăn xếp hoặc một đối tượng toàn cục như window hoặc navigator) thì toàn bộ phần đó có thể được giải phóng khỏi bộ nhớ.
+
+Trong React Native, mỗi module scope được gắn với một đối tượng gốc. Nhiều module, bao gồm cả module chính của React Native, khai báo các biến được giữ trong scope chính (ví dụ: khi bạn xác định một đối tượng bên ngoài một lớp hoặc hàm trong module JS của mình). Các biến như vậy có thể giữ lại các đối tượng khác và do đó ngăn chúng bị dọn dẹp rác.
+
+**Nguyên nhân dẫn đến rò rỉ bộ nhớ**
+
+- Thêm timer/listener chưa phát hành trong `componentDidMount`
+- Rò rì closure scope.
+
+**Cách phát hiện rò rì sự cố**
+
+- Trong iOS:
+    - Vào XCode → Product → Profile (⌘ + i)
+    - Sau đó, nó sẽ hiển thị cho bạn tất cả các mẫu chọn rò rỉ.
+- Trong Android:
+    - Chạy ứng dụng React Native như bình thường
+    - Chạy Android Studio
+    - Trong menu:
+        + Click Tools → Android → Enable ADB Integration
+        + Click Tools → Android → Android Device Monitor
+    -Khi When Android Device Monitor được mở, click Monitor → Preferences
+
+Một cách khác trong Android là Peft Monitor:
+
+```jsx
+import PerfMonitor from 'react-native/Libraries/Performance/RCTRenderingPerf';
+
+PerfMonitor.toggle();
+PerfMonitor.start();
+setTimeout(() => {
+    PerfMonitor.stop();
+}, 20000);
+}, 5000);
+```
+

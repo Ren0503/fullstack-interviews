@@ -31,7 +31,7 @@
     - [**Web API**](./frontend/web-api): 13 câu hỏi phỏng vấn Web API.
     - [**React**](./frontend/react): 40 câu hỏi phỏng vấn ReactJS.
     - [**HTML**](./frontend/html): 62 câu hỏi phỏng vấn HTML.
-    - [**CSS**](./frontend/CSS): 54 câu hỏi phỏng vấn CSS.
+    - [**CSS**](./frontend/css): 54 câu hỏi phỏng vấn CSS.
 - Ngôn ngữ lập trình:
     - [**JavaScript**](./frontend/javascript): 30 câu hỏi phỏng vấn JavaScript.
     - [**ES6**](./frontend/es6): 39 câu hỏi phỏng vấn ES6.
@@ -49,9 +49,9 @@
 - Ngôn ngữ:
     - [**C#**](./backend/csharp): 30 câu hỏi phỏng vấn C#.
     - [**PHP**](./backend/php): 33 câu hỏi phỏng vấn về PHP.
-    - [**Python**](./data-analyst/python): 37 câu hỏi phỏng vấn Python.
-        - [**Numpy**](./data-analyst/numpy): 11 câu hỏi phỏng vấn NumPy.
-        - [**Pandas**](./data-analyst/pandas): 10 câu hỏi phỏng vấn Pandas.
+    - [**Python**](./backend/python): 37 câu hỏi phỏng vấn Python.
+        - [**Numpy**](./backend/python/numpy): 11 câu hỏi phỏng vấn NumPy.
+        - [**Pandas**](./backend/python/pandas): 10 câu hỏi phỏng vấn Pandas.
 
 ### Devops (Complete)
 
@@ -65,10 +65,10 @@
 ### Mobile
 - Kiến thức
     - [**Android**](./mobile/android): 39 câu hỏi phỏng vấn về Android.
-    - [**iOS**](./mobile/ios): 36 câu hỏi phỏng vấn về iOS.(6/36)
-    - [**React Native**](./mobile/react-native/): 30 câu hỏi phỏng vấn về React Native. (24/30)
+    - [**iOS**](./mobile/ios): 36 câu hỏi phỏng vấn về iOS.
+    - [**React Native**](./mobile/react-native/): 30 câu hỏi phỏng vấn về React Native. (27/30)
 - Ngôn ngữ lập trình:
-    - [**Java**](./mobile/java): 54 câu hỏi phỏng vấn về Java.(20/54)
+    - [**Java**](./mobile/java): 54 câu hỏi phỏng vấn về Java.(29/54)
     
 # Tham khảo 
 

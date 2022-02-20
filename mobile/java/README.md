@@ -394,4 +394,84 @@ Hiện tượng được đề cập ở đây thường được gọi là phư
 ### 23. HashSet khác TreeSet như thế nào?
 
 Mặc dù cả HashSet và TreeSet đều không được đồng bộ hóa và đảm bảo rằng không trùng nhưng có một số thuộc tính phân biệt HashSet với TreeSet.
+- **Triển khai**: với HashSet, bảng băm được dùng cho lưu trữ phần tử không theo thứ tự. Tuy nhiên, TreeSet dùng cây đỏ đen (red-black tree) cho lưu trữ phần tử theo thứ tự.
+- **Hiệu suất/Độ phức tạp**: Với thêm, xem và xoá phần tử độ phức tạp thời gian là `O(1)` cho HashSet. Độ phức tạp thời gian cho hiệu suất tương tự như bit lớn nhất cho TreeSet và bằng `O(logn)`. Tổng thể hiệu suất HashSet nhanh hơn so với TreeSet.
+- **Phương thức**: `hashCode()` và `equals()` là phương thức dùng cho HashSet để so sánh giữa các đối tượng. Còn TreeSet dùng các phương thức `compareTo()` và `compare()` để so sánh đối tượng.
+- **Kiểu đối tượng**: Các đối tượng không đồng nhất và null có thể được lưu trữ với sự trợ giúp của HashSet. Trong trường hợp TreeSet, **runtime exception** xảy ra trong khi chèn các đối tượng không đồng nhất hoặc đối tượng null.
+
+### 24. Tại sao mảng ký tự được ưu tiên hơn chuỗi để lưu trữ thông tin bí mật?
+
+Trong Java, một chuỗi về cơ bản là bất biến, tức là không thể sửa đổi. Sau khi khai báo, nó tiếp tục ở trong string pool miễn là nó không bị loại bỏ dưới dạng rác. Nói cách khác, một chuỗi nằm trong phần heap của bộ nhớ trong một khoảng thời gian không được kiểm soát và không xác định sau khi quá trình xử lý giá trị chuỗi được thực hiện.
+
+Do đó, thông tin quan trọng có thể bị đánh cắp để thực hiện các hoạt động có hại của hacker nếu chúng bị chúng truy cập bất hợp pháp vào bộ nhớ. Những rủi ro như vậy có thể được loại bỏ bằng cách sử dụng các đối tượng hoặc cấu trúc có thể thay đổi được như mảng ký tự để lưu trữ bất kỳ biến nào. Sau khi công việc của biến mảng ký tự được thực hiện, biến có thể được cấu hình để trống ngay lập tức. Do đó, nó giúp tiết kiệm bộ nhớ heap và cũng không tạo cơ hội cho hacker trích xuất dữ liệu quan trọng.
+
+### 25. Sự khác biệt của JVM, JRE và JDK?
+
+| JDK | JRE | JVM |
+|-|-|-|
+| Java Development Kit | Java Runtime Enviroment | Java Virtual Machine |
+| JDK là một bộ phát triển phần mềm hoàn chỉnh để phát triển các ứng dụng Java. Nó bao gồm JRE, JavaDoc, trình biên dịch, trình gỡ lỗi,... | JRE là một gói phần mềm cung cấp các thư viện lớp Java, JVM và tất cả các thành phần cần thiết để chạy các ứng dụng Java | JVM là một máy ảo, phụ thuộc vào nền tảng, bao gồm 3 thông số kỹ thuật - tài liệu mô tả các yêu cầu triển khai JVM, chương trình máy tính đáp ứng các yêu cầu JVM và đối tượng thực thể để thực thi bytecode Java và cung cấp môi trường thời gian chạy để thực thi |
+| JDK chủ yếu được sử dụng để phát triển và thực thi code | JRE chủ yếu được sử dụng để tạo môi trường để thực thi code | JVM cung cấp thông số kỹ thuật cho tất cả các triển khai cho JRE |
+| JDK cung cấp các công cụ như trình biên dịch, trình gỡ lỗi, v.v. để phát triển code | JRE cung cấp các thư viện và lớp theo yêu cầu của JVM để chạy chương trình | JVM không bao gồm bất kỳ công cụ nào, nhưng thay vào đó, nó cung cấp đặc điểm kỹ thuật để triển khai |
+| JDK = JRE + công cụ phát triển | JRE = JVM + thư viện thực thi ứng dụng | JVM = môi trường thực thi bytecode Java |
+
+### 26. Sự khác biệt giữa HashMap và HashTable trong Java?
+
+| HashMap | HashTable |
+|-|-|
+| HashMap không được đồng bộ hóa do đó nó tốt hơn cho các ứng dụng không phân luồng | HashTable được đồng bộ hóa và do đó nó phù hợp với các ứng dụng phân luồng |
+| Chỉ cho phép một khóa null nhưng bất kỳ giá trị nào cũng có thể null | Không cho phép null trong cả khóa hoặc giá trị |
+| Hỗ trợ chèn theo thứ tự bằng cách sử dụng LinkedHashMap lớp con của nó | Chèn theo thứ tự không được đảm bảo trong HashTable |
+
+### 27. Reflection trong Java?
+
+Thuật ngữ `reflection` được sử dụng để mô tả khả năng kiểm tra của một code trên code khác của chính nó hoặc của hệ thống của nó và sửa đổi nó trong thời gian chạy.
+
+Hãy xem xét một ví dụ trong đó chúng ta có một đối tượng không xác định kiểu và chúng ta có một phương thức `fooBar()` mà chúng ta cần gọi trên đối tượng. Hệ thống static typing của Java không cho phép gọi phương thức này trừ khi kiểu đối tượng được biết trước. 
+Điều này có thể thực hiện được bằng cách sử dụng reflection, cho phép code quét đối tượng và xác định xem nó có bất kỳ phương thức nào được gọi là `fooBar()` hay không và chỉ gọi phương thức nếu cần.
+
+```java
+Method methodOfFoo = fooObject.getClass().getMethod("fooBar", null);
+methodOfFoo.invoke(fooObject, null);
+```
+
+Sử dụng reflection có các hạn chế sau:
+- Tốc độ - Các lệnh gọi phương thức do reflection chậm hơn khoảng ba lần so với các lệnh gọi phương thức trực tiếp.
+- An toàn kiểu - Khi một phương thức được gọi nhầm qua tham chiếu của nó bằng cách sử dụng reflection, thì lệnh gọi không thành công trong thời gian chạy vì nó không được phát hiện tại thời gian biên dịch.
+- Truy xuất nguồn gốc - Bất cứ khi nào một phương pháp reflection không thành công, rất khó tìm ra nguyên nhân gốc rễ của lỗi này. Người ta phải đi sâu vào phương thức log như `invoke()` và `proxy()` để xác định nguyên nhân gốc rễ.
+
+### 28. Các cách sử dụng luồng?
+
+- **Kế thừa từ lớp Thread**
+
+```java
+class InterviewBitThreadExample extends Thread{  
+    public void run(){  
+        System.out.println("Thread runs...");  
+    }  
+    public static void main(String args[]){  
+        InterviewBitThreadExample ib = new InterviewBitThreadExample();  
+        ib.start();  
+    }  
+}
+```
+
+- **Triển khai interface Runnable**
+
+```java
+class InterviewBitThreadExample implements Runnable{  
+    public void run(){  
+        System.out.println("Thread runs...");  
+    }  
+    public static void main(String args[]){  
+        Thread ib = new Thread(new InterviewBitThreadExample()); 
+        ib.start();  
+    }  
+}
+```
+
+- Việc triển khai một luồng bằng phương thức của interface Runnable được ưu tiên và thuận lợi hơn vì Java không hỗ trợ đa kế thừa.
+- Phương thức `start()` được sử dụng để tạo một ngăn xếp cuộc gọi riêng biệt để thực thi luồng. Khi ngăn xếp cuộc gọi được tạo, JVM gọi phương thức `run()` để thực thi luồng trong ngăn xếp cuộc gọi đó.
+
+### 29. Sự khác biệt giữa constructor và method của lớp?
 
