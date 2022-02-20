@@ -10,6 +10,34 @@
 
 Web API đầu được giới thiệu sớm bởi các trang thương mại điện tử trên Internet. theo thời gian nó ngày càng ngày phổ biến và được sử dụng rộng rãi bởi nhiều tổ chức, doanh nghiệp trên thế giới.
 
+## Mục lục
+
+[1. Tại sao Web API quan trọng?](#1-t%E1%BA%A1i-sao-web-api-quan-tr%E1%BB%8Dng)
+
+[2. Chính xác thì Web API là gì?](#2-ch%C3%ADnh-x%C3%A1c-th%C3%AC-web-api-l%C3%A0-g%C3%AC)
+
+[3. Kiểu trả về được hỗ trợ trong Web API?](#3-ki%E1%BB%83u-tr%E1%BA%A3-v%E1%BB%81-%C4%91%C6%B0%E1%BB%A3c-h%E1%BB%97-tr%E1%BB%A3-trong-web-api)
+
+[4. Sự khác biệt giữa WCF và Web API?](#4-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-wcf-v%C3%A0-web-api)
+
+[5. Web API tốt hơn WCF ở điểm nào?](#5-web-api-t%E1%BB%91t-h%C6%A1n-wcf-%E1%BB%9F-%C4%91i%E1%BB%83m-n%C3%A0o)
+
+[6. Sự khác biệt giữa REST API và RESTful API?](#6-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-rest-api-v%C3%A0-restful-api)
+
+[7. Ưu điểm của sử dụng REST trong Web API?](#7-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-s%E1%BB%AD-d%E1%BB%A5ng-rest-trong-web-api)
+
+[8. Sự khác biệt giữa REST và SOAP?](#8-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-rest-v%C3%A0-soap)
+
+[9. Giao thức hỗ trợ Web API?](#9-giao-th%E1%BB%A9c-h%E1%BB%97-tr%E1%BB%A3-web-api)
+
+[10. XML và JSON là gì?](#10-xml-v%C3%A0-json-l%C3%A0-g%C3%AC)
+
+[11. Đối tượng sử dụng Web API?](#11-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-s%E1%BB%AD-d%E1%BB%A5ng-web-api)
+
+[12. Web API và MVC có gì khác?](#12-web-api-v%C3%A0-mvc-c%C3%B3-g%C3%AC-kh%C3%A1c)
+
+[13. CORS là gì?](#13-cors-l%C3%A0-g%C3%AC)
+
 ## Câu hỏi phỏng vấn Web API
 
 ### 1. Tại sao Web API quan trọng?

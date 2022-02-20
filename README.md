@@ -11,9 +11,9 @@
     - [**Thuật toán**](./basics/algorithms): 30 câu hỏi phỏng vấn thuật toán.
     - [**Hướng đối tượng**](./basics/oops): 40 câu hỏi phỏng vấn OOP.
     - [**Design Patterns**](./basics/design-patterns): 28 câu hỏi phỏng vấn design pattern.
-    - [**Hệ điều hành**](./advanced/os): 40 câu hỏi phỏng vấn hệ điều hành.
-    - [**Mạng máy tính**](./advanced/network): 35 câu hỏi phỏng vấn mạng máy tính.
-    - [**An ninh mạng**](./advanced/cyber):  42 câu hỏi phỏng vấn an ninh mạng.
+    - [**Hệ điều hành**](./basics/os): 40 câu hỏi phỏng vấn hệ điều hành.
+    - [**Mạng máy tính**](./basics/network): 35 câu hỏi phỏng vấn mạng máy tính.
+    - [**An ninh mạng**](./basics/cyber):  42 câu hỏi phỏng vấn an ninh mạng.
 - Ngôn ngữ lập trình:
     - [**C++**](./basics/cpp): 28 Câu hỏi phỏng vấn C++.
 
@@ -28,7 +28,7 @@
 ### Frontend (Complete)
 
 - Kiến thức:
-    - [**Web API**](./frontend/web-api): 20 câu hỏi phỏng vấn Web API.
+    - [**Web API**](./frontend/web-api): 13 câu hỏi phỏng vấn Web API.
     - [**React**](./frontend/react): 40 câu hỏi phỏng vấn ReactJS.
     - [**HTML**](./frontend/html): 62 câu hỏi phỏng vấn HTML.
     - [**CSS**](./frontend/CSS): 54 câu hỏi phỏng vấn CSS.
@@ -49,24 +49,24 @@
 - Ngôn ngữ:
     - [**C#**](./backend/csharp): 30 câu hỏi phỏng vấn C#.
     - [**PHP**](./backend/php): 33 câu hỏi phỏng vấn về PHP.
-    - [**Python**](./data-analyst/python): 37 câu hỏi phỏng vấn Python (24/37)
-        - [**Numpy**](./data-analyst/numpy): 11 câu hỏi phỏng vấn NumPy
-        - [**Pandas**](./data-analyst/pandas): 10 câu hỏi phỏng vấn Pandas
+    - [**Python**](./data-analyst/python): 37 câu hỏi phỏng vấn Python.
+        - [**Numpy**](./data-analyst/numpy): 11 câu hỏi phỏng vấn NumPy.
+        - [**Pandas**](./data-analyst/pandas): 10 câu hỏi phỏng vấn Pandas.
 
 ### Devops (Complete)
 
 - Kiến thức
     - [**DevOps cơ bản**](./devops): 35 câu hỏi phỏng vấn DevOps.
     - [**Docker**](./devops/docker): 35 câu hỏi phỏng vấn Docker.
-    - [**Kubernetes**](./devops/kubernetes): 26 câu hỏi phỏng vấn Kubernetes
+    - [**Kubernetes**](./devops/kubernetes): 26 câu hỏi phỏng vấn Kubernetes.
 - Ngôn ngữ lập trình:
-    - [**Golang**](./devops/golang): 30 câu hỏi phỏng vấn Golang
+    - [**Golang**](./devops/golang): 30 câu hỏi phỏng vấn Golang.
 
 ### Mobile
 - Kiến thức
     - [**Android**](./mobile/android): 39 câu hỏi phỏng vấn về Android.
     - [**iOS**](./mobile/ios): 36 câu hỏi phỏng vấn về iOS.(6/36)
-    - [**React Native**](./mobile/react-native/): 30 câu hỏi phỏng vấn về React Native. (15/30)
+    - [**React Native**](./mobile/react-native/): 30 câu hỏi phỏng vấn về React Native. (24/30)
 - Ngôn ngữ lập trình:
     - [**Java**](./mobile/java): 54 câu hỏi phỏng vấn về Java.(20/54)
     

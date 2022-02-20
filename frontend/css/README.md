@@ -12,6 +12,28 @@ Phương thức hoạt động của CSS là nó sẽ tìm dựa vào các selec
 
 CSS3 là bản nâng cấp mới nhất của CSS với mục đích mở rộng "CSS2.1" . CSS3 mang đến nhiều tính năng mới như bo tròn góc, tạo độ bóng, gradient, transitions hay animations cũng như các bố cục mới như multiple-column, flexbox hay grid layout.
 
+## Mục lục
+
+[1. Mô hình hộp trong CSS là gì? Thuộc tính CSS nào là một phần của nó?](#1-m%C3%B4-h%C3%ACnh-h%E1%BB%99p-trong-css-l%C3%A0-g%C3%AC-thu%E1%BB%99c-t%C3%ADnh-css-n%C3%A0o-l%C3%A0-m%E1%BB%99t-ph%E1%BA%A7n-c%E1%BB%A7a-n%C3%B3)
+
+[2. Ưu điểm của CSS?](#2-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-css)
+
+[3. Hạn chế của CSS?](#3-h%E1%BA%A1n-ch%E1%BA%BF-c%E1%BB%A7a-css)
+
+[4. Làm thế nào để đưa CSS vào trang web?](#4-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-%C4%91%C6%B0a-css-v%C3%A0o-trang-web)
+
+[5. Các loại selector khác nhau trong CSS?](#5-c%C3%A1c-lo%E1%BA%A1i-selector-kh%C3%A1c-nhau-trong-css)
+
+[6. CSS Preprocessor là gì? SASS vs LESS vs Stylus?](#6-css-preprocessor-l%C3%A0-g%C3%AC-sass-vs-less-vs-stylus)
+
+[7. VH/VM trong CSS là gì?](#7-vhvm-trong-css-l%C3%A0-g%C3%AC)
+
+[8. Sự khác biệt giữa reset và normalize CSS?](#8-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-reset-v%C3%A0-normalize-css)
+
+[9. Sự khác biệt giữa inline, block và inline-block?](#9-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-inline-block-v%C3%A0-inline-block)
+
+[10. Việc kiểm tra trang web trên các trình duyệt khác nhau có quan trọng không?](#10-vi%E1%BB%87c-ki%E1%BB%83m-tra-trang-web-tr%C3%AAn-c%C3%A1c-tr%C3%ACnh-duy%E1%BB%87t-kh%C3%A1c-nhau-c%C3%B3-quan-tr%E1%BB%8Dng-kh%C3%B4ng)
+
 ## Câu hỏi phỏng vấn CSS cho Fresher
 ### 1. Mô hình hộp trong CSS là gì? Thuộc tính CSS nào là một phần của nó?
 

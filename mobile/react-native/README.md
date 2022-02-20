@@ -697,3 +697,5 @@ Nguyên nhân thực sự đằng sau các vấn đề về hiệu suất React 
 - Luồng Javascript là luồng chính chạy mọi thứ từ hoạt ảnh dựa trên javascript đến các component giao diện người dùng khác.
 - Bridge như tên cho thấy hoạt động như một điểm giao tiếp trung gian cho luồng Native và JS.
 
+### 25. Các bước để tối ưu hoá ứng dụng?
+

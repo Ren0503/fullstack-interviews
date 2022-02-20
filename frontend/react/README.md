@@ -20,6 +20,76 @@ React là một thư viện JavaScript mã nguồn mở, linh hoạt và hiệu 
 
 [6. JSX là gì?](#6-jsx-l%C3%A0-g%C3%AC)
 
+[7. Sự khác biệt giữa class component và function component?](#7-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-class-component-v%C3%A0-function-component)
+
+[8. Virtual DOM là gì?](#8-virtual-dom-l%C3%A0-g%C3%AC)
+
+[9. Sự khác biệt giữa controlled component và uncontrolled component?](#9-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-controlled-component-v%C3%A0-uncontrolled-component)
+
+[10. Props trong React là gì?](#10-props-trong-react-l%C3%A0-g%C3%AC)
+
+[11. Giải thích state và props?](#11-gi%E1%BA%A3i-th%C3%ADch-state-v%C3%A0-props)
+
+[12. Các kiểu side effect trong React component?](#12-c%C3%A1c-ki%E1%BB%83u-side-effect-trong-react-component)
+
+[13. Prop drilling trong React?](#13-prop-drilling-trong-react)
+
+[14. Error boundary là gì?](#14-error-boundary-l%C3%A0-g%C3%AC)
+
+[15. React Hooks là gì?](#15-react-hooks-l%C3%A0-g%C3%AC)
+
+[16. Tại sao lại cần React Hook?](#16-t%E1%BA%A1i-sao-l%E1%BA%A1i-c%E1%BA%A7n-react-hook)
+
+[17. Các quy tắc sử dụng React Hooks?](#17-c%C3%A1c-quy-t%E1%BA%AFc-s%E1%BB%AD-d%E1%BB%A5ng-react-hooks)
+
+[18. Cách dùng useEffect?](#18-c%C3%A1ch-d%C3%B9ng-useeffect)
+
+[19. Sử dụng refs với React Hooks?](#19-s%E1%BB%AD-d%E1%BB%A5ng-refs-v%E1%BB%9Bi-react-hooks)
+
+[20. Hook tuỳ chỉnh là gì?](#20-hook-tu%E1%BB%B3-ch%E1%BB%89nh-l%C3%A0-g%C3%AC)
+
+[21. Strict mode trong React là gì?](#21-strict-mode-trong-react-l%C3%A0-g%C3%AC)
+
+[22. Ngăn chặn re-render trong React?](#22-ng%C4%83n-ch%E1%BA%B7n-re-render-trong-react)
+
+[23. Các cách khác nhau để chỉnh style component?](#23-c%C3%A1c-c%C3%A1ch-kh%C3%A1c-nhau-%C4%91%E1%BB%83-ch%E1%BB%89nh-style-component)
+
+[24. Các kỹ thuật tối ưu hiệu suất ứng dụng React?](#24-c%C3%A1c-k%E1%BB%B9-thu%E1%BA%ADt-t%E1%BB%91i-%C6%B0u-hi%E1%BB%87u-su%E1%BA%A5t-%E1%BB%A9ng-d%E1%BB%A5ng-react)
+
+[25. Truyền dữ liệu giữa các component?](#25-truy%E1%BB%81n-d%E1%BB%AF-li%E1%BB%87u-gi%E1%BB%AFa-c%C3%A1c-component)
+
+[26. High-Order Component là gì?](#26-high-order-component-l%C3%A0-g%C3%AC)
+
+[27. Các giai đoạn trong vòng đời component?](#27-c%C3%A1c-giai-%C4%91o%E1%BA%A1n-trong-v%C3%B2ng-%C4%91%E1%BB%9Di-component)
+
+[28. Các phương thức trong vòng đời component?](#28-c%C3%A1c-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-trong-v%C3%B2ng-%C4%91%E1%BB%9Di-component)
+
+[29. React hook có làm việc với static typing?](#29-react-hook-c%C3%B3-l%C3%A0m-vi%E1%BB%87c-v%E1%BB%9Bi-static-typing)
+
+[30. Các kiểu Hooks trong React?](#30-c%C3%A1c-ki%E1%BB%83u-hooks-trong-react)
+
+[31. Sự khác biệt giữa lớp và React Hook?](#31-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-l%E1%BB%9Bp-v%C3%A0-react-hook)
+
+[32. Hiệu suất của React Hook so với lớp?](#32-hi%E1%BB%87u-su%E1%BA%A5t-c%E1%BB%A7a-react-hook-so-v%E1%BB%9Bi-l%E1%BB%9Bp)
+
+[33. Các hook có thay thế được lớp hoàn toàn?](#33-c%C3%A1c-hook-c%C3%B3-thay-th%E1%BA%BF-%C4%91%C6%B0%E1%BB%A3c-l%E1%BB%9Bp-ho%C3%A0n-to%C3%A0n)
+
+[34. React Router là gì?](#34-react-router-l%C3%A0-g%C3%AC)
+
+[35. React Hook có thể thay thế Redux?](#35-react-hook-c%C3%B3-th%E1%BB%83-thay-th%E1%BA%BF-redux)
+
+[36. Render có điều kiện trong React?](#36-render-c%C3%B3-%C4%91i%E1%BB%81u-ki%E1%BB%87n-trong-react)
+
+[37. Sự khác biệt giữa NavLink và Link?](#37-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-navlink-v%C3%A0-link)
+
+[38. withRouter trong react-router-dom là gì?](#38-withrouter-trong-react-router-dom-l%C3%A0-g%C3%AC)
+
+[39. Cách hiển thị dữ liệu API với Axios?](#39-c%C3%A1ch-hi%E1%BB%83n-th%E1%BB%8B-d%E1%BB%AF-li%E1%BB%87u-api-v%E1%BB%9Bi-axios)
+
+[40. Caching trong React?](#40-caching-trong-react)
+
+
+
 ## Câu hỏi phỏng vấn React cho Fresher
 
 ### 1. React là gì?

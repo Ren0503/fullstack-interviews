@@ -8,6 +8,32 @@ WebSoket là công nghệ hỗ trợ giao tiếp hai chiều giữa client và s
 
 WebSockets mới xuất hiện trong HTML5, là một kỹ thuật Reverse Ajax. WebSockets cho phép các kênh giao tiếp song song hai chiều và hiện đã được hỗ trợ trong nhiều trình duyệt (Firefox, Google Chrome và Safari). Kết nối được mở thông qua một HTTP request (yêu cầu HTTP), được gọi là liên kết WebSockets với những header đặc biệt. Kết nối được duy trì để bạn có thể viết và nhận dữ liệu bằng JavaScript như khi bạn đang sử dụng một TCP socket đơn thuần.
 
+## Mục lục
+
+[1. WebSockets là gì?](#1-websockets-l%C3%A0-g%C3%AC)
+
+[2. Giải thích Server-Sent Events/EventSource?](#2-gi%E1%BA%A3i-th%C3%ADch-server-sent-eventseventsource)
+
+[3. Tương tác với độ trễ thấp là gì?](#3-t%C6%B0%C6%A1ng-t%C3%A1c-v%E1%BB%9Bi-%C4%91%E1%BB%99-tr%E1%BB%85-th%E1%BA%A5p-l%C3%A0-g%C3%AC)
+
+[4. Short Polling là gì?](#4-short-polling-l%C3%A0-g%C3%AC)
+
+[5. Tại sao dùng WebSocket thay vì HTTP?](#5-t%E1%BA%A1i-sao-d%C3%B9ng-websocket-thay-v%C3%AC-http)
+
+[6. Giải thích Long Polling là gì?](#6-gi%E1%BA%A3i-th%C3%ADch-long-polling-l%C3%A0-g%C3%AC)
+
+[7. Lợi ích của SSE so với WebSocket?](#7-l%E1%BB%A3i-%C3%ADch-c%E1%BB%A7a-sse-so-v%E1%BB%9Bi-websocket)
+
+[8. Giải thích các kỹ thuật giao tiếp khác nhau trên web mà bạn biết?](#8-gi%E1%BA%A3i-th%C3%ADch-c%C3%A1c-k%E1%BB%B9-thu%E1%BA%ADt-giao-ti%E1%BA%BFp-kh%C3%A1c-nhau-tr%C3%AAn-web-m%C3%A0-b%E1%BA%A1n-bi%E1%BA%BFt)
+
+[9. Sự khác biệt giữa SSE và WebSocket?](#9-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-sse-v%C3%A0-websocket)
+
+[10. Giải thích về giao thức WebSocket?](#10-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-giao-th%E1%BB%A9c-websocket)
+
+[11. WebSocket Frame là gì?](#11-websocket-frame-l%C3%A0-g%C3%AC)
+
+[12. Khi nào WebRTC tốt hơn WebSocket?](#12-khi-n%C3%A0o-webrtc-t%E1%BB%91t-h%C6%A1n-websocket)
+
 ## Câu hỏi phỏng vấn WebSocket?
 
 ### 1. WebSockets là gì?
@@ -154,7 +180,7 @@ Phần lớn giao thức websocket có 3 frame điều kiến và 3 frame không
 +---------------------------------------------------------------+
 ```
 
-### 13. Khi nào WebRTC tốt hơn WebSocket?
+### 12. Khi nào WebRTC tốt hơn WebSocket?
 
 Khi bạn xây dựng một ứng dụng chat cho phép video, audio và văn bản. Bạn sẽ chọn WebRTC hay WebSocket.
 

@@ -8,9 +8,81 @@ Dịch vụ Web đơn giản là một hệ thống phần mềm được thiế
 
 ![](./assets/Web_Service.png)
 
+## Mục lục
+
+[1. Giải thích các kiểu dịch vụ web khác nhau?](#1-gi%E1%BA%A3i-th%C3%ADch-c%C3%A1c-ki%E1%BB%83u-d%E1%BB%8Bch-v%E1%BB%A5-web-kh%C3%A1c-nhau)
+
+[2. Các tính năng quan trọng của dịch vụ Web?](#2-c%C3%A1c-t%C3%ADnh-n%C4%83ng-quan-tr%E1%BB%8Dng-c%E1%BB%A7a-d%E1%BB%8Bch-v%E1%BB%A5-web)
+
+[3. Các thành phần của dịch vụ Web?](#3-c%C3%A1c-th%C3%A0nh-ph%E1%BA%A7n-c%E1%BB%A7a-d%E1%BB%8Bch-v%E1%BB%A5-web)
+
+[4. Khác biệt giữa API và dịch vụ Web?](#4-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-api-v%C3%A0-d%E1%BB%8Bch-v%E1%BB%A5-web)
+
+[5. Các công cụ kiểm thử dịch vụ web?](#5-c%C3%A1c-c%C3%B4ng-c%E1%BB%A5-ki%E1%BB%83m-th%E1%BB%AD-d%E1%BB%8Bch-v%E1%BB%A5-web)
+
+[6. WSDL là gì?](#6-wsdl-l%C3%A0-g%C3%AC)
+
+[7. XML-RPC là gì?](#7-xml-rpc-l%C3%A0-g%C3%AC)
+
+[8. Tính năng của XML-RPC?](#8-t%C3%ADnh-n%C4%83ng-c%E1%BB%A7a-xml-rpc)
+
+[9. UDDI là gì?](#9-uddi-l%C3%A0-g%C3%AC)
+
+[10. Các tính năng nổi bật của UDDI](#10-c%C3%A1c-t%C3%ADnh-n%C4%83ng-n%E1%BB%95i-b%E1%BA%ADt-c%E1%BB%A7a-uddi)
+
+[11. Tên ngôn ngữ thường được sử dụng bởi UDDI?](#11-t%C3%AAn-ng%C3%B4n-ng%E1%BB%AF-th%C6%B0%E1%BB%9Dng-%C4%91%C6%B0%E1%BB%A3c-s%E1%BB%AD-d%E1%BB%A5ng-b%E1%BB%9Fi-uddi)
+
+[12. Giải thích về kiến trúc dịch vụ web?](#12-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-ki%E1%BA%BFn-tr%C3%BAc-d%E1%BB%8Bch-v%E1%BB%A5-web)
+
+[13. Web Service Provider là gì?](#13-web-service-provider-l%C3%A0-g%C3%AC)
+
+[14. Web Service Requestor là gì?](#14-web-service-requestor-l%C3%A0-g%C3%AC)
+
+[15. Web Service Registry là gì?](#15-web-service-registry-l%C3%A0-g%C3%AC)
+
+[16. Các lớp khác nhau của ngăn xếp giao thức dịch vụ web?](#16-c%C3%A1c-l%E1%BB%9Bp-kh%C3%A1c-nhau-c%E1%BB%A7a-ng%C4%83n-x%E1%BA%BFp-giao-th%E1%BB%A9c-d%E1%BB%8Bch-v%E1%BB%A5-web)
+
+[17. Giải thích thuật ngữ Synchronicity?](#17-gi%E1%BA%A3i-th%C3%ADch-thu%E1%BA%ADt-ng%E1%BB%AF-synchronicity)
+
+[18. Dịch vụ web RESTful là gì?](#18-d%E1%BB%8Bch-v%E1%BB%A5-web-restful-l%C3%A0-g%C3%AC)
+
+[19. Ưu điểm của dịch vụ Web RESTful?](#19-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-d%E1%BB%8Bch-v%E1%BB%A5-web-restful)
+
+[20. Giao thức dùng cho dịch vụ Web RESTful?](#20-giao-th%E1%BB%A9c-d%C3%B9ng-cho-d%E1%BB%8Bch-v%E1%BB%A5-web-restful)
+
+[21. Giải thích stateless trong dịch vụ web RESTful?](#21-gi%E1%BA%A3i-th%C3%ADch-stateless-trong-d%E1%BB%8Bch-v%E1%BB%A5-web-restful)
+
+[22. Các phương thức HTTP cho dịch vụ web RESTful?](#22-c%C3%A1c-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-http-cho-d%E1%BB%8Bch-v%E1%BB%A5-web-restful)
+
+[23. Các Status code trong REST API?](#23-c%C3%A1c-status-code-trong-rest-api)
+
+[24. SOAP là gì?](#24-soap-l%C3%A0-g%C3%AC)
+
+[25. Các phần tử của SOAP message?](#25-c%C3%A1c-ph%E1%BA%A7n-t%E1%BB%AD-c%E1%BB%A7a-soap-message)
+
+[26. SOA là gì?](#26-soa-l%C3%A0-g%C3%AC)
+
+[27. Ưu điểm của SOA?](#27-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-soa)
+
+[28. Các vấn đề bảo mật trong dịch vụ Web?](#28-c%C3%A1c-v%E1%BA%A5n-%C4%91%E1%BB%81-b%E1%BA%A3o-m%E1%BA%ADt-trong-d%E1%BB%8Bch-v%E1%BB%A5-web)
+
+[29. Các thành phần cần được công khai khi triển khai dịch vụ web?](#29-c%C3%A1c-th%C3%A0nh-ph%E1%BA%A7n-c%E1%BA%A7n-%C4%91%C6%B0%E1%BB%A3c-c%C3%B4ng-khai-khi-tri%E1%BB%83n-khai-d%E1%BB%8Bch-v%E1%BB%A5-web)
+
+[30. Tại sao dịch vụ web lại quan trọng?](#30-t%E1%BA%A1i-sao-d%E1%BB%8Bch-v%E1%BB%A5-web-l%E1%BA%A1i-quan-tr%E1%BB%8Dng)
+
+[31. DISCO là gì?](#31-disco-l%C3%A0-g%C3%AC)
+
+[32. Giải thích về BEEP?](#32-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-beep)
+
+[33. URL trong dịch vụ web REST?](#33-url-trong-d%E1%BB%8Bch-v%E1%BB%A5-web-rest)
+
+[34. Bảo mật trong dịch vụ web?](#34-b%E1%BA%A3o-m%E1%BA%ADt-trong-d%E1%BB%8Bch-v%E1%BB%A5-web)
+
+[35. Sự khác biệt của dịch vụ web với CORBA và DCOM?](#35-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-c%E1%BB%A7a-d%E1%BB%8Bch-v%E1%BB%A5-web-v%E1%BB%9Bi-corba-v%C3%A0-dcom)
+
 ## Câu hỏi phỏng vấn cho Fresher
 
-## 1. Giải thích các kiểu dịch vụ web khác nhau?
+### 1. Giải thích các kiểu dịch vụ web khác nhau?
 
 Có hai kiểu dịch vụ web cơ bản là :
 
