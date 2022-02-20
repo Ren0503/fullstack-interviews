@@ -232,3 +232,226 @@ if (object != object)
 
 Thông điệp retain ngăn một đối tượng được phân bổ cho đến khi bạn sử dụng xong.
 
+## Câu hỏi phỏng vấn iOS cho Experienced
+
+### 17. Objective-C trong iOS?
+
+Kể từ những năm 1990, Objective-C đã được Apple sử dụng như một ngôn ngữ lập trình hướng đối tượng. Ngôn ngữ này kết hợp những ưu điểm của hai ngôn ngữ trước đó - C và Smalltalk. Là một tập mở rộng của C, nó cung cấp chức năng hướng đối tượng và một môi trường runtime động.
+
+![](./assets/Objective-C_in_OS.png)
+
+**Tính năng**
+- Biên dịch khá nhanh và hoạt động mềm mại
+- Obj-C tương thích với cả C và C++
+- Hỗ trợ Runtime
+- Làm việc tốt với các Foundation APIs
+
+### 18. Các kiểu dữ liệu phổ biến trong Objective-C?
+
+* **BOOL**: biểu diễn giá trị Boolean tức là true hoặc false. Cả từ khoác _Bool và BOOL đều hợp lệ.
+    Ví dụ:
+
+    ```mm
+    _Bool flag = 0;
+    BOOL secondflag = 1;
+    ```
+* **NSInteger**: biểu diễn số nguyên.
+    Ví dụ:
+    
+    ```mm
+    typedef long NSInteger;
+    typedef int NSInteger;
+    ```
+
+* **NSUInteger**: biểu diễn số nguyên không dấu.
+    Ví dụ:
+
+    ```mm
+    typedef unsigned long NSUInteger; 
+    typedef unsigned int NSUInteger;
+    ```
+
+* **NSString**: biểu diễn chuỗi.
+    Ví dụ:
+    
+    ```mm
+    NSString *greeting = @"Hello";
+    ```
+
+### 19. Swift trong iOS?
+
+Swift là ngôn ngữ lập trình phát triển nhanh nhất hiện nay, do Apple tạo ra. Với lợi thế đáng kể so với Objective-C, Swift giữ vị trí dẫn đầu trong việc phát triển iOS. Đây là một ngôn ngữ hoàn toàn mới được tạo ra đặc biệt để phát triển phần mềm cho các hệ điều hành của Apple. Vì Swift triển khai tất cả các tính năng của các ngôn ngữ hiện đại khác, bạn có thể tìm thấy kiểu tự suy, tùy chọn, generics và các hàm bậc cao hơn. Nó tương thích với macOS, iOS, watchOS và tvOS.
+
+![](./assets/Swift_in_iOS.png)
+
+### 20. Các tính năng nổi bật của Swift?
+
+Ngôn ngữ lập trình Swift đang được thiết kế để các nhà phát triển có thể viết các chương trình chính xác và bảo trì chúng một cách dễ dàng. Nó cung cấp các tính năng sau:
+
+- **An toàn:** Swift đem về một cách hiệu quả để viết chương trình. Kiểm tra code trước khi nó được sử dụng trong sản xuất là rất quan trọng. Apple Swift loại bỏ bất kỳ code không an toàn nào trước khi nó được sử dụng trong quá trình sản xuất.
+- **Cú pháp đơn giản:** Cú pháp của Swift rất đơn giản và dễ sử dụng, giống như các nhà phát triển mong đợi. Các tính năng cú pháp của Swift cho phép bạn viết code tường minh hơn.
+- **Tính dễ đọc:** Swift có cú pháp đơn giản, dễ đọc và dễ viết hơn. Các nhà phát triển viết code Swift dễ dàng hơn vì nó giống với tiếng Anh thuần túy hơn, cho phép họ dành ít thời gian hơn để tìm kiếm mã có vấn đề.
+- **Hỗ trợ đa dạng:** Swift hoàn toàn tương thích với iOS, macOS, tvOS, watchOS, Linux và nhiều nền tảng khác. Điều này có nghĩa là bạn có thể phát triển phần mềm tương thích với tất cả các hệ điều hành.
+- **Mã nguồn mở:** Swift được phát triển tại *swift.org*, một framework mã nguồn mở. Để Swift trở thành một ngôn ngữ lập trình xác định, công nghệ này phải được mở cho tất cả mọi người. Swift hỗ trợ tất cả các nền tảng của Apple và giúp lập trình dễ dàng hơn, nhanh hơn và an toàn hơn.
+- **Tương thích với Objective C:** Swift có khả năng tương thích hoàn toàn với Objective-C. Swift cho phép các lập trình viên nhập các framework từ Objective-C bằng cú pháp Swift. Lập trình viên có thể sử dụng các thư viện và lớp Objective-C bên trong code Swift.
+
+### 21. NSError trong Swift?
+
+Thông tin về điều kiện lỗi được đóng gói trong đối tượng NSError theo cách có thể mở rộng và hướng đối tượng. Đối tượng NSError bao gồm ba thuộc tính cơ bản: miền lỗi được xác định trước (được biểu thị dưới dạng chuỗi), mã lỗi dành riêng cho miền và từ điển thông tin người dùng chứa thông tin dành riêng cho ứng dụng.
+
+```swift
+NSString *domain = @"com.MyCompany.MyApplication.ErrorDomain";
+
+NSString *desc = NSLocalizedString(@"Unable to complete the process", @"");
+
+NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : desc };
+
+NSError *error = [NSError errorWithDomain:domain code:-101 userInfo:userInfo];
+```
+
+### 22. Enum trong Swift?
+
+Thuật ngữ enum đề cập đến một kiểu dữ liệu do người dùng xác định bao gồm một tập hợp các giá trị liên quan cho phép bạn làm việc với các giá trị đó trong code của mình theo cách an toàn về kiểu. Một kiểu dữ liệu enum được xác định bởi từ khóa enum.
+
+Cú pháp
+
+```swift
+enum enum_name  
+{    
+// enumeration values are described here 
+}
+```
+
+Ví dụ:
+
+```swift
+enum MonthsofaYear 
+{    
+case January 
+case Februrary 
+… 
+case December 
+}
+```
+
+Các giá trị được xác định trong một enum `MonthsofaYear` như `January`, `Februrary` cho đến `December` là các trường hợp liệt kê của nó. Các trường hợp liệt kê mới có thể được thêm bằng cách sử dụng từ khóa `case`. Bạn có thể đặt nhiều `case` trên một dòng, được phân tách bằng dấu phẩy như sau:
+
+```swift
+enum MonthsofaYear
+{
+   case January, February,....,December
+}
+```
+
+### 23. Thuộc tính lazy trong iOS?
+
+Thuộc tính lazy là thuộc tính có giá trị ban đầu không được tính cho đến lần đầu tiên chúng được sử dụng. Bao gồm từ khóa `lazy` trước khi khai báo thuộc tính được lưu trữ để cho biết nó là lazy. Điều này cho phép bạn trì hoãn việc khởi tạo các thuộc tính được lưu trữ. Đây có thể là một cách tuyệt vời để đơn giản hóa code của bạn và giảm bớt công việc không cần thiết. Khi một đoạn code nặng nề và không có khả năng nhất quán, thì biến lazy có thể là một giải pháp tuyệt vời.
+
+```swift
+class Person { 
+    var name: String
+    lazy var personalizdgreeting : String = {  
+        return "HelloScala \(self.name)!" 
+    }()
+    init(name: String) { 
+        self.name = name 
+    } 
+}
+```
+
+Như đã trình bày ở trên, chúng ta không chắc chắn về giá trị `personalizdgreeting` nên có. Để biết chính xác, chúng ta cần đợi cho đến khi đối tượng này được khởi tạo.
+
+### 24. Generic trong Swift?
+
+Một tính năng chính của Swift là generic và phần lớn thư viện chuẩn của Swift được viết bằng code generic. Ví dụ: kiểu 'Array' và 'Dictionary' của Swift tạo thành các tập hợp generic. Code generic cho phép bạn tạo các hàm và kiểu linh hoạt, có thể tái sử dụng hoạt động với bất kỳ kiểu dữ liệu nào. Bạn có thể tạo code không quá cụ thể về các kiểu dữ liệu cơ bản, dẫn đến code sạch hơn.
+
+```swift
+func Swapping(x: inout Int, y: inout Int)  
+{    
+    let temp = x 
+    x = y 
+    y = temp 
+} 
+var num1 = 10 
+var num2 = 50 
+print("Before Swapping: \(num1) and \(num2)") 
+Swapping(x: &num1, y: &num2) 
+print("After Swapping: \(num1) and \(num2)")
+```
+
+Kết quả:
+
+```
+Before Swapping: 10 and 50 
+After Swapping: 50 and 10
+```
+
+Trong ví dụ trên, chúng ta đã định nghĩa một hàm `Swapping()` để hoán đổi các số nguyên. Nó nhận hai tham số x và y kiểu int. Như đã thấy trong đầu ra, các giá trị của x và y được trao đổi sau khi hoán đổi.
+
+### 25. Dictionary trong Swift?
+
+Swift định nghĩa dictionary là một tập hợp các mục không có thứ tự. Nó lưu trữ các mục theo cặp key-value. Dictionary sử dụng một định danh duy nhất được gọi là khóa (key) để lưu trữ một giá trị (value) được liên kết mà sau này có thể được tham chiếu và truy xuất thông qua cùng một khóa.
+
+Cú pháp:
+
+```swift
+var Dict_name = [KeyType: ValueType]() 
+```
+
+Ví dụ:
+
+```swift
+var examresult= ["Rahul": "79", "Aditya": "86", "Aditi": "67"] 
+print(examresult) 
+```
+
+Kết quả:
+
+```swift
+["Rahul": "79", "Aditya": "86", "Aditi": "67"] 
+```
+
+Trong ví dụ trên ta tạo một dictionary là `examresult`. Với
+- Khoá là `Rahul`, `Aditya`, `Aditi`.
+- Giá trị là `79`, `86`, `67`.
+
+### 26. Các design pattern được dùng trong iOS?
+
+Design pattern là giải pháp cho một vấn đề cụ thể mà bạn có thể gặp phải khi thiết kế kiến trúc của ứng dụng. Chúng là các mẫu được thiết kế để giúp bạn viết code dễ dàng hơn và có thể tái sử dụng nhiều hơn. Sau đây là một số design pattern có thể được sử dụng trong iOS:
+
+#### MVC (Model-View-Controller)
+
+MVC là một design pattern để phát triển các ứng dụng web trong đó ba thành phần được kết nối, là **view**, **controller** và **model**. View có thể được hiểu là giao diện người dùng được hiển thị cho người dùng cuối tại một thời điểm nhất định. Model đại diện cho dữ liệu được hiển thị trên view. Controller hoạt động như một liên kết giữa view và model. Giữa ba thành phần này luôn có mối quan hệ.
+
+![](./assets/MVC.png)
+
+#### MVVM (Model-View-View Model)
+
+Không giống như MVC, có một lớp đặc biệt trong MVVM được gọi là View Model giữa View và Model. Sử dụng view model, thông tin từ model có thể được chuyển đổi thành các giá trị có thể được hiển thị trên view. Có một liên kết ràng buộc giữa view và view model cho phép view model chia sẻ các cập nhật với view.
+
+![](./assets/MVVM.png)
+
+#### Facade
+
+![](./assets/Facade.png)
+
+### 27. Framework JSON nào được hỗ trợ trong iOS?
+
+iOS hỗ trợ framework SBJson. Con người và máy tính đều có thể dễ dàng đọc và ghi công cụ định dạng trao đổi dữ liệu này. Xử lý JSON được đơn giản hóa với các API linh hoạt của SBJson và kiểm soát bổ sung.
+
+### 28. iBeacons trong iOS?
+
+iBeacon, công nghệ không dây Bluetooth năng lượng thấp mới của Apple, cho phép iPhone và người dùng iOS khác nhận thông tin và dịch vụ dựa trên vị trí trên điện thoại thông minh. IBeacons là những thiết bị phát không dây, nhỏ, truyền tín hiệu đến các thiết bị thông minh gần đó thông qua công nghệ năng lượng thấp Bluetooth.
+
+![](./assets/iBeacons_in_iOS.png)
+
+### 29. Sự khác biệt giữa KVC và KVO trong Swift?
+
+- **KVC (Key-Value Coding):** Nó cho phép các thuộc tính của đối tượng được truy cập trong thời gian chạy bằng cách sử dụng các chuỗi thay vì biết tên thuộc tính một cách tĩnh trong quá trình phát triển.
+- **KVO (Key-Value Observing):** Trong Objective-C và Swift, KVO là một trong những phương pháp để quan sát các thay đổi trạng thái chương trình. Nếu một đối tượng có các biến cá thể, KVO cho phép các đối tượng khác quan sát những thay đổi đối với các biến đó.
+
+### 30. TDD là gì?
+
+Các nhà phát triển phần mềm có thể sử dụng phát triển theo hướng kiểm thử (TDD) trong quá trình phát triển phần mềm. Trong TDD, các nhà phát triển lập kế hoạch các tính năng của phần mềm mà họ muốn tạo và sau đó viết các trường hợp kiểm thử cho từng tính năng trước khi triển khai nó. Thông qua phát triển theo hướng thử nghiệm, chúng ta có thể hiểu rõ hơn về cả chất lượng của việc triển khai (nó có hoạt động không) và chất lượng của thiết kế (nó có được cấu trúc tốt không).
+
+![](./assets/TDD.png)
