@@ -8,6 +8,80 @@ Nodejs là một nền tảng được xây dựng, vận hành tại V8 JavaScr
 
 Nền tảng này bắt đầu được xây dựng, phát triển tại California từ năm 2009 với phần core phía dưới được lập trình bằng C++ gần như 100%. Điều này tạo nên ưu thế về tốc độ xử lý cũng như hiệu năng của nền tảng này. Đến nay, Nodejs vẫn đang "gây bão" trong cộng đồng công nghệ bởi khả năng phát triển ứng dụng vượt trội.
 
+## Mục lục
+
+[1. First class function là gì?](#1-first-class-function-l%C3%A0-g%C3%AC)
+
+[2. Node.js hoạt động thế nào?](#2-nodejs-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-th%E1%BA%BF-n%C3%A0o)
+
+[3. Quản lý package trong ứng dụng Node.js?](#3-qu%E1%BA%A3n-l%C3%BD-package-trong-%E1%BB%A9ng-d%E1%BB%A5ng-nodejs)
+
+[4. Node.js có tốt hơn các framework khác?](#4-nodejs-c%C3%B3-t%E1%BB%91t-h%C6%A1n-c%C3%A1c-framework-kh%C3%A1c)
+
+[5. Các bước để luồng điều khiển kiểm soát các lệnh gọi hàm?](#5-c%C3%A1c-b%C6%B0%E1%BB%9Bc-%C4%91%E1%BB%83-lu%E1%BB%93ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-ki%E1%BB%83m-so%C3%A1t-c%C3%A1c-l%E1%BB%87nh-g%E1%BB%8Di-h%C3%A0m)
+
+[6. Các tính năng thời gian của Node.js?](#6-c%C3%A1c-t%C3%ADnh-n%C4%83ng-th%E1%BB%9Di-gian-c%E1%BB%A7a-nodejs)
+
+[7. Ưu điểm của promise so với callback?](#7-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-promise-so-v%E1%BB%9Bi-callback)
+
+[8. fork trong Node.js là gì?](#8-fork-trong-nodejs-l%C3%A0-g%C3%AC)
+
+[9. Tại sao Node.js lại là đơn luồng?](#9-t%E1%BA%A1i-sao-nodejs-l%E1%BA%A1i-l%C3%A0-%C4%91%C6%A1n-lu%E1%BB%93ng)
+
+[10. Tạo ứng dụng hello world với node.js?](#10-t%E1%BA%A1o-%E1%BB%A9ng-d%E1%BB%A5ng-hello-world-v%E1%BB%9Bi-nodejs)
+
+[11. Các kiểu hàm API trong node.js?](#11-c%C3%A1c-ki%E1%BB%83u-h%C3%A0m-api-trong-nodejs)
+
+[12. REPL là gì?](#12-repl-l%C3%A0-g%C3%AC)
+
+[13. Sự khác biệt giữa bất đồng bộ và non-blocking?](#13-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-b%E1%BA%A5t-%C4%91%E1%BB%93ng-b%E1%BB%99-v%C3%A0-non-blocking)
+
+[14. Ý nghĩa của module.exports?](#14-%C3%BD-ngh%C4%A9a-c%E1%BB%A7a-moduleexports)
+
+[15. Công cụ dùng để đảm bảo code style nhất quán?](#15-c%C3%B4ng-c%E1%BB%A5-d%C3%B9ng-%C4%91%E1%BB%83-%C4%91%E1%BA%A3m-b%E1%BA%A3o-code-style-nh%E1%BA%A5t-qu%C3%A1n)
+
+[16. Callback hell là gì?](#16-callback-hell-l%C3%A0-g%C3%AC)
+
+[17. Event-Loop trong Node.js là gì?](#17-event-loop-trong-nodejs-l%C3%A0-g%C3%AC)
+
+[18. Nếu node.js đơn luồng thì nó xử lý đồng thời như thế nào?](#18-n%E1%BA%BFu-nodejs-%C4%91%C6%A1n-lu%E1%BB%93ng-th%C3%AC-n%C3%B3-x%E1%BB%AD-l%C3%BD-%C4%91%E1%BB%93ng-th%E1%BB%9Di-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[19. Sự khác biệt giữa process.nextTick() và setImmediate()?](#19-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-processnexttick-v%C3%A0-setimmediate)
+
+[20. Nodejs giải quyết vấn đề block I/O như thế nào?](#20-nodejs-gi%E1%BA%A3i-quy%E1%BA%BFt-v%E1%BA%A5n-%C4%91%E1%BB%81-block-io-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[21. Sử dụng async await trong Node.js?](#21-s%E1%BB%AD-d%E1%BB%A5ng-async-await-trong-nodejs)
+
+[22. Node.js stream là gì?](#22-nodejs-stream-l%C3%A0-g%C3%AC)
+
+[23. Buffers trong node.js?](#23-buffers-trong-nodejs)
+
+[24. Middleware là gì?](#24-middleware-l%C3%A0-g%C3%AC)
+
+[25. Giải thích Reactor Pattern trong Nodejs?](#25-gi%E1%BA%A3i-th%C3%ADch-reactor-pattern-trong-nodejs)
+
+[26. Tại sao tách biệt app và server trong Express?](#26-t%E1%BA%A1i-sao-t%C3%A1ch-bi%E1%BB%87t-app-v%C3%A0-server-trong-express)
+
+[27. Tại sao Nodejs lại dùng V8 Engine?](#27-t%E1%BA%A1i-sao-nodejs-l%E1%BA%A1i-d%C3%B9ng-v8-engine)
+
+[28. Thoát mã trong Node.js?](#28-tho%C3%A1t-m%C3%A3-trong-nodejs)
+
+[29. Giải thích khái niệm stub trong Nodejs?](#29-gi%E1%BA%A3i-th%C3%ADch-kh%C3%A1i-ni%E1%BB%87m-stub-trong-nodejs)
+
+[30. Even Emitter trong Nodejs là gì?](#30-even-emitter-trong-nodejs-l%C3%A0-g%C3%AC)
+
+[31. Tăng cường hiệu suất Node.js thông qua phân cluster?](#31-t%C4%83ng-c%C6%B0%E1%BB%9Dng-hi%E1%BB%87u-su%E1%BA%A5t-nodejs-th%C3%B4ng-qua-ph%C3%A2n-cluster)
+
+[32. Thread pool là gì?](#32-thread-pool-l%C3%A0-g%C3%AC)
+
+[33. WASI là gì?](#33-wasi-l%C3%A0-g%C3%AC)
+
+[34. Các luồng worker khác gì với cluster?](#34-c%C3%A1c-lu%E1%BB%93ng-worker-kh%C3%A1c-g%C3%AC-v%E1%BB%9Bi-cluster)
+
+[35. Làm thế nào để đo thời gian của các hoạt động không đồng bộ?](#35-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-%C4%91o-th%E1%BB%9Di-gian-c%E1%BB%A7a-c%C3%A1c-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-kh%C3%B4ng-%C4%91%E1%BB%93ng-b%E1%BB%99)
+
+[36. Làm thế nào để đo lường hiệu suất của các hoạt động không đồng bộ?](#36-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-%C4%91o-l%C6%B0%E1%BB%9Dng-hi%E1%BB%87u-su%E1%BA%A5t-c%E1%BB%A7a-c%C3%A1c-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-kh%C3%B4ng-%C4%91%E1%BB%93ng-b%E1%BB%99)
+
 ## Câu hỏi phỏng vấn Node.js cho Fresher
 
 ### 1. First class function là gì?

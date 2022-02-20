@@ -8,6 +8,28 @@ Pandas là một thư viện mã nguồn mở được phát triển bởi Wes M
 
 Cái tên Pandas có nguồn gốc là **Panel Data**. Pandas hữu ích cho 5 thao tác chính với phân tích dữ liệu - Tải dữ liệu, quản lý, chuẩn bị, mô hình và phân tích dữ liệu.
 
+## Mục lục 
+
+[1. Dataframe trong Pandas là gì?](#1-dataframe-trong-pandas-l%C3%A0-g%C3%AC)
+
+[2. Kết hợp các dataframe khác nhau như thế nào?](#2-k%E1%BA%BFt-h%E1%BB%A3p-c%C3%A1c-dataframe-kh%C3%A1c-nhau-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[3. Có thể tạo một serie từ một đối tượng dictionary trong Pandas không?](#3-c%C3%B3-th%E1%BB%83-t%E1%BA%A1o-m%E1%BB%99t-serie-t%E1%BB%AB-m%E1%BB%99t-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-dictionary-trong-pandas-kh%C3%B4ng)
+
+[4. Cách xác định và xử lý giá trị bị mất trong dataframe?](#4-c%C3%A1ch-x%C3%A1c-%C4%91%E1%BB%8Bnh-v%C3%A0-x%E1%BB%AD-l%C3%BD-gi%C3%A1-tr%E1%BB%8B-b%E1%BB%8B-m%E1%BA%A5t-trong-dataframe)
+
+[5. Reindexing trong Pandas là gì?](#5-reindexing-trong-pandas-l%C3%A0-g%C3%AC)
+
+[6. Cách thêm cột vào dataframe?](#6-c%C3%A1ch-th%C3%AAm-c%E1%BB%99t-v%C3%A0o-dataframe)
+
+[7. Các xoá chỉ mục, hàng và cột khỏi dataframe?](#7-c%C3%A1c-xo%C3%A1-ch%E1%BB%89-m%E1%BB%A5c-h%C3%A0ng-v%C3%A0-c%E1%BB%99t-kh%E1%BB%8Fi-dataframe)
+
+[8. Có thể lấy mục từ serie A mà không ảnh hưởng đến serie B?](#8-c%C3%B3-th%E1%BB%83-l%E1%BA%A5y-m%E1%BB%A5c-t%E1%BB%AB-serie-a-m%C3%A0-kh%C3%B4ng-%E1%BA%A3nh-h%C6%B0%E1%BB%9Fng-%C4%91%E1%BA%BFn-serie-b)
+
+[9. Có thể lấy phần không trùng của serie A và B hay không?](#9-c%C3%B3-th%E1%BB%83-l%E1%BA%A5y-ph%E1%BA%A7n-kh%C3%B4ng-tr%C3%B9ng-c%E1%BB%A7a-serie-a-v%C3%A0-b-hay-kh%C3%B4ng)
+
+[10. Trong khi import dữ liệu từ các nguồn khác nhau, có thể xác định ngày tháng hay không?](#10-trong-khi-import-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-c%C3%A1c-ngu%E1%BB%93n-kh%C3%A1c-nhau-c%C3%B3-th%E1%BB%83-x%C3%A1c-%C4%91%E1%BB%8Bnh-ng%C3%A0y-th%C3%A1ng-hay-kh%C3%B4ng)
+
 ## Câu hỏi phỏng vấn Pandas
 
 ### 1. Dataframe trong Pandas là gì?

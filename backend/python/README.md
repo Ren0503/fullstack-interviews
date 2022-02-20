@@ -14,6 +14,82 @@ Do tính chất đơn giản và khả năng đạt được nhiều chức năn
 
 - Cấu trúc dữ liệu cấp cao kết hợp với tính năng kiểu động và liên kết động, thu hút một cộng đồng lớn các lập trình viên sử dụng nó để triển khai và phát triển ứng dụng nhanh chóng.
 
+## Mục lục
+
+[1. Thế nào là ngôn ngữ kiểu động?](#1-th%E1%BA%BF-n%C3%A0o-l%C3%A0-ng%C3%B4n-ng%E1%BB%AF-ki%E1%BB%83u-%C4%91%E1%BB%99ng)
+
+[2. Ngôn ngữ thông dịch là gì?](#2-ng%C3%B4n-ng%E1%BB%AF-th%C3%B4ng-d%E1%BB%8Bch-l%C3%A0-g%C3%AC)
+
+[3. PEP 8 là gì và tại sao nó lại quan trọng?](#3-pep-8-l%C3%A0-g%C3%AC-v%C3%A0-t%E1%BA%A1i-sao-n%C3%B3-l%E1%BA%A1i-quan-tr%E1%BB%8Dng)
+
+[4. Scope trong Python?](#4-scope-trong-python)
+
+[5. List và Tuple là gì? Sự khác biệt giữa chúng?](#5-list-v%C3%A0-tuple-l%C3%A0-g%C3%AC-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-ch%C3%BAng)
+
+[6. Kiểu dữ liệu trong Python?](#6-ki%E1%BB%83u-d%E1%BB%AF-li%E1%BB%87u-trong-python)
+
+[7. Pass trong Python?](#7-pass-trong-python)
+
+[8. Module và package trong Python?](#8-module-v%C3%A0-package-trong-python)
+
+[9. Các quyền truy cập thuộc tính trong Python?](#9-c%C3%A1c-quy%E1%BB%81n-truy-c%E1%BA%ADp-thu%E1%BB%99c-t%C3%ADnh-trong-python)
+
+[10. Self trong Python?](#10-self-trong-python)
+
+[11. __init__ là gì?](#11-init-l%C3%A0-g%C3%AC)
+
+[12. break, continue và pass trong Python?](#12-break-continue-v%C3%A0-pass-trong-python)
+
+[13. Unit test trong Python là gì?](#13-unit-test-trong-python-l%C3%A0-g%C3%AC)
+
+[14. Docstring là gì?](#14-docstring-l%C3%A0-g%C3%AC)
+
+[15. Slicing trong Python?](#15-slicing-trong-python)
+
+[16. Cách thực thi Python script trên Unix?](#16-c%C3%A1ch-th%E1%BB%B1c-thi-python-script-tr%C3%AAn-unix)
+
+[17. Sự khác biệt giữa array và list trong Python?](#17-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-array-v%C3%A0-list-trong-python)
+
+[18. Quản lý bộ nhớ trong Python?](#18-qu%E1%BA%A3n-l%C3%BD-b%E1%BB%99-nh%E1%BB%9B-trong-python)
+
+[19. Namespace là gì?](#19-namespace-l%C3%A0-g%C3%AC)
+
+[20. Scope Resolution trong Python?](#20-scope-resolution-trong-python)
+
+[21. Decorator trong Python là gì?](#21-decorator-trong-python-l%C3%A0-g%C3%AC)
+
+[22. Dict và List comprehensions trong Python?](#22-dict-v%C3%A0-list-comprehensions-trong-python)
+
+[23. Lambda trong Python?](#23-lambda-trong-python)
+
+[24. Sao chép đối tượng trong Python?](#24-sao-ch%C3%A9p-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-trong-python)
+
+[25. Sự khác biệt giữa xrange và range trong Python?](#25-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-xrange-v%C3%A0-range-trong-python)
+
+[26. Pickling và unpickling là gì?](#26-pickling-v%C3%A0-unpickling-l%C3%A0-g%C3%AC)
+
+[27. Generator trong Python là gì?](#27-generator-trong-python-l%C3%A0-g%C3%AC)
+
+[28. PYTHONPATH là gì?](#28-pythonpath-l%C3%A0-g%C3%AC)
+
+[29. Hàm help() và dir() để làm gì?](#29-h%C3%A0m-help-v%C3%A0-dir-%C4%91%E1%BB%83-l%C3%A0m-g%C3%AC)
+
+[30. Sự khác biệt giữa .py và .pyc?](#30-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-py-v%C3%A0-pyc)
+
+[31. Python được thông dịch?](#31-python-%C4%91%C6%B0%E1%BB%A3c-th%C3%B4ng-d%E1%BB%8Bch)
+
+[32. Truyền tham số bằng giá trị và bằng tham chiếu trong Python?](#32-truy%E1%BB%81n-tham-s%E1%BB%91-b%E1%BA%B1ng-gi%C3%A1-tr%E1%BB%8B-v%C3%A0-b%E1%BA%B1ng-tham-chi%E1%BA%BFu-trong-python)
+
+[33. Iterator trong Python?](#33-iterator-trong-python)
+
+[34. Cách xoá một file trong Python?](#34-c%C3%A1ch-xo%C3%A1-m%E1%BB%99t-file-trong-python)
+
+[35. Giải thích hàm split() và join() trong Python?](#35-gi%E1%BA%A3i-th%C3%ADch-h%C3%A0m-split-v%C3%A0-join-trong-python)
+
+[36. *args và *kwargs là gì?](#36-args-v%C3%A0-kwargs-l%C3%A0-g%C3%AC)
+
+[37. Chỉ mục âm là gì và cách sử dụng?](#37-ch%E1%BB%89-m%E1%BB%A5c-%C3%A2m-l%C3%A0-g%C3%AC-v%C3%A0-c%C3%A1ch-s%E1%BB%AD-d%E1%BB%A5ng)
+
 ## Câu hỏi phỏng vấn cho Fresher
 
 ### 1. Thế nào là ngôn ngữ kiểu động?
@@ -36,7 +112,7 @@ Ngôn ngữ thông dịch là ngôn ngữ thực thi từng dòng lệnh, ví d�
 
 PEP là viết tắt của **Python Enhancement Proposal**. Một PEP là một tài liệu thiết kế chính thống cung cấp thông tin từ cộng đồng Python hoặc mô tả tính năng mới của Python. PEP 8 đặc biệt quan trọng vì nó ghi lại các hướng dẫn về phong cách code Python. Rõ ràng là việc đóng góp cho cộng đồng mã nguồn mở Python đòi hỏi bạn phải tuân theo các nguyên tắc về phong cách này một cách nghiêm ngặt.
 
-### 4. Scope trong Python
+### 4. Scope trong Python?
 
 Phạm vi (scope) đề cập đến vùng code mà từ đó đối tượng trong Python có thể truy cập được. Do đó, ta không thể truy cập bất kỳ đối tượng cụ thể nào từ bất kỳ nơi nào trong code, việc truy cập phải được cho phép theo phạm vi của đối tượng.
 
@@ -129,8 +205,8 @@ myEmptyFunc()    # nothing happens
 ### 8. Module và package trong Python?
 
 Package và module là hai cơ chế cho phép **lập trình module** trong Python. Việc module hoá đem lại các lợi ích như:
-- **Tính đơn giản:** Làm việc trên một module duy nhất giúp bạn tập trung vào một phần tương đối nhỏ của vấn đề hiện tại. Điều này làm cho việc phát triển dễ dàng hơn và ít bị lỗi hơn.
-- **Khả năng bảo trì:** Các module được thiết kế để thực thi các logic giữa các miền vấn đề khác nhau. Nếu chúng được viết theo cách làm giảm sự phụ thuộc lẫn nhau, thì các sửa đổi trong một module ít gây ảnh hưởng đến các phần khác của chương trình.
+- **Tính đơn giản:** Làm việc trên một module duy nhất giúp bạn tập trung vào một phần tương đối nhỏ của vấn đề hiện tại. Điều này giúp cho việc phát triển dễ dàng hơn và ít bị lỗi hơn.
+- **Khả năng bảo trì:** Các module được thiết kế để thực thi các logic giữa các khía cạnh vấn đề khác nhau. Nếu chúng được viết theo cách làm giảm sự phụ thuộc lẫn nhau, thì các sửa đổi trong một module ít gây ảnh hưởng đến các phần khác của chương trình.
 - **Khả năng tái sử dụng:** Các hàm được khai báo trong một module có thể được sử dụng lại dễ dàng bởi các phần khác của ứng dụng.
 - **Phạm vi:** Các module thường xác định một namespace riêng biệt, giúp tránh nhầm lẫn giữa các định danh từ các phần khác của chương trình.
 
@@ -142,7 +218,7 @@ from foo import bar
 
 **Package** cho phép cấu trúc phân cấp module bằng cách dùng ký hiệu `.`. Nếu như module giúp tránh xung đột giữa các tên biến toàn cục thì các package giúp tránh xung đột giữa các tên module.
 
-Việc tạo một package rất dễ dàng vì nó sử dụng cấu trúc file vốn có của hệ thống. Vì vậy, chỉ cần nhồi các module vào một thư mục là bạn sẽ có nó, tên thư mục là tên package. Việc import một module hoặc nội dung của nó từ package này yêu cầu tên package làm tiền tố cho tên module được nối bằng dấu chấm.
+Việc tạo một package rất dễ dàng vì nó sử dụng cấu trúc file vốn có của hệ thống. Vì vậy, chỉ cần đưa các module vào một thư mục là bạn sẽ có nó, tên thư mục là tên package. Việc import một module hoặc nội dung của nó từ package này yêu cầu tên package làm tiền tố cho tên module được nối bằng dấu chấm.
 
 ### 9. Các quyền truy cập thuộc tính trong Python?
 
@@ -436,6 +512,8 @@ for i in xrange(1,10):    # numbers from 1 to 9
 for i in xrange(1, 10, 2):    # skip by two for next
    print i       # output => 1 3 5 7 9
 ```
+
+*Lưu ý:* `xrange` không được hỗ trợ ở Python3. Nên `range` được dùng giống như `xrange` ở Python2.
 
 ### 26. Pickling và unpickling là gì?
 

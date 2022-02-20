@@ -13,6 +13,68 @@ Microservice là một kỹ thuật phát triển phần mềm, một biến th�
 
 ![](./assets/Microservices_Interview.jpg)
 
+## Mục lục
+
+[1. Các tính năng chính của Microservices?](#1-c%C3%A1c-t%C3%ADnh-n%C4%83ng-ch%C3%ADnh-c%E1%BB%A7a-microservices)
+
+[2. Các thành phần chính trong Microservices?](#2-c%C3%A1c-th%C3%A0nh-ph%E1%BA%A7n-ch%C3%ADnh-trong-microservices)
+
+[3. Ưu nhược điểm của Microservices?](#3-%C6%B0u-nh%C6%B0%E1%BB%A3c-%C4%91i%E1%BB%83m-c%E1%BB%A7a-microservices)
+
+[4. Các công cụ thường dùng cho Microservices?](#4-c%C3%A1c-c%C3%B4ng-c%E1%BB%A5-th%C6%B0%E1%BB%9Dng-d%C3%B9ng-cho-microservices)
+
+[5. Giải thích kiến trúc Microservice?](#5-gi%E1%BA%A3i-th%C3%ADch-ki%E1%BA%BFn-tr%C3%BAc-microservice)
+
+[6. Sự khác biệt giữa Monolithic, SOA và Microservices?](#6-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-monolithic-soa-v%C3%A0-microservices)
+
+[7. Cohesion và Coupling là gì?](#7-cohesion-v%C3%A0-coupling-l%C3%A0-g%C3%AC)
+
+[8. Bounded Context là gì?](#8-bounded-context-l%C3%A0-g%C3%AC)
+
+[9. Viết các đặc điểm cơ bản của Thiết kế Microservice?](#9-vi%E1%BA%BFt-c%C3%A1c-%C4%91%E1%BA%B7c-%C4%91i%E1%BB%83m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-thi%E1%BA%BFt-k%E1%BA%BF-microservice)
+
+[10. Các thách thức khi sử dụng Microservices?](#10-c%C3%A1c-th%C3%A1ch-th%E1%BB%A9c-khi-s%E1%BB%AD-d%E1%BB%A5ng-microservices)
+
+[11. Giải thích PACT trong Microservices?](#11-gi%E1%BA%A3i-th%C3%ADch-pact-trong-microservices)
+
+[12. Giải thích cách microservice giao tiếp với các phần khác?](#12-gi%E1%BA%A3i-th%C3%ADch-c%C3%A1ch-microservice-giao-ti%E1%BA%BFp-v%E1%BB%9Bi-c%C3%A1c-ph%E1%BA%A7n-kh%C3%A1c)
+
+[13. Client certificates là gì?](#13-client-certificates-l%C3%A0-g%C3%AC)
+
+[14. Giải thích về CDC?](#14-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-cdc)
+
+[15. Các công ty nổi tiếng sử dụng kiến trúc Microservices?](#15-c%C3%A1c-c%C3%B4ng-ty-n%E1%BB%95i-ti%E1%BA%BFng-s%E1%BB%AD-d%E1%BB%A5ng-ki%E1%BA%BFn-tr%C3%BAc-microservices)
+
+[16. Semantic Monitoring là gì?](#16-semantic-monitoring-l%C3%A0-g%C3%AC)
+
+[17. Continuos monitoring là gì?](#17-continuos-monitoring-l%C3%A0-g%C3%AC)
+
+[18. Domain Driven Design là gì?](#18-domain-driven-design-l%C3%A0-g%C3%AC)
+
+[19. Giải thích về OAuth và OAuth2?](#19-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-oauth-v%C3%A0-oauth2)
+
+[20. Distributed Transactions là gì?](#20-distributed-transactions-l%C3%A0-g%C3%AC)
+
+[21. Idempotence là gì?](#21-idempotence-l%C3%A0-g%C3%AC)
+
+[22. Ent-to-end microservices testing là gì?](#22-ent-to-end-microservices-testing-l%C3%A0-g%C3%AC)
+
+[23. Thuật ngữ Euruka trong Microservices?](#23-thu%E1%BA%ADt-ng%E1%BB%AF-euruka-trong-microservices)
+
+[24. Giải thích sự quan trọng của reports và dashboard trong microservices?](#24-gi%E1%BA%A3i-th%C3%ADch-s%E1%BB%B1-quan-tr%E1%BB%8Dng-c%E1%BB%A7a-reports-v%C3%A0-dashboard-trong-microservices)
+
+[25. Reactive Extension là?](#25-reactive-extension-l%C3%A0)
+
+[26. Giải thích các kiểu test thường dùng trong Microservices?](#26-gi%E1%BA%A3i-th%C3%ADch-c%C3%A1c-ki%E1%BB%83u-test-th%C6%B0%E1%BB%9Dng-d%C3%B9ng-trong-microservices)
+
+[27. Kiểm tra kim tự tháp Mike Cohn's là gì?](#27-ki%E1%BB%83m-tra-kim-t%E1%BB%B1-th%C3%A1p-mike-cohns-l%C3%A0-g%C3%AC)
+
+[28. Giải thích Container trong Microservices?](#28-gi%E1%BA%A3i-th%C3%ADch-container-trong-microservices)
+
+[29. Vai trò của Docker trong Microservices?](#29-vai-tr%C3%B2-c%E1%BB%A7a-docker-trong-microservices)
+
+[30. Giải thích cách thực hiện khám phá dịch vụ trong kiến trúc microservices?](#30-gi%E1%BA%A3i-th%C3%ADch-c%C3%A1ch-th%E1%BB%B1c-hi%E1%BB%87n-kh%C3%A1m-ph%C3%A1-d%E1%BB%8Bch-v%E1%BB%A5-trong-ki%E1%BA%BFn-tr%C3%BAc-microservices)
+
 ## Câu hỏi phỏng vấn cho Fresher
 
 ### 1. Các tính năng chính của Microservices?

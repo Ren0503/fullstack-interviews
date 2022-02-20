@@ -6,6 +6,28 @@
 
 Numpy là một thư viện lõi phục vụ cho khoa học máy tính của Python, hỗ trợ cho việc tính toán các mảng nhiều chiều, có kích thước lớn với các hàm đã được tối ưu áp dụng lên các mảng nhiều chiều đó. Numpy đặc biệt hữu ích khi thực hiện các hàm liên quan tới đại số tuyến tính.
 
+## Mục lục
+
+[1. Bạn hiểu gì về NumPy?](#1-b%E1%BA%A1n-hi%E1%BB%83u-g%C3%AC-v%E1%BB%81-numpy)
+
+[2. Ưu điểm của mảng trong Numpy so với list trong Python?](#2-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-m%E1%BA%A3ng-trong-numpy-so-v%E1%BB%9Bi-list-trong-python)
+
+[3. Tạo mảng 1D, 2D và 3D?](#3-t%E1%BA%A1o-m%E1%BA%A3ng-1d-2d-v%C3%A0-3d)
+
+[4. Cho một mảng numpy và một cột mới làm input. Làm thế nào để xóa cột thứ hai và thay thế cột bằng một giá trị cột mới?](#4-cho-m%E1%BB%99t-m%E1%BA%A3ng-numpy-v%C3%A0-m%E1%BB%99t-c%E1%BB%99t-m%E1%BB%9Bi-l%C3%A0m-input-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-x%C3%B3a-c%E1%BB%99t-th%E1%BB%A9-hai-v%C3%A0-thay-th%E1%BA%BF-c%E1%BB%99t-b%E1%BA%B1ng-m%E1%BB%99t-gi%C3%A1-tr%E1%BB%8B-c%E1%BB%99t-m%E1%BB%9Bi)
+
+[5. Load dữ liệu từ file text như thế nào?](#5-load-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-file-text-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[6. Cách đọc dữ liệu CSV trong NumPy?](#6-c%C3%A1ch-%C4%91%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-csv-trong-numpy)
+
+[7. Sắp xếp mảng dựa trên cột thứ N?](#7-s%E1%BA%AFp-x%E1%BA%BFp-m%E1%BA%A3ng-d%E1%BB%B1a-tr%C3%AAn-c%E1%BB%99t-th%E1%BB%A9-n)
+
+[8. Bạn sẽ tìm giá trị gần nhất trong một mảng numpy như thế nào?](#8-b%E1%BA%A1n-s%E1%BA%BD-t%C3%ACm-gi%C3%A1-tr%E1%BB%8B-g%E1%BA%A7n-nh%E1%BA%A5t-trong-m%E1%BB%99t-m%E1%BA%A3ng-numpy-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[9. Cách đảo ngược mảng trong NumPy chỉ với một dòng?](#9-c%C3%A1ch-%C4%91%E1%BA%A3o-ng%C6%B0%E1%BB%A3c-m%E1%BA%A3ng-trong-numpy-ch%E1%BB%89-v%E1%BB%9Bi-m%E1%BB%99t-d%C3%B2ng)
+
+[10. Cách tìm hình dạng của bất kỳ mảng nào trong NumPy?](#10-c%C3%A1ch-t%C3%ACm-h%C3%ACnh-d%E1%BA%A1ng-c%E1%BB%A7a-b%E1%BA%A5t-k%E1%BB%B3-m%E1%BA%A3ng-n%C3%A0o-trong-numpy)
+
 ## Câu hỏi phỏng vấn NumPy
 
 ### 1. Bạn hiểu gì về NumPy?

@@ -10,7 +10,45 @@ Những công ty lớn sử dụng NGINX bao gồm: Autodesk, Atlassian, Intuit,
 
 NGINX được phát triển bởi Igor Sysoev năm 2002, với phiên bản phát hành công khai đầu tiên vào tháng 10 năm 2004. Igor xem phần mềm này ban đầu như một câu trả lời cho vấn đề C10k (là một vấn đề liên quan đến vấn đề hiệu suất xử lý 10.000 kết nối cùng lúc).
 
-Với mục tiêu của NGINX là tối ưu hóa hiệu xuất, nên nó thường vượt mặt các máy chủ web phổ biến khác trong các bài kiểm tra benchmark. Đặc biệt trong các trường hợp cần phục vụ nội dung tĩnh (file hình ảnh, css, js, text,..) và/hoặc các yêu cầu truy vấn đồng thời số lượng lớn (high concurrent request)
+Với mục tiêu của NGINX là tối ưu hóa hiệu xuất, nên nó thường vượt mặt các máy chủ web phổ biến khác trong các bài kiểm tra benchmark. Đặc biệt trong các trường hợp cần phục vụ nội dung tĩnh (file hình ảnh, css, js, text,..) và/hoặc các yêu cầu truy vấn đồng thời số lượng lớn (high concurrent request).
+
+## Mục lục
+
+[### 1. Nginx hoạt động như thế nào?](#1-nginx-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[### 2. Các tính năng của Nginx Server?](#2-c%C3%A1c-t%C3%ADnh-n%C4%83ng-c%E1%BB%A7a-nginx-server)
+
+[3. Sự khác biệt giữa Nginx và Apache?](#3-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-nginx-v%C3%A0-apache)
+
+[4. Nginx xử lý yêu cầu HTTP như thế nào?](#4-nginx-x%E1%BB%AD-l%C3%BD-y%C3%AAu-c%E1%BA%A7u-http-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[5. Trong Nginx, làm cách nào để ngăn chặn các yêu cầu xử lý với tên server không xác định?](#5-trong-nginx-l%C3%A0m-c%C3%A1ch-n%C3%A0o-%C4%91%E1%BB%83-ng%C4%83n-ch%E1%BA%B7n-c%C3%A1c-y%C3%AAu-c%E1%BA%A7u-x%E1%BB%AD-l%C3%BD-v%E1%BB%9Bi-t%C3%AAn-server-kh%C3%B4ng-x%C3%A1c-%C4%91%E1%BB%8Bnh)
+
+[6. Ưu điểm của "reverse proxy server"?](#6-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-%22reverse-proxy-server%22)
+
+[7. Cách dùng Nginx tốt nhất?](#7-c%C3%A1ch-d%C3%B9ng-nginx-t%E1%BB%91t-nh%E1%BA%A5t)
+
+[8. Tiến trình master và worker trong Nginx?](#8-ti%E1%BA%BFn-tr%C3%ACnh-master-v%C3%A0-worker-trong-nginx)
+
+[9. Giải thích cách khởi động Nginx ở cổng khác 80?](#9-gi%E1%BA%A3i-th%C3%ADch-c%C3%A1ch-kh%E1%BB%9Fi-%C4%91%E1%BB%99ng-nginx-%E1%BB%9F-c%E1%BB%95ng-kh%C3%A1c-80)
+
+[10. Có thể thay thế lỗi 502 thành 503 trong Nginx không?](#10-c%C3%B3-th%E1%BB%83-thay-th%E1%BA%BF-l%E1%BB%97i-502-th%C3%A0nh-503-trong-nginx-kh%C3%B4ng)
+
+[11. Trong Nginx, làm thế nào giữ dấu gạch chéo trong URLs?](#11-trong-nginx-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-gi%E1%BB%AF-d%E1%BA%A5u-g%E1%BA%A1ch-ch%C3%A9o-trong-urls)
+
+[12. ngx_http_upstream_module là gì?](#12-ngxhttpupstreammodule-l%C3%A0-g%C3%AC)
+
+[13. Vấn đề C10K là gì?](#13-v%E1%BA%A5n-%C4%91%E1%BB%81-c10k-l%C3%A0-g%C3%AC)
+
+[14. Cách dùng stub_status và sub_filter directives?](#14-c%C3%A1ch-d%C3%B9ng-stubstatus-v%C3%A0-subfilter-directives)
+
+[15. Giải thích Nginx có hỗ trợ nén yêu cầu lên upstream không?](#15-gi%E1%BA%A3i-th%C3%ADch-nginx-c%C3%B3-h%E1%BB%97-tr%E1%BB%A3-n%C3%A9n-y%C3%AAu-c%E1%BA%A7u-l%C3%AAn-upstream-kh%C3%B4ng)
+
+[16. Cách lấy thời gian hiện tại trong Nginx?](#16-c%C3%A1ch-l%E1%BA%A5y-th%E1%BB%9Di-gian-hi%E1%BB%87n-t%E1%BA%A1i-trong-nginx)
+
+[17. Giải thích -s trong Nginx server?](#17-gi%E1%BA%A3i-th%C3%ADch--s-trong-nginx-server)
+
+[18. Cách thêm module vào Nginx server?](#18-c%C3%A1ch-th%C3%AAm-module-v%C3%A0o-nginx-server)
 
 ## Câu hỏi phỏng vấn Nginx
 

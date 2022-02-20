@@ -23,6 +23,74 @@ Nếu vẫn chưa bị thuyết phục, đây là một số lý do khác khiế
 * **Chi phí thấp** – nó là nguồn mở để bạn có thể sử dụng miễn phí.
 * **Cộng đồng lớn** – nếu gặp phải bất kỳ vấn đề nào với nó, bạn không phải lo lắng vì có rất nhiều blog PHP trên internet.
 
+## Mục lục
+
+[1. Sự khác biệt giữa biến và hằng trong PHP?](#1-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-bi%E1%BA%BFn-v%C3%A0-h%E1%BA%B1ng-trong-php)
+
+[2. Session trong PHP là gì?](#2-session-trong-php-l%C3%A0-g%C3%AC)
+
+[3. PEAR là gì?](#3-pear-l%C3%A0-g%C3%AC)
+
+[4. Giải thích sự khác biệt giữa $message và $$message?](#4-gi%E1%BA%A3i-th%C3%ADch-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-message-v%C3%A0-message)
+
+[5. PHP có phải là case-sensitive?](#5-php-c%C3%B3-ph%E1%BA%A3i-l%C3%A0-case-sensitive)
+
+[6. Các kiểu dữ liệu trong PHP?](#6-c%C3%A1c-ki%E1%BB%83u-d%E1%BB%AF-li%E1%BB%87u-trong-php)
+
+[7. Luật đặt tên biến trong PHP?](#7-lu%E1%BA%ADt-%C4%91%E1%BA%B7t-t%C3%AAn-bi%E1%BA%BFn-trong-php)
+
+[8. Sự khác biệt giữa echo và print trong PHP?](#8-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-echo-v%C3%A0-print-trong-php)
+
+[9. Hạn chế của PHP?](#9-h%E1%BA%A1n-ch%E1%BA%BF-c%E1%BB%A7a-php)
+
+[10. HTML và PHP tương tác như thế nào?](#10-html-v%C3%A0-php-t%C6%B0%C6%A1ng-t%C3%A1c-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[11. @ trong PHP là gì?](#11--trong-php-l%C3%A0-g%C3%AC)
+
+[12. Giải thích về Parser trong PHP?](#12-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-parser-trong-php)
+
+[13. Các kiểu array trong PHP?](#13-c%C3%A1c-ki%E1%BB%83u-array-trong-php)
+
+[14. Giải thích các kiểu lỗi?](#14-gi%E1%BA%A3i-th%C3%ADch-c%C3%A1c-ki%E1%BB%83u-l%E1%BB%97i)
+
+[15. Trait là gì?](#15-trait-l%C3%A0-g%C3%AC)
+
+[16. JavaScript có thể tương tác với PHP?](#16-javascript-c%C3%B3-th%E1%BB%83-t%C6%B0%C6%A1ng-t%C3%A1c-v%E1%BB%9Bi-php)
+
+[17. Vòng lặp foreach trong PHP?](#17-v%C3%B2ng-l%E1%BA%B7p-foreach-trong-php)
+
+[18. Cách băm mật khẩu trong PHP?](#18-c%C3%A1ch-b%C4%83m-m%E1%BA%ADt-kh%E1%BA%A9u-trong-php)
+
+[19. Sự khác biệt giữa include và require()?](#19-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-include-v%C3%A0-require)
+
+[20. Cookie trong PHP là gì?](#20-cookie-trong-php-l%C3%A0-g%C3%AC)
+
+[21. Thuật ngữ "Escaping to PHP" là gì?](#21-thu%E1%BA%ADt-ng%E1%BB%AF-%22escaping-to-php%22-l%C3%A0-g%C3%AC)
+
+[22. Giải thích về Path Traversal?](#22-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-path-traversal)
+
+[23. Phương thức final và lớp final là gì?](#23-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-final-v%C3%A0-l%E1%BB%9Bp-final-l%C3%A0-g%C3%AC)
+
+[24. Các bước tạo cơ sở dữ liệu dùng PHP và MySQL?](#24-c%C3%A1c-b%C6%B0%E1%BB%9Bc-t%E1%BA%A1o-c%C6%A1-s%E1%BB%9F-d%E1%BB%AF-li%E1%BB%87u-d%C3%B9ng-php-v%C3%A0-mysql)
+
+[25. Hàm session_start() và session_destroy() trong PHP?](#25-h%C3%A0m-sessionstart-v%C3%A0-sessiondestroy-trong-php)
+
+[26. Memcache và Memcached trong PHP là gì?](#26-memcache-v%C3%A0-memcached-trong-php-l%C3%A0-g%C3%AC)
+
+[27. Các cách khác nhau để xử lý tập kết quả của MySQL trong PHP?](#27-c%C3%A1c-c%C3%A1ch-kh%C3%A1c-nhau-%C4%91%E1%BB%83-x%E1%BB%AD-l%C3%BD-t%E1%BA%ADp-k%E1%BA%BFt-qu%E1%BA%A3-c%E1%BB%A7a-mysql-trong-php)
+
+[28. Cách kết nối URL trong PHP?](#28-c%C3%A1ch-k%E1%BA%BFt-n%E1%BB%91i-url-trong-php)
+
+[29. Tạo API cho PHP?](#29-t%E1%BA%A1o-api-cho-php)
+
+[30. PDO là gì?](#30-pdo-l%C3%A0-g%C3%AC)
+
+[31. Sự khác biệt giữa GET và POST?](#31-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-get-v%C3%A0-post)
+
+[32. Type hinting trong PHP là gì?](#32-type-hinting-trong-php-l%C3%A0-g%C3%AC)
+
+[33. Làm thế nào để dừng việc thực thi script trong PHP?](#33-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-d%E1%BB%ABng-vi%E1%BB%87c-th%E1%BB%B1c-thi-script-trong-php)
+
 ## Câu hỏi phỏng vấn PHP cho Fresher
 
 ### 1. Sự khác biệt giữa biến và hằng trong PHP?

@@ -22,6 +22,80 @@ Django được tạo vào năm 2003 bởi lập trình viên Adrian Holovaty v�
 - **Thư viện**: vì có cộng đồng lớn nên nó có một lượng lớn thư viện cho mọi tác vụ.
 - **ORM**: nó giúp làm việc với dữ liệu theo cách hướng đối tượng.
 
+## Mục lục
+
+[1. Giải thích kiến trúc Django?](#1-gi%E1%BA%A3i-th%C3%ADch-ki%E1%BA%BFn-tr%C3%BAc-django)
+
+[2. Giải thích cấu trúc thư mục Django?](#2-gi%E1%BA%A3i-th%C3%ADch-c%E1%BA%A5u-tr%C3%BAc-th%C6%B0-m%E1%BB%A5c-django)
+
+[3. Model trong Django là gì?](#3-model-trong-django-l%C3%A0-g%C3%AC)
+
+[4. Template trong Django hay DTL là gì?](#4-template-trong-django-hay-dtl-l%C3%A0-g%C3%AC)
+
+[5. View trong Django là gì?](#5-view-trong-django-l%C3%A0-g%C3%AC)
+
+[6. Django ORM là gì?](#6-django-orm-l%C3%A0-g%C3%AC)
+
+[7. Static file là gì?](#7-static-file-l%C3%A0-g%C3%AC)
+
+[8. Django Rest Framework là gì?](#8-django-rest-framework-l%C3%A0-g%C3%AC)
+
+[9. Django-admin và manage.py là gì?](#9-django-admin-v%C3%A0-managepy-l%C3%A0-g%C3%AC)
+
+[10. Jinja là gì?](#10-jinja-l%C3%A0-g%C3%AC)
+
+[11. Django URL là gì?](#11-django-url-l%C3%A0-g%C3%AC)
+
+[12. Sự khác biệt giữa ứng dụng và dự án trong Django?](#12-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-%E1%BB%A9ng-d%E1%BB%A5ng-v%C3%A0-d%E1%BB%B1-%C3%A1n-trong-django)
+
+[13. Các kiểu kế thừa trong Django?](#13-c%C3%A1c-ki%E1%BB%83u-k%E1%BA%BF-th%E1%BB%ABa-trong-django)
+
+[14. Signals trong Django là gì?](#14-signals-trong-django-l%C3%A0-g%C3%AC)
+
+[15. Giải thích về caching trong Django?](#15-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-caching-trong-django)
+
+[16. Giải thích về xác thực người dùng trong Django?](#16-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-x%C3%A1c-th%E1%BB%B1c-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-trong-django)
+
+[17. Cách để config file static?](#17-c%C3%A1ch-%C4%91%E1%BB%83-config-file-static)
+
+[18. Giải thích về vòng đời Response trong Django?](#18-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-v%C3%B2ng-%C4%91%E1%BB%9Di-response-trong-django)
+
+[19. Cơ sở dữ liệu được hỗ trợ bởi Django?](#19-c%C6%A1-s%E1%BB%9F-d%E1%BB%AF-li%E1%BB%87u-%C4%91%C6%B0%E1%BB%A3c-h%E1%BB%97-tr%E1%BB%A3-b%E1%BB%9Fi-django)
+
+[20. Session framework là gì?](#20-session-framework-l%C3%A0-g%C3%AC)
+
+[21. Middleware trong Django là gì?](#21-middleware-trong-django-l%C3%A0-g%C3%AC)
+
+[22. Context trong Django là gì?](#22-context-trong-django-l%C3%A0-g%C3%AC)
+
+[23. Hàm django.shortcuts.render là gì?](#23-h%C3%A0m-djangoshortcutsrender-l%C3%A0-g%C3%AC)
+
+[24. Đặc trưng của file settings.py?](#24-%C4%91%E1%BA%B7c-tr%C6%B0ng-c%E1%BB%A7a-file-settingspy)
+
+[25. Cách xem tất cả mục trong model?](#25-c%C3%A1ch-xem-t%E1%BA%A5t-c%E1%BA%A3-m%E1%BB%A5c-trong-model)
+
+[26. Cách lọc mục trong model?](#26-c%C3%A1ch-l%E1%BB%8Dc-m%E1%BB%A5c-trong-model)
+
+[27. Sử dụng file-based session như thế nào?](#27-s%E1%BB%AD-d%E1%BB%A5ng-file-based-session-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[28. Mixin là gì?](#28-mixin-l%C3%A0-g%C3%AC)
+
+[29. Field trong Django là gì?](#29-field-trong-django-l%C3%A0-g%C3%AC)
+
+[31. Sự khác biệt giữa OneToOneField và ForeignKey Field?](#31-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-onetoonefield-v%C3%A0-foreignkey-field)
+
+[32. Kết hợp nhiều queryset trong một view?](#32-k%E1%BA%BFt-h%E1%BB%A3p-nhi%E1%BB%81u-queryset-trong-m%E1%BB%99t-view)
+
+[33. Lấy một mục cụ thể trong Model?](#33-l%E1%BA%A5y-m%E1%BB%99t-m%E1%BB%A5c-c%E1%BB%A5-th%E1%BB%83-trong-model)
+
+[34. Làm cách nào để lấy truy vấn SQL từ queryset?](#34-l%C3%A0m-c%C3%A1ch-n%C3%A0o-%C4%91%E1%BB%83-l%E1%BA%A5y-truy-v%E1%BA%A5n-sql-t%E1%BB%AB-queryset)
+
+[35. Cách tuỳ chỉnh chức năng của Django Admin Interface?](#35-c%C3%A1ch-tu%E1%BB%B3-ch%E1%BB%89nh-ch%E1%BB%A9c-n%C4%83ng-c%E1%BB%A7a-django-admin-interface)
+
+[36. Sự khác biệt giữa select_related và prefetch_related?](#36-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-selectrelated-v%C3%A0-prefetchrelated)
+
+[37. Giải thích đối tượng Q trong Django ORM?](#37-gi%E1%BA%A3i-th%C3%ADch-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-q-trong-django-orm)
+
 ## Câu hỏi phỏng vấn Django cho Fresher
 
 ### 1. Giải thích kiến trúc Django?
