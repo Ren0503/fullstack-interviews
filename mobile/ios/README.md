@@ -452,6 +452,90 @@ iBeacon, công nghệ không dây Bluetooth năng lượng thấp mới của Ap
 
 ### 30. TDD là gì?
 
-Các nhà phát triển phần mềm có thể sử dụng phát triển theo hướng kiểm thử (TDD) trong quá trình phát triển phần mềm. Trong TDD, các nhà phát triển lập kế hoạch các tính năng của phần mềm mà họ muốn tạo và sau đó viết các trường hợp kiểm thử cho từng tính năng trước khi triển khai nó. Thông qua phát triển theo hướng thử nghiệm, chúng ta có thể hiểu rõ hơn về cả chất lượng của việc triển khai (nó có hoạt động không) và chất lượng của thiết kế (nó có được cấu trúc tốt không).
+Các nhà phát triển phần mềm có thể sử dụng testing-driven development (TDD) trong quá trình phát triển phần mềm. Trong TDD, các nhà phát triển lập kế hoạch các tính năng của phần mềm mà họ muốn tạo và sau đó viết các trường hợp kiểm thử cho từng tính năng trước khi triển khai nó. Thông qua testing-driven development, chúng ta có thể hiểu rõ hơn về cả chất lượng của việc triển khai (nó có hoạt động không) và chất lượng của thiết kế (nó có được cấu trúc tốt không).
 
 ![](./assets/TDD.png)
+
+Lúc đầu, trường hợp thử nghiệm sẽ thất bại vì code chưa được triển khai và điều này thường được gọi là *giai đoạn đỏ*. Sau đó, code được viết để đảm bảo rằng trường hợp thử nghiệm vượt qua và không phá vỡ bất kỳ thành phần nào hoặc trường hợp thử nghiệm hiện tại, được gọi là *giai đoạn xanh*. Sau đó, nhà phát triển cấu trúc lại việc triển khai code bằng cách làm sạch và bảo trì codebase, cũng như tối ưu hóa hiệu quả. Quá trình này sau đó nên được lặp lại mỗi khi một trường hợp thử nghiệm mới được thêm vào.
+
+### 31. Giải thích các hàm completion handler?
+
+Completion handler về cơ bản là các hàm được truyền dưới dạng tham số cho các hàm khác. Chúng được dùng cho xử lý các phản hồi của tác vụ bất đồng bộ vì chúng ta không biết khi nào chúng sẽ kết thức. Completion handler thông báo cho ứng dụng khi một hoạt động, chẳng hạn như lệnh gọi API, đã được hoàn thành. Chương trình được thông báo rằng bước tiếp theo cần được thực hiện.
+
+**Ví dụ**
+
+Ta tạo một lớp gọi là `CompletionHandler` có một phương thức là `count` để đếm từ 0 đến 50. Sau khi đến 25 (giá trị ngẫu nhiên), nó sẽ tạo một yêu cầu mạng đến `https://scaler.com`. Sau khi mỗi yêu cầu hoàn thành ta in `Received response`.
+
+```swift
+class CompletionHandler {
+    func count() {
+        for i in 0...50 {
+            if i == 25 {
+                if let url = URL(string: "https://scaler.com") {
+                    URLSession.shared.dataTask(with: url) { (data, response, error) in
+                        print("Received response")
+                    }.resume()
+                }
+            }     
+            print("I = ", i)
+        }
+    }
+}
+let newInstance = CompletionHandler()
+newInstance.count()
+```
+
+Bạn sẽ thấy tất cả các số được in ra trong bảng điều khiển ngay sau khi code chạy, nhưng `Received response` sẽ chỉ được in sau khi tất cả các số khác đã được in.
+
+### 32. Sự khác biệt giữa strong, weak, readonly và copy?
+
+- **Strong**: Thuộc tính này duy trì một tham chiếu đến thuộc tính trong suốt thời gian tồn tại của một đối tượng. Khi bạn khai báo `strong`, bạn có ý định "sở hữu" đối tượng mà bạn đang tham chiếu. Dữ liệu bạn gán cho thuộc tính này sẽ không bị hủy miễn là bạn hoặc bất kỳ đối tượng nào khác tham chiếu `strong` đến thuộc tính này.
+- **Weak**: Có nghĩa là đối tượng nên được giữ trong bộ nhớ miễn là ai đó trỏ strong vào nó và bạn không cần kiểm soát thời gian tồn tại của nó.
+- **Read-only**: Thuộc tính của một đối tượng có thể được xác định ban đầu, nhưng nó không thể được thay đổi hoặc sửa đổi.
+- **Copy**: Thuộc tính này là một thay thế cho `strong`. Thay cho việc chiếm quyền sở hữu một đối tượng hiện tại, nó tạo ra một bản sao của bất kỳ thứ gì bạn gán cho thuộc tính, sau đó có quyền sở hữu bản sao đó.
+
+### 33. Dynamic dispatch là gì?
+
+Nói một cách dễ hiểu, dynamic dispatch có nghĩa là chương trình quyết định trong thời gian chạy việc triển khai một phương thức hoặc hàm cụ thể nào mà nó cần gọi. Trong trường hợp lớp con ghi đè một phương thức của lớp cha của nó, dynamic dispatch sẽ xác định xem nên gọi triển khai phương thức của lớp con hay của lớp cha.
+
+### 34. Giải thích lệnh @dynamic và synthesize trong Objective-C?
+
+- **@synthesize**: Lệnh này tạo ra các phương thức getter và setter trong thuộc tính và hoạt động cùng với lệnh @dynamic. Theo mặc định, @synthesize tạo một biến có cùng tên với đối tượng đích của set/get như được minh họa trong ví dụ dưới đây.
+    - Ví dụ 1: 
+    ```mm
+    @property (nonatomic, retain) NSButton *someButton;
+    ...
+    @synthesize someButton;
+    ```
+    - Ví dụ 2:
+    ```mm
+    @property (nonatomic, retain) NSButton *someButton;
+    ...
+    @synthesize someButton= _homeButton;
+    ```
+- **@dynamic**: Điều này cho trình biên dịch biết rằng các phương thức getter và setter không được triển khai trong chính lớp đó, mà ở những nơi khác (như lớp cha hoặc chúng sẽ có sẵn trong thời gian chạy).
+    - Ví dụ:
+    ```mm
+    @property (nonatomic, retain) IBOutlet NSButton *someButton;
+    ...
+    @dynamic someButton;
+    ```
+
+### 35. Cách triển khai storage và persistence trong iOS?
+
+Persistence có nghĩa là lưu trữ dữ liệu trên đĩa để có thể truy xuất dữ liệu mà không bị thay đổi trong lần mở ứng dụng tiếp theo. Từ đơn giản đến phức tạp, có các phương pháp sau để lưu trữ dữ liệu:
+
+- Các cấu trúc dữ liệu như mảng, tập hợp, dictionary và các cấu trúc dữ liệu khác là những cấu trúc hoàn hảo để lưu trữ dữ liệu ngay lập tức.
+- `NSUserDefaults` và `Keychains` đều là kho lưu trữ key-value đơn giản. `NSUserDefaults` thì không an toàn, trong khi Keychains bảo mật hơn.
+- File hoặc disk storage là một cách để lưu trữ dữ liệu (được tuần tự hóa hoặc không) đến đĩa bằng `NSFileManager`.
+- Cơ sở dữ liệu quan hệ, chẳng hạn như SQLite, rất tốt để triển khai các cơ chế truy vấn phức tạp
+
+### 36. Tác vụ đồng bộ và bất đồng bộ trong iOS?
+
+iOS của Apple hỗ trợ cả tác vụ đồng bộ và bất đồng bộ. Trong các hoạt động đồng bộ, các tác vụ được thực hiện lần lượt. Do đó, các tác vụ khác phải đợi cho đến khi hoàn thành tác vụ trước rồi mới tiếp tục. Các tác vụ bất đồng bộ chạy đồng thời trong nền. Nếu các tác vụ nền được hoàn thành, bạn sẽ được thông báo. Lập trình bất đồng bộ cho phép bạn xử lý nhiều yêu cầu cùng một lúc, vì vậy bạn có thể hoàn thành nhiều tác vụ hơn trong một khoảng thời gian ngắn hơn.
+
+![](./assets/synchronous_and_asynchronous_tasks_in_iOS.png)
+
+Hình trên chỉ ra rằng các tác vụ đồng bộ cần nhiều thời gian hơn để hoàn thành, tức là 45 giây, khi mỗi tác vụ được thực hiện một lần. Mặt khác, các tác vụ bất đồng bộ sẽ mất ít thời gian hơn để hoàn thành, tức là 20 giây khi chúng chạy đồng thời.
+
+Công việc bất đồng bộ có thể được xử lý bằng thư viện của bên thứ ba. Một vài ví dụ nổi bật là Promise(PromiseKit), RxSwift và ReactiveCocoa.
