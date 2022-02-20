@@ -31,6 +31,58 @@ Hình ảnh sau đây mô tả luồng công việc của Kubernetes từ cấp 
 
 ![](./assets/Kubernetes_Workflow.jpg)
 
+## Mục lục
+
+[1. Làm thế nào để thực hiện bảo trì trên nút K8?](#1-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-th%E1%BB%B1c-hi%E1%BB%87n-b%E1%BA%A3o-tr%C3%AC-tr%C3%AAn-n%C3%BAt-k8)
+
+[2. Làm cách nào để kiểm soát việc sử dụng tài nguyên của POD?](#2-l%C3%A0m-c%C3%A1ch-n%C3%A0o-%C4%91%E1%BB%83-ki%E1%BB%83m-so%C3%A1t-vi%E1%BB%87c-s%E1%BB%AD-d%E1%BB%A5ng-t%C3%A0i-nguy%C3%AAn-c%E1%BB%A7a-pod)
+
+[3. Các dịch vụ K8 khác nhau chạy trên một nút?](#3-c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-k8-kh%C3%A1c-nhau-ch%E1%BA%A1y-tr%C3%AAn-m%E1%BB%99t-n%C3%BAt)
+
+[4. PBD là gì?](#4-pbd-l%C3%A0-g%C3%AC)
+
+[5. Init container là gì?](#5-init-container-l%C3%A0-g%C3%AC)
+
+[6. Vai trò của cân bằng tải trong Kubernetes?](#6-vai-tr%C3%B2-c%E1%BB%A7a-c%C3%A2n-b%E1%BA%B1ng-t%E1%BA%A3i-trong-kubernetes)
+
+[7. Các điều cần biết để bảo mật Kubernetes?](#7-c%C3%A1c-%C4%91i%E1%BB%81u-c%E1%BA%A7n-bi%E1%BA%BFt-%C4%91%E1%BB%83-b%E1%BA%A3o-m%E1%BA%ADt-kubernetes)
+
+[8. Cách giám sát cụm Kubernetes?](#8-c%C3%A1ch-gi%C3%A1m-s%C3%A1t-c%E1%BB%A5m-kubernetes)
+
+[9. Lấy logs trung tâm của POD?](#9-l%E1%BA%A5y-logs-trung-t%C3%A2m-c%E1%BB%A7a-pod)
+
+[10. Làm thế nào để biến dịch vụ trong spec bên dưới thành dịch vụ bên ngoài?](#10-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-bi%E1%BA%BFn-d%E1%BB%8Bch-v%E1%BB%A5-trong-spec-b%C3%AAn-d%C6%B0%E1%BB%9Bi-th%C3%A0nh-d%E1%BB%8Bch-v%E1%BB%A5-b%C3%AAn-ngo%C3%A0i)
+
+[11. Hoàn thành file thông số cấu hình sau để làm cho nó Ingress?](#11-ho%C3%A0n-th%C3%A0nh-file-th%C3%B4ng-s%E1%BB%91-c%E1%BA%A5u-h%C3%ACnh-sau-%C4%91%E1%BB%83-l%C3%A0m-cho-n%C3%B3-ingress)
+
+[12. Cấu hình TLS với Ingress?](#12-c%E1%BA%A5u-h%C3%ACnh-tls-v%E1%BB%9Bi-ingress)
+
+[13. Có vấn đề gì khi dùng namespace mặc định?](#13-c%C3%B3-v%E1%BA%A5n-%C4%91%E1%BB%81-g%C3%AC-khi-d%C3%B9ng-namespace-m%E1%BA%B7c-%C4%91%E1%BB%8Bnh)
+
+[14. Cho biết dịch vụ và namespace trong file sau?](#14-cho-bi%E1%BA%BFt-d%E1%BB%8Bch-v%E1%BB%A5-v%C3%A0-namespace-trong-file-sau)
+
+[15. Operator là gì?](#15-operator-l%C3%A0-g%C3%AC)
+
+[16. Tại sao lại cần Operator?](#16-t%E1%BA%A1i-sao-l%E1%BA%A1i-c%E1%BA%A7n-operator)
+
+[17. GKE là gì?](#17-gke-l%C3%A0-g%C3%AC)
+
+[18. Ingress Default Backend là gì?](#18-ingress-default-backend-l%C3%A0-g%C3%AC)
+
+[19. Cách để chạy Kubernetes cục bộ?](#19-c%C3%A1ch-%C4%91%E1%BB%83-ch%E1%BA%A1y-kubernetes-c%E1%BB%A5c-b%E1%BB%99)
+
+[20. Cân bằng tải với Kubernetes?](#20-c%C3%A2n-b%E1%BA%B1ng-t%E1%BA%A3i-v%E1%BB%9Bi-kubernetes)
+
+[22. Sự khác biệt giữa Docker Swarm và Kubernetes?](#22-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-docker-swarm-v%C3%A0-kubernetes)
+
+[23. Cách khắc phục sự cố nếu POD không lên lịch?](#23-c%C3%A1ch-kh%E1%BA%AFc-ph%E1%BB%A5c-s%E1%BB%B1-c%E1%BB%91-n%E1%BA%BFu-pod-kh%C3%B4ng-l%C3%AAn-l%E1%BB%8Bch)
+
+[24. Cách chạy POD trên một nút cụ thể?](#24-c%C3%A1ch-ch%E1%BA%A1y-pod-tr%C3%AAn-m%E1%BB%99t-n%C3%BAt-c%E1%BB%A5-th%E1%BB%83)
+
+[25. Các cách khác nhau để cung cấp kết nối mạng bên ngoài cho K8 là gì?](#25-c%C3%A1c-c%C3%A1ch-kh%C3%A1c-nhau-%C4%91%E1%BB%83-cung-c%E1%BA%A5p-k%E1%BA%BFt-n%E1%BB%91i-m%E1%BA%A1ng-b%C3%AAn-ngo%C3%A0i-cho-k8-l%C3%A0-g%C3%AC)
+
+[26. Làm thế nào chúng ta có thể chuyển tiếp cổng '8080 (container) -> 8080 (service) -> 8080 (ingress) -> 80 (browser) và nó có thể được thực hiện như thế nào?](#26-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-ch%C3%BAng-ta-c%C3%B3-th%E1%BB%83-chuy%E1%BB%83n-ti%E1%BA%BFp-c%E1%BB%95ng-8080-container---8080-service---8080-ingress---80-browser-v%C3%A0-n%C3%B3-c%C3%B3-th%E1%BB%83-%C4%91%C6%B0%E1%BB%A3c-th%E1%BB%B1c-hi%E1%BB%87n-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
 ## Câu hỏi phỏng vấn Kubernetes cho Fresher
 
 ### 1. Làm thế nào để thực hiện bảo trì trên nút K8?
@@ -76,7 +128,7 @@ spec:
      cpu: "_m"
 ```
 
-### 3. Các dịch vụ K8 khác nhau chạy trên một node?
+### 3. Các dịch vụ K8 khác nhau chạy trên một nút?
 
 Cụm K8 bao gồm hai kiểu nút là executor node và dịch vụ master.
 

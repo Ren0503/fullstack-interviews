@@ -25,6 +25,78 @@ Phát triển ứng dụng không chỉ đơn thuần là viết code! Chúng li
 - Rất nhiều tổ chức như PayPal, Spotify, Uber, v.v. sử dụng Docker để đơn giản hóa các hoạt động và đưa cơ sở hạ tầng và bảo mật đến gần hơn để tạo ra các ứng dụng an toàn hơn.
 - Mang tính di động, Container có thể được triển khai trên nhiều nền tảng như máy ảo, nền tảng Kubernetes, v.v. theo yêu cầu của quy mô hoặc nền tảng mong muốn.
 
+## Mục lục
+
+[1. Giải thích về container trong Docker?](#1-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-container-trong-docker)
+
+[2. Docker image là gì?](#2-docker-image-l%C3%A0-g%C3%AC)
+
+[3. DockerFile là gì?](#3-dockerfile-l%C3%A0-g%C3%AC)
+
+[4. Chức năng của hypervisor là gì?](#4-ch%E1%BB%A9c-n%C4%83ng-c%E1%BB%A7a-hypervisor-l%C3%A0-g%C3%AC)
+
+[5. Docker compose là gì?](#5-docker-compose-l%C3%A0-g%C3%AC)
+
+[6. Docker namespace là gì?](#6-docker-namespace-l%C3%A0-g%C3%AC)
+
+[7. Cách hiển thị trạng thái của tất cả docker container bằng dòng lệnh?](#7-c%C3%A1ch-hi%E1%BB%83n-th%E1%BB%8B-tr%E1%BA%A1ng-th%C3%A1i-c%E1%BB%A7a-t%E1%BA%A5t-c%E1%BA%A3-docker-container-b%E1%BA%B1ng-d%C3%B2ng-l%E1%BB%87nh)
+
+[8. Dữ liệu được lưu trữ trong container sẽ bị mất trong những trường hợp nào?](#8-d%E1%BB%AF-li%E1%BB%87u-%C4%91%C6%B0%E1%BB%A3c-l%C6%B0u-tr%E1%BB%AF-trong-container-s%E1%BA%BD-b%E1%BB%8B-m%E1%BA%A5t-trong-nh%E1%BB%AFng-tr%C6%B0%E1%BB%9Dng-h%E1%BB%A3p-n%C3%A0o)
+
+[9. Docker image registry?](#9-docker-image-registry)
+
+[10. Các thành phần trong Docker?](#10-c%C3%A1c-th%C3%A0nh-ph%E1%BA%A7n-trong-docker)
+
+[11. Docker Hub là gì?](#11-docker-hub-l%C3%A0-g%C3%AC)
+
+[12. Lệnh để export một docket image như một archive?](#12-l%E1%BB%87nh-%C4%91%E1%BB%83-export-m%E1%BB%99t-docket-image-nh%C6%B0-m%E1%BB%99t-archive)
+
+[13. Lệnh để import một Docker image đến một Docker host khác?](#13-l%E1%BB%87nh-%C4%91%E1%BB%83-import-m%E1%BB%99t-docker-image-%C4%91%E1%BA%BFn-m%E1%BB%99t-docker-host-kh%C3%A1c)
+
+[14. Có thể xoá container bị tạm dừng khỏi Docker không?](#14-c%C3%B3-th%E1%BB%83-xo%C3%A1-container-b%E1%BB%8B-t%E1%BA%A1m-d%E1%BB%ABng-kh%E1%BB%8Fi-docker-kh%C3%B4ng)
+
+[15. Lệnh kiểm tra phiên bản Docker client và server?](#15-l%E1%BB%87nh-ki%E1%BB%83m-tra-phi%C3%AAn-b%E1%BA%A3n-docker-client-v%C3%A0-server)
+
+[16. Sự khác biệt giữa ảo hoá (virtualization) và containerization?](#16-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-%E1%BA%A3o-ho%C3%A1-virtualization-v%C3%A0-containerization)
+
+[17. Sự khác biệt giữa lớp COPY và ADD trong Dockerfile?](#17-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-l%E1%BB%9Bp-copy-v%C3%A0-add-trong-dockerfile)
+
+[18. Container có thể tự khởi động lại?](#18-container-c%C3%B3-th%E1%BB%83-t%E1%BB%B1-kh%E1%BB%9Fi-%C4%91%E1%BB%99ng-l%E1%BA%A1i)
+
+[19. Sự khác biệt giữa Docker Image và Layer?](#19-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-docker-image-v%C3%A0-layer)
+
+[20. Mục đích của tham số volume trong lệnh chạy docker là gì?](#20-m%E1%BB%A5c-%C4%91%C3%ADch-c%E1%BB%A7a-tham-s%E1%BB%91-volume-trong-l%E1%BB%87nh-ch%E1%BA%A1y-docker-l%C3%A0-g%C3%AC)
+
+[21. Docker volume được lưu ở đâu trong docker?](#21-docker-volume-%C4%91%C6%B0%E1%BB%A3c-l%C6%B0u-%E1%BB%9F-%C4%91%C3%A2u-trong-docker)
+
+[22. Lệnh docker info là gì?](#22-l%E1%BB%87nh-docker-info-l%C3%A0-g%C3%AC)
+
+[23. Ý nghĩa của các lệnh up, run và start của docker compose?](#23-%C3%BD-ngh%C4%A9a-c%E1%BB%A7a-c%C3%A1c-l%E1%BB%87nh-up-run-v%C3%A0-start-c%E1%BB%A7a-docker-compose)
+
+[24. Các yêu cầu cơ bản để Docker chạy trên mọi hệ thống?](#24-c%C3%A1c-y%C3%AAu-c%E1%BA%A7u-c%C6%A1-b%E1%BA%A3n-%C4%91%E1%BB%83-docker-ch%E1%BA%A1y-tr%C3%AAn-m%E1%BB%8Di-h%E1%BB%87-th%E1%BB%91ng)
+
+[25. Cách đăng nhập vào docker registry?](#25-c%C3%A1ch-%C4%91%C4%83ng-nh%E1%BA%ADp-v%C3%A0o-docker-registry)
+
+[26. Các instructions phổ biến trong Dockerfile?](#26-c%C3%A1c-instructions-ph%E1%BB%95-bi%E1%BA%BFn-trong-dockerfile)
+
+[27. Sự khác biệt giữa Daemon Logging và Container Logging?](#27-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-daemon-logging-v%C3%A0-container-logging)
+
+[28. Cách thiết lập giao tiếp giữa docker host và linux host?](#28-c%C3%A1ch-thi%E1%BA%BFt-l%E1%BA%ADp-giao-ti%E1%BA%BFp-gi%E1%BB%AFa-docker-host-v%C3%A0-linux-host)
+
+[29. Cách xoá một container?](#29-c%C3%A1ch-xo%C3%A1-m%E1%BB%99t-container)
+
+[30. Sự khác biệt giữa CMD và ENTRYPOINT?](#30-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-cmd-v%C3%A0-entrypoint)
+
+[31. Có thể dùng JSON thay cho YAML khi phát triển docker-compose trong Docker không?](#31-c%C3%B3-th%E1%BB%83-d%C3%B9ng-json-thay-cho-yaml-khi-ph%C3%A1t-tri%E1%BB%83n-docker-compose-trong-docker-kh%C3%B4ng)
+
+[32. Bạn có thể chạy bao nhiêu container trong docker và các yếu tố ảnh hưởng đến giới hạn này là gì?](#32-b%E1%BA%A1n-c%C3%B3-th%E1%BB%83-ch%E1%BA%A1y-bao-nhi%C3%AAu-container-trong-docker-v%C3%A0-c%C3%A1c-y%E1%BA%BFu-t%E1%BB%91-%E1%BA%A3nh-h%C6%B0%E1%BB%9Fng-%C4%91%E1%BA%BFn-gi%E1%BB%9Bi-h%E1%BA%A1n-n%C3%A0y-l%C3%A0-g%C3%AC)
+
+[33. Vòng đời của container trong Docker?](#33-v%C3%B2ng-%C4%91%E1%BB%9Di-c%E1%BB%A7a-container-trong-docker)
+
+[34. Làm thế nào để sử dụng docker cho nhiều môi trường ứng dụng?](#34-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-s%E1%BB%AD-d%E1%BB%A5ng-docker-cho-nhi%E1%BB%81u-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-%E1%BB%A9ng-d%E1%BB%A5ng)
+
+[35. Làm sao đảm bảo container1 chạy trước container2 trong khi dùng docker compose?](#35-l%C3%A0m-sao-%C4%91%E1%BA%A3m-b%E1%BA%A3o-container1-ch%E1%BA%A1y-tr%C6%B0%E1%BB%9Bc-container2-trong-khi-d%C3%B9ng-docker-compose)
+
 ## Câu hỏi phỏng vấn Docker cho Fresher
 
 ### 1. Giải thích về container trong Docker?
@@ -231,7 +303,7 @@ Trong Docker, logging được hỗ trợ ở hai level là level Daemon và lev
 
 Điều này có thể được thực hiện bởi mạng bằng cách xác định "ipconfig" trên docker host. Lệnh này đảm bảo rằng một adapter ethernet được tạo miễn là docker có mặt trong host.
 
-### 29. Cách xoá một container:
+### 29. Cách xoá một container?
 
 Ta có hai bước xoá container:
 1. `docker stop <container_id>`

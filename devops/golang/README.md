@@ -6,7 +6,69 @@
 
 Golang còn gọi là Go là một trong những ngôn ngữ trẻ nhất được phát hành vào năm 2012 bởi Google, cụ thể là bởi Robert Griesemer, Rob Pike và Ken Thompson. Người ta nói rằng Golang được sinh ra vì thất vọng với sự kém cỏi của các ngôn ngữ lập trình hiện tại.
 
-Go là một ngôn ngữ lập trình mã nguồn mở cấp cao được phát triển chủ yếu quan tâm đến hiệu quả của code mà không ảnh hưởng đến tính đơn giản, đồng thời có thời gian biên dịch nhanh hơn để giúp phát triển các ứng dụng phần mềm với tốc độ nhanh hơn. Các công ty như Google, Apple, Uber đang sử dụng Golang do ưu điểm của nó là ít thời gian học hơn, phát triển code nhanh hơn, cải thiện hiệu quả thời gian chạy, giảm lỗi, đồng thời, chiến lược thu gom rác, v.v. 
+Go là một ngôn ngữ lập trình mã nguồn mở cấp cao được phát triển chủ yếu quan tâm đến hiệu quả của code mà không ảnh hưởng đến tính đơn giản, đồng thời có thời gian biên dịch nhanh hơn để giúp phát triển các ứng dụng phần mềm với tốc độ nhanh hơn. Các công ty như Google, Apple, Uber đang sử dụng Golang do ưu điểm của nó là ít thời gian học hơn, phát triển code nhanh hơn, cải thiện hiệu quả thời gian chạy, giảm lỗi, đồng thời, chiến lược thu gom rác, ...
+
+## Mục lục
+
+[1. Golang là gì?](#1-golang-l%C3%A0-g%C3%AC)
+
+[2. Tại sao nên học Golang?](#2-t%E1%BA%A1i-sao-n%C3%AAn-h%E1%BB%8Dc-golang)
+
+[3. Golang package là gì?](#3-golang-package-l%C3%A0-g%C3%AC)
+
+[4. Golang là case sensitive hay insensitive?](#4-golang-l%C3%A0-case-sensitive-hay-insensitive)
+
+[5. Go Pointer là gì?](#5-go-pointer-l%C3%A0-g%C3%AC)
+
+[6. Chuỗi ký tự trong Golang?](#6-chu%E1%BB%97i-k%C3%BD-t%E1%BB%B1-trong-golang)
+
+[7. Cú pháp vòng lặp for trong Golang?](#7-c%C3%BA-ph%C3%A1p-v%C3%B2ng-l%E1%BA%B7p-for-trong-golang)
+
+[8. Phạm vi biến trong Go?](#8-ph%E1%BA%A1m-vi-bi%E1%BA%BFn-trong-go)
+
+[9. Goroutine là gì?](#9-goroutine-l%C3%A0-g%C3%AC)
+
+[10. Có thể trả về nhiều giá trị từ một hàm trong Go?](#10-c%C3%B3-th%E1%BB%83-tr%E1%BA%A3-v%E1%BB%81-nhi%E1%BB%81u-gi%C3%A1-tr%E1%BB%8B-t%E1%BB%AB-m%E1%BB%99t-h%C3%A0m-trong-go)
+
+[11. Có thể khai báo nhiều biến khác kiểu trong cùng một dòng không?](#11-c%C3%B3-th%E1%BB%83-khai-b%C3%A1o-nhi%E1%BB%81u-bi%E1%BA%BFn-kh%C3%A1c-ki%E1%BB%83u-trong-c%C3%B9ng-m%E1%BB%99t-d%C3%B2ng-kh%C3%B4ng)
+
+[12. Slice trong Go là gì?](#12-slice-trong-go-l%C3%A0-g%C3%AC)
+
+[13. Go Interface là gì?](#13-go-interface-l%C3%A0-g%C3%AC)
+
+[14. Golang có nhanh hơn các ngôn ngữ lập trình khác?](#14-golang-c%C3%B3-nhanh-h%C6%A1n-c%C3%A1c-ng%C3%B4n-ng%E1%BB%AF-l%E1%BA%ADp-tr%C3%ACnh-kh%C3%A1c)
+
+[15. Cách kiểm tra key trong Go map?](#15-c%C3%A1ch-ki%E1%BB%83m-tra-key-trong-go-map)
+
+[16. Go Channel là gì?](#16-go-channel-l%C3%A0-g%C3%AC)
+
+[17. Giải thích đoạn code bên dưới?](#17-gi%E1%BA%A3i-th%C3%ADch-%C4%91o%E1%BA%A1n-code-b%C3%AAn-d%C6%B0%E1%BB%9Bi)
+
+[18. Định dạng chuỗi mà không in nó?](#18-%C4%91%E1%BB%8Bnh-d%E1%BA%A1ng-chu%E1%BB%97i-m%C3%A0-kh%C3%B4ng-in-n%C3%B3)
+
+[19. Type Assertion trong Go là gì?](#19-type-assertion-trong-go-l%C3%A0-g%C3%AC)
+
+[20. Kiểm tra kiểu của biến khi đang chạy?](#20-ki%E1%BB%83m-tra-ki%E1%BB%83u-c%E1%BB%A7a-bi%E1%BA%BFn-khi-%C4%91ang-ch%E1%BA%A1y)
+
+[21. Có nên sử dụng biến toàn cục trong các chương trình triển khai goroutines?](#21-c%C3%B3-n%C3%AAn-s%E1%BB%AD-d%E1%BB%A5ng-bi%E1%BA%BFn-to%C3%A0n-c%E1%BB%A5c-trong-c%C3%A1c-ch%C6%B0%C6%A1ng-tr%C3%ACnh-tri%E1%BB%83n-khai-goroutines)
+
+[22. Cách sử dụng một empty struct?](#22-c%C3%A1ch-s%E1%BB%AD-d%E1%BB%A5ng-m%E1%BB%99t-empty-struct)
+
+[23. Cách sao chép slice và map trong Go?](#23-c%C3%A1ch-sao-ch%C3%A9p-slice-v%C3%A0-map-trong-go)
+
+[24. GoPATH khác với GoROOT như thế nào?](#24-gopath-kh%C3%A1c-v%E1%BB%9Bi-goroot-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[25. Cách xử lý lỗi trong Go?](#25-c%C3%A1ch-x%E1%BB%AD-l%C3%BD-l%E1%BB%97i-trong-go)
+
+[26. Cách truy cập dữ liệu đồng thời nào an toàn hơn? Map hay Channel?](#26-c%C3%A1ch-truy-c%E1%BA%ADp-d%E1%BB%AF-li%E1%BB%87u-%C4%91%E1%BB%93ng-th%E1%BB%9Di-n%C3%A0o-an-to%C3%A0n-h%C6%A1n-map-hay-channel)
+
+[27. Cách sắp xếp một slice của struct tuỳ chỉnh?](#27-c%C3%A1ch-s%E1%BA%AFp-x%E1%BA%BFp-m%E1%BB%99t-slice-c%E1%BB%A7a-struct-tu%E1%BB%B3-ch%E1%BB%89nh)
+
+[28. Hiểu gì về Shadowing trong Go?](#28-hi%E1%BB%83u-g%C3%AC-v%E1%BB%81-shadowing-trong-go)
+
+[29. Hàm variadic trong Go là gì?](#29-h%C3%A0m-variadic-trong-go-l%C3%A0-g%C3%AC)
+
+[30. Bạn hiểu gì về kiểu dữ liệu byte và rune?](#30-b%E1%BA%A1n-hi%E1%BB%83u-g%C3%AC-v%E1%BB%81-ki%E1%BB%83u-d%E1%BB%AF-li%E1%BB%87u-byte-v%C3%A0-rune)
 
 ## Câu hỏi phỏng vấn Golang cho Fresher
 
@@ -189,12 +251,12 @@ import (
 )
 
 func reverseValues(a,b string)(string, string){
-    return b,a    //notice how multiple values are returned
+   return b,a    //notice how multiple values are returned
 }
 
 func main(){
-    val1,val2:= reverseValues("interview","question")    // notice how multiple values are assigned
-    fmt.Println(val1, val2)
+   val1,val2:= reverseValues("interview","question")    // notice how multiple values are assigned
+   fmt.Println(val1, val2)
 }
 ```
 

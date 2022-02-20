@@ -24,6 +24,78 @@ DevOps là một phương pháp nhằm tăng năng suất và chất lượng c�
 
 Các tổ chức đã áp dụng phương pháp này được báo cáo là đã hoàn thành gần hàng nghìn lần triển khai chỉ trong một ngày, do đó cung cấp độ tin cậy, độ ổn định và bảo mật cao hơn cùng với sự hài lòng của khách hàng.
 
+## Mục lục
+
+[1. Kỹ sư DevOps là gì?](#1-k%E1%BB%B9-s%C6%B0-devops-l%C3%A0-g%C3%AC)
+
+[2. Tại sao cần DevOps?](#2-t%E1%BA%A1i-sao-c%E1%BA%A7n-devops)
+
+[3. SSH là gì?](#3-ssh-l%C3%A0-g%C3%AC)
+
+[4. Quản lý cấu hình là gì?](#4-qu%E1%BA%A3n-l%C3%BD-c%E1%BA%A5u-h%C3%ACnh-l%C3%A0-g%C3%AC)
+
+[5. Tầm quan trọng của quản lý cấu hình trong DevOps?](#5-t%E1%BA%A7m-quan-tr%E1%BB%8Dng-c%E1%BB%A7a-qu%E1%BA%A3n-l%C3%BD-c%E1%BA%A5u-h%C3%ACnh-trong-devops)
+
+[6. CAMS là gì?](#6-cams-l%C3%A0-g%C3%AC)
+
+[7. Tích hợp liên tục là gì?](#7-t%C3%ADch-h%E1%BB%A3p-li%C3%AAn-t%E1%BB%A5c-l%C3%A0-g%C3%AC)
+
+[8. Tại sao lại cần tích hợp liên tục?](#8-t%E1%BA%A1i-sao-l%E1%BA%A1i-c%E1%BA%A7n-t%C3%ADch-h%E1%BB%A3p-li%C3%AAn-t%E1%BB%A5c)
+
+[9. Kiểm tra liên tục là gì?](#9-ki%E1%BB%83m-tra-li%C3%AAn-t%E1%BB%A5c-l%C3%A0-g%C3%AC)
+
+[10. Các yếu tố quan trọng của DevOps KPI?](#10-c%C3%A1c-y%E1%BA%BFu-t%E1%BB%91-quan-tr%E1%BB%8Dng-c%E1%BB%A7a-devops-kpi)
+
+[11. Các giai đoạn trong DevOps?](#11-c%C3%A1c-giai-%C4%91o%E1%BA%A1n-trong-devops)
+
+[12. DevOps khác với Agile như thế nào?](#12-devops-kh%C3%A1c-v%E1%BB%9Bi-agile-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[13. Sự khác biệt giữa Continuous Deployment và Continuous Delivery?](#13-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-continuous-deployment-v%C3%A0-continuous-delivery)
+
+[14. Vài lầm tưởng về DevOps?](#14-v%C3%A0i-l%E1%BA%A7m-t%C6%B0%E1%BB%9Fng-v%E1%BB%81-devops)
+
+[15. Memcached là gì?](#15-memcached-l%C3%A0-g%C3%AC)
+
+[16. Các chiến lược branching khác nhau dùng trong VCS?](#16-c%C3%A1c-chi%E1%BA%BFn-l%C6%B0%E1%BB%A3c-branching-kh%C3%A1c-nhau-d%C3%B9ng-trong-vcs)
+
+[17. Các KPI dùng để đánh giá DevOps?](#17-c%C3%A1c-kpi-d%C3%B9ng-%C4%91%E1%BB%83-%C4%91%C3%A1nh-gi%C3%A1-devops)
+
+[18. CBD trong DevOps là gì?](#18-cbd-trong-devops-l%C3%A0-g%C3%AC)
+
+[19. Resilience Testing là gì?](#19-resilience-testing-l%C3%A0-g%C3%AC)
+
+[20. Phân biệt continous testing và automation testing?](#20-ph%C3%A2n-bi%E1%BB%87t-continous-testing-v%C3%A0-automation-testing)
+
+[21. DevOps pipeline là gì?](#21-devops-pipeline-l%C3%A0-g%C3%AC)
+
+[22. Cách Ansible hoạt động trong DevOps?](#22-c%C3%A1ch-ansible-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-trong-devops)
+
+[23. Cách Ansible hoạt động?](#23-c%C3%A1ch-ansible-ho%E1%BA%A1t-%C4%91%E1%BB%99ng)
+
+[24. Cách AWS làm việc với DevOps?](#24-c%C3%A1ch-aws-l%C3%A0m-vi%E1%BB%87c-v%E1%BB%9Bi-devops)
+
+[25. Cách chuẩn bị để phát triển một dự án sử dụng phương pháp DevOps có thể là gì?](#25-c%C3%A1ch-chu%E1%BA%A9n-b%E1%BB%8B-%C4%91%E1%BB%83-ph%C3%A1t-tri%E1%BB%83n-m%E1%BB%99t-d%E1%BB%B1-%C3%A1n-s%E1%BB%AD-d%E1%BB%A5ng-ph%C6%B0%C6%A1ng-ph%C3%A1p-devops-c%C3%B3-th%E1%BB%83-l%C3%A0-g%C3%AC)
+
+[26. Giải thích khái niệm "Shift left to reduce failure" trong DevOps?](#26-gi%E1%BA%A3i-th%C3%ADch-kh%C3%A1i-ni%E1%BB%87m-%22shift-left-to-reduce-failure%22-trong-devops)
+
+[27. Cuộc họp Post Mortem là gì trong DevOps?](#27-cu%E1%BB%99c-h%E1%BB%8Dp-post-mortem-l%C3%A0-g%C3%AC-trong-devops)
+
+[28. Khái niệm đằng sau lệnh sudo trong Linux?](#28-kh%C3%A1i-ni%E1%BB%87m-%C4%91%E1%BA%B1ng-sau-l%E1%BB%87nh-sudo-trong-linux)
+
+[29. Giải thích kiến trúc Jenkins?](#29-gi%E1%BA%A3i-th%C3%ADch-ki%E1%BA%BFn-tr%C3%BAc-jenkins)
+
+[30. Giải thích khái niệm "infrastructure as code" (IaC)?"](#30-gi%E1%BA%A3i-th%C3%ADch-kh%C3%A1i-ni%E1%BB%87m-%22infrastructure-as-code%22-iac%22)
+
+[31. Lập trình theo cặp là gì?](#31-l%E1%BA%ADp-tr%C3%ACnh-theo-c%E1%BA%B7p-l%C3%A0-g%C3%AC)
+
+[32. Blue/Green Deployment Pattern?](#32-bluegreen-deployment-pattern)
+
+[33. Hiệu ứng Dogpile là gì?](#33-hi%E1%BB%87u-%E1%BB%A9ng-dogpile-l%C3%A0-g%C3%AC)
+
+[34. Các bước cần thực hiện để cấu hình git repo để nó chạy quá trình kiểm tra code trước khi thực hiện bất kỳ commit nào?](#34-c%C3%A1c-b%C6%B0%E1%BB%9Bc-c%E1%BA%A7n-th%E1%BB%B1c-hi%E1%BB%87n-%C4%91%E1%BB%83-c%E1%BA%A5u-h%C3%ACnh-git-repo-%C4%91%E1%BB%83-n%C3%B3-ch%E1%BA%A1y-qu%C3%A1-tr%C3%ACnh-ki%E1%BB%83m-tra-code-tr%C6%B0%E1%BB%9Bc-khi-th%E1%BB%B1c-hi%E1%BB%87n-b%E1%BA%A5t-k%E1%BB%B3-commit-n%C3%A0o)
+
+[35. Làm thế nào có thể đảm bảo một script chạy mỗi khi repo nhận được các commit mới thông qua git push?](#35-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-c%C3%B3-th%E1%BB%83-%C4%91%E1%BA%A3m-b%E1%BA%A3o-m%E1%BB%99t-script-ch%E1%BA%A1y-m%E1%BB%97i-khi-repo-nh%E1%BA%ADn-%C4%91%C6%B0%E1%BB%A3c-c%C3%A1c-commit-m%E1%BB%9Bi-th%C3%B4ng-qua-git-push)
+
 ## Câu hỏi phỏng vấn DevOps cho Fresher
 
 ### 1. Kỹ sư DevOps là gì?
@@ -31,7 +103,6 @@ Các tổ chức đã áp dụng phương pháp này được báo cáo là đã
 Kỹ sư DevOps làm việc với lập trình viên và nhân viên IT để giám sát việc phát hành code. Họ có thể xuất phát là các lập trình viên, quan tâm đến việc triển khai và vận hành mạng. Hoặc họ là các sysadmin (quản trị hệ thống) có niềm đam mê viết script và coding, chuyển sang mảng phát triển nơi họ có thể cải thiện việc lập kế hoạch kiểm thử và triển khai. Đôi lúc, người làm DevOps là developer hay sysadmin kiêm nhiệm luôn trọng trách của một DevOps trong khi vẫn tiếp tục với vai trò chính của mình.
 
 Kỹ sư DevOps là người hiểu rõ về chu kỳ phát triển phần mềm (Software Development Life Cycle – SDLC). Họ cũng là người hiểu toàn diện về các công cụ tự động hóa khác nhau được dùng trong CI/CD pipelines.
-
 
 ### 2. Tại sao cần DevOps?
 
@@ -344,6 +415,11 @@ Các cách phổ biến thực hiện dịch trái trong DevOps:
     - Quy trình triển khai production đôi khi có xu hướng khác với quy trình phát triển. Có thể có sự khác biệt trong công cụ và đôi khi quá trình này cũng có thể là thủ công.
 - Cả nhóm phát triển và nhóm vận hành đều được kỳ vọng sẽ nắm quyền sở hữu để phát triển và duy trì các quy trình tiêu chuẩn để triển khai bằng cách sử dụng các khả năng của đám mây và pattern. Điều này giúp tạo niềm tin rằng việc triển khai production sẽ thành công.
 - Sử dụng các pattern để tránh sự mâu thuẫn mức cấu hình trong các môi trường khác nhau đang được sử dụng. Điều này sẽ yêu cầu nhóm nhà phát triển và nhóm vận hành hợp tác và làm việc để phát triển một quy trình tiêu chuẩn hướng dẫn các nhà phát triển kiểm tra ứng dụng của họ trong môi trường phát triển giống như cách họ kiểm tra trong môi trường sản xuất.
+
+### 27. Cuộc họp Post Mortem là gì trong DevOps?
+
+Các cuộc họp Post Mortem là những cuộc họp được sắp xếp để thảo luận nếu có một số vấn đề xảy ra trong khi triển khai phương pháp DevOps. Khi cuộc họp này được tiến hành, nhóm dự kiến sẽ đi đến các bước cần thực hiện để tránh thất bại trong tương lai. 
+
 
 ### 28. Khái niệm đằng sau lệnh sudo trong Linux?
 
