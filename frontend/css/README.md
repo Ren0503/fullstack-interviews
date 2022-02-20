@@ -34,6 +34,94 @@ CSS3 là bản nâng cấp mới nhất của CSS với mục đích mở rộng
 
 [10. Việc kiểm tra trang web trên các trình duyệt khác nhau có quan trọng không?](#10-vi%E1%BB%87c-ki%E1%BB%83m-tra-trang-web-tr%C3%AAn-c%C3%A1c-tr%C3%ACnh-duy%E1%BB%87t-kh%C3%A1c-nhau-c%C3%B3-quan-tr%E1%BB%8Dng-kh%C3%B4ng)
 
+[11. Phần tử Pseudo và các lớp Pseudo là gì?](#11-ph%E1%BA%A7n-t%E1%BB%AD-pseudo-v%C3%A0-c%C3%A1c-l%E1%BB%9Bp-pseudo-l%C3%A0-g%C3%AC)
+
+[12. Làm thế nào để chỉ định các đơn vị trong CSS? Những cách khác nhau để làm điều đó là gì?](#12-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-ch%E1%BB%89-%C4%91%E1%BB%8Bnh-c%C3%A1c-%C4%91%C6%A1n-v%E1%BB%8B-trong-css-nh%E1%BB%AFng-c%C3%A1ch-kh%C3%A1c-nhau-%C4%91%E1%BB%83-l%C3%A0m-%C4%91i%E1%BB%81u-%C4%91%C3%B3-l%C3%A0-g%C3%AC)
+
+[13. Liệu margin-top hoặc margin-bottom có ảnh hưởng đến các phần tử inline không?](#13-li%E1%BB%87u-margin-top-ho%E1%BA%B7c-margin-bottom-c%C3%B3-%E1%BA%A3nh-h%C6%B0%E1%BB%9Fng-%C4%91%E1%BA%BFn-c%C3%A1c-ph%E1%BA%A7n-t%E1%BB%AD-inline-kh%C3%B4ng)
+
+[14. Thuộc tính nào được sử dụng để thay đổi dạng phông chữ?](#14-thu%E1%BB%99c-t%C3%ADnh-n%C3%A0o-%C4%91%C6%B0%E1%BB%A3c-s%E1%BB%AD-d%E1%BB%A5ng-%C4%91%E1%BB%83-thay-%C4%91%E1%BB%95i-d%E1%BA%A1ng-ph%C3%B4ng-ch%E1%BB%AF)
+
+[15. Sự khác biệt giữa adaptive design và responsive design?](#15-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-adaptive-design-v%C3%A0-responsive-design)
+
+[16. Làm thế nào để các CSS Selector ứng với các phần tử của trình duyệt?](#16-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-c%C3%A1c-css-selector-%E1%BB%A9ng-v%E1%BB%9Bi-c%C3%A1c-ph%E1%BA%A7n-t%E1%BB%AD-c%E1%BB%A7a-tr%C3%ACnh-duy%E1%BB%87t)
+
+[17. Border-box khác với content-box như thế nào?](#17-border-box-kh%C3%A1c-v%E1%BB%9Bi-content-box-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[18. Opacity được quy định như thế nào trong CSS3?](#18-opacity-%C4%91%C6%B0%E1%BB%A3c-quy-%C4%91%E1%BB%8Bnh-nh%C6%B0-th%E1%BA%BF-n%C3%A0o-trong-css3)
+
+[19. Tại sao chúng ta nên sử dụng thuộc tính float trong CSS?](#19-t%E1%BA%A1i-sao-ch%C3%BAng-ta-n%C3%AAn-s%E1%BB%AD-d%E1%BB%A5ng-thu%E1%BB%99c-t%C3%ADnh-float-trong-css)
+
+[20. z-index là gì? Nó hoạt động như thế nào?](#20-z-index-l%C3%A0-g%C3%AC-n%C3%B3-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[21. Các CSS selector sau đây có nghĩa là gì?](#21-c%C3%A1c-css-selector-sau-%C4%91%C3%A2y-c%C3%B3-ngh%C4%A9a-l%C3%A0-g%C3%AC)
+
+[22. Thuộc tính flexbox là gì?](#22-thu%E1%BB%99c-t%C3%ADnh-flexbox-l%C3%A0-g%C3%AC)
+
+[23. Xếp tầng trong CSS là gì?](#23-x%E1%BA%BFp-t%E1%BA%A7ng-trong-css-l%C3%A0-g%C3%AC)
+
+[24. Giải thích thuộc tính position CSS?](#24-gi%E1%BA%A3i-th%C3%ADch-thu%E1%BB%99c-t%C3%ADnh-position-css)
+
+[25. Khi nào thì xảy ra DOM reflow?](#25-khi-n%C3%A0o-th%C3%AC-x%E1%BA%A3y-ra-dom-reflow)
+
+[26. Sự khác biệt giữa các thuộc tính Box Sizing?](#26-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-c%C3%A1c-thu%E1%BB%99c-t%C3%ADnh-box-sizing)
+
+[27. Làm sao để căn giữa một div trong một div khác?](#27-l%C3%A0m-sao-%C4%91%E1%BB%83-c%C4%83n-gi%E1%BB%AFa-m%E1%BB%99t-div-trong-m%E1%BB%99t-div-kh%C3%A1c)
+
+[28. Kể tên bốn loại thuộc tính @media?](#28-k%E1%BB%83-t%C3%AAn-b%E1%BB%91n-lo%E1%BA%A1i-thu%E1%BB%99c-t%C3%ADnh-media)
+
+[29. Hệ thống grid là gì?](#29-h%E1%BB%87-th%E1%BB%91ng-grid-l%C3%A0-g%C3%AC)
+
+[30. Các cách để ẩn phần tử với CSS?](#30-c%C3%A1c-c%C3%A1ch-%C4%91%E1%BB%83-%E1%BA%A9n-ph%E1%BA%A7n-t%E1%BB%AD-v%E1%BB%9Bi-css)
+
+[31. :root pseudo-class đề cập tới cái gì?](#31-root-pseudo-class-%C4%91%E1%BB%81-c%E1%BA%ADp-t%E1%BB%9Bi-c%C3%A1i-g%C3%AC)
+
+[32. Chiến lược mobile-first là gì?](#32-chi%E1%BA%BFn-l%C6%B0%E1%BB%A3c-mobile-first-l%C3%A0-g%C3%AC)
+
+[33. Làm thế nào để khôi phục giá trị mặc định của thuộc tính?](#33-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-kh%C3%B4i-ph%E1%BB%A5c-gi%C3%A1-tr%E1%BB%8B-m%E1%BA%B7c-%C4%91%E1%BB%8Bnh-c%E1%BB%A7a-thu%E1%BB%99c-t%C3%ADnh)
+
+[34. Sự khác biệt giữa CSS grid và flexbox?](#34-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-css-grid-v%C3%A0-flexbox)
+
+[35. Calc dùng để làm gì?](#35-calc-d%C3%B9ng-%C4%91%E1%BB%83-l%C3%A0m-g%C3%AC)
+
+[36. Tuỳ chỉnh thuộc tính biến trong CSS?](#36-tu%E1%BB%B3-ch%E1%BB%89nh-thu%E1%BB%99c-t%C3%ADnh-bi%E1%BA%BFn-trong-css)
+
+[37. Sự khác biệt của biến CSS và biến preprocessor (SASS, LESS, Stylus)?](#37-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-c%E1%BB%A7a-bi%E1%BA%BFn-css-v%C3%A0-bi%E1%BA%BFn-preprocessor-sass-less-stylus)
+
+[38. `* { box-sizing: border-box }` là gì?](#38---box-sizing-border-box--l%C3%A0-g%C3%AC)
+
+[39. !important trong CSS là gì?](#39-important-trong-css-l%C3%A0-g%C3%AC)
+
+[40. Tính đặc hiệu trong CSS?](#40-t%C3%ADnh-%C4%91%E1%BA%B7c-hi%E1%BB%87u-trong-css)
+
+[41. Progressive rendering là gì?](#41-progressive-rendering-l%C3%A0-g%C3%AC)
+
+[42. Lợi thế của dùng translate() thay vì position absolute?](#42-l%E1%BB%A3i-th%E1%BA%BF-c%E1%BB%A7a-d%C3%B9ng-translate-thay-v%C3%AC-position-absolute)
+
+[43. Style nào sẽ được tải và áp dụng trước trong code sau?](#43-style-n%C3%A0o-s%E1%BA%BD-%C4%91%C6%B0%E1%BB%A3c-t%E1%BA%A3i-v%C3%A0-%C3%A1p-d%E1%BB%A5ng-tr%C6%B0%E1%BB%9Bc-trong-code-sau)
+
+[44. Làm sao để biết trình duyệt có hỗ trợ một tính năng nhất định không?](#44-l%C3%A0m-sao-%C4%91%E1%BB%83-bi%E1%BA%BFt-tr%C3%ACnh-duy%E1%BB%87t-c%C3%B3-h%E1%BB%97-tr%E1%BB%A3-m%E1%BB%99t-t%C3%ADnh-n%C4%83ng-nh%E1%BA%A5t-%C4%91%E1%BB%8Bnh-kh%C3%B4ng)
+
+[45. Cách position absolute hoạt động?](#45-c%C3%A1ch-position-absolute-ho%E1%BA%A1t-%C4%91%E1%BB%99ng)
+
+[46. Các thuộc tính của overflow trong CSS?](#46-c%C3%A1c-thu%E1%BB%99c-t%C3%ADnh-c%E1%BB%A7a-overflow-trong-css)
+
+[47. Bạn có thể căn chỉnh nội dung của thẻ `<p>` nằm ngay trung tâm của thẻ `<div>`?](#47-b%E1%BA%A1n-c%C3%B3-th%E1%BB%83-c%C4%83n-ch%E1%BB%89nh-n%E1%BB%99i-dung-c%E1%BB%A7a-th%E1%BA%BB-p-n%E1%BA%B1m-ngay-trung-t%C3%A2m-c%E1%BB%A7a-th%E1%BA%BB-div)
+
+[48. Margin khác Padding như thế nào?](#48-margin-kh%C3%A1c-padding-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[49. Cách để tự động đánh số giá trị heading của section và category?](#49-c%C3%A1ch-%C4%91%E1%BB%83-t%E1%BB%B1-%C4%91%E1%BB%99ng-%C4%91%C3%A1nh-s%E1%BB%91-gi%C3%A1-tr%E1%BB%8B-heading-c%E1%BB%A7a-section-v%C3%A0-category)
+
+[50. Sự khác biệt giữa nth-child() và nth-of-type()?](#50-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-nth-child-v%C3%A0-nth-of-type)
+
+[51. CSS Sprite là gì?](#51-css-sprite-l%C3%A0-g%C3%AC)
+
+[52. Tweening trong CSS?](#52-tweening-trong-css)
+
+[53. DOM là gì và cách nó liên kết với CSS?](#53-dom-l%C3%A0-g%C3%AC-v%C3%A0-c%C3%A1ch-n%C3%B3-li%C3%AAn-k%E1%BA%BFt-v%E1%BB%9Bi-css)
+
+[54. Chi tiết cách CSS hoạt động?](#54-chi-ti%E1%BA%BFt-c%C3%A1ch-css-ho%E1%BA%A1t-%C4%91%E1%BB%99ng)
+
 ## Câu hỏi phỏng vấn CSS cho Fresher
 ### 1. Mô hình hộp trong CSS là gì? Thuộc tính CSS nào là một phần của nó?
 
@@ -636,7 +724,9 @@ Chỉ `<p> paragraph 1</p>` được chọn trong trường hợp này vì nó c
 
 Flexbox Layout (hay còn gọi là Flexible Box) là một kiểu bố cục trang có khả năng tự cân đối kích thước, thay đổi chiều rộng/chiều cao và thứ tự phần tử bên trong để phù hợp với tất cả các loại thiết bị hiển thị và kích thước màn hình.
 
-Với bố cục thông thường, bạn cần phải thiết lập kích thước của phần tử, thiết lập hiển thị dạng block hay inline, cho nó float, còn với Flexbox bạn chỉ cần thiết lập phần hiển thị theo chiều ngang hay chiều dọc, lúc đó các phần tử bên trong có thể hiển thị theo ý muốn..
+Với bố cục thông thường, bạn cần phải thiết lập kích thước của phần tử, thiết lập hiển thị dạng block hay inline, cho nó float, còn với Flexbox bạn chỉ cần thiết lập phần hiển thị theo chiều ngang hay chiều dọc, lúc đó các phần tử bên trong có thể hiển thị theo ý muốn.
+
+![](./assets/flex-terminology.png)
 
 Các thuộc tính flexbox:
 - **flex-direction**: Thuộc tính này giúp xác định hướng container sẽ xếp chồng các mục cho linh hoạt. Các giá trị của thuộc tính này có thể là:
@@ -800,6 +890,15 @@ Ta có :
 
 CSS Grid layout là một hệ thống layout 2 chiều (x,y) được dùng trong thiết kế UI. Theo định nghĩa từ Mozilla, grid (lưới) là một tổ hợp của những đường ngang và dọc cắt nhau – một nhóm xác định các cột và nhóm kia xác định các hàng. Các phần tử có thể được đặt lên grid, dựa vào các đường hàng và cột này.
 
+![](./assets/grid-term.jpg)
+
+- Grid Item: Phần container bao gồm các grid items.
+- Grid Line: Đường thẳng theo chiều dọc và ngang để xây dựng cấu trúc grid.
+- Grid Cell: Đơn vị nhỏ nhất trong grid. Nó là không gian giữa các hàng và cột.
+- Rows: Là đường nằm ngang trong grid.
+- Columns: Là đường nằm dọc trong grid.
+- Gutter: Là độ rộng không gian của hàng hay cột trong grid.
+
 ### 30. Các cách để ẩn phần tử với CSS?
 
 - Sử dụng thuộc tính `display: none`. Phần tử sẽ không xuất hiện trong DOM. 
@@ -810,9 +909,68 @@ CSS Grid layout là một hệ thống layout 2 chiều (x,y) được dùng tro
 
 :root selector cho phép bạn chỉ đến phần tử "cha" cao nhất trong DOM, hoặc cây document. Nó được xác định trong tài liệu đặc tả CSS Selectors Level 3.
 
-### 32. Accessibility là gì?
+### 32. Chiến lược mobile-first là gì?
 
-Accessibility có nghĩa là khả năng của một người nào đó trong việc tiếp cận với điều gì đó như internet, thiết bị thông minh, phương tiện công cộng,... Trong đó, không phân biệt bất kỳ điều kiện gì. Accessibility cũng được hiểu theo nghĩa khác là khả năng tiếp cận đến các thiết bị, sản phẩm, dịch vụ hay môi trường dành cho người khiếm khuyết.
+Để reponsive một trang web có nghĩa là các phần tử sẽ thay đổi kích thước hoặc chức năng tuỳ theo kích thước màn hình của thiết bị, thường là thay đổi chiều rộng (width), thông qua các truy vấn media CSS, chẳng hạn như làm nhỏ kích thước phông chữ trên các thiết bị nhỏ hơn.
+
+```css
+@media (min-width: 601px) {
+  .my-class {
+    font-size: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .my-class {
+    font-size: 12px;
+  }
+}
+```
+
+Chiến lược mobile-first là một reponsive mà ta nên xác định các style trên thiết bị di động và chỉ thay đổi quy tắc cho các thiết bị khác sau. Ví dụ như:
+
+```css
+.my-class {
+  font-size: 12px;
+}
+
+@media (min-width: 600px) {
+  .my-class {
+    font-size: 24px;
+  }
+}
+```
+
+Chiến lược mobile-first có hai ưu điểm:
+- Nó hoạt động hiệu quả hơn trên thiết bị di động, vì tất cả các quy tắc áp dụng cho chúng không cần phải được xác thực dựa trên bất kỳ truy vấn `media` nào.
+- Nó buộc phải viết code rõ ràng hơn liên quan đến các quy tắc CSS reponsive.
+
+Ví dụ
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Media Query</title>
+  <style>
+    body {
+        background-color: lightgreen;
+    }
+
+    @media only screen and (max-width: 800px) {
+        body {
+            background-color: rgb(233, 50, 18);
+        }
+    }
+  </style>
+  </head>
+<body>
+    <h1>Resize the browser window</h1>
+    <h2>When the width of this document is 800px or less, the background-color is "green", 
+      otherwise it is "Red".</h2>
+</body>
+</html>
+```
 
 ### 33. Làm thế nào để khôi phục giá trị mặc định của thuộc tính?
 
@@ -822,11 +980,91 @@ Từ khoá `initial` có thể được dùng để khôi phục giá trị mặ
 
 1. CSS Grid là hệ thống dựng layout 2 chiều, có nghĩa là chúng ta có thể xử lý theo cột và hàng, không giống như Flexbox là hệ thống layout 1 chiều. ( xử lý theo 1 cột hoặc 1 hàng ).
 
-2. Điểm khác biệt cốt lõi giữa CSS Grid và Flexbox đó là: CSS Grid tiếp cận theo hướng nội dung còn Flexbox tiếp cận theo hướng bố cục (layout). Nếu bạn biết được rõ trước nội dung mình cần trình bày hãy dùng CSS Grid ngược lại thì chọn CSS Flexbox.
+2. Điểm khác biệt cốt lõi giữa CSS Grid và Flexbox đó là: CSS Grid tiếp cận theo hướng bố cục (layout) dung còn Flexbox tiếp cận theo hướng nội dung. Nếu bạn biết được rõ trước nội dung mình cần trình bày hãy dùng CSS Flexbox ngược lại thì chọn CSS Grid.
 
-3. Flexbox phù hợp với các website có layout đơn giản, CSS Grid phù hợp với website có layout phức tạp hơn.
+3. Flexbox phù hợp với các website có bố cục đơn giản, CSS Grid phù hợp với website có bố cục phức tạp hơn.
 
-4. Nếu bạn chỉ cần dựng layout theo 1 hàng hoặc 1 cột thì Flexbox sẽ phù hợp hơn. Ngược lại, nếu bạn muốn xác định lưới và điều chỉnh nội dung theo 2 chiều - CSS Grid sẽ là lựa chọn của bạn.
+4. Nếu bạn chỉ cần dựng layout theo 1 hàng hoặc 1 cột thì Flexbox sẽ phù hợp hơn. Ngược lại, nếu bạn muốn xác định grid và điều chỉnh nội dung theo 2 chiều - CSS Grid sẽ là lựa chọn của bạn.
+
+![](./assets/flex.png)
+
+![](./assets/grid.png)
+
+Ví dụ
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grid vs Flexbox Layout</title>
+  </head>
+  <style>
+    /* Grid layout */
+    .row {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        background-color: #2196f3;
+        padding: 5px;
+    }
+
+    .col-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    /* Flexbox layout */
+    .wrapper {
+        border: 2px solid #f76707;
+        border-radius: 5px;
+        background-color: #fff4e6;
+    }
+
+    .wrapper > div {
+        border: 2px solid #ffa94d;
+        border-radius: 5px;
+        background-color: #ffd8a8;
+        padding: 1em;
+        color: #d9480f;
+    }
+
+    .wrapper {
+        display: flex;
+        width: 500px;
+        flex-wrap: wrap;
+    }
+
+    .wrapper > div {
+        flex: 1 1 150px;
+    }
+  </style>
+  <body>
+    <p><h1>Grid Layout Example<hr/></h1></p>
+    <div class="row">
+        <div class="col-item">Column - 1</div>
+        <div class="col-item">Column - 2</div>
+        <div class="col-item">Column - 3</div>
+        <div class="col-item">Column - 1</div>
+        <div class="col-item">Column - 2</div>
+        <div class="col-item">Column - 3</div>
+        <div class="col-item">Column - 1</div>
+        <div class="col-item">Column - 2</div>
+        <div class="col-item">Column - 3</div>
+    </div>
+
+    <p><h1><br/>Flexbox Layout Example<hr/></h1></p>
+    <div class="wrapper">
+        <div>One</div>
+        <div>Two</div>
+        <div>Three</div>
+        <div>Four</div>
+        <div>Five</div>
+    </div>
+  </body>
+</html>
+```
 
 ### 35. Calc dùng để làm gì?
 
@@ -934,7 +1172,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 Translate() không làm cho trình duyệt kích hoạt vẽ lại layout, mà chỉ thực hiện soạn thảo. Còn position: absolute làm trình duyệt phải vẽ lại các luồng DOM. Thế nền `translate()` đem về hiệu suất tốt hơn.
 
-### 44. Style nào sẽ được tải và áp dụng trước trong code sau?
+### 43. Style nào sẽ được tải và áp dụng trước trong code sau?
 
 ```html
 <head>
