@@ -12,6 +12,70 @@ MySQL có client độc lập cho phép người dùng tương tác trực tiế
 
 Hiện tại MySQL là cơ sở dữ liệu phổ biến nhất thế giới.
 
+## Mục lục
+
+[1. MySQL là gì?](#1-mysql-l%C3%A0-g%C3%AC)
+
+[2. Ưu điểm của MySQL?](#2-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-mysql)
+
+[3. Bạn hiểu "cơ sở dữ liệu" là gì?](#3-b%E1%BA%A1n-hi%E1%BB%83u-%22c%C6%A1-s%E1%BB%9F-d%E1%BB%AF-li%E1%BB%87u%22-l%C3%A0-g%C3%AC)
+
+[4. Chuẩn SQL là gì?](#4-chu%E1%BA%A9n-sql-l%C3%A0-g%C3%AC)
+
+[5. Một cơ sở dữ liệu MySQL bao gồm những gì?](#5-m%E1%BB%99t-c%C6%A1-s%E1%BB%9F-d%E1%BB%AF-li%E1%BB%87u-mysql-bao-g%E1%BB%93m-nh%E1%BB%AFng-g%C3%AC)
+
+[6. Làm thế nào để tương tác với MySQL?](#6-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-t%C6%B0%C6%A1ng-t%C3%A1c-v%E1%BB%9Bi-mysql)
+
+[7. Truy vấn MySQL là gì?](#7-truy-v%E1%BA%A5n-mysql-l%C3%A0-g%C3%AC)
+
+[8. Các lệnh phổ biến trong MySQL?](#8-c%C3%A1c-l%E1%BB%87nh-ph%E1%BB%95-bi%E1%BA%BFn-trong-mysql)
+
+[9. Cách tạo cơ sở dữ liệu trong MySQL?](#9-c%C3%A1ch-t%E1%BA%A1o-c%C6%A1-s%E1%BB%9F-d%E1%BB%AF-li%E1%BB%87u-trong-mysql)
+
+[10. Cách tạo bảng trong MySQL?](#10-c%C3%A1ch-t%E1%BA%A1o-b%E1%BA%A3ng-trong-mysql)
+
+[11. Cách chèn dữ liệu vào MySQL?](#11-c%C3%A1ch-ch%C3%A8n-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0o-mysql)
+
+[12. Xoá cột trong MySQL?](#12-xo%C3%A1-c%E1%BB%99t-trong-mysql)
+
+[13. Đánh chỉ mục trong MySQL?](#13-%C4%91%C3%A1nh-ch%E1%BB%89-m%E1%BB%A5c-trong-mysql)
+
+[14. Xoá dữ liệu trong bảng MySQL?](#14-xo%C3%A1-d%E1%BB%AF-li%E1%BB%87u-trong-b%E1%BA%A3ng-mysql)
+
+[15. Cách để xem cơ sở dữ liệu trong MySQL?](#15-c%C3%A1ch-%C4%91%E1%BB%83-xem-c%C6%A1-s%E1%BB%9F-d%E1%BB%AF-li%E1%BB%87u-trong-mysql)
+
+[16. Các kiểu số trong MySQL?](#16-c%C3%A1c-ki%E1%BB%83u-s%E1%BB%91-trong-mysql)
+
+[17. Các kiểu chuỗi trong MySQL?](#17-c%C3%A1c-ki%E1%BB%83u-chu%E1%BB%97i-trong-mysql)
+
+[18. Kiểu dữ liệu thời gian là gì?](#18-ki%E1%BB%83u-d%E1%BB%AF-li%E1%BB%87u-th%E1%BB%9Di-gian-l%C3%A0-g%C3%AC)
+
+[19. BLOB trong MySQL là gì?](#19-blob-trong-mysql-l%C3%A0-g%C3%AC)
+
+[20. Cách thêm người dùng vào MySQL?](#20-c%C3%A1ch-th%C3%AAm-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-v%C3%A0o-mysql)
+
+[21. View trong MySQL là gì?](#21-view-trong-mysql-l%C3%A0-g%C3%AC)
+
+[22. Tạo và thực thi view trong MySQL?](#22-t%E1%BA%A1o-v%C3%A0-th%E1%BB%B1c-thi-view-trong-mysql)
+
+[23. MySQL Trigger là gì?](#23-mysql-trigger-l%C3%A0-g%C3%AC)
+
+[24. Có bao nhiêu Trigger khả dụng trong MySQL?](#24-c%C3%B3-bao-nhi%C3%AAu-trigger-kh%E1%BA%A3-d%E1%BB%A5ng-trong-mysql)
+
+[25. MySQL Server là gì?](#25-mysql-server-l%C3%A0-g%C3%AC)
+
+[26. MySQL Client là gì?](#26-mysql-client-l%C3%A0-g%C3%AC)
+
+[27. Các kiểu quan hệ trong MySQL?](#27-c%C3%A1c-ki%E1%BB%83u-quan-h%E1%BB%87-trong-mysql)
+
+[28. Giải thích kiến trúc của MySQL?](#28-gi%E1%BA%A3i-th%C3%ADch-ki%E1%BA%BFn-tr%C3%BAc-c%E1%BB%A7a-mysql)
+
+[29. Mở rộng trong MySQL?](#29-m%E1%BB%9F-r%E1%BB%99ng-trong-mysql)
+
+[30. Sharding trong MySQL?](#30-sharding-trong-mysql)
+
+[31. Transaction Storage Engines trong MySQL là gì?](#31-transaction-storage-engines-trong-mysql-l%C3%A0-g%C3%AC)
+
 ## Câu hỏi phỏng vấn MySQL cho Fresher
 
 ### 1. MySQL là gì?
@@ -176,7 +240,7 @@ mysql> SHOW DATABASES;
 | SET | Một tập hợp, mỗi cột giá trị được gán 0 hoặc nhiều tập hợp thành viên |
 | NULL | NULL trong SQL là thuật ngữ được sử dụng để biểu thị một giá trị bị thiếu. Giá trị NULL trong bảng là giá trị trong trường có vẻ như là trống. Giá trị này khác với giá trị 0 hoặc một trường có chứa khoảng trắng. |
 
-### 18. Kiểu dữ liệu tạm thời là gì?
+### 18. Kiểu dữ liệu thời gian là gì?
 
 | 
 | Type | Ý nghĩa |
@@ -218,7 +282,7 @@ Các ưu điểm của view:
 - Bảo mật
 - Dễ bảo trì
 
-### 22. Tạo và thực thi view trong MySQL
+### 22. Tạo và thực thi view trong MySQL?
 
 Tạo một view được thực hiện thông qua lệnh CREATE VIEW. Ví dụ:
 
