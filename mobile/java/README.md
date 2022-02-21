@@ -473,5 +473,170 @@ class InterviewBitThreadExample implements Runnable{
 - Việc triển khai một luồng bằng phương thức của interface Runnable được ưu tiên và thuận lợi hơn vì Java không hỗ trợ đa kế thừa.
 - Phương thức `start()` được sử dụng để tạo một ngăn xếp cuộc gọi riêng biệt để thực thi luồng. Khi ngăn xếp cuộc gọi được tạo, JVM gọi phương thức `run()` để thực thi luồng trong ngăn xếp cuộc gọi đó.
 
-### 29. Sự khác biệt giữa constructor và method của lớp?
+### 29. Sự khác biệt giữa constructor và phương thức của lớp?
 
+| Constructor | Method |
+|-|-|
+| Contrustor dùng cho khởi tạo trạng thái đối tượng | Phương thức dùng để lộ hành vi của đối tượng |
+| Constructor không có kiểu trả về | Phương thức nên có kiểu trả về, trong trường hợp không trả về thứ gì, sẽ trả về kiểu void |
+| Dùng cho gọi nội bộ | Dùng cho gọi đối tượng bên ngoài |
+| Nếu constructor không được xác định, constructor mặc định sẽ được cung cấp bởi trình biên dịch Java | Nếu phương thức không được xác định, trình biên dịch không cung cấp gì cả |
+| Tên constructor là tên lớp | Tên phương thức có thể là bất cứ tên nào |
+| Không thể là final vì bất cứ khi nào lớp được kế thừa thì constructor cũng sẽ được kế thừa. Cố đánh sẽ trả về lỗi `modifier final not allowed here` | Phương thức có thể là final để không bị ghi đè ở lớp con |
+| Biến final có thể ở trong construcor để áp dụng lên toàn lớp và đối tượng của nó | Biến final nếu được tạo trong phương thức đảm bảo rằng biến không thể bị thay đổi trong phạm vị phương thức đó |
+
+### 30. Truyền giá trị và truyền tham chiếu trong Java?
+
+Java luôn hoạt động "truyền giá trị", không có gì được gọi là "truyền qua tham chiếu" trong Java. Tuy nhiên, khi đối tượng được truyền trong bất kỳ phương thức nào, địa chỉ của giá trị sẽ được truyền do bản chất của việc xử lý đối tượng trong Java. Khi một đối tượng được truyền, một bản sao của tham chiếu sẽ được tạo bởi Java và nó được chuyển cho phương thức. Các đối tượng trỏ đến cùng một vị trí bộ nhớ. 2 trường hợp có thể xảy ra bên trong phương thức:
+- **Trường hợp 1 - Khi đối tượng được trỏ đến một vị trí khác:** Trong trường hợp này, các thay đổi được thực hiện đối với đối tượng đó không được phản ánh lên đối tượng ban đầu trước khi nó được chuyển tới phương thức vì tham chiếu trỏ đến vị trí khác.
+
+```java
+class InterviewBitTest{
+    int num;
+    InterviewBitTest(int x){ 
+        num = x; 
+    }
+    InterviewBitTest(){ 
+        num = 0; 
+    }
+}
+class Driver {
+    public static void main(String[] args)
+    {
+        //create a reference
+        InterviewBitTest ibTestObj = new InterviewBitTest(20);
+        //Pass the reference to updateObject Method
+        updateObject(ibTestObj);
+        //After the updateObject is executed, check for the value of num in the object.
+        System.out.println(ibTestObj.num);
+    }
+    public static void updateObject(InterviewBitTest ibObj)
+    {
+        // Point the object to new reference
+        ibObj = new InterviewBitTest();
+        // Update the value 
+        ibObj.num = 50;
+    }
+}
+// Output: 20
+```
+
+- **Trường hợp 2 - Khi tham chiếu đối tượng không được sửa đổi:** Trong trường hợp này, vì chúng ta có bản sao của tham chiếu đối tượng chính trỏ đến cùng một vị trí bộ nhớ, bất kỳ thay đổi nào trong nội dung của đối tượng sẽ được phản ánh trong đối tượng ban đầu.
+
+```java
+class InterviewBitTest{
+    int num;
+    InterviewBitTest(int x){ 
+        num = x; 
+    }
+    InterviewBitTest(){ 
+        num = 0; 
+    }
+}
+class Driver{
+    public static void main(String[] args)
+    {
+        //create a reference
+        InterviewBitTest ibTestObj = new InterviewBitTest(20);
+        //Pass the reference to updateObject Method
+        updateObject(ibTestObj);
+        //After the updateObject is executed, check for the value of num in the object.
+        System.out.println(ibTestObj.num);
+    }
+    public static void updateObject(InterviewBitTest ibObj)
+    {
+        // no changes are made to point the ibObj to new location
+        // Update the value of num
+        ibObj.num = 50;
+    }
+}
+// Output: 50
+```
+
+### 31. Giữa String và StringBuffer cái nào nên được ưu tiên hơn khi có rất nhiều cập nhật cần được thực hiện trong dữ liệu?
+
+Về bản chất StringBuffer là động và có thể thay đổi trong khi String là bất biến. Mỗi lần cập nhật/sửa đổi String sẽ tạo ra một String mới do đó làm quá tải String Pool với các đối tượng không cần thiết. Do đó, trong trường hợp có nhiều bản cập nhật, người ta luôn ưu tiên sử dụng StringBuffer vì nó sẽ giảm chi phí tạo nhiều đối tượng String trong String Pool.
+
+### 32. Làm thế nào để không cho phép tuần tự hóa các thuộc tính của một lớp trong Java?
+
+Ta thực hiện bằng cách sử dụng từ khoá `transient` như bên dưới.
+
+```java
+public class InterviewBitExample { 
+
+   private transient String someInfo; 
+   private String name;
+   private int id;
+   // :
+   // Getters setters
+   // :
+}
+```
+
+Ở đây tất cả các thuộc tính ngoài trừ `someInfo` đều có thể được tuần tự hoá.
+
+### 33. 
+
+### 34. Điều gì xảy ra nếu có nhiều hàm main trong một lớp?
+
+Chương trình không thể biên dịch vì có nhiều phương thức đã xác định trong một lớp.
+
+### 35. Cách thực hiện Object Cloning trong Java?
+
+Object Cloning là quá trình tạo ra một bản sao chính xác của bất kỳ đối tượng nào. Để thực hiện điều này, một lớp java phải triển khai interface `Cloneable` của package `java.lang` và ghi đè phương thức `clone()` được cung cấp bởi lớp Object theo cú pháp của nó là:
+
+```java
+protected Object clone() throws CloneNotSupportedException {
+    return (Object)super.clone();
+}
+```
+
+Trong trường hợp Cloneable không được triển khai và chỉ có phương thức bị ghi đè thì Java trả về lỗi `CloneNotSupportedException`.
+
+### 36. Làm thế nào để một ngoại lệ lan truyền trong code?
+
+Khi một ngoại lệ xảy ra, trước tiên nó tìm kiếm để xác định vị trí khối `catch` phù hợp. Trong trường hợp, khối `catch` phù hợp được định vị, thì khối đó sẽ được thực thi. Ngược lại, ngoại lệ truyền thông qua phương thức callstack và đi vào phương thức caller, nơi quá trình `catch` phù hợp được thực hiện. Sự lan truyền này xảy ra cho đến khi tìm thấy khối `catch` phù hợp. Nếu không tìm thấy kết quả phù hợp, thì chương trình sẽ bị kết thúc trong phương thức `main`.
+
+![](./assets/java_stack.jpg)
+
+### 37. Có bắt buộc sử dụng catch sau try không?
+
+Không, không nhất thiết khối `catch` phải hiện diện sau khối `try`. Khối `try` nên được theo sau bởi khối `catch` hoặc khối `finally`. Nếu khả năng ngoại lệ nhiều hơn, thì chúng nên được khai báo bằng mệnh đề `throw` của phương thức.
+
+### 38. Liệu khối finally có được thực thi khi câu lệnh return được viết ở cuối khối try và khối catch ở như dưới đây không?
+
+```java
+public int someMethod(int i) {
+    try {
+        //some statement
+        return 1;
+    } catch(Exception e) {
+        //some statement
+        return 999;
+    } finally {
+        //finally block statements
+    }
+}
+```
+
+Khối `finally` sẽ được thực thi bất kể ngoại lệ hay không. Trường hợp duy nhất mà khối `finally` không được thực thi là khi nó gặp phương thức `System.exit()` ở bất kỳ đâu trong khối try/catch.
+
+### 39. Có thể gọi một constructor của một lớp bên trong một constructor khác không?
+
+Có, khái niệm này có thể được gọi là chuỗi constructor và có thể thực hiện được bằng cách sử dụng `this()`.
+
+![](./assets/constructor_chaining_in_Java.jpg)
+
+### 40. Các vị trí bộ nhớ liền nhau thường được sử dụng để lưu trữ các giá trị thực tế trong một mảng nhưng không phải trong ArrayList. Giải thích?
+
+Trong trường hợp của ArrayList, việc lưu trữ dữ liệu dưới dạng các kiểu dữ liệu nguyên thủy (như int, float, ...) là không thể. Các thành viên/đối tượng dữ liệu có trong ArrayList có tham chiếu đến các đối tượng nằm ở các vị trí khác nhau trong bộ nhớ. Do đó, việc lưu trữ các đối tượng thực tế hoặc các kiểu dữ liệu không nguyên thủy (như Integer, Double,...) diễn ra ở các vị trí bộ nhớ khác nhau.
+
+![](./assets/sorting_of_objects_in_arraylist.png)
+
+Tuy nhiên, điều tương tự không áp dụng cho các mảng. Đối tượng hoặc giá trị kiểu nguyên thủy có thể được lưu trữ trong mảng ở các vị trí bộ nhớ liền nhau, do đó mọi phần tử không yêu cầu bất kỳ tham chiếu nào đến phần tử tiếp theo.
+
+![](./assets/sorting_of_values_in_array.png)
+
+## Câu hỏi phỏng vấn Java cho Experienced
+
+### 41. Mặc dù kế thừa là một khái niệm OOPs phổ biến, nhưng nó kém lợi thế hơn so với composition. Giải thích.
