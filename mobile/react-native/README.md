@@ -280,15 +280,42 @@ var requestId = requestAnimationFrame(
 
 Trong React Native, có rất nhiều cách debug khác nhau với nhiều công cụ khác nhau, do React Native chạy trên cả hai môi trường Android và iOS. 
 
-- Danh mục:
-Reload: reloads the app
-Debug JS Remotely: opens a channel to a JavaScript debugger
-Enable Live Reload: makes the app reload automatically on clicking Save
-Enable Hot Reloading: watches for changes accrued in a changed file
-Toggle Inspector: toggles an inspector interface, which allows us to inspect any UI element on the screen and its properties, and presents an interface that has other tabs like networking, which shows us the HTTP calls, and a tab for performance.
+- Developer Menu:
+    + Reload: tải lại ứng dụng
+    + Debug JS Remotely: mở một kênh mới cho JavaScript debugger
+    + Enable Live Reload: làm cho ứng dụng tự động tải lại khi click vào Save
+    + Enable Hot Reloading: theo dõi các thay đổi được tích lũy trong một file đã thay đổi
+    + Toggle Inspector: chuyển đổi giao diện kiểm tra, cho phép chúng ta kiểm tra bất kỳ phần tử UI nào trên màn hình và các thuộc tính của nó, đồng thời trình bày một giao diện có các tab khác như mạng, hiển thị cho chúng ta các lệnh gọi HTTP và một tab cho hiệu suất.
 
 ![](./assets/developer-menu.png)
 
+- **Chrome's DevTools:**
+
+Chrome có thể là công cụ đầu tiên có thể nghĩ đến để debug React Native. DevTools của Chrome chủ yếu để debug các ứng dụng web, nhưng chúng ta cũng có thể sử dụng chúng để debug React Native vì nó được hỗ trợ bởi JavaScript. Để sử dụng DevTool với React Native, trước tiên đảm bảo chúng có cùng kết nối Wifi, sau đó nhấn lệnh `R` nếu dùng MacOS, `Ctrl + M` nếu là Window/Linux. Trong menu, chọn Debug JS Remotely, nó sẻ mở ra JS Debugger mặc định.
+
+- **React Developer Tools:**
+
+Ta có thể cài đặt package react-devtoools như sau:
+
+```
+npm install react-devtools --save
+```
+
+React's Developer Tool là công cụ tốt nhất cho debug trên React Native với hai lý do
+- Nó cho phép debug component.
+- Nó còn có thể debug style trong React Native. Ngoài ra còn có một phiên bản mới đi kèm với tính năng này cũng hoạt động với inspector trong developer menu. Trước đây, việc viết các style là một vấn đề và phải đợi ứng dụng tải lại để xem các thay đổi. Giờ đây, chúng ta có thể debug và triển khai các thuộc tính style và xem tác động của thay đổi ngay lập tức mà không cần tải lại ứng dụng.
+
+- **React Native Debugger**
+
+Khi sử dụng Redux trong ứng dụng React Native của bạn, React Native Debugger có lẽ là trình debug phù hợp với bạn. Đây là một ứng dụng desktop hoạt động độc lập trên macOS, Windows và Linux. Nó thậm chí còn tích hợp cả Redux’s DevTools và React’s Developer Tools trong một ứng dụng, do đó bạn không phải làm việc với hai ứng dụng riêng biệt để debug.
+
+- **React Native CLI**
+
+Bạn cũng có thể sử dụng React Native CLI để debug. Nó cũng có thể được sử dụng để hiển thị loga của ứng dụng. Nhấn vào `react-native log-android` sẽ hiển thị cho bạn log của db logcat trên Android và để xem log trong iOS, bạn có thể chạy react-native log-ios và với `console.log`, bạn có thể gửi log đến terminal:
+
+```
+console.log("some error🛑")
+```
 
 ### 11. Props Drilling là gì?
 

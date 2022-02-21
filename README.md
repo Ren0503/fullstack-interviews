@@ -1,10 +1,12 @@
-# Fullstack Interviews (Pending)
+# Fullstack Interviews
 
 ## Tuyển tập câu hỏi phỏng vấn cho lập trình web.
 
 ![](./interviews.jpg)
 
-### Cơ bản (Complete)
+## Thư mục
+
+### Cơ bản
 
 - Kiến thức:
     - [**Cấu trúc dữ liệu**](./basics/data-structures): 40 câu hỏi phỏng vấn cấu trúc dữ liệu.
@@ -17,7 +19,7 @@
 - Ngôn ngữ lập trình:
     - [**C++**](./basics/cpp): 28 Câu hỏi phỏng vấn C++.
 
-### Cơ sở dữ liệu (Complete)
+### Cơ sở dữ liệu
 - Kiến thức:
     - [**MySQL**](./database/mysql): 31 câu hỏi phỏng vấn MySQL.
     - [**PostgreSQL**](./database/postgresql): 26 câu hỏi phỏng vấn PostgreSQL.
@@ -25,7 +27,7 @@
 - Ngôn ngữ lập trình:
     - [**SQL**](./database/sql): 40 câu hỏi phỏng vấn SQL.
 
-### Frontend (Complete)
+### Frontend
 
 - Kiến thức:
     - [**Web API**](./frontend/web-api): 13 câu hỏi phỏng vấn Web API.
@@ -37,7 +39,7 @@
     - [**ES6**](./frontend/es6): 39 câu hỏi phỏng vấn ES6.
     - [**TypeScript**](./frontend/typescript): 50 câu hỏi phỏng vấn TypeScript.
 
-### Backend(Complete)
+### Backend
 
 - Kiến thức:
     - [**Web Services**](./backend/web-services): 35 câu hỏi phỏng vấn dịch vụ Web.
@@ -53,7 +55,7 @@
         - [**Numpy**](./backend/python/numpy): 11 câu hỏi phỏng vấn NumPy.
         - [**Pandas**](./backend/python/pandas): 10 câu hỏi phỏng vấn Pandas.
 
-### Devops (Complete)
+### Devops
 
 - Kiến thức
     - [**DevOps cơ bản**](./devops): 35 câu hỏi phỏng vấn DevOps.
@@ -66,9 +68,9 @@
 - Kiến thức
     - [**Android**](./mobile/android): 39 câu hỏi phỏng vấn về Android.
     - [**iOS**](./mobile/ios): 36 câu hỏi phỏng vấn về iOS.
-    - [**React Native**](./mobile/react-native/): 30 câu hỏi phỏng vấn về React Native. (27/30)
+    - [**React Native**](./mobile/react-native/): 30 câu hỏi phỏng vấn về React Native.
 - Ngôn ngữ lập trình:
-    - [**Java**](./mobile/java): 54 câu hỏi phỏng vấn về Java.(29/54)
+    - [**Java**](./mobile/java): 54 câu hỏi phỏng vấn về Java.
     
 # Tham khảo 
 
@@ -80,4 +82,4 @@
 
 * [**Learning Zone**](https://github.com/learning-zone)
 
-* [**Career Guru99**](https://career.guru99.com/top-18-nginx-interview-question/)
+* [**Career Guru99**](https://career.guru99.com/)
