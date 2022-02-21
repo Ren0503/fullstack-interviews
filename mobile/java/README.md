@@ -639,4 +639,322 @@ Tuy nhiên, điều tương tự không áp dụng cho các mảng. Đối tư�
 
 ## Câu hỏi phỏng vấn Java cho Experienced
 
-### 41. Mặc dù kế thừa là một khái niệm OOPs phổ biến, nhưng nó kém lợi thế hơn so với composition. Giải thích.
+### 41. Mặc dù kế thừa là một khái niệm OOPs phổ biến, nhưng nó kém lợi thế hơn so với composition. Giải thích?
+
+Kế thừa chậm hơn composition trong các trường hợp sau:
+
+- Đa kế thừa không thể thực hiện được trong Java. Các lớp chỉ có thể kế thừa từ một lớp cha. Trong trường hợp yêu cầu nhiều chức năng, ví dụ - để đọc và ghi thông tin vào file, thì composition sẽ được ưu tiên hơn. Người viết, cũng như các chức năng của người đọc, có thể được sử dụng bằng cách coi họ như những thành viên riêng tư.
+- Composition hỗ trợ đạt được tính linh hoạt cao và ngăn chặn việc phá vỡ đóng gói.
+- Unit test có thể thực hiện được với composition chứ không phải kế thừa. Khi một nhà phát triển muốn kiểm tra một lớp tạo ra một lớp khác, thì Đối tượng Mock có thể được tạo để biểu thị lớp đã compose để tạo điều kiện cho quá trình test. Kỹ thuật này không thể thực hiện được với kế thừa vì lớp dẫn xuất không thể được kiểm tra nếu không có sự trợ giúp của lớp cha trong kế thừa.
+- Bản chất kết hợp lỏng lẻo của composition được ưu tiên hơn bản chất kết hợp chặt chẽ của sự kế thừa.
+
+Hãy lấy một ví dụ:
+
+```java
+package comparison;
+
+public class Top {
+    public int start() {
+        return 0;
+    }
+}
+class Bottom extends Top {
+    public int stop() {
+        return 0;
+    }
+}
+```
+
+Trong đoạn code trên ta thực hiện kế thừa. Bây giờ khi ta chỉnh sửa lớp `Top`:
+
+```java
+public class Top {
+    public int start() {
+        return 0;
+    }
+    public void stop() {
+    }
+}
+```
+
+Nếu việc triển khai mới của lớp Top được tuân theo, **compile-time error** xảy ra trong lớp Bottom. Loại trả về không tương thích cho hàm `Top.stop()`. Các thay đổi phải được thực hiện đối với lớp Top cùng hoặc Bottom cùng để đảm bảo tính tương thích. Tuy nhiên, kỹ thuật composition có thể được sử dụng để giải quyết vấn đề đã cho:
+
+```java
+class Bottom {
+    Top par = new Top();
+    public int stop() {
+        par.start();
+        par.stop();
+        return 0;
+    }
+}
+```
+
+### 42. Tạo chuỗi với new() khác với cách dùng ký tự như thể nào?
+
+Khi một chuỗi được hình thành dưới dạng một ký tự với sự hỗ trợ của toán tử gán, nó sẽ đi vào nhóm hằng chuỗi để có thể diễn ra quá trình Interning chuỗi. Cùng một đối tượng trong heap này sẽ được tham chiếu bởi một Chuỗi khác nếu nội dung giống nhau cho cả hai.
+
+```java
+public bool checking() {
+    String first = "InterviewBit";
+    String second = "InterviewBit";
+    if (first == second)
+        return true;
+    else
+        return false;
+}
+```
+
+Hàm `checking()` sẽ trả về true vì cùng nội dung được tham chiếu bởi hai biến.
+
+![](./assets/string_pool_by_means_of_assignment_operator.png)
+
+Ngược lại, khi tạo chuỗi diễn ra với sự trợ giúp của toán tử `new()`, quá trình thực thi sẽ không diễn ra. Đối tượng được tạo trong bộ nhớ heap ngay cả khi có cùng một đối tượng nội dung.
+
+```java
+public bool checking() {
+    String first = new String("InterviewBit");
+    String second = new String("InterviewBit");
+    if (first == second)
+        return true;
+    else
+        return false;
+}
+```
+
+Hàm `checking()` sẽ trả về false vì cùng nội dung không được tham chiếu bởi hai biến.
+
+![](./assets/string_pool_by_assignment_operator.png)
+
+### 43. Có thể vượt quá giới hạn bộ nhớ trong một chương trình mặc dù có bộ thu gom rác không?
+
+Có, chương trình có thể hết bộ nhớ bất chấp sự hiện diện của bộ thu gom rác. Tính năng thu gom rác hỗ trợ nhận dạng và loại bỏ những đối tượng không cần thiết trong chương trình nữa, để giải phóng tài nguyên được sử dụng bởi chúng.
+
+Trong một chương trình, nếu một đối tượng không thể truy cập được, thì việc thực hiện thu gom rác sẽ diễn ra đối với đối tượng đó. Nếu dung lượng bộ nhớ cần thiết để tạo một đối tượng mới không đủ, thì bộ nhớ sẽ được giải phóng cho những đối tượng không còn trong phạm vi với sự trợ giúp của bộ thu gom rác. Chương trình bị vượt quá giới hạn bộ nhớ khi bộ nhớ được giải phóng không đủ để tạo các đối tượng mới.
+
+Hơn nữa, việc cạn kiệt bộ nhớ heap diễn ra nếu các đối tượng được tạo theo cách mà chúng vẫn nằm trong phạm vi và sử dụng bộ nhớ. Nhà phát triển phải đảm bảo bỏ qua đối tượng sau khi công việc của nó hoàn thành. Mặc dù bộ thu gom rác cố gắng ở mức tốt nhất để lấy lại bộ nhớ nhiều nhất có thể, giới hạn bộ nhớ vẫn có thể bị vượt quá.
+
+Hãy xem ví dụ sau:
+
+```java
+List<String> example = new LinkedList<String>();
+while(true){
+    example.add(new String("Memory Limit Exceeded"));
+}
+```
+
+### 44. Đồng bộ hoá trong Java?
+
+Có thể thực hiện đồng thời các tiến trình khác nhau bằng cách đồng bộ hóa. Khi một tài nguyên cụ thể được chia sẻ giữa nhiều luồng, các tình huống có thể phát sinh trong đó nhiều luồng yêu cầu cùng một tài nguyên được chia sẻ.
+
+Đồng bộ hóa hỗ trợ giải quyết sự cố và tài nguyên được chia sẻ bởi một luồng duy nhất tại một thời điểm. Hãy lấy một ví dụ để hiểu rõ ràng hơn. Ví dụ: bạn có một URL và bạn phải tìm ra số lượng yêu cầu được thực hiện đối với nó. Hai yêu cầu đồng thời có thể làm cho số lượng thất thường.
+
+Không đồng bộ hóa:
+
+```java
+package anonymous;
+public class Counting {
+    private int increase_counter;
+    public int increase() {
+        increase_counter = increase_counter + 1;
+        return increase_counter;
+    }
+}
+```
+
+![](./assets/without_synchronization.png)
+
+Nếu một luồng `Thread1` đếm là 10, nó sẽ được tăng lên 1 thành 11. Đồng thời, nếu một luồng khác `Thread2` đếm là 10, thì nó cũng sẽ được tăng từ 1 lên 11. Do đó, sự không nhất quán trong các giá trị đếm xảy ra do giá trị cuối cùng dự kiến là 12 nhưng giá trị cuối cùng thực tế mà chúng tôi nhận được sẽ là 11.
+
+Bây giờ, hàm `increase()` được đồng bộ hóa để không thể truy cập đồng thời.
+
+Với sự đồng bộ hóa:
+
+```java
+package anonymous;
+public class Counting {
+    private int increase_counter;
+    public synchronized int increase() {
+        increase_counter = increase_counter + 1;
+        return increase_counter;
+    }
+}
+```
+
+![](./assets/with_synchronization.png)
+
+Nếu một luồng `Thread1` đếm là 10, nó sẽ được tăng lên từ 1 đến 11, sau đó luồng `Thread2` sẽ lấy số đếm là 11, nó sẽ được tăng lên 1 thành 12. Do đó, sự nhất quán trong các giá trị số đếm diễn ra.
+
+### 45. Cho đoạn code bên dưới, ký hiệu ... là gì?
+
+```java
+public void fooBarMethod(String... variables){
+   // method code
+}
+```
+
+- Khả năng cung cấp ... là một tính năng được gọi là varargs (đối số biến) được giới thiệu ở Java 5.
+- Hàm có ... trong ví dụ trên chỉ ra rằng nó có thể nhận nhiều đối số của chuỗi kiểu dữ liệu.
+- Ví dụ: `fooBarMethod` có thể được gọi theo nhiều cách và chúng ta vẫn có thể có một phương pháp để xử lý dữ liệu như bên dưới đây:
+
+```java
+fooBarMethod("foo", "bar");
+fooBarMethod("foo", "bar", "boo");
+fooBarMethod(new String[]{"foo", "var", "boo"});
+public void myMethod(String... variables){
+    for(String variable : variables){
+        // business logic
+    }
+}
+```
+
+### 46. Vòng đời của luồng Java?
+
+- **New** - Khi thực thể của luồng được tạo và phương thức `start()` chưa được gọi, luồng được coi là còn sống và do đó ở trạng thái NEW.
+- **Runnable** - Khi phương thức `start()` được gọi, trước khi phương thức `run()` được gọi bởi JVM, luồng được cho là ở trạng thái RUNNABLE (sẵn sàng chạy). Trạng thái này cũng có thể được nhập từ trạng thái Waiting hoặc Sleeping của luồng.
+- **Running** - Khi phương thức `run()` được gọi và luồng bắt đầu thực thi, luồng được cho là đang ở trạng thái RUNNING.
+- **Non-Runnable (Blocked/Waiting)** - Khi luồng không thể chạy mặc dù thực tế là vẫn còn tồn tại, thì luồng được cho là ở trạng thái NON-RUNNABLE được. Lý tưởng nhất là sau một thời gian tồn tại, luồng sẽ chuyển sang trạng thái có thể chạy được.
+    + Một luồng được cho là ở trạng thái Blocked nếu nó muốn nhập code được đồng bộ hóa nhưng không thể thực hiện được vì một luồng khác đang hoạt động trong khối được đồng bộ hóa đó trên cùng một đối tượng. Luồng đầu tiên phải đợi cho đến khi luồng khác thoát khỏi khối được đồng bộ hóa.
+    + Một luồng được cho là ở trạng thái Waiting nếu nó đang đợi tín hiệu thực thi từ một luồng khác, tức là nó chờ hoạt động cho đến khi nhận được tín hiệu.
+- **Terminated** - Khi quá trình thực thi phương thức `run()` hoàn tất, luồng được cho là đi vào bước TERMINATED và được coi là không còn tồn tại.
+
+![](./assets/java_thread_lifecycle.jpg)
+
+### 47. Điều gì có thể cân bằng giữa việc sử dụng một mảng không có thứ tự so với việc sử dụng một mảng có thứ tự?
+
+- Ưu điểm chính của việc có một mảng có thứ tự là giảm độ phức tạp thời gian tìm kiếm của `O(log n)` trong khi độ phức tạp thời gian trong một mảng không có thứ tự là `O(n)`.
+- Hạn chế chính của mảng có thứ tự là thời gian chèn tăng lên của nó là `O(n)` do phần tử của nó phải được sắp xếp lại để duy trì thứ tự của mảng trong mỗi lần chèn trong khi độ phức tạp về thời gian trong mảng không có thứ tự chỉ là `O(1)`.
+- Xem xét 2 điểm chính trên và tùy thuộc vào trường hợp mà nhà phát triển yêu cầu, cấu trúc dữ liệu thích hợp có thể được sử dụng để thực hiện.
+
+### 48. Có thể import cùng một lớp hoặc ơackage hai lần trong Java không và điều gì xảy ra với nó trong thời gian chạy?
+
+Có thể import một lớp hoặc package nhiều hơn một lần, tuy nhiên, điều đó là dư thừa vì JVM tải nội bộ package hoặc lớp chỉ một lần.
+
+### 49. Trong trường hợp một package có các package con, chỉ import package chính có đủ không?
+
+KHÔNG. Chúng ta cần hiểu rằng việc import các package con của một package cần phải được thực hiện một cách rõ ràng. Việc import package mẹ chỉ dẫn đến việc nhập các lớp bên trong nó chứ không phải nội dung của package con của nó.
+
+### 50. Khối finally có được thực thi không nếu System.exit (0) được viết ở cuối khối try?
+
+KHÔNG. Quyền kiểm soát chương trình ngay sau `System.exit (0)` ngay lập tức bị mất và chương trình bị chấm dứt, đó là lý do tại sao khối finally không bao giờ được thực thi.
+
+### 51. Marker interface trong Java là gì?
+
+Marker interface, còn được gọi là interface gắn thẻ là những interface không có phương thức và hằng số được xác định trong chúng. Chúng ở đó để giúp trình biên dịch và JVM lấy thông tin liên quan đến thời gian chạy liên quan đến các đối tượng.
+
+### 52. Giải thích "Double Brace Initialisation" trong Java?
+
+Đây là một phương tiện thuận tiện để khởi tạo bất kỳ tập hợp nào trong Java. Hãy xem xét ví dụ dưới đây.
+
+```java
+import java.util.HashSet;
+import java.util.Set;
+ 
+public class IBDoubleBraceDemo{
+    public static void main(String[] args){
+        Set<String> stringSets = new HashSet<String>()
+        {
+            {
+                add("set1");
+                add("set2");
+                add("set3");
+            }
+        };
+    
+        doSomething(stringSets);
+    }
+    
+    private static void doSomething(Set<String> stringSets){
+        System.out.println(stringSets);
+    }
+}
+```
+
+Trong ví dụ trên, chúng ta thấy rằng `stringSets` được khởi tạo bằng cách sử dụng cặp dấu ngoặc nhọn.
+
+- Dấu ngoặc nhọn đầu tiên thực hiện nhiệm vụ tạo một lớp bên trong ẩn danh có khả năng truy cập hành vi của lớp cha. Trong ví dụ của chúng tôi, chúng tôi đang tạo lớp con của HashSet để nó có thể sử dụng phương thức `add()` của HashSet.
+- Các dấu ngoặc thứ hai làm tác vụ khởi tạo các thực thể.
+
+Cần cẩn thận khi khởi tạo thông qua phương thức này vì phương pháp này liên quan đến việc tạo ra các lớp ẩn danh bên trong có thể gây ra sự cố trong quá trình thu gom rác hoặc tuần tự hóa và cũng có thể dẫn đến rò rỉ bộ nhớ.
+
+### 53. Tại sao nói rằng phương thức length() của lớp String không trả về kết quả chính xác?
+
+- Phương thức length trả về số lượng đơn vị Unicode của Chuỗi. Chúng ta hãy hiểu đơn vị Unicode là gì và sự nhầm lẫn là gì dưới đây.
+- Chúng ta biết rằng Java sử dụng UTF-16 để biểu diễn chuỗi. Với Unicode này, chúng ta cần hiểu hai thuật ngữ liên quan đến Unicode dưới đây:
+    - Code Point: Điều này đại diện cho một số nguyên biểu thị một ký tự trong không gian code.
+    - Đơn vị code: Đây là một chuỗi bit được sử dụng để mã hóa các code point. Để làm được điều này, có thể cần một hoặc nhiều đơn vị để đại diện cho một code point.
+- Theo lược đồ UTF-16, các code point được chia một cách hợp lý thành 17 mặt phẳng và mặt phẳng đầu tiên được gọi là Basic Multilingual Plane (BMP). BMP có các ký tự cổ điển - U + 0000 đến U + FFFF. Các ký tự còn lại - U + 10000 đến U + 10FFFF được gọi là ký tự bổ sung vì chúng được chứa trong các mặt phẳng còn lại.
+- Các code point từ mặt phẳng đầu tiên được mã hóa bằng một đơn vị code 16 bit
+- Các code point từ các mặt phẳng còn lại được mã hóa bằng hai đơn vị code.
+Bây giờ nếu một chuỗi chứa các ký tự bổ sung, thì hàm length sẽ tính là 2 đơn vị và kết quả của hàm `length()` sẽ không như những gì được mong đợi.
+
+Nói cách khác, nếu có 1 ký tự phụ là 2 đơn vị thì độ dài của ký tự DUY NHẤT đó được coi là HAI - Hãy lưu ý sự thiếu chính xác ở đây? Theo tài liệu java, nó được mong đợi, nhưng theo logic thực, nó không chính xác.
+
+### 54. Giải thích kết quả của đoạn code sau?
+
+```java
+public class InterviewBit{
+    public static void main(String[] args)
+    {
+        System.out.println('b' + 'i' + 't');
+    }
+}
+```
+
+`"bit"` sẽ là kết quả được in ra nếu các chữ cái được sử dụng trong dấu nháy kép (hoặc chuỗi ký tự). Nhưng câu hỏi có các ký tự chữ (dấu nháy kép) đang được sử dụng, đó là lý do tại sao nối không xảy ra. Các giá trị ASCII tương ứng của mỗi ký tự sẽ được thêm vào và kết quả của tổng đó sẽ được in.
+Giá trị ASCII:
+- b = 98
+- i = 105
+- t = 116
+98 + 105 + 116 = 319
+
+Nên 319 sẽ được in.
+
+### 55. Các cách để tạo điều kiện cho đối tượng bị thu gom gác (GC) trong Java?
+
+- **Cách đầu tiên:** thiệt lập tham chiếu đối tượng đến null sau khi đối tượng được sử dụng.
+
+```java
+public class IBGarbageCollect {
+    public static void main (String [] args){
+        String s1 = "Some String";
+            // s1 referencing String object - not yet eligible for GC
+        s1 = null; // now s1 is eligible for GC
+    }
+}
+```
+
+- **Cách thứ hai:** Trỏ biến tham chiếu đến một đối tượng khác. Làm điều này, đối tượng mà biến tham chiếu đã tham chiếu trước đó sẽ đủ điều kiện cho GC.
+
+```java
+public class IBGarbageCollect {
+    public static void main(String [] args){
+        String s1 = "To Garbage Collect";
+        String s2 = "Another Object";
+        System.out.println(s1); // s1 is not yet eligible for GC
+        s1 = s2; // Point s1 to other object pointed by s2
+        /* Here, the string object having the content  "To Garbage Collect" is not referred by any reference variable. Therefore, it is eligible for GC */
+    }
+}
+```
+
+- **Cách thứ ba:** Khi 2 biến tham chiếu trỏ đến các thực thể của cùng một lớp và các biến này chỉ tham chiếu đến nhau và các đối tượng được trỏ bởi 2 biến này không có bất kỳ tham chiếu nào khác, thì nó được cho là đã hình thành "Island of Isolation" và 2 đối tượng này đủ điều kiện để được cấp GC.
+
+```java
+public class IBGarbageCollect {
+    IBGarbageCollect ib;    
+    public static void main(String [] str){
+        IBGarbageCollect ibgc1 = new IBGarbageCollect();
+        IBGarbageCollect ibgc2 = new IBGarbageCollect();
+        ibgc1.ib = ibgc2; //ibgc1 points to ibgc2
+        ibgc2.ib = ibgc1; //ibgc2 points to ibgc1
+        ibgc1 = null;
+        ibgc2 = null;
+        /* 
+        * We see that ibgc1 and ibgc2 objects refer 
+        * to only each other and have no valid 
+        * references- these 2 objects for island of isolcation - eligible for GC
+        */
+    }
+}
+```
