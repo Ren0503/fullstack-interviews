@@ -58,18 +58,16 @@ Với React Native, phần lớn thời gian, bạn không cần phải tổng h
 **Các plugin bổ sung của bên thứ ba**
 Nếu các module hiện có không đáp ứng yêu cầu nghiệp vụ trong React Native, chúng ta cũng có thể sử dụng các plugin của Bên thứ ba để giúp tăng tốc quá trình phát triển.
 
-### 4. Giải thích các thread khác nhau trong React Native?
+### 4. Giải thích các luồng khác nhau trong React Native?
 
 ![](./assets/Image-2.png)
 
-Luồng điều khiển tuần tự đơn trong một chương trình có thể được điều khiển bởi một thread.
+**React Native sử dụng 3 luồng**
 
-**React Native sử dụng 3 threads**
+- **Luồng MAIN/UI** - Đây là luồng chính mà ứng dụng Android/iOS của bạn đang chạy. Giao diện người dùng của ứng dụng có thể được thay đổi bởi luồng chính và có quyền truy cập vào nó.
 
-- **MAIN/UI Thread** - Đây là thread chính mà ứng dụng Android/iOS của bạn đang chạy. Giao diện người dùng của ứng dụng có thể được thay đổi bởi thread chính và có quyền truy cập vào nó.
-
-- **Shadow Thread** - bố cục được tạo bởi thư viện React trong React Native.
-- **JavaScript Thread** - code JavaScript sẽ được thực thi ở thread này.
+- **Luồng Shadow** - bố cục được tạo bởi thư viện React trong React Native.
+- **Luồng JavaScript** - code JavaScript sẽ được thực thi ở luồng này.
 
 ### 5. defaultProps có khả dụng trong React Native không?
 
@@ -81,11 +79,11 @@ import {View, Text} from 'react-native';
 class DefaultPropComponent extends Component {
     render() {
         return ( 
-            <View>
-                <Text> 
+            `<View>
+                `<Text>` 
                 {this.props.name} 
-                </Text> 
-            </View>
+                `</Text>` 
+            `</View>
         )
     }
 }
@@ -104,20 +102,20 @@ TextInput là component chính cho phép người dùng nhập văn bản vào. 
 import React, { useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
-const PizzaTranslator = () => {
+const PizzaTranslator = () =>` {
     const [text, setText] = useState('');
     return (
-        <View style={{padding: 10}}>
-            <TextInput
+        `<View style={{padding: 10}}>
+            `<TextInput
                 style={{height: 40}}
                 placeholder="Type here to translate!"
-                onChangeText={text => setText(text)}
+                onChangeText={text =>` setText(text)}
                 defaultValue={text}
             />
-            <Text style={{padding: 10, fontSize: 42}}>
-                {text.split(' ').map((word) => word && '🍕').join(' ')}
-            </Text>
-        </View>
+            `<Text style={{padding: 10, fontSize: 42}}>
+                {text.split(' ').map((word) =>` word && '🍕').join(' ')}
+            `</Text>
+        `</View>
     );
 }
 
@@ -137,12 +135,12 @@ export default class App extends Component {
         myState: 'State of Text Component'
     }
 
-    updateState = () => this.setState({myState: 'The state is updated'})
+    updateState = () =>` this.setState({myState: 'The state is updated'})
     render() {
         return (
-            <View>    
-                <Text onPress={this.updateState}> {this.state.myState} </Text>    
-            </View> 
+            `<View>`    
+                `<Text onPress={this.updateState}>` {this.state.myState} `</Text>`    
+            `</View>` 
         ); 
     } 
 }
@@ -169,7 +167,7 @@ Redux là một công cụ quản lý trạng thái được dùng cho các ứn
 Có các yêu cầu nghiệp vụ, `setTimeout` để thực thi một mẫu code sau một khoảng thời gian chờ đợi. `clearTimeout` dùng để xoá timer lại thời gian được bắt đầu.
 
 ```js
-setTimeout(() => {
+setTimeout(() =>` {
     yourFunction();
 }, 3000);
 ```
@@ -179,7 +177,7 @@ setTimeout(() => {
 Là phương thức để gọi một hàm hoặc chạy code sau những khoảng thời gian cụ thể, được chỉ định trong tham số thứ hai.
 
 ```js
-setInterval(() => {
+setInterval(() =>` {
     console.log('Interval triggered');
 }, 1000);
 ```
@@ -194,7 +192,7 @@ Gọi hàm thực thi sớm nhất có thể.
 var immediateID = setImmediate(function);
 // The below code displays the alert dialog immediately.
 var immediateId = setImmediate(
-    () => {    alert('Immediate Alert');
+    () =>` {    alert('Immediate Alert');
 }
 ```
 
@@ -210,7 +208,7 @@ Gọi một hàm để cập nhật ảnh động trước khi đến frame ản
 var requestID = requestAnimationFrame(function);
 // The following code performs the animation.
 var requestId = requestAnimationFrame(
-    () => { // animate something}
+    () =>` { // animate something}
 )
 ```
 
@@ -265,13 +263,13 @@ fetch('https://mywebsite.com/endpoint/', {
 Kết nối mạng là một hoạt động bất đồng bộ. Các phương thức fetch sẽ trả về một Promise giúp dễ dàng viết code hoạt động theo cách bất đồng bộ:
 
 ```js
-const getMoviesFromApi = () => {
+const getMoviesFromApi = () =>` {
     return fetch('https://reactnative.dev/movies.json')
-        .then((response) => response.json())
-        .then((json) => {
+        .then((response) =>` response.json())
+        .then((json) =>` {
             return json.movies;
         })
-        .catch((error) => {
+        .catch((error) =>` {
             console.error(error);
         });
 };
@@ -281,7 +279,7 @@ API XMLHttpRequest là api sẵn có trong React Native. Ta cũng có thể sử
 
 ```js
 var request = new XMLHttpRequest();
-request.onreadystatechange = (e) => {
+request.onreadystatechange = (e) =>` {
     if (request.readyState !== 4) {
         return;
     }
@@ -343,11 +341,11 @@ Các component cốt lỗi thường được dùng trong React Native: `<View>`
 
 | React Native Component | Android View | iOS view | Web view | Mô tả |
 |-|-|-|-|-|
-| <View> | <ViewGroup> | <UIView> | <div> | Một container hỗ trợ bố cục với kiểu flexbox, một số điều khiển cảm ứng và điều khiển trợ năng |
-| <Text> | <TextView> | <UITextView> | <p> | Hiển thị style, lồng chuỗi văn bản hoặc xử lý sự kiện |
-| <Image> | <ImageView> | <UIImageView> | <img> | Hiển thị ảnh |
-| <ScrollView> | <ScrollView> | <UIScrollView> | <div> | Một container scroll chung có thể chứa nhiều component và view |
-| <TextInput> | <EditText> | <UITextField> | <input type="text"> | Cho phép người dùng nhập văn bản |
+| `<View>` | `<ViewGroup>` | `<UIView>` | `<div>` | Một container hỗ trợ bố cục với kiểu flexbox, một số điều khiển cảm ứng và điều khiển trợ năng |
+| `<Text>` | `<TextView>` | `<UITextView>` | `<p>` | Hiển thị style, lồng chuỗi văn bản hoặc xử lý sự kiện |
+| `<Image>` | `<ImageView>` | `<UIImageView>` | `<img>` | Hiển thị ảnh |
+| `<ScrollView>` | `<ScrollView>` | `<UIScrollView>` | `<div>` | Một container scroll chung có thể chứa nhiều component và view |
+| `<TextInput>` | `<EditText>` | `<UITextField>` | `<input type="text">` | Cho phép người dùng nhập văn bản |
 
 ### 17. ListView trong React Native?
 
@@ -367,9 +365,9 @@ export default class MyListComponent extends Component {
             <ListView 
                 dataSource={this.state.dataSource}  
                 renderRow={  
-                (rowData) =>  
-                <Text style={{fontSize: 30}}>{rowData}</Text>} 
-            />  
+                (rowData) =>`  
+                `<Text style={{fontSize: 30}}>{rowData}</Text>} 
+            /> 
         ); 
     }  
 }
@@ -480,7 +478,7 @@ export default class FlatListBasics extends Component {
                     width: "100%",  
                     backgroundColor: "#000",  
                 }}  
-            />  
+            />
         );  
     };  
     //handling onPress action  
@@ -490,18 +488,18 @@ export default class FlatListBasics extends Component {
  
     render() {  
         return (  
-            <View style={styles.container}>  
+            <View style={styles.container}>
                 <FlatList  
                     data={[  
                         {key: 'Android'},{key: 'iOS'}, {key: 'Java'},{key: 'Swift'},  
                         {key: 'Php'},{key: 'Hadoop'},{key: 'Sap'},  
                     ]}  
-                    renderItem={({item}) =>  
+                    renderItem={({item}) =>
                         <Text style={styles.item}  
                                 onPress={this.getListViewItem.bind(this, item)}>{item.key}</Text>}  
                     ItemSeparatorComponent={this.renderSeparator}  
                 />  
-            </View>  
+            </View> 
         );  
     }
 }  
@@ -734,16 +732,64 @@ Trong React Native, mỗi module scope được gắn với một đối tượn
         + Click Tools → Android → Android Device Monitor
     -Khi When Android Device Monitor được mở, click Monitor → Preferences
 
-Một cách khác trong Android là Peft Monitor:
+### 27. Các cách để lưu trữ dữ liệu nhạy cảm trong React Native?
+
+React Native không đi kèm với bất kỳ cách lưu trữ dữ liệu nhạy cảm nào. Tuy nhiên, đã có các giải pháp sẵn có cho nền tảng Android và iOS.
+
+**iOS - Keychain Services**
+
+Keychain Services cho phép bạn lưu trữ một cách an toàn các phần nhỏ thông tin nhạy cảm cho người dùng. Đây là nơi lý tưởng để lưu trữ xác thực, token, mật khẩu và bất kỳ thông tin nhạy cảm nào khác không thuộc về Async Storage.
+
+**Android - Shared Preferences**
+
+Shared Preferences là phiên bản Android tương đương cho bộ dữ liệu key-value liên tục. Dữ liệu trong Shared Preferences không được mã hóa theo mặc định, nhưng Encrypted Shared Preferences bao bọc lớp Shared Preferences dành cho Android và tự động mã hóa các khóa và giá trị.
+
+**Android - Keystore**
+
+Android Keystore cho phép bạn lưu trữ các khóa mật mã trong một container để làm cho việc trích xuất từ thiết bị trở nên khó khăn hơn. Để sử dụng iOS Keychain Services hoặc Android Secure Shared Preferences, bạn có thể tự viết bridge hoặc sử dụng thư viện bọc chúng cho bạn và cung cấp một API thống nhất mà bạn tự chịu rủi ro. Một số thư viện cần xem xét:
+- Expo-secure-store
+- React-native-keychain
+- react-native-sensitive-info, bảo mật cho iOS, nhưng dùng Android Shared Preferences
+
+### 28. Bảo mật mạng và SSL Pinning là gì?
+
+**SSL là gì**
+
+SSL (Secure Sockets Layer) và người kế nhiệm của nó, TLS (Secure Sockets Layer), là các giao thức để thiết lập các liên kết được xác thực và mã hóa giữa các máy tính nối mạng.
+
+SSL / TLS hoạt động bằng cách ràng buộc danh tính của các thực thể như trang web và công ty với các cặp khóa mật mã thông qua các tài liệu kỹ thuật số được gọi là chứng chỉ X.509. Mỗi cặp khóa bao gồm một khóa riêng và một khóa công khai. Khóa riêng tư được giữ an toàn và khóa công khai có thể được phân phối rộng rãi thông qua chứng chỉ.
+
+**Pinning là gì**
+
+Pinning là một cơ chế tùy chọn có thể được sử dụng để cải thiện tính bảo mật của một dịch vụ hoặc trang web dựa trên Chứng chỉ SSL. Pinning cho phép chỉ định danh tính mật mã mà người dùng truy cập trang web/ứng dụng được chấp nhận.
+
+**Tại sao cần SSL Pinning**
+
+Một trong những rủi ro cố hữu đối với hệ sinh thái SSL là phát hành sai. Đây là khi chứng chỉ trái phép được cấp cho miền / máy chủ lưu trữ mà bạn kiểm soát. Điều này có thể xảy ra với cả PKI(Public Key Infrastructure) công cộng và riêng tư.
+
+**Cách dùng SSL pinning với ứng dụng di động**
+
+Khi các ứng dụng di động giao tiếp với máy chủ, chúng thường sử dụng SSL để bảo vệ dữ liệu được truyền khỏi bị giả mạo. Theo các triển khai SSL mặc định được sử dụng, các ứng dụng tin cậy bất kỳ máy chủ nào có chứng chỉ được cửa hàng tin cậy của Hệ điều hành tin cậy, Cửa hàng này là danh sách các tổ chức phát hành chứng chỉ được cung cấp cùng với hệ điều hành.
+
+![](./assets/SSL_Pinning.png)
+
+Tuy nhiên, với tính năng SSL pinning, ứng dụng được định cấu hình để từ chối tất cả trừ một hoặc một số chứng chỉ được xác định trước, bất cứ khi nào ứng dụng kết nối với máy chủ, nó sẽ so sánh chứng chỉ máy chủ với (các) chứng chỉ đã pinning, nếu và chỉ khi chúng khớp với máy chủ. đáng tin cậy và kết nối SSL được thiết lập.
+
+### 29. setNativeProps là gì?
+
+Đôi khi cần thực hiện các thay đổi trực tiếp đối với một component mà không sử dụng state/props để kích hoạt render lại toàn bộ cây con. Ví dụ: khi sử dụng React trong trình duyệt, đôi khi bạn cần phải sửa đổi trực tiếp nút DOM và điều này cũng đúng với các view trong ứng dụng dành cho thiết bị di động. `setNativeProps` là React Native tương đương với việc thiết lập các thuộc tính trực tiếp trên một nút DOM.
+Sử dụng `setNativeProps` khi render thường xuyên tạo ra tắc nghẽn hiệu suất.
+
+Thao tác trực tiếp sẽ không phải là công cụ mà bạn tiếp cận thường xuyên; thông thường bạn sẽ chỉ sử dụng nó để tạo animation liên tục để tránh chi phí hiển thị cấu trúc phân cấp component và điều chỉnh nhiều view. `setNativeProps` là bắt buộc và lưu trữ trạng thái trong lớp native (DOM, UIView,...) chứ không phải trong các component React của bạn, điều này làm cho code của bạn khó đọc hơn. Trước khi sử dụng, hãy thử giải quyết vấn đề của bạn với `setState` và `shouldComponentUpdate`.
+
+### 30. Cách ứng dụng React Native làm việc mượt mà với animation?
+
+Lý do chính và cũng là lý do quan trọng khiến các ứng dụng native được xây dựng tốt lại hoạt động trơn tru là do tránh các thao tác tốn kém trong quá trình tương tác và animation. React Native có một hạn chế là chỉ có một luồng thực thi JS duy nhất, nhưng bạn có thể sử dụng `InteractionManager` để đảm bảo công việc dài hạn được lên lịch bắt đầu sau khi hoàn thành bất kỳ tương tác/animation nào.
+
+Các ứng dụng có thể lập lịch để chạy các tác vụ sau khi tương tác theo cách sau:
 
 ```jsx
-import PerfMonitor from 'react-native/Libraries/Performance/RCTRenderingPerf';
-
-PerfMonitor.toggle();
-PerfMonitor.start();
-setTimeout(() => {
-    PerfMonitor.stop();
-}, 20000);
-}, 5000);
+InteractionManager.runAfterInteractions(() => {
+    // ...long-running synchronous task...
+});
 ```
-
