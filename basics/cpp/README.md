@@ -15,6 +15,64 @@ Nó được dùng rộng rãi cho lập trình game và server, bên cạnh đ�
 - Hệ thống nhúng
 - Các tính toán và đồ hoạ nâng cao
 
+## Mục lục
+
+[1. Các kiểu dữ liệu trong C++?](#1-c%C3%A1c-ki%E1%BB%83u-d%E1%BB%AF-li%E1%BB%87u-trong-c)
+
+[2. Sự khác biệt giữa C và C++?](#2-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-c-v%C3%A0-c)
+
+[3. Lớp và đối tượng trong C++ là gì?](#3-l%E1%BB%9Bp-v%C3%A0-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-trong-c-l%C3%A0-g%C3%AC)
+
+[4. Sự khác biệt giữa struct và class?](#4-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-struct-v%C3%A0-class)
+
+[5. Nạp chồng toán tử là gì?](#5-n%E1%BA%A1p-ch%E1%BB%93ng-to%C3%A1n-t%E1%BB%AD-l%C3%A0-g%C3%AC)
+
+[6. Đa hình trong C++?](#6-%C4%91a-h%C3%ACnh-trong-c)
+
+[7. Giải thích về constructor trong C++?](#7-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-constructor-trong-c)
+
+[8. Hàm ảo là gì?](#8-h%C3%A0m-%E1%BA%A3o-l%C3%A0-g%C3%AC)
+
+[9. So sánh đa hình thời gian chạy và đa hình thời gian biên dịch?](#9-so-s%C3%A1nh-%C4%91a-h%C3%ACnh-th%E1%BB%9Di-gian-ch%E1%BA%A1y-v%C3%A0-%C4%91a-h%C3%ACnh-th%E1%BB%9Di-gian-bi%C3%AAn-d%E1%BB%8Bch)
+
+[10. Hàm bạn và lớp bạn là gì?](#10-h%C3%A0m-b%E1%BA%A1n-v%C3%A0-l%E1%BB%9Bp-b%E1%BA%A1n-l%C3%A0-g%C3%AC)
+
+[11. Các kiểu truy cập trong C++?](#11-c%C3%A1c-ki%E1%BB%83u-truy-c%E1%BA%ADp-trong-c)
+
+[12. Function inline là gì?](#12-function-inline-l%C3%A0-g%C3%AC)
+
+[13. Tham chiếu trong C++ là gì?](#13-tham-chi%E1%BA%BFu-trong-c-l%C3%A0-g%C3%AC)
+
+[14. Trừu tượng trong C++ là gì?](#14-tr%E1%BB%ABu-t%C6%B0%E1%BB%A3ng-trong-c-l%C3%A0-g%C3%AC)
+
+[15. Có thể nạp chồng destructor không? Tại sao?](#15-c%C3%B3-th%E1%BB%83-n%E1%BA%A1p-ch%E1%BB%93ng-destructor-kh%C3%B4ng-t%E1%BA%A1i-sao)
+
+[16. Gọi bởi giá trị và gọi bởi tham chiếu?](#16-g%E1%BB%8Di-b%E1%BB%9Fi-gi%C3%A1-tr%E1%BB%8B-v%C3%A0-g%E1%BB%8Di-b%E1%BB%9Fi-tham-chi%E1%BA%BFu)
+
+[17. Lớp trừu tường là gì?](#17-l%E1%BB%9Bp-tr%E1%BB%ABu-t%C6%B0%E1%BB%9Dng-l%C3%A0-g%C3%AC)
+
+[18. Destructor trong C++ là gì?](#18-destructor-trong-c-l%C3%A0-g%C3%AC)
+
+[19. Hàm tĩnh và biến tĩnh là gì?](#19-h%C3%A0m-t%C4%A9nh-v%C3%A0-bi%E1%BA%BFn-t%C4%A9nh-l%C3%A0-g%C3%AC)
+
+[20. Giải thích về kế thừa?](#20-gi%E1%BA%A3i-th%C3%ADch-v%E1%BB%81-k%E1%BA%BF-th%E1%BB%ABa)
+
+[21. Copy constructor là gì?](#21-copy-constructor-l%C3%A0-g%C3%AC)
+
+[22. Sự khác biệt giữa shall copy và deep copy?](#22-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-shallow-copy-v%C3%A0-deep-copy)
+
+[23. Sự khác biệt hàm ảo và hàm thuần ảo?](#23-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-h%C3%A0m-%E1%BA%A3o-v%C3%A0-h%C3%A0m-thu%E1%BA%A7n-%E1%BA%A3o)
+
+[24. Nếu lớp D có nguồn gốc từ một lớp cơ sở B. Khi tạo một đối tượng kiểu D thì thứ tự constructor của các lớp này sẽ được gọi như thế nào?](#24-n%E1%BA%BFu-l%E1%BB%9Bp-d-c%C3%B3-ngu%E1%BB%93n-g%E1%BB%91c-t%E1%BB%AB-m%E1%BB%99t-l%E1%BB%9Bp-c%C6%A1-s%E1%BB%9F-b-khi-t%E1%BA%A1o-m%E1%BB%99t-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-ki%E1%BB%83u-d-th%C3%AC-th%E1%BB%A9-t%E1%BB%B1-constructor-c%E1%BB%A7a-c%C3%A1c-l%E1%BB%9Bp-n%C3%A0y-s%E1%BA%BD-%C4%91%C6%B0%E1%BB%A3c-g%E1%BB%8Di-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[25. Ta có thể gọi hàm ảo từ một constructor không?](#25-ta-c%C3%B3-th%E1%BB%83-g%E1%BB%8Di-h%C3%A0m-%E1%BA%A3o-t%E1%BB%AB-m%E1%BB%99t-constructor-kh%C3%B4ng)
+
+[26. Con trỏ void là gì?](#26-con-tr%E1%BB%8F-void-l%C3%A0-g%C3%AC)
+
+[27. Con trỏ this là gì?](#27-con-tr%E1%BB%8F-this-l%C3%A0-g%C3%AC)
+
+[28. Cấp phát và giải phóng bộ nhớ trong C++?](#28-c%E1%BA%A5p-ph%C3%A1t-v%C3%A0-gi%E1%BA%A3i-ph%C3%B3ng-b%E1%BB%99-nh%E1%BB%9B-trong-c)
+
 ## Câu hỏi phỏng vấn C++ cho Fresher
 
 ### 1. Các kiểu dữ liệu trong C++?
@@ -58,7 +116,7 @@ class A {
 
 ![](./assets/Class_in_C__.png)
 
-### 4. Sự khác biệt giữa struc và class?
+### 4. Sự khác biệt giữa struct và class?
 
 | Struct | Class |
 |--------|-------|
@@ -304,7 +362,7 @@ Trong phương thức gọi bởi tham chiếu, chúng ta chuyển địa chỉ 
 
 Một lớp được gọi là một lớp trừu tượng khi mà các đối tượng của nó không bao giờ có thể được tạo ra. Một lớp như vậy tồn tại như một lớp cha cho các lớp dẫn xuất. Chúng ta có thể làm cho một lớp trở nên trừu tượng bằng cách đặt một hàm thuần ảo trong lớp.
 
-### 18. Destructor trong C++ là gì>
+### 18. Destructor trong C++ là gì?
 
 Một constructor được tự động gọi khi một đối tượng được tạo lần đầu tiên. Tương tự như vậy khi một đối tượng bị hủy, một hàm có tên là destructor sẽ tự động được gọi. Một destructor có cùng tên với constructor (giống với tên lớp) nhưng đứng trước một dấu ngã `~`.
 
@@ -365,7 +423,7 @@ int main(){
 }
 ```
 
-### 22. Sự khác biệt giữa shall copy và deep copy?
+### 22. Sự khác biệt giữa shallow copy và deep copy?
 
 | Shallow Copy | Deep Copy |
 |--------------|-----------|
