@@ -15,6 +15,80 @@ iOS là viết tắt của "iPhone Operating System". Đây là hệ điều hà
 - Bạn có thể xem tất cả các cảnh báo ứng dụng của mình trong Trung tâm thông báo trong iOS. Tuy nhiên, cài đặt thông báo có thể được sửa đổi.
 - iOS là một hệ thống đóng. Mã nguồn của các ứng dụng của Apple không có sẵn cho các nhà phát triển và chủ sở hữu iPhone và iPad không thể sửa đổi code trên thiết bị của họ. Điều này làm cho các thiết bị chạy iOS khó bị hack hơn.
 
+## Mục lục
+
+[1. Giải thích kiến trúc iOS?](#1-gi%E1%BA%A3i-th%C3%ADch-ki%E1%BA%BFn-tr%C3%BAc-ios)
+
+[2. Thuộc tính trong iOS?](#2-thu%E1%BB%99c-t%C3%ADnh-trong-ios)
+
+[3. Bạn có thể giải thích sự khác biệt giữa các thuộc tính atomic và nonatomic không?](#3-b%E1%BA%A1n-c%C3%B3-th%E1%BB%83-gi%E1%BA%A3i-th%C3%ADch-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-c%C3%A1c-thu%E1%BB%99c-t%C3%ADnh-atomic-v%C3%A0-nonatomic-kh%C3%B4ng)
+
+[4. Các trạng thái khác nhau của ứng dụng iOS?](#4-c%C3%A1c-tr%E1%BA%A1ng-th%C3%A1i-kh%C3%A1c-nhau-c%E1%BB%A7a-%E1%BB%A9ng-d%E1%BB%A5ng-ios)
+
+[5. Trách nhiệm của nhà phát triển iOS?](#5-tr%C3%A1ch-nhi%E1%BB%87m-c%E1%BB%A7a-nh%C3%A0-ph%C3%A1t-tri%E1%BB%83n-ios)
+
+[6. Sự khác biệt giữa Android và iOS?](#6-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-android-v%C3%A0-ios)
+
+[7. Deep linking trong iOS là gì?](#7-deep-linking-trong-ios-l%C3%A0-g%C3%AC)
+
+[8. Giải thích GCD trong iOS?](#8-gi%E1%BA%A3i-th%C3%ADch-gcd-trong-ios)
+
+[9. ARC là gì?](#9-arc-l%C3%A0-g%C3%AC)
+
+[10. Sự khác biệt giữa Cocoa và Cocoa Touch?](#10-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-cocoa-v%C3%A0-cocoa-touch)
+
+[11. Các ngôn ngữ lập trình dùng cho phát triển iOS?](#11-c%C3%A1c-ng%C3%B4n-ng%E1%BB%AF-l%E1%BA%ADp-tr%C3%ACnh-d%C3%B9ng-cho-ph%C3%A1t-tri%E1%BB%83n-ios)
+
+[12. Framework được sử dụng để xây dựng giao diện ứng dụng cho iOS là gì?](#12-framework-%C4%91%C6%B0%E1%BB%A3c-s%E1%BB%AD-d%E1%BB%A5ng-%C4%91%E1%BB%83-x%C3%A2y-d%E1%BB%B1ng-giao-di%E1%BB%87n-%E1%BB%A9ng-d%E1%BB%A5ng-cho-ios-l%C3%A0-g%C3%AC)
+
+[13. Các cách để thực hiện đồng thời trong iOS?](#13-c%C3%A1c-c%C3%A1ch-%C4%91%E1%BB%83-th%E1%BB%B1c-hi%E1%BB%87n-%C4%91%E1%BB%93ng-th%E1%BB%9Di-trong-ios)
+
+[14. Sự khác biệt giữa App ID và Bundle ID?](#14-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-app-id-v%C3%A0-bundle-id)
+
+[15. Framework SpriteKit và SceneKit trong phát triển game?](#15-framework-spritekit-v%C3%A0-scenekit-trong-ph%C3%A1t-tri%E1%BB%83n-game)
+
+[16. Sự khác biệt giữa từ khoá assign và retain?](#16-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-t%E1%BB%AB-kho%C3%A1-assign-v%C3%A0-retain)
+
+[17. Objective-C trong iOS?](#17-objective-c-trong-ios)
+
+[18. Các kiểu dữ liệu phổ biến trong Objective-C?](#18-c%C3%A1c-ki%E1%BB%83u-d%E1%BB%AF-li%E1%BB%87u-ph%E1%BB%95-bi%E1%BA%BFn-trong-objective-c)
+
+[19. Swift trong iOS?](#19-swift-trong-ios)
+
+[20. Các tính năng nổi bật của Swift?](#20-c%C3%A1c-t%C3%ADnh-n%C4%83ng-n%E1%BB%95i-b%E1%BA%ADt-c%E1%BB%A7a-swift)
+
+[21. NSError trong Swift?](#21-nserror-trong-swift)
+
+[22. Enum trong Swift?](#22-enum-trong-swift)
+
+[23. Thuộc tính lazy trong iOS?](#23-thu%E1%BB%99c-t%C3%ADnh-lazy-trong-ios)
+
+[24. Generic trong Swift?](#24-generic-trong-swift)
+
+[25. Dictionary trong Swift?](#25-dictionary-trong-swift)
+
+[26. Các design pattern được dùng trong iOS?](#26-c%C3%A1c-design-pattern-%C4%91%C6%B0%E1%BB%A3c-d%C3%B9ng-trong-ios)
+
+[27. Framework JSON nào được hỗ trợ trong iOS?](#27-framework-json-n%C3%A0o-%C4%91%C6%B0%E1%BB%A3c-h%E1%BB%97-tr%E1%BB%A3-trong-ios)
+
+[28. iBeacons trong iOS?](#28-ibeacons-trong-ios)
+
+[29. Sự khác biệt giữa KVC và KVO trong Swift?](#29-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-kvc-v%C3%A0-kvo-trong-swift)
+
+[30. TDD là gì?](#30-tdd-l%C3%A0-g%C3%AC)
+
+[31. Giải thích các hàm completion handler?](#31-gi%E1%BA%A3i-th%C3%ADch-c%C3%A1c-h%C3%A0m-completion-handler)
+
+[32. Sự khác biệt giữa strong, weak, readonly và copy?](#32-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-strong-weak-readonly-v%C3%A0-copy)
+
+[33. Dynamic dispatch là gì?](#33-dynamic-dispatch-l%C3%A0-g%C3%AC)
+
+[34. Giải thích lệnh @dynamic và @synthesize trong Objective-C?](#34-gi%E1%BA%A3i-th%C3%ADch-l%E1%BB%87nh-dynamic-v%C3%A0-synthesize-trong-objective-c)
+
+[35. Cách triển khai storage và persistence trong iOS?](#35-c%C3%A1ch-tri%E1%BB%83n-khai-storage-v%C3%A0-persistence-trong-ios)
+
+[36. Tác vụ đồng bộ và bất đồng bộ trong iOS?](#36-t%C3%A1c-v%E1%BB%A5-%C4%91%E1%BB%93ng-b%E1%BB%99-v%C3%A0-b%E1%BA%A5t-%C4%91%E1%BB%93ng-b%E1%BB%99-trong-ios)
+
 ## Câu hỏi phỏng vấn iOS cho Fresher
 
 ### 1. Giải thích kiến trúc iOS?
@@ -433,6 +507,8 @@ Không giống như MVC, có một lớp đặc biệt trong MVVM được gọi
 
 #### Facade
 
+Facade cung cấp một interface đơn giản hơn thay vì một tập hợp lớp hay thư viện phức tạp. Thay vì cung cấp cho người dùng một tập lớp và API của chúng, nó thực hiện đơn giản hơn chỉ cung cấp các API hữu ích. Facade giúp giảm sự phức tạp tổng thể của ứng dụng, nó giúp ta chuyển các phụ thuộc không mong muốn sang một nơi duy nhất.
+
 ![](./assets/Facade.png)
 
 ### 27. Framework JSON nào được hỗ trợ trong iOS?
@@ -498,7 +574,7 @@ Bạn sẽ thấy tất cả các số được in ra trong bảng điều khi�
 
 Nói một cách dễ hiểu, dynamic dispatch có nghĩa là chương trình quyết định trong thời gian chạy việc triển khai một phương thức hoặc hàm cụ thể nào mà nó cần gọi. Trong trường hợp lớp con ghi đè một phương thức của lớp cha của nó, dynamic dispatch sẽ xác định xem nên gọi triển khai phương thức của lớp con hay của lớp cha.
 
-### 34. Giải thích lệnh @dynamic và synthesize trong Objective-C?
+### 34. Giải thích lệnh @dynamic và @synthesize trong Objective-C?
 
 - **@synthesize**: Lệnh này tạo ra các phương thức getter và setter trong thuộc tính và hoạt động cùng với lệnh @dynamic. Theo mặc định, @synthesize tạo một biến có cùng tên với đối tượng đích của set/get như được minh họa trong ví dụ dưới đây.
     - Ví dụ 1: 

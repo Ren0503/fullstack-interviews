@@ -4,16 +4,16 @@
 
 ## Android là gì?
 
-Android là một hệ điều hành dựa trên nền tảng Linux được thiết kế dành cho các thiết bị di động có màn hình cảm ứng như điện thoại thông minh và máy tính bảng. Ban đầu, Android được phát triển bởi Android, Inc. với sự hỗ trợ tài chính từ Google và sau này được chính Google mua lại vào năm 2005.
+Android là một hệ điều hành dựa trên nền tảng Linux được thiết kế dành cho các thiết bị di động có màn hình cảm ứng như điện thoại thông minh và máy tính bảng. Ban đầu, Android được phát triển bởi Android Inc. với sự hỗ trợ tài chính từ Google và sau này được chính Google mua lại vào năm 2005.
 
-Android có mã nguồn mở và Google phát hành mã nguồn theo Giấy phép Apache. Chính mã nguồn mở cùng với một giấy phép không có nhiều ràng buộc đã cho phép các nhà phát triển thiết bị, mạng di động và các lập trình viên nhiệt huyết được điều chỉnh và phân phối Android một cách tự do. Ngoài ra, Android còn có một cộng đồng lập trình viên đông đảo chuyên viết các ứng dụng để mở rộng chức năng của thiết bị, bằng một loại ngôn ngữ lập trình Java có sửa đổi. Tháng 10 năm 2012, có khoảng 700.000 ứng dụng trên Android, và số lượt tải ứng dụng từ Google Play, cửa hàng ứng dụng chính của Android, ước tính khoảng 25 tỷ lượt.
+Android có mã nguồn mở và Google phát hành mã nguồn theo Giấy phép Apache. Chính mã nguồn mở cùng với một giấy phép không có nhiều ràng buộc đã cho phép các nhà phát triển thiết bị, mạng di động và các lập trình viên nhiệt huyết được điều chỉnh và phân phối Android một cách tự do. Ngoài ra, Android còn có một cộng đồng lập trình viên đông đảo chuyên viết các ứng dụng để mở rộng chức năng của thiết bị, bằng ngôn ngữ lập trình Java. Tháng 10 năm 2012, có khoảng 700.000 ứng dụng trên Android, và số lượt tải ứng dụng từ Google Play, cửa hàng ứng dụng chính của Android, ước tính khoảng 25 tỷ lượt.
 
 ## Ưu điểm của Android
 
 - Mã nguồn mở: việc phát triển và phân phối ứng dụng miễn phí.
 - Nền tảng độc lập: nền tảng Android (Android Studio và Android SDK) là độc lập. Ứng dụng có thể phát triển trên bất kỳ hệ điều hành nào với Android Stduio và Android SDK.
 - Hiệu suất máy ảo cao: Android sử dụng một máy ảo được tối ưu hóa cao, tức là DVM (Dalvik Virtual Machine) cho các thiết bị di động. Thay thế DVM, máy ảo ART (Android RunTime) được giới thiệu để thực thi các ứng dụng Android từ phiên bản Android lollipop 5.0 (API 21).
-- Hỗ trợ nhiều công nghệ: nó hỗ trợ camera, giọng nói, bluetooth, wifi,...
+- Hỗ trợ nhiều công nghệ: hỗ trợ camera, giọng nói, bluetooth, wifi,...
 - Hàng triệu ứng dụng khả dụng: Hàng triệu ứng dụng Android có sẵn mà bạn có thể cài đặt trên thiết bị từ cửa hàng Google Play cũng như từ các cửa hàng thay thế khác.
 
 ## Nhược điểm của Android
@@ -23,6 +23,84 @@ Android có mã nguồn mở và Google phát hành mã nguồn theo Giấy phé
     + Vì một số ứng dụng chạy nền, chúng tiêu thụ pin di động và pin thiết bị của bạn nhanh chóng.
 - Kết nối dữ liệu kém: Android có một số lượng lớn các tiến trình chạy nền liên tục và điều này dẫn đến việc sử dụng quá nhiều dữ liệu và tốc độ internet kém. Đôi khi nó có thể rất khó chịu.
 - Vấn đề tương thích: Có rất nhiều loại thiết bị Android có sẵn trên thị trường với kích thước và kích thước màn hình khác nhau, nhưng quan trọng hơn là hệ điều hành Android khác nhau. Một ứng dụng chạy trơn tru trên một phiên bản hệ điều hành Android có thể gặp sự cố trên một hệ điều hành Android khác.
+
+## Mục lục
+
+[1. Android là gì?](#1-android-l%C3%A0-g%C3%AC)
+
+[2. Kiến trúc của Android?](#2-ki%E1%BA%BFn-tr%C3%BAc-c%E1%BB%A7a-android)
+
+[3. Các ngôn ngữ sử dụng cho Android?](#3-c%C3%A1c-ng%C3%B4n-ng%E1%BB%AF-s%E1%BB%AD-d%E1%BB%A5ng-cho-android)
+
+[4. Một activity là gì?](#4-m%E1%BB%99t-activity-l%C3%A0-g%C3%AC)
+
+[5. Service trong Android là gì?](#5-service-trong-android-l%C3%A0-g%C3%AC)
+
+[6. Phân biệt Activity và Service?](#6-ph%C3%A2n-bi%E1%BB%87t-activity-v%C3%A0-service)
+
+[7. Google Android SDK là gì?](#7-google-android-sdk-l%C3%A0-g%C3%AC)
+
+[8. Cách dùng bundle trong Android?](#8-c%C3%A1ch-d%C3%B9ng-bundle-trong-android)
+
+[9. Adapter trong Android là gì?](#9-adapter-trong-android-l%C3%A0-g%C3%AC)
+
+[10. AAPT là gì?](#10-aapt-l%C3%A0-g%C3%AC)
+
+[11. Điểm phát sóng Wi-Fi di động là gì?](#11-%C4%91i%E1%BB%83m-ph%C3%A1t-s%C3%B3ng-wi-fi-di-%C4%91%E1%BB%99ng-l%C3%A0-g%C3%AC)
+
+[12. ADB là gì?](#12-adb-l%C3%A0-g%C3%AC)
+
+[13. DDMS là gì?](#13-ddms-l%C3%A0-g%C3%AC)
+
+[14. AIDL là gì?](#14-aidl-l%C3%A0-g%C3%AC)
+
+[15. Vòng đời của Android Activity?](#15-v%C3%B2ng-%C4%91%E1%BB%9Di-c%E1%BB%A7a-android-activity)
+
+[16. Cảm biến trong Android?](#16-c%E1%BA%A3m-bi%E1%BA%BFn-trong-android)
+
+[17. Các loại dialog trong Android?](#17-c%C3%A1c-lo%E1%BA%A1i-dialog-trong-android)
+
+[18. File AndroidManifest.xml là gì?](#18-file-androidmanifestxml-l%C3%A0-g%C3%AC)
+
+[19. Intent là gì?](#19-intent-l%C3%A0-g%C3%AC)
+
+[20. Sự khác biệt giữa lớp, file và activity trong Android?](#20-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-l%E1%BB%9Bp-file-v%C3%A0-activity-trong-android)
+
+[21. Toast là gì?](#21-toast-l%C3%A0-g%C3%AC)
+
+[22. Context là gì?](#22-context-l%C3%A0-g%C3%AC)
+
+[23. Sự khác biệt giữa Implicit và Explicit Intent?](#23-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-implicit-v%C3%A0-explicit-intent)
+
+[24. ANR trong Android là gì?](#24-anr-trong-android-l%C3%A0-g%C3%AC)
+
+[25. Các vấn đề kỹ thuật cần làm khi ứng dụng thường xuyên gặp sự cố?](#25-c%C3%A1c-v%E1%BA%A5n-%C4%91%E1%BB%81-k%E1%BB%B9-thu%E1%BA%ADt-c%E1%BA%A7n-l%C3%A0m-khi-%E1%BB%A9ng-d%E1%BB%A5ng-th%C6%B0%E1%BB%9Dng-xuy%C3%AAn-g%E1%BA%B7p-s%E1%BB%B1-c%E1%BB%91)
+
+[26. Giải thích các chế độ khởi chạy khác nhau trong Android?](#26-gi%E1%BA%A3i-th%C3%ADch-c%C3%A1c-ch%E1%BA%BF-%C4%91%E1%BB%99-kh%E1%BB%9Fi-ch%E1%BA%A1y-kh%C3%A1c-nhau-trong-android)
+
+[27. Container trong Android?](#27-container-trong-android)
+
+[28. Vai trò của Dalvik trong phát triển Android?](#28-vai-tr%C3%B2-c%E1%BB%A7a-dalvik-trong-ph%C3%A1t-tri%E1%BB%83n-android)
+
+[29. Broadcast receivers là gì?](#29-broadcast-receivers-l%C3%A0-g%C3%AC)
+
+[30. Giải thích cấu trúc thư mục khi tạo ứng dụng Android?](#30-gi%E1%BA%A3i-th%C3%ADch-c%E1%BA%A5u-tr%C3%BAc-th%C6%B0-m%E1%BB%A5c-khi-t%E1%BA%A1o-%E1%BB%A9ng-d%E1%BB%A5ng-android)
+
+[31. Sự khác biệt giữa Serializable và Parcelable?](#31-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-serializable-v%C3%A0-parcelable)
+
+[32. Cơ sở dữ liệu nào được sử dụng trong Android?](#32-c%C6%A1-s%E1%BB%9F-d%E1%BB%AF-li%E1%BB%87u-n%C3%A0o-%C4%91%C6%B0%E1%BB%A3c-s%E1%BB%AD-d%E1%BB%A5ng-trong-android)
+
+[33. Sự khác biệt giữa Service và Thread?](#33-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-service-v%C3%A0-thread)
+
+[34. Content Provider là gì?](#34-content-provider-l%C3%A0-g%C3%AC)
+
+[35. Ý nghĩa của file .dex?](#35-%C3%BD-ngh%C4%A9a-c%E1%BB%A7a-file-dex)
+
+[36. Sự khác biệt giữa compileSdkVersion và targetSdkVersion?](#36-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-compilesdkversion-v%C3%A0-targetsdkversion)
+
+[37. Các lớp Java liên quan đến cảm biến trong Android?](#37-c%C3%A1c-l%E1%BB%9Bp-java-li%C3%AAn-quan-%C4%91%E1%BA%BFn-c%E1%BA%A3m-bi%E1%BA%BFn-trong-android)
+
+[38. JobScheduler là gì?](#38-jobscheduler-l%C3%A0-g%C3%AC)
 
 ## Câu hỏi phỏng vấn Android cho Fresher 
 
@@ -126,7 +204,7 @@ DDMS (Dalvik Debug Monitor Server) là công cụ gỡ lỗi trên nền tảng 
 
 ### 14. AIDL là gì?
 
-AIDL - Android Interface Definition Language 78p[[[[[[[ơ+;là một cách cho phép bạn có thể định nghĩa một cách mà cả client và server (1 ứng dụng đóng vai trò là server cho các ứng dụng khác đóng vai trò là client có thể truy cập tới) có thể giao tiếng với nhau thông qua Interprocess communication (IPC). Thông thường, trong Android một process (tiến trình) không thể trực tiếp truy cập vào bộ nhớ của một tiến trình khác. Vì vậy để có thể các tiến trình có thể giao tiếp với nhau, chúng cần phân tách các đối tượng thành dạng nguyên thủy (primitive) mà hệ thống có thể hiểu được.
+AIDL - Android Interface Definition Language là một cách cho phép bạn có thể định nghĩa một cách mà cả client và server (1 ứng dụng đóng vai trò là server cho các ứng dụng khác đóng vai trò là client có thể truy cập tới) có thể giao tiếng với nhau thông qua Interprocess communication (IPC). Thông thường, trong Android một process (tiến trình) không thể trực tiếp truy cập vào bộ nhớ của một tiến trình khác. Vì vậy để có thể các tiến trình có thể giao tiếp với nhau, chúng cần phân tách các đối tượng thành dạng nguyên thủy (primitive) mà hệ thống có thể hiểu được.
 
 Các kiểu dữ liệu được hỗ trợ trong AIDL là:
 
@@ -351,7 +429,7 @@ Trong phát triển ứng dụng, thông thường nó cần chuyển dữ liệ
 
 #### Parcelable
 
-- Parcelable là một interface Android cụ thể. Với các tiếp cận này bạn có thể triển khai, sự tuần tự hoá của bạn.
+- Parcelable là một interface Android cụ thể. Với cách tiếp cận này bạn có thể triển khai, sự tuần tự hoá của bạn.
 - Đối chiếu không được dùng trong quá trình này nên không tạo ra rác.
 - Parcelable hiệu quả hơn nhiều so với Serializable vì nó giải quyết được một số vấn đề với lược đồ tuần tự hóa mặc định trong Java. Ngoài ra, nó nhanh hơn vì nó được tối ưu hóa để sử dụng trên Android và hiển thị kết quả tốt hơn.
 
