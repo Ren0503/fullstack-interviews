@@ -2,7 +2,69 @@
 
 ![](./assets/react-native.jpg)
 
-React Native là một framework ứng dụng di động dựa trên JavaScript, được thiết kế để tạo các ứng dụng di động cho iOS và Android bằng cách cung cấp cho người lập trình một công cụ để sử dụng React cùng với nền tảng di động native. Ưu điểm chính của React Native là code có thể được viết và chia sẻ một lần giữa cả iOS và Android. Các ứng dụng dành cho thiết bị di động thực sự "native" về cả giao diện và cảm nhận có thể được xây dựng bằng chính Javascript.
+React Native là một framework ứng dụng di động dựa trên JavaScript, được thiết kế để tạo các ứng dụng di động cho iOS và Android bằng cách cung cấp cho người lập trình một công cụ để sử dụng React cùng với nền tảng di động native. Ưu điểm chính của React Native là code có thể được viết và chia sẻ một lần giữa cả iOS và Android. Các ứng dụng dành cho thiết bị di động thực sự "native" về cả giao diện và trải nghiệm có thể được xây dựng bằng chính Javascript.
+
+## Mục lục
+
+[1. Sự khác biệt giữa ReactJS và React Native?](#1-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-reactjs-v%C3%A0-react-native)
+
+[2. Flexbox là gì?](#2-flexbox-l%C3%A0-g%C3%AC)
+
+[3. Ưu điểm của React Native?](#3-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-react-native)
+
+[4. Giải thích các luồng khác nhau trong React Native?](#4-gi%E1%BA%A3i-th%C3%ADch-c%C3%A1c-lu%E1%BB%93ng-kh%C3%A1c-nhau-trong-react-native)
+
+[5. defaultProps có khả dụng trong React Native không?](#5-defaultprops-c%C3%B3-kh%E1%BA%A3-d%E1%BB%A5ng-trong-react-native-kh%C3%B4ng)
+
+[6. Xử lý input trong React Native?](#6-x%E1%BB%AD-l%C3%BD-input-trong-react-native)
+
+[7. Cách sử dụng state trong React Native?](#7-c%C3%A1ch-s%E1%BB%AD-d%E1%BB%A5ng-state-trong-react-native)
+
+[8. Redux trong React Native?](#8-redux-trong-react-native)
+
+[9. Các hàm thời gian trong React Native?](#9-c%C3%A1c-h%C3%A0m-th%E1%BB%9Di-gian-trong-react-native)
+
+[10. Cách debug ứng dụng React Native và các công cụ cần thiết?](#10-c%C3%A1ch-debug-%E1%BB%A9ng-d%E1%BB%A5ng-react-native-v%C3%A0-c%C3%A1c-c%C3%B4ng-c%E1%BB%A5-c%E1%BA%A7n-thi%E1%BA%BFt)
+
+[11. Props Drilling là gì?](#11-props-drilling-l%C3%A0-g%C3%AC)
+
+[12. Mô tả kết nối mạng trong React Native?](#12-m%C3%B4-t%E1%BA%A3-k%E1%BA%BFt-n%E1%BB%91i-m%E1%BA%A1ng-trong-react-native)
+
+[13. Liệt kê các điểm chính để tích hợp React Native trong một ứng dụng Android?](#13-li%E1%BB%87t-k%C3%AA-c%C3%A1c-%C4%91i%E1%BB%83m-ch%C3%ADnh-%C4%91%E1%BB%83-t%C3%ADch-h%E1%BB%A3p-react-native-trong-m%E1%BB%99t-%E1%BB%A9ng-d%E1%BB%A5ng-android)
+
+[14. Code React Native được xử lý như thế nào?](#14-code-react-native-%C4%91%C6%B0%E1%BB%A3c-x%E1%BB%AD-l%C3%BD-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[15. Bridge trong React Native là gì?](#15-bridge-trong-react-native-l%C3%A0-g%C3%AC)
+
+[16. Các component cốt lõi trong React Native?](#16-c%C3%A1c-component-c%E1%BB%91t-l%C3%B5i-trong-react-native)
+
+[17. ListView trong React Native?](#17-listview-trong-react-native)
+
+[18. Làm thế nào bạn có thể viết code khác nhau cho iOS và Android trong cùng một codebase?](#18-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-b%E1%BA%A1n-c%C3%B3-th%E1%BB%83-vi%E1%BA%BFt-code-kh%C3%A1c-nhau-cho-ios-v%C3%A0-android-trong-c%C3%B9ng-m%E1%BB%99t-codebase)
+
+[19. Touchable và cách dùng nó trong React Native?](#19-touchable-v%C3%A0-c%C3%A1ch-d%C3%B9ng-n%C3%B3-trong-react-native)
+
+[20. Component FlatList là gì?](#20-component-flatlist-l%C3%A0-g%C3%AC)
+
+[21. Cách định tuyến với React Navigation trong React Native?](#21-c%C3%A1ch-%C4%91%E1%BB%8Bnh-tuy%E1%BA%BFn-v%E1%BB%9Bi-react-navigation-trong-react-native)
+
+[22. Các cách thiết kế style trong ứng dụng React Native?](#22-c%C3%A1c-c%C3%A1ch-thi%E1%BA%BFt-k%E1%BA%BF-style-trong-%E1%BB%A9ng-d%E1%BB%A5ng-react-native)
+
+[23. Giải thích Async Storage trong React Native?](#23-gi%E1%BA%A3i-th%C3%ADch-async-storage-trong-react-native)
+
+[24. Nguyên nhân thực sự đằng sau các vấn đề về hiệu suất trong React Native là gì?](#24-nguy%C3%AAn-nh%C3%A2n-th%E1%BB%B1c-s%E1%BB%B1-%C4%91%E1%BA%B1ng-sau-c%C3%A1c-v%E1%BA%A5n-%C4%91%E1%BB%81-v%E1%BB%81-hi%E1%BB%87u-su%E1%BA%A5t-trong-react-native-l%C3%A0-g%C3%AC)
+
+[25. Các bước để tối ưu hoá ứng dụng?](#25-c%C3%A1c-b%C6%B0%E1%BB%9Bc-%C4%91%E1%BB%83-t%E1%BB%91i-%C6%B0u-ho%C3%A1-%E1%BB%A9ng-d%E1%BB%A5ng)
+
+[26. Cách giải quyết sự cố rò rỉ bộ nhớ trong React Native?](#26-c%C3%A1ch-gi%E1%BA%A3i-quy%E1%BA%BFt-s%E1%BB%B1-c%E1%BB%91-r%C3%B2-r%E1%BB%89-b%E1%BB%99-nh%E1%BB%9B-trong-react-native)
+
+[27. Các cách để lưu trữ dữ liệu nhạy cảm trong React Native?](#27-c%C3%A1c-c%C3%A1ch-%C4%91%E1%BB%83-l%C6%B0u-tr%E1%BB%AF-d%E1%BB%AF-li%E1%BB%87u-nh%E1%BA%A1y-c%E1%BA%A3m-trong-react-native)
+
+[28. Bảo mật mạng và SSL Pinning là gì?](#28-b%E1%BA%A3o-m%E1%BA%ADt-m%E1%BA%A1ng-v%C3%A0-ssl-pinning-l%C3%A0-g%C3%AC)
+
+[29. setNativeProps là gì?](#29-setnativeprops-l%C3%A0-g%C3%AC)
+
+[30. Cách ứng dụng React Native làm việc mượt mà với animation?](#30-c%C3%A1ch-%E1%BB%A9ng-d%E1%BB%A5ng-react-native-l%C3%A0m-vi%E1%BB%87c-m%C6%B0%E1%BB%A3t-m%C3%A0-v%E1%BB%9Bi-animation)
 
 ## Câu hỏi phỏng vấn React Native cho Fresher
 
@@ -102,20 +164,20 @@ TextInput là component chính cho phép người dùng nhập văn bản vào. 
 import React, { useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
-const PizzaTranslator = () =>` {
+const PizzaTranslator = () => {
     const [text, setText] = useState('');
     return (
-        `<View style={{padding: 10}}>
-            `<TextInput
+        <View style={{padding: 10}}>
+            <TextInput
                 style={{height: 40}}
                 placeholder="Type here to translate!"
-                onChangeText={text =>` setText(text)}
+                onChangeText={text => setText(text)}
                 defaultValue={text}
             />
-            `<Text style={{padding: 10, fontSize: 42}}>
-                {text.split(' ').map((word) =>` word && '🍕').join(' ')}
-            `</Text>
-        `</View>
+            <Text style={{padding: 10, fontSize: 42}}>
+                {text.split(' ').map((word) => word && '🍕').join(' ')}
+            </Text>
+        </View>
     );
 }
 
@@ -263,13 +325,13 @@ fetch('https://mywebsite.com/endpoint/', {
 Kết nối mạng là một hoạt động bất đồng bộ. Các phương thức fetch sẽ trả về một Promise giúp dễ dàng viết code hoạt động theo cách bất đồng bộ:
 
 ```js
-const getMoviesFromApi = () =>` {
+const getMoviesFromApi = () => {
     return fetch('https://reactnative.dev/movies.json')
-        .then((response) =>` response.json())
-        .then((json) =>` {
+        .then((response) => response.json())
+        .then((json) => {
             return json.movies;
         })
-        .catch((error) =>` {
+        .catch((error) => {
             console.error(error);
         });
 };
@@ -279,7 +341,7 @@ API XMLHttpRequest là api sẵn có trong React Native. Ta cũng có thể sử
 
 ```js
 var request = new XMLHttpRequest();
-request.onreadystatechange = (e) =>` {
+request.onreadystatechange = (e) => {
     if (request.readyState !== 4) {
         return;
     }
@@ -301,9 +363,9 @@ Các điểm chính cần lưu ý để tích hợp các React Native vào ứng
 
 - Thiết lập cấu trúc thư mục và phụ thuộc React Native.
 - Phát triển các component React Native của bạn trong JavaScript.
-- Thêm ReactRootView vào ứng dụng Android của bạn. Chế độ xem này sẽ đóng vai trò là container cho component React Native của bạn.
+- Thêm ReactRootView vào ứng dụng Android của bạn. View này sẽ đóng vai trò là container cho component React Native của bạn.
 - Khởi động React Native server và chạy ứng dụng native của bạn.
-- Cuối cùng, chúng tôi cần xác minh việc React Native trong ứng dụng của bạn hoạt động như mong đợi.
+- Cuối cùng, chúng ta cần xác minh việc React Native trong ứng dụng của bạn hoạt động như mong đợi.
 
 ### 14. Code React Native được xử lý như thế nào?
 
@@ -373,7 +435,7 @@ export default class MyListComponent extends Component {
 }
 ```
 
-### 18. Làm thế nào bạn có thể viết code khác nhau cho IOS và Android trong cùng một codebase?
+### 18. Làm thế nào bạn có thể viết code khác nhau cho iOS và Android trong cùng một codebase?
 
 Module platform sẽ phát hiện từng nền tảng khi ứng dụng được chạy.
 
@@ -385,7 +447,7 @@ const styles = Stylesheet.create({
 })
 ```
 
-Ngoài ra, phương thức `Platform.select` lấy một đối tượng chứa Platform.OS làm khóa và trả về giá trị cho nền tảng bạn hiện đang sử dụng. 
+Ngoài ra, phương thức `Platform.select` lấy một đối tượng chứa `Platform.OS` làm khóa và trả về giá trị cho nền tảng bạn hiện đang sử dụng. 
 
 ```jsx
 import { Platform, StyleSheet } from 'react-native';
@@ -689,11 +751,11 @@ Không dùng cho:
 
 ### 24. Nguyên nhân thực sự đằng sau các vấn đề về hiệu suất trong React Native là gì?
 
-Nguyên nhân thực sự đằng sau các vấn đề về hiệu suất React Native là mỗi luồng (tức là luồng Native và JS) quá nhanh. Tắc nghẽn hiệu suất trong ứng dụng React Native xảy ra khi bạn chuyển các thành phần từ luồng này sang luồng khác một cách không cần thiết hoặc nhiều hơn mức cần thiết. Quy tắc ngón tay cái chính được dùng để tránh bất kỳ vấn đề nào liên quan đến hiệu suất trong React Native và giữ cho các lần vượt qua bridge ở mức tối thiểu.
+Nguyên nhân thực sự đằng sau các vấn đề về hiệu suất React Native là mỗi luồng (tức là luồng Native và JS) quá nhanh. Tắc nghẽn hiệu suất trong ứng dụng React Native xảy ra khi bạn chuyển các thành phần từ luồng này sang luồng khác một cách không cần thiết hoặc nhiều hơn mức cần thiết. Quy tắc *ngón tay cái* được dùng để tránh bất kỳ vấn đề nào liên quan đến hiệu suất trong React Native và giữ cho các lần vượt qua bridge ở mức tối thiểu.
 
 - Luồng Native được xây dựng để chạy Java/Kotlin, Swift/Objective C.
-- Luồng Javascript là luồng chính chạy mọi thứ từ hoạt ảnh dựa trên javascript đến các component giao diện người dùng khác.
-- Bridge như tên cho thấy hoạt động như một điểm giao tiếp trung gian cho luồng Native và JS.
+- Luồng Javascript là luồng chính chạy mọi thứ từ animation dựa trên javascript đến các component giao diện người dùng khác.
+- Bridge hoạt động như một điểm giao tiếp trung gian cho luồng Native và JS.
 
 ### 25. Các bước để tối ưu hoá ứng dụng?
 
@@ -708,7 +770,7 @@ Nguyên nhân thực sự đằng sau các vấn đề về hiệu suất React 
 - Sử dụng `VirtualizedList`, `FlatList` và `SectionList` cho tập dữ liệu lớn.
 - Xoá tất cả timer đang hoạt động nếu nó dẫn đến các vấn đề rò rỉ bộ nhớ.
 
-### 26. Cách giải sự cố rò rỉ bộ nhớ trong React Native?
+### 26. Cách giải quyết sự cố rò rỉ bộ nhớ trong React Native?
 
 Trong bộ nhớ JavaScript được quản lý tự động bởi Garbage Collector (GC). Nói tóm lại, Garbage Collector là một tiến trình nền định kỳ duyệt qua biểu đồ của các đối tượng được cấp phát và các tham chiếu của chúng. Nếu tình cờ gặp một phần của biểu đồ không được tham chiếu trực tiếp hoặc gián tiếp từ các đối tượng gốc (ví dụ: các biến trên ngăn xếp hoặc một đối tượng toàn cục như window hoặc navigator) thì toàn bộ phần đó có thể được giải phóng khỏi bộ nhớ.
 
