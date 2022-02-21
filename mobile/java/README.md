@@ -8,6 +8,118 @@ Java là một ngôn ngữ lập trình hướng đối tượng được phát 
 
 Ngôn ngữ lập trình Java là một ngôn ngữ độc lập với nền tảng, có nghĩa là không có giới hạn đối với bất kỳ phần cứng hoặc hệ điều hành cụ thể nào. Nó cung cấp cho người dùng cơ sở để 'viết một lần, chạy ở mọi nơi'. Nhiều hệ điều hành như Sun Solaris, RedHat, Windows, v.v., hỗ trợ Java.
 
+## Mục lục
+
+[1. Java có phải nền tảng độc lập không?](#1-java-c%C3%B3-ph%E1%BA%A3i-n%E1%BB%81n-t%E1%BA%A3ng-%C4%91%E1%BB%99c-l%E1%BA%ADp-kh%C3%B4ng)
+
+[2. Tại sao nói Java không phải ngôn ngữ thuần đối tượng?](#2-t%E1%BA%A1i-sao-n%C3%B3i-java-kh%C3%B4ng-ph%E1%BA%A3i-ng%C3%B4n-ng%E1%BB%AF-thu%E1%BA%A7n-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng)
+
+[3. Con trỏ trong Java?](#3-con-tr%E1%BB%8F-trong-java)
+
+[4. Biến toàn cục và biến cục bộ trong Java?](#4-bi%E1%BA%BFn-to%C3%A0n-c%E1%BB%A5c-v%C3%A0-bi%E1%BA%BFn-c%E1%BB%A5c-b%E1%BB%99-trong-java)
+
+[5. Đóng gói dữ liệu là gì?](#5-%C4%91%C3%B3ng-g%C3%B3i-d%E1%BB%AF-li%E1%BB%87u-l%C3%A0-g%C3%AC)
+
+[6. JIT compiler là gì?](#6-jit-compiler-l%C3%A0-g%C3%AC)
+
+[7. Sự khác biết giữa phương thức equals() và toán tử == trong Java?](#7-s%E1%BB%B1-kh%C3%A1c-bi%E1%BA%BFt-gi%E1%BB%AFa-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-equals-v%C3%A0-to%C3%A1n-t%E1%BB%AD--trong-java)
+
+[8. Dùng vòng lặp trong Java thế nào?](#8-d%C3%B9ng-v%C3%B2ng-l%E1%BA%B7p-trong-java-th%E1%BA%BF-n%C3%A0o)
+
+[9. Giải thích khái niệm constructor overloading?](#9-gi%E1%BA%A3i-th%C3%ADch-kh%C3%A1i-ni%E1%BB%87m-constructor-overloading)
+
+[10. Nạp chồng phương thức và ghi đè phương thức trong Java?](#10-n%E1%BA%A1p-ch%E1%BB%93ng-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-v%C3%A0-ghi-%C4%91%C3%A8-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-trong-java)
+
+[11. Một try có thể có nhiều catch trong Java?](#11-m%E1%BB%99t-try-c%C3%B3-th%E1%BB%83-c%C3%B3-nhi%E1%BB%81u-catch-trong-java)
+
+[12. Giải thích từ khoá final trong biến, phương thức và lớp?](#12-gi%E1%BA%A3i-th%C3%ADch-t%E1%BB%AB-kho%C3%A1-final-trong-bi%E1%BA%BFn-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-v%C3%A0-l%E1%BB%9Bp)
+
+[13. Các từ khoá final, finally và finalize là giống nhau?](#13-c%C3%A1c-t%E1%BB%AB-kho%C3%A1-final-finally-v%C3%A0-finalize-l%C3%A0-gi%E1%BB%91ng-nhau)
+
+[14. Khi nào dùng từ khoá super?](#14-khi-n%C3%A0o-d%C3%B9ng-t%E1%BB%AB-kho%C3%A1-super)
+
+[15. Các cách tạo đối tượng trong Java?](#15-c%C3%A1c-c%C3%A1ch-t%E1%BA%A1o-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-trong-java)
+
+[16. Có thể ghi đè phương thức tĩnh?](#16-c%C3%B3-th%E1%BB%83-ghi-%C4%91%C3%A8-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-t%C4%A9nh)
+
+[17. Đối tượng chính của bộ dọn rác?](#17-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-ch%C3%ADnh-c%E1%BB%A7a-b%E1%BB%99-d%E1%BB%8Dn-r%C3%A1c)
+
+[18. Sự khác biệt giữa bộ nhớ Heap và Stack?](#18-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-b%E1%BB%99-nh%E1%BB%9B-heap-v%C3%A0-stack)
+
+[19. Ngoài khía cạnh bảo mật, những lý do đằng sau việc làm cho chuỗi bất biến trong Java là gì?](#19-ngo%C3%A0i-kh%C3%ADa-c%E1%BA%A1nh-b%E1%BA%A3o-m%E1%BA%ADt-nh%E1%BB%AFng-l%C3%BD-do-%C4%91%E1%BA%B1ng-sau-vi%E1%BB%87c-l%C3%A0m-cho-chu%E1%BB%97i-b%E1%BA%A5t-bi%E1%BA%BFn-trong-java-l%C3%A0-g%C3%AC)
+
+[20. Sự khác biệt giữa String, StringBuffer và StringBuilder?](#20-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-string-stringbuffer-v%C3%A0-stringbuilder)
+
+[21. Sử dụng các thuộc tính có liên quan làm nổi bật sự khác biệt giữa các interface và các lớp trừu tượng?](#21-s%E1%BB%AD-d%E1%BB%A5ng-c%C3%A1c-thu%E1%BB%99c-t%C3%ADnh-c%C3%B3-li%C3%AAn-quan-l%C3%A0m-n%E1%BB%95i-b%E1%BA%ADt-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-c%C3%A1c-interface-v%C3%A0-c%C3%A1c-l%E1%BB%9Bp-tr%E1%BB%ABu-t%C6%B0%E1%BB%A3ng)
+
+[22. Trong Java, có thể ghi đè phương thức static cũng như phương thức private không?](#22-trong-java-c%C3%B3-th%E1%BB%83-ghi-%C4%91%C3%A8-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-static-c%C5%A9ng-nh%C6%B0-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-private-kh%C3%B4ng)
+
+[23. HashSet khác TreeSet như thế nào?](#23-hashset-kh%C3%A1c-treeset-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+
+[24. Tại sao mảng ký tự được ưu tiên hơn chuỗi để lưu trữ thông tin bí mật?](#24-t%E1%BA%A1i-sao-m%E1%BA%A3ng-k%C3%BD-t%E1%BB%B1-%C4%91%C6%B0%E1%BB%A3c-%C6%B0u-ti%C3%AAn-h%C6%A1n-chu%E1%BB%97i-%C4%91%E1%BB%83-l%C6%B0u-tr%E1%BB%AF-th%C3%B4ng-tin-b%C3%AD-m%E1%BA%ADt)
+
+[25. Sự khác biệt của JVM, JRE và JDK?](#25-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-c%E1%BB%A7a-jvm-jre-v%C3%A0-jdk)
+
+[26. Sự khác biệt giữa HashMap và HashTable trong Java?](#26-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-hashmap-v%C3%A0-hashtable-trong-java)
+
+[27. Reflection trong Java?](#27-reflection-trong-java)
+
+[28. Các cách sử dụng luồng?](#28-c%C3%A1c-c%C3%A1ch-s%E1%BB%AD-d%E1%BB%A5ng-lu%E1%BB%93ng)
+
+[29. Sự khác biệt giữa constructor và phương thức của lớp?](#29-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-constructor-v%C3%A0-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-c%E1%BB%A7a-l%E1%BB%9Bp)
+
+[30. Truyền giá trị và truyền tham chiếu trong Java?](#30-truy%E1%BB%81n-gi%C3%A1-tr%E1%BB%8B-v%C3%A0-truy%E1%BB%81n-tham-chi%E1%BA%BFu-trong-java)
+
+[31. Giữa String và StringBuffer cái nào nên được ưu tiên hơn khi có rất nhiều cập nhật cần được thực hiện trong dữ liệu?](#31-gi%E1%BB%AFa-string-v%C3%A0-stringbuffer-c%C3%A1i-n%C3%A0o-n%C3%AAn-%C4%91%C6%B0%E1%BB%A3c-%C6%B0u-ti%C3%AAn-h%C6%A1n-khi-c%C3%B3-r%E1%BA%A5t-nhi%E1%BB%81u-c%E1%BA%ADp-nh%E1%BA%ADt-c%E1%BA%A7n-%C4%91%C6%B0%E1%BB%A3c-th%E1%BB%B1c-hi%E1%BB%87n-trong-d%E1%BB%AF-li%E1%BB%87u)
+
+[32. Sự khác biệt giữa biến transient và volatile trong Java?](#32-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-bi%E1%BA%BFn-transient-v%C3%A0-volatile-trong-java)
+
+[33. Hệ thống phân cấp của lớp Java Exception?](#33-h%E1%BB%87-th%E1%BB%91ng-ph%C3%A2n-c%E1%BA%A5p-c%E1%BB%A7a-l%E1%BB%9Bp-java-exception)
+
+[34. Sự khác biệt giữa Error và Exception?](#34-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-error-v%C3%A0-exception)
+
+[35. Cách thực hiện Object Cloning trong Java?](#35-c%C3%A1ch-th%E1%BB%B1c-hi%E1%BB%87n-object-cloning-trong-java)
+
+[36. Làm thế nào để một ngoại lệ lan truyền trong code?](#36-l%C3%A0m-th%E1%BA%BF-n%C3%A0o-%C4%91%E1%BB%83-m%E1%BB%99t-ngo%E1%BA%A1i-l%E1%BB%87-lan-truy%E1%BB%81n-trong-code)
+
+[37. Có bắt buộc sử dụng catch sau try không?](#37-c%C3%B3-b%E1%BA%AFt-bu%E1%BB%99c-s%E1%BB%AD-d%E1%BB%A5ng-catch-sau-try-kh%C3%B4ng)
+
+[38. Liệu khối finally có được thực thi khi câu lệnh return được viết ở cuối khối try và khối catch ở như dưới đây không?](#38-li%E1%BB%87u-kh%E1%BB%91i-finally-c%C3%B3-%C4%91%C6%B0%E1%BB%A3c-th%E1%BB%B1c-thi-khi-c%C3%A2u-l%E1%BB%87nh-return-%C4%91%C6%B0%E1%BB%A3c-vi%E1%BA%BFt-%E1%BB%9F-cu%E1%BB%91i-kh%E1%BB%91i-try-v%C3%A0-kh%E1%BB%91i-catch-%E1%BB%9F-nh%C6%B0-d%C6%B0%E1%BB%9Bi-%C4%91%C3%A2y-kh%C3%B4ng)
+
+[39. Có thể gọi một constructor của một lớp bên trong một constructor khác không?](#39-c%C3%B3-th%E1%BB%83-g%E1%BB%8Di-m%E1%BB%99t-constructor-c%E1%BB%A7a-m%E1%BB%99t-l%E1%BB%9Bp-b%C3%AAn-trong-m%E1%BB%99t-constructor-kh%C3%A1c-kh%C3%B4ng)
+
+[40. Các vị trí bộ nhớ liền nhau thường được sử dụng để lưu trữ các giá trị thực tế trong một mảng nhưng không phải trong ArrayList. Giải thích?](#40-c%C3%A1c-v%E1%BB%8B-tr%C3%AD-b%E1%BB%99-nh%E1%BB%9B-li%E1%BB%81n-nhau-th%C6%B0%E1%BB%9Dng-%C4%91%C6%B0%E1%BB%A3c-s%E1%BB%AD-d%E1%BB%A5ng-%C4%91%E1%BB%83-l%C6%B0u-tr%E1%BB%AF-c%C3%A1c-gi%C3%A1-tr%E1%BB%8B-th%E1%BB%B1c-t%E1%BA%BF-trong-m%E1%BB%99t-m%E1%BA%A3ng-nh%C6%B0ng-kh%C3%B4ng-ph%E1%BA%A3i-trong-arraylist-gi%E1%BA%A3i-th%C3%ADch)
+
+[41. Mặc dù kế thừa là một khái niệm OOPs phổ biến, nhưng nó kém lợi thế hơn so với composition. Giải thích?](#41-m%E1%BA%B7c-d%C3%B9-k%E1%BA%BF-th%E1%BB%ABa-l%C3%A0-m%E1%BB%99t-kh%C3%A1i-ni%E1%BB%87m-oops-ph%E1%BB%95-bi%E1%BA%BFn-nh%C6%B0ng-n%C3%B3-k%C3%A9m-l%E1%BB%A3i-th%E1%BA%BF-h%C6%A1n-so-v%E1%BB%9Bi-composition-gi%E1%BA%A3i-th%C3%ADch)
+
+[42. Tạo chuỗi với new() khác với cách dùng ký tự như thể nào?](#42-t%E1%BA%A1o-chu%E1%BB%97i-v%E1%BB%9Bi-new-kh%C3%A1c-v%E1%BB%9Bi-c%C3%A1ch-d%C3%B9ng-k%C3%BD-t%E1%BB%B1-nh%C6%B0-th%E1%BB%83-n%C3%A0o)
+
+[43. Có thể vượt quá giới hạn bộ nhớ trong một chương trình mặc dù có bộ thu gom rác không?](#43-c%C3%B3-th%E1%BB%83-v%C6%B0%E1%BB%A3t-qu%C3%A1-gi%E1%BB%9Bi-h%E1%BA%A1n-b%E1%BB%99-nh%E1%BB%9B-trong-m%E1%BB%99t-ch%C6%B0%C6%A1ng-tr%C3%ACnh-m%E1%BA%B7c-d%C3%B9-c%C3%B3-b%E1%BB%99-thu-gom-r%C3%A1c-kh%C3%B4ng)
+
+[44. Đồng bộ hoá trong Java?](#44-%C4%91%E1%BB%93ng-b%E1%BB%99-ho%C3%A1-trong-java)
+
+[45. Cho đoạn code bên dưới, ký hiệu ... là gì?](#45-cho-%C4%91o%E1%BA%A1n-code-b%C3%AAn-d%C6%B0%E1%BB%9Bi-k%C3%BD-hi%E1%BB%87u--l%C3%A0-g%C3%AC)
+
+[46. Vòng đời của luồng Java?](#46-v%C3%B2ng-%C4%91%E1%BB%9Di-c%E1%BB%A7a-lu%E1%BB%93ng-java)
+
+[47. Điều gì có thể cân bằng giữa việc sử dụng một mảng không có thứ tự so với việc sử dụng một mảng có thứ tự?](#47-%C4%91i%E1%BB%81u-g%C3%AC-c%C3%B3-th%E1%BB%83-c%C3%A2n-b%E1%BA%B1ng-gi%E1%BB%AFa-vi%E1%BB%87c-s%E1%BB%AD-d%E1%BB%A5ng-m%E1%BB%99t-m%E1%BA%A3ng-kh%C3%B4ng-c%C3%B3-th%E1%BB%A9-t%E1%BB%B1-so-v%E1%BB%9Bi-vi%E1%BB%87c-s%E1%BB%AD-d%E1%BB%A5ng-m%E1%BB%99t-m%E1%BA%A3ng-c%C3%B3-th%E1%BB%A9-t%E1%BB%B1)
+
+[48. Có thể import cùng một lớp hoặc ơackage hai lần trong Java không và điều gì xảy ra với nó trong thời gian chạy?](#48-c%C3%B3-th%E1%BB%83-import-c%C3%B9ng-m%E1%BB%99t-l%E1%BB%9Bp-ho%E1%BA%B7c-%C6%A1ackage-hai-l%E1%BA%A7n-trong-java-kh%C3%B4ng-v%C3%A0-%C4%91i%E1%BB%81u-g%C3%AC-x%E1%BA%A3y-ra-v%E1%BB%9Bi-n%C3%B3-trong-th%E1%BB%9Di-gian-ch%E1%BA%A1y)
+
+[49. Sự khác biệt giữa Inner Class và Sub Class?](#49-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-inner-class-v%C3%A0-sub-class)
+
+[50. Các kiểu tham chiếu trong Java?](#50-c%C3%A1c-ki%E1%BB%83u-tham-chi%E1%BA%BFu-trong-java)
+
+[51. Marker interface trong Java là gì?](#51-marker-interface-trong-java-l%C3%A0-g%C3%AC)
+
+[52. Giải thích "Double Brace Initialisation" trong Java?](#52-gi%E1%BA%A3i-th%C3%ADch-%22double-brace-initialisation%22-trong-java)
+
+[53. Tại sao nói rằng phương thức length() của lớp String không trả về kết quả chính xác?](#53-t%E1%BA%A1i-sao-n%C3%B3i-r%E1%BA%B1ng-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-length-c%E1%BB%A7a-l%E1%BB%9Bp-string-kh%C3%B4ng-tr%E1%BA%A3-v%E1%BB%81-k%E1%BA%BFt-qu%E1%BA%A3-ch%C3%ADnh-x%C3%A1c)
+
+[54. Giải thích kết quả của đoạn code sau?](#54-gi%E1%BA%A3i-th%C3%ADch-k%E1%BA%BFt-qu%E1%BA%A3-c%E1%BB%A7a-%C4%91o%E1%BA%A1n-code-sau)
+
+[55. Các cách để tạo điều kiện cho đối tượng bị thu gom gác (GC) trong Java?](#55-c%C3%A1c-c%C3%A1ch-%C4%91%E1%BB%83-t%E1%BA%A1o-%C4%91i%E1%BB%81u-ki%E1%BB%87n-cho-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-thu-gom-g%C3%A1c-gc-trong-java)
+
 ## Câu hỏi phỏng vấn Java cho Fresher
 
 ### 1. Java có phải nền tảng độc lập không?
@@ -28,7 +140,7 @@ Do đó, một mức trừu tượng nhất định được cung cấp bằng c
 
 **Biến toàn cục (instance variables)** là các biến có thể được truy cập bởi tất cả phương thức trong lớp. Chúng được khai báo bên ngoài phương thức và bên trong lớp. Các biến này mô tả thuộc tính của một đối tượng, chúng được tạo khi một đối tượng được tạo bằng việc sử dụng từ khóa “new” và sẽ bị phá hủy khi đối tượng bị phá hủy.
 
-Tất cả các đối tượng của lớp sẽ có bản sao các biến để sử dụng. Nếu bất kỳ thay đổi nào được thực hiên trên các biến này, chỉ có đối tượng đó bị tác động, các đối tượng cùng lớp khác sẽ không ảnh hưởng.
+Tất cả các đối tượng của lớp sẽ có bản sao các biến để sử dụng. Nếu bất kỳ thay đổi nào được thực hiện trên các biến này, chỉ có đối tượng đó bị tác động, các đối tượng cùng lớp khác sẽ không ảnh hưởng.
 
 ```java
 class Athlete {
@@ -38,7 +150,7 @@ class Athlete {
 }
 ```
 
-**Biến cục bộ (local variables)** là các biến được khai báo trong các phương thức, hàm contructor hoặc trong các block. Việc sử dụng biến bị hạn chế trong phạm vi block. Bất cứ khi nào một biến cục bộ được khai báo bên trong một phương thức, các phương thức lớp khác không biết gì về sự tồn tại của nó.
+**Biến cục bộ (local variables)** là các biến được khai báo trong các phương thức, hàm contructor hoặc trong các khối (`{}`). Việc sử dụng biến bị hạn chế trong phạm vi khối. Bất cứ khi nào một biến cục bộ được khai báo bên trong một phương thức, các phương thức lớp khác không biết gì về sự tồn tại của nó.
 
 ```java
 public void athlete() {
@@ -80,7 +192,7 @@ Trình biên dịch (compiler) là nơi dịch mã nguồn thành mã máy tính
 *Lưu ý*
 
 - Trong trường hợp phương thức `equals` không được ghi đè trong một lớp, thì lớp đó sử dụng cách triển khai mặc định của phương thức `equals` gần với lớp cha nhất.
-- Lớp đối tượng được coi là lớp cha của tất cả các lớp java. Việc triển khai phương thức `equals` trong lớp Đối tượng sử dụng toán tử `==` để so sánh hai đối tượng. Việc triển khai mặc định này có thể được ghi đè theo logic nghiệp vụ
+- Lớp `object` được coi là lớp cha của tất cả các lớp java. Việc triển khai phương thức `equals` trong lớp object sử dụng toán tử `==` để so sánh hai đối tượng. Việc triển khai mặc định này có thể được ghi đè theo logic nghiệp vụ.
 
 ### 8. Dùng vòng lặp trong Java thế nào?
 
@@ -143,22 +255,22 @@ Sự khác biệt duy nhất trong kiểu trả về của phương thức khôn
 
 ```java
 class OverloadingHelp {
-   public int findarea (int l, int b) {
+    public int findarea (int l, int b) {
         int var1;
         var1 = l * b;
         return var1;
-   }
-   public int findarea (int l, int b, int h) {
+    }
+    public int findarea (int l, int b, int h) {
         int var2;
         var2 = l * b * h;
         return var2;
-   }
+    }
 }
 ```
 
 ![](./assets/method_overloading.png)
 
-Cả hai hàm có cùng tên nhưng khác nhau về số lượng đối số. Phương pháp đầu tiên tính diện tích hình chữ nhật, trong khi phương pháp thứ hai tính diện tích hình lập phương.
+Cả hai hàm có cùng tên nhưng khác nhau về số lượng tham số. Phương pháp đầu tiên tính diện tích hình chữ nhật, trong khi phương pháp thứ hai tính diện tích hình hộp chữ nhật.
 
 **Ghi đè phương thức (override)** là khái niệm trong đó hai phương thức giống nhau hiện diện trong hai lớp khác nhau, trong đó có mối quan hệ kế thừa. Có thể thực hiện một phương thức cụ thể (đã có trong lớp cơ sở) cho lớp dẫn xuất bằng cách sử dụng ghi đè phương thức.
 
@@ -211,7 +323,7 @@ public class MultipleCatch {
 }
 ```
 
-Ở đây khối catch thứ hai sẽ được thực thi vì phép chia bởi 0(i/x). Trong trường hợp x lớn 0 thì khối catch đầu tiên sẽ thực thi vì vòng lặp chạy đến khi i = n và chỉ số mảng đến n-1.
+Ở đây khối catch thứ hai sẽ được thực thi vì phép chia bởi `0(i/x)`. Trong trường hợp x lớn 0 thì khối catch đầu tiên sẽ thực thi vì vòng lặp chạy đến khi i = n và chỉ số mảng đến n-1.
 
 ### 12. Giải thích từ khoá final trong biến, phương thức và lớp?
 
@@ -221,8 +333,8 @@ Trong Java, từ khoá `final` được dùng cho xác định một thứ gì �
     - Khi một biến được khai báo là final trong Java, giá trị không thể chỉnh sửa sau khi gán.
     - Nếu không có bất kỳ giá trị nào được gán cho biến, nó có thể được gán bằng constructor của lớp.
 - phương thức `final`:
-    -Một phương thức được khai báo là final nó sẽ không thể bị ghi đè bởi lớp con của nó.
-    - Một constructor không thể là final vì một lớp có thể được kế thừa còn constructor thì không. Do đó, khi đánh dấu constructor là final, Java sẽ trả về lỗi - `modifier final not allowed here`
+    - Một phương thức được khai báo là final nó sẽ không thể bị ghi đè bởi lớp con của nó.
+    - Một constructor không thể là final vì nếu một lớp được kế thừa thì constructor cũng kế thừa theo. Do đó, khi đánh dấu constructor là final, Java sẽ trả về lỗi - `modifier final not allowed here`
 - lớp `final`:
     - Một lớp được khai báo là final thì không có bất kỳ lớp nào có thể kế thừa lớp đó. 
 
@@ -235,7 +347,7 @@ final int a=100;
 a = 0;  // error
 ```
 
-**Finally:** Nó là block hiện diện trong chương trình nơi tất cả code được viết bên trong nó được thực thi kể cả việc xử lý ngoại lệ. Ví dụ:
+**Finally:** Nó là khối hiện diện trong chương trình nơi tất cả code được viết bên trong nó được thực thi kể cả việc xử lý ngoại lệ. Ví dụ:
 
 ```java
 try {
@@ -312,15 +424,128 @@ public class Child extends Parent{
 }
 ```
 
-### 15. Phương thức tĩnh có thể nạp chồng?
+### 15. Các cách tạo đối tượng trong Java?
 
-Đúng! Có thể có hai hoặc nhiều phương thức tĩnh trong một lớp có cùng tên nhưng khác tham số đầu vào.
+- Sử dụng từ khoá new:
+
+```java
+class ObjectCreationExample{
+	String Owner;
+}
+public class MainClass {
+	public static void main(String[] args) {
+		// Here we are creating Object of JBT using new keyword
+		ObjectCreationExample obj = new ObjectCreationExample();
+	}
+}
+```
+
+- Sử dụng reflection:
+
+```java
+class CreateObjectClass {
+	static int j = 10;
+	CreateObjectClass() {
+		i = j++;
+	}
+	int i;
+	@Override
+	public String toString() {
+		return "Value of i :" + i;
+	}
+}
+
+class MainClass {
+	public static void main(String[] args) {
+		try {
+			Class cls = Class.forName("CreateObjectClass");
+			CreateObjectClass obj = (CreateObjectClass) cls.newInstance();
+			CreateObjectClass obj1 = (CreateObjectClass) cls.newInstance();
+			System.out.println(obj);
+			System.out.println(obj1);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+	}
+}
+```
+
+- Sử dụng clone:
+
+```java
+ class CreateObjectWithClone implements Cloneable {
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+	int i;
+	static int j = 10;
+	CreateObjectWithClone() {
+		i = j++;
+	}
+	@Override
+	public String toString() {
+		return "Value of i :" + i;
+	}
+}
+
+class MainClass {
+	public static void main(String[] args) {
+		CreateObjectWithClone obj1 = new CreateObjectWithClone();
+		System.out.println(obj1);
+		try {
+			CreateObjectWithClone obj2 = (CreateObjectWithClone) obj1.clone();
+			System.out.println(obj2);
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+	}
+}
+```
+
+- Sử dụng ClassLoader:
+
+```java
+class CreateObjectWithClassLoader {
+	static int j = 10;
+	CreateObjectWithClassLoader() {
+		i = j++;
+	}
+	int i;
+	@Override
+	public String toString() {
+		return "Value of i :" + i;
+	}
+}
+
+public class MainClass {
+	public static void main(String[] args) {
+		CreateObjectWithClassLoader obj = null;
+		try {
+			obj = (CreateObjectWithClassLoader) new MainClass().getClass()
+					.getClassLoader().loadClass("CreateObjectWithClassLoader").newInstance();
+        // Fully qualified classname should be used.
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.out.println(obj);
+	}
+}
+```
 
 ### 16. Có thể ghi đè phương thức tĩnh?
 
-- Không! Việc khai báo các phương thức tĩnh có cùng một đặc trưng có thể được thực hiện trong lớp con nhưng tính đa hình thời gian chạy không thể diễn ra trong những trường hợp như vậy.
+Không! Việc khai báo các phương thức tĩnh có cùng một đặc trưng có thể được thực hiện trong lớp con nhưng tính đa hình thời gian chạy không thể diễn ra trong những trường hợp như vậy.
 
-- Ghi đè hoặc đa hình động xảy ra trong thời gian chạy, nhưng các phương thức tĩnh được tải và tra cứu thời gian biên dịch một cách tĩnh. Do đó, các phương thức này không thể bị ghi đè.
+Ghi đè hoặc đa hình động xảy ra trong thời gian chạy, nhưng các phương thức tĩnh được tải và tra cứu thời gian biên dịch một cách tĩnh. Do đó, các phương thức này không thể bị ghi đè.
 
 ### 17. Đối tượng chính của bộ dọn rác?
 
@@ -328,9 +553,33 @@ Mục tiêu chính của quá trình này là giải phóng không gian bộ nh�
 
 Điều này đảm bảo rằng tài nguyên bộ nhớ được sử dụng hiệu quả, nhưng nó không đảm bảo rằng sẽ có đủ bộ nhớ để thực thi chương trình.
 
-### 18. Phần nào trong bộ nhớ bị xoá trong quá trình dọn rác?
+### 18. Sự khác biệt giữa bộ nhớ Heap và Stack?
 
-Heap
+**Heap**
+
+Không gian Java Heap được sử dụng bởi java runtime để cấp phát bộ nhớ cho các đối tượng và các lớp JRE. Bất cứ khi nào chúng ta tạo bất kỳ đối tượng nào, đối tượng đó luôn được tạo trong không gian Heap.
+
+Garbage Collection chạy trên bộ nhớ heap để giải phóng bộ nhớ được sử dụng bởi các đối tượng không có bất kỳ tham chiếu nào. Bất kỳ đối tượng nào được tạo trong không gian heap đều có quyền truy cập toàn cục và có thể được tham chiếu từ bất kỳ đâu của ứng dụng.
+
+**Stack**
+
+Stack trong java là một phần bộ nhớ chứa các phương thức, biến cục bộ và biến tham chiếu. Các biến cục bộ được tạo trong stack.
+
+Bộ nhớ stack luôn được tham chiếu theo trật tự LIFO (Last-In-First-Out). Bất cứ khi nào một phương thức được gọi, một khối mới sẽ được tạo trong bộ nhớ ngăn xếp để phương thức này lưu giữ các giá trị nguyên thủy cục bộ và tham chiếu đến các đối tượng khác trong phương thức.
+
+Ngay sau khi phương thức kết thúc, khối sẽ không được sử dụng và có sẵn cho phương thức tiếp theo. Kích thước bộ nhớ stack nhỏ hơn rất nhiều so với bộ nhớ heap.
+
+**Sự khác biệt**
+
+| Stack | Heap |
+|-|-|
+| Dùng cho từng bộ phận mỗi khi thực thi một luồng | Ứng dụng thực sử dụng Heap trong thời gian chạy |
+| Phụ thuộc vào hệ điều hành và thường nhỏ hơn Heap | Không có giới hạn cụ thể |
+| Lưu trữ biến nguyên thuỷ và tham chiếu đến đối tượng được tạo trong Heap | Tất cả đối tượng được tạo đều được lưu ở đây |
+| Truy cập sử dụng hệ thống cấp phát bộ nhớ LIFO (Last-in First-out) | Bộ nhớ này được truy cập thông qua các kỹ thuật quản lý bộ nhớ phức tạp bao gồm Young Generation, Old hoặc Tenured Generation, và Permanent Generation |
+| Chỉ tồn tại khi phương thức đang chạy | Tồn tại xuyên suốt quá trình chạy ứng dụng |
+| Nhanh hơn so với heap | Chậm hơn so với stack |
+| Bộ nhớ này được tự động cấp phát và giải phóng khi một phương thức được gọi và trả về tương ứng | Không gian heap được cấp phát khi các đối tượng mới được tạo và giải phóng bởi Garbage Collector khi chúng không còn được tham chiếu |
 
 ### 19. Ngoài khía cạnh bảo mật, những lý do đằng sau việc làm cho chuỗi bất biến trong Java là gì?
 
@@ -361,7 +610,7 @@ StringBuffer third = new StringBuffer("InterviewBit");
 StringBuilder fourth = new StringBuilder("InterviewBit");
 ```
 
-### 21. Sử dụng các thuộc tính có liên quan làm nổi bật sự khác biệt giữa các interface và các lớp trừu tượng.
+### 21. Sử dụng các thuộc tính có liên quan làm nổi bật sự khác biệt giữa các interface và các lớp trừu tượng?
 
 - **Phương thức khả dụng:** chỉ phương thức trừu tượng là khả dụng trong interface, trong khi đó các phương thức không phải trừu tượng vẫn có thể có trong lớp trừu tượng.
 - **Kiểu biến:** biến static và final chỉ có thể khai báo trong interface, các biến trong lớp trừu tượng không thể là hai kiểu trên.
@@ -414,6 +663,8 @@ Do đó, thông tin quan trọng có thể bị đánh cắp để thực hiện
 | JDK chủ yếu được sử dụng để phát triển và thực thi code | JRE chủ yếu được sử dụng để tạo môi trường để thực thi code | JVM cung cấp thông số kỹ thuật cho tất cả các triển khai cho JRE |
 | JDK cung cấp các công cụ như trình biên dịch, trình gỡ lỗi, v.v. để phát triển code | JRE cung cấp các thư viện và lớp theo yêu cầu của JVM để chạy chương trình | JVM không bao gồm bất kỳ công cụ nào, nhưng thay vào đó, nó cung cấp đặc điểm kỹ thuật để triển khai |
 | JDK = JRE + công cụ phát triển | JRE = JVM + thư viện thực thi ứng dụng | JVM = môi trường thực thi bytecode Java |
+
+![](./assets/jdk.jpg)
 
 ### 26. Sự khác biệt giữa HashMap và HashTable trong Java?
 
@@ -470,8 +721,8 @@ class InterviewBitThreadExample implements Runnable{
 }
 ```
 
-- Việc triển khai một luồng bằng phương thức của interface Runnable được ưu tiên và thuận lợi hơn vì Java không hỗ trợ đa kế thừa.
-- Phương thức `start()` được sử dụng để tạo một ngăn xếp cuộc gọi riêng biệt để thực thi luồng. Khi ngăn xếp cuộc gọi được tạo, JVM gọi phương thức `run()` để thực thi luồng trong ngăn xếp cuộc gọi đó.
+- Việc triển khai một luồng bằng phương thức của interface Runnable được ưu tiên và thuận lợi hơn vì Java không hỗ trợ kế thừa nhiều lớp.
+- Phương thức `start()` được sử dụng để tạo một call stack riêng biệt để thực thi luồng. Khi call stack được tạo, JVM gọi phương thức `run()` để thực thi luồng trong call stack đó.
 
 ### 29. Sự khác biệt giữa constructor và phương thức của lớp?
 
@@ -557,29 +808,110 @@ class Driver{
 
 Về bản chất StringBuffer là động và có thể thay đổi trong khi String là bất biến. Mỗi lần cập nhật/sửa đổi String sẽ tạo ra một String mới do đó làm quá tải String Pool với các đối tượng không cần thiết. Do đó, trong trường hợp có nhiều bản cập nhật, người ta luôn ưu tiên sử dụng StringBuffer vì nó sẽ giảm chi phí tạo nhiều đối tượng String trong String Pool.
 
-### 32. Làm thế nào để không cho phép tuần tự hóa các thuộc tính của một lớp trong Java?
+### 32. Sự khác biệt giữa biến transient và volatile trong Java?
 
-Ta thực hiện bằng cách sử dụng từ khoá `transient` như bên dưới.
+**Transient**: Bộ chỉnh sửa transient báo cho hệ thống con loại trừ các trường khi serialize một thực thể của lớp. Đối tượng sau đó được deserialized, trường sẽ được khởi tạo thành giá trị mặc định; tức là null cho một kiểu tham chiếu và 0 hoặc false cho một kiểu nguyên thủy.
 
 ```java
-public class InterviewBitExample { 
+public transient int limit = 55;   // will not persist
+public int b;   // will persist
+```
 
-   private transient String someInfo; 
-   private String name;
-   private int id;
-   // :
-   // Getters setters
-   // :
+**Volatile**: Bộ chỉnh sửa volatile cho JVM biết rằng việc ghi vào trường phải luôn được chuyển đồng bộ vào bộ nhớ và các lần đọc của trường phải luôn được đọc từ bộ nhớ. Điều này có nghĩa là các trường được đánh dấu là volatile có thể được truy cập và cập nhật một cách an toàn trong một ứng dụng đa luồng mà không cần sử dụng đồng bộ hóa dựa trên thư viện chuẩn.
+
+```java
+public class MyRunnable implements Runnable {
+    private volatile boolean active;
+    public void run() {
+        active = true;
+        while (active) {    
+        }
+    }
+    public void stop() {
+        active = false;  
+    }
 }
 ```
 
-Ở đây tất cả các thuộc tính ngoài trừ `someInfo` đều có thể được tuần tự hoá.
+### 33. Hệ thống phân cấp của lớp Java Exception?
 
-### 33. 
+Ngoại lệ (exception) là một sự kiện lỗi có thể xảy ra trong quá trình thực thi một chương trình và làm gián đoạn quy trình bình thường của nó.
 
-### 34. Điều gì xảy ra nếu có nhiều hàm main trong một lớp?
+#### Các kiểu ngoại lệ của Java
 
-Chương trình không thể biên dịch vì có nhiều phương thức đã xác định trong một lớp.
+- **Checked Exception**: Các lớp kế thừa trực tiếp `Throwable class` ngoại trừ RuntimeException và Error được gọi là checked exception, ví dụ: IOException, SQLException,... Các checked exception được kiểm tra tại thời điểm biên dịch.
+- **Unchecked Exception**: Các lớp kế thừa `RuntimeException` được gọi là unchecked exception, ví dụ: ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException, ... Các unchecked exception không được kiểm tra tại thời điểm biên dịch, nhưng chúng được kiểm tra trong thời gian chạy.
+- **Error**: Lỗi không thể khôi phục được, ví dụ: OutOfMemoryError, VirtualMachineError, AssertionError, v.v.
+
+#### Hệ thống phân cấp của các lớp Java Exception
+
+Lớp `java.lang.Throwable` là lớp gốc của hệ thống phân cấp Java Exception được kế thừa bởi hai lớp con: Exception và Error.
+
+![](./assets/exception.png)
+
+Ví dụ
+
+```java
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+
+public class CustomExceptionExample {
+
+	public static void main(String[] args) throws MyException {
+		try {
+			processFile("file.txt");
+		} catch (MyException e) {
+			processErrorCodes(e);
+		}
+	}
+
+	private static void processErrorCodes(MyException e) throws MyException {
+		switch(e.getErrorCode()){
+		  case "BAD_FILE_TYPE":
+			 System.out.println("Bad File Type, notify user");
+			 throw e;
+		  case "FILE_NOT_FOUND_EXCEPTION":
+			 System.out.println("File Not Found, notify user");
+			 throw e;
+		  case "FILE_CLOSE_EXCEPTION":
+			 System.out.println("File Close failed, just log it.");
+			 break;
+		  default:
+			 System.out.println("Unknown exception occured," +e.getMessage());
+			 e.printStackTrace();
+		}
+	}
+
+	private static void processFile(String file) throws MyException {		
+		InputStream fis = null;
+		try {
+			fis = new FileInputStream(file);
+		} catch (FileNotFoundException e) {
+			throw new MyException(e.getMessage(),"FILE_NOT_FOUND_EXCEPTION");
+		} finally {
+			try {
+				if(fis !=null) fis.close();
+			} catch (IOException e) {
+				throw new MyException(e.getMessage(),"FILE_CLOSE_EXCEPTION");
+			}
+		}
+	}
+}
+```
+
+### 34. Sự khác biệt giữa Error và Exception?
+
+| Error | Exception |
+|-|-|
+| Xảy ra do thiếu tài nguyên hệ thống | Xảy ra do code |
+| Không thể phục hồi | Có thể phục hồi |
+| Không thể xử lý bằng code | Có thể xử lý bằng `try`, `catch` và `throw` |
+| Khi lỗi được phát hiện, chương trình sẽ kết thúc bất thường | Khi ngoại lệ được phát hiện, nó có thể được xử lý bằng `throw` và `catch` tương ứng |
+| Là kiểu không được kiểm tra | Có thể là kiểu kiểm tra và không được kiểm tra |
+| Được khai báo trong `java.lang.Error`| Được khai báo trong `java.lang.Exception` |
+| OutOfMemory, StackOverFlow | Checked Exceptions: NoSuchMethod, ClassNotFound.Unchecked Exceptions: NullPointer, IndexOutOfBounds |
 
 ### 35. Cách thực hiện Object Cloning trong Java?
 
@@ -692,7 +1024,7 @@ class Bottom {
 
 ### 42. Tạo chuỗi với new() khác với cách dùng ký tự như thể nào?
 
-Khi một chuỗi được hình thành dưới dạng một ký tự với sự hỗ trợ của toán tử gán, nó sẽ đi vào nhóm hằng chuỗi để có thể diễn ra quá trình Interning chuỗi. Cùng một đối tượng trong heap này sẽ được tham chiếu bởi một Chuỗi khác nếu nội dung giống nhau cho cả hai.
+Khi một String được hình thành dưới dạng một ký tự với sự hỗ trợ của toán tử gán, nó sẽ đi vào String Pool để có thể diễn ra quá trình String Interning. Cùng một đối tượng trong heap này sẽ được tham chiếu bởi một String khác nếu nội dung giống nhau cho cả hai.
 
 ```java
 public bool checking() {
@@ -830,17 +1162,175 @@ public void myMethod(String... variables){
 
 Có thể import một lớp hoặc package nhiều hơn một lần, tuy nhiên, điều đó là dư thừa vì JVM tải nội bộ package hoặc lớp chỉ một lần.
 
-### 49. Trong trường hợp một package có các package con, chỉ import package chính có đủ không?
+### 49. Sự khác biệt giữa Inner Class và Sub Class?
 
-KHÔNG. Chúng ta cần hiểu rằng việc import các package con của một package cần phải được thực hiện một cách rõ ràng. Việc import package mẹ chỉ dẫn đến việc nhập các lớp bên trong nó chứ không phải nội dung của package con của nó.
+Lớp bên trong lồng nhau (Inner Class) có thể truy cập bất kỳ biến thực thể riêng tư nào của lớp bên ngoài. Giống như bất kỳ biến thực thể nào khác, chúng ta có thể có bộ sửa đổi truy cập là private, protected, public và default modifier.
 
-### 50. Khối finally có được thực thi không nếu System.exit (0) được viết ở cuối khối try?
+```java
+class Outer { 
+    class Inner { 
+        public void show() { 
+            System.out.println("In a nested class method"); 
+        } 
+    } 
+} 
+class Main { 
+    public static void main(String[] args) { 
+        Outer.Inner in = new Outer().new Inner(); 
+        in.show(); 
+    } 
+}
+```
 
-KHÔNG. Quyền kiểm soát chương trình ngay sau `System.exit (0)` ngay lập tức bị mất và chương trình bị chấm dứt, đó là lý do tại sao khối finally không bao giờ được thực thi.
+Lớp con (subclass) là lớp kế thừa phương thức hoặc thuộc tính từ lớp cha.
+
+```java
+class Car {
+    //...
+}
+ 
+class HybridCar extends Car {
+    //...
+}
+```
+
+### 50. Các kiểu tham chiếu trong Java?
+
+Trong Java có 4 kiểu tham chiếu được phân biệt theo cách chúng bị thu gom rác.
+
+* Strong References - tham chiếu mạnh
+* Weak References - tham chiếu yếu
+* Soft References - tham chiếu mềm
+* Phantom References - tham chiếu ảo
+
+- **Strong References:** Đây là kiểu/lớp mặc định của đối tượng tham chiếu. Bất kỳ đối tượng nào có tham chiếu mạnh đang hoạt động đều không đủ điều kiện để thu gom rác. Đối tượng chỉ được thu gom khi biến được tham chiếu mạnh trỏ tới null.
+
+```java
+MyClass obj = new MyClass();
+```
+
+- **Weak References:** không phải là kiểu/lớp mặc định của đối tượng tham chiếu và chúng phải được chỉ định rõ ràng khi sử dụng chúng. 
+
+```java
+//Java Code to illustrate Weak reference 
+import java.lang.ref.WeakReference; 
+class MainClass 
+{ 
+    public void message() { 
+        System.out.println("Weak References Example"); 
+    } 
+} 
+  
+public class Example 
+{ 
+    public static void main(String[] args) { 
+        // Strong Reference 
+        MainClass g = new MainClass();    
+        g.message(); 
+          
+        // Creating Weak Reference to MainClass-type object to which 'g'  
+        // is also pointing. 
+        WeakReference<MainClass> weakref = new WeakReference<MainClass>(g); 
+        g = null;  
+        g = weakref.get();  
+        g.message(); 
+    } 
+}
+```
+
+- **Sort References:** Trong tham chiếu mềm, ngay cả khi đối tượng được giải phóng để thu gom rác thì chúng cũng không được thu thập, cho đến khi JVM cần bộ nhớ. Các đối tượng sẽ bị xóa khỏi bộ nhớ khi JVM hết bộ nhớ. Để tạo các tham chiếu như vậy, lớp `java.lang.ref.SoftReference` được sử dụng.
+
+```java
+//Java Code to illustrate Weak reference 
+import java.lang.ref.SoftReference; 
+class MainClass 
+{ 
+    public void message() { 
+        System.out.println("Weak References Example"); 
+    } 
+} 
+  
+public class Example 
+{ 
+    public static void main(String[] args) { 
+        // Strong Reference 
+        MainClass g = new MainClass();    
+        g.message(); 
+          
+        // Creating Weak Reference to MainClass-type object to which 'g'  
+        // is also pointing. 
+        SoftReference<MainClass> softref = new SoftReference<MainClass>(g); 
+        g = null;  
+        g = softref.get();  
+        g.message(); 
+    } 
+} 
+```
+
+- **Phantom References:** Các đối tượng đang được tham chiếu bởi tham chiếu ảo đủ điều kiện để thu gom rác. Tuy nhiên, trước khi xóa chúng khỏi bộ nhớ, JVM đặt chúng vào một hàng đợi gọi là "hàng đợi tham chiếu". Chúng được đặt trong một hàng đợi tham chiếu sau khi gọi phương thức `finalize()` trên chúng. Để tạo các tham chiếu như vậy, lớp `java.lang.ref.PhantomReference` được sử dụng.
+
+```java
+//Java Code to illustrate Weak reference 
+import java.lang.ref.*; 
+class MainClass 
+{ 
+    public void message() { 
+        System.out.println("Phantom References Example"); 
+    } 
+} 
+  
+public class Example 
+{ 
+    public static void main(String[] args) { 
+        // Strong Reference 
+        MainClass g = new MainClass();    
+        g.message(); 
+          
+        // Creating Phantom Reference to MainClass-type object to which 'g'  
+        // is also pointing. 
+        PhantomReference<MainClass> phantomRef = null; 
+        phantomRef = new PhantomReference<MainClass>(g,refQueue); 
+        g = null; 
+        g = phantomRef.get();  
+        g.message(); 
+    } 
+}
+```
 
 ### 51. Marker interface trong Java là gì?
 
 Marker interface, còn được gọi là interface gắn thẻ là những interface không có phương thức và hằng số được xác định trong chúng. Chúng ở đó để giúp trình biên dịch và JVM lấy thông tin liên quan đến thời gian chạy liên quan đến các đối tượng.
+
+Cú pháp:
+
+```java
+public interface Interface_Name {
+
+}
+```
+
+Ví dụ:
+
+```java
+/**
+* Java program to illustrate Maker Interface 
+*
+**/
+interface Marker {    }
+
+class A implements Marker {
+    //do some task
+}
+
+class Main {
+    public static void main(String[] args) {
+        A obj = new A();
+        if (obj instanceOf Marker){
+            // do some task
+        }
+    }
+}
+```
 
 ### 52. Giải thích "Double Brace Initialisation" trong Java?
 
@@ -872,8 +1362,8 @@ public class IBDoubleBraceDemo{
 
 Trong ví dụ trên, chúng ta thấy rằng `stringSets` được khởi tạo bằng cách sử dụng cặp dấu ngoặc nhọn.
 
-- Dấu ngoặc nhọn đầu tiên thực hiện nhiệm vụ tạo một lớp bên trong ẩn danh có khả năng truy cập hành vi của lớp cha. Trong ví dụ của chúng tôi, chúng tôi đang tạo lớp con của HashSet để nó có thể sử dụng phương thức `add()` của HashSet.
-- Các dấu ngoặc thứ hai làm tác vụ khởi tạo các thực thể.
+- Dấu ngoặc nhọn đầu tiên thực hiện nhiệm vụ tạo một lớp bên trong ẩn danh có khả năng truy cập hành vi của lớp cha. Trong ví dụ trên, chúng ta đang tạo lớp con của HashSet để nó có thể sử dụng phương thức `add()` của HashSet.
+- Dấu ngoặc nhọn thứ hai làm tác vụ khởi tạo các thực thể.
 
 Cần cẩn thận khi khởi tạo thông qua phương thức này vì phương pháp này liên quan đến việc tạo ra các lớp ẩn danh bên trong có thể gây ra sự cố trong quá trình thu gom rác hoặc tuần tự hóa và cũng có thể dẫn đến rò rỉ bộ nhớ.
 
@@ -901,7 +1391,7 @@ public class InterviewBit{
 }
 ```
 
-`"bit"` sẽ là kết quả được in ra nếu các chữ cái được sử dụng trong dấu nháy kép (hoặc chuỗi ký tự). Nhưng câu hỏi có các ký tự chữ (dấu nháy kép) đang được sử dụng, đó là lý do tại sao nối không xảy ra. Các giá trị ASCII tương ứng của mỗi ký tự sẽ được thêm vào và kết quả của tổng đó sẽ được in.
+`"bit"` sẽ là kết quả được in ra nếu các chữ cái được sử dụng trong dấu nháy kép (hoặc chuỗi ký tự). Nhưng câu hỏi có các ký tự chữ (dấu nháy đơn) đang được sử dụng, đó là lý do tại sao việc nối không xảy ra. Các giá trị ASCII tương ứng của mỗi ký tự sẽ được thêm vào và kết quả của tổng đó sẽ được in.
 Giá trị ASCII:
 - b = 98
 - i = 105
