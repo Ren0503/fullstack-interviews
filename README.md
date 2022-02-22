@@ -4,6 +4,19 @@
 
 ![](./interviews.jpg)
 
+## Ngôn ngữ lập trình
+
+| | |
+|-|-|
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/cpp/cpp.png" height="40"> | 28 Câu hỏi phỏng vấn C++ |
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/java/java.png" height="40"> | 54 Câu hỏi phỏng vấn Java |
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/python/python.png" height="40"> | 34 Câu hỏi phỏng vấn Python |
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/javascript/javascript.png" height="40"> |30 Câu hỏi phỏng vấn JavaScript |
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/php/php.png" height="40"> | 33 Câu hỏi phỏng vấn PHP |
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/csharp/csharp.png" height="40"> | 30 Câu hỏi phỏng vấn C# |
+| <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/go/go.png" height="40"> | 30 Câu hỏi phỏng vấn Golang |
+
+
 ## Thư mục
 
 ### Cơ bản
@@ -47,7 +60,7 @@
     - [**Django**](./backend/django): 37 câu hỏi phỏng vấn Django. 
     - [**Nginx**](./backend/nginx): 18 câu hỏi phỏng vấn Nginx.
     - [**WebSocket**](./backend/websocket/): 12 câu hỏi phỏng vấn WebSocket.
-    - [**Microservice**](./backend/microservice): 34 câu hỏi phỏng vấn Microservices.
+    - [**Microservice**](./backend/microservice): 30 câu hỏi phỏng vấn Microservices.
 - Ngôn ngữ:
     - [**C#**](./backend/csharp): 30 câu hỏi phỏng vấn C#.
     - [**PHP**](./backend/php): 33 câu hỏi phỏng vấn về PHP.
