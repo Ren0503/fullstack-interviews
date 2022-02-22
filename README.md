@@ -8,13 +8,13 @@
 
 | | |
 |-|-|
-| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/cpp/cpp.png" height="40"> | 28 Câu hỏi phỏng vấn C++ |
-| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/java/java.png" height="40"> | 54 Câu hỏi phỏng vấn Java |
-| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/python/python.png" height="40"> | 34 Câu hỏi phỏng vấn Python |
-| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/javascript/javascript.png" height="40"> |30 Câu hỏi phỏng vấn JavaScript |
-| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/php/php.png" height="40"> | 33 Câu hỏi phỏng vấn PHP |
-| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/csharp/csharp.png" height="40"> | 30 Câu hỏi phỏng vấn C# |
-| <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/go/go.png" height="40"> | 30 Câu hỏi phỏng vấn Golang |
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/cpp/cpp.png" height="40"> | [28 Câu hỏi phỏng vấn C++](./basics/cpp/) |
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/java/java.png" height="40"> | [54 Câu hỏi phỏng vấn Java](./mobile/java/) |
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/python/python.png" height="40"> | [34 Câu hỏi phỏng vấn Python](./backend/python/) |
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/javascript/javascript.png" height="40"> | [30 Câu hỏi phỏng vấn JavaScript](./frontend/javascript/) |
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/php/php.png" height="40"> | [33 Câu hỏi phỏng vấn PHP](./backend/php/) |
+| <img src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/csharp/csharp.png" height="40"> | [30 Câu hỏi phỏng vấn C#](./backend/csharp/) |
+| <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/go/go.png" height="40"> | [30 Câu hỏi phỏng vấn Golang](./devops/golang/) |
 
 
 ## Thư mục
