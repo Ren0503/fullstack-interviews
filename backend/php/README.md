@@ -126,7 +126,7 @@ PEAR  nó cung cấp:
 - PHP Foundation Classes (PFC)
 - PHP Extension Community Library (PECL)
 
-### 4. Giải thích sự khác biệt giữa $message và $$message?
+### 4. Giải thích sự khác biệt giữa `$message` và `$$message`?
 
 | $message | $$message |
 |----------|-----------|
