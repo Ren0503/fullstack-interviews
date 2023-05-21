@@ -104,7 +104,7 @@ Ngôn ngữ lập trình Java là một ngôn ngữ độc lập với nền t�
 
 [47. Điều gì có thể cân bằng giữa việc sử dụng một mảng không có thứ tự so với việc sử dụng một mảng có thứ tự?](#47-%C4%91i%E1%BB%81u-g%C3%AC-c%C3%B3-th%E1%BB%83-c%C3%A2n-b%E1%BA%B1ng-gi%E1%BB%AFa-vi%E1%BB%87c-s%E1%BB%AD-d%E1%BB%A5ng-m%E1%BB%99t-m%E1%BA%A3ng-kh%C3%B4ng-c%C3%B3-th%E1%BB%A9-t%E1%BB%B1-so-v%E1%BB%9Bi-vi%E1%BB%87c-s%E1%BB%AD-d%E1%BB%A5ng-m%E1%BB%99t-m%E1%BA%A3ng-c%C3%B3-th%E1%BB%A9-t%E1%BB%B1)
 
-[48. Có thể import cùng một lớp hoặc ơackage hai lần trong Java không và điều gì xảy ra với nó trong thời gian chạy?](#48-c%C3%B3-th%E1%BB%83-import-c%C3%B9ng-m%E1%BB%99t-l%E1%BB%9Bp-ho%E1%BA%B7c-%C6%A1ackage-hai-l%E1%BA%A7n-trong-java-kh%C3%B4ng-v%C3%A0-%C4%91i%E1%BB%81u-g%C3%AC-x%E1%BA%A3y-ra-v%E1%BB%9Bi-n%C3%B3-trong-th%E1%BB%9Di-gian-ch%E1%BA%A1y)
+[48. Có thể import cùng một lớp hoặc package hai lần trong Java không và điều gì xảy ra với nó trong thời gian chạy?](#48-c%C3%B3-th%E1%BB%83-import-c%C3%B9ng-m%E1%BB%99t-l%E1%BB%9Bp-ho%E1%BA%B7c-%C6%A1ackage-hai-l%E1%BA%A7n-trong-java-kh%C3%B4ng-v%C3%A0-%C4%91i%E1%BB%81u-g%C3%AC-x%E1%BA%A3y-ra-v%E1%BB%9Bi-n%C3%B3-trong-th%E1%BB%9Di-gian-ch%E1%BA%A1y)
 
 [49. Sự khác biệt giữa Inner Class và Sub Class?](#49-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-inner-class-v%C3%A0-sub-class)
 
@@ -1158,7 +1158,7 @@ public void myMethod(String... variables){
 - Hạn chế chính của mảng có thứ tự là thời gian chèn tăng lên của nó là `O(n)` do phần tử của nó phải được sắp xếp lại để duy trì thứ tự của mảng trong mỗi lần chèn trong khi độ phức tạp về thời gian trong mảng không có thứ tự chỉ là `O(1)`.
 - Xem xét 2 điểm chính trên và tùy thuộc vào trường hợp mà nhà phát triển yêu cầu, cấu trúc dữ liệu thích hợp có thể được sử dụng để thực hiện.
 
-### 48. Có thể import cùng một lớp hoặc ơackage hai lần trong Java không và điều gì xảy ra với nó trong thời gian chạy?
+### 48. Có thể import cùng một lớp hoặc package hai lần trong Java không và điều gì xảy ra với nó trong thời gian chạy?
 
 Có thể import một lớp hoặc package nhiều hơn một lần, tuy nhiên, điều đó là dư thừa vì JVM tải nội bộ package hoặc lớp chỉ một lần.
 
